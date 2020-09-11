@@ -1,0 +1,26 @@
+Voice:
+  asr:
+    title: ASR (testing a super super super super super long name)
+    versions:
+      v3.4: "https://zqthedesigner.github.io/testserver/asr_test-verion-3.yaml"
+      v2.0: "https://zqthedesigner.github.io/testserver/asr_test-verion-2.yaml"
+      v1.3: "https://zqthedesigner.github.io/testserver/asr_with_vad_eng_sg.yaml"
+  asr-sg:
+    title: ASR-SG
+    versions:
+      v1.0: "https://dev-docs.sentient.io/yaml/automatic_speech_recognition_eng.yaml"
+Computer Vision:
+  audio-conventor:
+    title: Audio Conventor
+    versions:
+      v1.0: "https://dev-docs.sentient.io/yaml/audio_format_convertor.yaml"
+  automatic-speech-recongition-chi:
+    title: Automatic-Speech-Recognition-CH
+    versions:
+      v2.0: "https://dev-docs.sentient.io/yaml/automatic_speech_recognition_chi_sg.yaml"
+      v1.0: "https://dev-docs.sentient.io/yaml/automatic_speech_recognition_chi_sg.yaml"
+Data:
+  HDB Flat Ownership:
+    title: HDB Flat Ownership
+    versions:
+      v1.0: "https://dev-docs.sentient.io/yaml/flat_ownership_hdb_sg.yaml"
