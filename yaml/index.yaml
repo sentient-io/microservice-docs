@@ -22,9 +22,9 @@ Voice:
     ASR with VAD ENG (SG):
         title: ASR with VAD ENG (SG)
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/voice-activity-detection.yaml"  
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/asr_with_vad_eng_sg.yaml"  
     Voice Activity Detection ENG:
-        title: ASR with VAD ENG (SG)
+        title: Voice Activity Detection ENG
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/vad.yaml"  
 NLP:
