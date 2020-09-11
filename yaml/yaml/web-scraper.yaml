@@ -1,0 +1,258 @@
+openapi: 3.0.1
+info:
+  title: Web Scraper
+  description: >-
+    This API is used to extract content or specific HTML elements from web pages. Supports both HTML and Text output. The web scraper can be instructed to extract HTML elements that match the criteria given in the queryList HTTP request parameter, it can even do navigate down the html tree like get all p tag inside a div class "class":"class_name p"<br/><br/>Examples:<br/><br/>To get article content, as text<br/>{"url":&lt;URL&gt;}<br/><br/>Returns all element text matches the tag name:<br><i>{"url":&lt;URL&gt;, queryList:[{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"h1"}]}</i><br/><br/>Few queryList Examples:<br/><br/>Returns all Html matches the tag name:<br/><i>queryList:[{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"h1", "returnType":"html"}]</i><br/><br/>Returns all Image Links:<br/><i>queryList:[{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"img", "attribute":"src"}]</i><br/><br/>Returns all Links(URL's):<br/><i>queryList:[{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"a", "attribute":"href"}]</i><br/><br/>Returns all links/text/html/images matches the class name:<br/><i>queryList:[{"findType":"find_all", "class":<class_name>,"tag":"a", "attribute":"href"}],{"findType":"find_all", "class":<class_name>, "tag":"a"},{"findType":"find_all", "class":<class_name>, "tag":"a", "returnType":"html"},{"findType":"find_all", "class":<class_name>, "tag":"img", "attribute":"src"}]</i><br/><br/>Using select in findType, either class/tag/id/nestedclassid is mandatory:<br/><i>queryList:[{"findType":"select", "class_":<class_name>, "tag":<tag_name>}]<br/>queryList:[{"findType":"select", "class_":<class_name>}]<br/>queryList:[{"findType":"select", "tag":<tag_name>}]<br/>queryList:[{"findType":"select", "id":, "tag":<tag_name>}]<br/>queryList:[{"findType":"select", "id":}]<br/>queryList:[{"findType":"select", "tag":<tag_name>}]<br/>queryList:[{"findType":"select", "nestedclassid":<nested class/id/tags>}]<br/>queryList:[{"findType":"select", "nestedclassid":<nested class/id/tags>, "returnType":"html"}]<br/>queryList:[{"findType":"select", "nestedclassid":<nested class/id/tags>, "attribute":"href"}]</i><br/><br/>Example using nestedclassid:<pre>&lt;div&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is heading&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 1&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 3&lt;/h1>&gt;<br>&lt;/div&gt;<br>&lt;div id="div2" class="divclass2"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is another heading 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 4&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 5&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 6&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.google.com"&gt;&lt;/a&gt;Google&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="class3"&gt;&lt;a href="<https://www.facebook.com"&gt;&lt;/a&gt;Facebook&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.twitter.com"&gt;&lt;/a&gt;Twitter&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>&lt;/div&gt;</pre><br>To get tags that match one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"p.strikeout"}]</i><br/>To get h1 tags that match one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"h1"}]</i><br/>To get all p tags that matches element id<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"div#div2 p"}]</i><br/>To get all litags that matches the element id<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"div#div2 ul li"}]</i><br/>To get links from ul list<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"ul li a"}]</i><br/>To get links from ul list that matches one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"ul li.class3 a"}]</i><br/>To get links a element that matches the element id and class name<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"div#div2 ul li.class3 a"}]</i><br/><br/><b>Notes:</b><br/>title - is an optional parameter, if title is empty the return json key is "values"<br/>findType - find/find_all/select<br/>&nbsp;&nbsp;&nbsp;&bull;&nbsp;find - returns first matching possibility<br/>&nbsp;&nbsp;&nbsp;&bull;&nbsp;find_all - returns all matching possibilities<br/>&nbsp;&nbsp;&nbsp;&bull;&nbsp;select - If you want to search for tags that match two or more CSS classes. either class/tag/id/nestedclassid is mandatory</br>**return type is not supported alone with attribute.<br/><br/>The results are returned in JSON format and allow for developers to rapidly retrieve website elements like tables, images, etc. from URL.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header<br><br>
+  version: '1.0'
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v1.0"
+  description: "Published Date - Feb 10, 2020"
+paths:
+  /microservices/utility/webscraping/v1.0/getresults:
+    post:
+      tags:
+        - v1.0
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+        '400':
+          description: Restricted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/restricted'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '420':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'       
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>url</b></td><td>String</td><td>Required. Web page URL</td></tr><tr><td>queryList</td><td>Array Object</td><td>Optional. Array object<br><br>Eg:{"title":"", "findType":"","tag":"", "id":"", "class":"", "attribute":"",  "returnType":""}<br><br>title:Title of output object key<br><br>findType:find / find_all / select<br><br>tag:Html tag of web page (eg:h1, p, a, img, li ….etc)<br><br>id:id name of the element<br><br>class:class name of the element<br><br>nestedclassid:nested class name/id name/ tag name of the element<br><br>attribute:href / src/ etc..<br><br>returnType:html/ text</td></tr></table><br><br>
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/inputv1.0'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            properties:
+              links:
+                type: array
+                items:
+                  oneOf:
+                    - type: string
+                      example: https://www.bbc.co.uk
+                    - type: string
+                      example: https://www.bbc.co.uk/accessibility/
+                    - type: string
+                      example: https://www.bbc.co.uk/news
+                    - type: string
+                      example: https://www.bbc.co.uk/news
+                    - type: string
+                      example: https://www.bbc.co.uk/news
+                    - type: string
+                      example: https://www.bbc.co.uk/weather
+              values:
+                type: array
+                items:
+                  oneOf:
+                    - type: object
+                      properties:
+                        value: 
+                          type: string
+                          example: <a href=\"https://www.bbc.co.uk\">Home</a>
+                    - type: object
+                      properties:
+                        value: 
+                          type: string
+                          example: <a href=\"https://www.bbc.co.uk/news\">News</a>
+                    - type: object
+                      properties:
+                        value:
+                          type: string
+                          example: <a href=\"https://www.bbc.co.uk/sport\">Sport</a>
+              images:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                        example: https://ichef.bbci.co.uk/news/320/cpsprodpb/0DDC/production/_112984530_gettyimages-1227286994.jpg       
+                      - type: string
+                        example: https://ichef.bbci.co.uk/images/ic/720x405/p08dwhp8.jpg
+        message:
+          type: string
+          example: successfully processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: success
+          description: The status of the API call success/failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    restricted:
+      type: object
+      properties:
+        message:
+          type: string
+          example: The content is restricted
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure      
+    inputv1.0:
+      type: object
+      properties:
+        url:
+          type: string
+        queryList:
+         type: array
+         items:
+          properties:
+            findType:
+              type: string
+            tag:
+              type: string
+            id:
+              type: string
+            class:
+              type: string
+            nestedclassid:
+              type: string
+            attribute:
+              type: string
+            title:
+              type: string
+            returnType:
+              type: string
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom

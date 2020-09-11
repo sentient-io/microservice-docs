@@ -1,0 +1,179 @@
+openapi: 3.0.1
+info:
+  title: Amenities Lamp Posts HDB (SG)
+  description: >-
+   "This Data microservice captures the indicative location of lamp posts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. <br><br>The shapefiles are compressed bundle files consisting various project files within it such as .shp, .shx, .dbf and .prj files. Requires GIS software to view."<br><br>Authentication is done using the x-api-key in the request header.
+
+   <br><br>Download the complete dataset using a pre-signed URL. It's a two steps process
+   
+    <br><b>Step 1:</b>  Get the pre-signed URL 
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;Replace the correct x-api-key, and API endpoint
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <API Endpoint></b>
+        <br><b>Step 2:</b>  Get the pre-signed URL 
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;Using the results.url (i.e) the pre-signed URL to download the dataset
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>curl --request GET "results.url" >> "FILE_NAME"</b>
+  version: '0.1'
+servers:
+  - url: 'https://api.sentient.io'
+tags:
+- name: "v0.1"
+  description: "Published Date - Feb 07, 2020"
+
+paths:
+   /DaaS/prod/hdb/amenities/gs/csv/lamppost/hdb:
+    get:
+      tags:
+        - v0.1
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '420':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'        
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+          results:
+            type: object
+            properties:
+              url: 
+                type: string
+                description: pre-signed URL to download the file
+                example: "<pre-signed URL>"
+          status:
+            type: string
+            example: Success
+          message:
+            type: string
+            example: Successfully Processed
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure      
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom

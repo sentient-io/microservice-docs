@@ -1,0 +1,270 @@
+openapi: 3.0.1
+info:
+  title: Carpark HDB (SG)
+  description:  This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.<br><h3><b>Search Types</b></h3><br>*All values have to be URL encoded<br><br><b>Keyword search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keyword search; search for all searchable fields<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using querystring:<br><br><div style="padding-left:22px;"><i>ang mo kio</i></div><br><b>Filter search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 1:</b> Get all results except ang mo kio <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"must_not":[{"match_phrase":{"street":"ang mo kio"}}]}</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using querystring:<br><br><div style="padding-left:22px;"><i>name:"ang mo kio"</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 2:</b> Filter results with cpk_no AK19<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"filter":[{"match":{"cpk_no":"AK19"}}]}</i></div><br><h3><b>Supported Filter Types:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>must</b> - All of these clauses must match. The equivalent of AND.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>must_not</b> - All of these clauses must not match. The equivalent of NOT.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>should</b> - At least one of these clauses must match. The equivalent of OR.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>filter</b> - Clauses that must match, but are run in non-scoring, filtering mode.<br><br><h3><b>Supported Match Types:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match</b> - is to search within a full-text field for a single word<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "match":{"street":"bishan"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match_phrase</b> - is to search a full text field<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "match_phrase":{ "street":bishan street 24"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match_phrase_prefix</b> - is to search a full text field with prefix<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"match_phrase_prefix":{"street":"bishan"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>term</b> - returns documents that contain one or more exact terms in a provided field.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"term":{"street":"bishan"}}<br><br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terms</b> - The terms query is the same as the term query, except you can search for multiple values.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"terms":{"street":["bishan","and mo kio"]}}<br><br><h3><b>Sample filterdata JSON:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"filter":[{"match":{"tags.type":"source"}}] ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"should":[{"match":{"source":"hdb"}}],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"must_not":[{"match":{"cpk_no":"AK19"}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+  version: '0.1'
+servers:
+  - url: 'https://api.sentient.io'
+tags:
+- name: "v0.1"
+  description: "Published Date - Oct 10, 2019"
+paths:
+   /DaaS/prod/hdb/carpark:
+    get:
+      tags:
+        - v0.1
+      parameters:
+        - in: query
+          name: querystring
+          schema:
+            type: string
+          description: keyword match to all searchable fields
+          required: true
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            example: "0"
+          description: The offset of the record list ie the starting index
+          required: false
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            example: 10
+          description: The max records to return for the request
+          required: false
+        - in: query
+          name: filterdata
+          schema:
+            type: string
+          description: Additional filter {"must":[ ],"should":[ ],"must_not":[ ],"filter":[ ]}
+          required: false
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '420':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'        
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          properties:
+            total:
+              type: number
+              example: 986
+              description: Total number of records
+            max_score:
+              type: number
+              example: 17.995623
+              description: The highest score value
+            hits:
+              type: array
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "sentient_carpark_hdb_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "K7scqWgBv3dNEHq2WvMo"
+                  _score: 
+                    type: string
+                    description: The document score for the search request
+                    example: 17.995623
+                  _source: 
+                    properties:
+                            cpk_no: 
+                              type: string
+                              description: Carpark Number
+                              example: AK19
+                            block: 
+                              type: string
+                              description: Shop block
+                              example: "BLOCK 253"
+                            street: 
+                              type: string
+                              description: Shop street or building name
+                              example: "ANG MO KIO STREET 21"
+                            address: 
+                              type: string
+                              description: Shop full address
+                              example: "BLOCK 253 ANG MO KIO STREET 21"
+                            source: 
+                              type: string
+                              description: Address details source
+                              example: "hdb"
+                            xcoord:
+                              type: string
+                              description: SVY21 X coordinates
+                              example: 28185.4359
+                            ycoord:
+                              type: string
+                              description: SVY21 Y coordinates
+                              example: 39012.6664
+                            car:
+                              type: string
+                              description: Number of car parking lots
+                              example: 18
+                            lorry:
+                              type: string
+                              description: Number of lorry parking lots
+                              example: 6
+                            mc:
+                              type: string
+                              description: Number if mc parking lots
+                              example: 0
+                            createddate:
+                              type: string
+                              description: Record first release date on sentient
+                              example: "2019-10-17"
+                            lastupdated:
+                              type: string
+                              description: Record last updated date on sentient
+                              example: "2019-10-17"
+        message:
+          type: string
+          example: Successfully Processed
+        status:
+          type: string
+          example: Success
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure      
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom

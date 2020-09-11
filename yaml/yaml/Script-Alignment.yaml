@@ -1,0 +1,199 @@
+openapi: 3.0.1
+info:
+  title: Script Alignment
+  description: >-
+    This NLP microservice aligns the input time-coded transcript with high-quality script. The output is the time-coded high-quality script.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  version: '0.1'
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1"
+  description: "Published Date - Jun 18, 2018"
+paths:
+  /microservices/nlp/scriptalignment/v0.1/getpredictions:
+    post:
+      tags:
+        - v0.1
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '420':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'       
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>script</b></td><td>String Array</td><td>Required. An ordered array of text. Each element contains a line of the script.</td></tr><tr><td><b>transcript</b></td><td>String</td><td>Required. An ordered array of utterance struct.</td></tr><tr><td><b>seqNum</b></td><td>Integer</td><td>Required. Running sequence. Start from 1.</td></tr><tr><td><b>start</b></td><td>Float</td><td>Required. Start time of word, in seconds. Offset from the start of stream.</td></tr><tr><td><b>end</b></td><td>Float</td><td>Required. End time of word, in seconds. Offset from the start of stream.</td></tr><tr><td><b>text</b></td><td>String</td><td>Required. Content of the utterance.</td></tr></table><br><br>
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+            properties:
+              end:
+                type: string
+                example: 4
+                description: End time of word, in seconds. Offset from the start of stream.
+              seqNum:
+                type: integer
+                example: 1
+                description: Running sequence. Start from 1.
+              start:
+                type: string
+                example: 1
+                description: Start time of word, in seconds. Offset from the start of stream.
+              text:
+                type: string
+                example: Hello World
+                description: Content of the utterance.
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    input:
+      type: object
+      properties:
+        script:
+          type: array
+          items:
+            type: string
+            format: array
+            example: Hello World, This is a test. This is another test.
+        transcript: 
+          type: array
+          items:
+            type: object
+            example:
+              seqNum: 1
+              start: 1.0
+              end: 4.0
+              text: HELLO WORLD          
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom

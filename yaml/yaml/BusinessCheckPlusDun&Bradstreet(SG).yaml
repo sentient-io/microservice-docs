@@ -1,0 +1,535 @@
+openapi: 3.0.1
+info:
+  title: Business Check Plus Dun & Bradstreet (SG)
+  description:  The Data microservice provides key business information, litigation information (High and Subordinate Courts) and Winding Up Trace of a company including the Business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholder, litigation information. Updated daily.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  version: '0.1'
+servers:
+  - url: 'https://api.sentient.io'
+tags:
+- name: "v0.1"
+  description: "Published Date - Jul 23, 2019"
+paths:
+   /dnb/prod/sbcp:
+    post:
+      tags:
+        - v0.1
+      summary: Adds a new user
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: string
+            examples:
+              xml:
+                summary: A sample XML response
+                value: '<REQUEST>
+<TOT_ITEMS>1</TOT_ITEMS><ENQUIRY><SUBJECT_IDNO>199707714C</SUBJECT_IDNO>
+<SUBJECT_NAME> GPS INDUSTRIES PTE LTD</SUBJECT_NAME></ENQUIRY></REQUEST>'               
+      responses:
+        '200':
+          description: success response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/success'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '420':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'        
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'        
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+        type: object
+        properties:
+            REPORT:
+              type: object
+              properties:
+                META_INFO:
+                  type: object
+                  properties:
+                    SERVICE:
+                      type: string
+                    SYSTEM_ID :
+                      type: string
+                    CREATION_DATE:
+                      type: string
+                    USER_ID :
+                      type: string
+                    CLASS type:
+                      type: string
+                REGISTRY_DETAIL :
+                  type: object
+                  properties:
+                    RENEWAL_DATE:
+                      type: string
+                    ADDRESS1:
+                      type: string
+                    ADDRESS2:
+                      type: string
+                    ADDRESS3:
+                      type: string
+                    ADDRESS4:
+                      type: string
+                    COMP_TYPE_CODE:
+                      type: string
+                    REG_DATE:
+                      type: string
+                    REG_ACTIVITY1:
+                      type: string
+                    REG_ACTIVITY2:
+                      type: string
+                    ACC_DATE:
+                      type: string
+                    STATUS_EFFECT_DATE:
+                      type: string
+                    NAME_EFFECT_DATE:
+                      type: string
+                    EXPIRY_DATE:
+                      type: string
+                    COMP_TYPE:
+                      type: string
+                    CHANGE_ADDR_DATE:
+                      type: string
+                    COMP_STATUS:
+                      type: string
+                    REG_ACTIVITY_DESC1:
+                      type: string
+                    REG_ACTIVITY_DESC2:
+                      type: string
+                    AUDITOR:
+                      type: string
+                    AUDITOR_APPMT_DATE:
+                      type: string
+                    LAST_AR_DATE:
+                      type: string
+                    LAST_AGM_DATE:
+                      type: string     
+                    COUNTRY_INCORP:
+                      type: string
+                REQ_SEARCH_INFO :
+                  type: object
+                  properties:
+                    COMP_NAME:
+                      type: string
+                    REG_NO:
+                      type: string
+                    REQ_DATE:
+                      type: string
+                    REQ_REG_NO:
+                      type: string
+                    REQ_NAME:
+                      type: string
+                    REQ_DATE_STR:
+                      type: string
+                EMPLOYEE_SIZE :
+                  type: object
+                  properties:
+                    ELEMENTS:
+                      type: string
+                    AMOUNT:
+                      type: string
+                LIST_BIZ_BRANCH :
+                  type: object
+                  properties:
+                    BIZ_BRANCH :
+                      type: object
+                      properties:
+                        REQADDR_BUILDING:
+                          type: string
+                        ADDR_POSTCODE:
+                          type: string
+                        ADDR_ADDRESS1:
+                          type: string
+                LIST_REG_CHARGES:
+                  type: array
+                  items:
+                    properties:
+                      REG_CHARGES :
+                        type: object
+                        properties:
+                          CHARGE_NO :
+                            type: string
+                          CHARGE_DATE:
+                            type: string
+                          CHARGEE_COMP:
+                            type: string
+                          CURRENCY:
+                            type: string
+                          AMT_SECURED:
+                            type: string
+                          STATUS_SATISFACTION:
+                            type: string
+                LIST_LIQUIDATOR:
+                  type: array
+                  items:
+                    properties:
+                      LIQUIDATOR :
+                        type: object
+                        properties:
+                          LIQ_NAME :
+                            type: string
+                          LIQ_ID:
+                            type: string
+                          LIQ_POSITION:
+                            type: string
+                          LIQ_COMP:
+                            type: string
+                          LIQ_ADDRESS1:
+                            type: string
+                          LIQ_ADDRESS2:
+                            type: string    
+                          LIQ_ADDRESS3:
+                            type: string
+                          LIQ_ADDRESS4:
+                            type: string
+                          LIQ_APPOINTMENT_DATE:
+                            type: string  
+                LIST_WINDING_UP :
+                  type: array
+                  items:
+                    properties:
+                      WINDING_UP :
+                        type: object
+                        properties:
+                          CASE_CODE :
+                            type: string
+                          CASE_YEAR :
+                            type: string
+                          PLAINTIFF :
+                            type: string
+                          PLA_SOLICITOR_ID :
+                            type: string
+                          PLA_FILE_REF :
+                            type: string
+                          COURT_CODE :
+                            type: string    
+                          CASE_TYPE :
+                            type: string
+                          CURRENCY1 :
+                            type: string
+                          CURRENCY2  :
+                            type: string    
+                          AMOUNT2 :
+                            type: string
+                          CURRENCY3 :
+                            type: string
+                          AMOUNT3 :
+                            type: string
+                          BANKRUPTCY_ACT :
+                            type: string
+                          HEARING_DATE :
+                            type: string
+                          ACTION_DATE :
+                            type: string    
+                          SUBJECT_NAME :
+                            type: string
+                          PLA_SOLICITOR  :
+                            type: string
+                          PLA_LAW_FIRM  :
+                            type: string      
+                LIST_LITIGATION :
+                  type: array
+                  items:
+                    properties:
+                      LITIGATION :
+                        type: object
+                        properties:
+                          SUBJECT_NAME :
+                            type: string
+                          NATURE_OF_CLAIM :
+                            type: string
+                          STATUS_DATE :
+                            type: string
+                          CASE_NO :
+                            type: string
+                          DOC_REMARKS :
+                            type: string
+                          CURRENCY1 :
+                            type: string    
+                          CURRENCY2 :
+                            type: string
+                          CURRENCY3 :
+                            type: string
+                          CURRENCY4 :
+                            type: string    
+                          CURRENCY5 :
+                            type: string
+                          DEF_SOLICITOR :
+                            type: string
+                          DEF_SOLICITOR_ID :
+                            type: string
+                          DEF_LAW_FIRM :
+                            type: string
+                          DEF_FILE_REF :
+                            type: string
+                          DATE_OF_WRIT :
+                            type: string    
+                          STATUS  :
+                            type: string
+                          AMOUNT1 :
+                            type: string
+                          AMOUNT2 :
+                            type: string  
+                          AMOUNT3  :
+                            type: string
+                          AMOUNT4  :
+                            type: string    
+                          AMOUNT5  :
+                            type: string
+                          PLAINTIFF  :
+                            type: string
+                          PLA_SOLICITOR:
+                            type: string
+                          PLA_SOLICITOR_ID:
+                            type: string
+                          PLA_LAW_FIRM  :
+                            type: string
+                          PLA_FILE_REF  :
+                            type: string    
+                          PLA_ID:
+                            type: string
+                          PLA_STATUS:
+                            type: string
+                          PLA_STATUS_DATE :
+                            type: string     
+                LIST_SHARE_INTEREST_COMP :
+                  type: array
+                  items:
+                    properties:
+                      SHARE_INTEREST_COMP:
+                        type: object
+                        properties:
+                          COMP_NAME:
+                            type: string
+                          SHARE_OWNED_UNIT:
+                            type: string
+                          SHARE_OWNED_PERCENT:
+                            type: string
+                          STATUS:
+                            type: string
+                LIST_NAME_CHANGE:
+                  type: array
+                  items:
+                    properties:
+                      NAME_CHANGE:
+                        type: object
+                        properties:
+                          PREV_NAME:
+                            type: string
+                          EFFECT_DATE:
+                            type: string
+                LIST_SHAREHOLDER:
+                  type: array
+                  items:
+                    properties:
+                      SHAREHOLDER:
+                        type: object
+                        properties:
+                          ADDRESS:
+                            type: string
+                          COMP_ID:
+                            type: string       
+                          NO_OF_SHARE:
+                            type: string
+                          CURRENCY:
+                            type: string    
+                          SHAREHOLDER_TYPE:
+                            type: string
+                          SHARE_TYPE:
+                            type: string    
+                          SHAREHOLDER_NAME:
+                            type: string
+                          CHANGE_ADDR_DATE:
+                            type: string
+                          ADDR_TYPE:
+                            type: string    
+                          NATIONALITY:
+                            type: string       
+                LIST_CAPITAL:
+                  type: array
+                  items:
+                    properties:
+                      CAPITAL:
+                        type: object
+                        properties:
+                          CAPITAL_CATEGORY:
+                            type: string
+                          CAPITAL_TYPE:
+                            type: string       
+                          CURRENCY:
+                            type: string
+                          CAPITAL_AMT :
+                            type: string    
+                          NO_OF_SHARES :
+                            type: string
+                LIST_OFFICER_OWNER :
+                  type: array
+                  items:
+                    properties:
+                      OFFICER_OWNER:
+                        type: object
+                        properties:
+                          ADDRESS :
+                            type: string
+                          IDENTITY_ID :
+                            type: string       
+                          POSITION :
+                            type: string
+                          ADDR_TYPE:
+                            type: string    
+                          CESSATION_DATE :
+                            type: string 
+                          OFFICER_NAME  :
+                            type: string       
+                          CHANGE_ADDR_DATE :
+                            type: string
+                          APPMT_DATE:
+                            type: string    
+                          NATIONALITY :
+                            type: string   
+                LIST_SALES_REVENUE_AMOUNT :
+                  type: array
+                  items:
+                    properties:
+                      SALES_REVENUE_AMOUNT:
+                        type: object
+                        properties:
+                          ELEMENTS :
+                            type: string
+                          YEAR :
+                            type: string       
+                          CURRENCY :
+                            type: string
+                          AMOUNT:
+                            type: number    
+                          CESSATION_DATE :
+                            type: string 
+    unauthorized:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Missing Authentication Token
+          status:
+            type: string
+            example: Failure
+    forbidden:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Access Denied Unauthorized User
+          status:
+            type: string
+            example: Failure
+    paymentrequired:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Insufficient Credits Kindly Top Up
+          status:
+            type: string
+            example: Failure
+    notfound:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Invalid Request URL
+          status:
+            type: string
+            example: Failure
+    servererror:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Internal Server Error
+          status:
+            type: string
+            example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom

@@ -1,0 +1,625 @@
+openapi: 3.0.1
+info:
+  title: Brief Financial Info Dun & Bradstreet (SG)
+  description:  This Data microservice provides the annual financial information of the Singapore-registered business, inclusive of annual profit and loss and financial ratios. Updated daily.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  version: '0.1'
+servers:
+  - url: 'https://api.sentient.io'
+tags:
+- name: "v0.1"
+  description: "Published Date - Jul 23, 2019"
+paths:
+   /dnb/prod/sbfe:
+    post:
+      tags:
+        - v0.1
+      summary: Adds a new user
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: string
+            examples:
+              xml:
+                summary: A sample XML response
+                value: '<REQUEST><TOT_ITEMS>1</TOT_ITEMS><ENQUIRY><SUBJECT_IDNO>197803191K</SUBJECT_IDNO><SUBJECT_NAME></SUBJECT_NAME></ENQUIRY></REQUEST>'               
+      responses:
+        '200':
+          description: success response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/success'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '420':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'        
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'        
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+        type: object
+        properties:
+            REPORT:
+              type: object
+              properties:
+                META_INFO:
+                  type: object
+                  properties:
+                    SERVICE:
+                      type: string
+                    SYSTEM_ID :
+                      type: string
+                    CREATION_DATE:
+                      type: string
+                    USER_ID :
+                      type: string
+                FH_SEARCH_INFO:
+                  type: object
+                  properties:
+                    COMP_NAME  :
+                      type: string
+                    REG_NO :
+                      type: string
+                    REQ_DATE :
+                      type: string
+                    REQ_REG_NO :
+                      type: string
+                    REQ_NAME  :
+                      type: string
+                    REQ_DATE_STR  :
+                      type: string    
+                    FH_BEFORE_YR1 :
+                      type: string
+                    FH_BEFORE_YR2 :
+                      type: string
+                    FH_BEFORE_YR3 :
+                      type: string
+                    FH_AFTER_YR1:
+                      type: string   
+                    FH_AFTER_YR2 :
+                      type: string
+                    FH_AFTER_YR3 :
+                      type: string
+                    FH_AFTER_YR4:
+                      type: string
+                    FH_AFTER_YR5:
+                      type: string   
+                    AC_RATIOS_YR1 :
+                      type: string
+                    AC_RATIOS_YR2 :
+                      type: string
+                    AC_RATIOS_YR3 :
+                      type: string
+                    AC_RATIOS_YR4 :
+                      type: string 
+                    AC_RATIOS_YR5 :
+                      type: string   
+                FH_DTL:
+                  type: object
+                  properties:
+                    FH_YR1_CURR :
+                      type: string
+                    FH_YR2_CURR :
+                      type: string
+                    FH_YR3_CURR :
+                      type: string
+                    TURNOVER1 :
+                      type: string
+                    TURNOVER2:
+                      type: string
+                    TURNOVER3 :
+                      type: string    
+                    PL_BEF_TAX1 :
+                      type: string
+                    PL_BEF_TAX2 :
+                      type: string
+                    PL_BEF_TAX3 :
+                      type: string
+                    PL_AFT_TAX1:
+                      type: string   
+                    PL_AFT_TAX2 :
+                      type: string
+                    PL_AFT_TAX3 :
+                      type: string
+                    NETINC_NON_EXT1:
+                      type: string
+                    NETINC_NON_EXT2:
+                      type: string   
+                    NETINC_NON_EXT3 :
+                      type: string
+                    PL_AFT_TAX_EXT1 :
+                      type: string
+                    PL_AFT_TAX_EXT2 :
+                      type: string
+                    PL_AFT_TAX_EXT3 :
+                      type: string 
+                    TOT_ASSETS1 :
+                      type: string   
+                    TOT_ASSETS2 :
+                      type: string
+                    TOT_ASSETS3:
+                      type: string
+                    TA_CURRENT1 :
+                      type: string    
+                    TA_CURRENT2 :
+                      type: string
+                    TA_CURRENT3 :
+                      type: string
+                    TA_FIXED1 :
+                      type: string
+                    TA_FIXED2:
+                      type: string   
+                    TA_FIXED3 :
+                      type: string
+                    TOT_LIABILITIES1 :
+                      type: string
+                    TOT_LIABILITIES2:
+                      type: string
+                    TOT_LIABILITIES3:
+                      type: string   
+                    TL_CURRENT1 :
+                      type: string
+                    TL_CURRENT2 :
+                      type: string
+                    TL_CURRENT3 :
+                      type: string
+                    TL_NON_CURRENT1 :
+                      type: string 
+                    TL_NON_CURRENT2 :
+                      type: string  
+                    TL_NON_CURRENT3 :
+                      type: string
+                    SH_FUNDS1:
+                      type: string
+                    SH_FUNDS2 :
+                      type: string    
+                    SH_FUNDS3 :
+                      type: string
+                    SH_PAIDUP_CAPITAL1 :
+                      type: string
+                    SH_PAIDUP_CAPITAL2 :
+                      type: string
+                    SH_PAIDUP_CAPITAL3:
+                      type: string   
+                    SH_RESERVES1 :
+                      type: string
+                    SH_RESERVES2 :
+                      type: string
+                    SH_RESERVES3:
+                      type: string
+                    SH_ACCUM_LOSS1:
+                      type: string   
+                    SH_ACCUM_LOSS2 :
+                      type: string
+                    SH_ACCUM_LOSS3 :
+                      type: string
+                    GRP_TURNOVER1 :
+                      type: string
+                    GRP_TURNOVER2 :
+                      type: string 
+                    GRP_TURNOVER3 :
+                      type: string           
+                    GRP_PL_BEF_TAX1 :
+                      type: string
+                    GRP_PL_BEF_TAX2 :
+                      type: string
+                    GRP_PL_BEF_TAX3 :
+                      type: string
+                    GRP_PL_AFT_TAX1 :
+                      type: string
+                    GRP_PL_AFT_TAX2:
+                      type: string
+                    GRP_PL_AFT_TAX3 :
+                      type: string    
+                    GRP_NETINC_NON_EXT1 :
+                      type: string
+                    GRP_NETINC_NON_EXT2 :
+                      type: string
+                    GRP_NETINC_NON_EXT3 :
+                      type: string
+                    GRP_PL_AFT_TAX_EXT1:
+                      type: string   
+                    GRP_PL_AFT_TAX_EXT2 :
+                      type: string
+                    GRP_PL_AFT_TAX_EXT3 :
+                      type: string
+                    GRP_TOT_ASSETS1:
+                      type: string
+                    GRP_TOT_ASSETS2:
+                      type: string   
+                    GRP_TOT_ASSETS3 :
+                      type: string
+                    GRP_TA_CURRENT1 :
+                      type: string
+                    GRP_TA_CURRENT2 :
+                      type: string
+                    GRP_TA_CURRENT3 :
+                      type: string 
+                    GRP_TA_FIXED1 :
+                      type: string   
+                    GRP_TA_FIXED2 :
+                      type: string
+                    GRP_TA_FIXED3:
+                      type: string
+                    GRP_TOT_LIABILITIES1 :
+                      type: string    
+                    GRP_TOT_LIABILITIES2 :
+                      type: string
+                    GRP_TOT_LIABILITIES3 :
+                      type: string
+                    GRP_TL_CURRENT1 :
+                      type: string
+                    GRP_TL_CURRENT2:
+                      type: string   
+                    GRP_TL_CURRENT3 :
+                      type: string
+                    GRP_TL_NON_CURRENT1 :
+                      type: string
+                    GRP_TL_NON_CURRENT2:
+                      type: string
+                    GRP_TL_NON_CURRENT3:
+                      type: string   
+                    GRP_SH_FUNDS1 :
+                      type: string
+                    GRP_SH_FUNDS2 :
+                      type: string
+                    GRP_SH_FUNDS3 :
+                      type: string
+                    GRP_SH_PAIDUP_CAPITAL1 :
+                      type: string 
+                    GRP_SH_PAIDUP_CAPITAL2 :
+                      type: string  
+                    GRP_SH_PAIDUP_CAPITAL3 :
+                      type: string
+                    GRP_SH_RESERVES1:
+                      type: string
+                    GRP_SH_RESERVES2 :
+                      type: string    
+                    GRP_SH_RESERVES3 :
+                      type: string
+                    GRP_SH_ACCUM_LOSS1 :
+                      type: string
+                    GRP_SH_ACCUM_LOSS2 :
+                      type: string
+                    GRP_SH_ACCUM_LOSS3:
+                      type: string   
+                    GRP_INDICATOR1 :
+                      type: string
+                    GRP_INDICATOR2 :
+                      type: string
+                    GRP_INDICATOR3:
+                      type: string
+                XBRL_DTL:
+                  type: object
+                  properties:
+                    XBRL_YR1_CURR :
+                      type: string
+                    XBRL_YR2_CURR :
+                      type: string
+                    REVENUE1 :
+                      type: string
+                    REVENUE2 :
+                      type: string
+                    PL_BEF_TAX1:
+                      type: string
+                    PL_BEF_TAX2 :
+                      type: string    
+                    PL_AFT_TAX1 :
+                      type: string
+                    PL_AFT_TAX2 :
+                      type: string
+                    PL_BEF_TAX3 :
+                      type: string
+                    TOT_ASSETS1:
+                      type: string   
+                    TOT_ASSETS2 :
+                      type: string
+                    TA_CURRENT1 :
+                      type: string
+                    TA_CURRENT2:
+                      type: string
+                    TA_NON_CURRENT1:
+                      type: string   
+                    TA_NON_CURRENT2 :
+                      type: string
+                    TOT_LIABILITIES1 :
+                      type: string
+                    TOT_LIABILITIES2 :
+                      type: string
+                    TL_CURRENT1 :
+                      type: string 
+                    TL_CURRENT2 :
+                      type: string   
+                    TL_NON_CURRENT1 :
+                      type: string
+                    TL_NON_CURRENT2:
+                      type: string
+                    TOT_EQUITY1 :
+                      type: string    
+                    TOT_EQUITY2 :
+                      type: string
+                    EQ_SH_CAPITAL1 :
+                      type: string
+                    EQ_SH_CAPITAL2 :
+                      type: string
+                    EQ_RESERVES1:
+                      type: string   
+                    EQ_RESERVES2 :
+                      type: string
+                    EQ_RETAINED_EARN1 :
+                      type: string
+                    EQ_RETAINED_EARN2:
+                      type: string
+                    GRP_REVENUE1:
+                      type: string   
+                    GRP_REVENUE2 :
+                      type: string
+                    GRP_PL_BEF_TAX1 :
+                      type: string
+                    GRP_PL_BEF_TAX2 :
+                      type: string
+                    GRP_PL_AFT_TAX1 :
+                      type: string 
+                    GRP_PL_AFT_TAX2 :
+                      type: string  
+                    GRP_TOT_ASSETS1 :
+                      type: string
+                    GRP_TOT_ASSETS2:
+                      type: string
+                    GRP_TA_CURRENT1 :
+                      type: string    
+                    GRP_TA_CURRENT2 :
+                      type: string
+                    GRP_TA_NON_CURRENT1 :
+                      type: string
+                    GRP_TA_NON_CURRENT2 :
+                      type: string
+                    GRP_TOT_LIABILITIES1:
+                      type: string   
+                    GRP_TOT_LIABILITIES2 :
+                      type: string
+                    GRP_TL_CURRENT1 :
+                      type: string
+                    GRP_TL_CURRENT2:
+                      type: string
+                    GRP_TL_NON_CURRENT1:
+                      type: string   
+                    GRP_TL_NON_CURRENT2 :
+                      type: string
+                    GRP_TOT_EQUITY1 :
+                      type: string
+                    GRP_TOT_EQUITY2 :
+                      type: string
+                    GRP_SH_CAPITAL1 :
+                      type: string 
+                    GRP_SH_CAPITAL2 :
+                      type: string           
+                    GRP_RESERVES1 :
+                      type: string
+                    GRP_RESERVES2 :
+                      type: string
+                    GRP_RETAINED_EARN1 :
+                      type: string
+                    GRP_RETAINED_EARN2 :
+                      type: string
+                    GRP_INDICATOR1:
+                      type: string
+                    GRP_INDICATOR2 :
+                      type: string    
+                    GRP_INDICATOR3 :
+                      type: string
+                FH_RATIOS_DTL:
+                  type: object
+                  properties:
+                    RATE_NET_PROFIT1 :
+                      type: string
+                    RATE_NET_PROFIT2 :
+                      type: string
+                    RATE_NET_PROFIT3 :
+                      type: string
+                    RATE_NET_PROFIT4 :
+                      type: string
+                    RATE_NET_PROFIT5:
+                      type: string
+                    RET_INVESTMENT1 :
+                      type: string    
+                    RET_INVESTMENT2 :
+                      type: string
+                    RET_INVESTMENT3 :
+                      type: string
+                    RET_INVESTMENT4 :
+                      type: string
+                    RET_INVESTMENT5:
+                      type: string   
+                    RET_SH_FUNDS1 :
+                      type: string
+                    RET_SH_FUNDS2 :
+                      type: string
+                    RET_SH_FUNDS3:
+                      type: string
+                    RET_SH_FUNDS4:
+                      type: string   
+                    RET_SH_FUNDS5 :
+                      type: string
+                    TOT_ASSETS_TURNOVER1 :
+                      type: string
+                    TOT_ASSETS_TURNOVER2 :
+                      type: string
+                    TOT_ASSETS_TURNOVER3 :
+                      type: string 
+                    TOT_ASSETS_TURNOVER4 :
+                      type: string   
+                    TOT_ASSETS_TURNOVER5 :
+                      type: string
+                    CURR_CAPITAL_RATIO1:
+                      type: string
+                    CURR_CAPITAL_RATIO2 :
+                      type: string    
+                    CURR_CAPITAL_RATIO3 :
+                      type: string
+                    CURR_CAPITAL_RATIO4 :
+                      type: string
+                    CURR_CAPITAL_RATIO5 :
+                      type: string
+                    PROPRIETARY_RATIO1:
+                      type: string   
+                    PROPRIETARY_RATIO2 :
+                      type: string
+                    PROPRIETARY_RATIO3 :
+                      type: string
+                    PROPRIETARY_RATIO4:
+                      type: string
+                    PROPRIETARY_RATIO5:
+                      type: string   
+                    TOTAL_DEBT_RATIO1 :
+                      type: string
+                    TOTAL_DEBT_RATIO2 :
+                      type: string
+                    TOTAL_DEBT_RATIO3 :
+                      type: string
+                    TOTAL_DEBT_RATIO4 :
+                      type: string 
+                    TOTAL_DEBT_RATIO5 :
+                      type: string
+                LIST_FH_CHART_INFO :
+                  type: array
+                  items:
+                    properties:
+                      FH_CHART_INFO:
+                        type: object
+                        properties:
+                          PROFIT_LOSS:
+                            type: string
+                          REVENUE:
+                            type: string
+                          YEAR:
+                            type: string
+    unauthorized:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Missing Authentication Token
+          status:
+            type: string
+            example: Failure
+    forbidden:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Access Denied Unauthorized User
+          status:
+            type: string
+            example: Failure
+    paymentrequired:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Insufficient Credits Kindly Top Up
+          status:
+            type: string
+            example: Failure
+    notfound:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Invalid Request URL
+          status:
+            type: string
+            example: Failure
+    servererror:
+      type: array
+      items:
+        properties:
+          message:
+            type: string
+            example: Internal Server Error
+          status:
+            type: string
+            example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom

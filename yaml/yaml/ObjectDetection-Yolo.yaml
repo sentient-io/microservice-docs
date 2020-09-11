@@ -1,0 +1,217 @@
+openapi: 3.0.1
+info:
+  title: Object Detection
+  description: >-
+    This Computer Vision microservice detects objects in the input image. <br><br>The microservice returns detected objects with their classes and their bounding boxes in the image coordinates.<br><br>The classes are: person, bicycle, car, motorbike, aeroplane, bus, train, truck, boat, traffic light, fire hydrant, stop sign, parking meter, bench, bird, cat, dog, horse, sheep, cow, elephant, bear, zebra, giraffe, backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard, sports ball, kite, baseball bat, baseball glove, skateboard, surfboard, tennis racket, bottle, wine glass, cup, fork, knife, spoon, bowl, banana, apple, sandwich, orange, broccoli, carrot, hot dog, pizza, donut, cake, chair, sofa, pottedplant, bed, diningtable, toilet, tvmonitor, laptop, mouse, remote, keyboard, cell phone, microwave, oven, toaster, sink, refrigerator, book, clock, vase, scissors, teddy bear, hair drier, toothbrush"
+  version: '0.1'
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1"
+  description: "Published Date - May 19, 2020"
+paths:
+  /microservices/cv/objectdetection/v0.1/getpredictions:
+    post:
+      tags:
+        - v0.1
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '420':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'        
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      requestBody:
+        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>image_base64</b></td><td>String</td><td>Required. Base 64 encoded string of an image</td></tr></table><br><br>
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        Object 1:
+          type: array
+          items:
+            description: "Details of the detected object"
+            oneOf:
+              - type: string
+                example: 'tie : 100%'
+              - type: object
+                properties:
+                  Bounding Box:
+                    type: object
+                    properties:
+                      Bot: 
+                       type: number
+                       example: 783
+                      Left: 
+                       type: number
+                       example: 411
+                      Right: 
+                       type: number
+                       example: 595
+                      Top: 
+                       type: number
+                       example: 520      
+        Object 2:
+          type: array
+          items:
+            description: "Details of the detected object"
+            oneOf:
+              - type: string
+                example: 'tie : 100%'
+              - type: object
+                properties:
+                  Bounding Box:
+                    type: object
+                    properties:
+                      Bot: 
+                       type: number
+                       example: 742
+                      Left: 
+                       type: number
+                       example: 19
+                      Right: 
+                       type: number
+                       example: 1019
+                      Top: 
+                       type: number
+                       example: 73                           
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure      
+    input:
+      type: object
+      properties:
+        image_base64:
+          type: string
+          example: /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUG...
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
