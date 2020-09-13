@@ -3,7 +3,7 @@ info:
   description: >-
     This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
   version: '0.1'
-html:   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+html:  " <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#header').load('../header.html');
@@ -619,4 +619,4 @@ html:   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/lib
 
 
         <script src="../swagger-ui-bundle.js"> </script>
-        <script src="../swagger-ui-standalone-preset.js"> </script>
+        <script src="../swagger-ui-standalone-preset.js"> </script>"
