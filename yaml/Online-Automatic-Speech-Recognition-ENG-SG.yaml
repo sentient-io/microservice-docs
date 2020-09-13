@@ -1,5 +1,5 @@
 info:
-  title: Audio Format Convertor
+  title: Online Automatic Speech Recognition ENG (SG)
   description: >-
     This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
   version: '0.1'
