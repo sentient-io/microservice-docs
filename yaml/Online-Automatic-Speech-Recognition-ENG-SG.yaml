@@ -3,83 +3,16 @@ info:
   description: >-
     This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
   version: '0.1'
-html:   |-
+html: |+
          <h2>Online Automatic Speech Recognition</h2>
-
-        <div class="api-discription">
           <p>
             This microservice takes in an audio stream (in .wav format at 16kHz) and transcribes any speech content within the stream into text.
           </p>
-
           <p>
             The ASR AI model is a neural network employed to understand the mapping of sound features to actual words in English and is trained to
             perform well on a Singaporean-accented English speaker. It is also expected to perform better when the speech content is related to generic news topics.
           </p>
-
           <p>
             This ASR model should also work for other content types and accents but with a lower accuracy.
             One potential use cases is the live transcription of call center recordings.
           </p>
-
-        </div>
-
-        <p><strong>Suggested use cases</strong></p>
-
-        <ul >
-          <li>
-            <p>Extraction of text from voice (both real-time as well as from sound files), especially with Singaporean accented English</p>
-          </li>
-          <li>
-            <p>Extraction of text from video, especially with Singaporean accented English</p>
-          </li>
-        </ul>
-
-        <p><strong>Websocket API</strong></p>
-        <p><span class="code" >[Websocket API. Events Sequence]</span></p>
-
-        <br>
-        <br>
-        <p><strong>1.Establish connection (websocket)</strong></p>
-        <p>Client connects to server with extra header field</p>
-
-
-        <table>
-          <colgroup>
-            <col style="width: 144px;">
-            <col style="width: 535px;">
-          </colgroup>
-          <tbody>
-            <tr>
-              <td colspan="1" data-colwidth="161" rowspan="1">
-                <p><strong>API Endpoint websocket</strong></p>
-              </td>
-              <td colspan="1" data-colwidth="599" rowspan="1">
-                <p><strong>wss://onlineasr.sentient.io</strong></p>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="1" data-colwidth="161" rowspan="1">
-                <p>Authentication</p>
-              </td>
-              <td colspan="1" data-colwidth="599" rowspan="1">
-                <p>Authentication is done using the x-api-key in the connect header</p>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="1" data-colwidth="161" rowspan="1">
-                <p>Content-Type</p>
-              </td>
-              <td colspan="1" data-colwidth="599" rowspan="1">
-                <p>application/json</p>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="1" data-colwidth="161" rowspan="1">
-                <p>Output</p>
-              </td>
-              <td colspan="1" data-colwidth="599" rowspan="1">
-                <p>JSON</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
