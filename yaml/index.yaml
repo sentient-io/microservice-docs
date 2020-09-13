@@ -143,7 +143,7 @@ Utility:
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/newspaper_3k_article.yaml"
     URLs Retrieval:
-        title: Newspaper Article Scraper
+        title: URLs Retrieval
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/CRAWLURLS.yaml"
 Data:
