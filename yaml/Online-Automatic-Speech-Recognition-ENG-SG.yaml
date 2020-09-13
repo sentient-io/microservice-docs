@@ -3,6 +3,9 @@ info:
   description: >-
     This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
   version: '0.1'
+tags:
+- name: "v0.2"
+  description: "Published some recent date for testing"
 html: |+
          <h2>Online Automatic Speech Recognition</h2>
           <p>
