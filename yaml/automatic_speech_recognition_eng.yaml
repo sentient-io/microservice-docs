@@ -172,8 +172,8 @@ components:
       properties:
         audio:
           type: string
-          example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
-          description: Required. Input file in base64 format and needs to be prefixed by the data type and encoding.<br>E.g. "data:audio/wav;base64,<wav in base64 string>"
+          example: data:audio/wav;base64,<wav in base64 string>
+          description: Input file in base64 format and needs to be prefixed by the data type and encoding.
     versions:
       type: object
       properties: 
