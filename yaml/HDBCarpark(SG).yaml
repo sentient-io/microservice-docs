@@ -45,7 +45,13 @@ paths:
           schema:
             type: string  
           description: Additional filter {"must":[ ],"should":[ ],"must_not":[ ],"filter":[ ]}
-          example: {"filter":[{"match":{"cpk_no":"AK19"}}]}
+          example: |+
+            {  
+            "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],  
+            "filter":[{"match":{"tags.type":"source"}}] ,  
+            "should":[{"match":{"source":"hdb"}}],  
+            "must_not":[{"match":{"cpk_no":"AK19"}}  
+            }
       responses:
         '200':
           description: success response
