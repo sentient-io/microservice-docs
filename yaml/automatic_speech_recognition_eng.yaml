@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
-  title: Automatic Speech Recognition ENG (SG)
+  title: Automatic Speech Recognition ENG
   description: >-
-    This microservice takes in an audio file (in WAV format at 16kHz) and transcribes any speech content within the file into text.<br><br>The Automatic Speech Recognition (ASR) AI model is employed to understand the mapping of sound features to actual words in English and is trained to perform well on a Singaporean-accented English speaker. It is also expected to perform better when the speech content is related to generic news topics. This ASR model should also work for other content types and accents but with a lower accuracy.<br><br>Use this microservice if the audio file consists of mostly speech with no long pauses in between. If the audio file consists of various speech segments with significant pauses between them, we recommend that you use the VADASR microservice for better accuracy.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
-  version: '1.0'
+    "This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.<br><br>The Automatic Speech Recognition (ASR) AI model is employed to understand the mapping of sound features to actual words in English.<br><br>Use this microservice if the audio file consists of mostly speech with no long pauses in between.<br><br>Use this microservice if the audio file consists of mostly speech with no long pauses in between. <br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -58,7 +58,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/inputlimitexceeded'
         '500':
-          description: Internal Server error
+          description: Internal Server Error
           content:
             application/json:
               schema:
@@ -72,7 +72,7 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>audio</b></td><td>String</td><td>Base64 string of audio file<br><br>Audio file should be:<br><br>Channel Type mono<br>Sample Rate 8/16 Hz</td></tr></table>
+        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>audio</b></td><td>String</td><td>Required. Input file in base64 format and needs to be prefixed by the data type and encoding. <br/>E.g. "data:audio/wav;base64,&lt;wav in base64 string&gt;"<br><br>Audio file should be:<br>Channel Type mono<br>Sample Rate 16kHz</td></tr></table><br><br>
         content:
           application/json:
               schema:
@@ -83,10 +83,14 @@ components:
     success:
       type: object
       properties:
-              text:
+              message:
                 type: string
                 example: Hi there
                 description: Converted Text
+              status:
+               type: string
+               example: success
+               description: The status of the API call success/failure
     unauthorized:
       type: object
       properties:
@@ -128,7 +132,7 @@ components:
       properties:
         message:
           type: string
-          example: Internal Server error
+          example: Internal Server Error
         status:
           type: string
           example: Failure
@@ -164,7 +168,10 @@ components:
       properties:
         audio:
           type: string
-          example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
+          example:
+            required: true
+            example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
+          description: Required. Input file in base64 format and needs to be prefixed by the data type and encoding.<br>E.g. "data:audio/wav;base64,<wav in base64 string>"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
