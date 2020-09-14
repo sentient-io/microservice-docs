@@ -207,11 +207,9 @@ components:
                     type: number
                     format: float
   securitySchemes:
-    cookieAuth:
+    APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
       description: Authentication is done using the x-api-key in the request header.
-    security:
-        - cookieAuth: []
