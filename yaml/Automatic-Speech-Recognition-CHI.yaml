@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition CHI (SG)
   description: >-
-    This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.<br><br>This microservice works best for if the audio file consists of mostly speech with no long pauses in between."<br><br>This microservice works best for if the audio file consists of mostly speech with no long pauses in between.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+    This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.<br><br>This microservice works best for if the audio file consists of mostly speech with no long pauses in between."<br><br>This microservice works best for if the audio file consists of mostly speech with no long pauses in between.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -75,9 +75,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewaytimeout'
       security:
-        - cookieAuth: []
+        - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>audio</b></td><td>String</td><td>Required. Input file in base64 format and needs to be prefixed by the data type and encoding. <br/>E.g. "data:audio/wav;base64,&lt;wav in base64 string&gt;"<br><br>Audio file should be:<br>Channel Type mono<br>Sample Rate 16kHz</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -175,10 +174,9 @@ components:
           type: string
           example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
   securitySchemes:
-    cookieAuth:
+    APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
-    security:
-        - cookieAuth: []
+      description: Authentication is done using the x-api-key in the request header.
