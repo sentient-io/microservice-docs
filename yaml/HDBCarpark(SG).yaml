@@ -50,6 +50,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  total: 38
+                  max_score: 4.754334
+                  hits:
+                  - _index: sentient_carpark_hdb_index
+                    _type: dir_doc
+                    _id: BE16
+                    _score: 4.754334
+                    _source:
+                      cpk_no: BE16
+                      block: ''
+                      street: BE16 BISHAN PARK I
+                      address: " BE16 BISHAN PARK I"
+                      source: hdb
+                      xcoord: '28193.9043'
+                      ycoord: '38482.8203'
+                      car: 79
+                      lorry: 19
+                      mc: 0
+                      createddate: '2020-09-11'
+                      lastupdated: '2020-09-11'
+                      location:
+                        lat: 1.364299477060462
+                        lon: 103.83506094142611
+                message: Successfully Processed
+                status: Success
         '401':
           description: Unauthorized
           content:
