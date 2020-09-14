@@ -21,6 +21,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                message: Hi there
+                status: success
         '401':
           description: Unauthorized
           content:
