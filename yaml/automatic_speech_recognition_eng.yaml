@@ -184,10 +184,11 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jun 18,2018
-              description: "Version 0.1 description"
+              description: "Initial version release"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
