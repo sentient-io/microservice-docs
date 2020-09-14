@@ -172,6 +172,16 @@ components:
             required: true
             example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: Required. Input file in base64 format and needs to be prefixed by the data type and encoding.<br>E.g. "data:audio/wav;base64,<wav in base64 string>"
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 18,2018
+              description: "Version 0.1 description"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
