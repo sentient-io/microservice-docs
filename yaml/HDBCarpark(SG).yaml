@@ -21,7 +21,7 @@ paths:
             type: string
           description: keyword match to all searchable fields
           default: false
-          example: cpk_no:AK19<br/> ang mo kio
+          example: cpk_no:AK19 i.e. <response _source fields>:<search value> (or) AK19
         - in: query
           name: offset
           schema:
