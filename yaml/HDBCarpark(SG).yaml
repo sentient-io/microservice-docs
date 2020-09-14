@@ -1,8 +1,82 @@
 openapi: 3.0.1
 info:
   title: Carpark HDB (SG)
-  description:  This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.
-  x-description2 : <h3><b>Search Types</b></h3><br>*All values have to be URL encoded<br><br><b>Keyword search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keyword search; search for all searchable fields<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using querystring:<br><br><div style="padding-left:22px;"><i>ang mo kio</i></div><br><b>Filter search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 1:</b> Get all results except ang mo kio <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"must_not":[{"match_phrase":{"street":"ang mo kio"}}]}</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using querystring:<br><br><div style="padding-left:22px;"><i>name:"ang mo kio"</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 2:</b> Filter results with cpk_no AK19<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"filter":[{"match":{"cpk_no":"AK19"}}]}</i></div><br><h3><b>Supported Filter Types:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>must</b> - All of these clauses must match. The equivalent of AND.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>must_not</b> - All of these clauses must not match. The equivalent of NOT.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>should</b> - At least one of these clauses must match. The equivalent of OR.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>filter</b> - Clauses that must match, but are run in non-scoring, filtering mode.<br><br><h3><b>Supported Match Types:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match</b> - is to search within a full-text field for a single word<br>**If you need full string match with space use match_phrase instead.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "match":{"street":"bishan"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match_phrase</b> - is to search a full text field<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "match_phrase":{ "street":bishan street 24"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match_phrase_prefix</b> - is to search a full text field with prefix<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"match_phrase_prefix":{"street":"bishan"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>term</b> - returns documents that contain one or more exact terms in a provided field.<br/> You can use the term query to find documents based on a precise value such as a ID, postalcode<br>**Avoid using the term query for text fields.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"term":{"street":"bishan"}}<br><br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terms</b> - The terms query is the same as the term query, except you can search for multiple values.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"terms":{"cpk_no":["ak19","be17"]}}<br><br><h3><b>Sample filterdata JSON:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"filter":[{"match":{"tags.type":"source"}}] ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"should":[{"match":{"source":"hdb"}}],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"must_not":[{"match":{"cpk_no":"AK19"}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+  description: |+
+    This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.
+  x-description2 : |+
+    ### **Search Types**
+
+*All values have to be URL encoded  
+
+**Keyword search**  
+
+      Keyword search; search for all searchable fields  
+
+      Using querystring:  
+
+<div style="padding-left:22px;">_ang mo kio_</div>
+
+**Filter search**  
+
+      **Example 1:** Get all results except ang mo kio  
+
+      Using fiterdata:  
+
+<div style="padding-left:22px;">_{"must_not":[{"match_phrase":{"street":"ang mo kio"}}]}_</div>
+
+      Or  
+
+      Using querystring:  
+
+<div style="padding-left:22px;">_name:"ang mo kio"_</div>
+
+      **Example 2:** Filter results with cpk_no AK19  
+
+      Using fiterdata:  
+
+<div style="padding-left:22px;">_{"filter":[{"match":{"cpk_no":"AK19"}}]}_</div>
+
+### **Supported Filter Types:**
+
+      **must** - All of these clauses must match. The equivalent of AND.  
+
+      **must_not** - All of these clauses must not match. The equivalent of NOT.  
+
+      **should** - At least one of these clauses must match. The equivalent of OR.  
+
+      **filter** - Clauses that must match, but are run in non-scoring, filtering mode.  
+
+### **Supported Match Types:**
+
+      **match** - is to search within a full-text field for a single word  
+**If you need full string match with space use match_phrase instead.  
+      { "match":{"street":"bishan"}}  
+
+      **match_phrase** - is to search a full text field  
+
+      { "match_phrase":{ "street":bishan street 24"}}  
+
+      **match_phrase_prefix** - is to search a full text field with prefix  
+
+      {"match_phrase_prefix":{"street":"bishan"}}  
+
+      **term** - returns documents that contain one or more exact terms in a provided field.  
+You can use the term query to find documents based on a precise value such as a ID, postalcode  
+**Avoid using the term query for text fields.  
+      {"term":{"street":"bishan"}}  
+
+**      terms** - The terms query is the same as the term query, except you can search for multiple values.  
+
+      {"terms":{"cpk_no":["ak19","be17"]}}  
+
+### **Sample filterdata JSON:**
+
+      {  
+      "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],  
+      "filter":[{"match":{"tags.type":"source"}}] ,  
+      "should":[{"match":{"source":"hdb"}}],  
+      "must_not":[{"match":{"cpk_no":"AK19"}}  
+      }
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -28,13 +102,13 @@ paths:
             type: integer
           description: The offset of the record list ie the starting index
           default: false
-          example: 0
+          example: "0"
         - in: query
           name: limit
           schema:
             type: integer
           description: The max records to return for the request. Default - 10, Max - 10000
-          example: 10
+          example: "10"
           default: false
         - in: query
           name: filterdata
@@ -42,7 +116,7 @@ paths:
             type: string  
           description: Additional filter {"must":[ ],"should":[ ],"must_not":[ ],"filter":[ ]}
           default: false
-          example: {"filter":[{"match":{"cpk_no":"AK19"}}]}
+          example: "{"filter":[{"match":{"cpk_no":"AK19"}}]}"
       responses:
         '200':
           description: success response
