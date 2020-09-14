@@ -6,9 +6,7 @@ info:
     
     Updated monthly.
   x-description2 : |+
-    ### **Search Types**
-
-    *All values have to be URL encoded  
+    **Search Types**  
 
     **Keyword search**  
     Keyword search; search for all searchable fields 
