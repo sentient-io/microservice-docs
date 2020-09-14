@@ -28,14 +28,14 @@ paths:
             type: string
           description: keyword match to all searchable fields
           example: AK19
-          x-required: false
+          default: false
         - in: query
           name: offset
           schema:
             type: integer
           description: The offset of the record list ie the starting index
           example: "0"
-          x-required: false
+          default: false
         - in: query
           name: limit
           schema:
