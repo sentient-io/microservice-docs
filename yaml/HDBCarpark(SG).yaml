@@ -2,57 +2,16 @@ openapi: 3.0.1
 info:
   title: Carpark HDB (SG)
   description: |+
-    This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.
+    This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. 
+    
+    Updated monthly.
   x-description2 : |+
     ### **Search Types**
 
     *All values have to be URL encoded  
 
     **Keyword search**  
-
-          Keyword search; search for all searchable fields  
-
-    ### **Supported Filter Types:**
-
-          **must** - All of these clauses must match. The equivalent of AND.  
-
-          **must_not** - All of these clauses must not match. The equivalent of NOT.  
-
-          **should** - At least one of these clauses must match. The equivalent of OR.  
-
-          **filter** - Clauses that must match, but are run in non-scoring, filtering mode.  
-
-    ### **Supported Match Types:**
-
-          **match** - is to search within a full-text field for a single word  
-    **If you need full string match with space use match_phrase instead.  
-          { "match":{"street":"bishan"}}  
-
-          **match_phrase** - is to search a full text field  
-
-          { "match_phrase":{ "street":bishan street 24"}}  
-
-          **match_phrase_prefix** - is to search a full text field with prefix  
-
-          {"match_phrase_prefix":{"street":"bishan"}}  
-
-          **term** - returns documents that contain one or more exact terms in a provided field.  
-    You can use the term query to find documents based on a precise value such as a ID, postalcode  
-    **Avoid using the term query for text fields.  
-          {"term":{"street":"bishan"}}  
-
-    **      terms** - The terms query is the same as the term query, except you can search for multiple values.  
-
-          {"terms":{"cpk_no":["ak19","be17"]}}  
-
-    ### **Sample filterdata JSON:**
-
-          {  
-          "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],  
-          "filter":[{"match":{"tags.type":"source"}}] ,  
-          "should":[{"match":{"source":"hdb"}}],  
-          "must_not":[{"match":{"cpk_no":"AK19"}}  
-          }
+    Keyword search; search for all searchable fields 
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
