@@ -7,7 +7,6 @@ info:
     Updated monthly.
   x-description2 : |+
     **Search Types**  
-
     **Keyword search**  
     Keyword search; search for all searchable fields 
   version: '0.1'
@@ -146,14 +145,6 @@ components:
     success:
       type: object
       properties:
-        message:
-          type: string
-          example: Successfully Processed
-          description: The detail description on the status
-        status:
-          type: string
-          example: Success
-          description: The status of the API call Success/Failure
         results:
           type: object
           example: {<Json Object>}
@@ -264,6 +255,14 @@ components:
                               type: string
                               description: Record last updated date on sentient
                               example: "2019-10-17"
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
     unauthorized:
       type: object
       properties:
