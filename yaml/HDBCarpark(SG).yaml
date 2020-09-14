@@ -27,14 +27,12 @@ paths:
           schema:
             type: string
           description: keyword match to all searchable fields
-          default: false
           example: AK19
         - in: query
           name: offset
           schema:
             type: integer
           description: The offset of the record list ie the starting index
-          default: false
           example: "0"
         - in: query
           name: limit
@@ -42,13 +40,11 @@ paths:
             type: integer
           description: The max records to return for the request. Default - 10, Max - 10000
           example: "10"
-          default: false
         - in: query
           name: filterdata
           schema:
             type: string  
           description: Additional filter {"must":[ ],"should":[ ],"must_not":[ ],"filter":[ ]}
-          default: false
           example: {"filter":[{"match":{"cpk_no":"AK19"}}]}
       responses:
         '200':
@@ -204,6 +200,10 @@ components:
                               type: array
                               description: List of postal code
                               example: ["570253", "570254"]
+                              items:
+                                type: string
+                                description: postal code
+                                example: "570253"
                             xcoord:
                               type: string
                               description: SVY21 X coordinates
