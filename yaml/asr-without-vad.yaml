@@ -76,7 +76,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewaytimeout'
       security:
-        - cookieAuth: []
+        - APIAuthorizer: []
       requestBody:
         content:
           application/json:
