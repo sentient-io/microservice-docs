@@ -6,77 +6,53 @@ info:
   x-description2 : |+
     ### **Search Types**
 
-*All values have to be URL encoded  
+    *All values have to be URL encoded  
 
-**Keyword search**  
+    **Keyword search**  
 
-      Keyword search; search for all searchable fields  
+          Keyword search; search for all searchable fields  
 
-      Using querystring:  
+    ### **Supported Filter Types:**
 
-<div style="padding-left:22px;">_ang mo kio_</div>
+          **must** - All of these clauses must match. The equivalent of AND.  
 
-**Filter search**  
+          **must_not** - All of these clauses must not match. The equivalent of NOT.  
 
-      **Example 1:** Get all results except ang mo kio  
+          **should** - At least one of these clauses must match. The equivalent of OR.  
 
-      Using fiterdata:  
+          **filter** - Clauses that must match, but are run in non-scoring, filtering mode.  
 
-<div style="padding-left:22px;">_{"must_not":[{"match_phrase":{"street":"ang mo kio"}}]}_</div>
+    ### **Supported Match Types:**
 
-      Or  
+          **match** - is to search within a full-text field for a single word  
+    **If you need full string match with space use match_phrase instead.  
+          { "match":{"street":"bishan"}}  
 
-      Using querystring:  
+          **match_phrase** - is to search a full text field  
 
-<div style="padding-left:22px;">_name:"ang mo kio"_</div>
+          { "match_phrase":{ "street":bishan street 24"}}  
 
-      **Example 2:** Filter results with cpk_no AK19  
+          **match_phrase_prefix** - is to search a full text field with prefix  
 
-      Using fiterdata:  
+          {"match_phrase_prefix":{"street":"bishan"}}  
 
-<div style="padding-left:22px;">_{"filter":[{"match":{"cpk_no":"AK19"}}]}_</div>
+          **term** - returns documents that contain one or more exact terms in a provided field.  
+    You can use the term query to find documents based on a precise value such as a ID, postalcode  
+    **Avoid using the term query for text fields.  
+          {"term":{"street":"bishan"}}  
 
-### **Supported Filter Types:**
+    **      terms** - The terms query is the same as the term query, except you can search for multiple values.  
 
-      **must** - All of these clauses must match. The equivalent of AND.  
+          {"terms":{"cpk_no":["ak19","be17"]}}  
 
-      **must_not** - All of these clauses must not match. The equivalent of NOT.  
+    ### **Sample filterdata JSON:**
 
-      **should** - At least one of these clauses must match. The equivalent of OR.  
-
-      **filter** - Clauses that must match, but are run in non-scoring, filtering mode.  
-
-### **Supported Match Types:**
-
-      **match** - is to search within a full-text field for a single word  
-**If you need full string match with space use match_phrase instead.  
-      { "match":{"street":"bishan"}}  
-
-      **match_phrase** - is to search a full text field  
-
-      { "match_phrase":{ "street":bishan street 24"}}  
-
-      **match_phrase_prefix** - is to search a full text field with prefix  
-
-      {"match_phrase_prefix":{"street":"bishan"}}  
-
-      **term** - returns documents that contain one or more exact terms in a provided field.  
-You can use the term query to find documents based on a precise value such as a ID, postalcode  
-**Avoid using the term query for text fields.  
-      {"term":{"street":"bishan"}}  
-
-**      terms** - The terms query is the same as the term query, except you can search for multiple values.  
-
-      {"terms":{"cpk_no":["ak19","be17"]}}  
-
-### **Sample filterdata JSON:**
-
-      {  
-      "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],  
-      "filter":[{"match":{"tags.type":"source"}}] ,  
-      "should":[{"match":{"source":"hdb"}}],  
-      "must_not":[{"match":{"cpk_no":"AK19"}}  
-      }
+          {  
+          "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],  
+          "filter":[{"match":{"tags.type":"source"}}] ,  
+          "should":[{"match":{"source":"hdb"}}],  
+          "must_not":[{"match":{"cpk_no":"AK19"}}  
+          }
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
