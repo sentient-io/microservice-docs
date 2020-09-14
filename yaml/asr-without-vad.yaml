@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Automatic Voice Recognition ENG (SG)
   description: >-
-    This Voice microservice transcribes the input audio stream into text.<br><br>This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament and nscfull_8k."<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+    This Voice microservice transcribes the input audio stream into text.<br><br>This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament and nscfull_8k.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +21,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  - seqNum: 1
+                    start: 1
+                    end: 4
+                    text: HELLO WORLD
         '401':
           description: Unauthorized
           content:
@@ -72,7 +78,6 @@ paths:
       security:
         - cookieAuth: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>model</b></td><td>String</td><td>Required. Available model names:<br/> <br/>news_parliament - is trained on Singapore news and parliament corpus. <br>nsc_parliament - is trained on National Speech Corpus and parliament corpus. <br> nscfull_8k - 8 kHz, mono channel. wav format. </td></tr><tr><td><b>wav_base64</b></td><td>Base64 String</td><td>Required. Input wav file in base64 format.</td></tr><tr><td>srt</td><td>Utterance Array</td><td>Optional. An ordered array of utterance struct. Used for time-coding.</td></tr><tr><td>srt.seqNum</td><td>Integer</td><td>	Running sequence. Start from 1.</td></tr><tr><td>srt.start</td><td>Float</td><td>	Start time of utterance, in seconds. Offset from the start of stream.</td></tr><tr><td>srt.end</td><td>Float</td><td>End time of utterance, in seconds. Offset from the start of stream.</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -207,5 +212,6 @@ components:
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
     security:
         - cookieAuth: []
