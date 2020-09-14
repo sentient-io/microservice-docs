@@ -42,14 +42,14 @@ paths:
             type: integer
           description: The max records to return for the request. Default - 10, Max - 10000
           example: "10"
-          x-required: false
+          default: false
         - in: query
           name: filterdata
           schema:
             type: string  
           description: |+
             Additional filter {"must":[ ],"should":[ ],"must_not":[ ],"filter":[ ]}
-          x-required: false
+          default: false
           example: |+
             {  
             "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],  
