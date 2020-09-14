@@ -49,7 +49,7 @@ paths:
             type: string  
           description: Additional filter {"must":[ ],"should":[ ],"must_not":[ ],"filter":[ ]}
           default: false
-          example: "{"filter":[{"match":{"cpk_no":"AK19"}}]}"
+          example: {"filter":[{"match":{"cpk_no":"AK19"}}]}
       responses:
         '200':
           description: success response
