@@ -11,15 +11,5 @@ tags:
 - name: "v0.2"
   description: "Published some recent date for testing"
 html: |+
-         <h2>Online Automatic Speech Recognition</h2>
-          <p>
-            This microservice takes in an audio stream (in .wav format at 16kHz) and transcribes any speech content within the stream into text.
-          </p>
-          <p>
-            The ASR AI model is a neural network employed to understand the mapping of sound features to actual words in English and is trained to
-            perform well on a Singaporean-accented English speaker. It is also expected to perform better when the speech content is related to generic news topics.
-          </p>
-          <p>
-            This ASR model should also work for other content types and accents but with a lower accuracy.
-            One potential use cases is the live transcription of call center recordings.
-          </p>
+     <iframe src="https://docs.sentient.io/voice/online_automatic_speech_recognition_eng_sg.html">
+     </iframe>
