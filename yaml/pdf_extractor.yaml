@@ -1,8 +1,14 @@
 openapi: 3.0.1
 info:
   title: PDF Extractor
-  description: >-
-    This Utility microservice extracts the text content of the input PDF document  with the options to extract specific pages.<br><br>It also extracts from password-protected PDFs, if the correct password is provided.<br><br>Output format supported: plain text or HTML.<br><br>Supported languages: Hindi, German, Spanish, Portuguese, French, Turkish, Italian, Russian, Arabic, Indonesian, Chinese, Japanese and Korean."<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Utility microservice extracts the text content of the input PDF document  with the options to extract specific pages.
+    
+    It also extracts from password-protected PDFs, if the correct password is provided.
+    
+    Output format supported: plain text or HTML.
+    
+    Supported languages: Hindi, German, Spanish, Portuguese, French, Turkish, Italian, Russian, Arabic, Indonesian, Chinese, Japanese and Korean.
   version: '1.0'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +27,15 @@ paths:
                   application/json:
                     schema:
                       $ref: '#/components/schemas/success'
+                    example:
+                      results: "\\n L  328/84 \\n Official  Journal  of  the  European  Union \\n EN \\n
+                        18.12.2019 \\n DECISIONS \\n COMMISSION IMPLEMENTING DECISION (EU) 2019/2166 \\n
+                        of 16 December 2019 \\n amending Implementing Decision 2014/908/EU as regards the
+                        inclusion of Serbia and South Korea in \\n the  lists  of  third  countries  and
+                        \ territories  whose  supervisory  and  regulatory  requirements"
+                      message: Successfully Processed
+                      status: Success
+                      extracted_details: "[1, 3] pages are Extracted...."
               '401':
                 description: Unauthorized
                 content:
@@ -72,12 +87,10 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>filePath</b></td><td>File</td><td>Required. The file object<br>Max. file size upto - 7MB<br>*Image pdf not supported</td></tr><tr><td>pageNumbers</td><td>Array</td><td>Optional. Page numbers, example 1,3,6<br>Default all pages</td></tr><tr><td>maxPages</td><td>Integer</td><td>Optional. Maximum of page number<br>Default all pages</td></tr><tr><td>startPage</td><td>Integer</td><td>Optional. Starting page number, if used endPage parameter is mandatory</td></tr><tr><td>endPage</td><td>Integer</td><td>Optional. End of page number, if used startPage parameter is mandatory</td></tr><tr><td>convertType</td><td>String</td><td>Optional. Convertion type (txt / html)<br>Default type is txt</td></tr><tr><td>passWord</td><td>String</td><td>Optional. Password for protected pdf</td></tr></table><br><br>
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/input'
-        # required: true                      
+              $ref: '#/components/schemas/input'                     
 components:
   schemas:
     success:
@@ -179,21 +192,43 @@ components:
         filePath:
           type: string
           format: binary
+          default: true
+          example: 
+          description: The file object Max. file size upto - 7MB. *Image pdf not supported
         pageNumbers:
           type: number
+          default: false
+          example: 
+          description: Page numbers, example 1,3,6. Default all pages
         maxPages:
           type: number
+          default: false
+          example: 
+          description: Maximum of page number. Default all pages
         startPage:
           type: number
+          default: false
+          example: 
+          description: Starting page number, if used endPage parameter is mandatory
         endPage:
           type: number
+          default: false
+          example: 
+          description: End of page number, if used startPage parameter is mandatory
         convertType:
           type: string
+          default: false
+          example: 
+          description: Convertion type (txt / html). Default type is txt
         passWord:
           type: string
+          default: false
+          example: 
+          description: Password for protected pdf
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
