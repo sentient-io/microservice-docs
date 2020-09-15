@@ -105,12 +105,12 @@ components:
             description:  How likely the model might miss out detecting people in the video
           people:
             type: array
-            example: [{'person ID: 001': ['first Appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}, {'person id: 002': ['first appearance: 3.34s', 'duration appeared: 7.03s', 'detection confidence: 73%', 'assigning confidence: 82.0%']}]
+            example: [{'person ID: 001': ['first appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}, {'person ID: 002': ['first appearance: 3.34s', 'duration appeared: 7.03s', 'detection confidence: 73%', 'assigning confidence: 82.0%']}]
             description: Contains a list of individual Persons and their metadata.
             items:
               oneOf:
                 - type: object
-                  example: {'person id: 001': ['first appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}
+                  example: {'person ID: 001': ['first appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}
     unauthorized:
       type: object
       properties:
@@ -198,7 +198,7 @@ components:
         - video_base64
       properties:
         video_base64:
-          x-name: text
+          x-name: video_base64
           type: string
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
