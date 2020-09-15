@@ -25,8 +25,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-                example: |+
-                  test
+                example: 
+                  loc:
+                  - America
+                  - Saudi Arabia
+                  - Yemen
+                  - Abqaiq
+                  - Iraq
+                  - Iran
+                  - Khurais
+                  misc:
+                  - Arabian
+                  - American
+                  - Saudi
+                  - Iranian
+                  - Shia
+                  org:
+                  - Houthi
+                  per:
+                  - DONALD TRUMP
+                  - Mike Pompeo
         '401':
           description: Unauthorized
           content:
