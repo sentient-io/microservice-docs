@@ -90,6 +90,8 @@ components:
       properties:
         results:
           type: object
+          example: { "<Json": "Object>" }
+          description: Json Object of returned results
           properties:
             AudioContent:
               type: string
