@@ -26,10 +26,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
                 example:
-                  LOC: [ America,Saudi Arabia,Yemen,Abqaiq ]
-                  MISC: [Arabian,American,Saudi ]
-                  ORG: [Houthi]
-                  PER: [ DONALD TRUMP,Mike Pompeo ]
+                  loc:
+                  - America
+                  - Saudi Arabia
+                  - Yemen
+                  - Abqaiq
+                  - Iraq
+                  - Iran
+                  - Khurais
+                  misc:
+                  - Arabian
+                  - American
+                  - Saudi
+                  - Iranian
+                  - Shia
+                  org:
+                  - Houthi
+                  per:
+                  - DONALD TRUMP
+                  - Mike Pompeo
         '401':
           description: Unauthorized
           content:
