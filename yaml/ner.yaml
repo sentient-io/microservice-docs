@@ -25,7 +25,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-                example: {LOC: [ America,Saudi Arabia,Yemen,Abqaiq ],MISC: [Arabian,American,Saudi ],ORG: [Houthi],PER: [ DONALD TRUMP,Mike Pompeo ]}
+                example:
+                  results: {LOC: [ America,Saudi Arabia,Yemen,Abqaiq ],MISC: [Arabian,American,Saudi ],ORG: [Houthi],PER: [ DONALD TRUMP,Mike Pompeo ]}
         '401':
           description: Unauthorized
           content:
@@ -188,7 +189,7 @@ components:
         text:
           x-name: text
           type: string
-          default: false
+          default: true
           example: The Singaporean procedure of hanging condemned individuals is similar to the methods formerly used in the United Kingdom.
           description: |+
             Input text
