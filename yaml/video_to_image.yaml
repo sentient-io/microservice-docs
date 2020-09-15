@@ -96,9 +96,10 @@ components:
       type: object
       properties:
         results:
+          type: object
+          description: The result of the API call.
           example:
             fileContent: document text content
-          description: The result of the API call.
         message:
           type: string
           example: Successfully Processed
