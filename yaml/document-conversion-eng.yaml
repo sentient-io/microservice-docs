@@ -1,88 +1,15 @@
 openapi: 3.0.1
 info:
   title: Document Convertor ENG
-  description: >-
-    This Utility microservice extracts the English text content of singular input Microsoft Word, HTML or PDF documents and outputs into plain text format.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Utility microservice extracts the English text content of singular input Microsoft Word, HTML or PDF documents and outputs into plain text format.
   version: '1.0'
 servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0"
   description: "Published Date - Jul 30, 2020"
-- name: "v0.1"
-  # description: "Published Date - Feb 10, 2020"
-  description: "Last Date of Use Aug 31, 2020"
 paths:
-  /microservices/utility/docconversion/v0.1/getresults:
-    post:
-      deprecated: true
-      description: last date of use Aug 31, 2020
-      tags:
-        - v0.1
-      responses:
-        '200':
-          description: success response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/success'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/unauthorized'
-        '402':
-          description: Payment Required
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/paymentrequired'
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/forbidden'
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/notfound'
-        '419':
-          description: Input Field Missing
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputfieldmissing'
-        '420':
-          description: Input Limit Exceeded
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputlimitexceeded'
-        '500':
-          description: Internal Server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/servererror'
-        '504':
-          description: Gateway Timeout
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/gatewaytimeout'
-      security:
-        - APIAuthorizer: []
-      requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td>filePath</td><td>File</td><td>The file object</td></tr><tr><td>fileName</td><td>String</td><td>Name of the file</td></tr></table><br><br>
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/inputv0.1'
-        required: true
   /microservices/utility/docconversion/v1.0/getresults:
     post:
       tags:
@@ -94,6 +21,14 @@ paths:
                   application/json:
                     schema:
                       $ref: '#/components/schemas/success'
+                    example: |+
+                      results: "\\n L  328/84 \\n Official  Journal  of  the  European  Union \\n EN \\n
+                        18.12.2019 \\n DECISIONS \\n COMMISSION IMPLEMENTING DECISION (EU) 2019/2166 \\n
+                        of 16 December 2019 \\n amending Implementing Decision 2014/908/EU as regards the
+                        inclusion of Serbia and South Korea in \\n the  lists  of  third  countries  and
+                        \ territories  whose  supervisory  and  regulatory  requirements"
+                      message: Successfully Processed
+                      status: Success
               '401':
                 description: Unauthorized
                 content:
@@ -145,12 +80,10 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>filePath</b></td><td>File</td><td>Required. The file object. Supported formats - docx,txt,pdf.<br>Maximum file size up to - 7MB</td></table><br><br>
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/inputv1.0'
-        # required: true                      
+              $ref: '#/components/schemas/input'
 components:
   schemas:
     success:
@@ -240,15 +173,7 @@ components:
         status:
           type: string
           example: Failure    
-    inputv0.1:
-      type: object
-      properties:
-        filePath:
-          type: string
-          format: binary
-        fileName:
-          type: string
-    inputv1.0:
+    input:
       type: object
       required:
         - filePath
@@ -256,9 +181,13 @@ components:
         filePath:
           type: string
           format: binary
+          default: true
+          example: file upload
+          description: The file object. Supported formats - docx,txt,pdf.Maximum file size up to - 7MB
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
