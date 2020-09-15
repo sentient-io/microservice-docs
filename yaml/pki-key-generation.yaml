@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
   title: PKI Key Generator
-  description: >-
-    This Utiltiy microservice generates Public key and Private key pair, useful for encryption purposes.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Utiltiy microservice generates Public key and Private key pair, useful for encryption purposes.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +21,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                keyLength: 1024
+                publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQK...
+                privateKey: MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl....
         '401':
           description: Unauthorized
           content:
@@ -72,7 +76,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>bitcode</b></td><td>String</td><td>Required. bitcode to generate the key by byte-length. Maximum up to 5.<br> Empty string and above 5 should be consider as 1.</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -166,16 +169,29 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure   
+          example: Failure 
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 13, 2020
+              description: Initial version release
     input:
       type: object
       properties:
         bitcode:
           type: string
           example: "1"
+          default: true
+          description: bitcode to generate the key by byte-length. Maximum up to 5. Empty string and above 5 should be consider as 1.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
