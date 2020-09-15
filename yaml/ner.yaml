@@ -25,10 +25,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-                example:
-                  loc:
-                  - "America"
-                    "Saudi Arabia"
+                example: |+
+                  test
         '401':
           description: Unauthorized
           content:
