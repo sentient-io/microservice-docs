@@ -1,8 +1,12 @@
 openapi: 3.0.1
 info:
   title: Named-Entity Recognition THAI
-  description: >-
-    This NLP microservice locates and classifies the named-entities classes from input unstructured Thai text. <br><br>The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc."<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This NLP microservice locates and classifies the named-entities classes from input unstructured Thai text.
+
+    The named-entity classes extracted are persons, locations, organisations and miscellaneous.
+
+    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +25,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example: 
+                location: 
+                  - อินเดีย,สหรัฐอเมริกา 
+                person: 
+                  - ประธานาธิบดีทรัมป์ 
+
         '401':
           description: Unauthorized
           content:
@@ -70,7 +80,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewaytimeout'
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>text</b></td><td>String</td><td>Required. A complete sentence, paragraph or article text</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -84,19 +93,17 @@ components:
       type: object
       properties: 
         location:
-         type: array
-         items:
+          x-name: location
+          type: array
+          example: [ สหรัฐอเมริ ]
           description: name of location found in the text string
-          oneOf:
-            - type: string
-              example: 'สหรัฐอเมริ'
+        
         person:
-         type: array
-         items:
+          x-name: person
+          type: array
+          example: [ ประธานาธิบดีทร ]
           description: name of person found in the text string
-          oneOf:
-            - type: string
-              example: 'ประธานาธิบดีทร'              
+                       
     unauthorized:
       type: object
       properties:
@@ -171,13 +178,20 @@ components:
           example: Failure      
     input:
       type: object
+      required:
+        - text
       properties:
         text:
+          x-name: text
           type: string
+          default: true
           example: ประธานาธิบดีทรัมป์เป็นประธานาธิบดีแห่งสหรัฐอเมริกา เขาเคยเป็นส่วนหนึ่งของ Apple ในอินเดีย เวลา
+          description: |+
+            Input text
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
