@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
   title: Youtube Video Downloader
-  description: >-
-    This Utility microservice retrieves the Youtube video of the input URL and output a download link.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Utility microservice retrieves the Youtube video of the input URL and output a download link.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +21,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  url: https://storage.googleapis.com/youtubedownload/video.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=cloudstorage%40sentient-231509.iam.gserviceaccount.com%2F20200513%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20200513T115310Z&X-Goog-Expires=6000&X-Goog-SignedHeaders=host&X-Goog-Signature=730f588eb4794828389c6a098002d666b307ab695dbd07f84e5309f79503e857e2d8352e11125a0d569f7e3704da6a0320e426f7fe99ed68d965d3812700c4930060e95da1f7d0694c7751ca493c3f097bcd85a37f33ee8a0a7c7366a8aeba2f5bae7814cc1f0ec5f397ebe70f0bc9bcb82be8843db609ebef01953ae3fdd82d48b39184ac566d570cd3a2b3c1f1a09353f0b2d83643eb1b3140850585a299ada899f6473e76c585128d0b864724f67430f6b2b8798e4399c991d97e2716c5382b6597fca8ee43e72f409848491109ba093399355eeb76b92bf769d2e10e5d2952615e8fbc7798bb7bca8d71ef631339634911346d0175cc45fb691d6c8b9cae
+                  message: Successfully downloaded and stored in Google Cloud Storage.
+                  status: success
         '401':
           description: Unauthorized
           content:
@@ -72,7 +77,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>url</b></td><td>String</td><td>Required. Youtube URL</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -176,9 +180,13 @@ components:
         url:
           type: string
           example: <youtube url>
+          default: true
+          description: |+
+            Youtube URL
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
