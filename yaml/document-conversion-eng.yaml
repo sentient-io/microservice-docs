@@ -21,7 +21,7 @@ paths:
                   application/json:
                     schema:
                       $ref: '#/components/schemas/success'
-                    example: |+
+                    example:
                       results: "\\n L  328/84 \\n Official  Journal  of  the  European  Union \\n EN \\n
                         18.12.2019 \\n DECISIONS \\n COMMISSION IMPLEMENTING DECISION (EU) 2019/2166 \\n
                         of 16 December 2019 \\n amending Implementing Decision 2014/908/EU as regards the
