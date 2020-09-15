@@ -180,7 +180,7 @@ components:
         url:
           type: string
           default: true
-          example: <youtube url>
+          example: youtube url
           description: |+
             Youtube URL
     versions:
