@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
   title: Video-To-Audio Converter
-  description: >-
-    This API is used to extract the sound from a video file and save it in an audio file.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This API is used to extract the sound from a video file and save it in an audio file.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +21,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  AudioContent: UklGRoboDgBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjAuMTAwAGRhdGFA6A4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA....
+                  message: Successfully Processed
+                  status: Success
         '401':
           description: Unauthorized
           content:
@@ -178,13 +183,33 @@ components:
         filePath:
           type: string
           format: binary
+          example: upload file
+          default: true
+          description: The file object. Maximum file size up to - 3.5MB
         samplerate:
           type: string
+          default: false
+          example: 16000
+          description: Sample rate of the audio file in Hz
         channel:
           type: string
+          default: false
+          example: 1
+          description: Indicates the type of audio channel. Value must be 1 for mono or 2 for Stereo. Default is 2(Stereo)
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 10, 2020
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
