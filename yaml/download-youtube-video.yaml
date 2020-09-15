@@ -179,7 +179,7 @@ components:
       properties:
         url:
           type: string
-          example: <youtube url>
+          example: "<youtube url>"
           default: true
           description: |+
             Youtube URL
