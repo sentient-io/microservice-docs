@@ -207,7 +207,7 @@ components:
         text:
           x-name: text
           type: string
-          default: false
+          default: true
           example: The Singaporean procedure of hanging condemned individuals is similar to the methods formerly used in the United Kingdom.
           description: |+
             Input text
