@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
   title: Newspaper Article Scraper
-  description: >-
-    This api allows to extracting & curating articles and delivers Instapaper style article extraction. Current supported languages: Arabic, Russian, Dutch, German, English, Spanish, French, Hebrew, Italian, Korean, Norwegian, Persian, Polish, Portuguese, Swedish, Hungarian, Finnish, Danish, Chinese, Indonesian, Vietnamese, Swahili, Turkish, Greek, Ukrainian. Supports automatic languages detection.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This api allows to extracting & curating articles and delivers Instapaper style article extraction. Current supported languages: Arabic, Russian, Dutch, German, English, Spanish, French, Hebrew, Italian, Korean, Norwegian, Persian, Polish, Portuguese, Swedish, Hungarian, Finnish, Danish, Chinese, Indonesian, Vietnamese, Swahili, Turkish, Greek, Ukrainian. Supports automatic languages detection.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +21,46 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                content:
+                  all_images:
+                  - https://static.bangkokpost.com/media/content/20170620/2363063.jpg
+                  - https://www.bangkokpost.com/media/content/20170620/c1_1272315_170620160518_620x413.jpg
+                  - https://static.bangkokpost.com/media/content/20170620/2364459.jpg
+                  - https://static.bangkokpost.com/media/content/20170620/2363071.jpg
+                  - https://static.bangkokpost.com/media/content/20170620/2364455.jpg
+                  - https://static.bangkokpost.com/media/content/20170620/2363075.jpg
+                  authors:
+                  - Bangkok Post Public Company Limited
+                  keywords:
+                  - scholarships
+                  - opportunities
+                  - fair
+                  - study
+                  - learning
+                  - worlds
+                  language: en
+                  link: https://www.bangkokpost.com/learning/news/1272315/study-and-work-in-australia-%E2%80%93-many-opportunities-ahead-
+                  publish_date: []
+                  summary: |-
+                    Australia is a country welcoming international students to study at all levels of education with its quality and the part-time work rights given.
+                    Moreover, there are opportunities to work full-time and to migrate and hold Australian citizenship after graduation from Australia.
+                    Study, Work and Live in one of the World's most liveable countries.
+                    "Post Study Work Rights and Pathways to Australian Permanent
+                  text: |-
+                    Australia is a country welcoming international students to study at all levels of education with its quality and the part-time work rights given. Moreover, there are opportunities to work full-time and to migrate and hold Australian citizenship after graduation from Australia. Especially, engineers, IT specialists and accountants, and many more, are on the list of occupations which Australia is demanding.
+                
+                    Study, Work and Live in one of the World's most liveable countries.
+                
+                    Don't miss the chance to interview directly with 40 leading universities and institutions from across Australia. Application fee waivers and scholarships are also available.
+                
+                    Unique! "Post Study Work Rights and Pathways to Australian Permanent Resident" seminar by Dr. Visa, Australian Registered Migration Agent, and special talks by Andrew Biggs,
+                  title: Study and Work in Australia
+                  top_image: https://www.bangkokpost.com/media/content/20170620/c1_1272315_170620160518_620x413.jpg
+                  video:
+                  - https://www.youtube.com/embed/8I9uQVHluBk
+                message: Successfully Processed
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -72,7 +112,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>url</b></td><td>String</td><td>Required. News article web URL.</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -220,7 +259,17 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure      
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Aug 04, 2020
+              description: Initial version release
     input:
       type: object
       required:
@@ -228,10 +277,13 @@ components:
       properties:
         url:
           type: string
-          example: <news link url>
+          example: "<news link url>"
+          default: true
+          description: News article web URL.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
