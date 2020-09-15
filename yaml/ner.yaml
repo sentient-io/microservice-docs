@@ -26,9 +26,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
                 example:
-                  results: {LOC: [ America,Saudi Arabia,Yemen,Abqaiq ],MISC: [Arabian,American,Saudi ],ORG: [Houthi],PER: [ DONALD TRUMP,Mike Pompeo ]}
-                  message: Successfully Processed
-                  status: Success
+                  LOC: [ America,Saudi Arabia,Yemen,Abqaiq ]
+                  MISC: [Arabian,American,Saudi ]
+                  ORG: [Houthi]
+                  PER: [ DONALD TRUMP,Mike Pompeo ]
         '401':
           description: Unauthorized
           content:
