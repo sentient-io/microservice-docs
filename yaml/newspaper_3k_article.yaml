@@ -277,7 +277,7 @@ components:
       properties:
         url:
           type: string
-          example: "<news link url>"
+          example: news link url
           default: true
           description: News article web URL.
   securitySchemes:
