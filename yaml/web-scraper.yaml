@@ -225,7 +225,7 @@ components:
         status:
           type: string
           example: Failure      
-    inputv1.0:
+    input:
       type: object
       properties:
         url:
