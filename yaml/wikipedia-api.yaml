@@ -108,6 +108,8 @@ components:
       properties:
         results:
           type: object
+          example: { "<Json": "Object>" }
+          description: Json Object of returned results
           properties:
             content:
               type: string
@@ -116,6 +118,8 @@ components:
               description: Plain text content of the page, excluding images, tables, and other data.
             images:
               type: array
+              example: ["https://upload.wikimedia.org/wikipedia/commons/f/f5/0008871_-_Krung_Thep_Bridge_001.jpg","https://upload.wikimedia.org/wikipedia/commons/1/12/2014_Singapore_Products_Export_Treemap.png"]
+              description: List of URLs of images on the page.
               items:
                 oneOf:
                 - type: string
@@ -132,6 +136,11 @@ components:
                   example: https://upload.wikimedia.org/wikipedia/commons/1/10/A_Night_Perspective_on_the_Singapore_Merlion_%288347645113%29.jpg
             links:
               type: array
+              example: [".sg",
+      "126 Squadron, Republic of Singapore Air Force",
+      "13th Parliament of Singapore",
+      "16th Summit of the Non-Aligned Movement"]
+              description: List of titles of Wikipedia page links on a page.
               items:
                 oneOf:
                 - type: string
@@ -265,17 +274,14 @@ components:
           description: The search term, highest match to the title of the Wikipedia page.
         pageid: 
           type: integer
-          example: 0
           default: true
           description: The Wikipedia id of the page requested.
         language:
           type: string
-          example: Default is English, for other languages give the input as ISO 639-1 language code
           default: false
           description: Indicates the language in which the Wikipedia page is written. Default is English, for other languages give the input as ISO 639-1 language code
         filter_key:
           type: string
-          example: The default return set includes pageid, url, and summary. 
           default: false
           description: Indicates the filter criteria of the output result fields. The default return set includes pageid, url, and summary.“all” - returns all the fields. You can also filter by individual fields using the list value. Possible values are pageid, url, summary, content, links, and images
   securitySchemes:
