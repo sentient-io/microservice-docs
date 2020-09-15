@@ -25,7 +25,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-                example: 
+              example: 
                   loc:
                   - America
                   - Saudi Arabia
