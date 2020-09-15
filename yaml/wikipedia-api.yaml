@@ -136,10 +136,7 @@ components:
                   example: https://upload.wikimedia.org/wikipedia/commons/1/10/A_Night_Perspective_on_the_Singapore_Merlion_%288347645113%29.jpg
             links:
               type: array
-              example: [".sg",
-      "126 Squadron, Republic of Singapore Air Force",
-      "13th Parliament of Singapore",
-      "16th Summit of the Non-Aligned Movement"]
+              example: [".sg","126 Squadron, Republic of Singapore Air Force","13th Parliament of Singapore","16th Summit of the Non-Aligned Movement"]
               description: List of titles of Wikipedia page links on a page.
               items:
                 oneOf:
