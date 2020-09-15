@@ -190,13 +190,13 @@ components:
           description: The file object. Maximum file size up to - 3.5MB
         samplerate:
           type: string
-          default: false
           example: "16000"
+          default: false
           description: Sample rate of the audio file in Hz
         channel:
           type: string
-          default: false
           example: "1"
+          default: false
           description: Indicates the type of audio channel. Value must be 1 for mono or 2 for Stereo. Default is 2(Stereo)
     versions:
       type: object
