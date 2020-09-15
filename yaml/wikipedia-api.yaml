@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
   title: Wikipedia Retrieval ENG
-  description: >-
-    It is an API that provides the user with a Wikipedia article based on the input keyword. Refer to this link for the full list of Wikipedias - <u>https://meta.wikimedia.org/wiki/List_of_Wikipedias</u><br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    It is an API that provides the user with a Wikipedia article based on the input keyword. Refer to this link for the full list of Wikipedias - <u>https://meta.wikimedia.org/wiki/List_of_Wikipedias</u>
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +21,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  content: Singapore officially the Republic of Singapore, is a sovereign city-state
+                    and island country located in maritime Southeast Asia.  Singapore lies about one
+                    degree of latitude (137 kilometres or 85 miles) north of the equator.
+                  images:
+                  - https://upload.wikimedia.org/wikipedia/commons/f/f5/0008871_-_Krung_Thep_Bridge_001.jpg
+                  - https://upload.wikimedia.org/wikipedia/commons/1/12/2014_Singapore_Products_Export_Treemap.png
+                  - https://upload.wikimedia.org/wikipedia/commons/1/1b/2017_G20_Hamburg_summit_leaders_group_photo.jpg
+                  - https://upload.wikimedia.org/wikipedia/commons/1/10/A_Night_Perspective_on_the_Singapore_Merlion_%288347645113%29.jpg
+                  links:
+                  - 65
+                  - ".sg"
+                  - 126 Squadron, Republic of Singapore Air Force
+                  - 13th Parliament of Singapore
+                  - 16th Summit of the Non-Aligned Movement
+                  - 1915 Singapore Mutiny
+                  pageid: 27318
+                  summary: Singapore officially the Republic of Singapore, is a sovereign city-state
+                    and island country located in maritime Southeast Asia. Singapore lies about one
+                    degree of latitude (137 kilometres or 85 miles) north of the equator.
+                  url: https://en.wikipedia.org/wiki/Singapore
+                message: Successfully Processed
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -72,7 +96,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>title</b><br><br>OR<br><br><b>pageid</b></td><td>String<br><br><br><br>Integer</td><td>Required. The search term, highest match to the title of the Wikipedia page.<br><br><br><br>Required. The Wikipedia id of the page requested.</td></tr><tr><td>language</td><td>String</td><td>Indicates the language in which the Wikipedia page is written. Default is English, for other languages give the input as ISO 639-1 language code</td></tr><tr><td>filter_key</td><td>String</td><td>Indicates the filter criteria of the output result fields. The default return set includes pageid, url, and summary.<br>“all” - returns all the fields. You can also filter by individual fields using the list value. Possible  values are <br>pageid, url, summary, content, links, and images</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -221,22 +244,41 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure      
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 27, 2020
+              description: Initial version release
     input:
       type: object
       properties:
         title:
           type: string
           example: Singapore
+          default: true
+          description: The search term, highest match to the title of the Wikipedia page.
         pageid: 
           type: integer
+          default: true
+          description: The Wikipedia id of the page requested.
         language:
           type: string
+          default: false
+          description: Indicates the language in which the Wikipedia page is written. Default is English, for other languages give the input as ISO 639-1 language code
         filter_key:
           type: string
+          default: false
+          description: Indicates the filter criteria of the output result fields. The default return set includes pageid, url, and summary.“all” - returns all the fields. You can also filter by individual fields using the list value. Possible values are pageid, url, summary, content, links, and images
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
