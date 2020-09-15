@@ -196,7 +196,7 @@ components:
         samplerate:
           type: string
           default: false
-          example: 16000
+          example: '16000'
           description: Sample rate of the audio file in Hz
         channel:
           type: string
