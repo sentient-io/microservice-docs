@@ -1,8 +1,12 @@
 openapi: 3.0.1
 info:
   title: Named-Entity Recognition ENG
-  description: >-
-    This NLP microservice locates and classifies the named-entities classes from input unstructured English text.<br><br>The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This NLP microservice locates and classifies the named-entities classes from input unstructured English text.
+    
+    The named-entity classes extracted are persons, locations, organisations and miscellaneous.
+    
+    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +25,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+                example:
+                  results: {PER: [Diana,Kristen Stewart]}
+                  message: Successfully Processed
+                  status: Success
         '401':
           description: Unauthorized
           content:
@@ -72,7 +80,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>text</b></td><td>String</td><td>Required. A complete sentence, paragraph or article text</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -84,37 +91,42 @@ components:
       type: object
       properties: 
         LOC:
-         type: array
-         items:
+          x-name: LOC
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: America
+              - type: string
+                example: Saudi Arabia
+              - type: string
+                example: Middle East
           description: "name of location found in the text string"
-          oneOf:
-            - type: string
-              example: America
-            - type: string
-              example: Saudi Arabia
-            - type: string
-              example: Middle East
         MISC:
-         type: array
-         items:
+          x-name: MISC
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: American
           description: "name of miscellaneous names found in the text string"
-          oneOf:
-            - type: string
-              example: American
         ORG:
-         type: array
-         items:
-          description: "name of PERSON found in the text string"
-          oneOf:
-            - type: string
-              example: Islamic Revolutionary Guard Corps              
+          x-name: ORG
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Islamic Revolutionary Guard Corps 
+          description: "name of PERSON found in the text string"             
         PER:
-         type: array
-         items:
+          x-name: PER
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: DONALD TRUMP 
           description: "name of organization found in the text string"
-          oneOf:
-            - type: string
-              example: DONALD TRUMP 
+          
     unauthorized:
       type: object
       properties:
@@ -189,13 +201,20 @@ components:
           example: Failure      
     input:
       type: object
+      required:
+        - text
       properties:
         text:
+          x-name: text
           type: string
+          default: false
           example: The Singaporean procedure of hanging condemned individuals is similar to the methods formerly used in the United Kingdom.
+          description: |+
+            Input text
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
