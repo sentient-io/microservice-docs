@@ -21,6 +21,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                status: Success
+                result: nXqbfpv8gK3wZqLjohfy2NCdBJSXQ/NyHec52SFcQiePxl/iVB9wwThAc1U3mBRSM2/YysQodsd89DVuQx3aNNV4/BmYmC53yeWIwfpHZv8DOWSY4dremBDFa6vaFLF89ed0RSkgl7+cut4g0bkXuMODMyEfBerqnrsvQlqHbVY=
         '401':
           description: Unauthorized
           content:
@@ -72,7 +76,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>text</b></td><td>String</td><td>Required. Input text</td></tr><tr><td><b>key</b></td><td>String</td><td>Required. Public key</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -172,11 +175,28 @@ components:
       properties:
         text:
           type: string
+          default: true
+          example: plain text
+          description: Input text
         key:
           type: string
+          default: true
+          example: MIIBIjANBgkqhkiG9w0BAQEF...
+          description: Public key
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 13, 2020
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
