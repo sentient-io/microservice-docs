@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
   title: Landmark Detection (JP)
-  description: >-
-    This Computer Vision microservice identifies Japan landmarks from multiple input images.<br><br>The microservice returns the detected landmark and confidence score."<br><br>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Computer Vision microservice identifies Japan landmarks from multiple input images.
+    
+    The microservice returns the detected landmark and confidence score.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +23,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                confidence: 100%
+                landmark: Gion
         '401':
           description: Unauthorized
           content:
@@ -73,7 +78,6 @@ paths:
         - APIAuthorizer: []
       
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>image_base64</b></td><td>String</td><td>Required. A base64 string of the image</td></tr></table>
         content:
           application/json:
             schema:
@@ -85,13 +89,14 @@ components:
   schemas:
     success:
       type: object
-      example: {'confidence': '100%', 'landmark': 'Gion'}
       properties:
-        Confidence:
+        confidence:
+          x-name: confidence
           type: string
           example: 100%
           description: Confidence score of identification. Higher is more confidence.
-        Landmark:
+        landmark:
+          x-name: landmark
           type: string
           example: Gion
           description: Name of the landmark
@@ -183,7 +188,11 @@ components:
       type: object
       properties:
         image_base64:
+          x-name: image_base64
           type: string
+          example: UklGRkbiBABXQVZFZm10IBAAAAABA...
+          description: |+
+            Input image in base64 format
         
   securitySchemes:
     APIAuthorizer:
@@ -191,3 +200,4 @@ components:
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
