@@ -191,12 +191,12 @@ components:
         samplerate:
           type: string
           default: false
-          example: 16000
+          example: '16000'
           description: Sample rate of the audio file in Hz
         channel:
           type: string
           default: false
-          example: 1
+          example: '1'
           description: Indicates the type of audio channel. Value must be 1 for mono or 2 for Stereo. Default is 2(Stereo)
     versions:
       type: object
