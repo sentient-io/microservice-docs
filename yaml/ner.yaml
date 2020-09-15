@@ -27,24 +27,8 @@ paths:
                 $ref: '#/components/schemas/success'
                 example:
                   loc:
-                  - America
-                  - Saudi Arabia
-                  - Yemen
-                  - Abqaiq
-                  - Iraq
-                  - Iran
-                  - Khurais
-                  misc:
-                  - Arabian
-                  - American
-                  - Saudi
-                  - Iranian
-                  - Shia
-                  org:
-                  - Houthi
-                  per:
-                  - DONALD TRUMP
-                  - Mike Pompeo
+                  - "America"
+                    "Saudi Arabia"
         '401':
           description: Unauthorized
           content:
