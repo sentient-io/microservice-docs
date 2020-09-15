@@ -1,8 +1,12 @@
 openapi: 3.0.1
 info:
   title: Named-Entity Recognition JAP
-  description: >-
-    This NLP microservice locates and classifies the named-entities classes from input unstructured Japanese text. <br><br>The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc."<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This NLP microservice locates and classifies the named-entities classes from input unstructured Japanese text.
+    
+    The named-entity classes extracted are persons, locations, organisations and miscellaneous.
+    
+    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +25,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                Company: 
+                  - 和歌山製鉄所 
+                Date:
+                  - 7日,2023年9月
+                  - 22年9月 
+                Domestic_Region: 
+                  - 呉製鉄所
+                Material: 
+                  - 鉄鋼最大手 
+                N_Product: 
+                  - 高炉2基
+                  - 2基","1基
+                Province:
+                  - 広島県呉市
+                  - 和歌山市
         '401':
           description: Unauthorized
           content:
@@ -70,7 +90,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewaytimeout'
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>text</b></td><td>String</td><td>Required. A complete sentence, paragraph or article text</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -84,37 +103,25 @@ components:
       type: object
       properties: 
         Company:
-         type: array
-         items:
-          description: name of Company found in the text string
-          oneOf:
-            - type: string
-              example: '和歌山製鉄所'
+          x-name: Company
+          type: array
+          example: [ 和歌山製鉄所 ]
+          description: name of Company found in the text string    
         Date:
-         type: array
-         items:
+          x-name: Date
+          type: array
+          example: [ 7日,2023年9月,22年9月 ]
           description: name of Date found in the text string
-          oneOf:
-            - type: string
-              example: '7日'
-            - type: string
-              example: '2023年9月'
-            - type: string
-              example: '22年9月' 
         Domestic_Region:
-         type: array
-         items:
-          description: name of Domestic_Region found in the text string
-          oneOf:
-            - type: string
-              example: '呉製鉄所'
+          x-name: Domestic_Region
+          type: array
+          example: [ 呉製鉄所 ]
+          description: name of Domestic_Region found in the text string    
         Material:
-         type: array
-         items:
-          description: name of Material found in the text string
-          oneOf:
-            - type: string
-              example: '鉄鋼最大手'              
+          x-name: Material
+          type: array
+          example: [ 鉄鋼最大手 ]
+          description: name of Material found in the text string        
     unauthorized:
       type: object
       properties:
@@ -189,13 +196,20 @@ components:
           example: Failure      
     input:
       type: object
+      required:
+        - text
       properties:
         text:
+          x-name: text
           type: string
-          example: 和歌山製鉄所
+          default: true
+          example: 鉄鋼最大手の日本製鉄は7日、高炉2基を備えた呉製鉄所（広島県呉市）を2023年9月までに全面休止すると発表した。閉鎖につながる可能性が高い。和歌山製鉄所（和歌山市）の高炉2基のうち1基を22年9月までに休止することも明らかにした。
+          description: |+
+            Input text
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
