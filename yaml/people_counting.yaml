@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
   title: People Counting
-  description: >-
-    This Computer Vision microservice tracks and counts people appearing in the input video.<br><br>This microservice returns the number of people detected in that video, the likelihood of overestimation/underestimation, the first appearance and the duration and confidence of each person detected."<br><br>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Computer Vision microservice tracks and counts people appearing in the input video.
+    
+    This microservice returns the number of people detected in that video, the likelihood of overestimation/underestimation, the first appearance and the duration and confidence of each person detected.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -22,6 +24,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example: {'counter': '11 people', 'likelihood of overestimation': '76.0%', 'likelihood of underestimation': '39.0%', 'people': [{'person id: 001': ['first appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}, {'person id: 002': ['first appearance: 3.34s', 'duration appeared: 7.03s', 'detection confidence: 73%', 'assigning confidence: 82.0%']}]}
+
         '401':
           description: Unauthorized
           content:
@@ -74,7 +78,6 @@ paths:
         - APIAuthorizer: []
       
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>video_base64</b></td><td>String</td><td>Required.Base64 string -video (mp4, avi, mov, etc) with H.264 codec encoded in base64</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -88,7 +91,7 @@ components:
       type: object
       example: {'counter': '11 people', 'likelihood of overestimation': '76.0%', 'likelihood of underestimation': '39.0%', 'people': [{'person id: 001': ['first appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}, {'person id: 002': ['first appearance: 3.34s', 'duration appeared: 7.03s', 'detection confidence: 73%', 'assigning confidence: 82.0%']}]}
       properties:
-          Counter:
+          counter:
             type: string
             example: 11 people
             description: Number of people detected in video
@@ -191,9 +194,16 @@ components:
           example: Failure
     input:
       type: object
+      required:
+        - video_base64
       properties:
         video_base64:
+          x-name: text
           type: string
+          default: true
+          example: UklGRkbiBABXQVZFZm10IBAAAAABA...
+          description: |+
+            Input video in base64 format
         
   securitySchemes:
     APIAuthorizer:
@@ -201,3 +211,4 @@ components:
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
