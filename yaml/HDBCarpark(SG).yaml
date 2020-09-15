@@ -9,6 +9,10 @@ info:
     **Search Types**  
     **Keyword search**  
     Keyword search; search for all searchable fields 
+  x-description2 : |+
+    **Search Types**  
+    **Keyword search**  
+    Keyword search; search for all searchable fields 
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
