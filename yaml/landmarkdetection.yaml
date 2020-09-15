@@ -194,6 +194,7 @@ components:
         image_base64:
           x-name: image_base64
           type: string
+          default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
             Input image in base64 format
