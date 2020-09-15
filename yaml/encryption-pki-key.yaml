@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
   title: Encryption using PKI Key
-  description: >-
-    This Utiltiy microservice encrypts the input text using the input key string.<br><br>This can be use with PKI Key Generator.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Utiltiy microservice encrypts the input text using the input key string.
+    
+    This can be use with PKI Key Generator.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
