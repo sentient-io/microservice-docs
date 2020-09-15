@@ -179,8 +179,8 @@ components:
       properties:
         url:
           type: string
-          example: "<youtube url>"
           default: true
+          example: "<youtube url>"
           description: |+
             Youtube URL
   securitySchemes:
