@@ -26,37 +26,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
                 example:
-                  results: 
-                  type: object
-                  properties:
-                    LOC:
-                      type: array
-                      items:
-                        oneOf:
-                          - type: string
-                            example: America
-                          - type: string
-                            example: Saudi Arabia
-                          - type: string
-                            example: Middle East
-                    MISC:
-                      type: array
-                      items:
-                        oneOf:
-                          - type: string
-                            example: American
-                    ORG:
-                      type: array
-                      items:
-                        oneOf:
-                          - type: string
-                            example: Islamic Revolutionary Guard Corps             
-                    PER:
-                      type: array
-                      items:
-                        oneOf:
-                          - type: string
-                            example: DONALD TRUMP 
+                  results: {LOC: [ America,Saudi Arabia,Yemen,Abqaiq ],MISC: [Arabian,American,Saudi ],ORG: [Houthi],PER: [ DONALD TRUMP,Mike Pompeo ]}
                   message: Successfully Processed
                   status: Success
         '401':
@@ -123,22 +93,22 @@ components:
         LOC:
           x-name: LOC
           type: array
-          example: America,Saudi Arabia,Yemen,Abqaiq
+          example: [ America,Saudi Arabia,Yemen,Abqaiq ]
           description: "name of location found in the text string"
         MISC:
           x-name: MISC
           type: array
-          example: Arabian,American,Saudi
+          example: [ Arabian,American,Saudi ]
           description: "name of miscellaneous names found in the text string"
         ORG:
           x-name: ORG
           type: array
-          example: Houthi
+          example: [ Houthi ]
           description: "name of PERSON found in the text string"             
         PER:
           x-name: PER
           type: array
-          example: DONALD TRUMP,Mike Pompeo
+          example: [ DONALD TRUMP,Mike Pompeo ]
           description: "name of organization found in the text string"
           
     unauthorized:
