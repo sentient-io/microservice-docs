@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
   title: JSON-CSV Convertor
-  description: >-
-    This Utility microservice converts the input JSON (json string or json file) to CSV format.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Utility microservice converts the input JSON (json string or json file) to CSV format.
   version: '1.0'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +21,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  url: https://storage.googleapis.com/json_csv_stroage/data_file.csv?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20200514%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20200514T062642Z&X-Goog-Expires=6000&X-Goog-SignedHeaders=host&X-Goog-Signature=4141536f1982dfb26a49c8764517a8147db31ed658aabe36715fe253588c073415bc813be245311cd701462da4d9bd8c07bc587127fea062e00eaf1a30db42a932ef458fae561969bf3d8c614d0c10a993590387a9f8587b8ed48925d8ef8eeed2a7e6ba09049a7a466c4d6204feccedb56dd05ea47d0acd8dcd9517c6b94613f69af7bf5dacf68da3911713da781ee81bc5e0821f507a658cab3f4910f4997462c1fdd612940d088d32c07218ab40ccf3b30af752eab47ae715a354aeb5497cc6470d46b0fbb2db49b2f76535f85b99f758162ed46809a206c2760f39c5c72fc084ec007a5444ccb99a0a3466542d673a326b3290ffa5271fbf3348e99f9926"
+                status: Success
+                message: Successfully Converted and stored in Google Cloud Storage
         '401':
           description: Unauthorized
           content:
@@ -72,7 +77,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br>You can pass json data or you can upload json file by choosing multipart/form-data.<br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>jsonfile</b></td><td>JSON Array</td><td>Required. List of json objects</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -178,15 +182,28 @@ components:
         jsonfile:
           type: object
           example: [{key:value}]
+          default: true
+          description: List of json objects
     input1:
       type: object
       properties:
         jsonfile:
           type: string
           format: binary
+    versions:
+      type: object
+      properties: 
+        v1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 16, 2020
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
