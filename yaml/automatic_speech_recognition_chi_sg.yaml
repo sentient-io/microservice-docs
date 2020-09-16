@@ -94,9 +94,9 @@ components:
                 example: 各位 同学 朋友 老师 教授 大家好 我叫 墓园
                 description: Converted Text
               status:
-               type: string
-               example: success
-               description: The status of the API call success/failure
+                type: string
+                example: success
+                description: The status of the API call success/failure
     unauthorized:
       type: object
       properties:
