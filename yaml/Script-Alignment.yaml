@@ -191,14 +191,14 @@ components:
           x-name: script
           type: array
           default: true
-          example: Hello World, This is a test. This is another test.
+          example: [ Hello World, This is a test. This is another test. ]
           description: |+
             An ordered array of text. Each element contains a line of the script.
         transcript: 
           x-name: transcript
           type: array
           default: true
-          example: [{"seqNum": 1,"start": 1.0,"end": 4.0,"text": "HELLO WORLD"}]
+          example: [ {"seqNum": 1,"start": 1.0,"end": 4.0,"text": "HELLO WORLD"} ]
           description: |+
             An ordered array of utterance struct.
           items:
@@ -207,7 +207,7 @@ components:
                 properties:
                   seqNum:
                     x-name: seqNum
-                    type: object
+                    type: number
                     default: true
                     example: 1
                     description: |+
