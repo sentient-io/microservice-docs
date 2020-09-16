@@ -89,19 +89,19 @@ Utility:
     Youtube Video Downloader:
         title: Youtube Video Downloader
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/download-youtube-video.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/youtube_video_downloader.yaml"
     Video-To-Audio Convertor:
         title: Video-To-Audio Convertor
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/video-to-audio-converter.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/video-to-audio_convertor.yaml"
     Web Scraper:
         title: Web Scraper
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/web-scraper.yaml"  
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/web_scraper.yaml"  
     Document Convertor ENG:
         title: Document Convertor ENG
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/document-conversion-eng.yaml"
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/document_convertor_eng.yaml"
     PDF Extractor:
         title: PDF Extractor
         versions:
@@ -109,27 +109,27 @@ Utility:
     PKI Key Generator:
         title: PKI Key Generator
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/pki-key-generation.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/pki_key_generator.yaml"
     Encryption using PKI Key:
         title: Encryption using PKI Key
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/encryption-pki-key.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/encryption_using_pki_key.yaml"
     Decryption using PKI Key:
         title: Decryption using PKI Key
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/decryption-pki-key.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/decryption_using_pki_key.yaml"
     Wikipedia Retrieval ENG:
         title: Wikipedia Retrieval ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/wikipedia-api.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/wikipedia_retrieval_eng.yaml"
     JSON-CSV Convertor:
         title: JSON-CSV Convertor
         versions:
-             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/json-csv.yaml"
+             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/json-csv_convertor.yaml"
     CSV-JSON Convertor:
         title: CSV-JSON Convertor
         versions:
-             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/csv-json.yaml"
+             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/csv-json_convertor.yaml"
     Audio Format Convertor:
         title: Audio Format Convertor
         versions:
@@ -137,15 +137,15 @@ Utility:
     Video-to-Image Convertor:
         title: Video-to-Image Convertor
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/video_to_image.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/video-to-image_convertor.yaml"
     Newspaper Article Scraper:
         title: Newspaper Article Scraper
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/newspaper_3k_article.yaml"
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/newspaper_article_scraper.yaml"
     URLs Retrieval:
         title: URLs Retrieval
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/CRAWLURLS.yaml"
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/urls_retrieval.yaml"
 Data:
     Commercial Directories HDB (SG):
         title: Commercial Directories HDB (SG)
