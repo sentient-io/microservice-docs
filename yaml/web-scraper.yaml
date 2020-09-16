@@ -149,6 +149,8 @@ components:
       properties:
         results:
           type: array
+          example: [{"title":"imagelinks", "findType":"find_all","tag":"img","attribute":"src"}]
+          description: The result of the API call
           items:
             properties:
               links:
