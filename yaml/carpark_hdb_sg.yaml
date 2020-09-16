@@ -126,7 +126,18 @@ paths:
           name: querystring
           schema:
             type: string
-          description: keyword match to all searchable fields
+          description: Simple keyword search for matches in all searchable fields.
+
+Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (“ ”).
+
+E.g. 
+
+*Ang Mo Kio* will return results containing any of the keywords  Ang, Mo or Kio individually while 
+
+*“Ang Mo Kio”* will return results only matching the full phrase Ang Mo Kio
+
+If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+
           example: BE33
           default: false
         - in: query
