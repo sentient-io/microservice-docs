@@ -92,7 +92,7 @@ components:
       properties:
         results:
           type: array
-          example: { "<Json": "Object>" }
+          example: [{ "<Json": "Object>" }]
           description: Json Object of returned results
           items:
             oneOf:
