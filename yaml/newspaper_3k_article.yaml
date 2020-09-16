@@ -124,6 +124,8 @@ components:
       properties:
         content:
           type: object
+          example: {<Json Object>}
+          description: The result of the API call
           properties:
             all_images: 
               type: array
@@ -136,12 +138,14 @@ components:
                 - https://static.bangkokpost.com/media/content/20170620/2363071.jpg
                 - https://static.bangkokpost.com/media/content/20170620/2364455.jpg
                 - https://static.bangkokpost.com/media/content/20170620/2363075.jpg
+              description: All images of new article.
             authors: 
               type: array
               items:
                 type: string
               example: 
                 - Bangkok Post Public Company Limited
+              description: Authors of new article.
             keywords: 
               type: array
               items:
@@ -153,33 +157,42 @@ components:
                 - study
                 - learning
                 - worlds
+              description: NLP processed keywords from news article.
             language: 
               type: string
               example: "en"
+              description: Language of news article.
             link: 
               type: string
               example: "https://www.bangkokpost.com/learning/news/1272315/study-and-work-in-australia-%E2%80%93-many-opportunities-ahead-"
+              description: Main article link url.
             publish_date: 
               type: string
               example: []
+              description: Published date of news article.
             summary: 
               type: string
               example: "Australia is a country welcoming international students to study at all levels of education with its quality and the part-time work rights given.\nMoreover, there are opportunities to work full-time and to migrate and hold Australian citizenship after graduation from Australia.\nStudy, Work and Live in one of the World's most liveable countries.\n\"Post Study Work Rights and Pathways to Australian Permanent"
+              description: Main content of news article.
             text: 
               type: string
               example: "Australia is a country welcoming international students to study at all levels of education with its quality and the part-time work rights given. Moreover, there are opportunities to work full-time and to migrate and hold Australian citizenship after graduation from Australia. Especially, engineers, IT specialists and accountants, and many more, are on the list of occupations which Australia is demanding.\n\nStudy, Work and Live in one of the World's most liveable countries.\n\nDon't miss the chance to interview directly with 40 leading universities and institutions from across Australia. Application fee waivers and scholarships are also available.\n\nUnique! \"Post Study Work Rights and Pathways to Australian Permanent Resident\" seminar by Dr. Visa, Australian Registered Migration Agent, and special talks by Andrew Biggs,"
+              description: Full text content of news article.
             title: 
               type: string
               example: "Study and Work in Australia"
+              description: Title of news article.
             top_image: 
               type: string
               example: "https://www.bangkokpost.com/media/content/20170620/c1_1272315_170620160518_620x413.jpg"
+              description: Published image of news article.
             video: 
               type: array
               items:
                 type: string              
               example: 
                   - https://www.youtube.com/embed/8I9uQVHluBk
+              description: All video clips related to news article if available.
         message:
           type: string
           example: Successfully Processed
@@ -277,7 +290,7 @@ components:
       properties:
         url:
           type: string
-          example: news link url
+          example: https://www.bangkokpost.com/learning/news/1272315/study-and-work-in-australia-%E2%80%93-many-opportunities-ahead
           default: true
           description: News article web URL.
   securitySchemes:
