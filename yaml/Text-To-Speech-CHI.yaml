@@ -26,7 +26,7 @@ paths:
               example: 
                 audioContent: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
                 message: Successfully Processed
-                status: Status
+                status: Success
         '401':
           description: Unauthorized
           content:
