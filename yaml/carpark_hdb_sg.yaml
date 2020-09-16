@@ -13,6 +13,10 @@ info:
   
     **Filter Types:**  
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
+    
+    * **must** - All of the stated conditions must match. Equivalent to an AND operator.
+    > {"must":[{"match":{"mc":0}}]}
+
 
   version: '0.1'
 servers:
