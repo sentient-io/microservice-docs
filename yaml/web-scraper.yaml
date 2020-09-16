@@ -298,8 +298,14 @@ components:
       properties:
         url:
           type: string
+          default: true
+          example: https://www.bbc.co.uk
+          description: Web page URL
         queryList:
           type: array
+          default: false
+          example: {"title":"", "findType":"","tag":"", "id":"", "class":"", "attribute":"", "returnType":""}
+          description: Array object
           items:
             properties:
               findType:
