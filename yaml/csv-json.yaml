@@ -99,7 +99,7 @@ components:
           properties:
             jsondata:
               type: string
-              example: [{"emp_name" : "xxxxx","email" : "xxxxx@sentient.io","job" : "developer"}
+              example: [{"emp_name":"xxxxx","email":"xxxxx@sentient.io","job":"developer"}]
               description: converted json object
             url: 
               type: string
