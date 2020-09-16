@@ -150,23 +150,23 @@ Data:
     Commercial Directories HDB (SG):
         title: Commercial Directories HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/HDBCommercialDirectories(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/commercial_directories_hdb_sg.yaml"
     Building Addresses HDB (SG):
         title: Building Addresses HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/HDBBuildingAddresses(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/building_addresses_hdb_sg.yaml"
     Residential Sales and Rental HDB (SG):
         title: Residential Sales and Rental HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/HDBResidentialSalesandRental(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/residential_sales_and_rental_hdb_sg.yaml"
     Carpark HDB (SG):
         title: Carpark HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/HDBCarpark(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/carpark_hdb_sg.yaml"
     Demographics HDB (SG):
         title: Demographics HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/HDBDemographics(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/demographics_hdb_sg.yaml"
     Flat Ownership HDB (SG):
         title: Flat Ownership HDB (SG)
         versions:
@@ -174,24 +174,24 @@ Data:
     Season Parking Availability HDB (SG):
         title: Season Parking Availability HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/HDB-CarPark-Availability-(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/season_parking_availability_hdb_sg.yaml"
     Directory of Singapore Startups:
         title: Directory of Singapore Startups
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/DirectoryofSingaporeStartups.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/directory_of_singapore_startups.yaml"
     Fitness Stations and Playgrounds HDB (SG):
         title: Fitness Stations and Playgrounds HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/FitnessStationPlayground-SingaporeHDB(CSV).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/fitness_stations_and_playgrounds_hdb_sg.yaml"
     Amenities Lamp Posts HDB (SG):
         title: Amenities Lamp Posts HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/HDBAmenitiesLampPosts(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_lamp_posts_hdb_sg.yaml"
     Amenities Hardcourts HDB (SG):
         title: Amenities Hardcourts HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/HDBAmenitiesHardcourts(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_hardcourts_hdb_sg.yaml"
     Amenities Shelters HDB (SG):
         title: Amenities Shelters HDB (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/HDBAmentitiesShelters(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_shelters_hdb_sg.yaml"
