@@ -120,12 +120,12 @@ components:
           x-name: ORG
           type: array
           example: [ Houthi ]
-          description: "name of PERSON found in the text string"             
+          description: "name of organizations found in the text string"             
         PER:
           x-name: PER
           type: array
           example: [ DONALD TRUMP,Mike Pompeo ]
-          description: "name of organization found in the text string"
+          description: "name of persons found in the text string"
           
     unauthorized:
       type: object

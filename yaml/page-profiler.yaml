@@ -98,11 +98,11 @@
           ORG:
            type: array
            example: [CNA,Singapore Parliament]
-           description: "name of PERSON found in the text string"  
+           description: "name of organizations found in the text string"  
           PER:
            type: array
            example: [Skip Navigation,Bookmarks]
-           description: "name of organization found in the text string"
+           description: "name of persons found in the text string"
             
       unauthorized:
         type: object
