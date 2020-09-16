@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
   title: Text-To-Speech CHI
-  description: >-
-    This Voice microservice converts Mandarin text into speech in a female voice.<br><br>The Text-to-Speech AI generated synthesized voice speaks with native Mandarin accent. <br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header<br><br>
+  description: |+
+    This Voice microservice converts Mandarin text into speech in a female voice.
+    
+    The Text-to-Speech AI generated synthesized voice speaks with native Mandarin accent.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +23,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example: 
+                audioContent: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
+                message: Successfully Processed
+                status: Status
         '401':
           description: Unauthorized
           content:
@@ -72,7 +78,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>text</b></td><td>String</td><td>Required. Text for speech</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -169,13 +174,20 @@ components:
           example: Failure      
     input:
       type: object
+      required:
+        - text
       properties:
         text:
+          x-name: text
           type: string
+          default: true
           example: 大家好 我叫 墓园
+          description: |+
+            Input text
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
