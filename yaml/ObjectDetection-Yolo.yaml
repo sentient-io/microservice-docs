@@ -90,8 +90,9 @@ components:
       properties:
         Object 1:
           type: array
+          example: ["tie : 100%",{"Bounding Box": {"Bot": 783,"Left": 411,"Right": 595,"Top": 520}}] 
+          description: "Details of the detected object"
           items:
-            description: "Details of the detected object"
             oneOf:
               - type: string
                 example: 'tie : 100%'
@@ -99,6 +100,7 @@ components:
                 properties:
                   Bounding Box:
                     type: object
+                    example: {"Bot": 783,"Left": 411,"Right": 595,"Top": 520}
                     description: Bounding box of the image
                     properties:
                       Bot: 
@@ -119,15 +121,17 @@ components:
                        description: Top coordinate of the box 
         Object 2:
           type: array
+          example: ["person : 100%",{"Bounding Box": {"Bot": 742,"Left": 19,"Right": 1019,"Top": 73}}]
+          description: "Details of the detected object"
           items:
-            description: "Details of the detected object"
             oneOf:
               - type: string
-                example: 'tie : 100%'
+                example: 'person : 100%'
               - type: object
                 properties:
                   Bounding Box:
                     type: object
+                    example: {"Bot": 742,"Left": 19,"Right": 1019,"Top": 73}
                     description: Bounding box of the image
                     properties:
                       Bot: 
