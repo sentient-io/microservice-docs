@@ -68,11 +68,11 @@ Computer Vision:
     Object Detection:
         title: Object Detection
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/ObjectDetection-Yolo.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/object_detection.yaml"
     Face Recognition Politicians (SG):
         title: Face Recognition Politicians (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/facerecognition.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/face_recognition_politicians_sg.yaml"
     People Counting:
         title: People Counting
         versions:
@@ -80,11 +80,11 @@ Computer Vision:
     Landmark Detection (SG):
         title: Landmark Detection (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/landmarkdetection.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/landmark_detection_sg.yaml"
     Landmark Detection (JP):
         title: Landmark Detection (JP)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/landmarkdetection_jp.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/landmark_detection_jp.yaml"
 Utility:
     Youtube Video Downloader:
         title: Youtube Video Downloader
