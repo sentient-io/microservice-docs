@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Audio convertor
   description: >-
-    This API is used to convert your audio like music(any format) to the WAV format.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+    This API is used to convert your audio like music(any format) to the WAV format.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +21,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  AudioContent: actual base64 string of input wav
+                message: Successfully Processed
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -72,7 +77,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>filepath</b></td><td>File</td><td>Required. The file object<br>Maximum file size up to 3.5MB</td></tr><tr><td>samplerate</td><td>String</td><td>Optional. Sample rate of the audio file in Hz</td></tr><tr><td>channel</td><td>String</td><td>Optional. Indicates the type of audio channel. Value must be 1 for mono or 2 for Stereo. Default is 2(Stereo)</td></tr><tr><td>bitrate</td><td>String</td><td>Optional. Indicates the bit resolution. Value must be 1(8bit) or 2 (16 bit) or 4(32bit) </td></tr><tr><td>normalize</td><td>String</td><td>Optional. A boolean value that indicates whether to normalize the audio or not. Values must be either “yes” or “no”</td></tr><tr><td>trim_start_time & trim_stop_time</td><td>String</td><td>Optional. Indicates the start and end time in seconds between which the audio is extracted</td></tr></table><br><br>
         content:
           multipart/form-data:
             schema:
@@ -86,7 +90,7 @@ components:
         results:
           type: string
           example:
-            AudioContent: actual base64 string of input wav
+            AudioContent: UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................
           description: Audio wav file convert to base64 encode string
         message:
           type: string
@@ -167,53 +171,62 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure      
+          example: Failure 
+    versions:
+      type: object
+      properties: 
+        v1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 10, 2020
+              description: Initial version release
     input:
       type: object
       required:
-        - filepath      
+        - filePath      
       properties:
-        filepath:
+        filePath:
           type: string
           format: binary
-          description: The file object
-          example: The file object
-          required: True
+          default: true
+          example: upload file
+          description: Maximum file size up to 10MB
         samplerate:
           type: string
+          default: false
+          example: '16000'
           description: Sample rate of the audio file in Hz
-          example: 16000
-          required: false
         channel:
           type: string
-          description: Indicates the type of audio channel. Value must be 1 (mono) or 2 (Stereo). Default is 2 (Stereo)
-          example: 1
-          required: false
+          default: false
+          example: '1'
+          description: Indicates the type of audio channel. Value must be 1 for mono or 2 for Stereo. Default is 2(Stereo)
         bitrate:
           type: string
-          description: Indicates the bit resolution. Value must be 1(8bit) or 2 (16 bit) or 4(32bit) 
-          example: 4
-          required: false
+          default: false
+          example: '4'
+          description: Indicates the bit resolution. Value must be 1(8bit) or 2 (16 bit) or 4(32bit)
         normalize:
           type: string
+          default: false
+          example: yes or no
           description: A boolean value that indicates whether to normalize the audio or not. Values must be either “yes” or “no”
-          example: yes
-          required: false
         trim_start_time:
           type: string
-          description: Indicates the start and end time in seconds between which the audio is extracted
-          example: 1
-          required: false
+          default: false
+          example: '1'
+          description: Indicates the start in seconds between which the audio is extracted
         trim_stop_time:
           type: string
-          description: Indicates the start and end time in seconds between which the audio is extracted
-          example: 5
-          required: false
+          default: false
+          example: '5'
+          description: Indicates the end time in seconds between which the audio is extracted
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
-  security:
-    APIAuthorizer: []
+      description: Authentication is done using the x-api-key in the request header
