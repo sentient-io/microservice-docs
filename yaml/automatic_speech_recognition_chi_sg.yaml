@@ -1,8 +1,12 @@
 openapi: 3.0.1
 info:
   title: Automatic Speech Recognition CHI (SG)
-  description: >-
-    This microservice takes in an audio file (in WAV format at 16kHz) and transcribes any speech content within the file into text.<br><br>The Automatic Speech Recognition (ASR) AI model is employed to understand the mapping of sound features to actual words in English and is trained to perform well on a Singaporean-accented English speaker. It is also expected to perform better when the speech content is related to generic news topics. This ASR model should also work for other content types and accents but with a lower accuracy.<br><br>Use this microservice if the audio file consists of mostly speech with no long pauses in between. If the audio file consists of various speech segments with significant pauses between them, we recommend that you use the VADASR microservice for better accuracy.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This microservice takes in an audio file (in WAV format at 16kHz) and transcribes any speech content within the file into text.
+    
+    The Automatic Speech Recognition (ASR) AI model is employed to understand the mapping of sound features to actual words in English and is trained to perform well on a Singaporean-accented English speaker. It is also expected to perform better when the speech content is related to generic news topics. This ASR model should also work for other content types and accents but with a lower accuracy.
+    
+    Use this microservice if the audio file consists of mostly speech with no long pauses in between. If the audio file consists of various speech segments with significant pauses between them, we recommend that you use the VADASR microservice for better accuracy.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +25,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                message: 各位 同学 朋友 老师 教授 大家好 我叫 墓园
+                status: success 
         '401':
           description: Unauthorized
           content:
@@ -72,7 +79,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>audio</b></td><td>String</td><td>Required. Input file in base64 format and needs to be prefixed by the data type and encoding. <br/>E.g. "data:audio/wav;base64,&lt;wav in base64 string&gt;"<br><br>Audio file should be:<br>Channel Type mono<br>Sample Rate 16kHz</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -165,15 +171,31 @@ components:
           example: Failure
     input:
       type: object
+      required:
+        - audio 
       properties:
         audio:
+          x-name: audio
           type: string
+          default: true
           example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
-          required: true
-          description: Input file in base64 format and needs to be prefixed by the data type and encoding.
+          description: |+
+            Input file in base64 format and needs to be prefixed by the data type and encoding
+            data:audio/wav;base64,<wav in base64 string>
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 18,2018
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
