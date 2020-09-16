@@ -6,7 +6,7 @@ Voice:
     Automatic Voice Recognition ENG (SG):
         title: Automatic Voice Recognition ENG (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/asr-without-vad.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/automatic_voice_recognition_eng_sg.yaml"
     Automatic Speech Recognition CHI (SG):
         title: Automatic Speech Recognition CHI (SG)
         versions:
@@ -14,7 +14,7 @@ Voice:
     Online Automatic Speech Recognition ENG (SG):
         title: Online Automatic Speech Recognition ENG (SG)
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/Online-Automatic-Speech-Recognition-ENG-SG.yaml"
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/online_automatic_speech_recognition_eng_sg.yaml"
     Text-To-Speech ENG:
         title: Text-To-Speech ENG
         versions:
@@ -22,7 +22,7 @@ Voice:
     Text-To-Speech CHI:
         title: Text-To-Speech CHI
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/Text-To-Speech-CHI.yaml"
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/text-to-speech_chi.yaml"
     ASR with VAD ENG (SG):
         title: ASR with VAD ENG (SG)
         versions:
@@ -30,7 +30,7 @@ Voice:
     Voice Activity Detection ENG:
         title: Voice Activity Detection ENG
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/vad.yaml"  
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/voice_activity_detection_eng.yaml"  
 NLP:
     Inverse Text Normalisation ENG:
         title: Inverse Text Normalisation ENG
