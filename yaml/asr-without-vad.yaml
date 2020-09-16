@@ -225,14 +225,14 @@ components:
                     type: number
                     format: float
                     default: false
-                    example: 4.0
+                    example: "4.0"
                     description: |+
                       End time of utterance, in seconds. Offset from the start of stream.
                   seqNum:
                     x-name: seqNum
                     type: number
                     default: false
-                    example: 1
+                    example: "1"
                     description: |+
                       Running sequence. Start from 1.
                   start:
@@ -240,7 +240,7 @@ components:
                     type: number
                     format: float
                     default: false
-                    example: 1.0
+                    example: "1.0"
                     description: |+
                       Start time of utterance, in seconds. Offset from the start of stream.
     versions:
