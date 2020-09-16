@@ -25,7 +25,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: {Object 1: [person : 100%,{Bounding Box: {Bot: 742,Left: 19,Right: 1019,Top: 73}}],Object 2: [tie : 100%,{Bounding Box: {Bot: 783,Left: 411,Right: 595,Top: 520}}]}
+              example: {"Object 1": ["person : 100%",{"Bounding Box": {"Bot": 742,"Left": 19,"Right": 1019,"Top": 73}}],"Object 2": ["tie : 100%",{"Bounding Box": {"Bot": 783,"Left": 411,"Right": 595,"Top": 520}}]}
 
         '401':
           description: Unauthorized
