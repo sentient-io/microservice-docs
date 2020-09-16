@@ -133,7 +133,7 @@ Utility:
     Audio Format Convertor:
         title: Audio Format Convertor
         versions:
-             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/Audio convertor.yaml"
+             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/audio_format_convertor.yaml"
     Video-to-Image Convertor:
         title: Video-to-Image Convertor
         versions:
