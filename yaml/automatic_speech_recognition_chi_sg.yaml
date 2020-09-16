@@ -26,7 +26,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: 各位 同学 朋友 老师 教授 大家好 我叫 墓园
+                message: 各位同学朋友老师教授大家好我叫墓园
                 status: success 
         '401':
           description: Unauthorized
@@ -91,7 +91,7 @@ components:
       properties:
               message:
                 type: string
-                example: 各位 同学 朋友 老师 教授 大家好 我叫 墓园
+                example: 各位同学朋友老师教授大家好我叫墓园
                 description: Converted Text
               status:
                 type: string
