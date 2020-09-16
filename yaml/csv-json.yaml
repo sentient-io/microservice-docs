@@ -94,7 +94,7 @@ components:
           example: Successfully Converted and stored in Google Cloud Storage
         results:
           type: object
-          example: 
+          example: { "<Json": "Object>" }
           description: List of items
           properties:
             jsondata:
