@@ -90,7 +90,7 @@ components:
         results:
           type: string
           example:
-            AudioContent: actual base64 string of input wav
+            AudioContent: UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................
           description: Audio wav file convert to base64 encode string
         message:
           type: string
