@@ -4,12 +4,16 @@ info:
   description: |+
     This Data microservice retrieves the Singapore Housing Development Board’s carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. This dataset is updated monthly.
 
-    Kindly note As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+    Note&#58 As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
   
   x-additionalinfo : |+
-    **Search Types**  
-    **Keyword search**  
-    Keyword search; search for all searchable fields 
+    **Refining queries in the filterdata field using filter types and match types**
+
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+  
+    **Filter Types:**  
+    A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58
+    
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
