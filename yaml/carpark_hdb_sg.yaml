@@ -71,6 +71,24 @@ info:
 
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
+    **Forming sophisticated queries using combinations of filter types (in JSON)**
+
+    Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
+    
+    > {
+    > "must":[{"match":{"mc":0}}],
+    > "filter":[{"match":{"street":"bishan"}}],
+    > "should":[{"match_phrase":{"street":"ang mo kio"}}],
+    > "must_not":[{"match":{"postalcode":"570251"}}]
+    > }
+
+    **Sample Queries Based on Use Cases**
+
+    **1. Search for all carparks around 414 Bedok North Road**
+
+      Using a querystring only&#58;
+      
+      > querystring = “414 bedok north road"
 
   version: '0.1'
 servers:
