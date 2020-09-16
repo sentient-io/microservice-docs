@@ -10,7 +10,7 @@ Voice:
     Automatic Speech Recognition CHI (SG):
         title: Automatic Speech Recognition CHI (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/Automatic-Speech-Recognition-CHI.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/automatic_speech_recognition_chi_sg.yaml"
     Online Automatic Speech Recognition ENG (SG):
         title: Online Automatic Speech Recognition ENG (SG)
         versions:
