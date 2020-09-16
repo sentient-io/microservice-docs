@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
   title: CSV-JSON Convertor
-  description: >-
-    This Utility microservice converts the input CSV to JSON format. The headers should be the keywords and columns should be the value of proper keywords.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Utility microservice converts the input CSV to JSON format. The headers should be the keywords and columns should be the value of proper keywords.
   version: '1.0'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +21,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Converted and stored in Google Cloud Storage
+                results:
+                  jsondata: []
+                  url: https://storage.googleapis.com/json_csv/data.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-bigquery%40sentient-231509.iam.gserviceaccount.com%2F20200617%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20200617T125854Z&X-Goog-Expires=6000&X-Goog-SignedHeaders=host&X-Goog-Signature=b66fb7b978a78d702e099b44ce7575de8a29834c23a6d365368022d7b1ab815e154100aa1648650e8b9ff9c038f0a61ac7d6d22b04195f18dfbf365e2050a7cbb29d9f87eb860fbe36f10573c941856341fa3117bbfee92bbd7e189ceca0a62fa8b78cb62647c4fc47e60e972c7c107088698924a7217571fee1900888c987fd80bdc078d4d765f6a4a65f4ff792c42344e07caf39b73961bee0d4b83407fda54e0d6b90fe528f62908ea54e3b07d8fba8098859330d6e9cc698f6cede40bdc05f1ec4efb29f1afc93572de52fe531d3b67fbdd035844a97b310e16eec17a4edeabdabb076b29bee9b1d44e0b90951c070046534f660d2fb291a1e1bae98ddc3
+                status: Success 
         '401':
           description: Unauthorized
           content:
@@ -72,7 +78,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>csvfile</b></td><td>File</td><td>Required. The file object<br>Max. file size upto - 3.5MB</td></tr></table><br><br>
         content:
           multipart/form-data:
             schema:
@@ -171,7 +176,17 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure      
+          example: Failure    
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - May 07, 2020
+              description: Initial version release
     input:
       type: object
       required:
@@ -180,9 +195,13 @@ components:
         csvfile:
           type: string
           format: binary
+          default: true
+          example: upload file
+          description: The file object Max. file size upto - 3.5MB
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
