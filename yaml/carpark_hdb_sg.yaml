@@ -11,7 +11,8 @@ info:
 
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
   
-    **Filter Types:**  
+    **Filter Types:**
+
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
     * **must** - All of the stated conditions must match. Equivalent to an AND operator.
@@ -33,6 +34,43 @@ info:
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
     Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+
+    **Match Types:**
+
+    A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+
+      > {"match":{"street":"bishan"}}
+
+    * **match_phrase** - Search within a full text field
+
+      > {"match_phrase":{"street":"bishan street 24"}}
+
+    * **match_phrase_prefix** - Search within a full text field with prefix
+
+      > {"match_phrase_prefix":{"street":"bishan street 24"}}
+
+    * **term** - Returns results that contain an exact term in a provided field
+
+      > {"term":{"street":"bishan"}}
+
+    * **terms** - Returns results that contain one or more exact terms in a provided field
+
+      > {"terms":{"cpk_no":["ak19","be33"]}}
+
+    * **range** - Returns results that contain terms within a stipulated range
+
+      > {"range":{"car":{"gte":100}}}
+{"range":{"car":{"lte":500}}}
+{"range":{"car":{"gte":100,"lte":500}}}
+
+    * **exists** - Returns results that contain any indexed value for a field
+
+      > {"exists":{ "field": "postalcode" }}
+
+    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+    
 
   version: '0.1'
 servers:
