@@ -127,9 +127,7 @@ paths:
           schema:
             type: string
           description: Simple keyword search for matches in all searchable fields.
-
-Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (“ ”).
-
+          Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes.
           example: BE33
           default: false
         - in: query
