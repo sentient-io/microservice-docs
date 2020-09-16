@@ -3,7 +3,9 @@ info:
   title: Carpark HDB (SG)
   description: |+
     This Data microservice retrieves the Singapore Housing Development Board’s carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. This dataset is updated monthly.
-    
+
+    Kindly note As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+  
   x-additionalinfo : |+
     **Search Types**  
     **Keyword search**  
