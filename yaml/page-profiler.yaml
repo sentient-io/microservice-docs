@@ -1,8 +1,12 @@
   openapi: 3.0.1
   info:
     title: Page Profiler ENG
-    description: >-
-      This NLP microservice retrieves web content in English from the input URL. From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output.<br><br>The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc."<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+    description: |+
+      This NLP microservice retrieves web content in English from the input URL. 
+      
+      From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output.
+      
+      The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
     version: '1.0'
   servers:
     - url: 'https://apis.sentient.io'
@@ -21,6 +25,7 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/success'
+                example: {"LOC": ["Beijing","Atlanta","Indonesia"], "MISC": [Twiight,Singaporean],"ORG": [CNA,Singapore Parliament],"PER": [Skip Navigation,Bookmarks]}
           '401':
             description: Unauthorized
             content:
@@ -72,7 +77,6 @@
         security:
           - APIAuthorizer: []
         requestBody:
-          description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>url</b></td><td>String</td><td>Required. URL of the website for processing</td></tr></table><br><br>
           content:
             application/json:
               schema:
@@ -85,42 +89,21 @@
         properties: 
           LOC:
            type: array
-           items:
-            description: "name of location found in the text string"
-            oneOf:
-              - type: string
-                example: Beijing
-              - type: string
-                example: Atlanta
-              - type: string
-                example: Indonesia
+           example: ["Beijing","Atlanta","Indonesia"]
+           description: "name of location found in the text string"
           MISC:
            type: array
-           items:
-            description: "name of miscellaneous names found in the text string"
-            oneOf:
-              - type: string
-                example: Twilight
-              - type: string
-                example: Singaporean
+           example: [Twiight,Singaporean]
+           description: "name of miscellaneous names found in the text string"
           ORG:
            type: array
-           items:
-            description: "name of PERSON found in the text string"
-            oneOf:
-              - type: string
-                example: CNA  
-              - type: string
-                example: Singapore Parliament  
+           example: [CNA,Singapore Parliament]
+           description: "name of PERSON found in the text string"  
           PER:
            type: array
-           items:
-            description: "name of organization found in the text string"
-            oneOf:
-              - type: string
-                example: Skip Navigation 
-              - type: string
-                example: Bookmarks
+           example: [Skip Navigation,Bookmarks]
+           description: "name of organization found in the text string"
+            
       unauthorized:
         type: object
         properties:
@@ -195,13 +178,20 @@
             example: Failure            
       input:
         type: object
+        required:
+          - url
         properties:
           url:
+            x-name: url
             type: string
+            default: true
             example: https://www.channelnewsasia.com/news/international
+            description: |+
+              Input url 
     securitySchemes:
       APIAuthorizer:
         type: apiKey
         name: x-api-key
         in: header
         x-amazon-apigateway-authtype: custom
+        description: Authentication is done using the x-api-key in the request header
