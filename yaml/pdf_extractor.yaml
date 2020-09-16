@@ -203,37 +203,37 @@ components:
           type: string
           format: binary
           default: true
-          example: 
+          example: file upload
           description: The file object Max. file size upto - 7MB. *Image pdf not supported
         pageNumbers:
           type: number
           default: false
-          example: 
+          example: "1,3,6"
           description: Page numbers, example 1,3,6. Default all pages
         maxPages:
           type: number
           default: false
-          example: 
+          example: "3"
           description: Maximum of page number. Default all pages
         startPage:
           type: number
           default: false
-          example: 
+          example: "1"
           description: Starting page number, if used endPage parameter is mandatory
         endPage:
           type: number
           default: false
-          example: 
+          example: "5"
           description: End of page number, if used startPage parameter is mandatory
         convertType:
           type: string
           default: false
-          example: 
+          example: "txt"
           description: Convertion type (txt / html). Default type is txt
         passWord:
           type: string
           default: false
-          example: 
+          example: "xxxxxxxx"
           description: Password for protected pdf
   securitySchemes:
     APIAuthorizer:
