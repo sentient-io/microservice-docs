@@ -306,7 +306,7 @@ components:
         queryList:
           type: array
           default: false
-          example: "[{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"h1", "returnType":"html"}]"
+          example: [{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"h1", "returnType":"html"}]
           description: Array object
           items:
             properties:
