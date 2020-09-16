@@ -86,29 +86,29 @@ info:
 
     1. **Search for all carparks around 414 Bedok North Road**
 
-      Using a querystring only&#58;
+       Using a querystring only&#58;
       
-      > querystring = “414 bedok north road"
+       > querystring = “414 bedok north road"
 
     2. **Search for all carparks within a 1KM radius from Tampines Mall**
 
-      Using a filterdata only&#58;
+       Using a filterdata only&#58;
 
-      > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
+       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
       
     3. **Search for all carparks around Tampines with motorcycle parking**
 
-      Using both querystring + filterdata&#58;
-      
-      > querystring = tampines
-      > filterdata = {"filter":[ {"range":{"mc":{"gte":1}}} ]}
+       Using both querystring + filterdata&#58;
+       
+       > querystring = tampines
+       > filterdata = {"filter":[ {"range":{"mc":{"gte":1}}} ]}
       
     4. **Search for all lorry parking lots for Bishan Street 22**
     
-      Using both querystring + filterdata&#58;
+       Using both querystring + filterdata&#58;
       
-      > querystring = “bishan street 22”
-      > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
+       > querystring = “bishan street 22”
+       > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
 
   version: '0.1'
 servers:
