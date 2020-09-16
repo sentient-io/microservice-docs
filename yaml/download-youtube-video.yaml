@@ -182,7 +182,7 @@ components:
         url:
           type: string
           default: true
-          example: youtube url
+          example: https://www.youtube.com/watch?v=1bumPyvzCyo
           description: |+
             Youtube URL
     versions:
