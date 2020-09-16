@@ -62,8 +62,8 @@ info:
     * **range** - Returns results that contain terms within a stipulated range
 
       > {"range":{"car":{"gte":100}}}
-{"range":{"car":{"lte":500}}}
-{"range":{"car":{"gte":100,"lte":500}}}
+      > {"range":{"car":{"lte":500}}}
+      > {"range":{"car":{"gte":100,"lte":500}}}
 
     * **exists** - Returns results that contain any indexed value for a field
 
