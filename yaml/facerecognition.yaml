@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
   title: Face Recognition Politicians (SG)
-  description: >-
-    This Computer Vision microservice recognises faces from input image files of Singapore Members of Parliament.<br><br>This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction."<br><br>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Computer Vision microservice recognises faces from input image files of Singapore Members of Parliament.
+    
+    This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +23,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results: {conf: 0.6588699206768599,identity: "Lee Hsien Loong",location: [67,339,196,210]}
         '401':
           description: Unauthorized
           content:
@@ -72,7 +76,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>model</b></td><td>String</td><td>Required. Available model names:<br/><br/>sg_parliament_2019 - is trained on Singapore Members of Parliament - 2019.</td></tr><tr><td><b>img_base64</b></td><td>String</td><td>Required. Input image file in base64 format.</td></tr><tr><td>file_type</td><td>String</td><td>Optional. Type of image file. Refers to Python Imaging Library (PIL) for supported formats -bmp, gif, jpg/jpeg, png. </td></tr><tr><td>threshold</td><td>integer</td><td>Optional. 0.0 to 1.0. Default is 0.4. Higher threshold will return results with higher confidence.</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -85,10 +88,11 @@ components:
       properties:
         results:
           type: array
+          example: {conf: 0.6588699206768599,identity: "Lee Hsien Loong",location: [67,339,196,210]}
+          description: Details of the face recognised from the image
           items:
             oneOf:
               - type: object 
-                example: {conf: 0.6588699206768599,identity: "Lee Hsien Loong",location: [67,339,196,210]}
                 properties:
                   conf:
                     type: number
@@ -102,11 +106,12 @@ components:
                   location:
                     type: array
                     example: [67,339,196,210]
+                    description: bounding box of the face in pixel coordinates of top, right, bottom, left.
                     items:
                       oneOf:
                         - type: number
                           example: 67
-                    description: bounding box of the face in pixel coordinates of top, right, bottom, left.
+                    
     unauthorized:
       type: object
       properties:
@@ -190,16 +195,39 @@ components:
           example: Failure
     input:
       type: object
+      required:
+        - model
+        - img_base64
       properties:
         model:
+          x-name: model
           type: string
+          default: true
+          example: sg_parliament_2019
+          description: |+
+            Model name. “sg_parliament_2019” is trained on Singapore Members of Parliament - 2019.
         img_base64:
+          x-name: img_base64
           type: string
+          default: true
+          example: UklGRkbiBABXQVZFZm10IBAAAAABA...
+          description: |+
+            Input image file in base64 format
         file_type:
+          x-name: file_type
           type: string
+          default: false
+          example: jpg
+          description: |+
+            Type of image file. If not specified, the type of file is detected and processed.Refers to Python Imaging Library (PIL) for supported formats: bmp, gif, jpg/jpeg, png.
         threshold:
+          x-name: threshold
           type: number
           format: float
+          default: false
+          example: 
+          description: |+
+            0.0 to 1.0. Default is 0.4. Higher threshold will return results with higher confidence.
         
   securitySchemes:
     APIAuthorizer:
@@ -207,3 +235,4 @@ components:
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
