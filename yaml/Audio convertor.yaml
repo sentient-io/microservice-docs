@@ -192,7 +192,7 @@ components:
           format: binary
           default: true
           example: upload file
-          description: Maximum file size up to 3.5MB
+          description: Maximum file size up to 10MB
         samplerate:
           type: string
           default: false
@@ -211,7 +211,7 @@ components:
         normalize:
           type: string
           default: false
-          example: -F
+          example: yes or no
           description: A boolean value that indicates whether to normalize the audio or not. Values must be either “yes” or “no”
         trim_start_time:
           type: string
