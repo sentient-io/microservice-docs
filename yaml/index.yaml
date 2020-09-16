@@ -35,35 +35,35 @@ NLP:
     Inverse Text Normalisation ENG:
         title: Inverse Text Normalisation ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/inverse-text-normalisation.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/inverse_text_normalisation_eng.yaml"
     Named-Entity Recognition ENG:
         title: Named-Entity Recognition ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/ner.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_eng.yaml"
     Page Profiler ENG:
         title: Page Profiler ENG
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/page-profiler.yaml"
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/page_profiler_eng.yaml"
     Taxonomy Matcher ENG:
         title: Taxonomy Matcher ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/taxonomy.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/taxonomy_matcher_eng.yaml"
     Word Sense Disambiguation ENG:
         title: Word Sense Disambiguation ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/word-sense-disambiguation.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/word_sense_disambiguation_eng.yaml"
     Named-Entity Recognition JAP:
         title: Named-Entity Recognition JAP
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/Japanese-Named-Entity-Recognition.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_jap.yaml"
     Named Entity Recognition THAI:
         title: Named Entity Recognition THAI
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/Thai_NER.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_thai.yaml"
     Script Alignment:
         title: Script Alignment
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/Script-Alignment.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/script_alignment.yaml"
 Computer Vision:
     Object Detection:
         title: Object Detection
