@@ -91,6 +91,8 @@ components:
       properties:
         results:
           type: object
+          example: [{key:value}]
+          description: list of json objects
           properties: 
             url: 
               type: string
@@ -176,7 +178,7 @@ components:
         status:
           type: string
           example: Failure      
-    input:
+    input1:
       type: object
       properties:
         jsonfile:
@@ -184,12 +186,15 @@ components:
           example: [{key:value}]
           default: true
           description: List of json objects
-    input1:
+    input:
       type: object
       properties:
         jsonfile:
           type: string
           format: binary
+          example: [{key:value}]
+          default: true
+          description: List of json objects
     versions:
       type: object
       properties: 
