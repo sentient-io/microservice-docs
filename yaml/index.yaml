@@ -18,7 +18,7 @@ Voice:
     Text-To-Speech ENG:
         title: Text-To-Speech ENG
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/tts-sg.yaml"
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/text-to-speech_eng.yaml"
     Text-To-Speech CHI:
         title: Text-To-Speech CHI
         versions:
