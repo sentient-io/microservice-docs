@@ -299,25 +299,25 @@ components:
         url:
           type: string
         queryList:
-         type: array
-         items:
-          properties:
-            findType:
-              type: string
-            tag:
-              type: string
-            id:
-              type: string
-            class:
-              type: string
-            nestedclassid:
-              type: string
-            attribute:
-              type: string
-            title:
-              type: string
-            returnType:
-              type: string
+          type: array
+          items:
+            properties:
+              findType:
+                type: string
+              tag:
+                type: string
+              id:
+                type: string
+              class:
+                type: string
+              nestedclassid:
+                type: string
+              attribute:
+                type: string
+              title:
+                type: string
+              returnType:
+                type: string
   securitySchemes:
     APIAuthorizer:
       type: apiKey
