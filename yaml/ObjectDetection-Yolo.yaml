@@ -1,8 +1,12 @@
 openapi: 3.0.1
 info:
   title: Object Detection
-  description: >-
-    This Computer Vision microservice detects objects in the input image. <br><br>The microservice returns detected objects with their classes and their bounding boxes in the image coordinates.<br><br>The classes are: person, bicycle, car, motorbike, aeroplane, bus, train, truck, boat, traffic light, fire hydrant, stop sign, parking meter, bench, bird, cat, dog, horse, sheep, cow, elephant, bear, zebra, giraffe, backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard, sports ball, kite, baseball bat, baseball glove, skateboard, surfboard, tennis racket, bottle, wine glass, cup, fork, knife, spoon, bowl, banana, apple, sandwich, orange, broccoli, carrot, hot dog, pizza, donut, cake, chair, sofa, pottedplant, bed, diningtable, toilet, tvmonitor, laptop, mouse, remote, keyboard, cell phone, microwave, oven, toaster, sink, refrigerator, book, clock, vase, scissors, teddy bear, hair drier, toothbrush"
+  description: |+
+    This Computer Vision microservice detects objects in the input image.
+    
+    The microservice returns detected objects with their classes and their bounding boxes in the image coordinates.
+    
+    The classes are: person, bicycle, car, motorbike, aeroplane, bus, train, truck, boat, traffic light, fire hydrant, stop sign, parking meter, bench, bird, cat, dog, horse, sheep, cow, elephant, bear, zebra, giraffe, backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard, sports ball, kite, baseball bat, baseball glove, skateboard, surfboard, tennis racket, bottle, wine glass, cup, fork, knife, spoon, bowl, banana, apple, sandwich, orange, broccoli, carrot, hot dog, pizza, donut, cake, chair, sofa, pottedplant, bed, diningtable, toilet, tvmonitor, laptop, mouse, remote, keyboard, cell phone, microwave, oven, toaster, sink, refrigerator, book, clock, vase, scissors, teddy bear, hair drier, toothbrush
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +25,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example: {
+                "Object 1": [
+                    "person : 100%",
+                    {
+                        "Bounding Box": {
+                            "Bot": 742,
+                            "Left": 19,
+                            "Right": 1019,
+                            "Top": 73
+                        }
+                    }
+                ],
+                "Object 2": [
+                    "tie : 100%",
+                    {
+                        "Bounding Box": {
+                            "Bot": 783,
+                            "Left": 411,
+                            "Right": 595,
+                            "Top": 520
+                        }
+                    }
+                ]
+            }
+
         '401':
           description: Unauthorized
           content:
@@ -70,7 +99,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewaytimeout'
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>image_base64</b></td><td>String</td><td>Required. Base 64 encoded string of an image</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -94,19 +122,24 @@ components:
                 properties:
                   Bounding Box:
                     type: object
+                    description: Bounding box of the image
                     properties:
                       Bot: 
                        type: number
                        example: 783
+                       description: Bottom coordinate of the box
                       Left: 
                        type: number
                        example: 411
+                       description: Left coordinate of the box
                       Right: 
                        type: number
                        example: 595
+                       description: Right coordinate of the box
                       Top: 
                        type: number
-                       example: 520      
+                       example: 520   
+                       description: Top coordinate of the box 
         Object 2:
           type: array
           items:
@@ -118,19 +151,24 @@ components:
                 properties:
                   Bounding Box:
                     type: object
+                    description: Bounding box of the image
                     properties:
                       Bot: 
                        type: number
                        example: 742
+                       description: Bottom coordinate of the box
                       Left: 
                        type: number
                        example: 19
+                       description: Left coordinate of the box
                       Right: 
                        type: number
                        example: 1019
+                       description: Right coordinate of the box
                       Top: 
                        type: number
-                       example: 73                           
+                       example: 73   
+                       description: Top coordinate of the box                         
     unauthorized:
       type: object
       properties:
@@ -205,13 +243,20 @@ components:
           example: Failure      
     input:
       type: object
+      required:
+      - image_base64
       properties:
         image_base64:
+          x-name: image_base64
           type: string
+          default: true
           example: /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUG...
+          description: |+
+            Input image file in base64 format
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
