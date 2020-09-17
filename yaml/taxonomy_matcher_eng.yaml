@@ -1,8 +1,12 @@
 openapi: 3.0.1
 info:
   title: Taxonomy Matcher ENG
-  description: >-
-    This NLP microservice matches the input word with the name of a leaf nodes in the predefined English taxonomy. The entire branch from the matched leaf node to the root of the corresponding taxonomy tree is returned. <br><br>The full taxonomy consists of major categories (for e.g. retail, cars, etc.). Each category is stored as a separate taxonomy tree within the Taxonomy instance. Each node in a taxonomy tree is identified using a node_id. It has attributes: name (a human readable string), level (how far it is from the root node) and type (whether it is a root node, leaf node or body node).<br><br>This microservice can help identify the types of concept that are frequently mentioned in an article.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This NLP microservice matches the input word with the name of a leaf nodes in the predefined English taxonomy. The entire branch from the matched leaf node to the root of the corresponding taxonomy tree is returned.
+    
+    The full taxonomy consists of major categories (for e.g. retail, cars, etc.). Each category is stored as a separate taxonomy tree within the Taxonomy instance. Each node in a taxonomy tree is identified using a node_id. It has attributes: name (a human readable string), level (how far it is from the root node) and type (whether it is a root node, leaf node or body node).
+    
+    This microservice can help identify the types of concept that are frequently mentioned in an article.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +25,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                
         '401':
           description: Unauthorized
           content:
@@ -81,41 +87,12 @@ paths:
 components:
   schemas:
     success:
-      description: a list of object names to be classify
       type: object
       properties:
-        bike:
-            type: string
-            example: [
-                      [
-                        "news/sport/swimming/bike",
-                        1
-                      ]
-                    ]
-        buildings:
-            type: string
-            example: [
-                    [
-                        "careers/job by industry/real estate/buildings",
-                        1.0
-                    ],
-                    [
-                        "news/business news/real estate/buildings",
-                        1.0
-                    ]
-                ]
-        bus:
-            type: string
-            example: [
-                    [
-                      "careers/job by industry/travel/bus",
-                      1
-                    ],
-                    [
-                      "news/business news/travel/bus",
-                      1
-                    ]
-                  ]
+        <requested_object> :
+          type: array
+          example: "bike": [["news/sport/swimming/bike",1]]
+          description: List of taxonomy for the requested object name
     unauthorized:
       type: object
       properties:
@@ -188,6 +165,7 @@ components:
         status:
           type: string
           example: Failure
+
     versions:
       type: object
       properties: 
@@ -200,14 +178,23 @@ components:
               description: Initial version release
     input:
       type: object
+      required:
+        - text
       properties:
         text:
-          type: string
-          format: array
+          x-name: text
+          type: array
+          default: true
           example: ["bus","cars","bike","train","buildings","Audi R8"]
+          description: |+
+            A list of object names to be classified. Up to a maximum of 20 search terms can be processed each time.
         threshold:
+          x-name: threshold
           type: integer
+          default: true
           example: 1
+          description: |+
+            The "threshold" specifies the level of similarity that the search term must match with terms in the taxonomy tree. Values range between 0.0 and 1.0 .It is optional. The default value is 1 (which means an exact match is required). Lowering the threshold will allow matches that are similar but not identical.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
