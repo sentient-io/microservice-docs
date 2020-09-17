@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
   title: Voice Activity Detection ENG
-  description: >-
-    This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.<br><br>An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.
+  description: |+
+    This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.
+    
+    An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +23,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results: [{end: 23.72,seqNum: 1,start: 0.64}]
+                
         '401':
           description: Unauthorized
           content:
@@ -72,7 +77,6 @@ paths:
       security:
         - APIAuthorizer: []          
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>wav_base64</b></td><td>Base64 String</td><td>Required. Input wav file in base64 format.</td></tr><tr><td>threshold</td><td>Float</td><td>Optional. Threshold default is 0.4.</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -85,25 +89,26 @@ components:
       properties:
         results:
           type: array
+          example: [{end: 23.72,seqNum: 1,start: 0.64}]
+          description: List of details of start and end time of utterances in the input audio
           items:
             oneOf:
               - type: object 
-                example: {end: 23.72,seqNum: 1,start: 0.64}
                 properties:
                   end:
                     type: number
                     format: float
                     example: 23.72
-                    description: end time of utterance
+                    description: End time of utterance, in seconds. Offset from the start of stream.
                   seqNum:
                     type: number
                     example: 1
-                    description: running sequence number starts from 1.
+                    description: Running sequence. Starts from 1.
                   start:
                     type: number
                     format: float
                     example: 0.64
-                    description: start time of utterance
+                    description: Start time of utterance, in seconds. Offset from the start of stream.
     unauthorized:
       type: object
       properties:
@@ -178,15 +183,38 @@ components:
           example: Failure
     input:
       type: object
+      required:
+        - wav_base64
       properties:
         wav_base64:
+          x-name: wav_base64
           type: string
+          default: true
+          example: UklGRkbiBABXQVZFZm10IBAAAAABA...
+          description: |+
+            Required. Input audio file in base64 format 
         threshold:
+          x-name: wav_base64
           type: number
           format: float
+          default: false
+          example: 0.2
+          description: |+
+            Optional. Threshold ranges between 0.0 and 1.0 and default is 0.4
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 03,2020
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
