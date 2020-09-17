@@ -303,6 +303,9 @@ components:
                               description: Json Object of returned hits
                               properties:
                                 e27:
+                                  type: string
+                                  description: company url
+                                  example: 'https://e27.co/startup/aar-consultancy'
                                   properties:
                                     sourceurl: 
                                       type: string
