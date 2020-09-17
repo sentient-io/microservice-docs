@@ -309,15 +309,15 @@ components:
                               example: AK19
                             block: 
                               type: string
-                              description: Shop block
+                              description: Address block no
                               example: "BLOCK 253"
                             street: 
                               type: string
-                              description: Shop street or building name
+                              description: Address street or building name
                               example: "ANG MO KIO STREET 21"
                             address: 
                               type: string
-                              description: Shop full address
+                              description: Address full address
                               example: "BLOCK 253 ANG MO KIO STREET 21"
                             source: 
                               type: string
