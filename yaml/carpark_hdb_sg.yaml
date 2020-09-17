@@ -153,7 +153,15 @@ If this field is set to null, by default the microservice will return all carpar
           schema:
             type: string  
           description: |+
-            Additional filter {"must":[ ],"should":[ ],"must_not":[ ],"filter":[ ]}
+            Refine the search further on any of the possible through the 4 filter types &#58;
+
+            * must
+            * must_not
+            * should
+            * filter
+
+          The filterdata field must be written in JSON format in order for it to be valid.
+
           default: false
           example: |+
             {"must":[{"match":{"mc":0}}],"filter":[{"match":{"street":"bishan"}}],"should":[{"match_phrase":{"street":"ang mo kio"}}],"must_not":[{"match":{"postalcode":"570251"}}]}
