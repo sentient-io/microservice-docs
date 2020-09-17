@@ -65,11 +65,11 @@ info:
      > }
 
     **Sample Queries Based on Use Cases**
-    1. **Search for all carparks around 414 Bedok North Road**
+    1. **Search for all residential sales and rental around Bedok North Road**
        Using a querystring only&#58;
       
-       > querystring = “414 bedok north road"
-    2. **Search for all carparks within a 1KM radius from Tampines Mall**
+       > querystring = "bedok north road"
+    2. **Search for all residential sales and rental within a 1KM radius from Tampines Mall**
        Using a filterdata only&#58;
        > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
 
