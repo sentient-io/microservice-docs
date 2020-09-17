@@ -1,17 +1,22 @@
 openapi: 3.0.1
 info:
   title: Amenities Hardcourts HDB (SG)
-  description: >-
-   This Data microservice captures the indicative outline of hardcourts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were extrapolated where possible and may not fully represent the actual shape of the actual object. <br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+   This Data microservice captures the indicative outline of hardcourts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were extrapolated where possible and may not fully represent the actual shape of the actual object.
 
-   <br><br>Download the complete dataset using a pre-signed URL. It's a two steps process
+     Download the complete dataset using a pre-signed URL. It's a two steps process
    
-    <br><b>Step 1:</b>  Get the pre-signed URL 
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;Replace the correct x-api-key, and API endpoint
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <\<API Endpoint>></b>
-        <br><b>Step 2:</b>  Get the pre-signed URL 
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;Using the results.url (i.e) the pre-signed URL to download the dataset
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>curl --request GET "results.url" >> "FILE_NAME"</b>
+    **Step 1:**  Get the pre-signed URL 
+    
+    Replace the correct x-api-key, and API endpoint
+    
+    > **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <\<API Endpoint>>**
+    
+    **Step 2:**  Get the pre-signed URL 
+    
+    Using the results.url (i.e) the pre-signed URL to download the dataset
+    
+    > **curl --request GET "results.url" >> "FILE_NAME"**
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -30,6 +35,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  url: "<pre-signed URL>"
+                status: Success
+                message: Successfully Processed
         '401':
           description: Unauthorized
           content:
@@ -95,9 +105,11 @@ components:
           status:
             type: string
             example: Success
+            description: The status of the API call. success/failure
           message:
             type: string
             example: Successfully Processed
+            description: Detail description on the api status
     unauthorized:
       type: object
       properties:
@@ -169,10 +181,21 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure      
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 07, 2020
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
