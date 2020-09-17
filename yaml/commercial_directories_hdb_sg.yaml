@@ -72,30 +72,30 @@ info:
 
       **Sample Queries Based on Use Cases**
     
-      1. **Search for all carparks around 414 Bedok North Road**
+      1. **Search for all Commercial around ang mo kio street 21**
 
          Using a querystring only&#58;
 
-         > querystring = “414 bedok north road"
+         > querystring = “ang mo kio street 21"
 
-      2. **Search for all carparks within a 1KM radius from Tampines Mall**
+      2. **Search for all Commercial within a 1KM radius from Tampines Mall**
 
          Using a filterdata only&#58;
 
          > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
 
-      3. **Search for all carparks around Tampines with motorcycle parking**
+      3. **Search for all Commercial around Tampines**
          Using both querystring + filterdata&#58;
 
          > querystring = tampines
-         > filterdata = {"filter":[ {"range":{"mc":{"gte":1}}} ]}
+         > filterdata = {"filter":[ {"range":{"unit":{"gte":1}}} ]}
 
-      4. **Search for all lorry parking lots for Bishan Street 22**
+      4. **Search for all block for ang mo kio street 21**
 
          Using both querystring + filterdata&#58;
 
-         > querystring = “bishan street 22”
-         > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
+         > querystring = “ang mo kio street 21”
+         > filterdata = {"filter":[ {"range":{"block":{"gte":1}}} ]}
        
   version: '0.1'
 servers:
