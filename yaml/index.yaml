@@ -151,31 +151,31 @@ Utility:
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/urls_retrieval.yaml"
 Data:
-    Commercial Directories HDB (SG):
+    HDB Commercial Directories (SG):
         title: Commercial Directories HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/commercial_directories_hdb_sg.yaml"
-    Building Addresses HDB (SG):
+    HDB Block Coordinates (SG):
         title: Building Addresses HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/building_addresses_hdb_sg.yaml"
-    Residential Sales and Rental HDB (SG):
+    HDB Residential Occupancy Status (SG):
         title: Residential Sales and Rental HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/residential_sales_and_rental_hdb_sg.yaml"
-    Carpark HDB (SG):
+    HDB Carpark Locations (SG):
         title: Carpark HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/carpark_hdb_sg.yaml"
-    Demographics HDB (SG):
+    HDB Demographics (SG):
         title: Demographics HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/demographics_hdb_sg.yaml"
-    Flat Ownership HDB (SG):
+    HDB Flat Ownership Duration (SG):
         title: Flat Ownership HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/flat_ownership_hdb_sg.yaml"
-    Season Parking Availability HDB (SG):
+    HDB Season Parking Availability (SG):
         title: Season Parking Availability HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/season_parking_availability_hdb_sg.yaml"
@@ -183,19 +183,19 @@ Data:
         title: Directory of Singapore Startups
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/directory_of_singapore_startups.yaml"
-    Fitness Stations and Playgrounds HDB (SG):
+    HDB Fitness Stations and Playgrounds (SG):
         title: Fitness Stations and Playgrounds HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/fitness_stations_and_playgrounds_hdb_sg.yaml"
-    Amenities Lamp Posts HDB (SG):
+    HDB Lamp Posts Locations (SG):
         title: Amenities Lamp Posts HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_lamp_posts_hdb_sg.yaml"
-    Amenities Hardcourts HDB (SG):
+    HDB Hardcourts Locations (SG):
         title: Amenities Hardcourts HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_hardcourts_hdb_sg.yaml"
-    Amenities Shelters HDB (SG):
+    HDB Shelters Locations (SG):
         title: Amenities Shelters HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_shelters_hdb_sg.yaml"
