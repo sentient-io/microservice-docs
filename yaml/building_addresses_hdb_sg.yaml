@@ -132,8 +132,9 @@ paths:
                 results:
                   total: 102
                   max_score: 6.998906
+                  description: The highest score value
                   hits:
-                  - _index: sentient_directory_building_index
+                    _index: sentient_directory_building_index
                     _type: dir_doc
                     _id: r7xcqWgBv3dNEHq2mz7x
                     _score: 6.998906
