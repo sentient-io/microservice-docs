@@ -118,7 +118,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: ang mo kio
+          example: "ang mo kio"
           default: false
         - in: query
           name: offset
@@ -146,7 +146,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],"filter":[{"match":{"trade":"shop"}}] ,"should":[{"match":{postalcode": "63553000}}],"must_not":[{"match":{"trade":"betting"}}      }
+              {"must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],"filter":[{"match":{"trade":"shop"}}] ,"should":[{"match":{postalcode": "560720}}],"must_not":[{"match":{"trade":"betting"}}      }
 
       responses:
         '200':
@@ -256,6 +256,8 @@ components:
               description: The highest score value
             hits:
               type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object              
               items:
                 type: object
                 properties:
@@ -276,6 +278,9 @@ components:
                     description: The document score for the search request
                     example: 17.995623
                   _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits                  
                     properties:
                             id: 
                               type: string
@@ -308,7 +313,7 @@ components:
                             email:
                               type: string
                               description: Email address
-                              example: ""
+                              example: "amk128@renalteam.org"
                             operatinghours:
                               type: string
                               description: Business operating hours. Multiple values are separated using ‘;’
@@ -342,6 +347,9 @@ components:
                               description: SVY21 Y coordinates
                               example: 39311.68
                             location:
+                              type: object
+                              description: WGS84 coordinates lat/long
+                              example: {"lat":1.364299477060462,"lon":103.8350609414261}                            
                               properties:
                                   lat: 
                                     type: string
