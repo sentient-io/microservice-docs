@@ -47,7 +47,7 @@ info:
 
       * **match_phrase_prefix** - Search within a full text field with prefix
 
-        > {"match_phrase_prefix":{"street":"bishan"}}
+        > {"match_phrase_prefix":{"street":"bishan street"}}
 
       * **term** - Returns results that contain an exact term in a provided field
 
