@@ -26,6 +26,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
+                bus:
+                - - careers/job by industry/travel/bus
+                  - 1
+                - - news/business news/travel/bus
+                  - 1
                 
         '401':
           description: Unauthorized
@@ -185,14 +190,14 @@ components:
           x-name: text
           type: array
           default: true
-          example: ["bus","cars","bike","train","buildings","Audi R8"]
+          example: "["bus","cars","bike","train","buildings","Audi R8"]""
           description: |+
             A list of object names to be classified. Up to a maximum of 20 search terms can be processed each time.
         threshold:
           x-name: threshold
-          type: integer
+          type: number
           default: true
-          example: 1
+          example: "1"
           description: |+
             The "threshold" specifies the level of similarity that the search term must match with terms in the taxonomy tree. Values range between 0.0 and 1.0 .It is optional. The default value is 1 (which means an exact match is required). Lowering the threshold will allow matches that are similar but not identical.
   securitySchemes:
