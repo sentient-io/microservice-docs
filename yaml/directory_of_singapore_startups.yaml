@@ -24,8 +24,6 @@ info:
     
     > {"must_not":[{"match":{"name":"Nityo Progression Consultancy Pte Ltd"}}]}
     
-    Or
-    
     Using querystring:
     
     > name:"Nityo Progression Consultancy Pte Ltd"
