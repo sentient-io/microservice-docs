@@ -4,6 +4,7 @@ info:
   description: |+
     This Data microservice retrieves the list of all Singapore startup companies found on the internet through web scraping. Updated quarterly.
   x-additionalinfo: |+
+    
     **Search Types**
     
     All values have to be URL encoded
@@ -34,7 +35,7 @@ info:
     
     > {"filter":[{"match":{"type":"company"}},{"match":{"name":"AAR Consultancy"}}]}
     
-    **<b>Supported Filter Types:**
+    **Supported Filter Types:**
    
     **must** - All of these clauses must match. The equivalent of AND.
     
