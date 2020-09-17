@@ -11,5 +11,7 @@ tags:
 - name: "v0.2"
   description: "Published some recent date for testing"
 html: |+
-     <iframe src="https://docs.sentient.io/static/online_automatic_speech_recognition.html" width="100%" height="800px">
+     <div id="iframe-container">
+     <iframe src="https://docs.sentient.io/static/online_automatic_speech_recognition.html" width="100vw" height="800px">
      </iframe>
+     </div>
