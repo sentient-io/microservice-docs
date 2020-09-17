@@ -33,25 +33,15 @@ info:
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
-
       > {"match":{"street":"serangoon"}}
-
     * **match_phrase** - Search within a full text field
-
       > {"match_phrase":{"street":"serangoon central"}}
-
     * **match_phrase_prefix** - Search within a full text field with prefix
-
       > {"match_phrase_prefix":{"street":"serangoon central"}}
-
     * **term** - Returns results that contain an exact term in a provided field
-
       > {"term":{"postalcode":"650634"}}
-
     * **terms** - Returns results that contain one or more exact terms in a provided field
-
       > {"terms":{"postalcode":["650634","650633"]}}
-
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
@@ -63,7 +53,6 @@ info:
      >  "should":[{"match":{"postalcode":"650633"}}],
      >  "must_not":[{"match":{"postalcode":"650634"}}]
      > }
-
     **Sample Queries Based on Use Cases**
     1. **Search for all residential sales and rental around Bedok North Road**
        Using a querystring only&#58;
@@ -72,7 +61,6 @@ info:
     2. **Search for all residential sales and rental within a 1KM radius from Tampines Mall**
        Using a filterdata only&#58;
        > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
-
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -256,10 +244,13 @@ components:
                     description: Document ID
                     example: '750405'
                   _score: 
-                    type: string
+                    type: number
                     description: The document score for the search request
                     example: 1
                   _source:
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits                      
                     properties:
                       postalcode:
                         type: string
@@ -350,6 +341,9 @@ components:
                         description: Record last updated date on sentient
                         example: '2019-10-17'
                       location:
+                        type: object
+                        description: WGS84 coordinates lat/long
+                        example: {"lat":1.350748,"lon":103.872798}                      
                         properties:
                             lat: 
                               type: string
