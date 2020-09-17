@@ -2,21 +2,20 @@ openapi: 3.0.1
 info:
   title: Amenities Lamp Posts HDB (SG)
   description: |+
-  
-   This Data microservice captures the indicative location of lamp posts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset.
-   
-   The shapefiles are compressed bundle files consisting various project files within it such as .shp, .shx, .dbf and .prj files. Requires GIS software to view.
-   
-   
-   Download the complete dataset using a pre-signed URL. It's a two steps process
+   This Data microservice returns the indicative location of lamp posts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. 
+
+    As this is a dataset download microservice, a successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
+
   x-additionalinfo: |+
+    Download the complete dataset using a pre-signed URL. It's a two steps process  
   
     **Step 1:**  Get the pre-signed URL 
     
     Replace the correct x-api-key, and API endpoint
     
     > **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <API Endpoint>**
-        <br><b>Step 2:</b>  Get the pre-signed URL 
+    
+    **Step 2:**  Download file 
     
     Using the results.url (i.e) the pre-signed URL to download the dataset
     
