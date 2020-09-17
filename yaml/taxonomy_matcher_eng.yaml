@@ -91,7 +91,7 @@ components:
       properties:
         <requested_object> :
           type: array
-          example: "bike": [["news/sport/swimming/bike",1]]
+          example: [["news/sport/swimming/bike",1]]
           description: List of taxonomy for the requested object name
     unauthorized:
       type: object
