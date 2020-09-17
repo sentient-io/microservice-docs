@@ -34,7 +34,7 @@ info:
     
     * **match** - Search within a full text field for a single word
 
-      > {"match":{"street":"serangoon central"}}
+      > {"match":{"street":"serangoon"}}
 
     * **match_phrase** - Search within a full text field
 
