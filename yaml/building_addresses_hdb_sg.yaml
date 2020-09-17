@@ -5,22 +5,20 @@ info:
    This Data microservice retrieves the list of all retail shops in Singapore which allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates type of business. The resultant dataset offers useful information like the shop operating hours and contact number. Updated weekly.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+       
   x-additionalinfo : |+
       **Refining queries in the filterdata field using filter types and match types**
       
       The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
       **Filter Types:**
-      
       A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
-      
       * **must** - All of the stated conditions must match. Equivalent to an AND operator.
       
-        > "must":[{"match_phrase":{"street": "ang mo kio avenue 4"}}]
+        > {"must":[{"match_phrase":{"name": "ang mo kio"}}]}
         
       * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
       
-      
-        > {"must_not":[{"match":{"block":"108"}}]}
+        > {"must_not":[{"match_phrase":{"street":"ang mo kio"}}]}
         
       * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       
@@ -28,16 +26,14 @@ info:
         
       * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
         
-        > "filter":[{"match":{"source":"hdb"}}]
+        > {"filter":[{"match":{"postalcode":"650633"}}]}
         
       For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
-      
       Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
       
       **Match Types:**
       
       A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
-      
       * **match** - Search within a full text field for a single word
       
         > { "match":{"street":"bishan"}}
@@ -64,21 +60,45 @@ info:
       
       Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
       
-        > {
-        > "must":[{"match_phrase":{"street": "ang mo kio avenue 4"}}],
-        > "filter":[{"match":{"source":"hdb"}}] ,
-        > "should":[{"match":{postalcode": "650633}}],
-        > "must_not":[{"match":{"block":"108"}}
-        > }
+      > {
+      > "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],
+      > "filter":[{"match":{"postalcode":"650633"}}],
+      > "should":[{"match":{"source":"hdb"}}],
+      > "must_not":[{"match":{"postalcode":"650633"}}
+      > }
         
+      **Sample Queries Based on Use Cases**
+    
+      1. **Search for all Commercial around ang mo kio street 21**
+      
+         Using a querystring only&#58;
+         > querystring = “ang mo kio street 21"
+         
+      2. **Search for all Commercial within a 1KM radius from Tampines Mall**
+      
+         Using a filterdata only&#58;
+         > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
+         
+      3. **Search for all Commercial around Tampines**
+      
+         Using both querystring + filterdata&#58;
+         > querystring = tampines
+         > filterdata = {"filter":[ {"range":{"unit":{"gte":1}}} ]}
+         
+      4. **Search for all block for ang mo kio street 21**
+      
+         Using both querystring + filterdata&#58;
+         > querystring = “ang mo kio street 21”
+         > filterdata = {"filter":[ {"range":{"block":{"gte":1}}} ]}
+       
   version: '0.1'
 servers:
-  - url: https://api.sentient.io
+  - url: 'https://api.sentient.io'
 tags:
 - name: "v0.1"
   description: "Published Date - Oct 10, 2019"
 paths:
-   /DaaS/prod/directories/searchbranch:
+   /DaaS/prod/directories/hdb/searchdir:
     get:
       tags:
         - v0.1
@@ -130,24 +150,26 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  total: 102
-                  max_score: 6.998906
-                  description: The highest score value
+                  total: 986
+                  max_score: 17.995623
                   hits:
-                    _index: sentient_directory_building_index
+                  - _index: sentient_directory_hdb_index
                     _type: dir_doc
-                    _id: r7xcqWgBv3dNEHq2mz7x
-                    _score: 6.998906
+                    _id: K7scqWgBv3dNEHq2WvMo
+                    _score: 17.995623
                     _source:
-                      buildingname: ''
-                      postalcode: '569866'
-                      block: '2761'
-                      street: ang mo kio avenue 5, spc ang mo kio avenue 5
+                      xcoord: 29520.58
+                      ycoord: 39311.68
+                      postalcode: '560720'
+                      block: '720'
+                      street: ang mo kio avenue 6
                       location:
-                        lat: 1.37905
-                        lon: 103.83596999999999
-                      source: starhub
-                      createddate: '2019-02-01'       
+                        lat: 1.37179535
+                        lon: 103.8469821
+                      source: hdb
+                      createddate: '2019-02-01'
+                  message: Successfully Processed
+                  status: Success
         '401':
           description: Unauthorized
           content:
@@ -204,22 +226,23 @@ components:
       type: object
       properties:
         results:
-          total: 102
-          max_score: 6.998906
+          total: 986
+          max_score: 17.995623
           hits:
-          - _index: sentient_directory_building_index
+          - _index: sentient_directory_hdb_index
             _type: dir_doc
-            _id: r7xcqWgBv3dNEHq2mz7x
-            _score: 6.998906
+            _id: K7scqWgBv3dNEHq2WvMo
+            _score: 17.995623
             _source:
-              buildingname: ''
-              postalcode: '569866'
-              block: '2761'
-              street: ang mo kio avenue 5, spc ang mo kio avenue 5
+              xcoord: 29520.58
+              ycoord: 39311.68
+              postalcode: '560720'
+              block: '720'
+              street: ang mo kio avenue 6
               location:
-                lat: 1.37905
-                lon: 103.83596999999999
-              source: starhub
+                lat: 1.37179535
+                lon: 103.8469821
+              source: hdb
               createddate: '2019-02-01'
         message:
           type: string
@@ -300,7 +323,7 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure      
+          example: Failure  
     versions:
       type: object
       properties: 
@@ -310,7 +333,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Oct 31,2018
-              description: Initial version release             
+              description: Initial version release          
   securitySchemes:
     APIAuthorizer:
       type: apiKey
