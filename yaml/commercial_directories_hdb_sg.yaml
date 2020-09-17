@@ -29,7 +29,41 @@ info:
       For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
 
       Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
-        
+      **Match Types:**
+      A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+
+      * **match** - Search within a full text field for a single word
+
+        > { "match":{"street":"bishan"}}
+
+      * **match_phrase** - Search within a full text field
+
+        > { "match_phrase":{ "street":bishan street 24"}}
+
+      * **match_phrase_prefix** - Search within a full text field with prefix
+
+        > {"match_phrase_prefix":{"street":"bishan"}}
+
+      * **term** - Returns results that contain an exact term in a provided field
+
+        > {"term":{"street":"bishan"}}
+
+      * **terms** - Returns results that contain one or more exact terms in a provided field
+
+        > {"terms":{"street":["bishan","and mo kio"]}}
+
+      For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+
+      **Forming sophisticated queries using combinations of filter types (in JSON)**
+
+      Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
+
+        > {
+        > "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],
+        > "filter":[{"match":{"trade":"supermarket"}}] ,
+        > "should":[{"match":{postalcode": "650633}}],
+        > "must_not":[{"match":{"trade":"betting"}}
+        > }      
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
