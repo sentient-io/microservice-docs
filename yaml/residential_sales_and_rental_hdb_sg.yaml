@@ -314,11 +314,11 @@ components:
                         example: 0
                       block:
                         type: string
-                        description: Shop block
+                        description: Block Number
                         example: 405
                       street: 
                         type: string
-                        description: Shop street
+                        description: Street
                         example: ADMIRALTY LINK
                       xcoord: 
                         type: string
@@ -330,7 +330,7 @@ components:
                         example: 48325.8008
                       address: 
                         type: string
-                        description: Shop full address
+                        description: Full address
                         example: 405 ADMIRALTY LINK
                       createddate: 
                         type: string
