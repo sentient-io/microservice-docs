@@ -1,7 +1,76 @@
 openapi: 3.0.1
 info:
   title: Building Addresses HDB (SG)
-  description:  This Data microservice retrieves information on the Singapore Housing Development Board building blocks in Singapore that includes addresses, postal code, latitude and longitude coordinates. Updated monthly<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.<br><h3><b>Search Types</b></h3><br>**All values have to be URL encoded<br><br><b>Keyword search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keyword search; search for all searchable fields<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using querystring:<br><br><div style="padding-left:22px;"><i>ang mo kio</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Filter search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 1:</b>Get all results except ang mo kio <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"must_not":[{"match_phrase":{"street":"ang mo kio"}}]}</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using qyerystring:<br><br><div style="padding-left:22px;"><i>name:"ang mo kio"</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 2:</b>Filter results with postal code 050531<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"filter":[{"match":{"postalcode":"050531"}}]}</i></div><br><b>Geo search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 1:</b>Geo search; distance in km and lat/lon. <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"filter":[{"geo_distance":{"distance":"1km","location":"1.3492463819999998,103.7511959"}}]}</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 2:</b>Geo search; distance in km and lat/lon and trade type supermarket<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"filter":[{"geo_distance":{"distance":"1km","location":"1.3492463819999998,103.7511959"}},{"match":{"street":"bukit batok"}}]}</i></div><h3><b>Supported Filter Types:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>must</b> - All of these clauses must match. The equivalent of AND.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>must_not</b> - All of these clauses must not match. The equivalent of NOT.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>should</b> - At least one of these clauses must match. The equivalent of OR.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>filter</b> - Clauses that must match, but are run in non-scoring, filtering mode.<h3><b>Supported Match Types:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match</b> - is to search within a full-text field for a single word<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "match":{"street":"bishan"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match_phrase</b> - is to search a full text field<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "match_phrase":{ "street":bishan street 24"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match_phrase_prefix</b> - is to search a full text field with prefix<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"match_phrase_prefix":{"street":"bishan"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>term</b> - returns documents that contain one or more exact terms in a provided field.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"term":{"street":"bishan"}}<br><br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terms</b> - The terms query is the same as the term query, except you can search for multiple values.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"terms":{"street":["bishan","and mo kio"]}}<h3><b>Sample filterdata JSON:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"filter":[{"match":{"postalcode":"650633"}}],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"should":[{"match":{"source":"hdb"}}],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"must_not":[{"match":{"postalcode":"650633"}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+  description: |+
+   This Data microservice retrieves the list of all retail shops in Singapore which allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates type of business. The resultant dataset offers useful information like the shop operating hours and contact number. Updated weekly.
+   
+   **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+  x-additionalinfo : |+
+      **Refining queries in the filterdata field using filter types and match types**
+      
+      The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+      **Filter Types:**
+      
+      A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
+      
+      * **must** - All of the stated conditions must match. Equivalent to an AND operator.
+      
+        > {"must":[{"match_phrase":{"name": "ang mo kio"}}]}
+        
+      * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
+      
+      
+        > {"must_not":[{"match":{"trade":"shop"}}]}
+        
+      * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
+      
+        > {"should":[{"match":{postalcode": "650633}}]}
+        
+      * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
+        
+        > {"filter":[{"match":{"trade":"supermarket"}}]}
+        
+      For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
+      
+      Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+      
+      **Match Types:**
+      
+      A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+      
+      * **match** - Search within a full text field for a single word
+      
+        > { "match":{"street":"bishan"}}
+        
+      * **match_phrase** - Search within a full text field
+      
+        > { "match_phrase":{ "street":bishan street 24"}}
+        
+      * **match_phrase_prefix** - Search within a full text field with prefix
+      
+        > {"match_phrase_prefix":{"street":"bishan"}}
+        
+      * **term** - Returns results that contain an exact term in a provided field
+      
+        > {"term":{"street":"bishan"}}
+        
+      * **terms** - Returns results that contain one or more exact terms in a provided field
+      
+        > {"terms":{"street":["bishan","and mo kio"]}}
+        
+      For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+      
+      **Forming sophisticated queries using combinations of filter types (in JSON)**
+      
+      Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
+      
+        > {
+        > "must":[{"match_phrase":{"name": "ang mo kio"}}],
+        > "filter":[{"match":{"trade":"supermarket"}}] ,
+        > "should":[{"match":{postalcode": "650633}}],
+        > "must_not":[{"match":{"trade":"betting"}}
+        > }
+        
   version: '0.1'
 servers:
   - url: https://api.sentient.io
@@ -103,77 +172,23 @@ components:
       type: object
       properties:
         results:
-          type: object
-          properties:
-            total:
-              type: number
-              example: 986
-              description: Total number of records
-            max_score:
-              type: number
-              example: 17.995623
-              description: The highest score value
-            hits:
-              type: array
-              items:
-                type: object
-                properties:
-                  _index:
-                    type: string
-                    description: Index group of the document
-                    example: "sentient_directory_hdb_index"
-                  _type: 
-                    type: string
-                    description: Content type of the document
-                    example: "dir_doc"
-                  _id: 
-                    type: string
-                    description: Document ID
-                    example: "K7scqWgBv3dNEHq2WvMo"
-                  _score: 
-                    type: string
-                    description: The document score for the search request
-                    example: 17.995623
-                  _source: 
-                    properties:
-                        xcoord:
-                          type: string
-                          description: SVY21 X coordinates
-                          example: 29520.58
-                        ycoord:
-                              type: string
-                              description: SVY21 Y coordinates
-                              example: 39311.68
-                        postalcode: 
-                              type: string
-                              description: Postal code of a block
-                              example: "560720"
-                        block:
-                              type: string
-                              description: Block number
-                              example: "720"
-                        street:
-                              type: string
-                              description: Full street name
-                              example: "ang mo kio avenue 6"
-                        location:
-                          properties:
-                            lat: 
-                              type: string
-                              description: WGS84 latitude
-                              example: 1.37179535
-                            lon:
-                              type: string
-                              description: WGS84 longitude
-                              example: 103.8469821
-                        source: 
-                          type: string
-                          description: Dataset name
-                          example: "hdb"
-                        createddate:
-                          type: string
-                          description: Record created date
-                          example: "2019-02-01"
+          total: 102
+          max_score: 6.998906
+          hits:
+          - _index: sentient_directory_building_index
+            _type: dir_doc
+            _id: r7xcqWgBv3dNEHq2mz7x
+            _score: 6.998906
+            _source:
+              buildingname: ''
+              postalcode: '569866'
+              block: '2761'
+              street: ang mo kio avenue 5, spc ang mo kio avenue 5
+              location:
+                lat: 1.37905
+                lon: 103.83596999999999
+              source: starhub
+              createddate: '2019-02-01'
         message:
             type: string
             example: Successfully Processed
