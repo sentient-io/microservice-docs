@@ -253,7 +253,7 @@ components:
                     description: Document ID
                     example: "AM/G40/Y/552506"
                   _score: 
-                    type: string
+                    type: number
                     description: The document score for the search request
                     example: 13.663734
                   _source: 
