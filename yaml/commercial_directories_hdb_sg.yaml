@@ -105,7 +105,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "retail in serangoon"
+          example: "retail"
           default: false
         - in: query
           name: offset
