@@ -1,16 +1,20 @@
 openapi: 3.0.1
 info:
-  title: Automatic Speech Recognition
-  description: >-
-    This module detects voice in audio track,transcribes any speech content within the audio file into text and outputs the start and end time of these utterances.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  title: Voice Activity Detection & ASR ENG
+  description: |+
+    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. 
+    
+    It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text.
+    
+    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k 
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - July 3, 2020"
+  description: "Published Date - Sep 30, 2019"
 paths:
-  /microservices/voice/asr/v0.1/getpredictions:
+  /microservices/voice/vadasr/v0.1/getpredictions:
     post:
       tags:
         - v0.1
@@ -21,6 +25,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                - seqNum: 1
+                  start: 0.64
+                  end: 23.72
+                  text: HELLO WORLD
         '401':
           description: Unauthorized
           content:
@@ -56,7 +65,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'        
+                $ref: '#/components/schemas/inputlimitexceeded'
         '500':
           description: Internal Server Error
           content:
@@ -72,51 +81,41 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>model</b></td><td>String</td><td>Required. Available model names:<br/> <br/>news_parliament - is trained on Singapore news and parliament corpus. <br>nsc_parliament - is trained on National Speech Corpus and parliament corpus. <br> nscfull_8k - 8 kHz, mono channel. wav format. </td></tr><tr><td><b>wav_base64</b></td><td>Base64 String</td><td>Required. Input wav file in base64 format.</td></tr><tr><td>srt</td><td>Utterance Array</td><td>Optional. An ordered array of utterance struct. Used for time-coding.</td></tr><tr><td>srt.seqNum</td><td>Integer</td><td>	Running sequence. Start from 1.</td></tr><tr><td>srt.start</td><td>Float</td><td>	Start time of utterance, in seconds. Offset from the start of stream.</td></tr><tr><td>srt.end</td><td>Float</td><td>End time of utterance, in seconds. Offset from the start of stream.</td></tr></table><br><br>
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/input'  
+              $ref: '#/components/schemas/input'
         required: true
 components:
   schemas:
     success:
       type: object
       properties:
-        results:
-          type: array
-          items:
-            oneOf:
-              - type: object 
-                example: {seqNum: 1,start: 1.0,end: 4.0,text: HELLO WORLD}
-                properties:
-                  end:
-                    type: number
-                    format: float
-                    example: 23.72
-                    description: end time of utterance in seconds
-                  seqNum:
-                    type: number
-                    example: 1
-                    description: running sequence number starts from 1.
-                  start:
-                    type: number
-                    format: float
-                    example: 0.64
-                    description: start time of utterance in seconds
-                  text:
-                    type: string
-                    description: Converted text from the input audio file
-                    example: THE COMING YEAR LIFE FOR A REASON A CITIZEN OR A LIFETIME LIKE YOU WHEN SOMEONE IS IN YOUR LIFE A REASON IT USUALLY TO MEET IN NEED WITHIN YOU HAVE NEVER MET YOU BUT I LIKE YOU WHEN SOMEONE IS IN YOUR LIFE FOR A SEASON IS BECAUSE IT IS YOUR TURN TO SHARE LEARN AND GROW AND WANT SOMEONE IN YOUR LIFE FOR A LIFETIME IT CITY THROUGH LESSONS AND IF NOT WHAT THE PEOPLE
+        end:
+          type: string
+          example: 23.72
+          description: end time of utterance
+        seqNum:
+          type: string
+          example: 1
+          description: running sequence number starts from 1.
+        start:
+          type: float
+          example: 0.64
+          description: start time of utterance
+        text:
+          type: string
+          description: Converted text from the input audio file
+          example: THE COMING YEAR LIFE FOR A REASON A CITIZEN OR A LIFETIME LIKE YOU WHEN SOMEONE IS IN YOUR LIFE A REASON IT USUALLY TO MEET IN NEED WITHIN YOU HAVE NEVER MET YOU BUT I LIKE YOU WHEN SOMEONE IS IN YOUR LIFE FOR A SEASON IS BECAUSE IT IS YOUR TURN TO SHARE LEARN AND GROW AND WANT SOMEONE IN YOUR LIFE FOR A LIFETIME IT CITY THROUGH LESSONS AND IF NOT WHAT THE PEOPLE
     unauthorized:
-        type: object
-        properties:
-          message:
-            type: string
-            example: Missing Authentication Token
-          status:
-            type: string
-            example: Failure
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
     forbidden:
       type: object
       properties:
@@ -182,28 +181,62 @@ components:
           example: Failure
     input:
       type: object
+      required:
+        - wav_base64
+        - wav_url
       properties:
         model:
+          x-name: model
           type: string
+          default: false
+          example: news_parliament
+          description: |+
+            news_parliament. 16 kHz, mono channel. wav format.
+            nsc_parliament. 16 kHz, mono channel. wav format.
+            nscfull_8k. 8 kHz, mono channel. wav format.
+        wav_url:
+          x-name: wav_url
+          type: string
+          default: true
+          example: https://api.sentient.io/test2.wav
+          description: |+
+            The public URL link to the wave file. Mono channel. 8kHz / 16kHz sampling rate
         wav_base64:
+          x-name: wav_base64
           type: string
-        srt:
-          type: array
-          items:
-            oneOf:
-              - type: object 
-                properties:
-                  end:
-                    type: number
-                    format: float
-                  seqNum:
-                    type: number
-                  start:
-                    type: number
-                    format: float
+          default: true
+          example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+          description: |+
+            Input audio wav file in base64 format. Mono channel. 8kHz / 16kHz sampling rate
+        file_type:
+          x-name: file_type
+          type: string
+          default: false
+          example: wav
+          description: |+
+            Input file extension. Only “wav” is supported
+        vad_threshold:
+          x-name: vad_threshold
+          type: string
+          default: false
+          example: 0.4
+          description: |+
+            0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sept 30,2019
+              description: Initial version release
+            
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
