@@ -16,7 +16,7 @@ Voice:
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/online_automatic_speech_recognition_eng_sg.yaml"
     Online Command Automatic Speech Recognition ENG (SG):
-        title: Online Command Automatic Speech Recognition ENG (SG):
+        title: Online Command Automatic Speech Recognition ENG (SG)
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/online_command_automatic_speech_recognition_eng_sg.yaml"
     Text-To-Speech ENG:
