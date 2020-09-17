@@ -216,7 +216,7 @@ components:
           x-name: seqNum
           type: number
           default: true
-          example: 4
+          example: "4"
           description: |+
             text order id
 
