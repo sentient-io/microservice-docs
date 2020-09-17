@@ -1,8 +1,12 @@
 openapi: 3.0.1
 info:
   title: Voice Activity Detection & ASR ENG
-  description: >-
-    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text.<br><br>This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k <br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. 
+    
+    It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text.
+    
+    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k 
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +25,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                - seqNum: 1
+                  start: 0.64
+                  end: 23.72
+                  text: HELLO WORLD
         '401':
           description: Unauthorized
           content:
@@ -72,7 +81,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;">Field</th><th style="width:15%;">Type</th> <th style="width:70%;">Description</th></tr><tr><td><b>model</b></td><td>String</td><td>Required. Available model names:<br/> <br/>news_parliament - is trained on Singapore news and parliament corpus. <br>nsc_parliament - is trained on National Speech Corpus and parliament corpus. <br> nscfull_8k - 8 kHz, mono channel. wav format. </td></tr><tr><td><b>wav_url</b><br><br>OR<br><br><b>wav_base64</b></td><td>String<br><br><br><br>String</td><td>Required. The public URL link to the wave file. Mono channel. 8kHz / 16kHz sampling rate.<br><br><br><br>Required. Wav in base64. Mono channel. 8kHz / 16k sampling rate.</td></tr><tr><td>file_type</td><td>String</td><td>Input file extension. Only “wav” is supported.</td></tr><tr><td>vad_threshold</td><td>Float</td><td>0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -173,20 +181,62 @@ components:
           example: Failure
     input:
       type: object
+      required:
+        - wav_base64
+        - wav_url
       properties:
         model:
+          x-name: model
           type: string
+          default: false
+          example: news_parliament
+          description: |+
+            news_parliament. 16 kHz, mono channel. wav format.
+            nsc_parliament. 16 kHz, mono channel. wav format.
+            nscfull_8k. 8 kHz, mono channel. wav format.
         wav_url:
+          x-name: wav_url
           type: string
+          default: true
+          example: https://api.sentient.io/test2.wav
+          description: |+
+            The public URL link to the wave file. Mono channel. 8kHz / 16kHz sampling rate
         wav_base64:
+          x-name: wav_base64
           type: string
+          default: true
+          example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+          description: |+
+            Input audio wav file in base64 format. Mono channel. 8kHz / 16kHz sampling rate
         file_type:
+          x-name: file_type
           type: string
+          default: false
+          example: wav
+          description: |+
+            Input file extension. Only “wav” is supported
         vad_threshold:
+          x-name: vad_threshold
           type: string
+          default: false
+          example: 0.4
+          description: |+
+            0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sept 30,2019
+              description: Initial version release
+            
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
