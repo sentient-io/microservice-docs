@@ -195,7 +195,7 @@
             x-name: url
             type: string
             default: true
-            example: https://www.channelnewsasia.com/news/international
+            example: https://www.sentient.io/en/
             description: |+
               Input url 
     securitySchemes:
