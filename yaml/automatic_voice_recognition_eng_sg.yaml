@@ -93,7 +93,7 @@ components:
         results:
           type: array
           example: [{ "<Json": "Object>" }]
-          description: Json Object of returned results
+          description: List of Json Objects
           items:
             oneOf:
               - type: object 
@@ -103,16 +103,16 @@ components:
                     type: number
                     format: float
                     example: 23.72
-                    description: end time of utterance in seconds
+                    description: End time of utterance in seconds
                   seqNum:
                     type: number
                     example: 1
-                    description: running sequence number starts from 1.
+                    description: Running sequence. Starts from 1.
                   start:
                     type: number
                     format: float
                     example: 0.64
-                    description: start time of utterance in seconds
+                    description: Start time of utterance in seconds
                   text:
                     type: string
                     description: Converted text from the input audio file
@@ -227,14 +227,14 @@ components:
                     default: false
                     example: "4.0"
                     description: |+
-                      End time of utterance, in seconds. Offset from the start of stream.
+                      "End time of utterance, in seconds. Offset from the start of stream."
                   seqNum:
                     x-name: seqNum
                     type: number
                     default: false
                     example: "1"
                     description: |+
-                      Running sequence. Start from 1.
+                      "Running sequence. Starts from 1."
                   start:
                     x-name: start
                     type: number
@@ -242,7 +242,7 @@ components:
                     default: false
                     example: "1.0"
                     description: |+
-                      Start time of utterance, in seconds. Offset from the start of stream.
+                      "Start time of utterance, in seconds. Offset from the start of stream."
     versions:
       type: object
       properties: 
