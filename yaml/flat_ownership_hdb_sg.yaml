@@ -1,8 +1,91 @@
 openapi: 3.0.1
 info:
   title: Flat Ownership HDB (SG)
-  description:  This Data microservice returns information on flat ownership within Housing Development Board of Singapore (HDB) estates that includes location address, postal code, length of ownership and their quantity in units.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.<br><h3><b>Search Types</b></h3><br>*All values have to be URL encoded<br><br><b>Keyword search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keyword search; search for all searchable fields<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using querystring:<br><br><div style="padding-left:22px;"><i>ang mo kio</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Filter search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 1:</b> Get all results except ang mo kio <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"must_not":[{"match_phrase":{"street":"ang mo kio"}}]}</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using querystring:<br><br><div style="padding-left:22px;"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:"ang mo kio"</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 2:</b> Filter results with len_of_ownership t <= 10<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"filter":[{"match":{"len_of_ownership":"t <= 10"}}]}</i></div><br><b>Geo search</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 1:</b> Geo search; distance in km and lat/lon. <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"filter":[{"geo_distance":{"distance":"1km","location":"1.3492463819999998,103.7511959"}}]}</i></div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Example 2:</b> Geo search; distance in km and lat/lon and trade type supermarket<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using fiterdata:<br><br><div style="padding-left:22px;"><i>{"filter":[{"geo_distance":{"distance":"1km","location":"1.3492463819999998,103.7511959"}},{"match":{"street":"bukit batok"}}]}</i></div><h3><b>Supported Filter Types:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>must</b> - All of these clauses must match. The equivalent of AND.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>must_not</b> - All of these clauses must not match. The equivalent of NOT.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>should</b> - At least one of these clauses must match. The equivalent of OR.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>filter</b> - Clauses that must match, but are run in non-scoring, filtering mode.<br><br><h3><b>Supported Match Types:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match</b> - is to search within a full-text field for a single word<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "match":{"street":"bishan"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match_phrase</b> - is to search a full text field<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ "match_phrase":{ "street":bishan street 24"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>match_phrase_prefix</b> - is to search a full text field with prefix<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"match_phrase_prefix":{"street":"bishan"}}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>term</b> - returns documents that contain one or more exact terms in a provided field.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"term":{"street":"bishan"}}<br><br><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terms</b> - The terms query is the same as the term query, except you can search for multiple values.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"terms":{"street":["bishan","and mo kio"]}}<br><br><h3><b>Sample filterdata JSON:</b></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"filter":[{"match":{"tags.type":"source"}}] ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"should":[{"match":{"source":"hdb"}}],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"must_not":[{"match":{"len_of_ownership":"30 < t <= 40"}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-  x-example: Description 2 content here
+  description: |+
+   This Data microservice retrieves the list of all retail shops in Singapore which allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates type of business. The resultant dataset offers useful information like the shop operating hours and contact number. Updated weekly.
+   
+   **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+       
+  x-additionalinfo : |+
+    **Refining queries in the filterdata field using filter types and match types**
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+  
+    **Filter Types:**
+    A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
+    
+    * **must** - All of the stated conditions must match. Equivalent to an AND operator.
+    
+      > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
+    
+    * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
+      > {"must_not":[{"match":{"postalcode":"570251"}}]}
+    
+    * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
+      > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
+    
+    * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
+      > {"filter":[{"match":{"street":"serangoon"}}]}
+      
+    For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
+    
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    **Match Types:**
+    A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+
+      > {"match":{"street":"serangoon central, serangoon mrt station"}}
+
+    * **match_phrase** - Search within a full text field
+
+      > {"match_phrase":{"street":"serangoon central, serangoon mrt station"}}
+
+    * **match_phrase_prefix** - Search within a full text field with prefix
+
+      > {"match_phrase_prefix":{"street":"serangoon central, serangoon mrt station"}}
+
+    * **term** - Returns results that contain an exact term in a provided field
+
+      > {"term":{"street":"serangoon central, serangoon mrt station"}}
+
+    * **terms** - Returns results that contain one or more exact terms in a provided field
+
+      > {"terms":{"street":["bishan","and mo kio"]}}
+
+    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+    
+    **Forming sophisticated queries using combinations of filter types (in JSON)**
+    Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
+    
+     > {
+     >  "must":[{"match_phrase":{"street":"serangoon+central"}}],
+     >  "filter":[{"match":{"postalcode":"650633"}}],
+     >  "should":[{"match":{"source":"hdb"}}],
+     >  "must_not":[{"match":{"postalcode":"650633"}}
+     > }
+
+    **Sample Queries Based on Use Cases**
+    1. **Search for all carparks around 414 Bedok North Road**
+       Using a querystring only&#58;
+      
+       > querystring = “414 bedok north road"
+    2. **Search for all carparks within a 1KM radius from Tampines Mall**
+       Using a filterdata only&#58;
+       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
+      
+    3. **Search for all carparks around Tampines with motorcycle parking**
+       Using both querystring + filterdata&#58;
+       
+       > querystring = tampines
+       > filterdata = {"filter":[ {"range":{"mc":{"gte":1}}} ]}
+      
+    4. **Search for all lorry parking lots for Bishan Street 22**
+    
+       Using both querystring + filterdata&#58;
+      
+       > querystring = “bishan street 22”
+       > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
+
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -19,28 +102,38 @@ paths:
           name: querystring
           schema:
             type: string
-          description: keyword match to all searchable fields
-          required: true
+          description: |+ 
+            Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
+            
+            If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            
+          example: "serangoon"
+          default: false
         - in: query
           name: offset
           schema:
             type: integer
-            example: "0"
           description: The offset of the record list ie the starting index
-          required: false
+          example: "0"
+          default: false
         - in: query
           name: limit
           schema:
             type: integer
-            example: 10
-          description: The max records to return for the request
-          required: false
+          description: The max records to return for the request. Default - 10, Max - 10000
+          example: "10"
+          default: false
         - in: query
           name: filterdata
           schema:
             type: string
-          description: Additional filter {"must":[ ],"should":[ ],"must_not":[ ],"filter":[ ]}
-          required: false
+          description: |+
+            Refine the search further on any of the possible through the 4 filter types &#58;
+            * must
+            * must_not
+            * should
+            * filter
+          default: false
       responses:
         '200':
           description: success response
@@ -132,6 +225,8 @@ components:
       properties:
         results:
           type: object
+          example: {<Json Object>}
+          description: Json Object of returned results 
           properties:
             total:
               type: number
@@ -143,6 +238,8 @@ components:
               description: The highest score value
             hits:
               type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
               items:
                 type: object
                 properties:
@@ -225,9 +322,11 @@ components:
         message:
           type: string
           example: Successfully Processed
+          description: The detail description on the status
         status:
           type: string
           example: Success
+          description: The status of the API call Success/Failure
     versions:
       type: object
       properties: 
@@ -326,10 +425,21 @@ components:
         status:
           type: string
           example: Failure 
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 24,2020
+              description: Initial version release             
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
   
