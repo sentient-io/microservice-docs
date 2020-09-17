@@ -287,7 +287,7 @@ components:
                               example: "01"
                             source: 
                               type: string
-                              description: Dataset name
+                              description: Dataset source
                               example: "hdb"
                             name: 
                               type: string
