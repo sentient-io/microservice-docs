@@ -128,6 +128,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  total: 102
+                  max_score: 6.998906
+                  hits:
+                  - _index: sentient_directory_building_index
+                    _type: dir_doc
+                    _id: r7xcqWgBv3dNEHq2mz7x
+                    _score: 6.998906
+                    _source:
+                      buildingname: ''
+                      postalcode: '569866'
+                      block: '2761'
+                      street: ang mo kio avenue 5, spc ang mo kio avenue 5
+                      location:
+                        lat: 1.37905
+                        lon: 103.83596999999999
+                      source: starhub
+                      createddate: '2019-02-01'       
         '401':
           description: Unauthorized
           content:
