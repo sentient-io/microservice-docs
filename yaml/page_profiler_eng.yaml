@@ -176,7 +176,7 @@
           status:
             type: string
             example: Failure 
-                      
+
       input:
         type: object
         required:
@@ -189,6 +189,17 @@
             example: https://www.sentient.io/en/
             description: |+
               Input url 
+
+      versions:
+        type: object
+        properties: 
+          v0.1:
+            type: array
+            items:
+            oneOf:
+              - type: string
+                example: Published Date - Apr 11,2018
+                description: Initial version release
     securitySchemes:
       APIAuthorizer:
         type: apiKey
