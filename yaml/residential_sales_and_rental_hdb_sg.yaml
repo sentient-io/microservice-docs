@@ -51,7 +51,7 @@ info:
 
       > {"must":[{"range":{"4room_sold":{"gte":50}}}]}
       > {"must":[{"range":{"4room_sold":{"lte":50}}}]}
-      > {"must":[{"range":{"4room_sold":{"lte":50,"lte":70}}}]}
+      > {"must":[{"range":{"4room_sold":{"gte":50,"lte":70}}}]}
 
 
     * **exists** - Returns results that contain any indexed value for a field
