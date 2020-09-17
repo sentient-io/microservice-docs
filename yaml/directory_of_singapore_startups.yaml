@@ -90,28 +90,40 @@ paths:
           name: querystring
           schema:
             type: string
-          description: keyword match to all searchable fields
-          required: true
+          description: |+ 
+            Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
+            
+            If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            
+          example: "ang mo kio"
+          default: false
         - in: query
           name: offset
           schema:
             type: integer
-            example: "0"
-          description: Offset value of the resultset
-          required: false
+          description: The offset of the record list ie the starting index
+          example: "0"
+          default: false
         - in: query
           name: limit
           schema:
             type: integer
-            example: 10
-          description: Number of records to return
-          required: false
+          description: The max records to return for the request. Default - 10, Max - 10000
+          example: "10"
+          default: false
         - in: query
           name: filterdata
           schema:
             type: string
-          description: Additional filter {"must":[ ],"should":[ ],"must_not":[ ],"filter":[ ]}
-          required: false
+          description: |+
+            Refine the search further on any of the possible through the 4 filter types &#58;
+            * must
+            * must_not
+            * should
+            * filter
+          default: false
+          example: |+
+              {"must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],"filter":[{"match":{"source":"sentient"}}],"should":[{"match":{"type":"company"}}],"must_not":[{"match":{"name":"Nityo Progression Consultancy Pte Ltd"}}]}
       responses:
         '200':
           description: success response
@@ -472,7 +484,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Oct 10,2019
+              example: Published Date - Nov 15, 2019
               description: Initial version release
   securitySchemes:
     APIAuthorizer:
