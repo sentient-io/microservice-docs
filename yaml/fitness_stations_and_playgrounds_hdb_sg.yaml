@@ -2,16 +2,19 @@ openapi: 3.0.1
 info:
   title: Fitness Stations and Playgrounds HDB (SG)
   description: |+
-   This Data microservice captures the indicative outline of fitness stations/playgrounds for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery (2014) and manually digitized. Objects largely obstructed by trees, structures and/or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were extrapolated where possible and may not fully represent the actual shape of the actual object.
+    This Data microservice captures the indicative outline of fitness stations/playgrounds for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery (2014) and manually digitized. Objects largely obstructed by trees, structures and/or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were extrapolated where possible and may not fully represent the actual shape of the actual object.
+
+    As this is a dataset download microservice, a successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
   x-additionalinfo: |+
-   Download the complete dataset using a pre-signed URL. It's a two steps process
+   Download the complete dataset using a pre-signed URL. It's a two steps process.
    
     **Step 1:**  Get the pre-signed URL 
     
     Replace the correct x-api-key, and API endpoint
     
     > **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <API Endpoint>**
-        <br><b>Step 2:</b>  Get the pre-signed URL 
+
+    **Step 2:**  Download file 
     
     Using the results.url (i.e) the pre-signed URL to download the dataset
     
