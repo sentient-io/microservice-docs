@@ -261,7 +261,7 @@ components:
                     description: Document ID
                     example: "K7scqWgBv3dNEHq2WvMo"
                   _score: 
-                    type: string
+                    type: number
                     description: The document score for the search request
                     example: 17.995623
                   _source: 
