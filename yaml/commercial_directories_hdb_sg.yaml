@@ -243,6 +243,8 @@ components:
       properties:
         results:
           type: object
+          example: {<Json Object>}
+          description: Json Object of returned results          
           properties:
             total:
               type: number
@@ -352,9 +354,11 @@ components:
         message:
           type: string
           example: Successfully Processed
+          description: The detail description on the status
         status:
           type: string
           example: Success
+          description: The status of the API call Success/Failure
     unauthorized:
       type: object
       properties:
