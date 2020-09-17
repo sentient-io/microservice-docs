@@ -23,6 +23,7 @@ info:
     Using fiterdata:
     
     > {"must_not":[{"match":{"name":"Nityo Progression Consultancy Pte Ltd"}}]}
+    
     Or
     
     Using querystring:
