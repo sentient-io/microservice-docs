@@ -362,7 +362,7 @@ components:
                               example: 6
                             mc:
                               type: string
-                              description: Number if mc parking lots
+                              description: Number of motorcycle parking lots
                               example: 0
                             createddate:
                               type: string
