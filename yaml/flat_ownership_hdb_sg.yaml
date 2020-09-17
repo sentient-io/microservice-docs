@@ -134,6 +134,8 @@ paths:
             * should
             * filter
           default: false
+          example: |+
+            {"must":[{"match_phrase":{"street":"serangoon central"}}],"filter":[{"match":{"block":"210"}}],"must_not":[{"match":{"postalcode":"550209"}}]}
       responses:
         '200':
           description: success response
@@ -260,6 +262,9 @@ components:
                     description: The document score for the search request
                     example: 1
                   _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits                    
                     properties:
                       postalcode: 
                         type: string
@@ -306,6 +311,9 @@ components:
                         description: Record last updated date on sentient
                         example: "2020-04-23"
                       location:
+                        type: object
+                        description: WGS84 coordinates lat/long
+                        example: {"lat":1.37179535,"lon":103.8469821}                        
                         properties:
                             lat: 
                               type: string
@@ -316,9 +324,9 @@ components:
                               description: WGS84 longitude
                               example: 103.8469821
                       source: 
-                        type: string
-                        description: Dataset name
-                        example: "hdb"
+                          type: string
+                          description: source
+                          example: hdb
         message:
           type: string
           example: Successfully Processed
