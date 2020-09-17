@@ -58,7 +58,7 @@ info:
     Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
     
      > {
-     > {"must":[{"match_phrase":{"street":"serangoon central"}}],
+     > "must":[{"match_phrase":{"street":"serangoon central"}}],
      > "filter":[{"match":{"trade":"shop/retail"}}],
      > "must_not":[{"match":{"postalcode":"550151"}}],
      > "should":[{"match":{"trade":"hobbies & interests"}}]
