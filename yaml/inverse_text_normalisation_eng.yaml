@@ -94,9 +94,9 @@ components:
     success:
       type: object
       properties:
-        <order sequence number>:
+        <order sequence number> :
           type: string
-          example: {"0":"Apple said, the project-financing fund was the 1 of its kind, real estate developers, often secure bonds for affordable housing development, but must service the debt during construction, until the houses are built and start to generate revenue, apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders."}
+          example: { 0: Apple said, the project-financing fund was the 1 of its kind, real estate developers, often secure bonds for affordable housing development, but must service the debt during construction, until the houses are built and start to generate revenue, apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders.}
           description: Order sequence number 
     unauthorized:
       type: object
@@ -188,38 +188,37 @@ components:
         - start
         - end
         - seqNum
-      items:
-        properties:
-          text:
-            x-name: text
-            type: string
-            default: 
-            example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
-            description: |+
-              Input text
-          start:
-            x-name: start
-            type: number
-            format: float
-            default: true
-            example: "20.44"
-            description: |+
-              Start time
-          end:
-            x-name: end
-            type: number
-            format: float
-            default: true
-            example: "28.4"
-            description: |+
-              End time
-          seqNum:
-            x-name: seqNum
-            type: integer
-            default: true
-            example: 4
-            description: |+
-              text order id
+      properties:
+        text:
+          x-name: text
+          type: string
+          default: 
+          example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
+          description: |+
+            Input text
+        start:
+          x-name: start
+          type: number
+          format: float
+          default: true
+          example: "20.44"
+          description: |+
+            Start time
+        end:
+          x-name: end
+          type: number
+          format: float
+          default: true
+          example: "28.4"
+          description: |+
+            End time
+        seqNum:
+          x-name: seqNum
+          type: integer
+          default: true
+          example: 4
+          description: |+
+            text order id
 
   securitySchemes:
     APIAuthorizer:
