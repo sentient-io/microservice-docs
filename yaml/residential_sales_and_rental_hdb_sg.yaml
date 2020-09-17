@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Residential Sales and Rental HDB (SG)
   description: |+
-   This Data microservice retreives comprehensive details of each HDB block in Singapore including the number of units for each type of flats and whether they were sold or leased. Queries based on keywords and proximity to particular locations can be performed. Updated weekly.
+   This Data microservice retreives comprehensive details of each HDB block in Singapore including the number of units for each type of flats and whether they were sold or leased. Queries based on keywords and proximity to particular locations can be performed. This dataset is updated weekly.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
