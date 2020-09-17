@@ -199,3 +199,8 @@ Data:
         title: Amenities Shelters HDB (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_shelters_hdb_sg.yaml"
+Data Alliance:
+    Download Dataset API:
+        title: Download Dataset API
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/download_dataset.yaml"
