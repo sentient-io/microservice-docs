@@ -118,7 +118,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: ang mo kio medical
+          example: ang mo kio
           default: false
         - in: query
           name: offset
@@ -146,7 +146,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],"filter":[{"match":{"trade":"supermarket"}}] ,"should":[{"match":{postalcode": "650633}}],"must_not":[{"match":{"trade":"betting"}}      }
+              {"must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],"filter":[{"match":{"trade":"shop"}}] ,"should":[{"match":{postalcode": "63553000}}],"must_not":[{"match":{"trade":"betting"}}      }
 
       responses:
         '200':
@@ -156,34 +156,34 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                  results:
-                    total: 986
-                    max_score: 17.995623
-                    hits:
-                    - _index: sentient_directory_hdb_index
-                      _type: dir_doc
-                      _id: K7scqWgBv3dNEHq2WvMo
-                      _score: 17.995623
-                      _source:
-                        id: '201902011250341437360'
-                        postalcode: '560720'
-                        unit: '4102'
-                        level: '01'
-                        source: hdb
-                        name: Ang Mo Kio Polyclinic
-                        phonenumber: '63553000'
-                        email: ''
-                        operatinghours: mon - fri  8am - 4.30pm  sat  8am - 12.30pm
-                        trade: shop/retail
-                        createddate: '2019-02-01'
-                        type: shop
-                        block: '720'
-                        street: ang mo kio avenue 6
-                        xcoord: 29520.58
-                        ycoord: 39311.68
-                        location:
-                          lat: 1.37179535
-                          lon: 103.8469821
+                results:
+                  total: 3735
+                  max_score: 17.995623
+                  hits:
+                  - _index: sentient_directory_hdb_index
+                    _type: dir_doc
+                    _id: K7scqWgBv3dNEHq2WvMo
+                    _score: 17.995623
+                    _source:
+                      id: '201902011250341437360'
+                      postalcode: '560720'
+                      unit: '4102'
+                      level: '01'
+                      source: hdb
+                      name: Ang Mo Kio Polyclinic
+                      phonenumber: '63553000'
+                      email: ''
+                      operatinghours: mon - fri  8am - 4.30pm  sat  8am - 12.30pm
+                      trade: shop/retail
+                      createddate: '2019-02-01'
+                      type: shop
+                      block: '720'
+                      street: ang mo kio avenue 6
+                      xcoord: 29520.58
+                      ycoord: 39311.68
+                      location:
+                        lat: 1.37179535
+                        lon: 103.8469821
                   message: Successfully Processed
                   status: Success
         '401':
