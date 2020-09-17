@@ -204,7 +204,7 @@ components:
           x-name: threshold
           type: number
           default: true
-          example: "1"
+          example: 1
           description: |+
             The "threshold" specifies the level of similarity that the search term must match with terms in the taxonomy tree. Values range between 0.0 and 1.0 .It is optional. The default value is 1 (which means an exact match is required). Lowering the threshold will allow matches that are similar but not identical.
   securitySchemes:
