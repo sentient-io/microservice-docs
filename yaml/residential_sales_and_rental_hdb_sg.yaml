@@ -24,7 +24,7 @@ info:
       > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
     
     * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
-      > {"filter":[{"match":{"street":"serangoon"}}]}
+      > {"filter":[{"range":{"year_completed":{"gte":1}}}]}
       
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
@@ -34,23 +34,23 @@ info:
     
     * **match** - Search within a full text field for a single word
 
-      > {"match":{"street":"serangoon central, serangoon mrt station"}}
+      > {"match":{"street":"serangoon"}}
 
     * **match_phrase** - Search within a full text field
 
-      > {"match_phrase":{"street":"serangoon central, serangoon mrt station"}}
+      > {"match_phrase":{"street":"serangoon central"}}
 
     * **match_phrase_prefix** - Search within a full text field with prefix
 
-      > {"match_phrase_prefix":{"street":"serangoon central, serangoon mrt station"}}
+      > {"match_phrase_prefix":{"street":"serangoon central"}}
 
     * **term** - Returns results that contain an exact term in a provided field
 
-      > {"term":{"street":"serangoon central, serangoon mrt station"}}
+      > {"term":{"postalcode":"650634"}}
 
     * **terms** - Returns results that contain one or more exact terms in a provided field
 
-      > {"terms":{"street":["bishan","and mo kio"]}}
+      > {"terms":{"postalcode":["650634","650633"]}}
 
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
@@ -59,9 +59,9 @@ info:
     
      > {
      >  "must":[{"match_phrase":{"street":"serangoon+central"}}],
-     >  "filter":[{"match":{"postalcode":"650633"}}],
-     >  "should":[{"match":{"source":"hdb"}}],
-     >  "must_not":[{"match":{"postalcode":"650633"}}
+     >  "filter":[{"range":{"year_completed":{"gte":1}}}],
+     >  "should":[{"match":{"postalcode":"650633"}}],
+     >  "must_not":[{"match":{"postalcode":"650634"}}]
      > }
 
     **Sample Queries Based on Use Cases**
@@ -72,19 +72,6 @@ info:
     2. **Search for all carparks within a 1KM radius from Tampines Mall**
        Using a filterdata only&#58;
        > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
-      
-    3. **Search for all carparks around Tampines with motorcycle parking**
-       Using both querystring + filterdata&#58;
-       
-       > querystring = tampines
-       > filterdata = {"filter":[ {"range":{"mc":{"gte":1}}} ]}
-      
-    4. **Search for all lorry parking lots for Bishan Street 22**
-    
-       Using both querystring + filterdata&#58;
-      
-       > querystring = “bishan street 22”
-       > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
 
   version: '0.1'
 servers:
@@ -134,6 +121,8 @@ paths:
             * should
             * filter
           default: false
+          example: |+
+            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"range":{"year_completed":{"gte":1}}}],"should":[{"match":{"postalcode":"650633"}}],"must_not":[{"match":{"postalcode":"650634"}}]}
       responses:
         '200':
           description: success response
