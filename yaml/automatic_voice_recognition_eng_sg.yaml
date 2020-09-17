@@ -26,8 +26,8 @@ paths:
               example:
                 results:
                   - seqNum: 1
-                    start: 1
-                    end: 4
+                    start: 1.0
+                    end: 4.0
                     text: HELLO WORLD
         '401':
           description: Unauthorized
