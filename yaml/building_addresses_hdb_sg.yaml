@@ -381,7 +381,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Oct 31,2018
+              example: Published Date - Oct 10,2019
               description: Initial version release          
   securitySchemes:
     APIAuthorizer:
