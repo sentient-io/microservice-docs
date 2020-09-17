@@ -2,94 +2,89 @@ openapi: 3.0.1
 info:
   title: Building Addresses HDB (SG)
   description: |+
-   This Data microservice retrieves information on the Singapore Housing Development Board building blocks in Singapore that includes addresses, postal code, latitude and longitude coordinates. This dataset is updated monthly.
+   This Data microservice retrieves the list of all retail shops in Singapore which allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates type of business. The resultant dataset offers useful information like the shop operating hours and contact number. Updated weekly.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
   x-additionalinfo : |+
-      **Refining queries in the filterdata field using filter types and match types**
-      
-      The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
-      **Filter Types:**
-      A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
-      * **must** - All of the stated conditions must match. Equivalent to an AND operator.
-      
-        > {"must":[{"match_phrase":{"name": "ang mo kio"}}]}
-        
-      * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      
-        > {"must_not":[{"match_phrase":{"street":"ang mo kio"}}]}
-        
-      * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
-      
-        > {"should":[{"match":{postalcode": "650633}}]}
-        
-      * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
-        
-        > {"filter":[{"match":{"postalcode":"650633"}}]}
-        
-      For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
-      Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
-      
-      **Match Types:**
-      
-      A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
-      * **match** - Search within a full text field for a single word
-      
-        > { "match":{"street":"bishan"}}
-        
-      * **match_phrase** - Search within a full text field
-      
-        > { "match_phrase":{ "street":bishan street 24"}}
-        
-      * **match_phrase_prefix** - Search within a full text field with prefix
-      
-        > {"match_phrase_prefix":{"street":"bishan"}}
-        
-      * **term** - Returns results that contain an exact term in a provided field
-      
-        > {"term":{"street":"bishan"}}
-        
-      * **terms** - Returns results that contain one or more exact terms in a provided field
-      
-        > {"terms":{"street":["bishan","and mo kio"]}}
-        
-      For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
-      
-      **Forming sophisticated queries using combinations of filter types (in JSON)**
-      
-      Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
-      
-      > {
-      > "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],
-      > "filter":[{"match":{"postalcode":"650633"}}],
-      > "should":[{"match":{"source":"hdb"}}],
-      > "must_not":[{"match":{"postalcode":"650633"}}
-      > }
-        
-      **Sample Queries Based on Use Cases**
+    **Refining queries in the filterdata field using filter types and match types**
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+  
+    **Filter Types:**
+    A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
-      1. **Search for all Commercial around ang mo kio street 21**
+    * **must** - All of the stated conditions must match. Equivalent to an AND operator.
+    
+      > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
+    
+    * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
+      > {"must_not":[{"match":{"postalcode":"570251"}}]}
+    
+    * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
+      > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
+    
+    * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
+      > {"filter":[{"match":{"street":"serangoon"}}]}
       
-         Using a querystring only&#58;
-         > querystring = “ang mo kio street 21"
-         
-      2. **Search for all Commercial within a 1KM radius from Tampines Mall**
+    For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
+    
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    **Match Types:**
+    A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+
+      > {"match":{"street":"serangoon central, serangoon mrt station"}}
+
+    * **match_phrase** - Search within a full text field
+
+      > {"match_phrase":{"street":"serangoon central, serangoon mrt station"}}
+
+    * **match_phrase_prefix** - Search within a full text field with prefix
+
+      > {"match_phrase_prefix":{"street":"serangoon central, serangoon mrt station"}}
+
+    * **term** - Returns results that contain an exact term in a provided field
+
+      > {"term":{"street":"serangoon central, serangoon mrt station"}}
+
+    * **terms** - Returns results that contain one or more exact terms in a provided field
+
+      > {"terms":{"street":["bishan","and mo kio"]}}
+
+    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+    
+    **Forming sophisticated queries using combinations of filter types (in JSON)**
+    Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
+    
+     > {
+     >  "must":[{"match_phrase":{"street":"serangoon+central"}}],
+     >  "filter":[{"match":{"postalcode":"650633"}}],
+     >  "should":[{"match":{"source":"hdb"}}],
+     >  "must_not":[{"match":{"postalcode":"650633"}}
+     > }
+
+    **Sample Queries Based on Use Cases**
+    1. **Search for all carparks around 414 Bedok North Road**
+       Using a querystring only&#58;
       
-         Using a filterdata only&#58;
-         > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
-         
-      3. **Search for all Commercial around Tampines**
+       > querystring = “414 bedok north road"
+    2. **Search for all carparks within a 1KM radius from Tampines Mall**
+       Using a filterdata only&#58;
+       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
       
-         Using both querystring + filterdata&#58;
-         > querystring = tampines
-         > filterdata = {"filter":[ {"range":{"unit":{"gte":1}}} ]}
-         
-      4. **Search for all block for ang mo kio street 21**
+    3. **Search for all carparks around Tampines with motorcycle parking**
+       Using both querystring + filterdata&#58;
+       
+       > querystring = tampines
+       > filterdata = {"filter":[ {"range":{"mc":{"gte":1}}} ]}
       
-         Using both querystring + filterdata&#58;
-         > querystring = “ang mo kio street 21”
-         > filterdata = {"filter":[ {"range":{"block":{"gte":1}}} ]}
+    4. **Search for all lorry parking lots for Bishan Street 22**
+    
+       Using both querystring + filterdata&#58;
+      
+       > querystring = “bishan street 22”
+       > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
        
   version: '0.1'
 servers:
@@ -140,7 +135,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],"filter":[{"match":{"trade":"shop"}}] ,"should":[{"match":{"postalcode": "560720"}}]}
+              {"must":[{"match_phrase":{"street":"serangoon central"}}],"filter":[{"match":{"block":"23"}}],"must_not":[{"match":{"postalcode":"556082"}}]}
       responses:
         '200':
           description: success response
@@ -150,26 +145,25 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  total: 986
-                  max_score: 17.995623
+                  total: 1
+                  max_score: 12.08503
                   hits:
-                  - _index: sentient_directory_hdb_index
+                  - _index: sentient_directory_building_index
                     _type: dir_doc
-                    _id: K7scqWgBv3dNEHq2WvMo
-                    _score: 17.995623
+                    _id: uLxcqWgBv3dNEHq2Dznn
+                    _score: 12.08503
                     _source:
-                      xcoord: 29520.58
-                      ycoord: 39311.68
-                      postalcode: '560720'
-                      block: '720'
-                      street: ang mo kio avenue 6
+                      buildingname: nex
+                      postalcode: '556083'
+                      block: '23'
+                      street: serangoon central
                       location:
-                        lat: 1.37179535
-                        lon: 103.8469821
-                      source: hdb
+                        lat: 1.350748
+                        lon: 103.872798
+                      source: starhub
                       createddate: '2019-02-01'
-                  message: Successfully Processed
-                  status: Success
+                message: Successfully Processed
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -226,24 +220,42 @@ components:
       type: object
       properties:
         results:
-          total: 986
-          max_score: 17.995623
-          hits:
-          - _index: sentient_directory_hdb_index
-            _type: dir_doc
-            _id: K7scqWgBv3dNEHq2WvMo
-            _score: 17.995623
-            _source:
-              xcoord: 29520.58
-              ycoord: 39311.68
-              postalcode: '560720'
-              block: '720'
-              street: ang mo kio avenue 6
-              location:
-                lat: 1.37179535
-                lon: 103.8469821
-              source: hdb
-              createddate: '2019-02-01'
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results 
+          properties:                
+            total: 
+              type: number
+              example: 1
+              description: Total number of records
+            max_score: 12.08503
+              type: number
+              example: 12.08503
+              description: The highest score value                    
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:                      
+                    _index:
+                      type: string
+                      description: Index group of the document
+                      example: "sentient_directory_building_index"
+                    _type: dir_doc
+                    _id: uLxcqWgBv3dNEHq2Dznn
+                    _score: 12.08503
+                    _source:
+                      buildingname: nex
+                      postalcode: '556083'
+                      block: '23'
+                      street: serangoon central
+                      location:
+                        lat: 1.350748
+                        lon: 103.872798
+                      source: starhub
+                      createddate: '2019-02-01'
         message:
           type: string
           example: Successfully Processed
