@@ -228,10 +228,10 @@ components:
               type: number
               example: 1
               description: Total number of records
-            max_score: 12.08503
+            max_score:
               type: number
-              example: 12.08503
-              description: The highest score value                    
+              example: 17.995623
+              description: The highest score value                   
             hits:
               type: array
               example: [{<JSON result Object}]
@@ -292,7 +292,7 @@ components:
                         source: 
                           type: string
                           description: Dataset source
-                          example: "starhub"
+                          example: "hdb"
                         createddate:
                           type: string
                           description: Record first release date on sentient
