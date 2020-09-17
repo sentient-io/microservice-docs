@@ -10,13 +10,13 @@ info:
     
     Replace the correct x-api-key, and API endpoint
     
-    **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <\<API Endpoint>>**
+    > **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <\<API Endpoint>>**
     
     **Step 2:**  Get the pre-signed URL 
     
     Using the results.url (i.e) the pre-signed URL to download the dataset
     
-    **curl --request GET "results.url" >> "FILE_NAME"**
+    > **curl --request GET "results.url" >> "FILE_NAME"**
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
