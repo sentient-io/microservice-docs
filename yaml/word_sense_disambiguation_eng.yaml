@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
   title: Word Sense Disambiguation ENG
-  description: >-
-    This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence.<br><br>If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description: |+
+    This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence.
+    
+    If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -21,6 +23,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example: 
+                sentence_index:
+                  '4': 'But our genius for creative storytelling , combined with our inability to
+                    detect our own ignorance , can sometimes lead to situations that are embarrassing
+                    , unfortunate , or downright dangerous – especially in a technologically advanced
+                    , complex democratic societythat occasionally invests mistaken popular beliefs
+                    with immense destructive power ( See : crisis , financial ; war , Iraq ) .'
+                tokens:
+                  '4':
+                    society:
+                    - token_index: 40
+                      synset_name: society.n.01
+                      synset_definition: an extended social group having a distinctive cultural and
+                        economic organization
+                      synset_score: 0.9870249032974243
+                      hypernyms:
+                      - hypernym_name: social_group.n.01
+                        hypernym_definition: people sharing some social relation
+                        potential_candidate_score: 1
         '401':
           description: Unauthorized
           content:
@@ -72,7 +93,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>text</b></td><td>String</td><td>Required. A complete sentence or paragraph</td></tr><tr><td><b>target_word</b></td><td>String</td><td>Required. A noun token that can be found in text</td></tr><tr><td><b>repeat</b></td><td>String</td><td>Required. If is False, then use the first target_word in text and ignore the rest</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -85,48 +105,63 @@ components:
       properties:
           sentence_index:
               type: object
+              example: {"4": "But our genius for creative storytelling , combined with our inability to detect our own ignorance , can sometimes lead to situations that are embarrassing , unfortunate , or downright dangerous \u2013 especially in a technologically advanced , complex democratic society that occasionally invests mistaken popular beliefs with immense destructive power ( See : crisis , financial ; war , Iraq ) .","7": "The society of extraordinary gentlemen has a natural way of overcoming difficulties in tough times to come out stronger , saving society from itself ."}
+              description: Is a mapping from an index of the sentence in the presented text (say, 0, 1, 2...) to the text of the sentence itself.
               properties:
                 0:
                   type: string
-                  example: An estimated 180,000 people were under mandatory evacuation orders , including parts of Santa Rosa and a large swath of Sonoma County all the way to the Pacific Ocean .
+                  example: { 0:An estimated 180,000 people were under mandatory evacuation orders , including parts of Santa Rosa and a large swath of Sonoma County all the way to the Pacific Ocean .}
+                  description: mapping value 
           tokens:
               type: object
+              example: {"4": {"society": [{"hypernyms": [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}],"synset_definition": "an extended social group having a distinctive cultural and economic organization","synset_name": "society.n.01","synset_score": 0.9870249032974243,"token_index": 40}]}}
+              description: Is a mapping from the sentence_index to the target word's potential synsets and hypernms.
               properties:
-                0:
+                4:
                   type: object
                   properties:
-                    county:
+                    society:
                       type: array
                       items:
                         type: object
                         properties:      
                           hypernyms:
                             type: array
+                            example: [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}]
+                            description: A hypernym can be thought of as a parent class. For example, "colour" is a hypernym of "red".
                             items:
                               oneOf:
                                 - type: object
                                   properties:
                                     hypernym_definition:
                                       type: string
-                                      example: the extended spatial location of something
+                                      example: people sharing some social relation
+                                      description: Definition of the identified hypernym
                                     hypernym_name:
                                       type: string
-                                      example: region.n.01
+                                      example: social_group.n.01
+                                      description: 
                                     potential_candidate_score:
                                       type: integer
-                                      example: 1       
+                                      example: 1     
+                                      description:   
                           synset_definition:
                             type: string
-                            example: (United Kingdom) a region created by territorial division for the purpose of local government  
+                            example: An extended social group having a distinctive cultural and economic organization
+                            description: A synset is a collection of synonyms, identified using the WordNet synset name. It connects a word to the synset it belongs via a definition. A word can belong to more than one synset. 
                           synset_name:
                             type: string
-                            example: county.n.01   
+                            example: society.n.01 
+                            description: 
                           synset_score:
                             type: number
-                            example: 0.977502048015594   
+                            format : float
+                            example: 0.9870249032974243  
+                            description: 
                           token_index:
                             type: number
-                            example: 21                              
+                            example: 40    
+                            description:                          
     unauthorized:
       type: object
       properties:
@@ -201,19 +236,45 @@ components:
           example: Failure      
     input:
       type: object
+      required:
+        - text
       properties:
         text:
+          x-name: text
           type: string
+          default: true
           example: An estimated 180,000 people were under mandatory evacuation orders, including parts of Santa Rosa and a large swath of Sonoma County all the way to the Pacific Ocean.
+          description: |+
+            Input text. A complete sentence or paragraph
         target_word:
+          x-name: target_word
           type: string
+          default: true
           example: County
+          description: |+
+            A noun token that can be found in text
         repeat:
+          x-name: repeat
           type: string
+          default: true
           example: "True"
+          description: |+
+            Indicates whether the target_word that was first identified in the input text is to be used alone or all the target_words identified in the text are to be used.
+            If False, then it uses the first target_word alone in text and ignores the rest.
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 12,2020
+              description: Initial version release  
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
