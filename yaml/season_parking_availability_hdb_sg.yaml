@@ -2,14 +2,17 @@ openapi: 3.0.1
 info:
   title: Season Parking Availability HDB (SG)
   description: |+
-    This Data microservice retrieves the Singapore Housing Development Board’s carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. This dataset is updated monthly.
+    This Data microservice returns season car park availability information within Housing Development Board of Singapore (HDB) estates that includes location address, postal code, branch office, vehicle type and parking lot availability for different types of vehicle by carpark location. 
+
     **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
   
   x-additionalinfo : |+
     **Refining queries in the filterdata field using filter types and match types**
+
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
   
     **Filter Types:**
+
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
     * **must** - All of the stated conditions must match. Equivalent to an AND operator.
@@ -28,7 +31,9 @@ info:
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
     Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    
     **Match Types:**
+    
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
@@ -64,15 +69,21 @@ info:
      >  }
 
     **Sample Queries Based on Use Cases**
+    
     1. **Search for all carparks around 414 Bedok North Road**
+    
        Using a querystring only&#58;
       
        > querystring = “414 bedok north road"
+       
     2. **Search for all carparks within a 1KM radius from Tampines Mall**
+    
        Using a filterdata only&#58;
+       
        > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
       
     3. **Search for all carparks around Tampines with motorcycle parking**
+    
        Using both querystring + filterdata&#58;
        
        > querystring = tampines
