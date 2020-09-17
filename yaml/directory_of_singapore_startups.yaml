@@ -229,7 +229,9 @@ components:
       properties:
         results:
           type: object
-          properties:
+          example: { "<Json": "Object>" }
+          description: Json Object of returned results
+          properties: 
             total:
               type: number
               example: 986
@@ -240,6 +242,8 @@ components:
               description: The highest score value
             hits:
               type: array
+              example: [ { "<JSON": "result Object" } ]
+              description: The list of Json result object
               items:
                 type: object
                 properties:
@@ -260,6 +264,9 @@ components:
                     description: The document score for the search request
                     example: 1
                   _source: 
+                    type: string
+                    example: { "<Json": "Object>" }
+                    description: Json Object of returned hits
                     properties:
                             type: 
                               type: string
@@ -282,12 +289,18 @@ components:
                               description: Business name
                               example: AAR Consultancy
                             logo:
+                              type: object
+                              example: { "<Json": "Object>" }
+                              description: Json Object of returned hits
                               properties:
                                 e27: 
                                   type: string
                                   description: logo url
                                   example: 'https://e27.co/img/startups/11448/logo.png'
                             company:
+                              type: object
+                              example: { "<Json": "Object>" }
+                              description: Json Object of returned hits
                               properties:
                                 e27:
                                   properties:
@@ -353,9 +366,11 @@ components:
         message:
           type: string
           example: Successfully Processed
+          description: The detail description on the status
         status:
           type: string
           example: Success
+          description: The status of the API call Success/Failure
     unauthorized:
       type: object
       properties:
