@@ -214,7 +214,7 @@ components:
             End time
         seqNum:
           x-name: seqNum
-          type: integer
+          type: number
           default: true
           example: 4
           description: |+
