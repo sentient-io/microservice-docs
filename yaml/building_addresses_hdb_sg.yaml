@@ -260,43 +260,43 @@ components:
                       example: {<Json Object>}
                       description: Json Object of returned hits
                       properties:                      
-                        buildingname: nex
-                          type: string
-                          description: Building Name
-                          example: nex                       
-                        postalcode:
-                          type: string
-                          description: Postal code
-                          example: "556083"                     
-                        block: 
-                          type: string
-                          description: Block Number
-                          example: "23"                        
-                        street: serangoon central
-                          type: string
-                          description: Street Name of Building
-                          example: "serangoon central"                          
-                        location:
-                          type: object
-                          description: WGS84 coordinates lat/long
-                          example: {"lat":1.350748,"lon":103.872798}
-                          properties:
-                              lat: 
-                                type: string
-                                description: WGS84 latitude
-                                example: 1.350748
-                              lon:
-                                type: string
-                                description: WGS84 longitude
-                                example: 103.872798                        
-                        source: 
-                          type: string
-                          description: Dataset source
-                          example: "hdb"
-                        createddate:
-                          type: string
-                          description: Record first release date on sentient
-                          example: "2019-02-01"                      
+                          buildingname: nex
+                            type: string
+                            description: Building Name
+                            example: "nex" 
+                          postalcode:
+                            type: string
+                            description: Postal code
+                            example: "556083"       
+                          block: 
+                            type: string
+                            description: Block Number
+                            example: "23"                       
+                          street: serangoon central
+                            type: string
+                            description: Street Name of Building
+                            example: "serangoon central"
+                          location:
+                            type: object
+                            description: WGS84 coordinates lat/long
+                            example: {"lat":1.350748,"lon":103.872798}
+                            properties:
+                                lat: 
+                                  type: string
+                                  description: WGS84 latitude
+                                  example: 1.350748
+                                lon:
+                                  type: string
+                                  description: WGS84 longitude
+                                  example: 103.872798                        
+                          source: 
+                            type: string
+                            description: Dataset source
+                            example: "hdb"
+                          createddate:
+                            type: string
+                            description: Record first release date on sentient
+                            example: "2019-02-01"                      
         message:
           type: string
           example: Successfully Processed
