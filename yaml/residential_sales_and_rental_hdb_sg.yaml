@@ -134,7 +134,6 @@ paths:
             * should
             * filter
           default: false
-          example: |+
       responses:
         '200':
           description: success response
