@@ -14,7 +14,7 @@ info:
     
     > **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <\<API Endpoint>>**
     
-    **Step 2:**  Get the pre-signed URL 
+    **Step 2:**  Download file 
     
     Using the results.url (i.e) the pre-signed URL to download the dataset
     
