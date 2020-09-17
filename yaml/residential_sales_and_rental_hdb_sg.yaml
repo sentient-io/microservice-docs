@@ -8,9 +8,11 @@ info:
        
   x-additionalinfo : |+
     **Refining queries in the filterdata field using filter types and match types**
+    
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
   
     **Filter Types:**
+    
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
     * **must** - All of the stated conditions must match. Equivalent to an AND operator.
@@ -29,7 +31,9 @@ info:
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
     Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    
     **Match Types:**
+    
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
@@ -42,9 +46,11 @@ info:
       > {"term":{"postalcode":"650634"}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
       > {"terms":{"postalcode":["650634","650633"]}}
-    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+      
+      For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
+    
     Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
     
      > {
@@ -53,14 +59,22 @@ info:
      >  "should":[{"match":{"postalcode":"650633"}}],
      >  "must_not":[{"match":{"postalcode":"650634"}}]
      > }
+     
+     
     **Sample Queries Based on Use Cases**
+    
     1. **Search for all residential sales and rental around Bedok North Road**
+    
        Using a querystring only&#58;
       
        > querystring = "bedok north road"
+       
     2. **Search for all residential sales and rental within a 1KM radius from Tampines Mall**
+    
        Using a filterdata only&#58;
+       
        > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
+       
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
