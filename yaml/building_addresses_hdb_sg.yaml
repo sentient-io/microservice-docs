@@ -260,6 +260,14 @@ components:
                       example: {<Json Object>}
                       description: Json Object of returned hits
                       properties: 
+                          buildingname:
+                            type: string
+                            description: Building Name
+                            example: "nex"
+                          street:
+                            type: string
+                            description: Street Name of Building
+                            example: "serangoon central"
                           postalcode:
                             type: string
                             description: Postal code
