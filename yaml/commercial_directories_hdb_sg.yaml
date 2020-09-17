@@ -23,11 +23,11 @@ info:
 
       * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       
-        > {"should":[{"match":{postalcode": "650633}}]}
+        > {"should":[{"match":{"postalcode": "650633"}}]}
 
       * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
         
-        > {"filter":[{"match":{"trade":"supermarket"}}]}
+        > {"filter":[{"match":{"trade":"retail"}}]}
 
       For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
 
@@ -39,11 +39,11 @@ info:
 
       * **match** - Search within a full text field for a single word
 
-        > { "match":{"street":"bishan"}}
+        > {"match":{"street":"bishan"}}
 
       * **match_phrase** - Search within a full text field
 
-        > { "match_phrase":{ "street":bishan street 24"}}
+        > {"match_phrase":{ "street":bishan street 24"}}
 
       * **match_phrase_prefix** - Search within a full text field with prefix
 
@@ -51,11 +51,11 @@ info:
 
       * **term** - Returns results that contain an exact term in a provided field
 
-        > {"term":{"street":"bishan"}}
+        > {"term":{"postalcode":"560720"}}
 
       * **terms** - Returns results that contain one or more exact terms in a provided field
 
-        > {"terms":{"street":["bishan","and mo kio"]}}
+        > {"terms":{"postalcode":["560720","560721"]}}
 
       For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
 
@@ -64,10 +64,10 @@ info:
       Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
 
         > {
-        > "must":[{"match_phrase":{"name": "ang mo kio"}}],
-        > "filter":[{"match":{"trade":"supermarket"}}] ,
-        > "should":[{"match":{postalcode": "650633"}}],
-        > "must_not":[{"match":{"trade":"betting"}}
+        > "must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],
+        > "filter":[{"match":{"trade":"shop"}}],
+        > "should":[{"match":{"postalcode":"650633"}}],
+        > "must_not":[{"match":{"trade":"betting"}}]
         > }
 
       **Sample Queries Based on Use Cases**
