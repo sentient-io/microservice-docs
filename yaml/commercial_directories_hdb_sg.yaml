@@ -66,7 +66,7 @@ info:
         > {
         > "must":[{"match_phrase":{"name": "ang mo kio"}}],
         > "filter":[{"match":{"trade":"supermarket"}}] ,
-        > "should":[{"match":{postalcode": "650633}}],
+        > "should":[{"match":{postalcode": "650633"}}],
         > "must_not":[{"match":{"trade":"betting"}}
         > }
 
@@ -83,19 +83,6 @@ info:
          Using a filterdata only&#58;
 
          > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
-
-      3. **Search for all Commercial around Tampines**
-         Using both querystring + filterdata&#58;
-
-         > querystring = tampines
-         > filterdata = {"filter":[ {"range":{"unit":{"gte":1}}} ]}
-
-      4. **Search for all block for ang mo kio street 21**
-
-         Using both querystring + filterdata&#58;
-
-         > querystring = “ang mo kio street 21”
-         > filterdata = {"filter":[ {"range":{"block":{"gte":1}}} ]}
        
   version: '0.1'
 servers:
@@ -118,7 +105,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "ang mo kio"
+          example: "retail in serangoon"
           default: false
         - in: query
           name: offset
