@@ -87,39 +87,8 @@ components:
   schemas:
     success:
       type: object
-      properties:
-        Object 1:
-          type: array
-          example: ["tie : 100%",{"Bounding Box": {"Bot": 783,"Left": 411,"Right": 595,"Top": 520}}] 
-          description: "Details of the detected object"
-          items:
-            oneOf:
-              - type: string
-                example: 'tie : 100%'
-              - type: object
-                properties:
-                  Bounding Box:
-                    type: object
-                    example: {"Bot": 783,"Left": 411,"Right": 595,"Top": 520}
-                    description: Bounding box of the image
-                    properties:
-                      Bot: 
-                       type: number
-                       example: 783
-                       description: Bottom coordinate of the box
-                      Left: 
-                       type: number
-                       example: 411
-                       description: Left coordinate of the box
-                      Right: 
-                       type: number
-                       example: 595
-                       description: Right coordinate of the box
-                      Top: 
-                       type: number
-                       example: 520   
-                       description: Top coordinate of the box 
-        Object 2:
+      properties: 
+        <Object_detected>:
           type: array
           example: ["person : 100%",{"Bounding Box": {"Bot": 742,"Left": 19,"Right": 1019,"Top": 73}}]
           description: "Details of the detected object"
