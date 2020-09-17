@@ -83,7 +83,6 @@ paths:
       security:
         - APIAuthorizer: []
       requestBody:
-        description: <b>Input parameters</b><br><br><table class="inputtable" style="width:100%;border:1px solid grey"><tr><th style="width:15%;"><b>Field</b></th><th style="width:15%;"><b>Type</b></th><th style="width:70%;"><b>Description</b></th></tr><tr><td><b>text</b></td><td>Array</td><td>Required. A list of object names to be classify</td></tr><tr><td>threshold</td><td>Integer</td><td>Specifies the level of similarity that the search term</td></tr></table><br><br>
         content:
           application/json:
             schema:
@@ -190,7 +189,7 @@ components:
           x-name: text
           type: array
           default: true
-          example: "["bus","cars","bike","train","buildings","Audi R8"]"
+          example: '["bus","cars","bike","train","buildings","Audi R8"]'
           description: |+
             A list of object names to be classified. Up to a maximum of 20 search terms can be processed each time.
         threshold:

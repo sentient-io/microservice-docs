@@ -4,9 +4,7 @@ info:
   description: |+
     This NLP microservice recovers the missing punctuations such as full stop, comma, exclamation mark, and question mark from the input text.
     
-    This NLP microservice also converts pre-defined abbreviations from lower case to upper case.
-    
-    This NLP microservice also converts first letters of sentences to upper case.
+    It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case.
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
@@ -25,6 +23,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                '0': Apple said, the project-financing fund was the 1 of its kind, real estate developers,
+                      often secure bonds for affordable housing development, but must service the debt
+                      during construction, until the houses are built and start to generate revenue, apple
+                      and state officials hope to provide bridge financing during construction at rates
+                      below those from commercial lenders.
+                '1': The $2000000000 in funding will be deployable across NTU while the remaining
+                  5500000000 will go toward efforts specific to apple's home region in northern california,
+                  where fast-growing tech companies have drawn protests from residents who blame them
+                  for rising, housing costs.
         '401':
           description: Unauthorized
           content:
@@ -219,3 +227,4 @@ components:
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
