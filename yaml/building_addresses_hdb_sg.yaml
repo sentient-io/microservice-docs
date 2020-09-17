@@ -259,11 +259,7 @@ components:
                       type: object
                       example: {<Json Object>}
                       description: Json Object of returned hits
-                      properties:                      
-                          buildingname: nex
-                            type: string
-                            description: Building Name
-                            example: "nex" 
+                      properties: 
                           postalcode:
                             type: string
                             description: Postal code
@@ -271,11 +267,7 @@ components:
                           block: 
                             type: string
                             description: Block Number
-                            example: "23"                       
-                          street: serangoon central
-                            type: string
-                            description: Street Name of Building
-                            example: "serangoon central"
+                            example: "23"
                           location:
                             type: object
                             description: WGS84 coordinates lat/long
