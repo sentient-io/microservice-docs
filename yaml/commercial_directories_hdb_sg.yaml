@@ -10,6 +10,7 @@ info:
       **Refining queries in the filterdata field using filter types and match types**
       
       The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+      
       **Filter Types:**
       A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
 
@@ -103,7 +104,7 @@ paths:
           description: |+ 
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
-            If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            If this field is set to null, by default the microservice will return all retail shops (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
           example: "retail"
           default: false
