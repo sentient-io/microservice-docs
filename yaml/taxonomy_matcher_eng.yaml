@@ -27,9 +27,11 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 bus:
-                - - careers/job by industry/travel/bus
+                - 
+                  - careers/job by industry/travel/bus
                   - 1
-                - - news/business news/travel/bus
+                - 
+                  - news/business news/travel/bus
                   - 1
                 
         '401':
