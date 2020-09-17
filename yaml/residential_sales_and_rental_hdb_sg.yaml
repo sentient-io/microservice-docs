@@ -46,6 +46,17 @@ info:
       > {"term":{"postalcode":"650634"}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
       > {"terms":{"postalcode":["650634","650633"]}}
+
+    * **range** - Returns results that contain terms within a stipulated range
+
+      > {"must":[{"range":{"4room_sold":{"gte":50}}}]}
+      > {"must":[{"range":{"4room_sold":{"lte":50}}}]}
+      > {"must":[{"range":{"4room_sold":{"lte":50,"lte":70}}}]}
+
+
+    * **exists** - Returns results that contain any indexed value for a field
+
+      > {"exists":{ "field": "postalcode" }}
       
       For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
