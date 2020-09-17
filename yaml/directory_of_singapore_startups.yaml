@@ -12,26 +12,31 @@ info:
     
     Keyword search; search for all searchable fields
     
-    Using querystring:
+    **Using querystring:**
     
-    e27 Or AAR Consultancy
+    > e27 Or AAR Consultancy
+    
     **Filter search**
     
     **Example 1:** Get all results except ang mo kio 
     
     Using fiterdata:
     
-    {"must_not":[{"match":{"name":"Nityo Progression Consultancy Pte Ltd"}}]}
+    > {"must_not":[{"match":{"name":"Nityo Progression Consultancy Pte Ltd"}}]}
     Or
     
     Using querystring:
-    name:"Nityo Progression Consultancy Pte Ltd"
+    
+    > name:"Nityo Progression Consultancy Pte Ltd"
+    
     **Example 2:** Filter results with shopname match phase “ang mo supermarket” and street match bishan
     
     Using fiterdata:
     
-    {"filter":[{"match":{"type":"company"}},{"match":{"name":"AAR Consultancy"}}]}
+    > {"filter":[{"match":{"type":"company"}},{"match":{"name":"AAR Consultancy"}}]}
+    
     **<b>Supported Filter Types:**
+   
     **must** - All of these clauses must match. The equivalent of AND.
     
     **must_not** - All of these clauses must not match. The equivalent of NOT.
@@ -41,28 +46,29 @@ info:
     **filter** - Clauses that must match, but are run in non-scoring, filtering mode.
     
     **Supported Match Types:**
+    
     **match** - is to search within a full-text field for a single word
     
-    { "match":{"address":"singapore"}}
+    > { "match":{"address":"singapore"}}
     
     **match_phrase** - is to search a full text field
     
-    { "match_phrase":{ "address":singapore"}}
+    > { "match_phrase":{ "address":singapore"}}
     
     **match_phrase_prefix** - is to search a full text field with prefix
     
-    {"match_phrase_prefix":{"address":"singapore"}}
+    > {"match_phrase_prefix":{"address":"singapore"}}
     
     **term** - returns documents that contain one or more exact terms in a provided field.
     
-    {"term":{"address":"singapore"}}
+    > {"term":{"address":"singapore"}}
     
     **terms** - The terms query is the same as the term query, except you can search for multiple values.
     
-    {"terms":{"address":["singapore","ang mo kio"]}}
+    > {"terms":{"address":["singapore","ang mo kio"]}}
     
     **Sample filterdata JSON:**
-    {
+    > {
     "must":[{"match_phrase":{"address":"singapore"}}],
     "filter":[{"match":{"source":"sentient"}}],
     "should":[{"match":{"type":"company"}}],
