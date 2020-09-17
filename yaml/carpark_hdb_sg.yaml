@@ -129,7 +129,7 @@ paths:
           description: |+
 Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. 
 
-For exact phrase match, put entire phrase in double quotes (“ ”).
+For exact phrase match, put entire phrase in double quotes.
 
 If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
           example: BE33
@@ -159,8 +159,6 @@ If this field is set to null, by default the microservice will return all carpar
             * must_not
             * should
             * filter
-
-          The filterdata field must be written in JSON format in order for it to be valid.
 
           default: false
           example: |+
