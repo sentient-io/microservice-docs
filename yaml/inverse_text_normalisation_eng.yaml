@@ -188,37 +188,39 @@ components:
         - start
         - end
         - seqNum
-      properties:
-        text:
-          x-name: text
-          type: string
-          default: true
-          example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
-          description: |+
-            Input text
-        start:
-          x-name: start
-          type: number
-          format: float
-          default: true
-          example: "20.44"
-          description: |+
-            Start time
-        end:
-          x-name: end
-          type: number
-          format: float
-          default: true
-          example: "28.4"
-          description: |+
-            End time
-        seqNum:
-          x-name: seqNum
-          type: number
-          default: true
-          example: "4"
-          description: |+
-            text order id
+      items:
+        type: object
+        properties:
+          text:
+            x-name: text
+            type: string
+            default: true
+            example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
+            description: |+
+              Input text
+          start:
+            x-name: start
+            type: number
+            format: float
+            default: true
+            example: "20.44"
+            description: |+
+              Start time
+          end:
+            x-name: end
+            type: number
+            format: float
+            default: true
+            example: "28.4"
+            description: |+
+              End time
+          seqNum:
+            x-name: seqNum
+            type: number
+            default: true
+            example: "4"
+            description: |+
+              text order id
 
   securitySchemes:
     APIAuthorizer:
