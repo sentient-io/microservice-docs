@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Demographics HDB (SG)
   description: |+
-   This Data microservice retrieves the list of all retail shops in Singapore which allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates type of business. The resultant dataset offers useful information like the shop operating hours and contact number. Updated weekly.
+   This Data microservice returns information on Housing Development Board of Singapore (HDB) estates that includes location address, postal code, gender and age groups, down to block-level granularity.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
@@ -104,7 +104,7 @@ paths:
           description: |+ 
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
-            If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
           example: "serangoon"
           default: false
