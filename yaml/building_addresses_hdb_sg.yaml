@@ -135,7 +135,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match_phrase":{"street":"serangoon central"}}],"filter":[{"match":{"block":"23"}}],"must_not":[{"match":{"postalcode":"556082"}}]}
+              {"must":[{"match_phrase":{"street":"serangoon central drive"}}],"filter":[{"match":{"level":"01"}}],"must_not":[{"match":{"block":"262"}}]}
       responses:
         '200':
           description: success response
@@ -228,10 +228,10 @@ components:
               type: number
               example: 1
               description: Total number of records
-            max_score:
+            max_score: 12.08503
               type: number
-              example: 17.995623
-              description: The highest score value                   
+              example: 12.08503
+              description: The highest score value                    
             hits:
               type: array
               example: [{<JSON result Object}]
@@ -259,23 +259,23 @@ components:
                       type: object
                       example: {<Json Object>}
                       description: Json Object of returned hits
-                      properties: 
-                          buildingname:
+                      properties:                      
+                          buildingname: nex
                             type: string
                             description: Building Name
-                            example: "nex"
-                          street:
-                            type: string
-                            description: Street Name of Building
-                            example: "serangoon central"
+                            example: nex                       
                           postalcode:
                             type: string
                             description: Postal code
-                            example: "556083"       
+                            example: "556083"                     
                           block: 
                             type: string
                             description: Block Number
-                            example: "23"
+                            example: "23"                        
+                          street: serangoon central
+                            type: string
+                            description: Street Name of Building
+                            example: "serangoon central"                          
                           location:
                             type: object
                             description: WGS84 coordinates lat/long
@@ -292,7 +292,7 @@ components:
                           source: 
                             type: string
                             description: Dataset source
-                            example: "hdb"
+                            example: "starhub"
                           createddate:
                             type: string
                             description: Record first release date on sentient
