@@ -1,17 +1,26 @@
 openapi: 3.0.1
 info:
   title: Amenities Lamp Posts HDB (SG)
-  description: >-
-   "This Data microservice captures the indicative location of lamp posts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. <br><br>The shapefiles are compressed bundle files consisting various project files within it such as .shp, .shx, .dbf and .prj files. Requires GIS software to view."<br><br>Authentication is done using the x-api-key in the request header.
-
-   <br><br>Download the complete dataset using a pre-signed URL. It's a two steps process
+  description: |+
+  
+   This Data microservice captures the indicative location of lamp posts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset.
    
-    <br><b>Step 1:</b>  Get the pre-signed URL 
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;Replace the correct x-api-key, and API endpoint
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <API Endpoint></b>
+   The shapefiles are compressed bundle files consisting various project files within it such as .shp, .shx, .dbf and .prj files. Requires GIS software to view.
+   
+   
+   Download the complete dataset using a pre-signed URL. It's a two steps process
+  x-additionalinfo: |+
+  
+    **Step 1:**  Get the pre-signed URL 
+    
+    Replace the correct x-api-key, and API endpoint
+    
+    > **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <API Endpoint>**
         <br><b>Step 2:</b>  Get the pre-signed URL 
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;Using the results.url (i.e) the pre-signed URL to download the dataset
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>curl --request GET "results.url" >> "FILE_NAME"</b>
+    
+    Using the results.url (i.e) the pre-signed URL to download the dataset
+    
+    > **curl --request GET "results.url" >> "FILE_NAME"**
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -31,6 +40,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example: 
+                results:
+                  url: "<pre-signed URL>"
+                status: Success
+                message: Successfully Processed
         '401':
           description: Unauthorized
           content:
@@ -96,9 +110,11 @@ components:
           status:
             type: string
             example: Success
+            description: The status of the API call. success/failure
           message:
             type: string
             example: Successfully Processed
+            description: Detail description on the api status
     unauthorized:
       type: object
       properties:
@@ -170,10 +186,21 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure      
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 07, 2020
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
