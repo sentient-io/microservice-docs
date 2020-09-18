@@ -64,7 +64,8 @@ info:
         > {"terms":{"postalcode":["560720","560721"]}}
       
       * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{ "field": "postalcode"}}
+      
+        > {"exists":{ "field": "postalcode"}}
   
       For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
 
@@ -72,12 +73,12 @@ info:
 
       Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
 
-        > {
-        > "must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],
-        > "filter":[{"match":{"trade":"shop"}}],
-        > "should":[{"match":{"postalcode":"650633"}}],
-        > "must_not":[{"match":{"trade":"betting"}}]
-        > }
+          > {
+          > "must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],
+          > "filter":[{"match":{"trade":"shop"}}],
+          > "should":[{"match":{"postalcode":"650633"}}],
+          > "must_not":[{"match":{"trade":"betting"}}]
+          > }
 
       **Sample Queries Based on Use Cases**
     
