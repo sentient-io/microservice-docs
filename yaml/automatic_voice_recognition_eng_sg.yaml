@@ -213,7 +213,7 @@ components:
           x-name: srt
           type: array
           default: false
-          example: "[{seqNum: 1,start: 1.0,end: 4.0,text: HELLO WORLD}]"
+          example: [{seqNum: 1,start: 1.0,end: 4.0}]
           description: |+
             Optional. An ordered array of utterance struct. Used for time-coding.
           items:
