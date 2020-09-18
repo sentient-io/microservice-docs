@@ -99,7 +99,13 @@ info:
          Using a filterdata only&#58;
 
          > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
-       
+         
+      3. **Search for all cake shop shops at Blk 122, Bukit Merah Lane 1**
+
+         Using a filterdata only&#58;
+         
+         > filterdata = {"filter":[{"match_phrase": {"trade":"cake shop"}},{"match": {"block":"122"}},{"match_phrase": {"street":"bukit merah lane 1"}}]}
+  
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -323,7 +329,42 @@ components:
                               example: "mon - fri  8am - 4.30pm  sat  8am - 12.30pm"
                             trade:
                               type: string
-                              description: Business trade type, Trade List. commercial school, shop/retail, childcare centre, confectionery, office, betting, eating house/fast food restaurant/food court, family restaurant, health centre and amusement ctr, laundry shop, showroom, pet shop, social com, supermarket, specific use, health & fitness, home, fashion & accessories, groceries, schools & centres, business, pets, dining, food products, beauty, cake shop, shopping, finance, entertainment & leisure, hobbies & interests, travel and tourism, light industrial, sports and recreation building, others
+                              description: |+
+                                Business trade type. Trade List are&#58;
+                                commercial school
+                                shop/retail
+                                childcare centre
+                                confectionery
+                                office
+                                betting
+                                eating house/fast food restaurant/food court
+                                family restaurant
+                                health centre and amusement ctr
+                                laundry shop
+                                showroom
+                                pet shop
+                                social com
+                                supermarket
+                                specific use
+                                health & fitness
+                                home
+                                fashion & accessories
+                                groceries
+                                schools & centres
+                                business
+                                pets
+                                dining
+                                food products
+                                beauty
+                                cake shop
+                                shopping
+                                finance
+                                entertainment & leisure
+                                hobbies & interests
+                                travel and tourism
+                                light industrial
+                                sports and recreation building
+                                others
                               example: "shop/retail"
                             createddate:
                               type: string
