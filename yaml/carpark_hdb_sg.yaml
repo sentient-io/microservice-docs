@@ -57,7 +57,7 @@ info:
 
     * **term** - Returns results that contain an exact term in a provided field
 
-      > {"term":{"street":"bishan"}}
+      > {"term":{"cpk_no":"ak19"}}
 
     * **terms** - Returns results that contain one or more exact terms in a provided field
 
