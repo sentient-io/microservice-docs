@@ -27,8 +27,8 @@ Voice:
         title: Text-To-Speech CHI
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/text-to-speech_chi.yaml"
-    ASR with VAD ENG (SG):
-        title: ASR with VAD ENG (SG)
+    ASR with Voice Activity Detection ENG (SG):
+        title: ASR with Voice Activity Detection ENG (SG)
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/asr_with_vad_eng_sg.yaml"  
     Voice Activity Detection ENG:
