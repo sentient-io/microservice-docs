@@ -313,10 +313,10 @@ components:
                               example: { "<Json": "Object>" }
                               description: Full details about the company from various content providers
                               properties:
-                                <contentprovider>:
+                                contentprovider:
                                   type: object
-                                  description:  { "<Json": "Object>" }
-                                  example: Directory details from the content provider
+                                  example: { "<Json": "Object>" }
+                                  description: Directory details from the content provider
                                   properties:
                                     sourceurl: 
                                       type: string
