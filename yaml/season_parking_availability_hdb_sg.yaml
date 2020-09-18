@@ -279,7 +279,7 @@ components:
                             car_park_availability: 
                               type: number
                               description: Car Park Availability
-                              example: "15"
+                              example: 15
                             postalcode: 
                               type: array
                               description: Postal code
@@ -306,7 +306,7 @@ components:
                               example: 506B serangoon north avenue 4
                             source:
                               type: string
-                              description: source
+                              description: Dataset source
                               example: hdb
                             location:
                               type: object
