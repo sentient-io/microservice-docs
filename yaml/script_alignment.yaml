@@ -208,7 +208,7 @@ components:
           x-name: transcript
           type: array
           default: true
-          example: "[{'seqNum':1,'start':1.0,'end':4.0,'text':'HELLO WORLD'}]"
+          example: [{'seqNum':1,'start':1.0,'end':4.0,'text':'HELLO WORLD'}]
           description: |+
             An ordered array of utterance struct.
           items:
