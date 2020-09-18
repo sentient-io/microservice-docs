@@ -20,9 +20,9 @@ info:
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
     * **must** - All of the stated conditions must match. Equivalent to an AND operator.
-      ```
-      {"must":[{"match":{"mc":0}}]}
-      ```
+      >```
+      >{"must":[{"match":{"mc":0}}]}
+      >```
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
 
       > {"must_not":[{"match":{"postalcode":"570251"}}]}
