@@ -273,7 +273,15 @@ components:
                         example: "40 < t <= 50"
                       len_of_ownership_id: 
                         type: number
-                        description: Length Types
+                        description: |+
+                          Length Types
+                          1 (t <= 10)
+                          2 (10 < t <= 20) 
+                          3 (20 < t <= 30)
+                          4 (30 < t <= 40)
+                          5 (40 < t <= 50)
+                          6 (t  > 50)
+                   
                         example: "5"
                       no_of_units:
                         type: number
