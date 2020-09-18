@@ -322,7 +322,7 @@ components:
                               example: 103.8469821
                       source: 
                           type: string
-                          description: source
+                          description: Dataset source
                           example: hdb
         message:
           type: string
