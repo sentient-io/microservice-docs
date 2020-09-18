@@ -280,59 +280,59 @@ components:
                         description: Postal code
                         example: '750405'
                       year_completed:
-                        type: string
-                        description: Total completed year of the Building
+                        type: number
+                        description: Completed year of the Building
                         example: 1999
                       total_dwelling_units:
-                        type: string
+                        type: number
                         description: Total Dwelling units
                         example: 112
                       1room_sold: 
-                        type: string
+                        type: number
                         description: No. of one room units sold
                         example: 0
                       2room_sold: 
-                        type: string
+                        type: number
                         description: No. of two room units sold
                         example: 0
                       3room_sold:
-                        type: string
+                        type: number
                         description: No. of three room units sold
                         example: 0
                       4room_sold: 
-                        type: string
+                        type: number
                         description: No. of four room units sold
                         example: 112
                       5room_sold: 
-                        type: string
+                        type: number
                         description: No. of five room units sold
                         example: 0
                       exec_sold: 
-                        type: string
+                        type: number
                         description: No. of executive units sold
                         example: 0
                       multigen_sold: 
-                        type: string
+                        type: number
                         description: No. of multi generation units sold
                         example: 0
                       studio_apartment_sold: 
-                        type: string
+                        type: number
                         description: No. of studio units sold
                         example: 0
                       1room_rental:
-                        type: string
+                        type: number
                         description: No. of one room units rented
                         example: 0
                       2room_rental: 
-                        type: string
+                        type: number
                         description: No. of two room units rented
                         example: 0
                       3room_rental: 
-                        type: string
+                        type: number
                         description: No. of three room units rented
                         example: 0
                       other_room_rental: 
-                        type: string
+                        type: number
                         description: No. of other units rented
                         example: 0
                       block:
@@ -378,7 +378,7 @@ components:
                               example: 103.8469821
                       source: 
                         type: string
-                        description: Index group of the document
+                        description: Dataset source
                         example: hdb
         message:
           type: string
