@@ -204,7 +204,7 @@ components:
             type: number
             format: float
             default: true
-            example: "20.44"
+            example: 20.44
             description: |+
               Start time
           end:
@@ -212,17 +212,16 @@ components:
             type: number
             format: float
             default: true
-            example: "28.4"
+            example: 28.4
             description: |+
               End time
           seqNum:
             x-name: seqNum
             type: number
             default: true
-            example: "4"
+            example: 4
             description: |+
               text order id
-
   securitySchemes:
     APIAuthorizer:
       type: apiKey
