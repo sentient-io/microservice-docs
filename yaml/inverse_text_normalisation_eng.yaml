@@ -24,12 +24,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                '0': Apple said, the project-financing fund was the 1 of its kind, real estate developers,
+                '0': |+
+                     Apple said, the project-financing fund was the 1 of its kind, real estate developers,
                       often secure bonds for affordable housing development, but must service the debt
                       during construction, until the houses are built and start to generate revenue, apple
                       and state officials hope to provide bridge financing during construction at rates
                       below those from commercial lenders.
-                '1': The $2000000000 in funding will be deployable across NTU while the remaining
+                '1': |+
+                  The $2000000000 in funding will be deployable across NTU while the remaining
                   5500000000 will go toward efforts specific to apple's home region in northern california,
                   where fast-growing tech companies have drawn protests from residents who blame them
                   for rising, housing costs.
