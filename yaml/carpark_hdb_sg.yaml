@@ -111,7 +111,7 @@ info:
     
        Using both querystring + filterdata&#58;
       
-       > querystring = “bishan street 22”
+       > querystring = "bishan street 22"
        > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
 
   version: '0.1'
