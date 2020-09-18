@@ -62,7 +62,7 @@ info:
       
     * **exists** - Returns results that contain any indexed value for a field
     
-      > {"exists":{ "field": "postalcode"}}
+      > {"exists":{ "field":"postalcode"}}
 
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
@@ -103,7 +103,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "serangoon"
+          example: "tampines"
           default: false
         - in: query
           name: offset
@@ -131,7 +131,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"range":{"residents":{"gte":10}}}],"should":[{"match":{"gender":"male"}}],"must_not":[{"match":{"age_group_id":"2"}}]}
+            {"filter":[{"match":{"age_group_id":7}},{"match":{"gender":"male"}},{"match":{"postalcode":520423}}]}
       responses:
         '200':
           description: success response
