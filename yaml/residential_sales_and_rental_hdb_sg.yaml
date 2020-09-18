@@ -82,7 +82,7 @@ info:
     
        Using a filterdata only&#58;
        
-       > filterdata = filterdata = {"filter":[{"match_phrase": {"street":"bishan street 24"}},{"range": {"4room_sold":{"gte":1}}}]}
+       > filterdata = {"filter":[{"match_phrase": {"street":"bishan street 24"}},{"range": {"4room_sold":{"gte":1}}}]}
        
   version: '0.1'
 servers:
