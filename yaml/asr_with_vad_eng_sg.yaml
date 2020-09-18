@@ -1,12 +1,10 @@
 openapi: 3.0.1
 info:
-  title: Voice Activity Detection & ASR ENG
+  title: ASR with Voice Activity Detection ENG (SG)
   description: |+
-    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. 
-    
-    It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text.
-    
-    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k 
+    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text.
+
+    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k
   version: '0.1'
 servers:
   - url: 'https://apis.sentient.io'
