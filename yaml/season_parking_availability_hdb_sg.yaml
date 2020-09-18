@@ -82,11 +82,12 @@ info:
 
     **Sample Queries Based on Use Cases**
     
-    1. **Search for all carpark availability around 414 Bedok North Road**
+    1. **Search for the parking lot availability for commercial vehicle at the carpark of 503 Serangoon North Avenue 4.**
     
-       Using a querystring only&#58;
+       Using a filterdata only&#58;
       
-       > querystring = “414 bedok north road"
+       > filterdata = {"filter":[{"match":{"street":"serangoon north avenue 4"}},{"match":{"block":"503"}},{"match":{"vehicle_type":"H"}}]}
+       
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -274,7 +275,13 @@ components:
                               example: "G40"
                             vehicle_type: 
                               type: string
-                              description: Vehicle Type
+                              description: |+
+                                Vehicle Type&#58;
+                                
+                                Y - Motorcycle
+                                H - Commercial Vehicle (>1800kg)
+                                C - Car
+                                S - Season (Car)
                               example: "Y"
                             car_park_availability: 
                               type: number
