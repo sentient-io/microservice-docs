@@ -170,7 +170,6 @@ components:
         status:
           type: string
           example: Failure   
-    
     versions:
       type: object
       properties: 
