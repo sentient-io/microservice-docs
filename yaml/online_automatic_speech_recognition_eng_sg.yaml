@@ -8,7 +8,7 @@ info:
   version: '0.1'
 # tags must include in to the documentation, to read the description text for published date
 tags:
-- name: "v0.2"
+- name: "v0.1"
   description: " "
 html: |+
      <div id="iframe-container">
