@@ -3,7 +3,6 @@ info:
   title: HDB Demographics (SG)
   description: |+
    This Data microservice returns information on Housing Development Board of Singapore (HDB) estates that includes location address, postal code, gender and age groups, down to block-level granularity.
-
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
@@ -35,23 +34,14 @@ info:
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
-
       > {"match":{"street":"serangoon"}}
-
     * **match_phrase** - Search within a full text field
-
       > {"match_phrase":{"street":"serangoon central"}}
-
     * **match_phrase_prefix** - Search within a full text field with prefix
-
       > {"match_phrase_prefix":{"street":"serangoon central"}}
-
     * **term** - Returns results that contain an exact term in a provided field
-
       > {"term":{"postalcode":"560720"}}
-
     * **terms** - Returns results that contain one or more exact terms in a provided field
-
       > {"terms":{"postalcode":["560720","560721"]}}
       
     * **range** - Returns results that contain terms within a stipulated range
@@ -63,7 +53,6 @@ info:
     * **exists** - Returns results that contain any indexed value for a field
     
       > {"exists":{ "field":"postalcode"}}
-
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
@@ -75,20 +64,16 @@ info:
      > "should":[{"match":{"gender":"male"}}],
      > "must_not":[{"match":{"age_group_id":"2"}}]
      > }
-
     **Sample Queries Based on Use Cases**
-    1. **Search for the number of elderly residents staying at Blk 423, Tampines Street 41 filter by age and gender.**
-
-	      Using a filterdata only&#58;
+      1. **Search for the number of elderly residents staying at Blk 423, Tampines Street 41 filter by age and gender.**
+      Using a filterdata only&#58;
       
-        > {"filter":[{"match":{"street":"tampines street 41"}},{"match":{"block":"423"}},{"terms":{"age_group_id":[6,7,8]}}]}
-
-    2. **Search for the number of female residents between age 50 to 59 staying in the postal code from 050034 to 050532.**
-       
-       Using a filterdata only&#58;
+      > {"filter":[{"match":{"street":"tampines street 41"}},{"match":{"block":"423"}},{"terms":{"age_group_id":[6,7,8]}}]}
       
-       > {"filter":[{"terms":{"postalcode":["050034","050532"]}},{"match":{"gender":"female"}},{"terms":{"age_group_id":[6]}}]}
-       
+      2. **Search for the number of female residents between age 50 to 59 staying in the postal code from 050034 to 050532.**
+      Using a filterdata only&#58;
+      
+      > {"filter":[{"terms":{"postalcode":["050034","050532"]}},{"match":{"gender":"female"}},{"terms":{"age_group_id":[6]}}]}
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -286,7 +271,6 @@ components:
                               type: number
                               description: |+
                                 Age group ID represents a certain age range&#58;
-
                                 1 (<10 years)
                                 2 (10-19 years)
                                 3 (20-29 years)
