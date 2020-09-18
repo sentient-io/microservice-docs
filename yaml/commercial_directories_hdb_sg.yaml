@@ -65,9 +65,9 @@ info:
         
       * **range** - Returns results that contain terms within a stipulated range
       
-        > {"filter":[{"range":{"postalcode":{"lte":650347}}}]}
-        > {"filter":[{"range":{"postalcode":{"gte":650347}}}]}
-        > {"filter":[{"range":{"postalcode":{"gte":650347,"lte":760415}}}]}
+        > {"range":{"postalcode":{"lte":650347}}}
+        > {"range":{"postalcode":{"gte":650347}}}
+        > {"range":{"postalcode":{"gte":650347,"lte":760415}}}
       * **exists** - Returns results that contain any indexed value for a field
       
         > {"exists":{ "field": "postalcode"}}
