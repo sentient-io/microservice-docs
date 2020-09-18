@@ -332,32 +332,6 @@ components:
           type: string
           example: Success
           description: The status of the API call Success/Failure
-    versions:
-      type: object
-      properties: 
-        v1.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Apr 24, 2020
-              description: "Version 1.0 description"
-        v2.0:
-         type: array
-         items:
-          description: "name of miscellaneous names found in the text string"
-          oneOf:
-            - type: string
-              example: Published Date - Apr 02, 2020
-              description: "Version 2.0 description"
-        v3.0:
-         type: array
-         items:
-          description: "name of PERSON found in the text string"
-          oneOf:
-            - type: string
-              example: Published Date - March 24, 2020
-              description: "Version 3.0 description"
     unauthorized:
       type: object
       properties:
