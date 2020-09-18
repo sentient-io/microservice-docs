@@ -22,16 +22,16 @@ info:
     
     **Data schema**
     
-        | Name  |  Type |  Size | Description  |
-        |---|---|---|---|---|
-        |  FEATID | Integer  |  N/A |  Feature ID. Unique running number. |
-        |  TYPE |  Char | N/A	  | Captures the type of object.  |
-        |  LVL |  Char | N/A	  | Captures whether the object is located at Ground level or Above Ground level.  |
-        |  QUALITY |  Char | N/A	  | Captures whether the section of the feature was Fully Visible or Partially Visible.  |
-        |  INC_CRC |  Varchar | 50	  | Sub Location Id  |
-        |  FMEL_UPD_D |  Datetime | N/A	  | Area of the feature  |
-        |  x |  Float | N/A	  | ESRI x coordinate  |
-        |  y |  Float | N/A	  | ESRI y coordinate  |
+    | Name  |  Type |  Size | Description  |
+    |---|---|---|---|---|
+    |  FEATID | Integer  |  N/A |  Feature ID. Unique running number. |
+    |  TYPE |  Char | N/A	  | Captures the type of object.  |
+    |  LVL |  Char | N/A	  | Captures whether the object is located at Ground level or Above Ground level.  |
+    |  QUALITY |  Char | N/A	  | Captures whether the section of the feature was Fully Visible or Partially Visible.  |
+    |  INC_CRC |  Varchar | 50	  | Sub Location Id  |
+    |  FMEL_UPD_D |  Datetime | N/A	  | Area of the feature  |
+    |  x |  Float | N/A	  | ESRI x coordinate  |
+    |  y |  Float | N/A	  | ESRI y coordinate  |
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
