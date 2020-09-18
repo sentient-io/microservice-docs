@@ -77,18 +77,12 @@ info:
      
      
     **Sample Queries Based on Use Cases**
-    
-    1. **Search for all residential sales and rental around Bedok North Road**
-    
-       Using a querystring only&#58;
-      
-       > querystring = "bedok north road"
        
-    2. **Search for all residential sales and rental within a 1KM radius from Tampines Mall**
+    1. **Search for all the four room units sold at Bishan Street 24.**
     
        Using a filterdata only&#58;
        
-       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
+       > filterdata = filterdata = {"filter":[{"match_phrase": {"street":"bishan street 24"}},{"range": {"4room_sold":{"gte":1}}}]}
        
   version: '0.1'
 servers:
