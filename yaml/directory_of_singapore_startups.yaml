@@ -314,9 +314,9 @@ components:
                               description: Full details about the company from various content providers
                               properties:
                                 <contentprovider>:
-                                  type: string
-                                  description: Directory website url
-                                  example: 'https://e27.co/startup/aar-consultancy'
+                                  type: object
+                                  description:  { "<Json": "Object>" }
+                                  example: Directory details from the content provider
                                   properties:
                                     sourceurl: 
                                       type: string
