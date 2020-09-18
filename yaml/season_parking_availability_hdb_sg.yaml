@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
-  title: Season Parking Availability HDB (SG)
+  title: HDB Season Parking Availability (SG)
   description: |+
     This Data microservice returns season car park availability information within Housing Development Board of Singapore (HDB) estates that includes location address, postal code, branch office, vehicle type and parking lot availability for different types of vehicle by carpark location. 
+
+    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
 
     **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
   
@@ -55,6 +57,16 @@ info:
     * **terms** - Returns results that contain one or more exact terms in a provided field
 
       > {"terms":{"cpk_no":["ak19","be33"]}}
+      
+    * **range** - Returns results that contain terms within a stipulated range
+    
+      > {"range":{"car_park_availability":{"gte":10}}}
+      > {"range":{"car_park_availability":{"lte":50}}}
+      > {"range":{"car_park_availability":{"gte":10,"lte":50}}}
+      
+    * **exists** - Returns results that contain any indexed value for a field
+    
+      > {"exists":{ "field": "postalcode"}}
 
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
@@ -62,39 +74,19 @@ info:
     Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
     
      > {
-     >  "must":[{"match_phrase":{"street":"ang+mo+kio+street+21"}}],
-     >  "filter":[{"match":{"branch_office":"AM"}}] ,
-     >  "should":[{"match":{"source":"hdb"}}],
-     >  "must_not":[{"match":{"vehicle_type":"C"}}
-     >  }
+     > "must":[{"match_phrase":{"street":"serangoon north avenue 4"}}],
+     > "filter":[{"match":{"vehicle_type":"Y"}}],
+     > "should":[{"match":{"car_park_group":"G18"}}],
+     > "must_not":[{"match":{"postalcode":"550409"}}]
+     > }
 
     **Sample Queries Based on Use Cases**
     
-    1. **Search for all carparks around 414 Bedok North Road**
+    1. **Search for all carpark availability around 414 Bedok North Road**
     
        Using a querystring only&#58;
       
        > querystring = “414 bedok north road"
-       
-    2. **Search for all carparks within a 1KM radius from Tampines Mall**
-    
-       Using a filterdata only&#58;
-       
-       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
-      
-    3. **Search for all carparks around Tampines with motorcycle parking**
-    
-       Using both querystring + filterdata&#58;
-       
-       > querystring = tampines
-       > filterdata = {"filter":[ {"range":{"mc":{"gte":1}}} ]}
-      
-    4. **Search for all lorry parking lots for Bishan Street 22**
-    
-       Using both querystring + filterdata&#58;
-      
-       > querystring = “bishan street 22”
-       > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -285,7 +277,7 @@ components:
                               description: Vehicle Type
                               example: "Y"
                             car_park_availability: 
-                              type: string
+                              type: number
                               description: Car Park Availability
                               example: "15"
                             postalcode: 
