@@ -277,7 +277,17 @@ components:
                               example: "50 to 59"
                             age_group_id:
                               type: number
-                              description: Age groups type, age group values are - <= 10:1,10 - 19:2,20-29:3,30 - 39:4,40-49:5,50-59:6,60-69:7,> 70:8
+                              description: |+
+                                Age group ID represents a certain age range&#58;
+
+                                1 (<10 years)
+                                2 (10-19 years)
+                                3 (20-29 years)
+                                4 (30-39 years)
+                                5 (40-49 years)
+                                6 (50-59 years)
+                                7 (60-69 years)
+                                8 (>70 years)
                               example: 6
                             residents:
                               type: number
