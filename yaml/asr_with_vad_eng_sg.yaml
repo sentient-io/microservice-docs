@@ -193,7 +193,7 @@ components:
             
             1. news_parliament - 16 kHz, mono channel, .wav format. Trained on Singapore news and parliament corpus.
             2. nsc_parliament - 16 kHz, mono channel, .wav format. Trained on National Speech Corpus and parliament corpus.
-            3. nscfull_8k - 8 kHz, mono channel, .wav format. Trained on National Speech Corpus.
+            3. nscfull_8k - 8 kHz, mono channel, .wav format. Trained on National Speech Corpus. Trained on Full National Speech Corpus corpus.
         wav_url/wav_base64:
           x-name: wav_url/wav_base64
           type: string
