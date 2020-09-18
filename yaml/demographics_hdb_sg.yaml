@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
-  title: Demographics HDB (SG)
+  title: HDB Demographics (SG)
   description: |+
    This Data microservice returns information on Housing Development Board of Singapore (HDB) estates that includes location address, postal code, gender and age groups, down to block-level granularity.
+
+   The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
@@ -34,23 +36,26 @@ info:
     
     * **match** - Search within a full text field for a single word
 
-      > {"match":{"street":"serangoon central, serangoon mrt station"}}
+      > {"match":{"street":"serangoon"}}
 
     * **match_phrase** - Search within a full text field
 
-      > {"match_phrase":{"street":"serangoon central, serangoon mrt station"}}
+      > {"match_phrase":{"street":"serangoon central"}}
 
     * **match_phrase_prefix** - Search within a full text field with prefix
 
-      > {"match_phrase_prefix":{"street":"serangoon central, serangoon mrt station"}}
+      > {"match_phrase_prefix":{"street":"serangoon central"}}
 
     * **term** - Returns results that contain an exact term in a provided field
 
-      > {"term":{"street":"serangoon central, serangoon mrt station"}}
+      > {"term":{"postalcode":"560720"}}
 
     * **terms** - Returns results that contain one or more exact terms in a provided field
 
-      > {"terms":{"street":["bishan","and mo kio"]}}
+      > {"terms":{"postalcode":["560720","560721"]}}
+      
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{ "field": "postalcode"}}
 
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
@@ -59,32 +64,17 @@ info:
     
      > {
      > "must":[{"match_phrase":{"street":"serangoon+central"}}],
-     > "filter":[{"match":{"trade":"supermarket"}}] ,
-     > "should":[{"match":{"source":"hdb"}}],
-     > "must_not":[{"match":{"age_group_id":"2"}}
+     > "filter":[{"match":{"postalcode":"550201"}}] ,
+     > "should":[{"match":{"gender":"male"}}],
+     > "must_not":[{"match":{"age_group_id":"2"}}]
      > }
 
     **Sample Queries Based on Use Cases**
-    1. **Search for all carparks around 414 Bedok North Road**
+    1. **Search for all demographic details around 414 Bedok North Road**
        Using a querystring only&#58;
       
        > querystring = “414 bedok north road"
-    2. **Search for all carparks within a 1KM radius from Tampines Mall**
-       Using a filterdata only&#58;
-       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
-      
-    3. **Search for all carparks around Tampines with motorcycle parking**
-       Using both querystring + filterdata&#58;
        
-       > querystring = tampines
-       > filterdata = {"filter":[ {"range":{"mc":{"gte":1}}} ]}
-      
-    4. **Search for all lorry parking lots for Bishan Street 22**
-    
-       Using both querystring + filterdata&#58;
-      
-       > querystring = “bishan street 22”
-       > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -134,7 +124,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"must":[{"match_phrase":{"street":"serangoon central"}}],"filter":[{"match":{"residents":"2"}}],"must_not":[{"match":{"postalcode":"550417"}}]}         
+            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"match":{"postalcode":"550201"}}] ,"should":[{"match":{"gender":"male"}}],"must_not":[{"match":{"age_group_id":"2"}}]}
       responses:
         '200':
           description: success response
