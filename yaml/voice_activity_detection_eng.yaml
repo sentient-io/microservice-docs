@@ -198,7 +198,7 @@ components:
           type: number
           format: float
           default: false
-          example: "0.2"
+          example: 0.2
           description: |+
             Optional. Threshold ranges between 0.0 and 1.0 and default is 0.4
     versions:

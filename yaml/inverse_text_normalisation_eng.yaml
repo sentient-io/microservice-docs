@@ -201,23 +201,21 @@ components:
               Input text
           start:
             x-name: start
-            type: number
-            format: float
+            type: string
             default: true
             example: "20.44"
             description: |+
               Start time
           end:
             x-name: end
-            type: number
-            format: float
+            type: string
             default: true
             example: "28.4"
             description: |+
               End time
           seqNum:
             x-name: seqNum
-            type: number
+            type: string
             default: true
             example: "4"
             description: |+
