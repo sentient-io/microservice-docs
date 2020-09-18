@@ -189,7 +189,7 @@ components:
           default: true
           example: news_parliament
           description: |+
-            Model selection. Selecting the right model for context of the voice input helps with accuracy&#58;
+            Model selection. For best performance, select the model which best matches the use-case&#58;
             
             1. news_parliament - 16 kHz, mono channel, .wav format. Trained on Singapore news and parliament corpus.
             2. nsc_parliament - 16 kHz, mono channel, .wav format. Trained on National Speech Corpus and parliament corpus.
