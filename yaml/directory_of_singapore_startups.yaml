@@ -304,7 +304,7 @@ components:
                               example: { "<Json": "Object>" }
                               description: Json Object of returned hits
                               properties:
-                                <contentfrom>: 
+                                <contentkey>: 
                                   type: string
                                   description: logo url
                                   example: 'https://e27.co/img/startups/11448/logo.png'
@@ -313,18 +313,18 @@ components:
                               example: { "<Json": "Object>" }
                               description: Json Object of returned hits
                               properties:
-                                e27:
+                                <contentkey>:
                                   type: string
                                   description: company url
                                   example: 'https://e27.co/startup/aar-consultancy'
                                   properties:
                                     sourceurl: 
                                       type: string
-                                      description: record by company source url
-                                      example: 'https://e27.co/startup/aar-consultancy'
+                                      description: Directory source url
+                                      example: 'https://e27.co/startup/tech-in-asia'
                                     type: 
                                       type: string
-                                      description: type of company 
+                                      description: Type of company 
                                       example: startup
                                     technology:
                                       type: array
@@ -345,53 +345,88 @@ components:
                                         - type: string
                                           format: list
                                           example: Internet of Things
+                                      funding:
+                                        type: array
+                                        example: [ { "<JSON": "result Object" } ]
+                                        description: The list of company funding
+                                        items:
+                                          type: object
+                                          properties:
+                                            logo:
+                                              type: string
+                                              description: Logo of the funding organization
+                                              example: "https://e27.co/img/startups/28287/logo-1508911709_thumb.png"
+                                            name: 
+                                              type: string
+                                              description: Funding company name
+                                              example: "Hanwha Investment South Korea"
+                                            location: 
+                                              type: string
+                                              description: Funding round/stage
+                                              example: "Venture Round"
+                                            amount: 
+                                              type: string
+                                              description: Funding amount
+                                              example: "US$6.6M"
+                                            date: 
+                                              type: string
+                                              description: Funding date
+                                              example: "Nov 2017"
                             socialmedia:
                               type: object
                               example: { "<Json": "Object>" }
                               description: Json Object of returned hits
                               properties:
-                                e27:
+                                <contentkey>:
                                   type: string
                                   description: Social media  information of the record
-                                  example: 'https://sg.linkedin.com/in/soumikch'
+                                  example: 'https://www.linkedin.com/company/tech-in-asia'
                                   properties:
                                     linkedin: 
                                       type: string
-                                      description: Social media  information of the record
-                                      example: 'https://sg.linkedin.com/in/soumikch'
+                                      description: Social media - Linkedin url
+                                      example: 'https://www.linkedin.com/company/tech-in-asia'
+                                    facebook: 
+                                      type: string
+                                      description: Social media - Facebook url
+                                      example: 'https://www.facebook.com/techinasia'
+                                    twitter: 
+                                      type: string
+                                      description: Social media - twitter url
+                                      example: 'https://www.twitter.com/Techinasia'
                             descshort:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Json Object of returned hits
+                              description: Short description
                               properties:
-                                e27: 
+                                <contentkey>: 
                                   type: string
                                   description: Short description
-                                  example: 'Google Certified Professionals. Providing with Consultation, Implementation Strategy and Training of various online platforms, methods and campaigns, including eComm launches.'
+                                  example: 'Tech in Asia (YC W15) is the go-to online platform for Asia’s tech community, with annual conferences hosted in Singapore, Tokyo, and Jakarta.'
                             desclong:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Json Object of returned hits
+                              description: Long description
                               properties:
-                                e27: 
+                                <contentkey>: 
                                   type: string
                                   description: Long description
-                                  example: 'My name is Soumik and I am founder of AAR Consultancy, a registered business in Singapore. I provide online consultancy, implementation strategy development and Training.I offer various online services, which you can see from my attached company profile. I am an MBA with 11+ years experience helping manage digital / online marketing for various industries. Been guest speakers at seminars and conferences and provided corporate training to SMEs and MNCs alike. I have worked with Streetdirectory, MDIS, Ogilvy and Mather, American Express and Mothercare and has helped clients such as IBM, Unilever, Nestle, SingTel, Guinness amongst others. SMEs, MNCs : B2B and B2C.Have launched eCommerce Platforms, websites, strategies, technologies, apps, and more.Trained and implemented, SEO, AdWords - ppc, media ads, social, community management and more.'
+                                  example: 'Tech in Asia (YC W15) is the go-to online platform for Asia’s tech community, with annual conferences hosted in Singapore, Tokyo, and Jakarta. Right here is where you can keep abreast of Asia’s tech industry, share your thoughts alongside ours, and connect with startups and investors alike.With an ever-growing team of close to 100 based all across Asia and the US, spanning editorial, events and database functions, they are fully dedicated to bringing Asia’s tech ecosystem closer together.Above all, they want to give you a voice with their platform and facilitate meaningful discussions that would otherwise only take place offline. Anyone willing to add value to Asia’s tech community and ecosystem is able and welcome to join in the conversation.Tech in Asia counts Softbank, Y Combinator, Walden International, East Ventures, Facebook co-founder Eduardo Saverin, and more amongst its list of investors. Their statement of ethics governs their principles regarding full disclosure and conflicts of interest.'
                             website:
                               type: object
                               example: { "<Json": "Object>" }
                               description: Json Object of returned hits
                               properties:
-                                e27:
+                                <contentkey>:
                                   type: string
                                   description: Website address
-                                  example: 'http://ww.aaronline.sg'
+                                  example: 'https://www.techinasia.com'
                             status:
                               type: object
                               example: { "<Json": "Object>" }
                               description: Json Object of returned hits
                               properties:
-                                e27:
+                                <contentkey>:
                                   type: string
                                   description: Company status
                                   example: active
