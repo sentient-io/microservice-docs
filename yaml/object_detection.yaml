@@ -94,6 +94,10 @@ components:
           description: "Details of the detected object"
           items:
             properties:
+              person:
+                type: string
+                example: 100%
+                description: people
               Bounding Box:
                 type: object
                 example: {"Bot": 742,"Left": 19,"Right": 1019,"Top": 73}
