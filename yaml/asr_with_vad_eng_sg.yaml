@@ -189,9 +189,10 @@ components:
           default: true
           example: news_parliament
           description: |+
-            news_parliament. 16 kHz, mono channel. wav format.
-            nsc_parliament. 16 kHz, mono channel. wav format.
-            nscfull_8k. 8 kHz, mono channel. wav format.
+            Model name&#58;
+            1. news_parliament. 16 kHz, mono channel. wav format.
+            2. nsc_parliament. 16 kHz, mono channel. wav format.
+            3. nscfull_8k. 8 kHz, mono channel. wav format.
         wav_url/wav_base64:
           x-name: wav_url/wav_base64
           type: string
