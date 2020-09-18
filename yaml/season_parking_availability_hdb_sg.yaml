@@ -52,11 +52,11 @@ info:
 
     * **term** - Returns results that contain an exact term in a provided field
 
-      > {"term":{"street":"bishan"}}
+      > {"term":{"car_park_group":"G15"}}
 
     * **terms** - Returns results that contain one or more exact terms in a provided field
 
-      > {"terms":{"cpk_no":["ak19","be33"]}}
+      > {"terms":{"car_park_group":["G15","G39"]}}
       
     * **range** - Returns results that contain terms within a stipulated range
     
