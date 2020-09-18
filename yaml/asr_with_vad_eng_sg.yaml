@@ -186,26 +186,19 @@ components:
         model:
           x-name: model
           type: string
-          default: false
+          default: true
           example: news_parliament
           description: |+
             news_parliament. 16 kHz, mono channel. wav format.
             nsc_parliament. 16 kHz, mono channel. wav format.
             nscfull_8k. 8 kHz, mono channel. wav format.
-        wav_url:
-          x-name: wav_url
+        wav_url/wav_base64:
+          x-name: wav_url/wav_base64
           type: string
           default: true
-          example: https://api.sentient.io/test2.wav
+          example: https://api.sentient.io/test2.wav or UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: |+
-            The public URL link to the wave file. Mono channel. 8kHz / 16kHz sampling rate
-        wav_base64:
-          x-name: wav_base64
-          type: string
-          default: true
-          example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
-          description: |+
-            Input audio wav file in base64 format. Mono channel. 8kHz / 16kHz sampling rate
+            The public URL link to the wave file or Input audio wav file in base64 format. Mono channel. 8kHz / 16kHz sampling rate
         file_type:
           x-name: file_type
           type: string
@@ -218,7 +211,7 @@ components:
           type: number
           format: float
           default: false
-          example: "0.4"
+          example: 0.4
           description: |+
             0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25
     versions:
