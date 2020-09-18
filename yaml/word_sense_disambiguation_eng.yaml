@@ -127,14 +127,12 @@ components:
                       example: [{"hypernyms": [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}],"synset_definition": "an extended social group having a distinctive cultural and economic organization","synset_name": "society.n.01","synset_score": 0.9870249032974243,"token_index": 40}]
                       description: Details about the target word given as input
                       items:
-                        type: object
                         properties:      
                           hypernyms:
                             type: array
                             example: [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}]
                             description: A hypernym can be thought of as a parent class. For example, "colour" is a hypernym of "red".
                             items:
-                              type: object
                               properties:
                                 hypernym_definition:
                                   type: string
