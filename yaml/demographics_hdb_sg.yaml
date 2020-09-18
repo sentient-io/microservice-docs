@@ -148,15 +148,15 @@ paths:
                     _score: 17.995623
                     _source:
                       postalcode: '560720'
-                      gender: male
-                      age_group: 50 to 59
-                      age_group_id: '6'
-                      residents: '54'
+                      gender: 'male'
+                      age_group: '50 to 59'
+                      age_group_id: 6
+                      residents: 54
                       block: '34'
-                      street: upper cross street
+                      street: 'upper cross street'
                       xcoord: 29520.58
                       ycoord: 39311.68
-                      address: 34 upper cross street
+                      address: '34 upper cross street'
                       createddate: '2020-04-23'
                       lastupdated: '2020-04-23'
                       location:
@@ -274,13 +274,13 @@ components:
                               description: Range of age groups
                               example: "50 to 59"
                             age_group_id:
-                              type: string
+                              type: number
                               description: Age groups type, age group values are - <= 10:1,10 - 19:2,20-29:3,30 - 39:4,40-49:5,50-59:6,60-69:7,> 70:8
-                              example: "6"
+                              example: 6
                             residents:
-                              type: string
+                              type: number
                               description: Number of residents
-                              example: "54"
+                              example: 54
                             block:
                               type: string
                               description: Address block
@@ -324,7 +324,7 @@ components:
                                     example: 103.8469821
                             source: 
                               type: string
-                              description: Dataset name
+                              description: Dataset source
                               example: "hdb"
         message:
           type: string
