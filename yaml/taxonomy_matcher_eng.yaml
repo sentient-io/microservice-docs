@@ -191,13 +191,7 @@ components:
           x-name: text
           type: array
           default: true
-          example: 
-            - "bus"
-            - "cars"
-            - "bike"
-            - "train"
-            - "buildings"
-            - "Audi R8"
+          example: ["bus","cars","bike","train","buildings","Audi R8"]
           description: |+
             A list of object names to be classified. Up to a maximum of 20 search terms can be processed each time.
         threshold:
