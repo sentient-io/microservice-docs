@@ -293,7 +293,7 @@ components:
                               example: singapore
                             createddate: 
                               type: string
-                              description: Record created date
+                              description: Record first release date on sentient
                               example: '2018-12-31'
                             name: 
                               type: string
@@ -302,20 +302,20 @@ components:
                             logo:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Json Object of returned hits
+                              description: List of logo from various content providers
                               properties:
-                                <contentkey>: 
+                                <contentprovider>: 
                                   type: string
                                   description: logo url
                                   example: 'https://e27.co/img/startups/11448/logo.png'
                             company:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Json Object of returned hits
+                              description: Full details about the company from various content providers
                               properties:
-                                <contentkey>:
+                                <contentprovider>:
                                   type: string
-                                  description: company url
+                                  description: Directory website url
                                   example: 'https://e27.co/startup/aar-consultancy'
                                   properties:
                                     sourceurl: 
@@ -324,7 +324,7 @@ components:
                                       example: 'https://e27.co/startup/tech-in-asia'
                                     type: 
                                       type: string
-                                      description: Type of company 
+                                      description: Type of Directory 
                                       example: startup
                                     technology:
                                       type: array
@@ -375,9 +375,9 @@ components:
                             socialmedia:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Json Object of returned hits
+                              description: Various Social media details from various content providers
                               properties:
-                                <contentkey>:
+                                <contentprovider>:
                                   type: string
                                   description: Social media  information of the record
                                   example: 'https://www.linkedin.com/company/tech-in-asia'
@@ -399,34 +399,34 @@ components:
                               example: { "<Json": "Object>" }
                               description: Short description
                               properties:
-                                <contentkey>: 
+                                <contentprovider>: 
                                   type: string
-                                  description: Short description
+                                  description: Short description from various content providers
                                   example: 'Tech in Asia (YC W15) is the go-to online platform for Asia’s tech community, with annual conferences hosted in Singapore, Tokyo, and Jakarta.'
                             desclong:
                               type: object
                               example: { "<Json": "Object>" }
                               description: Long description
                               properties:
-                                <contentkey>: 
+                                <contentprovider>: 
                                   type: string
-                                  description: Long description
+                                  description: Long description from various content providers
                                   example: 'Tech in Asia (YC W15) is the go-to online platform for Asia’s tech community, with annual conferences hosted in Singapore, Tokyo, and Jakarta. Right here is where you can keep abreast of Asia’s tech industry, share your thoughts alongside ours, and connect with startups and investors alike.With an ever-growing team of close to 100 based all across Asia and the US, spanning editorial, events and database functions, they are fully dedicated to bringing Asia’s tech ecosystem closer together.Above all, they want to give you a voice with their platform and facilitate meaningful discussions that would otherwise only take place offline. Anyone willing to add value to Asia’s tech community and ecosystem is able and welcome to join in the conversation.Tech in Asia counts Softbank, Y Combinator, Walden International, East Ventures, Facebook co-founder Eduardo Saverin, and more amongst its list of investors. Their statement of ethics governs their principles regarding full disclosure and conflicts of interest.'
                             website:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Json Object of returned hits
+                              description: Website details from various content providers
                               properties:
-                                <contentkey>:
+                                <contentprovider>:
                                   type: string
                                   description: Website address
                                   example: 'https://www.techinasia.com'
                             status:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Json Object of returned hits
+                              description: Company status from various content providers
                               properties:
-                                <contentkey>:
+                                <contentprovider>:
                                   type: string
                                   description: Company status
                                   example: active
