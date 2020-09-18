@@ -93,7 +93,7 @@ tags:
 - name: "v0.1"
   description: "Published Date - Oct 10, 2019"
 paths:
-   /DaaS/prod/directories/hdb/searchdir:
+   /DaaS/prod/directories/searchbranch:
     get:
       tags:
         - v0.1
