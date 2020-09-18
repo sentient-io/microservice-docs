@@ -72,13 +72,6 @@ info:
       **Forming sophisticated queries using combinations of filter types (in JSON)**
 
       Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
-    
-      > {
-      > "must":[{"match":{"mc":0}}],
-      > "filter":[{"match":{"street":"bishan"}}],
-      > "should":[{"match_phrase":{"street":"ang mo kio"}}],
-      > "must_not":[{"match":{"postalcode":"570251"}}]
-      > }
 
       > {
       > "must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],
