@@ -77,11 +77,11 @@ info:
 
     **Sample Queries Based on Use Cases**
     
-    1. **Search for all flat owners around 414 Bedok North Road**
+    1. **Search for all blocks with duration of ownership equal to or exceeding 10 years in Ang Mo Kio.**
     
-       Using a querystring only&#58;
+       Using a filterdata only&#58;
       
-       > querystring = “414 bedok north road"
+       > filterdata = {"filter":[{"match":{"street":"ang mo kio"}},{"match":{"len_of_ownership_id":"1"}}]}
 
   version: '0.1'
 servers:
