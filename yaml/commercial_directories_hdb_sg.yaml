@@ -68,6 +68,7 @@ info:
         > {"range":{"postalcode":{"lte":650347}}}
         > {"range":{"postalcode":{"gte":650347}}}
         > {"range":{"postalcode":{"gte":650347,"lte":760415}}}
+        
       * **exists** - Returns results that contain any indexed value for a field
       
         > {"exists":{ "field": "postalcode"}}
