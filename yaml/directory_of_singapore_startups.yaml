@@ -302,7 +302,7 @@ components:
                             logo:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: List of logo from various content providers
+                              description: List of logo from various content providers like f6s, e27, techinasia
                               properties:
                                 <contentprovider>: 
                                   type: string
@@ -311,12 +311,12 @@ components:
                             company:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Full details about the company from various content providers
+                              description: Full details about the company from various content providers like f6s, e27, techinasia
                               properties:
-                                contentprovider:
+                                <contentprovider>:
                                   type: object
                                   example: { "<Json": "Object>" }
-                                  description: Directory details from the content provider
+                                  description: Directory details from the content provider like f6s, e27, techinasia
                                   properties:
                                     sourceurl: 
                                       type: string
@@ -375,7 +375,7 @@ components:
                             socialmedia:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Various Social media details from various content providers
+                              description: Various Social media details from various content providers like f6s, e27, techinasia
                               properties:
                                 <contentprovider>:
                                   type: string
@@ -401,7 +401,7 @@ components:
                               properties:
                                 <contentprovider>: 
                                   type: string
-                                  description: Short description from various content providers
+                                  description: Short description from various content providers like f6s, e27, techinasia
                                   example: 'Tech in Asia (YC W15) is the go-to online platform for Asia’s tech community, with annual conferences hosted in Singapore, Tokyo, and Jakarta.'
                             desclong:
                               type: object
@@ -410,12 +410,12 @@ components:
                               properties:
                                 <contentprovider>: 
                                   type: string
-                                  description: Long description from various content providers
+                                  description: Long description from various content providers like f6s, e27, techinasia
                                   example: 'Tech in Asia (YC W15) is the go-to online platform for Asia’s tech community, with annual conferences hosted in Singapore, Tokyo, and Jakarta. Right here is where you can keep abreast of Asia’s tech industry, share your thoughts alongside ours, and connect with startups and investors alike.With an ever-growing team of close to 100 based all across Asia and the US, spanning editorial, events and database functions, they are fully dedicated to bringing Asia’s tech ecosystem closer together.Above all, they want to give you a voice with their platform and facilitate meaningful discussions that would otherwise only take place offline. Anyone willing to add value to Asia’s tech community and ecosystem is able and welcome to join in the conversation.Tech in Asia counts Softbank, Y Combinator, Walden International, East Ventures, Facebook co-founder Eduardo Saverin, and more amongst its list of investors. Their statement of ethics governs their principles regarding full disclosure and conflicts of interest.'
                             website:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Website details from various content providers
+                              description: Website details from various content providers like f6s, e27, techinasia
                               properties:
                                 <contentprovider>:
                                   type: string
@@ -424,7 +424,7 @@ components:
                             status:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: Company status from various content providers
+                              description: Company status from various content providers like f6s, e27, techinasia
                               properties:
                                 <contentprovider>:
                                   type: string
