@@ -92,7 +92,7 @@ info:
 
        Using a querystring only&#58;
       
-       > querystring = “414 bedok north road"
+       > querystring = "414 bedok north road"
 
     2. **Search for all carparks within a 1KM radius from Tampines Mall**
 
