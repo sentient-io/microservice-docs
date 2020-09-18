@@ -1,8 +1,12 @@
 openapi: 3.0.1
 info:
-  title: Carpark HDB (SG)
+  title: HDB Carpark Locations (SG)
   description: |+
-    This Data microservice retrieves the Singapore Housing Development Board’s carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. This dataset is updated monthly.
+    This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.
+
+    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
+
+    Suggested Use Cases: Geo-targeting app with map feature, property development planning resource, or planning for vehicle-sharing app.
 
     **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
   
