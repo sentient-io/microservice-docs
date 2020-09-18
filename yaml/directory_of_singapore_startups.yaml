@@ -4,76 +4,75 @@ info:
   description: |+
     This Data microservice retrieves the list of all Singapore startup companies found on the internet through web scraping. Updated quarterly.
   x-additionalinfo: |+
+    **Refining queries in the filterdata field using filter types and match types**
+
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+  
+    **Filter Types:**
+
+    A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
-    **Search Types**
+    * **must** - All of the stated conditions must match. Equivalent to an AND operator.
+
+      > {"must":[{"match":{"name":"technology"}}]}
+
+    * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
+
+      > {"must_not":[{"match":{"yearestablished.e27": "2016"}}]}
     
-    All values have to be URL encoded
+    * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
+
+      > {"should":[{"match":{"status.e27": "active"}}]}
     
-    **Keyword search**
+    * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
+
+      > {"filter":[{"exists":{"field": "company.e27"}}]}
+      
+    For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
-    Keyword search; search for all searchable fields
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+
+    **Match Types:**
+
+    A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
-    **Using querystring:**
+    * **match** - Search within a full text field for a single word
     
-    > e27 Or AAR Consultancy
+      > {"match":{"name":"technology"}}
     
-    **Filter search**
+    * **match_phrase** - Search within a full text field
     
-    **Example 1:** Get all results except ang mo kio 
+     > {"match_phrase":{"name":"nextwave partners"}}
     
-    Using fiterdata:
+    * **match_phrase_prefix** - Search within a full text field with prefix
     
-    > {"must_not":[{"match":{"name":"Nityo Progression Consultancy Pte Ltd"}}]}
+      > {"match_phrase_prefix":{"name":"nextwave partners"}}
     
-    Using querystring:
+    * **term** - Returns results that contain an exact term in a provided field
     
-    > name:"Nityo Progression Consultancy Pte Ltd"
+      > {"term":{"employeecount.techinasia":"11"}}
     
-    **Example 2:** Filter results with shopname match phase “ang mo supermarket” and street match bishan
+    * **terms** - Returns results that contain one or more exact terms in a provided field
     
-    Using fiterdata:
+      > {"terms":{"employeecount.techinasia":["11","15"]}}
+      
+    * **range** - Returns results that contain terms within a stipulated range
     
-    > {"filter":[{"match":{"type":"company"}},{"match":{"name":"AAR Consultancy"}}]}
+      > {"range":{"company.techinasia.funding.amount":{"gte":10000000}}}
+      > {"range":{"company.techinasia.funding.amount":{"lte":50000000}}}
+      > {"range":{"company.techinasia.funding.amount":{"gte":10000000,"lte":50000000}}}
+      
+    * **exists** - Returns results that contain any indexed value for a field
     
-    **Supported Filter Types:**
-   
-    **must** - All of these clauses must match. The equivalent of AND.
-    
-    **must_not** - All of these clauses must not match. The equivalent of NOT.
-    
-    **should** - At least one of these clauses must match. The equivalent of OR.
-    
-    **filter** - Clauses that must match, but are run in non-scoring, filtering mode.
-    
-    **Supported Match Types:**
-    
-    **match** - is to search within a full-text field for a single word
-    
-    > { "match":{"address":"singapore"}}
-    
-    **match_phrase** - is to search a full text field
-    
-    > { "match_phrase":{ "address":singapore"}}
-    
-    **match_phrase_prefix** - is to search a full text field with prefix
-    
-    > {"match_phrase_prefix":{"address":"singapore"}}
-    
-    **term** - returns documents that contain one or more exact terms in a provided field.
-    
-    > {"term":{"address":"singapore"}}
-    
-    **terms** - The terms query is the same as the term query, except you can search for multiple values.
-    
-    > {"terms":{"address":["singapore","ang mo kio"]}}
+      > {"exists":{"field": "company.e27"}}
     
     **Sample filterdata JSON:**
     > {
-    "must":[{"match_phrase":{"address":"singapore"}}],
-    "filter":[{"match":{"source":"sentient"}}],
-    "should":[{"match":{"type":"company"}}],
-    "must_not":[{"match":{"name":"Nityo Progression Consultancy Pte Ltd"}}
-    }
+    > "must":[{"match":{"name":"technology"}}],
+    > "filter":[{"exists":{"field": "company.e27"}}],
+    > "should":[{"match":{"status.e27": "active"}}],
+    > "must_not":[{"match":{"yearestablished.e27": "2016"}}]
+    > }
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -95,7 +94,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all start ups (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "ang mo kio"
+          example: "technology"
           default: false
         - in: query
           name: offset
@@ -123,7 +122,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],"filter":[{"match":{"source":"sentient"}}],"should":[{"match":{"type":"company"}}],"must_not":[{"match":{"name":"Nityo Progression Consultancy Pte Ltd"}}]}
+              {"must":[{"match":{"name":"technology"}}],"filter":[{"exists":{"field":"company.e27"}}],"should":[{"match":{"status.e27":"active"}}],"must_not":[{"match":{"yearestablished.e27":"2016"}}]}
       responses:
         '200':
           description: success response
@@ -282,15 +281,15 @@ components:
                     properties:
                             type: 
                               type: string
-                              description: Content type of the document. Rented/Owner
+                              description: Directory type
                               example: company
                             source: 
                               type: string
-                              description: Holds all the document details
+                              description: Dataset source
                               example: sentient
                             address: 
                               type: string
-                              description: Full address for the record
+                              description: Full address
                               example: singapore
                             createddate: 
                               type: string
