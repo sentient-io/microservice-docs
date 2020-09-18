@@ -62,14 +62,9 @@ info:
       * **terms** - Returns results that contain one or more exact terms in a provided field
 
         > {"terms":{"postalcode":["560720","560721"]}}
-        
-      * **range** - Returns results that contain terms within a stipulated range
-      > {"range":{"_score":{"gte":2}}}
-      > {"range":{"_score":{"lte":5}}}
-      > {"range":{"_score":{"gte":2,"lte":5}}}
       
       * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{ "field": "postalcode" }}
+      > {"exists":{ "field": "postalcode"}}
   
       For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
 
