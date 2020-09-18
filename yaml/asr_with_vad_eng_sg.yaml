@@ -92,15 +92,15 @@ components:
         end:
           type: string
           example: 23.72
-          description: end time of utterance
+          description: End time of utterance
         seqNum:
           type: string
           example: 1
-          description: running sequence number starts from 1.
+          description: Running sequence number starts from 1.
         start:
           type: float
           example: 0.64
-          description: start time of utterance
+          description: Start time of utterance
         text:
           type: string
           description: Converted text from the input audio file
@@ -200,14 +200,14 @@ components:
           default: true
           example: https://api.sentient.io/test2.wav or UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: |+
-            The public URL link to the wave file or Input audio wav file in base64 format. Mono channel. 8kHz / 16kHz sampling rate
+            The public URL link to the wave file or Input audio wav file in base64 format. Mono channel, 8kHz / 16kHz sampling rate.
         file_type:
           x-name: file_type
           type: string
           default: false
           example: wav
           description: |+
-            Input file extension. Only “wav” is supported
+            Input file extension. Only “wav” is supported at the moment.
         vad_threshold:
           x-name: vad_threshold
           type: number
@@ -215,7 +215,7 @@ components:
           default: false
           example: 0.4
           description: |+
-            0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25
+            0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
     versions:
       type: object
       properties: 
