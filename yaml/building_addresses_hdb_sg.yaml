@@ -1,8 +1,10 @@
 openapi: 3.0.1
 info:
-  title: Building Addresses HDB (SG)
+  title: HDB Block Coordinates (SG)
   description: |+
-   This Data microservice retrieves the list of all retail shops in Singapore which allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates type of business. The resultant dataset offers useful information like the shop operating hours and contact number. This dataset is updated weekly.
+   This Data microservice retrieves information on the Singapore Housing Development Board building blocks in Singapore that includes addresses, postal code, latitude and longitude coordinates. Updated monthly
+
+   The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
@@ -55,6 +57,9 @@ info:
     * **terms** - Returns results that contain one or more exact terms in a provided field
 
       > {"terms":{"postalcode":["550151","550152"]}}
+      
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{ "field": "postalcode"}}
 
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
