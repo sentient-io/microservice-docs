@@ -357,15 +357,15 @@ components:
                                     description: WGS84 longitude
                                     example: 103.8469821
                             car:
-                              type: string
+                              type: number
                               description: Number of car parking lots
                               example: 18
                             lorry:
-                              type: string
+                              type: number
                               description: Number of lorry parking lots
                               example: 6
                             mc:
-                              type: string
+                              type: number
                               description: Number of motorcycle parking lots
                               example: 0
                             createddate:
