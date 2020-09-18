@@ -57,7 +57,7 @@ info:
     * **range** - Returns results that contain terms within a stipulated range
       > {"range":{"residents":{"gte":10}}}
       > {"range":{"residents":{"lte":50}}}
-      > {"range":{"residents":{"gte":10,"lte":50050
+      > {"range":{"residents":{"gte":10,"lte":50}}}
       
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{ "field": "postalcode"}}
