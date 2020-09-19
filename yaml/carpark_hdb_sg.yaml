@@ -341,11 +341,11 @@ components:
                               example: 28185.4359
                             ycoord:
                               type: string
-                              description: SVY21 Y coordinates
+                              description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                               example: 39012.6664
                             location:
                               type: object
-                              description: WGS84 (GPS) coordinates lat/long
+                              description: WGS84 (World Geodetic System) lat/long coordinates. This is the standard coordinate system used Global Positioning System (GPS).
                               example: {"lat":1.364299477060462,"lon":103.8350609414261}
                               properties:
                                   lat: 
