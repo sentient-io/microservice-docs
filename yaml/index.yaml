@@ -211,8 +211,8 @@ Data:
         title: Brief Financial Extraction Dun & Bradstreet (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/BriefFinancialExtractionDun&Bradstreet(SG).yaml"
-dataalliance:
-    Download Dataset API:
+Data Alliance:
+    download_dataset_api:
         title: Download Dataset API
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/download_dataset.yaml"
