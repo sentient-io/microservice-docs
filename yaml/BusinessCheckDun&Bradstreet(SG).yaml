@@ -527,6 +527,12 @@ components:
         status:
           type: string
           example: Failure
+    input:
+      type: object
+      properties:
+        status:
+          type: string
+          example: Input Limit Exceeded
     versions:
       type: object
       properties: 
