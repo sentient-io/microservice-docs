@@ -195,10 +195,6 @@ Data:
         title: HDB Shelters Locations (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_shelters_hdb_sg.yaml"
-    Business Check Dun & Bradstreet (SG):
-        title: Business Check Dun & Bradstreet (SG)
-        versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/BusinessCheckDun&Bradstreet(SG).yaml"
 Data Alliance:
     Download Dataset API:
         title: Download Dataset API
