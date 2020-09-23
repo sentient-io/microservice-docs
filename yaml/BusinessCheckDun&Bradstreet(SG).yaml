@@ -456,7 +456,7 @@ components:
                           EFFECT_DATE:
                             type: string                            
     unauthorized:
-      type: array
+      type: object
       items:
         properties:
           message:
@@ -466,7 +466,7 @@ components:
             type: string
             example: Failure
     forbidden:
-      type: array
+      type: object
       items:
         properties:
           message:
@@ -476,7 +476,7 @@ components:
             type: string
             example: Failure
     paymentrequired:
-      type: array
+      type: object
       items:
         properties:
           message:
@@ -486,7 +486,7 @@ components:
             type: string
             example: Failure
     notfound:
-      type: array
+      type: object
       items:
         properties:
           message:
@@ -496,7 +496,7 @@ components:
             type: string
             example: Failure
     servererror:
-      type: array
+      type: object
       items:
         properties:
           message:
