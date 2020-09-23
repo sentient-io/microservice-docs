@@ -22,11 +22,7 @@ paths:
             examples:
               xml:
                 summary: A sample XML response
-                value: '<REQUEST>
-
-<TOT_ITEMS>1</TOT_ITEMS><ENQUIRY><SUBJECT_IDNO>199707714C</SUBJECT_IDNO>
-
-<SUBJECT_NAME> GPS INDUSTRIES PTE LTD</SUBJECT_NAME></ENQUIRY></REQUEST>'               
+                value: ''               
       responses:
         '200':
           description: success response
