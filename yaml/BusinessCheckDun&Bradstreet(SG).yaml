@@ -457,54 +457,49 @@ components:
                             type: string                            
     unauthorized:
       type: object
-      items:
-        properties:
-          message:
-            type: string
-            example: Missing Authentication Token
-          status:
-            type: string
-            example: Failure
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
     forbidden:
       type: object
-      items:
-        properties:
-          message:
-            type: string
-            example: Access Denied Unauthorized User
-          status:
-            type: string
-            example: Failure
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
     paymentrequired:
       type: object
-      items:
-        properties:
-          message:
-            type: string
-            example: Insufficient Credits Kindly Top Up
-          status:
-            type: string
-            example: Failure
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
     notfound:
       type: object
-      items:
-        properties:
-          message:
-            type: string
-            example: Invalid Request URL
-          status:
-            type: string
-            example: Failure
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
-      items:
-        properties:
-          message:
-            type: string
-            example: Internal Server Error
-          status:
-            type: string
-            example: Failure
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
     gatewaytimeout:
       type: object
       properties:
