@@ -28,24 +28,43 @@ paths:
                 $ref: '#/components/schemas/success'
               example: |+
                 <?xml version="1.0" encoding="UTF-8"?>
+                
                 <success>
+                
                 	<REPORT>
+                	
                 		<META_INFO>
+                		
                 			<SERVICE>string</SERVICE>
+                			
                 			<SYSTEM_ID>string</SYSTEM_ID>
+                			
                 			<CREATION_DATE>string</CREATION_DATE>
+                			
                 			<USER_ID>string</USER_ID>
+                			
                 			<CLASS>string</CLASS>
+                			
                 		</META_INFO>
+                		
                 		<REQ_SEARCH_INFO>
+                		
                 			<COMP_NAME>string</COMP_NAME>
+                			
                 			<REG_NO>string</REG_NO>
+                			
                 			<REQ_DATE>string</REQ_DATE>
+                			
                 			<REQ_REG_NO>string</REQ_REG_NO>
+                			
                 			<REQ_NAME>string</REQ_NAME>
+                			
                 			<REQ_DATE_STR>string</REQ_DATE_STR>
+                			
                 		</REQ_SEARCH_INFO>
+                		
                 		<REGISTRY_DETAIL>
+                		
                 			<COMP_NAME>string</COMP_NAME>
                 			<RENEWAL_DATE>string</RENEWAL_DATE>
                 			<ADDRESS1>string</ADDRESS1>
