@@ -27,6 +27,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example: |+
+                ```xml
                 <?xml version="1.0" encoding="UTF-8"?>
                 
                 <success>
@@ -184,6 +185,7 @@ paths:
                 		</LIST_NAME_CHANGE>
                 	</REPORT>
                 </success>
+                ```
         '401':
           description: Unauthorized
           content:
