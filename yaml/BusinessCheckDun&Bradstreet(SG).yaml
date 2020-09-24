@@ -489,11 +489,14 @@ components:
                     properties:
                       NAME_CHANGE:
                         type: object
+                        description: List of name change
                         properties:
                           PREV_NAME:
                             type: string
+                            description: Previous name
                           EFFECT_DATE:
-                            type: string                            
+                            type: string
+                            description: Effect Date
     unauthorized:
       type: object
       properties:
