@@ -573,15 +573,20 @@ components:
         TOT_ITEMS:
           type: number
           example: 1
+          description: Number of subjects being enquired relating to the Run
         ENQUIRY:
           type: object
+          example: 
+          description: Contains information of each request details
           properties:
             SUBJECT_IDNO:
               type: string
               example: 199707714C
+              description: Subject’s ID Number (individual) or Registration
             SUBJECT_NAME:
               type: string
               example: GPS INDUSTRIES PTE LTD
+              description: Subject’s Name as captured in DDP
     versions:
       type: object
       properties: 
