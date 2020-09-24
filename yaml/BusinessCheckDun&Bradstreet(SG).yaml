@@ -18,11 +18,7 @@ paths:
         content:
           application/xml:
             schema:
-              type: string
-            examples:
-              xml:
-                summary: A sample XML response
-                value: ''               
+              $ref: '#/components/schemas/success'              
       responses:
         '200':
           description: success response
