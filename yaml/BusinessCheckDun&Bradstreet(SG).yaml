@@ -31,144 +31,119 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                <?xml version="1.0" encoding="UTF-8"?>
-                <success>
-                	<REPORT>
-                		<META_INFO>
-                			<SERVICE>string</SERVICE>
-                			<SYSTEM_ID>string</SYSTEM_ID>
-                			<CREATION_DATE>string</CREATION_DATE>
-                			<USER_ID>string</USER_ID>
-                			<CLASS>string</CLASS>
-                		</META_INFO>
-                		<REQ_SEARCH_INFO>
-                			<COMP_NAME>string</COMP_NAME>
-                			<REG_NO>string</REG_NO>
-                			<REQ_DATE>string</REQ_DATE>
-                			<REQ_REG_NO>string</REQ_REG_NO>
-                			<REQ_NAME>string</REQ_NAME>
-                			<REQ_DATE_STR>string</REQ_DATE_STR>
-                		</REQ_SEARCH_INFO>
-                		<REGISTRY_DETAIL>
-                			<COMP_NAME>string</COMP_NAME>
-                			<RENEWAL_DATE>string</RENEWAL_DATE>
-                			<ADDRESS1>string</ADDRESS1>
-                			<ADDRESS2>string</ADDRESS2>
-                			<ADDRESS3>string</ADDRESS3>
-                			<ADDRESS4>string</ADDRESS4>
-                			<COMP_TYPE_CODE>string</COMP_TYPE_CODE>
-                			<REG_DATE>string</REG_DATE>
-                			<REG_ACTIVITY1>string</REG_ACTIVITY1>
-                			<REG_ACTIVITY2>string</REG_ACTIVITY2>
-                			<ACC_DATE>string</ACC_DATE>
-                			<STATUS_EFFECT_DATE>string</STATUS_EFFECT_DATE>
-                			<NAME_EFFECT_DATE>string</NAME_EFFECT_DATE>
-                			<EXPIRY_DATE>string</EXPIRY_DATE>
-                			<COMP_TYPE>string</COMP_TYPE>
-                			<CHANGE_ADDR_DATE>string</CHANGE_ADDR_DATE>
-                			<COMP_STATUS>string</COMP_STATUS>
-                			<REG_ACTIVITY_DESC1>string</REG_ACTIVITY_DESC1>
-                			<REG_ACTIVITY_DESC2>string</REG_ACTIVITY_DESC2>
-                			<AUDITOR>string</AUDITOR>
-                			<AUDITOR_APPMT_DATE>string</AUDITOR_APPMT_DATE>
-                			<LAST_AR_DATE>string</LAST_AR_DATE>
-                			<LAST_AGM_DATE>string</LAST_AGM_DATE>
-                			<COUNTRY_INCORP>string</COUNTRY_INCORP>
-                		</REGISTRY_DETAIL>
-                		<EMPLOYEE_SIZE>
-                			<ELEMENTS>string</ELEMENTS>
-                			<AMOUNT>string</AMOUNT>
-                		</EMPLOYEE_SIZE>
-                		<LIST_BIZ_BRANCH>
-                			<BIZ_BRANCH>
-                				<ADDR_BUILDING>string</ADDR_BUILDING>
-                				<ADDR_POSTCODE>string</ADDR_POSTCODE>
-                				<ADDR_ADDRESS1>string</ADDR_ADDRESS1>
-                			</BIZ_BRANCH>
-                		</LIST_BIZ_BRANCH>
-                		<LIST_REG_CHARGES>
-                			<REG_CHARGES>
-                				<CHARGE_NO>string</CHARGE_NO>
-                				<CHARGE_DATE>string</CHARGE_DATE>
-                				<CHARGEE_COMP>string</CHARGEE_COMP>
-                				<CURRENCY>string</CURRENCY>
-                				<AMT_SECURED>string</AMT_SECURED>
-                				<STATUS_SATISFACTION>string</STATUS_SATISFACTION>
-                			</REG_CHARGES>
-                		</LIST_REG_CHARGES>
-                		<LIST_LIQUIDATOR>
-                			<LIQUIDATOR>
-                				<LIQ_NAME>string</LIQ_NAME>
-                				<LIQ_ID>string</LIQ_ID>
-                				<LIQ_POSITION>string</LIQ_POSITION>
-                				<LIQ_COMP>string</LIQ_COMP>
-                				<LIQ_ADDRESS1>string</LIQ_ADDRESS1>
-                				<LIQ_ADDRESS2>string</LIQ_ADDRESS2>
-                				<LIQ_ADDRESS3>string</LIQ_ADDRESS3>
-                				<LIQ_ADDRESS4>string</LIQ_ADDRESS4>
-                				<LIQ_APPOINTMENT_DATE>string</LIQ_APPOINTMENT_DATE>
-                			</LIQUIDATOR>
-                		</LIST_LIQUIDATOR>
-                		<LIST_SALES_REVENUE_AMOUNT>
-                			<SALES_REVENUE_AMOUNT>
-                				<ELEMENTS>string</ELEMENTS>
-                				<YEAR>string</YEAR>
-                				<CURRENCY>string</CURRENCY>
-                				<AMOUNT>0</AMOUNT>
-                			</SALES_REVENUE_AMOUNT>
-                		</LIST_SALES_REVENUE_AMOUNT>
-                		<LIST_SHAREHOLDER>
-                			<SHAREHOLDER>
-                				<ADDRESS>string</ADDRESS>
-                				<COMP_ID>string</COMP_ID>
-                				<NO_OF_SHARE>string</NO_OF_SHARE>
-                				<CURRENCY>string</CURRENCY>
-                				<SHAREHOLDER_TYPE>string</SHAREHOLDER_TYPE>
-                				<SHARE_TYPE>string</SHARE_TYPE>
-                				<SHAREHOLDER_NAME>string</SHAREHOLDER_NAME>
-                				<CHANGE_ADDR_DATE>string</CHANGE_ADDR_DATE>
-                				<ADDR_TYPE>string</ADDR_TYPE>
-                				<NATIONALITY>string</NATIONALITY>
-                			</SHAREHOLDER>
-                		</LIST_SHAREHOLDER>
-                		<LIST_SHARE_INTEREST_COMP>
-                			<SHARE_INTEREST_COMP>
-                				<COMP_NAME>string</COMP_NAME>
-                				<SHARE_OWNED_UNIT>string</SHARE_OWNED_UNIT>
-                				<SHARE_OWNED_PERCENT>string</SHARE_OWNED_PERCENT>
-                				<STATUS>string</STATUS>
-                			</SHARE_INTEREST_COMP>
-                		</LIST_SHARE_INTEREST_COMP>
-                		<LIST_OFFICER_OWNER>
-                			<OFFICER_OWNER>
-                				<ADDRESS>string</ADDRESS>
-                				<IDENTITY_ID>string</IDENTITY_ID>
-                				<POSITION>string</POSITION>
-                				<ADDR_TYPE>string</ADDR_TYPE>
-                				<CESSATION_DATE>string</CESSATION_DATE>
-                				<OFFICER_NAME>string</OFFICER_NAME>
-                				<CHANGE_ADDR_DATE>string</CHANGE_ADDR_DATE>
-                				<APPMT_DATE>string</APPMT_DATE>
-                				<NATIONALITY>string</NATIONALITY>
-                			</OFFICER_OWNER>
-                		</LIST_OFFICER_OWNER>
-                		<LIST_CAPITAL>
-                			<CAPITAL>
-                				<CAPITAL_CATEGORY>string</CAPITAL_CATEGORY>
-                				<CAPITAL_TYPE>string</CAPITAL_TYPE>
-                				<CURRENCY>string</CURRENCY>
-                				<CAPITAL_AMT>string</CAPITAL_AMT>
-                				<NO_OF_SHARES>string</NO_OF_SHARES>
-                			</CAPITAL>
-                		</LIST_CAPITAL>
-                		<LIST_NAME_CHANGE>
-                			<NAME_CHANGE>
-                				<PREV_NAME>string</PREV_NAME>
-                				<EFFECT_DATE>string</EFFECT_DATE>
-                			</NAME_CHANGE>
-                		</LIST_NAME_CHANGE>
-                	</REPORT>
-                </success>
+                success: 
+                   REPORT: 
+                    META_INFO: 
+                     SERVICE: string
+                     SYSTEM_ID: string
+                     CREATION_DATE: string
+                     USER_ID: string
+                     CLASS: string
+                    REQ_SEARCH_INFO: 
+                     COMP_NAME: string
+                     REG_NO: string
+                     REQ_DATE: string
+                     REQ_REG_NO: string
+                     REQ_NAME: string
+                     REQ_DATE_STR: string
+                    REGISTRY_DETAIL: 
+                     COMP_NAME: string
+                     RENEWAL_DATE: string
+                     ADDRESS1: string
+                     ADDRESS2: string
+                     ADDRESS3: string
+                     ADDRESS4: string
+                     COMP_TYPE_CODE: string
+                     REG_DATE: string
+                     REG_ACTIVITY1: string
+                     REG_ACTIVITY2: string
+                     ACC_DATE: string
+                     STATUS_EFFECT_DATE: string
+                     NAME_EFFECT_DATE: string
+                     EXPIRY_DATE: string
+                     COMP_TYPE: string
+                     CHANGE_ADDR_DATE: string
+                     COMP_STATUS: string
+                     REG_ACTIVITY_DESC1: string
+                     REG_ACTIVITY_DESC2: string
+                     AUDITOR: string
+                     AUDITOR_APPMT_DATE: string
+                     LAST_AR_DATE: string
+                     LAST_AGM_DATE: string
+                     COUNTRY_INCORP: string
+                    EMPLOYEE_SIZE: 
+                     ELEMENTS: string
+                     AMOUNT: string
+                    LIST_BIZ_BRANCH: 
+                     BIZ_BRANCH: 
+                      ADDR_BUILDING: string
+                      ADDR_POSTCODE: string
+                      ADDR_ADDRESS1: string
+                    LIST_REG_CHARGES: 
+                     REG_CHARGES: 
+                      CHARGE_NO: string
+                      CHARGE_DATE: string
+                      CHARGEE_COMP: string
+                      CURRENCY: string
+                      AMT_SECURED: string
+                      STATUS_SATISFACTION: string
+                    LIST_LIQUIDATOR: 
+                     LIQUIDATOR: 
+                      LIQ_NAME: string
+                      LIQ_ID: string
+                      LIQ_POSITION: string
+                      LIQ_COMP: string
+                      LIQ_ADDRESS1: string
+                      LIQ_ADDRESS2: string
+                      LIQ_ADDRESS3: string
+                      LIQ_ADDRESS4: string
+                      LIQ_APPOINTMENT_DATE: string
+                    LIST_SALES_REVENUE_AMOUNT: 
+                     SALES_REVENUE_AMOUNT: 
+                      ELEMENTS: string
+                      YEAR: string
+                      CURRENCY: string
+                      AMOUNT: 0
+                    LIST_SHAREHOLDER: 
+                     SHAREHOLDER: 
+                      ADDRESS: string
+                      COMP_ID: string
+                      NO_OF_SHARE: string
+                      CURRENCY: string
+                      SHAREHOLDER_TYPE: string
+                      SHARE_TYPE: string
+                      SHAREHOLDER_NAME: string
+                      CHANGE_ADDR_DATE: string
+                      ADDR_TYPE: string
+                      NATIONALITY: string
+                    LIST_SHARE_INTEREST_COMP: 
+                     SHARE_INTEREST_COMP: 
+                      COMP_NAME: string
+                      SHARE_OWNED_UNIT: string
+                      SHARE_OWNED_PERCENT: string
+                      STATUS: string
+                    LIST_OFFICER_OWNER: 
+                     OFFICER_OWNER: 
+                      ADDRESS: string
+                      IDENTITY_ID: string
+                      POSITION: string
+                      ADDR_TYPE: string
+                      CESSATION_DATE: string
+                      OFFICER_NAME: string
+                      CHANGE_ADDR_DATE: string
+                      APPMT_DATE: string
+                      NATIONALITY: string
+                    LIST_CAPITAL: 
+                     CAPITAL: 
+                      CAPITAL_CATEGORY: string
+                      CAPITAL_TYPE: string
+                      CURRENCY: string
+                      CAPITAL_AMT: string
+                      NO_OF_SHARES: string
+                    LIST_NAME_CHANGE: 
+                     NAME_CHANGE: 
+                      PREV_NAME: string
+                      EFFECT_DATE: string
         '401':
           description: Unauthorized
           content:
