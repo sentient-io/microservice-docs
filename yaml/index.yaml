@@ -206,7 +206,7 @@ Data:
     Business Check Dun & Bradstreet (SG):
         title: Business Check Dun & Bradstreet (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/BusinessCheckDun&Bradstreet(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/BusinessCheckDun&Bradstreet(SG).yaml"
     Brief Financial Extraction Dun & Bradstreet (SG):
         title: Brief Financial Extraction Dun & Bradstreet (SG)
         versions:
