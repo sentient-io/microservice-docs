@@ -120,19 +120,33 @@ components:
                       example: N/A
                 REQ_SEARCH_INFO  :
                   type: object
+                  description: Request criteria & search record
+                  example: "COMP_NAME REG_NO REQ_DATE REQ_REG_NO REQ_NAME REQ_DATE_STR" 
                   properties:
                     COMP_NAME  :
                       type: string
+                      description: Company Name
+                      example: 
                     REG_NO :
                       type: string
+                      description: Subject’s ID Number (individual) or Registration Number (company/business)
+                      example: 
                     REQ_DATE :
                       type: string
+                      description: Report Requested Date
+                      example: 
                     REQ_REG_NO :
                       type: string
+                      description: Request Registration Number
+                      example: 
                     REQ_NAME  :
                       type: string
+                      description: Request Name
+                      example: 
                     REQ_DATE_STR  :
-                      type: string                      
+                      type: string 
+                      description: Request Date String
+                      example: 
                 REGISTRY_DETAIL :
                   type: object
                   example: "RENEWAL_DATE ADDRESS1 ADDRESS2 ADDRESS3 ADDRESS4 COMP_TYPE_CODE REG_DATE REG_ACTIVITY1 REG_ACTIVITY2 ACC_DATE STATUS_EFFECT_DATE NAME_EFFECT_DATE EXPIRY_DATE COMP_TYPE CHANGE_ADDR_DATE COMP_STATUS REG_ACTIVITY_DESC1 REG_ACTIVITY_DESC2 AUDITOR AUDITOR_APPMT_DATE LAST_AR_DATE LAST_AGM_DATE COUNTRY_INCORP"
@@ -381,6 +395,8 @@ components:
                             example:
                 LIST_SHAREHOLDER:
                   type: array
+                  example:
+                  description: List of Shareholders
                   items:
                     properties:
                       SHAREHOLDER:
@@ -408,6 +424,7 @@ components:
                             type: string    
                 LIST_SHARE_INTEREST_COMP :
                   type: array
+                  description: List of share interest company
                   items:
                     properties:
                       SHARE_INTEREST_COMP:
@@ -423,6 +440,7 @@ components:
                             type: string
                 LIST_OFFICER_OWNER :
                   type: array
+                  description: List of office owner
                   items:
                     properties:
                       OFFICER_OWNER:
@@ -448,6 +466,7 @@ components:
                             type: string 
                 LIST_CAPITAL:
                   type: array
+                  description: List of capital
                   items:
                     properties:
                       CAPITAL:
@@ -465,6 +484,7 @@ components:
                             type: string     
                 LIST_NAME_CHANGE:
                   type: array
+                  description: List of name change
                   items:
                     properties:
                       NAME_CHANGE:
