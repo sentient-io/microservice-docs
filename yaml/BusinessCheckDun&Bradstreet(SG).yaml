@@ -1,7 +1,8 @@
 openapi: 3.0.1
 info:
   title: Business Check Dun & Bradstreet (SG)
-  description:  This Data microservice provides key business information of a Singapore-registered company includes the business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholders. Updated daily.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.<br><br>
+  description: |+
+    This Data microservice provides key business information of a Singapore-registered company includes the business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholders. Updated daily.
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -422,19 +423,23 @@ components:
           type: number
           example: 1
           description: Number of subjects being enquired relating to the Run
+          default: false
         ENQUIRY:
           type: object
           example: 
           description: Contains information of each request details
+          default: true
           properties:
             SUBJECT_IDNO:
               type: string
               example: 199707714C
-              description: Subject’s ID Number (individual) or Registration
+              description: Subjects ID Number (individual) or Registration
+              default: true
             SUBJECT_NAME:
               type: string
               example: GPS INDUSTRIES PTE LTD
-              description: Subject’s Name as captured in DDP
+              description: Subjects Name as captured in DDP
+              default: false
     versions:
       type: object
       properties: 
