@@ -18,7 +18,7 @@ paths:
         content:
           application/xml:
             schema:
-              $ref: '#/components/schemas/success'              
+              $ref: '#/components/schemas/REQUEST'              
       responses:
         '200':
           description: success response
@@ -567,12 +567,21 @@ components:
         status:
           type: string
           example: Failure
-    input:
+    REQUEST:
       type: object
       properties:
-        status:
-          type: string
-          example: Input Limit Exceeded
+        TOT_ITEMS:
+          type: number
+          example: 1
+        ENQUIRY:
+          type: object
+          properties:
+            SUBJECT_IDNO:
+              type: string
+              example: 199707714C
+            SUBJECT_NAME:
+              type: string
+              example: GPS INDUSTRIES PTE LTD
     versions:
       type: object
       properties: 
