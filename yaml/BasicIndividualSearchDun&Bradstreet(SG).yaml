@@ -417,35 +417,65 @@ components:
                     properties:
                       Ddrptcount:
                         type: object
+                        description: 6 XML tags (open then close) displays Search By Financial Sectors (counts for 3 recent years).Search By Non-Financial Sectors (counts for 3 recent years)
+                        example: Rcjan Rcfeb Rcmar Rcapr Rcmay Rcjun Rcjul Rcaug Rcsep Rcoct Rcnov Rcdec Rcyear Rcsecflag
                         properties:                      
                           Rcjan:
                             type: number
+                            description: Count for January
+                            example: 
                           Rcfeb:
                             type: number
+                            description: Count for February
+                            example:
                           Rcmar:
                             type: number
+                            description: Count for March
+                            example:
                           Rcapr:
                             type: number
+                            description: Count for April
+                            example:
                           Rcmay:
                             type: number
+                            description: Count for May
+                            example:
                           Rcjun:
                             type: number 
+                            description: Count for June
+                            example:
                           Rcjul:
                             type: number
+                            description: Count for July
+                            example:
                           Rcaug:
                             type: number
+                            description: Count for August
+                            example:
                           Rcsep:
                             type: number 
+                            description: Count for September
+                            example:
                           Rcoct:
                             type: number
+                            description: Count for October
+                            example:
                           Rcnov:
                             type: number
+                            description: Count for November
+                            example:
                           Rcdec:
                             type: number 
+                            description: Count for December
+                            example:
                           Rcyear:
                             type: number
+                            description: To show the year
+                            example:
                           Rcsecflag:
                             type: number
+                            description: Differentiate Search By Financial Sectors and Search By Non-Financial Sectors
+                            example:
     unauthorized:
       type: object
       properties:
