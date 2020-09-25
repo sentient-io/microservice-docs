@@ -86,82 +86,154 @@ components:
         properties:
             REPORT:
               type: object
+              example: "[META_INFO] [BASIC_INFO] [LIT_SEARCH_INFO] [LIST_CURRENT_COMP] [LIST_PREVIOUS_COMP] [LIST_BANKRUPTCY] [LIST_LIT] [LIST_LIT_DTL]"
+              description: Report
               properties:
                 META_INFO:
                   type: object
+                  example: "SERVICE SYSTEM_ID CREATION_DATE USER_ID"
+                  description: Meta Information
                   properties:
                     SERVICE:
                       type: string
+                      example:
+                      description: Report Requested
                     SYSTEM_ID :
                       type: string
+                      example:
+                      description: System ID
                     CREATION_DATE:
                       type: string
+                      example:
+                      description: Report Request Date
                     USER_ID :
                       type: string
+                      example:
+                      description: Valid user id in DDP system
                 BASIC_INFO :
                   type: object
+                  description: Basic information
+                  example: PA_REG_NO ADDRESS1 ADDRESS2 ADDRESS3
                   properties:
                     PA_REG_NO :
                       type: string
+                      description: Public Accountant Registration No.
+                      example:
                     ADDRESS1:
                       type: string
+                      description: Address 1
+                      example:
                     ADDRESS2:
                       type: string
+                      description: Address 2
+                      example:
                     ADDRESS3:
                       type: string
+                      description: Address 3
+                      example:
                 LIT_SEARCH_INFO :
                   type: object
+                  example: "COMP_NAME REG_NO REPORT_TYPE REQ_DATE REQ_REG_NO REQ_NAME REQ_DATE_STR"
+                  description: Litigation search information
                   properties:
                     COMP_NAME:
                       type: string
+                      description: Company Name
+                      example: 
                     REG_NO:
                       type: string
+                      description: Company Registration No
+                      example:
                     REPORT_TYPE:
                       type: string
+                      description: Report Type
+                      example:
                     REQ_DATE:
                       type: string
+                      description: Requested Date
+                      example:
                     REQ_REG_NO:
                       type: string
+                      description: Request Registration Number
+                      example:
                     REQ_NAME:
                       type: string
+                      description: Request Name
+                      example:
                     REQ_DATE_STR:
-                      type: string                      
+                      type: string
+                      description: Request Date String
+                      example:
                 LIST_CURRENT_COMP :
                   type: object
+                  description: List of current companies
+                  example: "[CURRENT_COMP]"
                   properties:
                     CURRENT_COMP :
                       type: object
+                      description: Current companies detail
+                      example: "POSITION APPOINTMENT_DATE COMP_NAME SEQ_NO SHARE_VALUE1 COMP_STATUS PROFIT_VALUE SHARE_VALUE TEL FAX SIC SIC_DESC"
                       properties:
                         POSITION:
                           type: string
+                          description: Position
+                          example:
                         APPOINTMENT_DATE:
                           type: string
+                          description: Appointment Date
+                          example:
                         COMP_NAME:
                           type: string
+                          description: Company Name
+                          example:
                         SEQ_NO:
                           type: string
+                          description: Company Registration No.
+                          example:
                         SHARE_VALUE1:
                           type: string
+                          description: Share Percentage
+                          example:
                         COMP_STATUS:
-                          type: string   
+                          type: string
+                          description: Company Status
+                          example:
                         PROFIT_VALUE1:
                           type: string
+                          description: Profit Making 1
+                          example:
                         PROFIT_VALUE2:
                           type: string
+                          description: Profit Making 2
+                          example:
                         PROFIT_VALUE3:
                           type: string
+                          description: Profit Making 3
+                          example:
                         SHARE_VALUE:
                           type: string
+                          description: Number Of Shares
+                          example:
                         TEL:
                           type: string
+                          description: Telephone Number
+                          example:
                         FAX:
                           type: string
+                          description: Fax Number
+                          example:
                         SIC:
                           type: string
+                          description: SIC Code
+                          example:
                         SIC_DESC:
                           type: string
+                          description: SIC Description
+                          example:
                 LIST_PREVIOUS_COMP:
                   type: array
+                  example: "[PREVIOUS_COMP]"
+                  description: List of previous companies
                   items:
                     properties:
                       PREVIOUS_COMP :
@@ -193,6 +265,8 @@ components:
                             type: string                            
                 LIST_BANKRUPTCY:
                   type: array
+                  description: Bankruptcy/ Winding up
+                  example: "[BANKRUPTCY]"
                   items:
                     properties:
                       BANKRUPTCY :
@@ -241,6 +315,8 @@ components:
                                       type: string                                      
                 LIST_LIT:
                   type: array
+                  description: List of litigation
+                  example: "[LIT]"
                   items:
                     properties:
                       LIT:
@@ -254,6 +330,8 @@ components:
                             type: string
                 LIST_LIT_DTL:
                   type: array
+                  description: List of litigation detail
+                  example: "[LIT_DTL]"
                   items:
                     properties:
                       LIT_DTL:
@@ -333,6 +411,8 @@ components:
                                       type: string
                 LIST_Ddrptcount:
                   type: array
+                  description: List of Search By Financial Sectors and Search By Non-Financial Sectors
+                  example: "[Ddrptcount]"
                   items:
                     properties:
                       Ddrptcount:
