@@ -1,7 +1,8 @@
 openapi: 3.0.1
 info:
   title: Basic Individual Search Dun & Bradstreet (SG)
-  description:  This Data microservice provides the information on the (Singapore-registered) business interest of an individual that includes the individual’s actual name, residential address, business and shareholding in businesses, current & previous ownership, litigation against individual and businesses, bankruptcy record and count on the times this individual has been searched on. Updated daily.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  description:  |+
+    This Data microservice provides the information on the (Singapore-registered) business interest of an individual that includes the individual’s actual name, residential address, business and shareholding in businesses, current & previous ownership, litigation against individual and businesses, bankruptcy record and count on the times this individual has been searched on. Updated daily.
   version: '0.1'
 servers:
   - url: 'https://api.sentient.io'
@@ -18,15 +19,7 @@ paths:
         content:
           application/xml:
             schema:
-              type: string
-            examples:
-              xml:
-                summary: A sample XML response
-                value: '<REQUEST>
-
-<TOT_ITEMS>1</TOT_ITEMS><ENQUIRY><SUBJECT_IDNO>197803191K</SUBJECT_IDNO>
-
-<SUBJECT_NAME></SUBJECT_NAME></ENQUIRY></REQUEST>'               
+              $ref: '#/components/schemas/REQUEST'
       responses:
         '200':
           description: success response
@@ -34,6 +27,8 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/success'
+              example: |+
+                <success><report><meta_info><service>string</service> <system_id>string</system_id> <creation_date>string</creation_date> <user_id>string</user_id></meta_info> <basic_info><pa_reg_no>string</pa_reg_no> <address1>string</address1> <address2>string</address2> <address3>string</address3></basic_info> <lit_search_info><comp_name>string</comp_name> <reg_no>string</reg_no> <report_type>string</report_type> <req_date>string</req_date> <req_reg_no>string</req_reg_no> <req_name>string</req_name> <req_date_str>string</req_date_str></lit_search_info> <list_current_comp><current_comp><position>string</position> <appointment_date>string</appointment_date> <comp_name>string</comp_name> <seq_no>string</seq_no> <share_value1>string</share_value1> <comp_status>string</comp_status> <profit_value1>string</profit_value1> <profit_value2>string</profit_value2> <profit_value3>string</profit_value3> <share_value>string</share_value> <tel>string</tel> <fax>string</fax> <sic>string</sic> <sic_desc>string</sic_desc></current_comp> </list_current_comp><list_previous_comp><previous_comp><position>string</position> <appointment_date>string</appointment_date> <comp_name>string</comp_name> <seq_no>string</seq_no> <share_value1>string</share_value1> <comp_status>string</comp_status> <cessation_date>string</cessation_date> <share_value>string</share_value> <tel>string</tel> <fax>string</fax> <sic>string</sic> <sic_desc>string</sic_desc></previous_comp> </list_previous_comp><list_bankruptcy><bankruptcy><subject_name>string</subject_name> <court_code>string</court_code> <case_code>string</case_code> <case_year>string</case_year> <action_date>string</action_date> <bankruptcy_act>string</bankruptcy_act> <hearing_date>string</hearing_date> <currency1>string</currency1> <amount1>string</amount1> <currency2>string</currency2> <amount2>string</amount2> <currency3>string</currency3> <bankruptcy_type>string</bankruptcy_type> <list_plaintiff><plaintiff><pla_name>string</pla_name> <pla_solicitor>string</pla_solicitor> <pla_solicitor_id>string</pla_solicitor_id> <pla_file_ref>string</pla_file_ref></plaintiff> </list_plaintiff></bankruptcy></list_bankruptcy><list_lit><lit><subject_name>string</subject_name> <seq_no>string</seq_no> <formatted_id>string</formatted_id></lit> </list_lit><list_lit_dtl><lit_dtl><nature_of_claim>string</nature_of_claim> <status_date>string</status_date> <case_no>string</case_no> <formatted_id>string</formatted_id> <doc_remarks>string</doc_remarks> <currency1>string</currency1> <currency2>string</currency2> <currency3>string</currency3> <currency4>string</currency4> <currency5>string</currency5> <case_status>string</case_status> <amount1>string</amount1> <amount2>string</amount2> <amount3>string</amount3> <amount4>string</amount4> <amount5>string</amount5> <list_plaintiff><plaintiff><pla_name>string</pla_name> <law_firm>string</law_firm> <write_date>string</write_date> <pla_solicitor>string</pla_solicitor> <pla_solicitor_id>string</pla_solicitor_id> <pla_file_ref>string</pla_file_ref> <pla_status>string</pla_status> <pla_status_date>string</pla_status_date> <pla_id>string</pla_id></plaintiff> </list_plaintiff><list_defendant><defendant><def_solicitor>string</def_solicitor> <def_solicitor_id>string</def_solicitor_id> <def_law_firm>string</def_law_firm> <def_file_ref>string</def_file_ref></defendant> </list_defendant></lit_dtl></list_lit_dtl><list_ddrptcount><ddrptcount><rcjan>0</rcjan> <rcfeb>0</rcfeb> <rcmar>0</rcmar> <rcapr>0</rcapr> <rcmay>0</rcmay> <rcjun>0</rcjun> <rcjul>0</rcjul> <rcaug>0</rcaug> <rcsep>0</rcsep> <rcoct>0</rcoct> <rcnov>0</rcnov> <rcdec>0</rcdec> <rcyear>0</rcyear> <rcsecflag>0</rcsecflag></ddrptcount></list_ddrptcount></report></success>
         '401':
           description: Unauthorized
           content:
@@ -372,55 +367,50 @@ components:
                           Rcsecflag:
                             type: number
     unauthorized:
-      type: array
-      items:
-        properties:
-          message:
-            type: string
-            example: Missing Authentication Token
-          status:
-            type: string
-            example: Failure
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
     forbidden:
-      type: array
-      items:
-        properties:
-          message:
-            type: string
-            example: Access Denied Unauthorized User
-          status:
-            type: string
-            example: Failure
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
     paymentrequired:
-      type: array
-      items:
-        properties:
-          message:
-            type: string
-            example: Insufficient Credits Kindly Top Up
-          status:
-            type: string
-            example: Failure
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
     notfound:
-      type: array
-      items:
-        properties:
-          message:
-            type: string
-            example: Invalid Request URL
-          status:
-            type: string
-            example: Failure
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
     servererror:
-      type: array
-      items:
-        properties:
-          message:
-            type: string
-            example: Internal Server Error
-          status:
-            type: string
-            example: Failure
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
     gatewaytimeout:
       type: object
       properties:
@@ -448,9 +438,45 @@ components:
         status:
           type: string
           example: Failure
+    REQUEST:
+      type: object
+      properties:
+        TOT_ITEMS:
+          type: number
+          example: 1
+          description: Number of subjects being enquired relating to the Run
+          default: false
+        ENQUIRY:
+          type: object
+          example: 
+          description: Contains information of each request details
+          default: true
+          properties:
+            SUBJECT_IDNO:
+              type: string
+              example: "199707714C"
+              description: |+
+                Subjects ID Number (individual) or Registration
+              default: true
+            SUBJECT_NAME:
+              type: string
+              example: GPS INDUSTRIES PTE LTD
+              description: Subjects Name as captured in DDP
+              default: false
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 23, 2019
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
