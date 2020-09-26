@@ -485,18 +485,22 @@ components:
                 LIST_NAME_CHANGE:
                   type: array
                   description: List of name change
+                  example: "[NAME_CHANGE]"
                   items:
                     properties:
                       NAME_CHANGE:
                         type: object
                         description: List of name change
+                        example: "PREV_NAME EFFECT_DATE"
                         properties:
                           PREV_NAME:
                             type: string
                             description: Previous name
+                            example: "<![CDATA[HUA XI EATING HOUSE]]>"
                           EFFECT_DATE:
                             type: string
                             description: Effect Date
+                            example: "<![CDATA[25/10/1997 00:00:00]]>"
     unauthorized:
       type: object
       properties:
