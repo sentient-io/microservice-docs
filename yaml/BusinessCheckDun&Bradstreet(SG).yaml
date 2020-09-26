@@ -100,24 +100,24 @@ components:
                   properties:
                     SERVICE:
                       type: string
-                      example: 10 BCP
+                      example: "<![CDATA[BC]]>"
                       description: Report requested
                     SYSTEM_ID :
                       type: string
-                      example: DDP
+                      example: "<![CDATA[DDP]]>"
                       description: System ID
                     CREATION_DATE:
                       type: string
                       description: Report request date
-                      example: Date & time
+                      example: "<![CDATA[Wed Apr 08 11:37:51 MYT 2009]]>"
                     USER_ID :
                       type: string
                       description: Valid user id in DDP system
-                      example: Valid User ID
+                      example: "<![CDATA[plcust102]]>"
                     CLASS  :
                       type: string
                       description: Class location for metabean.
-                      example: N/A
+                      example: "<![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]>"
                 REQ_SEARCH_INFO  :
                   type: object
                   description: Request criteria & search record
@@ -126,27 +126,27 @@ components:
                     COMP_NAME  :
                       type: string
                       description: Company Name
-                      example: 
+                      example: "<![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]>"
                     REG_NO :
                       type: string
                       description: Subject’s ID Number (individual) or Registration Number (company/business)
-                      example: 
+                      example: "<![CDATA[197401835M]]>"
                     REQ_DATE :
                       type: string
                       description: Report Requested Date
-                      example: 
+                      example: "<![CDATA[2009-04-08 11:36:03.611]]>"
                     REQ_REG_NO :
                       type: string
                       description: Request Registration Number
-                      example: 
+                      example: "<![CDATA[197401835M]]>"
                     REQ_NAME  :
                       type: string
                       description: Request Name
-                      example: 
+                      example: "<![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]>"
                     REQ_DATE_STR  :
                       type: string 
                       description: Request Date String
-                      example: 
+                      example: "<![CDATA[08/04/2009 11:36:03]]>"
                 REGISTRY_DETAIL :
                   type: object
                   example: "RENEWAL_DATE ADDRESS1 ADDRESS2 ADDRESS3 ADDRESS4 COMP_TYPE_CODE REG_DATE REG_ACTIVITY1 REG_ACTIVITY2 ACC_DATE STATUS_EFFECT_DATE NAME_EFFECT_DATE EXPIRY_DATE COMP_TYPE CHANGE_ADDR_DATE COMP_STATUS REG_ACTIVITY_DESC1 REG_ACTIVITY_DESC2 AUDITOR AUDITOR_APPMT_DATE LAST_AR_DATE LAST_AGM_DATE COUNTRY_INCORP"
@@ -158,95 +158,95 @@ components:
                       description: Company Name
                     RENEWAL_DATE:
                       type: string
-                      example: DD/MM/YYYY
+                      example: "<![CDATA[23/12/2008]]>"
                       description: Renewal Date
                     ADDRESS1 :
                       type: string
-                      example: 
+                      example: "<![CDATA[1 HARBOURFRONT AVENUE , 18 - 01]]>"
                       description: Address1
                     ADDRESS2  :
                       type: string
-                      example: 
+                      example: "<![CDATA[KEPPEL BAY TOWER]]>"
                       description: Address2
                     ADDRESS3  :
                       type: string
-                      example: 
+                      example: "<![CDATA[098632]]>"
                       description: Address3
                     ADDRESS4:
                       type: string
-                      example: 
+                      example: "<![CDATA[SINGAPORE]]>"
                       description: Address4
                     COMP_TYPE_CODE:
                       type: string
-                      example: 
+                      example: "<![CDATA[CP]]>"
                       description: Report Code
                     REG_DATE  :
                       type: string
-                      example: 
+                      example: "<![CDATA[14/10/1974]]>"
                       description: Registration Date
                     REG_ACTIVITY1:
                       type: string
-                      example: 
+                      example: "<![CDATA[OTHER INVESTMENT HOLDING COMPANIES]]>"
                       description: Registered Activities 1
                     REG_ACTIVITY2:
                       type: string
-                      example: 
+                      example: "<![CDATA[SHIP MANAGEMENT SERVICES]]>"
                       description: Registered Activities 2
                     ACC_DATE   :
                       type: string
-                      example: 
+                      example: "<![CDATA[31/12/2007]]>"
                       description: Account Date
                     STATUS_EFFECT_DATE:
                       type: string
-                      example: 
+                      example: "<![CDATA[14/10/1974]]>"
                       description: Status Effective Date
                     NAME_EFFECT_DATE:
                       type: string
-                      example: 
+                      example: "<![CDATA[14/10/1974]]>"
                       description: Name Effective Date
                     EXPIRY_DATE :
                       type: string
-                      example: 
+                      example: "<![CDATA[25/10/2009]]>"
                       description: Expiry Date
                     COMP_TYPE  :
                       type: string
-                      example: 
+                      example: "<![CDATA[LIMITED PRIVATE COMPANY]]>"
                       description: Company Type
                     CHANGE_ADDR_DATE  :
                       type: string
-                      example: 
+                      example: "<![CDATA[09/05/2003]]>"
                       description: Change Address Date
                     COMP_STATUS  :
                       type: string
-                      example: 
+                      example: "<![CDATA[Live Company]]>"
                       description: Company Status
                     REG_ACTIVITY_DESC1   :
                       type: string
-                      example: 
+                      example: "<![CDATA[-]]>"
                       description: Registered Activities Description
                     REG_ACTIVITY_DESC2   :
                       type: string
-                      example: 
+                      example: "<![CDATA[-]]>"
                       description: Registered Activities Description
                     AUDITOR  :
                       type: string
-                      example: 
+                      example: "<![CDATA[-]]>"
                       description: Auditor Name
                     AUDITOR_APPMT_DATE  :
                       type: string
-                      example: 
+                      example: "<![CDATA[13/06/1990]]>"
                       description: Auditor Appointment Date
                     LAST_AR_DATE  :
                       type: string
-                      example: 
+                      example: "<![CDATA[30/06/2008]]>"
                       description: Date of Last AR
                     LAST_AGM_DATE   :
                       type: string
-                      example: 
+                      example: "<![CDATA[11/06/2008]]>"
                       description: Date of Last AGM
                     COUNTRY_INCORP:
                       type: string
-                      example: 
+                      example: "<![CDATA[SINGAPORE]]>"
                       description: Country Incorporated
                 EMPLOYEE_SIZE :
                   type: object
@@ -255,11 +255,11 @@ components:
                   properties:
                     ELEMENTS:
                       type: string
-                      example: 
+                      example: "<![CDATA[Employee Size]]>"
                       description: Elements Description
                     AMOUNT:
                       type: string
-                      example: 
+                      example: 300
                       description: Number of employee
                 LIST_BIZ_BRANCH :
                   type: array
