@@ -139,31 +139,31 @@ components:
                     COMP_NAME:
                       type: string
                       description: Company Name
-                      example: 
+                      example: "<![CDATA[ENG YICK HOLDINGS PTE LTD]]>"
                     REG_NO:
                       type: string
                       description: Company Registration No
-                      example:
+                      example: "<![CDATA[197803191K]]>"
                     REPORT_TYPE:
                       type: string
                       description: Report Type
-                      example:
+                      example: "<![CDATA[BIS]]>"
                     REQ_DATE:
                       type: string
                       description: Requested Date
-                      example:
+                      example: "25/02/2009 17:31:44"
                     REQ_REG_NO:
                       type: string
                       description: Request Registration Number
-                      example:
+                      example: "<![CDATA[197803191K]]>"
                     REQ_NAME:
                       type: string
                       description: Request Name
-                      example:
+                      example: "<![CDATA[LOY KOK TOON]]>"
                     REQ_DATE_STR:
                       type: string
                       description: Request Date String
-                      example:
+                      example: "<![CDATA[25/02/2009 15:04:14]]>"
                 LIST_CURRENT_COMP :
                   type: object
                   description: List of current companies
@@ -177,59 +177,59 @@ components:
                         POSITION:
                           type: string
                           description: Position
-                          example:
+                          example: "<![CDATA[OWNER]]>"
                         APPOINTMENT_DATE:
                           type: string
                           description: Appointment Date
-                          example:
+                          example: "<![CDATA[01/09/1971]]>"
                         COMP_NAME:
                           type: string
                           description: Company Name
-                          example:
+                          example: "<![CDATA[BAN HOE LEONG COMPANY]]>"
                         SEQ_NO:
                           type: string
                           description: Company Registration No.
-                          example:
+                          example: "<![CDATA[03647300J]]>"
                         SHARE_VALUE1:
                           type: string
                           description: Share Percentage
-                          example:
+                          example: "<![CDATA[15.00]]>"
                         COMP_STATUS:
                           type: string
                           description: Company Status
-                          example:
+                          example: "<![CDATA[LIVE]]>"
                         PROFIT_VALUE1:
                           type: string
                           description: Profit Making 1
-                          example:
+                          example: "<![CDATA[2008 = -]]>"
                         PROFIT_VALUE2:
                           type: string
                           description: Profit Making 2
-                          example:
+                          example: "<![CDATA[2007 = -]]>"
                         PROFIT_VALUE3:
                           type: string
                           description: Profit Making 3
-                          example:
+                          example: "<![CDATA[2006 = -]]>"
                         SHARE_VALUE:
                           type: string
                           description: Number Of Shares
-                          example:
+                          example: "<![CDATA[150000]]>"
                         TEL:
                           type: string
                           description: Telephone Number
-                          example:
+                          example: "<![CDATA[62994842]]>"
                         FAX:
                           type: string
                           description: Fax Number
-                          example:
+                          example: "<![CDATA[62992797]]>"
                         SIC:
                           type: string
                           description: SIC Code
-                          example:
+                          example: "<![CDATA[5012]]>"
                         SIC_DESC:
                           type: string
                           description: SIC Description
-                          example:
+                          example: "<![CDATA[Automobiles and other Motor Vehicles]]>"
                 LIST_PREVIOUS_COMP:
                   type: array
                   example: "[PREVIOUS_COMP]"
