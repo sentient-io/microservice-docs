@@ -96,19 +96,19 @@ components:
                   properties:
                     SERVICE:
                       type: string
-                      example:
+                      example: "<![CDATA[BIS]]>"
                       description: Report Requested
                     SYSTEM_ID :
                       type: string
-                      example:
+                      example: "<![CDATA[DDP]]>"
                       description: System ID
                     CREATION_DATE:
                       type: string
-                      example:
+                      example: "25/02/2009 17:31:44.678"
                       description: Report Request Date
                     USER_ID :
                       type: string
-                      example:
+                      example: "<![CDATA[plcust102]]>"
                       description: Valid user id in DDP system
                 BASIC_INFO :
                   type: object
@@ -118,19 +118,19 @@ components:
                     PA_REG_NO :
                       type: string
                       description: Public Accountant Registration No.
-                      example:
+                      example: "<![CDATA[00091]]>"
                     ADDRESS1:
                       type: string
                       description: Address 1
-                      example:
+                      example: "<![CDATA[137, BEDOK RESERVOIR ROAD, 06 - 1451]]>"
                     ADDRESS2:
                       type: string
                       description: Address 2
-                      example:
+                      example: "<![CDATA[-]]>"
                     ADDRESS3:
                       type: string
                       description: Address 3
-                      example:
+                      example: "<![CDATA[470137, SINGAPORE]]>"
                 LIT_SEARCH_INFO :
                   type: object
                   example: "COMP_NAME REG_NO REPORT_TYPE REQ_DATE REQ_REG_NO REQ_NAME REQ_DATE_STR"
