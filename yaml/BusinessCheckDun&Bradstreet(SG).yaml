@@ -395,7 +395,7 @@ components:
                             example:
                 LIST_SHAREHOLDER:
                   type: array
-                  example:
+                  example: "[SHAREHOLDER]"
                   description: List of Shareholders
                   items:
                     properties:
@@ -425,6 +425,7 @@ components:
                 LIST_SHARE_INTEREST_COMP :
                   type: array
                   description: List of share interest company
+                  example: "[SHARE_INTEREST_COMP]"
                   items:
                     properties:
                       SHARE_INTEREST_COMP:
@@ -441,6 +442,7 @@ components:
                 LIST_OFFICER_OWNER :
                   type: array
                   description: List of office owner
+                  example: "[OFFICER_OWNER]"
                   items:
                     properties:
                       OFFICER_OWNER:
@@ -467,6 +469,7 @@ components:
                 LIST_CAPITAL:
                   type: array
                   description: List of capital
+                  example: "[CAPITAL]"
                   items:
                     properties:
                       CAPITAL:
