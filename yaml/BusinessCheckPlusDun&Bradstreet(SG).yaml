@@ -587,8 +587,7 @@ components:
             SUBJECT_IDNO:
               type: string
               example: "199707714C"
-              description: |+
-                Subjects ID Number (individual) or Registration
+              description: Subjects ID Number (individual) or Registration
               default: true
             SUBJECT_NAME:
               type: string
