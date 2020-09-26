@@ -781,10 +781,16 @@ components:
                         properties:
                           PROFIT_LOSS:
                             type: string
+                            example: "1121483.0"
+                            description: Profit / Loss Before Tax of the year
                           REVENUE:
                             type: string
+                            example: "10877254"
+                            description: Revenue Amount of the year
                           YEAR:
                             type: string
+                            example: "2008"
+                            description: Financial Year
     unauthorized:
       type: object
       properties:
