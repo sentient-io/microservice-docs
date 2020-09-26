@@ -379,65 +379,96 @@ components:
                     properties:
                       LITIGATION :
                         type: object
+                        description: List of Winding Up
+                        example: List
                         properties:
                           SUBJECT_NAME :
                             type: string
+                            example: "<![CDATA[SOON SOON SEAFOOD]]>"
                           NATURE_OF_CLAIM :
                             type: string
+                            example: "<![CDATA[CONTRACT 3]]>"
                           STATUS_DATE :
                             type: string
+                            example: "<![CDATA[01/05/2008]]>"
                           CASE_NO :
                             type: string
+                            example: "<![CDATA[MC 40001 / 1999]]>"
                           DOC_REMARKS :
                             type: string
+                            example: "<![CDATA[NOTICE OF DISCONTINUANCE/WITHDRAWAL 3]]>"
                           CURRENCY1 :
-                            type: string    
+                            type: string
+                            example: "<![CDATA[SGD]]>"
                           CURRENCY2 :
                             type: string
+                            example: "<![CDATA[MYR]]>"
                           CURRENCY3 :
                             type: string
+                            example: "<![CDATA[USD]]>"
                           CURRENCY4 :
                             type: string    
+                            example: "<![CDATA[-]]>"
                           CURRENCY5 :
                             type: string
+                            example: "<![CDATA[-]]>"
                           DEF_SOLICITOR :
                             type: string
+                            example: "<![CDATA[SOL2]]>"
                           DEF_SOLICITOR_ID :
                             type: string
+                            example: "<![CDATA[20000000]]>"
                           DEF_LAW_FIRM :
                             type: string
+                            example: "<![CDATA[NAME2]]>"
                           DEF_FILE_REF :
                             type: string
+                            example: "<![CDATA[FILE2]]>"
                           DATE_OF_WRIT :
-                            type: string    
+                            type: string 
+                            example: "<![CDATA[01/01/2008]]>"
                           STATUS  :
                             type: string
+                            example: "<![CDATA[CONCLUDED 3]]>"
                           AMOUNT1 :
                             type: string
+                            example: "<![CDATA[100.00]]>"
                           AMOUNT2 :
-                            type: string  
+                            type: string 
+                            example: "<![CDATA[200.00]]>"
                           AMOUNT3  :
                             type: string
+                            example: "<![CDATA[0.00]]>"
                           AMOUNT4  :
-                            type: string    
+                            type: string   
+                            example: "<![CDATA[400.00]]>"
                           AMOUNT5  :
                             type: string
+                            example: "<![CDATA[0.00]]>"
                           PLAINTIFF  :
                             type: string
+                            example: "<![CDATA[MC 40001]]>"
                           PLA_SOLICITOR:
                             type: string
+                            example: "<![CDATA[SOL2]]>"
                           PLA_SOLICITOR_ID:
                             type: string
+                            example: "<![CDATA[20000000]]>"
                           PLA_LAW_FIRM  :
                             type: string
+                            example: "<![CDATA[NAME2]]>"
                           PLA_FILE_REF  :
-                            type: string    
+                            type: string 
+                            example: "<![CDATA[FILE2]]>"
                           PLA_ID:
                             type: string
+                            example: "<![CDATA[S0739038F]]>"
                           PLA_STATUS:
                             type: string
+                            example: "<![CDATA[SETTLED - BEFORE SET DOWN]]>"
                           PLA_STATUS_DATE :
                             type: string
+                            example: "<![CDATA[17/10/2016]]>"
     unauthorized:
       type: object
       properties:
