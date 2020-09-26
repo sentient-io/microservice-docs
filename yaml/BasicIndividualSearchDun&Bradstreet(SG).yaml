@@ -423,59 +423,59 @@ components:
                           Rcjan:
                             type: number
                             description: Count for January
-                            example: 
+                            example: "1"
                           Rcfeb:
                             type: number
                             description: Count for February
-                            example:
+                            example: "1"
                           Rcmar:
                             type: number
                             description: Count for March
-                            example:
+                            example: "1"
                           Rcapr:
                             type: number
                             description: Count for April
-                            example:
+                            example: "1"
                           Rcmay:
                             type: number
                             description: Count for May
-                            example:
+                            example: "1"
                           Rcjun:
                             type: number 
                             description: Count for June
-                            example:
+                            example: "1"
                           Rcjul:
                             type: number
                             description: Count for July
-                            example:
+                            example: "1"
                           Rcaug:
                             type: number
                             description: Count for August
-                            example:
+                            example: "1"
                           Rcsep:
                             type: number 
                             description: Count for September
-                            example:
+                            example: "1"
                           Rcoct:
                             type: number
                             description: Count for October
-                            example:
+                            example: "1"
                           Rcnov:
                             type: number
                             description: Count for November
-                            example:
+                            example: "1"
                           Rcdec:
                             type: number 
                             description: Count for December
-                            example:
+                            example: "1"
                           Rcyear:
                             type: number
                             description: To show the year
-                            example:
+                            example: "1"
                           Rcsecflag:
                             type: number
                             description: Differentiate Search By Financial Sectors and Search By Non-Financial Sectors
-                            example:
+                            example: "1"
     unauthorized:
       type: object
       properties:
