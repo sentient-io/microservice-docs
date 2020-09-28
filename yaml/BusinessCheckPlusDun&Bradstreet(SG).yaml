@@ -27,11 +27,207 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example: |+
-                <success><report><meta_info><service>string</service> <system_id>string</system_id> <creation_date>string</creation_date> <user_id>string</user_id> <class type="">string</class></meta_info> <registry_detail><renewal_date>string</renewal_date> <address1>string</address1> <address2>string</address2> <address3>string</address3> <address4>string</address4> <comp_type_code>string</comp_type_code> <reg_date>string</reg_date> <reg_activity1>string</reg_activity1> <reg_activity2>string</reg_activity2> <acc_date>string</acc_date> <status_effect_date>string</status_effect_date> <name_effect_date>string</name_effect_date> <expiry_date>string</expiry_date> <comp_type>string</comp_type> <change_addr_date>string</change_addr_date> <comp_status>string</comp_status> <reg_activity_desc1>string</reg_activity_desc1> <reg_activity_desc2>string</reg_activity_desc2> <auditor>string</auditor> <auditor_appmt_date>string</auditor_appmt_date> <last_ar_date>string</last_ar_date> <last_agm_date>string</last_agm_date> <country_incorp>string</country_incorp></registry_detail> <req_search_info><comp_name>string</comp_name> <reg_no>string</reg_no> <req_date>string</req_date> <req_reg_no>string</req_reg_no> <req_name>string</req_name> <req_date_str>string</req_date_str></req_search_info> <employee_size><elements>string</elements> <amount>string</amount></employee_size> <list_biz_branch><biz_branch><reqaddr_building>string</reqaddr_building> <addr_postcode>string</addr_postcode> <addr_address1>string</addr_address1></biz_branch> </list_biz_branch><list_reg_charges><reg_charges><charge_no>string</charge_no> <charge_date>string</charge_date> <chargee_comp>string</chargee_comp> <currency>string</currency> <amt_secured>string</amt_secured> <status_satisfaction>string</status_satisfaction></reg_charges> </list_reg_charges><list_liquidator><liquidator><liq_name>string</liq_name> <liq_id>string</liq_id> <liq_position>string</liq_position> <liq_comp>string</liq_comp> <liq_address1>string</liq_address1> <liq_address2>string</liq_address2> <liq_address3>string</liq_address3> <liq_address4>string</liq_address4> <liq_appointment_date>string</liq_appointment_date></liquidator> </list_liquidator><list_winding_up><winding_up><case_code>string</case_code> <case_year>string</case_year> <plaintiff>string</plaintiff> <pla_solicitor_id>string</pla_solicitor_id> <pla_file_ref>string</pla_file_ref> <court_code>string</court_code> <case_type>string</case_type> <currency1>string</currency1> <currency2>string</currency2> <amount2>string</amount2> <currency3>string</currency3> <amount3>string</amount3> <bankruptcy_act>string</bankruptcy_act> <hearing_date>string</hearing_date> <action_date>string</action_date> <subject_name>string</subject_name> <pla_solicitor>string</pla_solicitor> <pla_law_firm>string</pla_law_firm></winding_up> </list_winding_up><list_litigation><litigation><subject_name>string</subject_name> <nature_of_claim>string</nature_of_claim> <status_date>string</status_date> <case_no>string</case_no> <doc_remarks>string</doc_remarks> <currency1>string</currency1> <currency2>string</currency2> <currency3>string</currency3> <currency4>string</currency4> <currency5>string</currency5> <def_solicitor>string</def_solicitor> <def_solicitor_id>string</def_solicitor_id> <def_law_firm>string</def_law_firm> <def_file_ref>string</def_file_ref> <date_of_writ>string</date_of_writ> <status>string</status> <amount1>string</amount1> <amount2>string</amount2> <amount3>string</amount3> <amount4>string</amount4> <amount5>string</amount5> <plaintiff>string</plaintiff> <pla_solicitor>string</pla_solicitor> <pla_solicitor_id>string</pla_solicitor_id> <pla_law_firm>string</pla_law_firm> <pla_file_ref>string</pla_file_ref> <pla_id>string</pla_id> <pla_status>string</pla_status> <pla_status_date>string</pla_status_date></litigation> </list_litigation><list_share_interest_comp><share_interest_comp><comp_name>string</comp_name> <share_owned_unit>string</share_owned_unit> <share_owned_percent>string</share_owned_percent> <status>string</status></share_interest_comp> </list_share_interest_comp><list_name_change><name_change><prev_name>string</prev_name> <effect_date>string</effect_date></name_change></list_name_change><list_shareholder><shareholder><address>string</address>
-
-                  <comp_id>string</comp_id> <no_of_share>string</no_of_share> <currency>string</currency> <shareholder_type>string</shareholder_type> <share_type>string</share_type> <shareholder_name>string</shareholder_name> <change_addr_date>string</change_addr_date> <addr_type>string</addr_type> <nationality>string</nationality></shareholder> </list_shareholder><list_capital><capital><capital_category>string</capital_category> <capital_type>string</capital_type> <currency>string</currency> <capital_amt>string</capital_amt> <no_of_shares>string</no_of_shares></capital></list_capital><list_officer_owner><officer_owner><address>string</address>
-                  
-                  <identity_id>string</identity_id> <position>string</position> <addr_type>string</addr_type> <cessation_date>string</cessation_date> <officer_name>string</officer_name> <change_addr_date>string</change_addr_date> <appmt_date>string</appmt_date> <nationality>string</nationality></officer_owner> </list_officer_owner><list_sales_revenue_amount><sales_revenue_amount><elements>string</elements> <year>string</year> <currency>string</currency> <amount>0</amount> <cessation_date>string</cessation_date></sales_revenue_amount></list_sales_revenue_amount></report></success>
+                <REPORT> <META_INFO>
+<SERVICE type="String"><![CDATA[BCP]]></SERVICE>
+<SYSTEM_ID type="String"><![CDATA[DDP]]></SYSTEM_ID>
+<CREATION_DATE type="Date"><![CDATA[Wed Apr 08 11:37:51 MYT 2009]]></CREATION_DATE> <USER_ID type="String"><![CDATA[]]></USER_ID>
+<CLASS type="String"><![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]></CLASS>
+</META_INFO>
+<REGISTRY_DETAIL className="com.technodex.ddp.report.bean.CommercialBizRegistryBean">
+<RENEWAL_DATE type="String"><![CDATA[23/12/2008]]></RENEWAL_DATE>
+<ADDRESS1 type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 - 01]]></ADDRESS1>
+<ADDRESS2 type="String"><![CDATA[KEPPEL BAY TOWER]]></ADDRESS2>
+<ADDRESS3 type="String"><![CDATA[098632]]></ADDRESS3>
+<ADDRESS4 type="String"><![CDATA[SINGAPORE]]></ADDRESS4>
+<COMP_TYPE_CODE type="String"><![CDATA[CP]]></COMP_TYPE_CODE>
+<REG_DATE type="String"><![CDATA[14/10/1974]]></REG_DATE>
+<REG_ACTIVITY1 type="String"><![CDATA[OTHER INVESTMENT HOLDING COMPANIES]]></REG_ACTIVITY1> <REG_ACTIVITY2 type="String"><![CDATA[SHIP MANAGEMENT SERVICES]]></REG_ACTIVITY2>
+<ACC_DATE type="String"><![CDATA[31/12/2007]]></ACC_DATE>
+<STATUS_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></STATUS_EFFECT_DATE> <NAME_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></NAME_EFFECT_DATE>
+<EXPIRY_DATE type="String"><![CDATA[25/10/2009]]></EXPIRY_DATE>
+<COMP_TYPE type="String"><![CDATA[LIMITED PRIVATE COMPANY]]></COMP_TYPE> <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE>
+<COMP_STATUS type="String"><![CDATA[Live Company]]></COMP_STATUS>
+<REG_ACTIVITY_DESC1 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC1>
+<REG_ACTIVITY_DESC2 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC2>
+<AUDITOR type="String"><![CDATA[-]]></AUDITOR>
+<AUDITOR_APPMT_DATE type="String"><![CDATA[13/06/1990]]></AUDITOR_APPMT_DATE> <LAST_AR_DATE type="String"><![CDATA[30/06/2008]]></LAST_AR_DATE>
+<LAST_AGM_DATE type="String"><![CDATA[11/06/2008]]></LAST_AGM_DATE>
+<COUNTRY_INCORP type="String"><![CDATA[SINGAPORE]]></COUNTRY_INCORP>
+</REGISTRY_DETAIL>
+<REQ_SEARCH_INFO className="com.technodex.ddp.report.bean.LitigationSearchInfoBean">
+<COMP_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></COMP_NAME> <REG_NO type="String"><![CDATA[197401835M]]></REG_NO>
+<REQ_DATE type="Date"><![CDATA[2009-04-08 11:36:03.611]]></REQ_DATE>
+<REQ_REG_NO type="String"><![CDATA[197401835M]]></REQ_REG_NO>
+<REQ_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></REQ_NAME>
+<REQ_DATE_STR type="String"><![CDATA[08/04/2009 11:36:03]]></REQ_DATE_STR> </REQ_SEARCH_INFO>
+<EMPLOYEE_SIZE>
+<ELEMENTS><![CDATA[Employee Size]]></ELEMENTS>
+<AMOUNT>300</AMOUNT>
+</EMPLOYEE_SIZE>
+<LIST_BIZ_BRANCH className="com.technodex.ddp.report.bean.CommercialBizBranchBean">
+<BIZ_BRANCH>
+<ADDR_BUILDING type="String"><![CDATA[-]]></ADDR_BUILDING>
+<ADDR_POSTCODE type="String"><![CDATA[289848]]></ADDR_POSTCODE> <ADDR_ADDRESS1 type="String"><![CDATA[251A ARCADIA ROAD , - - -]]></ADDR_ADDRESS1>
+</BIZ_BRANCH>
+</LLIST_BIZ_BRANCH>
+<LIST_REG_CHARGES className="com.technodex.ddp.report.bean.CommercialBizChgRegBean">
+<REG_CHARGES>
+<CHARGE_NO type="String"><![CDATA[8205117]]></CHARGE_NO>
+<CHARGE_DATE type="String"><![CDATA[26/11/1982]]></CHARGE_DATE>
+<CHARGEE_COMP type="String"><![CDATA[UNITED OVERSEAS BANK LIMITED]]></CHARGEE_COMP> <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
+<AMT_SECURED type="String"><![CDATA[1000.00]]></AMT_SECURED>
+<STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION>
+</REG_CHARGES> <REG_CHARGES>
+<CHARGE_NO type="String"><![CDATA[8000976]]></CHARGE_NO> <CHARGE_DATE type="String"><![CDATA[21/04/1980]]></CHARGE_DATE>
+    Scope of Work & FRS 16 Private & Confidential
+   
+D&B - B2B Enquiry Technical Doc V2.28
+<CHARGEE_COMP type="String"><![CDATA[THE DEVELOPMENT BANK OF SINGAPORE LIMITED]]></CHARGEE_COMP>
+<CURRENCY type="String"><![CDATA[-]]></CURRENCY>
+<AMT_SECURED type="String"><![CDATA[All Monies]]></AMT_SECURED>
+<STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION> </REG_CHARGES>
+</LIST_REG_CHARGES> <LIST_LIQUIDATOR>
+<LIQUIDATOR>
+<LIQ_NAME>ABUTHAHIR ABDUL GAFOOR</LIQ_NAME> <LIQ_ID>S1676216D</LIQ_ID>
+<LIQ_POSITION>Liquidator</LIQ_POSITION>
+<LIQ_COMP>EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.</LIQ_COMP> <LIQ_ADDRESS1>1 RAFFLES PLACE</LIQ_ADDRESS1> <LIQ_ADDRESS2>#20-01</LIQ_ADDRESS2>
+<LIQ_ADDRESS3>OUB CENTRE</LIQ_ADDRESS3> <LIQ_ADDRESS4>SINGAPORE 048616</LIQ_ADDRESS4> <LIQ_APPOINTMENT_DATE>30/03/2009</LIQ_APPOINTMENT_DATE>
+</LIQUIDATOR> <LIQUIDATOR>
+<LIQ_NAME>ANGELA ANG</LIQ_NAME>
+<LIQ_ID>S1633336D</LIQ_ID>
+<LIQ_POSITION>Liquidator</LIQ_POSITION>
+<LIQ_COMP>KING FINANCIAL ADVISORY SERVICES</LIQ_COMP> <LIQ_ADDRESS1>LEVEL 17 MLC CENTRE 19029</LIQ_ADDRESS1> <LIQ_ADDRESS2>MARTIN PLACE SYDNEY NSW 2000 AUSTRALIA</LIQ_ADDRESS2> <LIQ_APPOINTMENT_DATE>18/02/2009</LIQ_APPOINTMENT_DATE>
+</LIQUIDATOR>
+</LIST_LIQUIDATOR>
+<LIST_WINDING_UP className="com.technodex.ddp.report.bean.CommercialBizWindingupBean">
+<WINDING_UP>
+<CASE_CODE type="String"><![CDATA[40000]]></CASE_CODE>
+<CASE_YEAR type="String"><![CDATA[1999]]></CASE_YEAR>
+<PLAINTIFF type="String"><![CDATA[-]]></PLAINTIFF>
+<PLA_SOLICITOR_ID type="String"><![CDATA[-]]></PLA_SOLICITOR_ID>
+<PLA_FILE_REF type="String"><![CDATA[-]]></PLA_FILE_REF>
+<COURT_CODE type="String"><![CDATA[CWU]]></COURT_CODE>
+<CASE_TYPE type="String"><![CDATA[COMPANY WINDING UP PETITION]]></CASE_TYPE> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
+<AMOUNT1 type="String"><![CDATA[41,424.52]]></AMOUNT1>
+<CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
+<AMOUNT2 type="String"><![CDATA[0.00]]></AMOUNT2>
+<CURRENCY3 type="String"><![CDATA[-]]></CURRENCY3>
+<AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
+<BANKRUPTCY_ACT type="String"><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT> <HEARING_DATE type="String"><![CDATA[15/12/2007]]></HEARING_DATE>
+<ACTION_DATE type="String"><![CDATA[11/05/2007]]></ACTION_DATE>
+<SUBJECT_NAME type="String"><![CDATA[PROACTIVE BUILDERS]]></SUBJECT_NAME> <PLA_SOLICITOR type="String"><![CDATA[-]]></PLA_SOLICITOR>
+<PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
+</WINDING_UP>
+</LIST_WINDING_UP>
+<LIST_LITIGATION className="com.technodex.ddp.report.bean.CommercialBizLitigationBean">
+<LITIGATION>
+<SUBJECT_NAME type="String"><![CDATA[SOON SOON SEAFOOD]]></SUBJECT_NAME>
+<NATURE_OF_CLAIM type="String"><![CDATA[CONTRACT 3]]></NATURE_OF_CLAIM>
+<STATUS_DATE type="String"><![CDATA[01/05/2008]]></STATUS_DATE>
+<CASE_NO type="String"><![CDATA[MC 40001 / 1999]]></CASE_NO>
+<DOC_REMARKS type="String"><![CDATA[NOTICE OF DISCONTINUANCE/WITHDRAWAL 3]]></DOC_REMARKS> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
+<CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
+<CURRENCY3 type="String"><![CDATA[USD]]></CURRENCY3>
+<CURRENCY4 type="String"><![CDATA[-]]></CURRENCY4>
+<CURRENCY5 type="String"><![CDATA[-]]></CURRENCY5>
+<DEF_SOLICITOR type="String"><![CDATA[SOL2]]></DEF_SOLICITOR>
+<DEF_SOLICITOR_ID type="String"><![CDATA[20000000]]></DEF_SOLICITOR_ID>
+<DEF_LAW_FIRM type="String"><![CDATA[NAME2]]></DEF_LAW_FIRM>
+<DEF_FILE_REF type="String"><![CDATA[FILE2]]></DEF_FILE_REF>
+<DATE_OF_WRIT type="String"><![CDATA[01/01/2008]]></DATE_OF_WRIT>
+<STATUS type="String"><![CDATA[CONCLUDED 3]]></STATUS>
+<AMOUNT1 type="String"><![CDATA[100.00]]></AMOUNT1>
+<AMOUNT2 type="String"><![CDATA[200.00]]></AMOUNT2>
+<AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
+<AMOUNT4 type="String"><![CDATA[400.00]]></AMOUNT4>
+<AMOUNT5 type="String"><![CDATA[0.00]]></AMOUNT5>
+    Scope of Work & FRS 17 Private & Confidential
+   
+D&B - B2B Enquiry Technical Doc V2.28
+<PLAINTIFF type="String"><![CDATA[MC 40001]]></PLAINTIFF>
+<PLA_SOLICITOR type="String"><![CDATA[SOL2]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID type="String"><![CDATA[20000000]]></PLA_SOLICITOR_ID> <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
+<PLA_FILE_REF type="String"><![CDATA[FILE2]]></PLA_FILE_REF>
+<PLA_ID type="String"><![CDATA[S0739038F]]></PLA_ID>
+<PLA_STATUS type="String"><![CDATA[SETTLED - BEFORE SET DOWN]]></PLA_STATUS> <PLA_STATUS_DATE type="String"><![CDATA[17/10/2016]]></PLA_STATUS_DATE>
+</LITIGATION>
+</LIST_LITIGATION>
+<LIST_SHARE_INTEREST_COMP className="com.technodex.ddp.report.bean.CommercialShareInterestBean">
+<SHARE_INTEREST_COMP>
+<COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> <SHARE_OWNED_UNIT type="String"><![CDATA[500000]]></SHARE_OWNED_UNIT> <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT> <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
+</SHARE_INTEREST_COMP> <SHARE_INTEREST_COMP>
+<COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> <SHARE_OWNED_UNIT type="String"><![CDATA[436]]></SHARE_OWNED_UNIT> <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT> <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
+</SHARE_INTEREST_COMP>
+</LIST_SHARE_INTEREST_COMP>
+<LIST_NAME_CHANGE className="com.technodex.ddp.report.bean.CommercialBizChgCmpBean">
+<NAME_CHANGE>
+<PREV_NAME type="String"><![CDATA[HUA XI EATING HOUSE]]></PREV_NAME> <EFFECT_DATE type="String"><![CDATA[25/10/1997 00:00:00]]></EFFECT_DATE>
+</NAME_CHANGE> <NAME_CHANGE>
+<PREV_NAME type="String"><![CDATA[SOON-SOON FISH-HEAD CURRY]]></PREV_NAME>
+<EFFECT_DATE type="String"><![CDATA[10/06/1991 00:00:00]]></EFFECT_DATE> </NAME_CHANGE>
+</LIST_NAME_CHANGE>
+<LIST_SHAREHOLDER className="com.technodex.ddp.report.bean.CommercialShareHoldersBean">
+<SHAREHOLDER>
+<ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632,
+SINGAPORE]]></ADDRESS>
+<COMP_ID type="String"><![CDATA[198200406H]]></COMP_ID>
+<NO_OF_SHARE type="String"><![CDATA[657]]></NO_OF_SHARE>
+<CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY> <SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
+<SHARE_TYPE type="String"><![CDATA[Preference]]></SHARE_TYPE>
+<SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL COMMUNICATIONS PTE
+LTD]]></SHAREHOLDER_NAME>
+<CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE> <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
+<NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
+</SHAREHOLDER> <SHAREHOLDER>
+<ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632, SINGAPORE]]></ADDRESS>
+<COMP_ID type="String"><![CDATA[196500115G]]></COMP_ID>
+<NO_OF_SHARE type="String"><![CDATA[100,000]]></NO_OF_SHARE>
+<CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY>
+<SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
+<SHARE_TYPE type="String"><![CDATA[Ordinary ]]></SHARE_TYPE>
+<SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL TELECOMMUNICATIONS & TRANSPORTATION
+LTD]]></SHAREHOLDER_NAME>
+<CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE> <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
+<NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
+</SHAREHOLDER>
+</LIST_SHAREHOLDER>
+<LIST_CAPITAL className="com.technodex.ddp.report.bean.CommercialBizCapitalBean">
+<CAPITAL>
+<CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY> <CAPITAL_TYPE type="String"><![CDATA[Ordinary]]></CAPITAL_TYPE> <CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY> <CAPITAL_AMT type="String"><![CDATA[100,000.00]]></CAPITAL_AMT> <NO_OF_SHARES type="String"><![CDATA[100,000]]></NO_OF_SHARES>
+</CAPITAL> <CAPITAL>
+<CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY> <CAPITAL_TYPE type="String"><![CDATA[Preference]]></CAPITAL_TYPE>
+    Scope of Work & FRS 18 Private & Confidential
+   
+D&B - B2B Enquiry Technical Doc V2.28
+<CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY> <CAPITAL_AMT type="String"><![CDATA[14,600,511.00]]></CAPITAL_AMT>
+<NO_OF_SHARES type="String"><![CDATA[657]]></NO_OF_SHARES>
+</CAPITAL>
+</LIST_CAPITAL>
+<LIST_OFFICER_OWNER className="com.technodex.ddp.report.bean.CommercialBizOfficeOwerBean">
+<OFFICER_OWNER>
+<ADDRESS type="String"><![CDATA[50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742,
+SINGAPORE]]></ADDRESS>
+<IDENTITY_ID type="String"><![CDATA[S1674174D]]></IDENTITY_ID>
+<POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
+<ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
+<CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE> <OFFICER_NAME type="String"><![CDATA[NGIAM SHARE CHING]]></OFFICER_NAME> <CHANGE_ADDR_DATE type="String"><![CDATA[25/10/2008]]></CHANGE_ADDR_DATE> <APPMT_DATE type="String"><![CDATA[30/09/2008]]></APPMT_DATE>
+<NATIONALITY type="String"><![CDATA[SINGAPORE CITIZEN]]></NATIONALITY>
+</OFFICER_OWNER> <OFFICER_OWNER>
+<ADDRESS type="String"><![CDATA[52 HUME AVENUE, 05 - 10 ; SUMMERHILL; 596230, SINGAPORE]]></ADDRESS>
+<IDENTITY_ID type="String"><![CDATA[S2504825C]]></IDENTITY_ID>
+<PA_REG_NO type="String"><![CDATA[00091]]></ PA_REG_NO>
+<POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
+<ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
+<CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE> <OFFICER_NAME type="String"><![CDATA[HENRY GOH]]></OFFICER_NAME> <CHANGE_ADDR_DATE type="String"><![CDATA[30/10/2003]]></CHANGE_ADDR_DATE> <APPMT_DATE type="String"><![CDATA[07/03/2006]]></APPMT_DATE>
+<NATIONALITY type="String"><![CDATA[SINGAPORE P.R.]]></NATIONALITY> </OFFICER_OWNER>
+</LIST_OFFICER_OWNER> <LIST_SALES_REVENUE_AMOUNT>
+<SALES_REVENUE_AMOUNT>
+<ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2008]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>30000.00</AMOUNT>
+</SALES_REVENUE_AMOUNT> <SALES_REVENUE_AMOUNT>
+<ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2007]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>28000.00</AMOUNT>
+</SALES_REVENUE_AMOUNT> <SALES_REVENUE_AMOUNT>
+<ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2006]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>27,000.00</AMOUNT>
+</SALES_REVENUE_AMOUNT> </LIST_SALES_REVENUE_AMOUNT>
+</REPORT>
         '401':
           description: Unauthorized
           content:
@@ -91,12 +287,13 @@ components:
               type: object
               example: ""
               description: |+
-                Report Details with following childer&#58;
+                Report Details with following children&#58;
                 [META_INFO] [REGISTRY_DETAIL] [REQ_SEARCH_INFO] [EMPLOYEE_SIZE] [LIST_BIZ_BRANCH] [LIST_REG_CHARGES] [LIST_LIQUIDATOR] [LIST_WINDING_UP] [LIST_LITIGATION] [LIST_SHARE_INTEREST_COMP] [LIST_NAME_CHANGE] [LIST_SHAREHOLDER] [LIST_CAPITAL] [LIST_OFFICER_OWNER] [LIST_SALES_REVENUE_AMOUNT]
               properties:
                 META_INFO:
                   type: object
                   example: |+
+                    Meta info Details with following children&#58;
                     SERVICE
                     SYSTEM_ID
                     CREATION_DATE
@@ -107,80 +304,107 @@ components:
                     SERVICE:
                       type: string
                       description: Report requested
-                      example: "<![CDATA[BCP]]>"
+                      example: "BCP"
                     SYSTEM_ID :
                       type: string
                       description: System ID
-                      example: "<![CDATA[DDP]]>"
+                      example: "DDP"
                     CREATION_DATE:
                       type: string
                       description: Report request date
-                      example: "<![CDATA[Wed Apr 08 11:37:51 MYT 2009]]>"
+                      example: "Wed Apr 08 11:37:51 MYT 2009"
                     USER_ID :
                       type: string
-                      description: Valid user id in DDP system
-                      example: "<![CDATA[]]>"
+                      description: Valid user id in DDP system. It is for (For internal use)
+                      example: N/A
                     CLASS:
                       type: string
                       description: Class location for metabean. It is for (For internal use)
-                      example: "<![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]>"
+                      example: N/A
                 REGISTRY_DETAIL :
                   type: object
                   description: Registry Details
-                  example: "RENEWAL_DATE ADDRESS1 ADDRESS2 ADDRESS3 ADDRESS4 COMP_TYPE_CODE REG_DATE REG_ACTIVITY1 REG_ACTIVITY2 ACC_DATE STATUS_EFFECT_DATE NAME_EFFECT_DATE EXPIRY_DATE COMP_TYPE CHANGE_ADDR_DATE COMP_STATUS REG_ACTIVITY_DESC1 REG_ACTIVITY_DESC2 AUDITOR AUDITOR_APPMT_DATE LAST_AR_DATE LAST_AGM_DATE COUNTRY_INCORP"
+                  example: |+
+                    Registry Details with following children&#58;
+                    RENEWAL_DATE
+                    ADDRESS1
+                    ADDRESS2
+                    ADDRESS3
+                    ADDRESS4
+                    COMP_TYPE_CODE
+                    REG_DATE
+                    REG_ACTIVITY1 
+                    REG_ACTIVITY2
+                    ACC_DATE
+                    STATUS_EFFECT_DATE
+                    NAME_EFFECT_DATE
+                    EXPIRY_DATE
+                    COMP_TYPE
+                    CHANGE_ADDR_DATE
+                    COMP_STATUS
+                    REG_ACTIVITY_DESC1
+                    REG_ACTIVITY_DESC2
+                    AUDITOR
+                    AUDITOR_APPMT_DATE
+                    LAST_AR_DATE
+                    LAST_AGM_DATE
+                    COUNTRY_INCORP
                   properties:
                     RENEWAL_DATE:
                       type: string
                       description: Renewal Date
-                      example: "<![CDATA[23/12/2008]]>"
+                      example: "23/12/2008"
                     ADDRESS1:
                       type: string
-                      description: Address1
-                      example: "<![CDATA[1 HARBOURFRONT AVENUE , 18 - 01]]>"
+                      description: Address Line 1
+                      example: "1 HARBOURFRONT AVENUE , 18 - 01"
                     ADDRESS2:
                       type: string
-                      description: Address2
-                      example: "<![CDATA[KEPPEL BAY TOWER]]>"
+                      description: Address Line 2
+                      example: "KEPPEL BAY TOWER"
                     ADDRESS3:
                       type: string
-                      description: Address3
-                      example: "<![CDATA[098632]]>"
+                      description: Address Line 3
+                      example: "098632"
                     ADDRESS4:
                       type: string
-                      description: Address4
-                      example: "<![CDATA[SINGAPORE]]>"
+                      description: Address Line 4
+                      example: "SINGAPORE"
                     COMP_TYPE_CODE:
                       type: string
                       description: Report Code
-                      example: "<![CDATA[CP]]>"
+                      example: |+
+                       Available values are&#58;
+                       1. CP Corporate
+                       2. SP Sole Proprietor
                     REG_DATE:
                       type: string
                       description: Registration Date
-                      example: "<![CDATA[14/10/1974]]>"
+                      example: "14/10/1974"
                     REG_ACTIVITY1:
                       type: string
                       description: Registered Activities 1
-                      example: "<![CDATA[OTHER INVESTMENT HOLDING COMPANIES]]>"
+                      example: "OTHER INVESTMENT HOLDING COMPANIES"
                     REG_ACTIVITY2:
                       type: string
                       description: Registered Activities 2
-                      example: "<![CDATA[SHIP MANAGEMENT SERVICES]]>"
+                      example: "SHIP MANAGEMENT SERVICES"
                     ACC_DATE:
                       type: string
                       description: Account Date
-                      example: "<![CDATA[31/12/2007]]>"
+                      example: "31/12/2007"
                     STATUS_EFFECT_DATE:
                       type: string
                       description: Status Effective Date
-                      example: "<![CDATA[14/10/1974]]>"
+                      example: "=14/10/1974"
                     NAME_EFFECT_DATE:
                       type: string
                       description: Name Effective Date
-                      example: "<![CDATA[14/10/1974]]>"
+                      example: "14/10/1974"
                     EXPIRY_DATE:
                       type: string
                       description: Expiry Date
-                      example: "<![CDATA[25/10/2009]]>"
+                      example: "25/10/2009"
                     COMP_TYPE:
                       type: string
                       description: Company Type
