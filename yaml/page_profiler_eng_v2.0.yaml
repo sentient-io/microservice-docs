@@ -122,28 +122,43 @@ components:
                 items:
                   type: string
                 example: 
-                  - Hubei
-                  - Singapore
-                  - Hubei
-                  - Hubei
-                  - Immigration
-                description: "name of location found in the text string"     
+                  -Nat
+                  -Sentient.io
+                  -Home
+                  -Inte
+                  -CONTACT
+                  -Join
+                description: "name of location found in the text string"
               misc:
                 type: array
                 items:
                   type: string
                 example: 
-                  - ICA.They
+                  - Sentient.io
+                  - English
                 description: "name of miscellaneous names found in the text string"
               org:
                 type: array
                 items:
                   type: string
                 example: 
-                  - Immigration and Checkpoints Authority
-                  - ICA
-                  - LOA
-                description: "name of organizations names found in the text string"                  
+                  -Our Clients
+                  -AI
+                  -APIs
+                  -Sentient.io
+                  -Our Technology Partners
+                  -Named Entity Recognition
+                  -Our Investors
+                description: "name of organizations names found in the text string"  
+              per:
+                type: array
+                items:
+                  type: string
+                example: 
+                  -Sentient.io
+                  -Speech
+                  -LinkedIn
+                description: "name of persons names found in the text string"                
           message:
             type: string
             example: Successfully Processed
