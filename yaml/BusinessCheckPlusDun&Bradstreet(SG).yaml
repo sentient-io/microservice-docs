@@ -297,7 +297,13 @@ components:
               properties:
                 META_INFO:
                   type: object
-                  example: 
+                  example: |+
+                    <META_INFO>
+                    <SERVICE type="String"><![CDATA[BCP]]></SERVICE>
+                    <SYSTEM_ID type="String"><![CDATA[DDP]]></SYSTEM_ID>
+                    <CREATION_DATE type="Date"><![CDATA[Wed Apr 08 11:37:51 MYT 2009]]></CREATION_DATE> <USER_ID type="String"><![CDATA[]]></USER_ID>
+                    <CLASS type="String"><![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]></CLASS>
+                    </META_INFO>
                   description: |+
                     Meta Information details with following children&#58;
                     SERVICE
