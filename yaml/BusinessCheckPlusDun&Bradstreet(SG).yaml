@@ -410,8 +410,38 @@ components:
                     properties:
                       LITIGATION :
                         type: object
-                        description: List of Winding Up
-                        example: "SUBJECT_NAME NATURE_OF_CLAIM STATUS_DATE CASE_NO DOC_REMARKS CURRENCY1 CURRENCY2 CURRENCY3 CURRENCY4 CURRENCY5 DEF_SOLICITOR DEF_SOLICITOR_ID DEF_LAW_FIRM DEF_FILE_REF DATE_OF_WRIT STATUS AMOUNT1 AMOUNT2 AMOUNT3 AMOUNT4 AMOUNT5 PLAINTIFF PLA_SOLICITOR PLA_SOLICITOR_ID PLA_LAW_FIRM PLA_FILE_REF PLA_ID PLA_STATUS PLA_STATUS_DATE"
+                        description: |+
+                          List of Winding Up  with following children&#58; 
+                          SUBJECT_NAME
+                          NATURE_OF_CLAIM
+                          STATUS_DATE
+                          CASE_NO
+                          DOC_REMARK
+                          CURRENCY1
+                          CURRENCY2
+                          CURRENCY3
+                          CURRENCY4
+                          CURRENCY5
+                          DEF_SOLICITOR
+                          DEF_SOLICITOR_ID
+                          DEF_LAW_FIRM
+                          DEF_FILE_REF
+                          DATE_OF_WRIT
+                          STATUS
+                          AMOUNT1
+                          AMOUNT2
+                          AMOUNT3
+                          AMOUNT4
+                          AMOUNT5
+                          PLAINTIFF
+                          PLA_SOLICITOR
+                          PLA_SOLICITOR_ID
+                          PLA_LAW_FIRM
+                          PLA_FILE_REF
+                          PLA_ID
+                          PLA_STATUS
+                          PLA_STATUS_DATE
+                        example: ""
                         properties:
                           SUBJECT_NAME :
                             type: string
@@ -621,7 +651,7 @@ components:
           properties:
             SUBJECT_IDNO:
               type: string
-              example: "199707714C"
+              example: 199707714C
               description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
               default: true
             SUBJECT_NAME:
