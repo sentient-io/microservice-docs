@@ -250,7 +250,12 @@ components:
                   example: 
                   description: |+
                     Request criteria & search record with following children&#58;
-                    COMP_NAME REG_NO REQ_DATE REQ_REG_NO REQ_NAME REQ_DATE_STR
+                    COMP_NAME
+                    REG_NO
+                    REQ_DATE
+                    REQ_REG_NO
+                    REQ_NAME
+                    REQ_DATE_STR
                   properties:
                     COMP_NAME:
                       type: string
