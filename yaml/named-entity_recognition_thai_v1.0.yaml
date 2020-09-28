@@ -45,9 +45,9 @@ paths:
                   - กัมพูชาทางทิศใต้ติดกับอ่าวไทย
                   organization:
                   - รัฐสภา
-                status: Success์ 
+                status: Success
 
-        '401':- รัฐสภา
+        '401':
           description: Unauthorized
           content:
             application/json:
