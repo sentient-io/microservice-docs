@@ -249,7 +249,6 @@ components:
                   type: object
                   example: ""
                   description: |+
-		    test test
                   properties:
                     COMP_NAME:
                       type: string
