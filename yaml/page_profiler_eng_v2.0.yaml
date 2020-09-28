@@ -111,7 +111,23 @@ components:
   schemas:
     success:
       type: object
-      properties:              
+      properties:
+          results:
+            type: object
+            example: { "<Json": "Object>" }
+            description: Json Object of returned results
+            properties:
+              loc:
+                type: array
+                items:
+                  type: string
+                example: 
+                  - Hubei
+                  - Singapore
+                  - Hubei
+                  - Hubei
+                  - Immigration
+                description: "name of location found in the text string"      
           message:
             type: string
             example: Successfully Processed
