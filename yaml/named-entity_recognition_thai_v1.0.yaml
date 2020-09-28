@@ -189,17 +189,24 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure  
+          example: Failure
     versions:
       type: object
       properties: 
+        v1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Aug 28,2020
+              description: Updated version release v1.0
         v0.1:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Aug 28,2020
-              description: Initial version release    
+              description: Initial version release
     input:
       type: object
       required:
