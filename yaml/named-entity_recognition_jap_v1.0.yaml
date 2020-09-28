@@ -12,7 +12,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0"
-  description: "Published Date - May 19, 2020"
+  description: "Published Date - Sep 30, 2020"
 paths:
   /microservices/nlp/japanesener/v1.0/getpredictions:
     post:
@@ -113,26 +113,70 @@ components:
     success:
       type: object
       properties: 
-        Company:
-          x-name: Company
-          type: array
-          example: [ 和歌山製鉄所 ]
-          description: name of Company found in the text string    
-        Date:
-          x-name: Date
-          type: array
-          example: [ 7日,2023年9月,22年9月 ]
-          description: name of Date found in the text string
-        Domestic_Region:
-          x-name: Domestic_Region
-          type: array
-          example: [ 呉製鉄所 ]
-          description: name of Domestic_Region found in the text string    
-        Material:
-          x-name: Material
-          type: array
-          example: [ 鉄鋼最大手 ]
-          description: name of Material found in the text string              
+        results:
+          type: object
+          example: { "<Json": "Object>" }
+          description: Json Object of returned results
+          properties:
+            age:
+              type: array
+              items:
+                type: string
+              example: 
+                - 56
+            countx_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 2稿
+                - 8口
+            doctrine_method_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 険所コホ特室りょ
+            n_event:
+              type: array
+              items:
+                type: string
+              example: 
+                - 受1
+            numex_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 受1
+            ordinal_number:
+              type: array
+              items:
+                type: string
+              example: 
+                -30弾
+            person:
+              type: array
+              items:
+                type: string
+              example: 
+                - person
+                - 壮
+                - 琢紫
+                - ナユ
+            product_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 都合ヘラアニ限
+                - 議帳
+            show_organization:
+              type: array
+              items:
+                type: string
+              example: 
+                - 左成相態                
         message:
           type: string
           example: Successfully Processed
@@ -140,7 +184,7 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure       
+          description: The status of the API call success/failure  
     unauthorized:
       type: object
       properties:
@@ -221,7 +265,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - May 19,2020
+              example: Published Date - Sep 30,2020
               description: Updated version release v1.0
         v0.1:
          type: array
