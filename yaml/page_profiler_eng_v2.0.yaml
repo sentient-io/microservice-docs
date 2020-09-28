@@ -1,5 +1,5 @@
-  openapi: 3.0.1
-  info:
+openapi: 3.0.1
+info:
     title: Page Profiler ENG Updated
     description: |+
       This NLP microservice retrieves web content in English from the input URL. 
@@ -8,12 +8,12 @@
       
       The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
     version: '2.0'
-  servers:
+servers:
     - url: 'https://apis.sentient.io'
-  tags:
+tags:
   - name: "v2.0"
     description: "Published Date - Apr 11, 2018"
-  paths:
+paths:
     /microservices/nlp/pageprofiler/v2.0/getpredictions:
       post:
         tags:
@@ -107,7 +107,7 @@
               schema:
                 $ref: '#/components/schemas/input'
           required: true
-  components:
+components:
     schemas:
       success:
         type: object
