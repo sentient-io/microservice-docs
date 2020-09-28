@@ -327,7 +327,7 @@ components:
                         ADDR_ADDRESS1
                       example: 
                       properties:
-                        REQADDR_BUILDING:
+                        ADDR_BUILDING:
                           type: string
                           description: Building Name
                           example: 
@@ -361,92 +361,201 @@ components:
                         properties:
                           CHARGE_NO :
                             type: string
+                            description: Charge No.
+                            example:
                           CHARGE_DATE:
                             type: string
+                            description: Charge Date
+                            example:
                           CHARGEE_COMP:
                             type: string
+                            description: Charges Company
+                            example:
                           CURRENCY:
                             type: string
+                            description: Currency
+                            example:
                           AMT_SECURED:
                             type: string
+                            description: Amount Secured
+                            example:
                           STATUS_SATISFACTION:
                             type: string
+                            description: Status of Satisfaction
+                            example:
                 LIST_LIQUIDATOR:
                   type: array
-                  description: List of Liquidator / Receiver / Judicial Manager
-                  example: "[LIQUIDATOR]"
+                  description: |+
+                    List of Liquidator / Receiver / Judicial Manager with following children&#58;
+                    [LIQUIDATOR]
+                  example: 
                   items:
                     properties:
                       LIQUIDATOR :
                         type: object
+                        description: |+
+                          Liquidator details with following children&#58;
+                          LIQ_POSITION
+                          LIQ_ID
+                          LIQ_NAME
+                          LIQ_COMP
+                          LIQ_ADDRESS1
+                          LIQ_ADDRESS2
+                          LIQ_ADDRESS3
+                          LIQ_ADDRESS4
+                          LIQ_APPOINTMENT_DATE
                         properties:
-                          LIQ_NAME :
-                            type: string
-                          LIQ_ID:
-                            type: string
                           LIQ_POSITION:
                             type: string
+                            description: Liquidator / Receiver / Judicial Manager Position
+                            example:
+                          LIQ_ID:
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager ID
+                            example:
+                          LIQ_NAME :
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Name
+                            example:
                           LIQ_COMP:
                             type: string
+                            description: Liquidator / Receiver / Judicial Manager Company Name
+                            example:
                           LIQ_ADDRESS1:
                             type: string
+                            description: Liquidator / Receiver / Judicial Manager Address 1
+                            example:
                           LIQ_ADDRESS2:
-                            type: string    
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Address 2
+                            example:
                           LIQ_ADDRESS3:
                             type: string
+                            description: Liquidator / Receiver / Judicial Manager Address 3
+                            example:
                           LIQ_ADDRESS4:
                             type: string
+                            description: Liquidator / Receiver / Judicial Manager Address 4
+                            example:
                           LIQ_APPOINTMENT_DATE:
-                            type: string  
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Appointment Date
+                            example:
                 LIST_WINDING_UP :
                   type: array
-                  description: List of Winding Up
-                  example: "[WINDING_UP]"
+                  description: |+
+                    List of Winding Up with following children&#58;
+                    [WINDING_UP]
+                  example:
                   items:
                     properties:
                       WINDING_UP :
                         type: object
+                        description: |+
+                          Winding Up details with following children&#58;
+                          CASE_CODE
+                          CASE_YEAR
+                          PLAINTIFF
+                          PLA_SOLICITOR_ID
+                          PLA_FILE_REF
+                          PLA_LAW_FIRM
+                          SUBJECT_NAME
+                          COURT_CODE
+                          CASE_TYPE
+                          CURRENCY1
+                          AMOUNT1
+                          CURRENCY2
+                          AMOUNT2
+                          CURRENCY3
+                          AMOUNT3
+                          ACTION_DATE
+                          BANKRUPTCY_ACT
+                          HEARING_DATE
+                          PLA_SOLICITOR
+                        example:
                         properties:
                           CASE_CODE :
                             type: string
+                            description: Case Code
+                            example: 
                           CASE_YEAR :
                             type: string
+                            description: Case Year
+                            example:
                           PLAINTIFF :
                             type: string
+                            description: Plaintiff Name
+                            example:
                           PLA_SOLICITOR_ID :
                             type: string
+                            description: Pla. Solicitor ID
+                            example:
                           PLA_FILE_REF :
                             type: string
-                          COURT_CODE :
-                            type: string    
-                          CASE_TYPE :
+                            description: Pla. File Ref.
+                            example:
+                          PLA_LAW_FIRM  :
                             type: string
-                          CURRENCY1 :
-                            type: string
-                          CURRENCY2  :
-                            type: string    
-                          AMOUNT2 :
-                            type: string
-                          CURRENCY3 :
-                            type: string
-                          AMOUNT3 :
-                            type: string
-                          BANKRUPTCY_ACT :
-                            type: string
-                          HEARING_DATE :
-                            type: string
-                          ACTION_DATE :
-                            type: string    
+                            description: Pla. Law Firm
+                            example:
                           SUBJECT_NAME :
                             type: string
-                          PLA_SOLICITOR  :
+                            description: Subject Name
+                            example:
+                          COURT_CODE :
+                            type: string 
+                            description: Court Code
+                            example:
+                          CASE_TYPE :
                             type: string
-                          PLA_LAW_FIRM  :
-                            type: string      
+                            description: Case Type
+                            example:
+                          CURRENCY1 :
+                            type: string
+                            description: Currency 1
+                            example:
+                          AMOUNT1 :
+                            type: string
+                            description: Amount 1
+                            example:
+                          CURRENCY2  :
+                            type: string 
+                            description: Currency 2
+                            example:
+                          AMOUNT2 :
+                            type: string
+                            description: Amount 2
+                            example:
+                          CURRENCY3 :
+                            type: string
+                            description: Currency 3
+                            example:
+                          AMOUNT3 :
+                            type: string
+                            description: Amount 3
+                            example:
+                          ACTION_DATE :
+                            type: string
+                            description: Action Date
+                            example:
+                          BANKRUPTCY_ACT :
+                            type: string
+                            description: Act of Bankruptcy
+                            example:
+                          HEARING_DATE :
+                            type: string
+                            description: Hearing Date
+                            example:
+                          PLA_SOLICITOR :
+                            type: string
+                            description: Pla. Solicitor
+                            example:
                 LIST_LITIGATION :
                   type: array
-                  description: List of Winding Up
-                  example: "[WINDING_UP]"
+                  description: |+
+                    List of Winding Up with following children&#58;
+                    [LITIGATION]
+                  example: 
                   items:
                     properties:
                       LITIGATION :
@@ -482,7 +591,7 @@ components:
                           PLA_ID
                           PLA_STATUS
                           PLA_STATUS_DATE
-                        example: ""
+                        example:
                         properties:
                           SUBJECT_NAME :
                             type: string
