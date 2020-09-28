@@ -580,7 +580,7 @@ components:
           default: false
         ENQUIRY:
           type: object
-          example: 
+          example: SUBJECT_IDNO, SUBJECT_NAME
           description: Contains information of each request details
           default: true
           properties:
