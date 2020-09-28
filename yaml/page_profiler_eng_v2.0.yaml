@@ -215,13 +215,20 @@ components:
     versions:
       type: object
       properties: 
-        v0.1:
+        v2.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jun 18,2018
-              description: Initial version release
+              description: Updated version release v1.0
+        v1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 18,2018
+              description: Initial version release            
   securitySchemes:
     APIAuthorizer:
       type: apiKey
