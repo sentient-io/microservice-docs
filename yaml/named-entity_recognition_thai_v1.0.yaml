@@ -118,7 +118,7 @@ components:
               items:
                 type: string
               example: 
-                -รัฐธรรมนูญ
+				          -รัฐธรรมนูญ
            
     unauthorized:
       type: object
