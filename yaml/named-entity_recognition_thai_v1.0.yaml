@@ -108,41 +108,17 @@ components:
     success:
       type: object
       properties: 
-        results:
-          type: object
-          example: { "<Json": "Object>" }
-          description: Json Object of returned results
-          properties:
-            law:
-              type: array
-              items:
-                type: string
-              example: 
-                -รัฐธรรมนูญ
-            location:
-              type: array
-              items:
-                type: string
-              example: 
-                -ประเทศไทย
-                -มาเลเซีย
-                -ทะเลอันดามัน
-                -กรุงเทพมหานคร
-                -อินโดนีเซีย
-                -ราชอาณาจักรไทย
-                -อินเดียทางทะเลอันดามันทางตะวันตกเฉียงใต้
-                -ลาวทางทิศตะวันออกติดกับลาว
-                -เอเชียตะวันออกเฉียงใต้
-                -เวียดนาม
-                -ประเทศพม่า
-                -กัมพูชาทางทิศใต้ติดกับอ่าว
-            organization:
-              type: array
-              items:
-                type: string
-              example: 
-                - รัฐสภา
-                       
+        location:
+          x-name: location
+          type: array
+          example: [ สหรัฐอเมริ ]
+          description: name of location found in the text string
+        
+        person:
+          x-name: person
+          type: array
+          example: [ ประธานาธิบดีทร ]
+          description: name of person found in the text string
     unauthorized:
       type: object
       properties:
