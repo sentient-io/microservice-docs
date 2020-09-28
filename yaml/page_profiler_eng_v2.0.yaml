@@ -108,7 +108,7 @@ paths:
               $ref: '#/components/schemas/input'
         required: true
 components:
-  schemas:
+    schemas:
       success:
         type: object
         properties: 
@@ -116,18 +116,6 @@ components:
            type: array
            example: ["Beijing","Atlanta","Indonesia"]
            description: "name of location found in the text string"
-          MISC:
-           type: array
-           example: [Twiight,Singaporean]
-           description: "name of miscellaneous names found in the text string"
-          ORG:
-           type: array
-           example: [CNA,Singapore Parliament]
-           description: "name of organizations found in the text string"  
-          PER:
-           type: array
-           example: [Skip Navigation,Bookmarks]
-           description: "name of persons found in the text string"
     unauthorized:
       type: object
       properties:
