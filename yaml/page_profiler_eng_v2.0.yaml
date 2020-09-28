@@ -112,23 +112,23 @@ components:
     success:
       type: object
       properties:
-          results:
-            type: object
-            example: { "<Json": "Object>" }
-            description: Json Object of returned results
-            properties:
-              loc:
-                type: array
-                items:
-                  type: string
-                example: 
-                  -Nat
-                  -Sentient.io
-                  -Home
-                  -Inte
-                  -CONTACT
-                  -Join
-                description: "name of location found in the text string"
+        results:
+          type: object
+          example: { "<Json": "Object>" }
+          description: Json Object of returned results
+          properties:
+            loc:
+              type: array
+              items:
+                type: string
+              example: 
+                -Nat
+                -Sentient.io
+                -Home
+                -Inte
+                -CONTACT
+                -Join
+              description: "name of location found in the text string"
     unauthorized:
       type: object
       properties:
