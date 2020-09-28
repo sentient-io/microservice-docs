@@ -25,9 +25,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example:
-                message: "各位同学朋友老师教授大家好我叫墓园"
-                status: success 
+              example: 
+                  message: Successfully Processed
+                  results:
+                    loc:
+                    - Nat
+                    - Sentient.io
+                    - Home
+                    - Inte
+                    - CONTACT
+                    - Join
+                    misc:
+                    - Sentient.io
+                    - English
+                    org:
+                    - Our Clients
+                    - AI
+                    - APIs
+                    - Sentient.io
+                    - Our Technology Partners
+                    - Named Entity Recognition
+                    - Our Investors
+                    per:
+                    - Sentient.io
+                    - Speech
+                    - LinkedIn
+                  status: Success 
         '401':
           description: Unauthorized
           content:
