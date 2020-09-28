@@ -149,7 +149,7 @@ components:
                   -Our Technology Partners
                   -Named Entity Recognition
                   -Our Investors
-                description: "name of organizations names found in the text string"  
+                description: "name of organizations names found in the text string"
               per:
                 type: array
                 items:
@@ -158,7 +158,7 @@ components:
                   -Sentient.io
                   -Speech
                   -LinkedIn
-                description: "name of persons names found in the text string"                
+                description: "name of persons names found in the text string"            
           message:
             type: string
             example: Successfully Processed
