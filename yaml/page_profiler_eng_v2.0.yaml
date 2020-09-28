@@ -244,7 +244,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 18,2018
+              example: Published Date - Sep 30, 2020
               description: Updated version release v1.0
         v1.0:
          type: array
