@@ -208,72 +208,79 @@ components:
                     COMP_TYPE:
                       type: string
                       description: Company Type
-                      example: "<![CDATA[LIMITED PRIVATE COMPANY]]>"
+                      example: "LIMITED PRIVATE COMPANY"
                     CHANGE_ADDR_DATE:
                       type: string
                       description: Change Address Date
-                      example: "<![CDATA[09/05/2003]]>"
+                      example: "09/05/2003"
                     COMP_STATUS:
                       type: string
                       description: Company Status
-                      example: "<![CDATA[Live Company]]>"
+                      example: "Live Company"
                     REG_ACTIVITY_DESC1:
                       type: string
                       description: Registered Activities Description
-                      example: "<![CDATA[-]]>"
+                      example:
                     REG_ACTIVITY_DESC2:
                       type: string
                       description: Registered Activities Description
-                      example: "<![CDATA[-]]>"
+                      example:
                     AUDITOR:
                       type: string
                       description: Auditor Name
-                      example: "<![CDATA[-]]>"
+                      example:
                     AUDITOR_APPMT_DATE:
                       type: string
                       description: Auditor Appointment Date
-                      example: "<![CDATA[13/06/1990]]>"
+                      example: "13/06/1990"
                     LAST_AR_DATE:
                       type: string
                       description: Date of Last AR
-                      example: "<![CDATA[30/06/2008]]>"
+                      example: "30/06/2008"
                     LAST_AGM_DATE:
                       type: string
                       description: Date of Last AGM
-                      example: "<![CDATA[11/06/2008]]>"
+                      example: "11/06/2008"
                     COUNTRY_INCORP:
                       type: string
                       description: Country Incorporated
-                      example: "<![CDATA[SINGAPORE]]>"
+                      example: "SINGAPORE"
                 REQ_SEARCH_INFO :
                   type: object
-                  example: "COMP_NAME REG_NO REQ_DATE REQ_REG_NO REQ_NAME REQ_DATE_STR"
-                  description: Request criteria & search record
+                  example: ""
+                  description: |+
+			Request criteria & search record with following children&#58;
+			COMP_NAME
+			REG_NO
+			REQ_DATE
+			REQ_REG_NO
+			REQ_NAME
+			REQ_DATE_STR
                   properties:
                     COMP_NAME:
                       type: string
                       description: Company Name
-                      example: "<![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]>"
+                      example: "KAPAL MANAGEMENT (PRIVATE) LIMITED"
                     REG_NO:
                       type: string
                       description: Subject’s ID Number (individual) or Registration Number (company/business)
-                      example: "<![CDATA[197401835M]]>"
+                      example: "197401835M"
                     REQ_DATE:
                       type: string
                       description: Report Requested Date
-                      example: "<![CDATA[2009-04-08 11:36:03.611]]>"
+                      example: "2009-04-08 11:36:03.611"
                     REQ_REG_NO:
                       type: string
                       description: Request Registration Number
-                      example: "<![CDATA[197401835M]]>"
+                      example: "197401835M"
                     REQ_NAME:
                       type: string
                       description: Request Name
-                      example: "<![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]>"
+                      example: "KAPAL MANAGEMENT (PRIVATE) LIMITED"
                     REQ_DATE_STR:
                       type: string
                       description: Request Date String
-                      example: "<![CDATA[08/04/2009 11:36:03]]>"
+                      example: "08/04/2009 11:36:03"
                 EMPLOYEE_SIZE :
                   type: object
                   description: Employee Size Details
@@ -282,7 +289,7 @@ components:
                     ELEMENTS:
                       type: string
                       description: Description
-                      example: "<![CDATA[Employee Size]]>"
+                      example: "Employee Size"
                     AMOUNT:
                       type: string
                       description: Number of employee
@@ -416,118 +423,118 @@ components:
                           SUBJECT_NAME :
                             type: string
                             description: Subject Name
-                            example: "<![CDATA[SOON SOON SEAFOOD]]>"
+                            example: "SOON SOON SEAFOOD"
                           NATURE_OF_CLAIM :
                             type: string
-                            example: "<![CDATA[CONTRACT 3]]>"
+                            example: "CONTRACT 3"
                             description: Nature of Claim
                           STATUS_DATE :
                             type: string
-                            example: "<![CDATA[01/05/2008]]>"
+                            example: "01/05/2008"
                             description: Status Date
                           CASE_NO :
                             type: string
-                            example: "<![CDATA[MC 40001 / 1999]]>"
+                            example: "MC 40001 / 1999"
                             description: Case No
                           DOC_REMARKS :
                             type: string
-                            example: "<![CDATA[NOTICE OF DISCONTINUANCE/WITHDRAWAL 3]]>"
+                            example: "NOTICE OF DISCONTINUANCE/WITHDRAWAL 3"
                             description: Document Remark
                           CURRENCY1 :
                             type: string
-                            example: "<![CDATA[SGD]]>"
+                            example: "SGD"
                             description: Currency 1
                           CURRENCY2 :
                             type: string
-                            example: "<![CDATA[MYR]]>"
+                            example: "MYR"
                             description: Currency 2
                           CURRENCY3 :
                             type: string
-                            example: "<![CDATA[USD]]>"
+                            example: "USD"
                             description: Currency 3
                           CURRENCY4 :
                             type: string    
-                            example: "<![CDATA[-]]>"
+                            example: "-"
                             description: Currency 4
                           CURRENCY5 :
                             type: string
-                            example: "<![CDATA[-]]>"
+                            example: "-"
                             description: Currency 5
                           DEF_SOLICITOR :
                             type: string
-                            example: "<![CDATA[SOL2]]>"
+                            example: "SOL2"
                             description: Def. Solicitor
                           DEF_SOLICITOR_ID :
                             type: string
-                            example: "<![CDATA[20000000]]>"
+                            example: "20000000"
                             description: Def. Solicitor ID
                           DEF_LAW_FIRM :
                             type: string
-                            example: "<![CDATA[NAME2]]>"
+                            example: "NAME2"
                             description: Def. Law Firm
                           DEF_FILE_REF :
                             type: string
-                            example: "<![CDATA[FILE2]]>"
+                            example: "FILE2"
                             description: Def. File Ref.
                           DATE_OF_WRIT :
                             type: string 
-                            example: "<![CDATA[01/01/2008]]>"
+                            example: "01/01/2008"
                             description: Date Writ
                           STATUS  :
                             type: string
-                            example: "<![CDATA[CONCLUDED 3]]>"
+                            example: "CONCLUDED 3"
                             description: Status
                           AMOUNT1 :
                             type: string
-                            example: "<![CDATA[100.00]]>"
+                            example: "100.00"
                             description: Amount 1
                           AMOUNT2 :
                             type: string 
-                            example: "<![CDATA[200.00]]>"
+                            example: "200.00"
                             description: Amount 2
                           AMOUNT3  :
                             type: string
-                            example: "<![CDATA[0.00]]>"
+                            example: "0.00"
                             description: Amount 3
                           AMOUNT4  :
                             type: string   
-                            example: "<![CDATA[400.00]]>"
+                            example: "400.00"
                             description: Amount 4
                           AMOUNT5  :
                             type: string
-                            example: "<![CDATA[0.00]]>"
+                            example: "0.00"
                             description: Amount 5
                           PLAINTIFF  :
                             type: string
-                            example: "<![CDATA[MC 40001]]>"
+                            example: "MC 40001"
                             description: Plaintiff Name
                           PLA_SOLICITOR:
                             type: string
-                            example: "<![CDATA[SOL2]]>"
+                            example: "SOL2"
                             description: plantiff Solicitor
                           PLA_SOLICITOR_ID:
                             type: string
-                            example: "<![CDATA[20000000]]>"
+                            example: "20000000"
                             description: plantiff Solicitor ID
                           PLA_LAW_FIRM  :
                             type: string
-                            example: "<![CDATA[NAME2]]>"
+                            example: "NAME2"
                             description: Pla. Law Firm
                           PLA_FILE_REF  :
                             type: string 
-                            example: "<![CDATA[FILE2]]>"
+                            example: "FILE2"
                             description: Pla. File Ref.
                           PLA_ID:
                             type: string
-                            example: "<![CDATA[S0739038F]]>"
+                            example: "S0739038F"
                             description: Plaintiff ID
                           PLA_STATUS:
                             type: string
-                            example: "<![CDATA[SETTLED - BEFORE SET DOWN]]>"
+                            example: "SETTLED - BEFORE SET DOWN"
                             description: Plaintiff Status
                           PLA_STATUS_DATE :
                             type: string
-                            example: "<![CDATA[17/10/2016]]>"
+                            example: "17/10/2016"
                             description: Plaintiff Status Date
     unauthorized:
       type: object
