@@ -127,7 +127,23 @@ components:
                   - Hubei
                   - Hubei
                   - Immigration
-                description: "name of location found in the text string"      
+                description: "name of location found in the text string"     
+              misc:
+                type: array
+                items:
+                  type: string
+                example: 
+                  - ICA.They
+                description: "name of miscellaneous names found in the text string"
+              org:
+                type: array
+                items:
+                  type: string
+                example: 
+                  - Immigration and Checkpoints Authority
+                  - ICA
+                  - LOA
+                description: "name of organizations names found in the text string"                  
           message:
             type: string
             example: Successfully Processed
