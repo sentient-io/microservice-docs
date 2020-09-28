@@ -174,7 +174,7 @@ components:
                       type: string
                       example: CP
                       description: |+
-                       Available values are&#58;
+                       Report Code. Available values are&#58;
                        1. CP Corporate
                        2. SP Sole Proprietor
                     REG_DATE:
@@ -196,7 +196,7 @@ components:
                     STATUS_EFFECT_DATE:
                       type: string
                       description: Status Effective Date
-                      example: "=14/10/1974"
+                      example: "14/10/1974"
                     NAME_EFFECT_DATE:
                       type: string
                       description: Name Effective Date
@@ -247,8 +247,10 @@ components:
                       example: "SINGAPORE"
                 REQ_SEARCH_INFO :
                   type: object
-                  example: ""
+                  example: 
                   description: |+
+                    Request criteria & search record with following children&#58;
+                    COMP_NAME REG_NO REQ_DATE REQ_REG_NO REQ_NAME REQ_DATE_STR
                   properties:
                     COMP_NAME:
                       type: string
