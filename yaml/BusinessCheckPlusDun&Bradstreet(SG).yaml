@@ -709,6 +709,64 @@ components:
                             type: string
                             example: "17/10/2016"
                             description: Plaintiff Status Date
+                LIST_SHARE_INTEREST_COMP :
+                  type: array
+                  description: |+
+                    List of Share Interest In Companies with following children&#58;
+                    [SHARE_INTEREST_COMP]
+                  example: 
+                  items:
+                    properties:
+                      SHARE_INTEREST_COMP :
+                        type: object
+                        description: |+
+                          Share Interest In Companies details with following children&#58;
+                          COMP_NAME
+                          SHARE_OWNED_UNIT
+                          SHARE_OWNED_PERCENT
+                          STATUS
+                        example:
+                        properties:
+                          COMP_NAME :
+                            type: string
+                            description: Company Name
+                            example:
+                          SHARE_OWNED_UNIT :
+                            type: string
+                            description: Shares Owned Unit
+                            example:
+                          SHARE_OWNED_PERCENT :
+                            type: string
+                            description: Shares Owned Value (%)
+                            example:
+                          STATUS :
+                            type: string
+                            description: Status
+                            example:
+                LIST_NAME_CHANGE :
+                  type: array
+                  description: |+
+                    List of Change of Company/Business Name(s) with following children&#58;
+                    [NAME_CHANGE]
+                  example: 
+                  items:
+                    properties:
+                      NAME_CHANGE :
+                        type: object
+                        description: |+
+                          Change of Company/Business Name(s) with following children&#58;
+                          PREV_NAME
+                          EFFECT_DATE
+                        example:
+                        properties:
+                          PREV_NAME :
+                            type: string
+                            description: Previous Name
+                            example:
+                          EFFECT_DATE :
+                            type: string
+                            description: Effective Date
+                            example:
     unauthorized:
       type: object
       properties:
