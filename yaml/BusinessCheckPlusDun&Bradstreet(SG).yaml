@@ -767,6 +767,109 @@ components:
                             type: string
                             description: Effective Date
                             example:
+                LIST_SHAREHOLDER :
+                  type: array
+                  description: |+
+                    List of Shareholders with following children&#58;
+                    [SHAREHOLDER]
+                  example: 
+                  items:
+                    properties:
+                      SHAREHOLDER :
+                        type: object
+                        description: |+
+                          Shareholders details with following children&#58;
+                          ADDRESS
+                          COMP_ID
+                          NO_OF_SHARE
+                          CURRENCY
+                          SHAREHOLDER_TYPE
+                          SHARE_TYPE
+                          SHAREHOLDER_NAME
+                          CHANGE_ADDR_DATE
+                          ADDR_TYPE
+                          NATIONALITY
+                        example:
+                        properties:
+                          ADDRESS :
+                            type: string
+                            description: Address
+                            example:
+                          COMP_ID :
+                            type: string
+                            description: Company/ Identity No.
+                            example:
+                          NO_OF_SHARE :
+                            type: string
+                            description: No. of Shares
+                            example:
+                          CURRENCY :
+                            type: string
+                            description: Currency
+                            example:
+                          SHAREHOLDER_TYPE :
+                            type: string
+                            description: Indicator for Shareholder type
+                            example:
+                          SHARE_TYPE :
+                            type: string
+                            description: Share Type
+                            example:
+                          SHAREHOLDER_NAME :
+                            type: string
+                            description: Shareholder Name
+                            example:
+                          CHANGE_ADDR_DATE :
+                            type: string
+                            description: Change Address Date
+                            example:
+                          ADDR_TYPE :
+                            type: string
+                            description: Address Type, indicates if it is Singapore or foreign address.
+                            example:
+                          NATIONALITY :
+                            type: string
+                            description: Nationality
+                            example:
+                LIST_CAPITAL :
+                  type: array
+                  description: |+
+                    List of Capital details with following children&#58;
+                    [CAPITAL]
+                  example: 
+                  items:
+                    properties:
+                      CAPITAL :
+                        type: object
+                        description: |+
+                          Capital details with following children&#58;
+                          CAPITAL_CATEGORY
+                          CAPITAL_TYPE
+                          CURRENCY
+                          CAPITAL_AMT
+                          NO_OF_SHARES
+                        example:
+                        properties:
+                          CAPITAL_CATEGORY :
+                            type: string
+                            description: Capital Category
+                            example:
+                          CAPITAL_TYPE :
+                            type: string
+                            description: Capital Type
+                            example:
+                          CURRENCY :
+                            type: string
+                            description: Currency
+                            example:
+                          CAPITAL_AMT :
+                            type: string
+                            description: Capital Amount
+                            example:
+                          NO_OF_SHARES :
+                            type: string
+                            description: Nos. of Shares
+                            example:
     unauthorized:
       type: object
       properties:
