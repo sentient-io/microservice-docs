@@ -170,18 +170,17 @@ components:
           type: string
           example: Failure
     input:
-      type: object
-      required:
-        - audio 
-      properties:
-        audio:
-          x-name: audio
-          type: string
-          default: true
-          example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
-          description: |+
-            Input file in base64 format and needs to be prefixed by the data type and encoding
-            data:audio/wav;base64,<wav in base64 string>
+        type: object
+        required:
+          - url
+        properties:
+          url:
+            x-name: url
+            type: string
+            default: true
+            example: https://www.sentient.io/en/
+            description: |+
+              Input url 
     versions:
       type: object
       properties: 
