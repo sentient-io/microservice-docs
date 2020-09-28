@@ -39,6 +39,7 @@ NLP:
     Named-Entity Recognition ENG:
         title: Named-Entity Recognition ENG
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng.yaml"
     Named-Entity Recognition ENG using SPACY:
         title: Named-Entity Recognition ENG using SPACY
@@ -60,10 +61,12 @@ NLP:
     Named-Entity Recognition JAP:
         title: Named-Entity Recognition JAP
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_jap.yaml"
     Named Entity Recognition THAI:
         title: Named Entity Recognition THAI
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_thai.yaml"
     Script Alignment:
         title: Script Alignment
