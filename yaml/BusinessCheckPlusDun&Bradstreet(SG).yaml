@@ -870,6 +870,214 @@ components:
                             type: string
                             description: Nos. of Shares
                             example:
+                LIST_OFFICER_OWNER :
+                  type: array
+                  description: |+
+                    List of Officer(s) / Owner(s) with following children&#58;
+                    [OFFICER_OWNER]
+                  example: 
+                  items:
+                    properties:
+                      OFFICER_OWNER :
+                        type: object
+                        description: |+
+                          Officer(s) / Owner(s) details with following children&#58;
+                          ADDRESS 
+                          IDENTITY_ID
+                          PA_REG_NO 
+                          POSITION
+                          ADDR_TYPE
+                          CESSATION_DATE
+                          OFFICER_NAME
+                          CHANGE_ADDR_DATE
+                          APPMT_DATE
+                          NATIONALITY
+                        example:
+                        properties:
+                          ADDRESS :
+                            type: string
+                            description: Address
+                            example:
+                          IDENTITY_ID :
+                            type: string
+                            description: Identity No.
+                            example:
+                          PA_REG_NO :
+                            type: string
+                            description: Public Accountant Registration No.
+                            example:
+                          POSITION :
+                            type: string
+                            description: Position
+                            example:
+                          ADDR_TYPE :
+                            type: string
+                            description: Address Type, indicates if it is Singapore or foreign address.
+                            example:
+                          CESSATION_DATE :
+                            type: string
+                            description: Cessation Date
+                            example:
+                          OFFICER_NAME :
+                            type: string
+                            description: Officer Name
+                            example:
+                          CHANGE_ADDR_DATE :
+                            type: string
+                            description: Change Address Date
+                            example:
+                          APPMT_DATE :
+                            type: string
+                            description: Appointment Date
+                            example:
+                          NATIONALITY :
+                            type: string
+                            description: Nationality
+                            example:
+                LIST_SALES_REVENUE_AMOUNT :
+                  type: array
+                  description: |+
+                    List of Sales Revenue Amount with following children&#58;
+                    [SALES_REVENUE_AMOUNT]
+                  example: 
+                  items:
+                    properties:
+                      SALES_REVENUE_AMOUNT :
+                        type: object
+                        description: |+
+                          Sales Revenue Amount details with following children&#58;
+                          ELEMENTS
+                          YEAR
+                          CURRENCY
+                          AMOUNT
+                        example:
+                        properties:
+                          ELEMENTS :
+                            type: string
+                            description: Description
+                            example:
+                          YEAR :
+                            type: string
+                            description: Year
+                            example:
+                          CURRENCY :
+                            type: string
+                            description: Currency
+                            example:
+                          AMOUNT :
+                            type: string
+                            description: Amount
+                            example:
+                LIST_Ddrptcount :
+                  type: array
+                  description: |+
+                    List of Search By Financial Sectors and Search By Non- Financial Sectors with following children&#58;
+                    [Ddrptcount]
+                  example: 
+                  items:
+                    properties:
+                      Ddrptcount :
+                        type: object
+                        description: |+
+                          6 XML tags (open then close) displays 
+                          Search By Financial Sectors (counts for 3 recent years)
+                          Search By Non- Financial Sectors (counts for 3 recent years) 
+                          Following children are&#58;
+                          Rcyear
+                          RcFlag (only respond for the year exists)
+                          Rcjan
+                          Rcfeb
+                          Rcmar
+                          Rcapr
+                          Rcmay
+                          Rcjun
+                          Rcjul
+                          Rcaug
+                          Rcsep
+                          Rcoct
+                          Rcnov
+                          Rcdec
+                          Rcid (only respond for the year exists) Rcreg (only respond for the year exists) Rcrptyid (only respond for the year exists)
+                          Rcsecflag
+                          LastUpdateDate (only respond for the year exists)
+                        example:
+                        properties:
+                          Rcyear :
+                            type: string
+                            description: To show the year
+                            example:
+                          RcFlag :
+                            type: string
+                            description: Internal database value
+                            example:
+                          Rcjan :
+                            type: string
+                            description: Count for January
+                            example:
+                          Rcfeb :
+                            type: string
+                            description: Count for February
+                            example:
+                          Rcmar :
+                            type: string
+                            description: Count for March
+                            example:
+                          Rcapr :
+                            type: string
+                            description: Count for April
+                            example:
+                          Rcmay :
+                            type: string
+                            description: Count for May
+                            example:
+                          Rcjun :
+                            type: string
+                            description: Count for June
+                            example:
+                          Rcjul :
+                            type: string
+                            description: Count for July
+                            example:
+                          Rcaug :
+                            type: string
+                            description: Count for August
+                            example:
+                          Rcsep :
+                            type: string
+                            description: Count for September
+                            example:
+                          Rcoct :
+                            type: string
+                            description: Count for October
+                            example:
+                          Rcnov :
+                            type: string
+                            description: Count for November
+                            example:
+                          Rcdec :
+                            type: string
+                            description: Count for December
+                            example:
+                          Rcid :
+                            type: string
+                            description: Internal database value
+                            example:
+                          Rcreg :
+                            type: string
+                            description: Company Registration Number
+                            example:
+                          Rcrptyid :
+                            type: string
+                            description: Product Type
+                            example:
+                          Rcsecflag :
+                            type: string
+                            description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
+                            example:
+                          LastUpdateDate :
+                            type: string
+                            description: Last update date
+                            example:
     unauthorized:
       type: object
       properties:
