@@ -40,6 +40,10 @@ NLP:
         title: Named-Entity Recognition ENG
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng.yaml"
+    Named-Entity Recognition ENG using SPACY:
+        title: Named-Entity Recognition ENG using SPACY
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/spacy_named-entity_recognition_eng.yaml"
     Page Profiler ENG:
         title: Page Profiler ENG
         versions:
