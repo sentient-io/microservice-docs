@@ -47,7 +47,6 @@ NLP:
     Page Profiler ENG:
         title: Page Profiler ENG
         versions:
-            v2.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng.yaml"
     Taxonomy Matcher ENG:
         title: Taxonomy Matcher ENG
