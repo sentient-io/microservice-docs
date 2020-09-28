@@ -46,7 +46,6 @@ paths:
                   organization:
                   - รัฐสภา
                 status: Success
-
         '401':
           description: Unauthorized
           content:
