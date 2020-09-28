@@ -722,7 +722,27 @@ components:
                   description: |+
                     List of Winding Up with following children&#58;
                     [WINDING_UP]
-                  example:
+                  example: |+
+                    <LIST_WINDING_UP className="com.technodex.ddp.report.bean.CommercialBizWindingupBean">
+                    <WINDING_UP>
+                    <CASE_CODE type="String"><![CDATA[40000]]></CASE_CODE>
+                    <CASE_YEAR type="String"><![CDATA[1999]]></CASE_YEAR>
+                    <PLAINTIFF type="String"><![CDATA[-]]></PLAINTIFF>
+                    <PLA_SOLICITOR_ID type="String"><![CDATA[-]]></PLA_SOLICITOR_ID>
+                    <PLA_FILE_REF type="String"><![CDATA[-]]></PLA_FILE_REF>
+                    <COURT_CODE type="String"><![CDATA[CWU]]></COURT_CODE>
+                    <CASE_TYPE type="String"><![CDATA[COMPANY WINDING UP PETITION]]></CASE_TYPE> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
+                    <AMOUNT1 type="String"><![CDATA[41,424.52]]></AMOUNT1>
+                    <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
+                    <AMOUNT2 type="String"><![CDATA[0.00]]></AMOUNT2>
+                    <CURRENCY3 type="String"><![CDATA[-]]></CURRENCY3>
+                    <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
+                    <BANKRUPTCY_ACT type="String"><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT> <HEARING_DATE type="String"><![CDATA[15/12/2007]]></HEARING_DATE>
+                    <ACTION_DATE type="String"><![CDATA[11/05/2007]]></ACTION_DATE>
+                    <SUBJECT_NAME type="String"><![CDATA[PROACTIVE BUILDERS]]></SUBJECT_NAME> <PLA_SOLICITOR type="String"><![CDATA[-]]></PLA_SOLICITOR>
+                    <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
+                    </WINDING_UP>
+                    </LIST_WINDING_UP>
                   items:
                     properties:
                       WINDING_UP :
@@ -748,16 +768,35 @@ components:
                           BANKRUPTCY_ACT
                           HEARING_DATE
                           PLA_SOLICITOR
-                        example:
+                        example: |+
+                          <WINDING_UP>
+                          <CASE_CODE type="String"><![CDATA[40000]]></CASE_CODE>
+                          <CASE_YEAR type="String"><![CDATA[1999]]></CASE_YEAR>
+                          <PLAINTIFF type="String"><![CDATA[-]]></PLAINTIFF>
+                          <PLA_SOLICITOR_ID type="String"><![CDATA[-]]></PLA_SOLICITOR_ID>
+                          <PLA_FILE_REF type="String"><![CDATA[-]]></PLA_FILE_REF>
+                          <COURT_CODE type="String"><![CDATA[CWU]]></COURT_CODE>
+                          <CASE_TYPE type="String"><![CDATA[COMPANY WINDING UP PETITION]]></CASE_TYPE>
+                          <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
+                          <AMOUNT1 type="String"><![CDATA[41,424.52]]></AMOUNT1>
+                          <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
+                          <AMOUNT2 type="String"><![CDATA[0.00]]></AMOUNT2>
+                          <CURRENCY3 type="String"><![CDATA[-]]></CURRENCY3>
+                          <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
+                          <BANKRUPTCY_ACT type="String"><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT> <HEARING_DATE type="String"><![CDATA[15/12/2007]]></HEARING_DATE>
+                          <ACTION_DATE type="String"><![CDATA[11/05/2007]]></ACTION_DATE>
+                          <SUBJECT_NAME type="String"><![CDATA[PROACTIVE BUILDERS]]></SUBJECT_NAME> <PLA_SOLICITOR type="String"><![CDATA[-]]></PLA_SOLICITOR>
+                          <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
+                          </WINDING_UP>
                         properties:
                           CASE_CODE :
                             type: string
                             description: Case Code
-                            example: 
+                            example: 40000
                           CASE_YEAR :
                             type: string
                             description: Case Year
-                            example:
+                            example: 1999
                           PLAINTIFF :
                             type: string
                             description: Plaintiff Name
@@ -773,35 +812,35 @@ components:
                           PLA_LAW_FIRM  :
                             type: string
                             description: Pla. Law Firm
-                            example:
+                            example: NAME2
                           SUBJECT_NAME :
                             type: string
                             description: Subject Name
-                            example:
+                            example: PROACTIVE BUILDERS
                           COURT_CODE :
                             type: string 
                             description: Court Code
-                            example:
+                            example: CWU
                           CASE_TYPE :
                             type: string
                             description: Case Type
-                            example:
+                            example: COMPANY WINDING UP PETITION
                           CURRENCY1 :
                             type: string
                             description: Currency 1
-                            example:
+                            example: SGD
                           AMOUNT1 :
                             type: string
                             description: Amount 1
-                            example:
+                            example: 41,424.52
                           CURRENCY2  :
                             type: string 
                             description: Currency 2
-                            example:
+                            example: MYR
                           AMOUNT2 :
                             type: string
                             description: Amount 2
-                            example:
+                            example: 0.00
                           CURRENCY3 :
                             type: string
                             description: Currency 3
@@ -809,19 +848,19 @@ components:
                           AMOUNT3 :
                             type: string
                             description: Amount 3
-                            example:
+                            example: 0.00
                           ACTION_DATE :
                             type: string
                             description: Action Date
-                            example:
+                            example: 11/05/2007
                           BANKRUPTCY_ACT :
                             type: string
                             description: Act of Bankruptcy
-                            example:
+                            example: Petition for Winding Up
                           HEARING_DATE :
                             type: string
                             description: Hearing Date
-                            example:
+                            example: 15/12/2007
                           PLA_SOLICITOR :
                             type: string
                             description: Pla. Solicitor
@@ -831,7 +870,36 @@ components:
                   description: |+
                     List of Winding Up with following children&#58;
                     [LITIGATION]
-                  example: 
+                  example: |+
+                    <LIST_LITIGATION className="com.technodex.ddp.report.bean.CommercialBizLitigationBean">
+                    <LITIGATION>
+                    <SUBJECT_NAME type="String"><![CDATA[SOON SOON SEAFOOD]]></SUBJECT_NAME>
+                    <NATURE_OF_CLAIM type="String"><![CDATA[CONTRACT 3]]></NATURE_OF_CLAIM>
+                    <STATUS_DATE type="String"><![CDATA[01/05/2008]]></STATUS_DATE>
+                    <CASE_NO type="String"><![CDATA[MC 40001 / 1999]]></CASE_NO>
+                    <DOC_REMARKS type="String"><![CDATA[NOTICE OF DISCONTINUANCE/WITHDRAWAL 3]]></DOC_REMARKS> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
+                    <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
+                    <CURRENCY3 type="String"><![CDATA[USD]]></CURRENCY3>
+                    <CURRENCY4 type="String"><![CDATA[-]]></CURRENCY4>
+                    <CURRENCY5 type="String"><![CDATA[-]]></CURRENCY5>
+                    <DEF_SOLICITOR type="String"><![CDATA[SOL2]]></DEF_SOLICITOR>
+                    <DEF_SOLICITOR_ID type="String"><![CDATA[20000000]]></DEF_SOLICITOR_ID>
+                    <DEF_LAW_FIRM type="String"><![CDATA[NAME2]]></DEF_LAW_FIRM>
+                    <DEF_FILE_REF type="String"><![CDATA[FILE2]]></DEF_FILE_REF>
+                    <DATE_OF_WRIT type="String"><![CDATA[01/01/2008]]></DATE_OF_WRIT>
+                    <STATUS type="String"><![CDATA[CONCLUDED 3]]></STATUS>
+                    <AMOUNT1 type="String"><![CDATA[100.00]]></AMOUNT1>
+                    <AMOUNT2 type="String"><![CDATA[200.00]]></AMOUNT2>
+                    <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
+                    <AMOUNT4 type="String"><![CDATA[400.00]]></AMOUNT4>
+                    <AMOUNT5 type="String"><![CDATA[0.00]]></AMOUNT5>
+                    <PLAINTIFF type="String"><![CDATA[MC 40001]]></PLAINTIFF>
+                    <PLA_SOLICITOR type="String"><![CDATA[SOL2]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID type="String"><![CDATA[20000000]]></PLA_SOLICITOR_ID> <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
+                    <PLA_FILE_REF type="String"><![CDATA[FILE2]]></PLA_FILE_REF>
+                    <PLA_ID type="String"><![CDATA[S0739038F]]></PLA_ID>
+                    <PLA_STATUS type="String"><![CDATA[SETTLED - BEFORE SET DOWN]]></PLA_STATUS> <PLA_STATUS_DATE type="String"><![CDATA[17/10/2016]]></PLA_STATUS_DATE>
+                    </LITIGATION>
+                    </LIST_LITIGATION>
                   items:
                     properties:
                       LITIGATION :
@@ -867,7 +935,34 @@ components:
                           PLA_ID
                           PLA_STATUS
                           PLA_STATUS_DATE
-                        example:
+                        example: |+
+                          <LITIGATION>
+                          <SUBJECT_NAME type="String"><![CDATA[SOON SOON SEAFOOD]]></SUBJECT_NAME>
+                          <NATURE_OF_CLAIM type="String"><![CDATA[CONTRACT 3]]></NATURE_OF_CLAIM>
+                          <STATUS_DATE type="String"><![CDATA[01/05/2008]]></STATUS_DATE>
+                          <CASE_NO type="String"><![CDATA[MC 40001 / 1999]]></CASE_NO>
+                          <DOC_REMARKS type="String"><![CDATA[NOTICE OF DISCONTINUANCE/WITHDRAWAL 3]]></DOC_REMARKS> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
+                          <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
+                          <CURRENCY3 type="String"><![CDATA[USD]]></CURRENCY3>
+                          <CURRENCY4 type="String"><![CDATA[-]]></CURRENCY4>
+                          <CURRENCY5 type="String"><![CDATA[-]]></CURRENCY5>
+                          <DEF_SOLICITOR type="String"><![CDATA[SOL2]]></DEF_SOLICITOR>
+                          <DEF_SOLICITOR_ID type="String"><![CDATA[20000000]]></DEF_SOLICITOR_ID>
+                          <DEF_LAW_FIRM type="String"><![CDATA[NAME2]]></DEF_LAW_FIRM>
+                          <DEF_FILE_REF type="String"><![CDATA[FILE2]]></DEF_FILE_REF>
+                          <DATE_OF_WRIT type="String"><![CDATA[01/01/2008]]></DATE_OF_WRIT>
+                          <STATUS type="String"><![CDATA[CONCLUDED 3]]></STATUS>
+                          <AMOUNT1 type="String"><![CDATA[100.00]]></AMOUNT1>
+                          <AMOUNT2 type="String"><![CDATA[200.00]]></AMOUNT2>
+                          <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
+                          <AMOUNT4 type="String"><![CDATA[400.00]]></AMOUNT4>
+                          <AMOUNT5 type="String"><![CDATA[0.00]]></AMOUNT5>
+                          <PLAINTIFF type="String"><![CDATA[MC 40001]]></PLAINTIFF>
+                          <PLA_SOLICITOR type="String"><![CDATA[SOL2]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID type="String"><![CDATA[20000000]]></PLA_SOLICITOR_ID> <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
+                          <PLA_FILE_REF type="String"><![CDATA[FILE2]]></PLA_FILE_REF>
+                          <PLA_ID type="String"><![CDATA[S0739038F]]></PLA_ID>
+                          <PLA_STATUS type="String"><![CDATA[SETTLED - BEFORE SET DOWN]]></PLA_STATUS> <PLA_STATUS_DATE type="String"><![CDATA[17/10/2016]]></PLA_STATUS_DATE>
+                          </LITIGATION>
                         properties:
                           SUBJECT_NAME :
                             type: string
@@ -990,7 +1085,15 @@ components:
                   description: |+
                     List of Share Interest In Companies with following children&#58;
                     [SHARE_INTEREST_COMP]
-                  example: 
+                  example: |+
+                    <LIST_SHARE_INTEREST_COMP className="com.technodex.ddp.report.bean.CommercialShareInterestBean">
+                    <SHARE_INTEREST_COMP>
+                    <COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> 
+                    <SHARE_OWNED_UNIT type="String"><![CDATA[500000]]></SHARE_OWNED_UNIT> 
+                    <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT>
+                    <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
+                    </SHARE_INTEREST_COMP>
+                    </LIST_SHARE_INTEREST_COMP>
                   items:
                     properties:
                       SHARE_INTEREST_COMP :
@@ -1001,30 +1104,42 @@ components:
                           SHARE_OWNED_UNIT
                           SHARE_OWNED_PERCENT
                           STATUS
-                        example:
+                        example: |+
+                          <SHARE_INTEREST_COMP>
+                          <COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> 
+                          <SHARE_OWNED_UNIT type="String"><![CDATA[500000]]></SHARE_OWNED_UNIT> 
+                          <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT>
+                          <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
+                          </SHARE_INTEREST_COMP>
                         properties:
                           COMP_NAME :
                             type: string
                             description: Company Name
-                            example:
+                            example: ORCHID (HOLDINGS) PTE. LTD.
                           SHARE_OWNED_UNIT :
                             type: string
                             description: Shares Owned Unit
-                            example:
+                            example: 500000
                           SHARE_OWNED_PERCENT :
                             type: string
                             description: Shares Owned Value (%)
-                            example:
+                            example: 100.00
                           STATUS :
                             type: string
                             description: Status
-                            example:
+                            example: DISSOLVED - MEMBERS' VOLUNTARY WINDING UP
                 LIST_NAME_CHANGE :
                   type: array
                   description: |+
                     List of Change of Company/Business Name(s) with following children&#58;
                     [NAME_CHANGE]
-                  example: 
+                  example: |+
+                    <LIST_NAME_CHANGE className="com.technodex.ddp.report.bean.CommercialBizChgCmpBean">
+                    <NAME_CHANGE>
+                    <PREV_NAME type="String"><![CDATA[HUA XI EATING HOUSE]]></PREV_NAME>
+                    <EFFECT_DATE type="String"><![CDATA[25/10/1997 00:00:00]]></EFFECT_DATE>
+                    </NAME_CHANGE>
+                    </LIST_NAME_CHANGE>
                   items:
                     properties:
                       NAME_CHANGE :
@@ -1033,22 +1148,40 @@ components:
                           Change of Company/Business Name(s) with following children&#58;
                           PREV_NAME
                           EFFECT_DATE
-                        example:
+                        example: |+
+                          <NAME_CHANGE>
+                          <PREV_NAME type="String"><![CDATA[HUA XI EATING HOUSE]]></PREV_NAME>
+                          <EFFECT_DATE type="String"><![CDATA[25/10/1997 00:00:00]]></EFFECT_DATE>
+                          </NAME_CHANGE>
                         properties:
                           PREV_NAME :
                             type: string
                             description: Previous Name
-                            example:
+                            example: HUA XI EATING HOUSE
                           EFFECT_DATE :
                             type: string
                             description: Effective Date
-                            example:
+                            example: 25/10/1997 00:00:00
                 LIST_SHAREHOLDER :
                   type: array
                   description: |+
                     List of Shareholders with following children&#58;
                     [SHAREHOLDER]
-                  example: 
+                  example: |+
+                    <LIST_SHAREHOLDER className="com.technodex.ddp.report.bean.CommercialShareHoldersBean">
+                    <SHAREHOLDER>
+                    <ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632,
+                    SINGAPORE]]></ADDRESS>
+                    <COMP_ID type="String"><![CDATA[198200406H]]></COMP_ID>
+                    <NO_OF_SHARE type="String"><![CDATA[657]]></NO_OF_SHARE>
+                    <CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY> <SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
+                    <SHARE_TYPE type="String"><![CDATA[Preference]]></SHARE_TYPE>
+                    <SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL COMMUNICATIONS PTE
+                    LTD]]></SHAREHOLDER_NAME>
+                    <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE> <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
+                    <NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
+                    </SHAREHOLDER>
+                    </LIST_SHAREHOLDER>
                   items:
                     properties:
                       SHAREHOLDER :
@@ -1065,40 +1198,52 @@ components:
                           CHANGE_ADDR_DATE
                           ADDR_TYPE
                           NATIONALITY
-                        example:
+                        example: |+
+                          <SHAREHOLDER>
+                          <ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632, SINGAPORE]]></ADDRESS>
+                          <COMP_ID type="String"><![CDATA[198200406H]]></COMP_ID>
+                          <NO_OF_SHARE type="String"><![CDATA[657]]></NO_OF_SHARE>
+                          <CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY>
+                          <SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
+                          <SHARE_TYPE type="String"><![CDATA[Preference]]></SHARE_TYPE>
+                          <SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL COMMUNICATIONS PTE LTD]]></SHAREHOLDER_NAME>
+                          <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE>
+                          <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
+                          <NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
+                          </SHAREHOLDER>
                         properties:
                           ADDRESS :
                             type: string
                             description: Address
-                            example:
+                            example: 1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632, SINGAPORE
                           COMP_ID :
                             type: string
                             description: Company/ Identity No.
-                            example:
+                            example: 198200406H
                           NO_OF_SHARE :
                             type: string
                             description: No. of Shares
-                            example:
+                            example: 657
                           CURRENCY :
                             type: string
                             description: Currency
-                            example:
+                            example: UNITED STATES OF AMERICA, DOLLARS
                           SHAREHOLDER_TYPE :
                             type: string
                             description: Indicator for Shareholder type
-                            example:
+                            example: 2
                           SHARE_TYPE :
                             type: string
                             description: Share Type
-                            example:
+                            example: Preference
                           SHAREHOLDER_NAME :
                             type: string
                             description: Shareholder Name
-                            example:
+                            example: KEPPEL COMMUNICATIONS PTE LTD
                           CHANGE_ADDR_DATE :
                             type: string
                             description: Change Address Date
-                            example:
+                            example: 09/05/2003
                           ADDR_TYPE :
                             type: string
                             description: Address Type, indicates if it is Singapore or foreign address.
@@ -1106,13 +1251,22 @@ components:
                           NATIONALITY :
                             type: string
                             description: Nationality
-                            example:
+                            example: SINGAPORE
                 LIST_CAPITAL :
                   type: array
                   description: |+
                     List of Capital details with following children&#58;
                     [CAPITAL]
-                  example: 
+                  example: |+
+                    <LIST_CAPITAL className="com.technodex.ddp.report.bean.CommercialBizCapitalBean">
+                    <CAPITAL>
+                    <CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY>
+                    <CAPITAL_TYPE type="String"><![CDATA[Ordinary]]></CAPITAL_TYPE> 
+                    <CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY> 
+                    <CAPITAL_AMT type="String"><![CDATA[100,000.00]]></CAPITAL_AMT> 
+                    <NO_OF_SHARES type="String"><![CDATA[100,000]]></NO_OF_SHARES>
+                    </CAPITAL>
+                    </LIST_CAPITAL>
                   items:
                     properties:
                       CAPITAL :
@@ -1124,34 +1278,52 @@ components:
                           CURRENCY
                           CAPITAL_AMT
                           NO_OF_SHARES
-                        example:
+                        example: |+
+                          <CAPITAL>
+                          <CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY>
+                          <CAPITAL_TYPE type="String"><![CDATA[Ordinary]]></CAPITAL_TYPE> 
+                          <CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY> 
+                          <CAPITAL_AMT type="String"><![CDATA[100,000.00]]></CAPITAL_AMT> 
+                          <NO_OF_SHARES type="String"><![CDATA[100,000]]></NO_OF_SHARES>
+                          </CAPITAL>
                         properties:
                           CAPITAL_CATEGORY :
                             type: string
                             description: Capital Category
-                            example:
+                            example: Issued
                           CAPITAL_TYPE :
                             type: string
                             description: Capital Type
-                            example:
+                            example: Ordinary
                           CURRENCY :
                             type: string
                             description: Currency
-                            example:
+                            example: SINGAPORE, DOLLARS
                           CAPITAL_AMT :
                             type: string
                             description: Capital Amount
-                            example:
+                            example: 100,000.00
                           NO_OF_SHARES :
                             type: string
                             description: Nos. of Shares
-                            example:
+                            example: 100,000
                 LIST_OFFICER_OWNER :
                   type: array
                   description: |+
                     List of Officer(s) / Owner(s) with following children&#58;
                     [OFFICER_OWNER]
-                  example: 
+                  example: |+
+                    <LIST_OFFICER_OWNER className="com.technodex.ddp.report.bean.CommercialBizOfficeOwerBean">
+                    <OFFICER_OWNER>
+                    <ADDRESS type="String"><![CDATA[50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742,
+                    SINGAPORE]]></ADDRESS>
+                    <IDENTITY_ID type="String"><![CDATA[S1674174D]]></IDENTITY_ID>
+                    <POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
+                    <ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
+                    <CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE> <OFFICER_NAME type="String"><![CDATA[NGIAM SHARE CHING]]></OFFICER_NAME> <CHANGE_ADDR_DATE type="String"><![CDATA[25/10/2008]]></CHANGE_ADDR_DATE> <APPMT_DATE type="String"><![CDATA[30/09/2008]]></APPMT_DATE>
+                    <NATIONALITY type="String"><![CDATA[SINGAPORE CITIZEN]]></NATIONALITY>
+                    </OFFICER_OWNER>  
+                    </LIST_OFFICER_OWNER>
                   items:
                     properties:
                       OFFICER_OWNER :
@@ -1168,54 +1340,70 @@ components:
                           CHANGE_ADDR_DATE
                           APPMT_DATE
                           NATIONALITY
-                        example:
+                        example: |+
+                          <OFFICER_OWNER>
+                          <ADDRESS type="String"><![CDATA[50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742, SINGAPORE]]></ADDRESS>
+                          <IDENTITY_ID type="String"><![CDATA[S1674174D]]></IDENTITY_ID>
+                          <POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
+                          <ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
+                          <CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE>
+                          <OFFICER_NAME type="String"><![CDATA[NGIAM SHARE CHING]]></OFFICER_NAME> 
+                          <CHANGE_ADDR_DATE type="String"><![CDATA[25/10/2008]]></CHANGE_ADDR_DATE> 
+                          <APPMT_DATE type="String"><![CDATA[30/09/2008]]></APPMT_DATE>
+                          <NATIONALITY type="String"><![CDATA[SINGAPORE CITIZEN]]></NATIONALITY>
+                          </OFFICER_OWNER>  
                         properties:
                           ADDRESS :
                             type: string
                             description: Address
-                            example:
+                            example: 50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742, SINGAPORE
                           IDENTITY_ID :
                             type: string
                             description: Identity No.
-                            example:
+                            example: S1674174D
                           PA_REG_NO :
                             type: string
                             description: Public Accountant Registration No.
-                            example:
+                            example: 00091
                           POSITION :
                             type: string
                             description: Position
-                            example:
+                            example: DIRECTOR
                           ADDR_TYPE :
                             type: string
                             description: Address Type, indicates if it is Singapore or foreign address.
-                            example:
+                            example: S
                           CESSATION_DATE :
                             type: string
                             description: Cessation Date
-                            example:
+                            example: 30/10/2003
                           OFFICER_NAME :
                             type: string
                             description: Officer Name
-                            example:
+                            example: HENRY GOH
                           CHANGE_ADDR_DATE :
                             type: string
                             description: Change Address Date
-                            example:
+                            example: 30/10/2003
                           APPMT_DATE :
                             type: string
                             description: Appointment Date
-                            example:
+                            example: 30/10/2003
                           NATIONALITY :
                             type: string
                             description: Nationality
-                            example:
+                            example: SINGAPORE P.R.
                 LIST_SALES_REVENUE_AMOUNT :
                   type: array
                   description: |+
                     List of Sales Revenue Amount with following children&#58;
                     [SALES_REVENUE_AMOUNT]
-                  example: 
+                  example: |+
+                    <LIST_SALES_REVENUE_AMOUNT>
+                    <SALES_REVENUE_AMOUNT>
+                    <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2008]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>30000.00</AMOUNT>
+                    </SALES_REVENUE_AMOUNT>
+                    </LIST_SALES_REVENUE_AMOUNT>
                   items:
                     properties:
                       SALES_REVENUE_AMOUNT :
@@ -1226,24 +1414,30 @@ components:
                           YEAR
                           CURRENCY
                           AMOUNT
-                        example:
+                        example: |+
+                          <SALES_REVENUE_AMOUNT>
+                          <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> 
+                          <YEAR><![CDATA[2008]]></YEAR> 
+                          <CURRENCY><![CDATA[SGD]]></CURRENCY>
+                          <AMOUNT>30000.00</AMOUNT>
+                          </SALES_REVENUE_AMOUNT>
                         properties:
                           ELEMENTS :
                             type: string
                             description: Description
-                            example:
+                            example: Sales Revenue Amount
                           YEAR :
                             type: string
                             description: Year
-                            example:
+                            example: 2008
                           CURRENCY :
                             type: string
                             description: Currency
-                            example:
+                            example: SGD
                           AMOUNT :
                             type: string
                             description: Amount
-                            example:
+                            example: 30000.00
                 LIST_Ddrptcount :
                   type: array
                   description: |+
@@ -1281,59 +1475,59 @@ components:
                           Rcyear :
                             type: string
                             description: To show the year
-                            example:
+                            example: 2017
                           RcFlag :
                             type: string
                             description: Internal database value
-                            example:
+                            example: N/A
                           Rcjan :
                             type: string
                             description: Count for January
-                            example:
+                            example: 1
                           Rcfeb :
                             type: string
                             description: Count for February
-                            example:
+                            example: 1
                           Rcmar :
                             type: string
                             description: Count for March
-                            example:
+                            example: 1
                           Rcapr :
                             type: string
                             description: Count for April
-                            example:
+                            example: 1
                           Rcmay :
                             type: string
                             description: Count for May
-                            example:
+                            example: 1
                           Rcjun :
                             type: string
                             description: Count for June
-                            example:
+                            example: 1
                           Rcjul :
                             type: string
                             description: Count for July
-                            example:
+                            example: 1
                           Rcaug :
                             type: string
                             description: Count for August
-                            example:
+                            example: 1
                           Rcsep :
                             type: string
                             description: Count for September
                             example:
-                          Rcoct :
+                          Rcoct : 1
                             type: string
                             description: Count for October
                             example:
-                          Rcnov :
+                          Rcnov : 1
                             type: string
                             description: Count for November
-                            example:
+                            example: 1
                           Rcdec :
                             type: string
                             description: Count for December
-                            example:
+                            example: 1
                           Rcid :
                             type: string
                             description: Internal database value
@@ -1349,7 +1543,7 @@ components:
                           Rcsecflag :
                             type: string
                             description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
-                            example:
+                            example: 1
                           LastUpdateDate :
                             type: string
                             description: Last update date
