@@ -25,22 +25,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: 
-                message: Successfully Processed
-                results:
-                  loc:
-                  - Hubei
-                  - Singapore
-                  - SINGAPORE
-                  - China
-                  - Immigration
-                  misc:
-                  - ICA.They
-                  org:
-                  - Immigration and Checkpoints Authority
-                  - ICA
-                  - LOA
-                status: Success
+              example: {"message":"SuccessfullyProcessed","results":{"loc":["Hubei","Singapore","SINGAPORE","China","Immigration"],"misc":["ICA.They"],"org":["ImmigrationandCheckpointsAuthority","ICA","LOA"]},"status":"Success"}
         '401':
           description: Unauthorized
           content:
