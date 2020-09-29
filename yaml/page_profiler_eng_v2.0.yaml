@@ -1,6 +1,6 @@
   openapi: 3.0.1
   info:
-    title: Page Profiler ENG Updated
+    title: Page Profiler ENG
     description: |+
       This NLP microservice retrieves web content in English from the input URL. 
       
@@ -12,7 +12,7 @@
     - url: 'https://apis.sentient.io'
   tags:
   - name: "v2.0"
-    description: "Published Date - Apr 11, 2018"
+    description: "Published Date - Sep 30, 2020"
   paths:
     /microservices/nlp/pageprofiler/v2.0/getpredictions:
       post:
@@ -25,32 +25,7 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/success'
-                example: 
-                  message: Successfully Processed
-                  results:
-                    loc:
-                    - Nat
-                    - Sentient.io
-                    - Home
-                    - Inte
-                    - CONTACT
-                    - Join
-                    misc:
-                    - Sentient.io
-                    - English
-                    org:
-                    - Our Clients
-                    - AI
-                    - APIs
-                    - Sentient.io
-                    - Our Technology Partners
-                    - Named Entity Recognition
-                    - Our Investors
-                    per:
-                    - Sentient.io
-                    - Speech
-                    - LinkedIn
-                  status: Success                
+                example: {"LOC": ["Beijing","Atlanta","Indonesia"], "MISC": [Twiight,Singaporean],"ORG": [CNA,Singapore Parliament],"PER": [Skip Navigation,Bookmarks]}
           '401':
             description: Unauthorized
             content:
@@ -112,18 +87,23 @@
       success:
         type: object
         properties: 
-          results:
-            type: object
-            example: { "<Json": "Object>" }
-            description: Json Object of returned results
-            properties:
-              loc:
-                type: array
-                items:
-                  type: string
-                example: 
-                  -Nat
-                description: "name of location found in the text string"
+          LOC:
+           type: array
+           example: ["Beijing","Atlanta","Indonesia"]
+           description: "name of location found in the text string"
+          MISC:
+           type: array
+           example: [Twiight,Singaporean]
+           description: "name of miscellaneous names found in the text string"
+          ORG:
+           type: array
+           example: [CNA,Singapore Parliament]
+           description: "name of organizations found in the text string"  
+          PER:
+           type: array
+           example: [Skip Navigation,Bookmarks]
+           description: "name of persons found in the text string"
+            
       unauthorized:
         type: object
         properties:
