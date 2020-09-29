@@ -360,7 +360,7 @@ components:
                       description: Number of employee
                       example: "300"
                 LIST_BIZ_BRANCH :
-                  type: object
+                  type: array
                   description: |+
                     List of Business Branches with following children&#58;
                     [BIZ_BRANCH]
