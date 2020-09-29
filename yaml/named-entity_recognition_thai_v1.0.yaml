@@ -135,12 +135,14 @@ components:
                   - เวียดนาม
                   - ประเทศพม่า
                   - กัมพูชาทางทิศใต้ติดกับอ่าวไทย
+              description: "location found in the text string"                  
             organization:
               type: array
               items:
                 type: string
               example: 
                   - รัฐสภา
+              description: "organization found in the text string"                   
         message:
           type: string
           example: Successfully Processed
