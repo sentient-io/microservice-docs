@@ -386,423 +386,320 @@ components:
                       example: 
                     SH_FUNDS1:
                       type: string
-                      description: Shareholder’s Fund 1
-                      example: 
-                    SH_FUNDS2 :
-                      type: string 
-                      description: Shareholder’s Fund 2
-                      example: 
-                    SH_FUNDS3 :
-                      type: string
-                      description: Shareholder’s Fund 3
+                      description: |+
+                        Shareholder’s Fund
+                        Subsequent Years:
+                        SH_FUNDS2
+                        SH_FUNDS3 
+                        SH_FUNDS4 
+                        SH_FUNDS5
                       example: 
                     SH_PAIDUP_CAPITAL1 :
                       type: string
-                      description: Shareholder’s Fund – Paid Up Capital 1
-                      example: 
-                    SH_PAIDUP_CAPITAL2 :
-                      type: string
-                      description: Shareholder’s Fund – Paid Up Capital 2
-                      example: 
-                    SH_PAIDUP_CAPITAL3:
-                      type: string
-                      description: Shareholder’s Fund – Paid Up Capital 3
+                      description: |+
+                        Shareholder’s Fund – Paid Up Capital
+                        Subsequent Years:
+                      SH_PAIDUP_CAPITAL2 
+                      SH_PAIDUP_CAPITAL3 
+                      SH_PAIDUP_CAPITAL4 
+                      SH_PAIDUP_CAPITAL5
                       example: 
                     SH_RESERVES1 :
                       type: string
-                      description: Shareholder’s Fund - Reserves 1
-                      example: 
-                    SH_RESERVES2 :
-                      type: string
-                      description: Shareholder’s Fund - Reserves 2
-                      example: 
-                    SH_RESERVES3:
-                      type: string
-                      description: Shareholder’s Fund - Reserves 3
+                      description: |+
+                        Shareholder’s Fund - Reserves
+                        Subsequent Years:
+                        SH_RESERVES2 
+                        SH_RESERVES3 
+                        SH_RESERVES4 
+                        SH_RESERVES5
                       example: 
                     SH_ACCUM_LOSS1:
                       type: string
-                      description: Shareholder’s Fund – Accumulated Loss 1
-                      example: 
-                    SH_ACCUM_LOSS2 :
-                      type: string
-                      description: Shareholder’s Fund – Accumulated Loss 2
-                      example: 
-                    SH_ACCUM_LOSS3 :
-                      type: string
-                      description: Shareholder’s Fund – Accumulated Loss 3
+                      description: |+
+                        Shareholder’s Fund – Accumulated Loss
+                        Subsequent Years:
+                        SH_ACCUM_LOSS2 
+                        SH_ACCUM_LOSS3 
+                        SH_ACCUM_LOSS4 
+                        SH_ACCUM_LOSS5
                       example: 
                     GRP_TURNOVER1 :
                       type: string
-                      description: Group Turnover / Sales and Other Operating Revenues 1
-                      example: 
-                    GRP_TURNOVER2 :
-                      type: string
-                      description: Group Turnover / Sales and Other Operating Revenues 2
-                      example: 
-                    GRP_TURNOVER3 :
-                      type: string
-                      description: Group Turnover / Sales and Other Operating Revenues 3
+                      description: |+
+                        Group Turnover / Sales and Other Operating Revenues
+                        Subsequent Years:
+                        GRP_TURNOVER2 
+                        GRP_TURNOVER3 
+                        GRP_TURNOVER4 
+                        GRP_TURNOVER5
                       example: 
                     GRP_PL_BEF_TAX1 :
                       type: string
-                      description: Group Profit / Loss Before Tax 1
-                      example: 
-                    GRP_PL_BEF_TAX2 :
-                      type: string
-                      description: Group Profit / Loss Before Tax 2
-                      example: 
-                    GRP_PL_BEF_TAX3 :
-                      type: string
-                      description: Group Profit / Loss Before Tax 3
+                      description: |+
+                        Group Profit / Loss Before Tax
+                        Subsequent Years:
+                        GRP_PL_BEF_TAX2 
+                        GRP_PL_BEF_TAX3 
+                        GRP_PL_BEF_TAX4 
+                        GRP_PL_BEF_TAX5
                       example: 
                     GRP_PL_AFT_TAX1 :
                       type: string
-                      description: Group Profit / Loss After Tax 1
-                      example: 
-                    GRP_PL_AFT_TAX2:
-                      type: string
-                      description: Group Profit / Loss After Tax 2
-                      example: 
-                    GRP_PL_AFT_TAX3 :
-                      type: string
-                      description: Group Profit / Loss After Tax 3
+                      description: |+
+                        Group Profit / Loss After Tax
+                        Subsequent Years:
+                        GRP_PL_AFT_TAX2 
+                        GRP_PL_AFT_TAX3 
+                        GRP_PL_AFT_TAX4 
+                        GRP_PL_AFT_TAX5
                       example: 
                     GRP_NETINC_NON_EXT1 :
                       type: string
-                      description: Group Net Income / Loss From Extraordinary and Non-Operating Items 1
-                      example: 
-                    GRP_NETINC_NON_EXT2 :
-                      type: string
-                      description: Group Net Income / Loss From Extraordinary and Non-Operating Items 2
-                      example: 
-                    GRP_NETINC_NON_EXT3 :
-                      type: string
-                      description: Group Net Income / Loss From Extraordinary and Non-Operating Items 3
+                      description: |+
+                        Group Net Income / Loss From Extraordinary and Non-Operating Items
+                        Subsequent Years:
+                        GRP_NETINC_NON_EXT2 
+                        GRP_NETINC_NON_EXT3 
+                        GRP_NETINC_NON_EXT4 
+                        GRP_NETINC_NON_EXT5
                       example: 
                     GRP_PL_AFT_TAX_EXT1:
                       type: string
-                      description: Group Profit / Loss After Tax and Extraordinary items 1
-                      example: 
-                    GRP_PL_AFT_TAX_EXT2 :
-                      type: string
-                      description: Group Profit / Loss After Tax and Extraordinary items 2
-                      example: 
-                    GRP_PL_AFT_TAX_EXT3 :
-                      type: string
-                      description: Group Profit / Loss After Tax and Extraordinary items 3
+                      description: |+
+                        Group Profit / Loss After Tax and Extraordinary items
+                        Subsequent Years:
+                        GRP_ PL_AFT_TAX_EXT2 
+                        GRP_ PL_AFT_TAX_EXT3 
+                        GRP_ PL_AFT_TAX_EXT4 
+                        GRP_ PL_AFT_TAX_EXT5
                       example: 
                     GRP_TOT_ASSETS1:
                       type: string
-                      description: Group Total Assets 1
-                      example: 
-                    GRP_TOT_ASSETS2:
-                      type: string
-                      description: Group Total Assets 2
-                      example: 
-                    GRP_TOT_ASSETS3 :
-                      type: string
-                      description: Group Total Assets 3
+                      description: |+
+                        Group Total Assets
+                        Subsequent Years:
+                        GRP_TOT_ASSETS2 
+                        GRP_TOT_ASSETS3 
+                        GRP_TOT_ASSETS4 
+                        GRP_TOT_ASSETS5
                       example: 
                     GRP_TA_CURRENT1 :
                       type: string
-                      description: Group Total Assets – Current 1
-                      example: 
-                    GRP_TA_CURRENT2 :
-                      type: string
-                      description: Group Total Assets – Current 2
-                      example: 
-                    GRP_TA_CURRENT3 :
-                      type: string 
-                      description: Group Total Assets – Current 3
+                      description: |+
+                        Group Total Assets – Current
+                        Subsequent Years:
+                        GRP_TA_CURRENT2 
+                        GRP_TA_CURRENT3 
+                        GRP_TA_CURRENT4 
+                        GRP_TA_CURRENT5
                       example: 
                     GRP_TA_FIXED1 :
-                      type: string 
-                      description: Group Total Assets – Fixed and Others 1
-                      example: 
-                    GRP_TA_FIXED2 :
                       type: string
-                      description: Group Total Assets – Fixed and Others 2
-                      example: 
-                    GRP_TA_FIXED3:
-                      type: string
-                      description: Group Total Assets – Fixed and Others 3
+                      description: |+
+                        Group Total Assets – Fixed and Others
+                        Subsequent Years:
+                        GRP_TA_FIXED2 
+                        GRP_TA_FIXED3 
+                        GRP_TA_FIXED4 
+                        GRP_TA_FIXED5
                       example: 
                     GRP_TOT_LIABILITIES1 :
                       type: string
-                      description: Group Total Liabilities 1
-                      example: 
-                    GRP_TOT_LIABILITIES2 :
-                      type: string
-                      description: Group Total Liabilities 2
-                      example: 
-                    GRP_TOT_LIABILITIES3 :
-                      type: string
-                      description: Group Total Liabilities 3
+                      description: |+
+                        Group Total Liabilities
+                        Subsequent Years:
+                        GRP_TOT_LIABILITIES2 
+                        GRP_TOT_LIABILITIES3 
+                        GRP_TOT_LIABILITIES4 
+                        GRP_TOT_LIABILITIES5
                       example: 
                     GRP_TL_CURRENT1 :
                       type: string
-                      description: Group Total Liabilities - Current 1
-                      example: 
-                    GRP_TL_CURRENT2:
-                      type: string
-                      description: Group Total Liabilities - Current 2
-                      example: 
-                    GRP_TL_CURRENT3 :
-                      type: string
-                      description: Group Total Liabilities - Current 3
+                      description: |+
+                        Group Total Liabilities - Current
+                        Subsequent Years:
+                        GRP_TL_CURRENT2 
+                        GRP_TL_CURRENT3 
+                        GRP_TL_CURRENT4 
+                        GRP_TL_CURRENT5
                       example: 
                     GRP_TL_NON_CURRENT1 :
                       type: string
-                      description: Group Total Liabilities – Non-Current & Long Term 1
-                      example: 
-                    GRP_TL_NON_CURRENT2:
-                      type: string
-                      description: Group Total Liabilities – Non-Current & Long Term 2
-                      example: 
-                    GRP_TL_NON_CURRENT3:
-                      type: string
-                      description: Group Total Liabilities – Non-Current & Long Term 3
-                      example: 
+                      description: |+
+                        Group Total Liabilities – Non-Current & Long Term
+                        Subsequent Years:
+                        GRP_TL_NON_CURRENT2 
+                        GRP_TL_NON_CURRENT3 
+                        GRP_TL_NON_CURRENT4 
+                        GRP_TL_NON_CURRENT5
+                      example:
                     GRP_SH_FUNDS1 :
                       type: string
-                      description: Group Shareholder’s Fund 1
-                      example: 
-                    GRP_SH_FUNDS2 :
-                      type: string
-                      description: Group Shareholder’s Fund 2
-                      example: 
-                    GRP_SH_FUNDS3 :
-                      type: string
-                      description: Group Shareholder’s Fund 3
+                      description: |+
+                        Group Shareholder’s Fund
+                        Subsequent Years:
+                        GRP_ SH_FUNDS2 
+                        GRP_ SH_FUNDS3 
+                        GRP_ SH_FUNDS4 
+                        GRP_ SH_FUNDS5
                       example: 
                     GRP_SH_PAIDUP_CAPITAL1 :
                       type: string
-                      description: Group Shareholder’s Fund – Paid Up Capital 1
-                      example: 
-                    GRP_SH_PAIDUP_CAPITAL2 :
-                      type: string
-                      description: Group Shareholder’s Fund – Paid Up Capital 2
-                      example: 
-                    GRP_SH_PAIDUP_CAPITAL3 :
-                      type: string
-                      description: Group Shareholder’s Fund – Paid Up Capital 3
+                      description: |+
+                        Group Shareholder’s Fund – Paid Up Capital
+                        Subsequent Years:
+                        GRP_SH_PAIDUP_CAPITAL2 
+                        GRP_SH_PAIDUP_CAPITAL3 
+                        GRP_SH_PAIDUP_CAPITAL4 
+                        GRP_SH_PAIDUP_CAPITAL5
                       example: 
                     GRP_SH_RESERVES1:
                       type: string
-                      description: Group Shareholder’s Fund - Reserves 1
-                      example: 
-                    GRP_SH_RESERVES2 :
-                      type: string
-                      description: Group Shareholder’s Fund - Reserves 2
-                      example: 
-                    GRP_SH_RESERVES3 :
-                      type: string
-                      description: Group Shareholder’s Fund - Reserves 3
+                      description: |+
+                        Group Shareholder’s Fund - Reserves
+                        Subsequent Years:
+                        GRP_SH_RESERVES2 
+                        GRP_SH_RESERVES3 
+                        GRP_SH_RESERVES4 
+                        GRP_SH_RESERVES5
                       example: 
                     GRP_SH_ACCUM_LOSS1 :
                       type: string
-                      description: Group Shareholder’s Fund – Accumulated Loss 1
-                      example: 
-                    GRP_SH_ACCUM_LOSS2 :
-                      type: string
-                      description: Group Shareholder’s Fund – Accumulated Loss 2
-                      example: 
-                    GRP_SH_ACCUM_LOSS3:
-                      type: string
-                      description: Group Shareholder’s Fund – Accumulated Loss 3
+                      description: |+
+                        Group Shareholder’s Fund – Accumulated Loss
+                        Subsequent Years:
+                        GRP_SH_ACCUM_LOSS2 
+                        GRP_SH_ACCUM_LOSS3 
+                        GRP_SH_ACCUM_LOSS4 
+                        GRP_SH_ACCUM_LOSS5
                       example: 
                     GRP_INDICATOR1 :
                       type: string
-                      description: Company Financial Highlights Group Indicator 1
-                      example: 
-                    GRP_INDICATOR2 :
-                      type: string
-                      description: Company Financial Highlights Group Indicator 2
-                      example: 
-                    GRP_INDICATOR3:
-                      type: string
-                      description: Company Financial Highlights Group Indicator 3
+                      description: |+
+                        Company Financial Highlights Group Indicator
+                        Subsequent Years:
+                        GRP_INDICATOR2 
+                        GRP_INDICATOR3 
+                        GRP_INDICATOR4 
+                        GRP_INDICATOR5
                       example: 
                 XBRL_DTL:
                   type: object
-                  description: XBRL filed after 1 Nov 2007. Note:Each tag will consist of maximum 5 sets with suffix 1 to 5. But it is optional, depending on how many years of XBRL data displayed in the report.
-                  example: "XBRL_YR1_CURR REVENUE1 PL_BEF_TAX1 PL_AFT_TAX1 TOT_ASSETS1 TA_CURRENT1 TA_NON_CURRENT1 TOT_LIABILITIES1 TL_CURRENT1 TL_NON_CURRENT1 TOT_EQUITY1 EQ_SH_CAPITAL1 EQ_RESERVES1 EQ_RETAINED_EARN1 GRP_REVENUE1 GRP_PL_BEF_TAX1 GRP_PL_AFT_TAX1 GRP_TOT_ASSETS1 GRP_TA_CURRENT1 GRP_TA_NON_CURRENT1 GRP_TOT_LIABILITIES1 GRP_TL_CURRENT1 GRP_TL_NON_CURRENT1 GRP_TOT_EQUITY1 GRP_SH_CAPITAL1 GRP_RESERVES1 GRP_RETAINED_EARN1 GRP_INDICATOR1"
+                  description: |+
+                    XBRL filed after 1 Nov 2007 with following children&#58;
+                    XBRL_YR1_CURR
+                    REVENUE1
+                    PL_BEF_TAX1
+                    PL_AFT_TAX1
+                    TOT_ASSETS1
+                    TA_CURRENT1
+                    TA_NON_CURRENT1
+                    TOT_LIABILITIES1
+                    TL_CURRENT1
+                    TL_NON_CURRENT1
+                    TOT_EQUITY1
+                    EQ_SH_CAPITAL1
+                    EQ_RESERVES1
+                    EQ_RETAINED_EARN1
+                    GRP_REVENUE1
+                    GRP_PL_BEF_TAX1
+                    GRP_PL_AFT_TAX1
+                    GRP_TOT_ASSETS1
+                    GRP_TA_CURRENT1
+                    GRP_TA_NON_CURRENT1
+                    GRP_TOT_LIABILITIES1
+                    GRP_TL_CURRENT1
+                    GRP_TL_NON_CURRENT1
+                    GRP_TOT_EQUITY1
+                    GRP_SH_CAPITAL1
+                    GRP_RESERVES1
+                    GRP_RETAINED_EARN1
+                    GRP_INDICATOR1
+                    
+                    Note: Each tag will consist of maximum 5 sets with suffix 1 to 5. But it is optional, depending on how many years of XBRL data displayed in the report.
+                  example: ""
                   properties:
-                    XBRL_YR1_CURR :
+                    XBRL_YR1_CURR:
                       type: string
-                      description: FH After Year 1 Currency
-                    XBRL_YR2_CURR :
-                      type: string
-                      description: FH After Year 2 Currency
+                      description: |+
+                        FH After Year 1 Currency
+                        Subsequent Years:
+                        XBRL_YR2_CURR 
+                        XBRL_YR3_CURR 
+                        XBRL_YR4_CURR 
+                        XBRL_YR5_CURR
+                      example: 
                     REVENUE1 :
                       type: string
-                      description: Revenue Amount 1
-                    REVENUE2 :
+                      description: |+
+                        Revenue Amount
+                        Subsequent Years:
+                        REVENUE2
+                        REVENUE3 
+                        REVENUE4 
+                        REVENUE5
+                      example: 
+                    PL_BEF_TAX1 :
                       type: string
-                      description: Revenue Amount 2
-                    PL_BEF_TAX1:
-                      type: string
-                      description: Profit / Loss Before Tax from Continuing Operations 1
-                    PL_BEF_TAX2 :
-                      type: string
-                      description: Profit / Loss Before Tax from Continuing Operations 2
+                      description: |+
+                        Profit / Loss Before Tax from Continuing Operations
+                        Subsequent Years:
+                        PL_BEF_TAX2
+                        PL_BEF_TAX3 
+                        PL_BEF_TAX4 
+                        PL_BEF_TAX5
+                      example: 
                     PL_AFT_TAX1 :
                       type: string
-                      description: Profit / Loss After Tax from Continuing Operations 1
-                    PL_AFT_TAX2 :
+                      description: |+
+                        Profit / Loss After Tax from Continuing Operations
+                        Subsequent Years:
+                        PL_AFT_TAX2
+                        PL_AFT_TAX3 
+                        PL_AFT_TAX4 
+                        PL_AFT_TAX5
+                      example: 
+                    TOT_ASSETS1 :
                       type: string
-                      description: Profit / Loss After Tax from Continuing Operations 2
-                    PL_BEF_TAX3 :
-                      type: string
-                      description: Profit / Loss After Tax from Continuing Operations 3
-                    TOT_ASSETS1:
-                      type: string
-                      description: Total Assets 1
-                    TOT_ASSETS2 :
-                      type: string
-                      description: Total Assets 2
+                      description: |+
+                        Total Assets
+                        Subsequent Years:
+                        TOT_ASSETS2
+                        TOT_ASSETS3 
+                        TOT_ASSETS4 
+                        TOT_ASSETS5
+                      example: 
                     TA_CURRENT1 :
                       type: string
-                      description: Total Current Assets (Only for Balance Sheet by Current / Non-Current) 1
-                    TA_CURRENT2:
+                      description: |+
+                        Total Current Assets (Only for Balance Sheet by Current / Non-Current)
+                        Subsequent Years:
+                        TA_CURRENT2
+                        TA_CURRENT3 
+                        TA_CURRENT4
+                        TA_CURRENT5
+                      example: 
+                    TA_NON_CURRENT1 :
                       type: string
-                      description: Total Current Assets (Only for Balance Sheet by Current / Non-Current) 2
-                    TA_NON_CURRENT1:
-                      type: string 
-                      description: Total Non-Current Assets (Only for Balance Sheet by Current / Non-Current) 1
-                    TA_NON_CURRENT2 :
-                      type: string
-                      description: Total Non-Current Assets (Only for Balance Sheet by Current / Non-Current) 2
+                      description: |+
+                        Total Non-Current Assets (Only for Balance Sheet by Current / Non-Current)
+                        Subsequent Years:
+                        TA_NON_CURRENT2
+                        TA_NON_CURRENT3 
+                        TA_NON_CURRENT4 
+                        TA_NON_CURRENT5
+                      example:  
                     TOT_LIABILITIES1 :
                       type: string
-                      description: Total Liabilities 1
-                    TOT_LIABILITIES2 :
-                      type: string
-                      description: Total Liabilities 2
-                    TL_CURRENT1 :
-                      type: string 
-                      description: Total Current Assets (Only for Balance Sheet by Current / Non-Current) 1
-                    TL_CURRENT2 :
-                      type: string 
-                      description: Total Current Assets (Only for Balance Sheet by Current / Non-Current) 2
-                    TL_NON_CURRENT1 :
-                      type: string
-                      description: Total Non-Current Assets (Only for Balance Sheet by Current / Non-Current) 1
-                    TL_NON_CURRENT2:
-                      type: string
-                      description: Total Non-Current Assets (Only for Balance Sheet by Current / Non-Current) 1
-                    TOT_EQUITY1 :
-                      type: string
-                      description: Total equity 1
-                    TOT_EQUITY2 :
-                      type: string
-                      description: Total equity 2
-                    EQ_SH_CAPITAL1 :
-                      type: string
-                      description: Equity Shareholders Capital 1
-                    EQ_SH_CAPITAL2 :
-                      type: string
-                      description: Equity Shareholders Capital 2
-                    EQ_RESERVES1:
-                      type: string
-                      description: Equity Reserves 1
-                    EQ_RESERVES2 :
-                      type: string
-                      description: Equity Reserves 2
-                    EQ_RETAINED_EARN1 :
-                      type: string
-                      description: Equity Retained 1
-                    EQ_RETAINED_EARN2:
-                      type: string
-                      description: Equity Retained 2
-                    GRP_REVENUE1:
-                      type: string  
-                      description: GRP REVENUE 1
-                    GRP_REVENUE2 :
-                      type: string
-                      description: GRP REVENUE 1
-                    GRP_PL_BEF_TAX1 :
-                      type: string
-                      description: Group Profit / Loss Before Tax 1
-                    GRP_PL_BEF_TAX2 :
-                      type: string
-                      description: Group Profit / Loss Before Tax 2
-                    GRP_PL_AFT_TAX1 :
-                      type: string 
-                      description: Group Profit / Loss After Tax 1
-                    GRP_PL_AFT_TAX2 :
-                      type: string
-                      description: Group Profit / Loss After Tax 2
-                    GRP_TOT_ASSETS1 :
-                      type: string
-                      description: Group Total Assets 1
-                    GRP_TOT_ASSETS2:
-                      type: string
-                      description: Group Total Assets 2
-                    GRP_TA_CURRENT1 :
-                      type: string  
-                      description: Group Total Assets – Current 1
-                    GRP_TA_CURRENT2 :
-                      type: string
-                      description: Group Total Assets – Current 2
-                    GRP_TA_NON_CURRENT1 :
-                      type: string
-                      description: Group Total Non Assets – Current 1
-                    GRP_TA_NON_CURRENT2 :
-                      type: string
-                      description: Group Total Non Assets – Current 2
-                    GRP_TOT_LIABILITIES1:
-                      type: string  
-                      description: Group Total Liabilities 1
-                    GRP_TOT_LIABILITIES2 :
-                      type: string
-                      description: Group Total Liabilities 2
-                    GRP_TL_CURRENT1 :
-                      type: string
-                      description: Group Total Liabilities - Current 1
-                    GRP_TL_CURRENT2:
-                      type: string
-                      description: Group Total Liabilities - Current 2
-                    GRP_TL_NON_CURRENT1:
-                      type: string  
-                      description: Group Total Non Liabilities - Current 1
-                    GRP_TL_NON_CURRENT2 :
-                      type: string
-                      description: Group Total Non Liabilities - Current 2
-                    GRP_TOT_EQUITY1 :
-                      type: string
-                      description: Group Total Equity 1
-                    GRP_TOT_EQUITY2 :
-                      type: string
-                      description: Group Total Equity 2
-                    GRP_SH_CAPITAL1 :
-                      type: string 
-                      description: Group Shareholders capital 1
-                    GRP_SH_CAPITAL2 :
-                      type: string
-                      description: Group Shareholders capital 2
-                    GRP_RESERVES1 :
-                      type: string
-                      description: Group Reserves 1
-                    GRP_RESERVES2 :
-                      type: string
-                      description: Group Reserves 2
-                    GRP_RETAINED_EARN1 :
-                      type: string
-                      description: Group Rettained Earnings 1
-                    GRP_RETAINED_EARN2 :
-                      type: string
-                      description: Group Rettained Earnings 2
-                    GRP_INDICATOR1:
-                      type: string
-                      description: Group Indicator 1
-                    GRP_INDICATOR2 :
-                      type: string
-                      description: Group Indicator 2
-                    GRP_INDICATOR3 :
-                      type: string
-                      description: Group Indicator 3
+                      description: |+
+                        Total Liabilities
+                        Subsequent Years:
+                        TOT_LIABILITIES2
+                        TOT_LIABILITIES3 
+                        TOT_LIABILITIES4 
+                        TOT_LIABILITIES5
+                      example:
                 FH_RATIOS_DTL:
                   type: object
                   description: Financial Ratio History
