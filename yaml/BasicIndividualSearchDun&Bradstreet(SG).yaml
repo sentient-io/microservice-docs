@@ -193,12 +193,12 @@ components:
                       example: "<![CDATA[25/02/2009 15:04:14]]>"
                 LIST_CURRENT_COMP :
                   type: object
-                  description: |+
+                  description:  |+
                     List of current companies with following children&#58;
                     [CURRENT_COMP]
                   example:
                   properties:
-                    CURRENT_COMP :
+                    CURRENT_COMP:
                       type: object
                       description: |+
                       Current companies detail with following children&#58;
