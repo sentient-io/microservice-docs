@@ -408,8 +408,9 @@ components:
                     <REG_CHARGES>
                     <CHARGE_NO type="String"><![CDATA[8205117]]></CHARGE_NO>
                     <CHARGE_DATE type="String"><![CDATA[26/11/1982]]></CHARGE_DATE>
-                    <CHARGEE_COMP type="String"><![CDATA[UNITED OVERSEAS BANK LIMITED]]></CHARGEE_COMP> <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
-                    <AMT_SECURED type="String"><![CDATA[1000.00]]></AMT_SECURED>
+                    <CHARGEE_COMP type="String"><![CDATA[UNITED OVERSEAS BANK LIMITED]]></CHARGEE_COMP>
+                    <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
+                    <AMT_SECURED type="String"><![CDATA[0.00]]></AMT_SECURED>
                     <STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION>
                     </REG_CHARGES>
                     </LIST_REG_CHARGES>
@@ -431,7 +432,7 @@ components:
                           <CHARGE_DATE type="String"><![CDATA[26/11/1982]]></CHARGE_DATE>
                           <CHARGEE_COMP type="String"><![CDATA[UNITED OVERSEAS BANK LIMITED]]></CHARGEE_COMP>
                           <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
-                          <AMT_SECURED type="String"><![CDATA[1000.00]]></AMT_SECURED>
+                          <AMT_SECURED type="String"><![CDATA[0.00]]></AMT_SECURED>
                           <STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION>
                           </REG_CHARGES>
                         properties:
@@ -454,7 +455,7 @@ components:
                           AMT_SECURED:
                             type: string
                             description: Amount Secured
-                            example: 1000.00
+                            example: 0.00
                           STATUS_SATISFACTION:
                             type: string
                             description: Status of Satisfaction
