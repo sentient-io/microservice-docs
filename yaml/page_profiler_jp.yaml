@@ -289,33 +289,26 @@
             example: { "<Json": "Object>" }
             description: Json Object of returned results
             properties:
-              academic:
-               type: array
-               example: ["リベラル派"]
-               description: "academic found in the url content"
-              age:
-               type: array
-               example:  [
-                  "64",
-                  "生後9カ月",
-                  "40歳",
-                  "40歳",
-                  "48歳女性",
-                  "87歳",
-                  "87歳"
-                  ]
-               age: "age found in the url content"
-              animal_disease:
-               type: array
-               example: [
-              "感染症COVID-19",
-              "風邪",
-              "インフルエンザ",
-              "風邪",
-              "感染症COVID-19",
-              "がん"
-                ]
-               description: "animal_disease found in the url content"        
+              Company:
+                x-name: Company
+                type: array
+                example: [ 和歌山製鉄所 ]
+                description: name of Company found in the text string
+              Date:
+                x-name: Date
+                type: array
+                example: [ 7日,2023年9月,22年9月 ]
+                description: name of Date found in the text string
+              Domestic_Region:
+                x-name: Domestic_Region
+                type: array
+                example: [ 呉製鉄所 ]
+                description: name of Domestic_Region found in the text string
+              Material:
+                x-name: Material
+                type: array
+                example: [ 鉄鋼最大手 ]
+                description: name of Material found in the text string
           message:
             type: string
             example: Successfully Processed
