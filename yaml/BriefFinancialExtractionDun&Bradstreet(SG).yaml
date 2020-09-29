@@ -173,55 +173,55 @@ components:
                       description: Request Date String
                       example: "21/04/2009 10:56:06"
                     FH_BEFORE_YR1 :
-                      type: integer
+                      type: string
                       description: Financial Highlight filed before year 1
                       example: "2004"
                     FH_BEFORE_YR2 :
-                      type: integer
+                      type: string
                       description: Financial Highlight filed before year 2
                       example: "2003"
                     FH_BEFORE_YR3 :
-                      type: integer
+                      type: string
                       description: Financial Highlight filed before year 3
                       example: "2002"
                     FH_AFTER_YR1:
-                      type: integer
+                      type: string
                       description: Financial Highlight filed after year 1
                       example: "2005"
                     FH_AFTER_YR2 :
-                      type: integer
+                      type: string
                       description: Financial Highlight filed after year 2
                       example: "2006"
                     FH_AFTER_YR3 :
-                      type: integer
+                      type: string
                       description: Financial Highlight filed after year 3
                       example: "2007"
                     FH_AFTER_YR4:
-                      type: integer
+                      type: string
                       description: Financial Highlight filed after year 4
                       example: "2008"
                     FH_AFTER_YR5:
-                      type: integer
+                      type: string
                       description: Financial Highlight filed after year 5
                       example: "2009"
                     AC_RATIOS_YR1 :
-                      type: integer
+                      type: string
                       description: Account Ratio year 1
                       example: "2008"
                     AC_RATIOS_YR2 :
-                      type: integer
+                      type: string
                       description: Account Ratio year 2
                       example: "2007"
                     AC_RATIOS_YR3 :
-                      type: integer
+                      type: string
                       description: Account Ratio year 3
                       example: "2006"
                     AC_RATIOS_YR4 :
-                      type: integer 
+                      type: string 
                       description: Account Ratio year 4
                       example: "2005"
                     AC_RATIOS_YR5 :
-                      type: integer 
+                      type: string 
                       description: Account Ratio year 5
                       example: "2004"
                 FH_DTL:
@@ -275,7 +275,7 @@ components:
                         FH_YR5_CURR
                       example:
                     TURNOVER1 :
-                      type: float
+                      type: string
                       description: |+
                         Turnover / Sales And Other Operating Revenues
                         Subsequent Years:
@@ -285,7 +285,7 @@ components:
                         TURNOVER5
                       example: 
                     PL_BEF_TAX1 :
-                      type: float
+                      type: string
                       description: |+
                         Profit / Loss Before Tax
                         Subsequent Years:
@@ -295,7 +295,7 @@ components:
                         PL_BEF_TAX5
                       example: 
                     PL_AFT_TAX1:
-                      type: float  
+                      type: string  
                       description: |+
                         Profit / Loss After Tax
                         Subsequent Years:
@@ -305,7 +305,7 @@ components:
                         PL_AFT_TAX5
                       example: 
                     NETINC_NON_EXT1:
-                      type: float
+                      type: string
                       description: |+
                         Net Income / Loss From Extraordinary And Non- Operating Items
                         Subsequent Years:
@@ -315,7 +315,7 @@ components:
                         NETINC_NON_EXT5
                       example: 
                     PL_AFT_TAX_EXT1 :
-                      type: float
+                      type: string
                       description: |+
                         Profit / Loss After Tax and Extraordinary Items
                         Subsequent Years:
@@ -325,7 +325,7 @@ components:
                         PL_AFT_TAX_EXT5
                       example: 
                     TOT_ASSETS1 :
-                      type: float
+                      type: string
                       description: |+
                         Total Assets
                         Subsequent Years:
@@ -335,7 +335,7 @@ components:
                         TOT_ASSETS5
                       example: 
                     TA_CURRENT1 :
-                      type: float  
+                      type: string  
                       description: |+
                         Total Assets - Current
                         Subsequent Years:
@@ -345,7 +345,7 @@ components:
                         TA_CURRENT5
                       example: 
                     TA_FIXED1 :
-                      type: float
+                      type: string
                       description: |+
                         Total Assets – Fixed and Others
                         Subsequent Years:
@@ -355,7 +355,7 @@ components:
                         TA_FIXED5
                       example: 
                     TOT_LIABILITIES1 :
-                      type: float
+                      type: string
                       description: |+
                         Total Liabilities
                         Subsequent Years:
@@ -365,7 +365,7 @@ components:
                         TOT_LIABILITIES5
                       example: 
                     TL_CURRENT1 :
-                      type: float
+                      type: string
                       description: |+
                         Total Liabilities - Current
                         Subsequent Years:
@@ -375,7 +375,7 @@ components:
                         TL_CURRENT5
                       example: 
                     TL_NON_CURRENT1 :
-                      type: float 
+                      type: string 
                       description: |+
                         Total Liabilities – Non- Current & Long Term
                         Subsequent Years:
