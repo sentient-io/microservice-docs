@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Brief Financial Info Dun & Bradstreet (SG)
+  title: Brief Financial Extraction Dun & Bradstreet (SG)
   description:  This Data microservice provides the annual financial information of the Singapore-registered business, inclusive of annual profit and loss and financial ratios. Updated daily.
   version: '0.1'
 servers:
@@ -85,114 +85,182 @@ components:
         properties:
             REPORT:
               type: object
-              description: Report
-              example: "[META_INFO] [FH_SEARCH_INFO] [FH_DTL] [XBRL_DTL] [FH_RATIO_DTL] [LIST_FH_CHART_INFO]"
+              description: |+
+                Report details with following children&#58;
+                [META_INFO]
+                [FH_SEARCH_INFO]
+                [FH_DTL]
+                [XBRL_DTL]
+                [FH_RATIO_DTL]
+                [LIST_FH_CHART_INFO]
+              example:
               properties:
                 META_INFO:
                   type: object
-                  description: Information
-                  example: SERVICE SYSTEM_ID CREATION_DATE USER_ID
+                  description: |+
+                    Meta Information details with following children&#58;
+                    SERVICE
+                    SYSTEM_ID
+                    CREATION_DATE
+                    USER_ID
+                  example:
                   properties:
                     SERVICE:
                       type: string
                       description: Report Requested
-                      example: "<![CDATA[BFE]]>"
+                      example: "BFE"
                     SYSTEM_ID : 
                       type: string
                       description: System ID
-                      example: "<![CDATA[DDP]]>"
+                      example: "DDP"
                     CREATION_DATE:
                       type: string
                       description: Report Request Date
                       example: "25/02/2009 17:31:44"
                     USER_ID :
                       type: string
-                      description: Valid user id in DDP system
-                      example: "<![CDATA[plcust102]]>"
+                      description: Valid user id in DDP system. It is for (For internal use)
+                      example: N/A
                 FH_SEARCH_INFO:
                   type: object
-                  description: FH search information
-                  example: COMP_NAME REG_NO REQ_DATE REQ_REG_NO REQ_NAME REQ_DATE_STR FH_BEFORE_YR1 FH_BEFORE_YR2 FH_BEFORE_YR3 FH_BEFORE_YR4 FH_BEFORE_YR5 FH_AFTER_YR1 FH_AFTER_YR2 FH_AFTER_YR3 FH_AFTER_YR4 FH_AFTER_YR5 AC_RATIOS_YR1 AC_RATIOS_YR2 AC_RATIOS_YR3 AC_RATIOS_YR4 AC_RATIOS_YR5
+                  description: |+
+                    FH search information with following children&#58;
+                    COMP_NAME
+                    REG_NO
+                    REQ_DATE
+                    REQ_REG_NO
+                    REQ_NAME
+                    REQ_DATE_STR
+                    FH_BEFORE_YR1
+                    FH_BEFORE_YR2
+                    FH_BEFORE_YR3
+                    FH_BEFORE_YR4
+                    FH_BEFORE_YR5
+                    FH_AFTER_YR1
+                    FH_AFTER_YR2
+                    FH_AFTER_YR3
+                    FH_AFTER_YR4
+                    FH_AFTER_YR5
+                    AC_RATIOS_YR1
+                    AC_RATIOS_YR2
+                    AC_RATIOS_YR3
+                    AC_RATIOS_YR4
+                    AC_RATIOS_YR5
+                  example: 
                   properties:
                     COMP_NAME  :
                       type: string
                       description: Company Name
-                      example: "<![CDATA[DUN & BRADSTREET (SINGAPORE) PTE. LTD.]]>"
+                      example: "DUN & BRADSTREET (SINGAPORE) PTE. LTD."
                     REG_NO :
                       type: string
                       description: Company Registration No
-                      example: "<![CDATA[200003058W]]>"
+                      example: "200003058W"
                     REQ_DATE :
-                      type: string
+                      type: datetime
                       description: Requested Date
                       example: "2009-04-21 10:56:06.716"
                     REQ_REG_NO :
                       type: string
                       description: Request Registration Number
-                      example: "<![CDATA[200003058W]]>"
+                      example: "200003058W"
                     REQ_NAME  :
                       type: string
                       description: Request Name
-                      example: "<![CDATA[DUN & BRADSTREET (SINGAPORE) PTE. LTD.]]>"
+                      example: "DUN & BRADSTREET (SINGAPORE) PTE. LTD."
                     REQ_DATE_STR  :
                       type: string    
                       description: Request Date String
-                      example: "<![CDATA[21/04/2009 10:56:06]]>"
+                      example: "21/04/2009 10:56:06"
                     FH_BEFORE_YR1 :
-                      type: string
+                      type: integer
                       description: Financial Highlight filed before year 1
                       example: "2004"
                     FH_BEFORE_YR2 :
-                      type: string
+                      type: integer
                       description: Financial Highlight filed before year 2
                       example: "2003"
                     FH_BEFORE_YR3 :
-                      type: string
+                      type: integer
                       description: Financial Highlight filed before year 3
                       example: "2002"
                     FH_AFTER_YR1:
-                      type: string
+                      type: integer
                       description: Financial Highlight filed after year 1
                       example: "2005"
                     FH_AFTER_YR2 :
-                      type: string
+                      type: integer
                       description: Financial Highlight filed after year 2
                       example: "2006"
                     FH_AFTER_YR3 :
-                      type: string
+                      type: integer
                       description: Financial Highlight filed after year 3
                       example: "2007"
                     FH_AFTER_YR4:
-                      type: string
+                      type: integer
                       description: Financial Highlight filed after year 4
                       example: "2008"
                     FH_AFTER_YR5:
-                      type: string
+                      type: integer
                       description: Financial Highlight filed after year 5
                       example: "2009"
                     AC_RATIOS_YR1 :
-                      type: string
+                      type: integer
                       description: Account Ratio year 1
                       example: "2008"
                     AC_RATIOS_YR2 :
-                      type: string
+                      type: integer
                       description: Account Ratio year 2
                       example: "2007"
                     AC_RATIOS_YR3 :
-                      type: string
+                      type: integer
                       description: Account Ratio year 3
                       example: "2006"
                     AC_RATIOS_YR4 :
-                      type: string 
+                      type: integer 
                       description: Account Ratio year 4
                       example: "2005"
                     AC_RATIOS_YR5 :
-                      type: string 
+                      type: integer 
                       description: Account Ratio year 5
                       example: "2004"
                 FH_DTL:
                   type: object
-                  description: Financial Highlight
+                  description: |+
+                    Financial Highlight with following children&#58;
+                    FH_YR1_CURR
+                    TURNOVER1
+                    PL_BEF_TAX1
+                    PL_AFT_TAX1
+                    NETINC_NON_EXT1
+                    PL_AFT_TAX_EXT1
+                    TOT_ASSETS1
+                    TA_CURRENT1
+                    TA_FIXED1
+                    TOT_LIABILITIES1
+                    TL_CURRENT1
+                    TL_NON_CURRENT1
+                    SH_FUNDS1
+                    SH_PAIDUP_CAPITAL1
+                    SH_RESERVES1
+                    SH_ACCUM_LOSS1
+                    GRP_TURNOVER1
+                    GRP_PL_BEF_TAX1
+                    GRP_PL_AFT_TAX1
+                    GRP_NETINC_NON_EXT1
+                    GRP_PL_AFT_TAX_EXT1
+                    GRP_TOT_ASSETS1
+                    GRP_TA_CURRENT1
+                    GRP_TA_FIXED1
+                    GRP_TOT_LIABILITIES1
+                    GRP_TL_CURRENT1
+                    GRP_TL_NON_CURRENT1
+                    GRP_SH_FUNDS1
+                    GRP_SH_PAIDUP_CAPITAL1
+                    GRP_SH_RESERVES1
+                    GRP_SH_ACCUM_LOSS1
+                    GRP_INDICATOR1
+                      Note: Each tag will consist of maximum 5 sets with suffix 1 to 5. But it is optional, depending on how many years of FH data displayed in the report.
                   properties:
                     FH_YR1_CURR :
                       type: string
