@@ -1,6 +1,6 @@
   openapi: 3.0.1
   info:
-    title: Page Profiler JP
+    title: Page Profiler JAP
     description: |+
       This NLP microservice retrieves web content in Japanese from the input URL. From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output. 
       
