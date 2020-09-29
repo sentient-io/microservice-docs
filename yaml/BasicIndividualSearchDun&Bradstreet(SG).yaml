@@ -275,7 +275,9 @@ components:
                 LIST_PREVIOUS_COMP:
                   type: array
                   example: "[PREVIOUS_COMP]"
-                  description: List of previous companies
+                  description:  |+
+                    List of previous companies with following children&#58;
+                    [PREVIOUS_COMP]
                   items:
                     properties:
                       PREVIOUS_COMP :
