@@ -215,7 +215,6 @@ components:
                         SIC
                         SIC_DESC
                       example:  |+
-                        "POSITION APPOINTMENT_DATE COMP_NAME SEQ_NO SHARE_VALUE1 COMP_STATUS PROFIT_VALUE SHARE_VALUE TEL FAX SIC SIC_DESC"
                       properties:
                         POSITION:
                           type: string
