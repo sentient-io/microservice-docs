@@ -102,11 +102,11 @@ components:
                   type: object
                   example:
                   description:  |+
-                  Meta Information details with following children&#58;
-                  SERVICE
-                  SYSTEM_ID
-                  CREATION_DATE
-                  USER_ID
+                    Meta Information details with following children&#58;
+                    SERVICE
+                    SYSTEM_ID
+                    CREATION_DATE
+                    USER_ID
                   properties:
                     SERVICE:
                       type: string
