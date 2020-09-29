@@ -100,9 +100,8 @@ components:
               properties:
                 META_INFO:
                   type: object
-                  example: |+
-                  "SERVICE SYSTEM_ID CREATION_DATE USER_ID"
-                  description: |+
+                  example:
+                  description:  |+
                   Meta Information details with following children&#58;
                   SERVICE
                   SYSTEM_ID
