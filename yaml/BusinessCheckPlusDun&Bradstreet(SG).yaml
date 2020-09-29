@@ -1515,15 +1515,11 @@ components:
                           Rcsep :
                             type: string
                             description: Count for September
-                            example:
-                          Rcoct : 1
                             example: 1
                           Rcoct :
                             type: string
                             description: Count for October
                             example:
-                          Rcnov : 1
-                            example: 1
                           Rcnov :
                             type: string
                             description: Count for November
