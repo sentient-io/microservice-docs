@@ -28,201 +28,22 @@
                 example: 
                   message: Successfully Processed
                   results:
-                    academic:
-                    - リベラル派
-                    age:
-                    - '64'
-                    - 生後9カ月
-                    - 40歳
-                    animal_disease:
-                    - 感染症COVID-19
-                    - 風邪
-                    animal_part:
-                    - のど
-                    - 脳
-                    city:
-                    - 渋谷区
-                    - ロンドン
-                    company:
-                    - COVID
-                    - COVID-19
-                    - ドナルド･トランプ
-                    compound:
-                    - 米フィンセン
-                    continental_region:
-                    - 南米ベネズエラ
-                    - インド西部ムンバイ
-                    corporation_other:
-                    - TikTok
-                    - スイス国民
-                    - ベラルーシ警察
-                    country:
-                    - アメリカ
-                    - イギリス
-                    countx_other:
-                    - ひとつ
-                    - '1,3'
+                    company: 
+                      - 和歌山製鉄所 
                     date:
-                    - 2020年9月9日
-                    - 秋
-                    - 2020年9月4日
-                    - '1,55'
-                    day_of_week:
-                    - 週末
-                    doctrine_method_other:
-                    - ホーム コロナウイルス
-                    - WHO
-                    domestic_region:
-                    - 米ケンタッキー州
-                    event_other:
-                    - 大統領選
-                    - 大統領選
-                    family:
-                    - インフルエンザ
-                    flora:
-                    - 米
-                    - 米
-                    food_other:
-                    - 米
-                    - 米
-                    - 米
-                    government:
-                    - 米大統領選 日本 アジア イギリス アメリカ 解説・読み物 ビデオ ワールド
-                    - 米大統領選 日本 アジア イギリス アメリカ 解説・読み物 ビデオ 
-                    international_organization:
-                    - WHO 世界保健機関
-                    - COVID-19
-                    mammal:
-                    - 犬
-                    - ゴンドウクジラ
-                    - クジラ
-                    money:
-                    - '1,5'
-                    - 8万円
-                    - 総額2兆ドル
-                    n_animal:
-                    - 270頭
-                    - 約270頭
-                    - 1頭
-                    n_country:
-                    - 133カ国
-                    n_event:
-                    - 2500件以上
-                    n_organization:
-                    - 数百社
-                    n_person:
-                    - 40以上
-                    - '3,1'
-                    n_product:
-                    - 5つ
-                    - '1,4'
-                    nationality:
-                    - 黒人女性
-                    - アメリカ人女性
-                    numex_other:
-                    - 米紙ニューヨーク･タイムズ
-                    offense:
-                    - 殺人
-                    - 強姦
-                    - 殺人罪
-                    - 投資詐欺
-                    ordinal_number:
-                    - '3,11'
-                    - '2,5'
-                    organization_other:
-                    - 中心部
-                    percent:
-                    - 61.7%
-                    - 賛成38%
-                    - 6対3
-                    period_day:
-                    - 50日目
-                    - '1,09'
-                    period_time:
-                    - 2時間前 30分
-                    - 2時間前
-                    period_year:
-                    - 過去15年間
-                    - 数年
-                    - 過去15年間
-                    - 7週
-                    - 27年間
-                    person:
-                    - トランプ
-                    - トランプ
-                    - ペロシ
-                    plan:
-                    - 国家安全保障上
-                    political_organization_other:
-                    - 王立開業医学会
-                    position_vocation:
-                    - 議長
-                    - 大統領
-                    - 警察幹部
-                    product_other:
-                    - BBC News
-                    - TikTok
-                    - 新型コロナウイルス
-                    - 新型コロナウイルス
-                    - 新型コロナウイルス
-                    - "-19"
-                    - 新型コロナウイルス
-                    - ジレンマ 新型ウイルス
-                    - 新型コロナウイルス
-                    - 連邦所得税
-                    - 米プロフットボールNFL
-                    - 闘い 豪タスマニア
-                    - 最高裁
-                    - Qアノン
-                    - 投資銀行HSBC
-                    - 新型コロナウイルス特集
-                    - 個人情報取り扱い方針 クッキー BBC
-                    - AdChoices / Do Not Sell My Info
-                    - 2020 BBC.
+                      - 7日,2023年9月
+                      - 22年9月 
+                    domestic_region: 
+                      - 呉製鉄所
+                    material: 
+                      - 鉄鋼最大手 
+                    n_product: 
+                      - 高炉2基
+                      - 2基","1基
                     province:
-                    - 東京
-                    public_institution:
-                    - 米裁判所
-                    religious_festival:
-                    - クリスマス休暇
-                    time:
-                    - '3:11'
-                    - '1:50'
-                    - '1:31'
-                    - '2:57'
-                    - '2:36'
-                    - '1:55'
-                    - '4:19'
-                    - 真夜中
-                    - '1:38'
-                    - '0:50'
-                    - '4:53'
-                    - '1:40'
-                    - '1:09'
-                    - '2:47'
-                    - '4:17'
-                    - '0:48'
-                    - '5:17'
-                    - '3:16'
-                    title_other:
-                    - 氏
-                    - さん
-                    - 氏
-                    - さん
-                    - 氏
-                    - 氏
-                    - 氏
-                    - 氏
-                    - さん
-                    - さん
-                    - さん
-                    - さん
-                    - 氏
-                    - 氏
-                    - 氏
+                      - 広島県呉市
+                      - 和歌山市
                   status: Success
-
-                
           '401':
             description: Unauthorized
             content:
