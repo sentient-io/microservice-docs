@@ -1393,6 +1393,116 @@ components:
                             type: string
                             description: Nationality
                             example: SINGAPORE P.R.
+                LIST_Ddrptcount :
+                  type: array
+                  description: |+
+                    List of Search By Financial Sectors and Search By Non- Financial Sectors with following children&#58;
+                    [Ddrptcount]
+                  example: 
+                  items:
+                    properties:
+                      Ddrptcount :
+                        type: object
+                        description: |+
+                          6 XML tags (open then close) displays 
+                          Search By Financial Sectors (counts for 3 recent years)
+                          Search By Non- Financial Sectors (counts for 3 recent years) 
+                          Following children are&#58;
+                          Rcyear
+                          RcFlag (only respond for the year exists)
+                          Rcjan
+                          Rcfeb
+                          Rcmar
+                          Rcapr
+                          Rcmay
+                          Rcjun
+                          Rcjul
+                          Rcaug
+                          Rcsep
+                          Rcoct
+                          Rcnov
+                          Rcdec
+                          Rcid (only respond for the year exists) Rcreg (only respond for the year exists) Rcrptyid (only respond for the year exists)
+                          Rcsecflag
+                          LastUpdateDate (only respond for the year exists)
+                        example:
+                        properties:
+                          Rcyear :
+                            type: string
+                            description: To show the year
+                            example: 2017
+                          RcFlag :
+                            type: string
+                            description: Internal database value
+                            example: N/A
+                          Rcjan :
+                            type: string
+                            description: Count for January
+                            example: 1
+                          Rcfeb :
+                            type: string
+                            description: Count for February
+                            example: 1
+                          Rcmar :
+                            type: string
+                            description: Count for March
+                            example: 1
+                          Rcapr :
+                            type: string
+                            description: Count for April
+                            example: 1
+                          Rcmay :
+                            type: string
+                            description: Count for May
+                            example: 1
+                          Rcjun :
+                            type: string
+                            description: Count for June
+                            example: 1
+                          Rcjul :
+                            type: string
+                            description: Count for July
+                            example: 1
+                          Rcaug :
+                            type: string
+                            description: Count for August
+                            example: 1
+                          Rcsep :
+                            type: string
+                            description: Count for September
+                            example: 1
+                          Rcoct :
+                            type: string
+                            description: Count for October
+                            example: 1
+                          Rcnov :
+                            type: string
+                            description: Count for November
+                            example: 1
+                          Rcdec :
+                            type: string
+                            description: Count for December
+                            example: 1
+                          Rcid :
+                            type: string
+                            description: Internal database value
+                            example:
+                          Rcreg :
+                            type: string
+                            description: Company Registration Number
+                            example:
+                          Rcrptyid :
+                            type: string
+                            description: Product Type
+                            example:
+                          Rcsecflag :
+                            type: string
+                            description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
+                            example: 1
+                          LastUpdateDate :
+                            type: string
+                            description: Last update date
+                            example:
                 LIST_SALES_REVENUE_AMOUNT :
                   type: array
                   description: |+
