@@ -87,7 +87,7 @@ components:
             REPORT:
               type: object
               example: 
-              description: |+
+              description: 
                 Report details with following children&#58;
                 [META_INFO]
                 [BASIC_INFO]
