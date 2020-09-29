@@ -40,7 +40,7 @@ paths:
                   - Immigration and Checkpoints Authority
                   - ICA
                   - LOA
-                status: Success
+                status: Success 
         '401':
           description: Unauthorized
           content:
