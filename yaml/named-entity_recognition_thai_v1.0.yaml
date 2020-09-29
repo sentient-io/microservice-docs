@@ -118,6 +118,7 @@ components:
                 type: string
               example: 
                   - รัฐธรรมนูญ
+              description: "law details found in the text string"                     
             location:
               type: array
               items:
