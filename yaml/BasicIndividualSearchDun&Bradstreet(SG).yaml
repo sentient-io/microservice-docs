@@ -282,81 +282,178 @@ components:
                     properties:
                       PREVIOUS_COMP :
                         type: object
+                        description:  |+
+                          Previous companies detail with following children&#58;
+                          POSITION
+                          APPOINTMENT_DATE
+                          COMP_NAME
+                          SEQ_NO
+                          SHARE_VALUE1
+                          COMP_STATUS
+                          CESSATION_DATE
+                          SHARE_VALUE
+                          TEL
+                          FAX
+                          SIC
+                          SIC_DESC
+                        example:
                         properties:
                           POSITION :
                             type: string
+                            description: Position
+                            example:
                           APPOINTMENT_DATE:
                             type: string
+                            description: Appointment Date 
+                            example:
                           COMP_NAME:
                             type: string
+                            description: Company Name
+                            example:
                           SEQ_NO:
                             type: string
+                            description: Company Registration No.
+                            example:
                           SHARE_VALUE1:
                             type: string
+                            description: Share Value Percentage
+                            example:
                           COMP_STATUS:
                             type: string
+                            description: Company Status
+                            example:
                           CESSATION_DATE :
                             type: string
+                            description: Cessation Date 
+                            example:
                           SHARE_VALUE:
                             type: string
+                            description: Number Of Shares 
+                            example:
                           TEL:
                             type: string
+                            description: Telephone Number
+                            example:
                           FAX:
                             type: string
+                            description: Fax Number
+                            example:
                           SIC:
                             type: string
+                            description: SIC Code 
+                            example:
                           SIC_DESC:
-                            type: string                            
+                            type: string
+                            description: SIC Description 
+                            example:
                 LIST_BANKRUPTCY:
                   type: array
-                  description: Bankruptcy/ Winding up
+                  description:  |+
+                    Bankruptcy/ Winding up with following children&#58;
+                    [BANKRUPTCY]
                   example: "[BANKRUPTCY]"
                   items:
                     properties:
                       BANKRUPTCY :
                         type: object
+                        description:  |+
+                          Bankruptcy/Winding up detail with following children&#58;
+                          SUBJECT_NAME
+                          COURT_CODE
+                          CASE_CODE
+                          CASE_YEAR
+                          ACTION_DATE
+                          BANKRUPTCY_ACT
+                          HEARING_DATE
+                          CURRENCY1
+                          AMOUNT1
+                          CURRENCY2
+                          AMOUNT2
+                          CURRENCY3
+                          AMOUNT3
+                          BANKRUPTCY_TYPE
+                          [LIST_PLAINTIFF]
+                        example:
                         properties:
                           SUBJECT_NAME :
                             type: string
+                            description:
+                            example:
                           COURT_CODE:
                             type: string
+                            description:
+                            example:
                           CASE_CODE:
                             type: string
+                            description:
+                            example:
                           CASE_YEAR:
                             type: string
+                            description:
+                            example:
                           ACTION_DATE:
                             type: string
+                            description:
+                            example:
                           BANKRUPTCY_ACT:
                             type: string
+                            description:
+                            example:
                           HEARING_DATE :
                             type: string
+                            description:
+                            example:
                           CURRENCY1:
                             type: string
+                            description:
+                            example:
                           AMOUNT1:
                             type: string
+                            description:
+                            example:
                           CURRENCY2:
                             type: string
+                            description:
+                            example:
                           AMOUNT2:
                             type: string
+                            description:
+                            example:
                           CURRENCY3:
-                            type: string        
+                            type: string
+                            description:
+                            example:
                           BANKRUPTCY_TYPE:
-                            type: string  
+                            type: string
+                            description:
+                            example:
                           LIST_PLAINTIFF:
                             type: array
+                            description:
+                            example:
                             items:
                               properties:
                                 PLAINTIFF:
                                   type: object
+                                  description:
+                                  example:
                                   properties:
                                     PLA_NAME:
                                       type: string
+                                      description:
+                                      example:
                                     PLA_SOLICITOR:
                                       type: string
+                                      description:
+                                      example:
                                     PLA_SOLICITOR_ID:
                                       type: string
+                                      description:
+                                      example:
                                     PLA_FILE_REF:
-                                      type: string                                      
+                                      type: string
+                                      description:
+                                      example:
                 LIST_LIT:
                   type: array
                   description: List of litigation
