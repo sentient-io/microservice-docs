@@ -991,7 +991,6 @@ components:
                   description: |+
                     List of chart info with following children&#58;
                     [FH_CHART_INFO]
-                  example:
                   items:
                     properties:
                       FH_CHART_INFO:
