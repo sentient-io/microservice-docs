@@ -551,33 +551,34 @@ components:
                     <ADDR_POSTCODE type="String"><![CDATA[289848]]></ADDR_POSTCODE> <ADDR_ADDRESS1 type="String"><![CDATA[251A ARCADIA ROAD , - - -]]></ADDR_ADDRESS1>
                     </BIZ_BRANCH>
                     </LIST_BIZ_BRANCH>
-                  properties:
-                    BIZ_BRANCH :
-                      type: object
-                      description: |+
-                        Business Branches with following children&#58;
-                        ADDR_BUILDING
-                        ADDR_POSTCODE
-                        ADDR_ADDRESS1
-                      example: |+
-                        <BIZ_BRANCH>
-                        <ADDR_BUILDING type="String"><![CDATA[-]]></ADDR_BUILDING>
-                        <ADDR_POSTCODE type="String"><![CDATA[289848]]></ADDR_POSTCODE> 
-                        <ADDR_ADDRESS1 type="String"><![CDATA[251A ARCADIA ROAD , - - -]]></ADDR_ADDRESS1>
-                        </BIZ_BRANCH>
-                      properties:
-                        ADDR_BUILDING:
-                          type: string
-                          description: Building Name
-                          example: 
-                        ADDR_POSTCODE:
-                          type: string
-                          description: Postcode
-                          example: 289848
-                        ADDR_ADDRESS1:
-                          type: string
-                          description: Address
-                          example: 251A ARCADIA ROAD
+                  items:
+                    properties:
+                      BIZ_BRANCH :
+                        type: object
+                        description: |+
+                          Business Branches with following children&#58;
+                          ADDR_BUILDING
+                          ADDR_POSTCODE
+                          ADDR_ADDRESS1
+                        example: |+
+                          <BIZ_BRANCH>
+                          <ADDR_BUILDING type="String"><![CDATA[-]]></ADDR_BUILDING>
+                          <ADDR_POSTCODE type="String"><![CDATA[289848]]></ADDR_POSTCODE> 
+                          <ADDR_ADDRESS1 type="String"><![CDATA[251A ARCADIA ROAD , - - -]]></ADDR_ADDRESS1>
+                          </BIZ_BRANCH>
+                        properties:
+                          ADDR_BUILDING:
+                            type: string
+                            description: Building Name
+                            example: 
+                          ADDR_POSTCODE:
+                            type: string
+                            description: Postcode
+                            example: 289848
+                          ADDR_ADDRESS1:
+                            type: string
+                            description: Address
+                            example: 251A ARCADIA ROAD
                 LIST_REG_CHARGES:
                   type: array
                   description: |+
