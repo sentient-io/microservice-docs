@@ -111,9 +111,10 @@ components:
                   type: object
                   example: |+
                     <META_INFO>
-                    <SERVICE type="String"><![CDATA[BCP]]></SERVICE>
+                    <SERVICE type="String"><![CDATA[BC]]></SERVICE>
                     <SYSTEM_ID type="String"><![CDATA[DDP]]></SYSTEM_ID>
-                    <CREATION_DATE type="Date"><![CDATA[Wed Apr 08 11:37:51 MYT 2009]]></CREATION_DATE> <USER_ID type="String"><![CDATA[]]></USER_ID>
+                    <CREATION_DATE type="Date"><![CDATA[Wed Apr 08 11:37:51 MYT 2009]]></CREATION_DATE>
+                    <USER_ID type="String"><![CDATA[plcust102]]></USER_ID>
                     <CLASS type="String"><![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]></CLASS>
                     </META_INFO>
                   description: |+
@@ -127,23 +128,23 @@ components:
                     SERVICE:
                       type: string
                       description: Report requested
-                      example: "BCP"
+                      example: "<![CDATA[BC]]>"
                     SYSTEM_ID :
                       type: string
                       description: System ID
-                      example: "DDP"
+                      example: "<![CDATA[DDP]]>"
                     CREATION_DATE:
                       type: datetime
                       description: Report request date
-                      example: "Wed Apr 08 11:37:51 MYT 2009"
+                      example: "<![CDATA[Wed Apr 08 11:37:51 MYT 2009]]>"
                     USER_ID :
                       type: string
                       description: Valid user id in DDP system. It is for (For internal use)
-                      example: N/A
+                      example: "<![CDATA[plcust102]]>"
                     CLASS:
                       type: string
                       description: Class location for metabean. It is for (For internal use)
-                      example: N/A
+                      example: "<![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]>"
                 REGISTRY_DETAIL :
                   type: object
                   example: |+
