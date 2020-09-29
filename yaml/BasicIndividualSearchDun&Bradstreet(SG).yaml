@@ -196,7 +196,7 @@ components:
                   description: |+
                   List of current companies with following children&#58;
                   [CURRENT_COMP]
-                  example: "[CURRENT_COMP]"
+                  example:
                   properties:
                     CURRENT_COMP :
                       type: object
