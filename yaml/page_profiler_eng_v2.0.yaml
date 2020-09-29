@@ -129,6 +129,14 @@
                   -CONTACT
                   -Join         
                 description: "name of location found in the text string"
+              misc:
+                type: array
+                items:
+                  type: string
+                example:
+                  - Sentient.io
+                  - English
+                description: "name of miscellaneous names found in the text string"      
           message:
             type: string
             example: Successfully Processed
