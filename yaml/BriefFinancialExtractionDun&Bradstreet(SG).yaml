@@ -902,121 +902,105 @@ components:
                       example:
                 FH_RATIOS_DTL:
                   type: object
-                  description: Financial Ratio History
+                  description: |+
+                    Accounting Ratios Details with following children&#58;
+                    RATE_NET_PROFIT1 
+                    RET_INVESTMENT1 
+                    RET_SH_FUNDS1 
+                    TOT_ASSETS_TURNOVER1 
+                    CURR_CAPITAL_RATIO1 
+                    PROPRIETARY_RATIO1 
+                    TOTAL_DEBT_RATIO1
+
+                    Note: Each tag will consist of maximum 5 sets with suffix 1 to 5. But it is optional, depending on how many years of FH & XBRL data displayed in the report.
+                  example:
                   properties:
                     RATE_NET_PROFIT1 :
                       type: string
-                      description: Rate of Net Profit On Sales (%) 1
-                    RATE_NET_PROFIT2 :
-                      type: string
-                      description: Rate of Net Profit On Sales (%) 2
-                    RATE_NET_PROFIT3 :
-                      type: string
-                      description: Rate of Net Profit On Sales (%) 3
-                    RATE_NET_PROFIT4 :
-                      type: string
-                      description: Rate of Net Profit On Sales (%) 4
-                    RATE_NET_PROFIT5:
-                      type: string
-                      description: Rate of Net Profit On Sales (%) 5
+                      description: |+
+                        Rate of Net Profit On Sales (%)
+                        Subsequent Years:
+                        RATE_NET_PROFIT2
+                        RATE_NET_PROFIT3
+                        RATE_NET_PROFIT4
+                        RATE_NET_PROFIT5
+                      example:
                     RET_INVESTMENT1 :
                       type: string   
-                      description: Return of Investment (%) 1
-                    RET_INVESTMENT2 :
-                      type: string
-                      description: Return of Investment (%) 2
-                    RET_INVESTMENT3 :
-                      type: string
-                      description: Return of Investment (%) 3
-                    RET_INVESTMENT4 :
-                      type: string
-                      description: Return of Investment (%) 4
-                    RET_INVESTMENT5:
-                      type: string 
-                      description: Return of Investment (%) 5
+                      description: |+
+                        Return of Investment (%)
+                        Subsequent Years:
+                        RET_INVESTMENT2
+                        RET_INVESTMENT3
+                        RET_INVESTMENT4
+                        RET_INVESTMENT5
+                      example:
                     RET_SH_FUNDS1 :
                       type: string
-                      description: Return of Shareholder’s Funds (%) 1
-                    RET_SH_FUNDS2 :
-                      type: string
-                      description: Return of Shareholder’s Funds (%) 2
-                    RET_SH_FUNDS3:
-                      type: string
-                      description: Return of Shareholder’s Funds (%) 3
-                    RET_SH_FUNDS4:
-                      type: string 
-                      description: Return of Shareholder’s Funds (%) 4
-                    RET_SH_FUNDS5 :
-                      type: string
-                      description: Return of Shareholder’s Funds (%) 5
+                      description: |+
+                        Return of Shareholder’s Funds (%)
+                        Subsequent Years:
+                        RET_SH_FUNDS2
+                        RET_SH_FUNDS3
+                        RET_SH_FUNDS4
+                        RET_SH_FUNDS4
+                      example:
                     TOT_ASSETS_TURNOVER1 :
                       type: string
-                      description: Total Assets Turnover (%) 1
-                    TOT_ASSETS_TURNOVER2 :
-                      type: string
-                      description: Total Assets Turnover (%) 2
-                    TOT_ASSETS_TURNOVER3 :
-                      type: string 
-                      description: Total Assets Turnover (%) 3
-                    TOT_ASSETS_TURNOVER4 :
-                      type: string   
-                      description: Total Assets Turnover (%) 4
-                    TOT_ASSETS_TURNOVER5 :
-                      type: string
-                      description: Total Assets Turnover (%) 5
+                      description: |+
+                        Total Assets Turnover (%)
+                        Subsequent Years:
+                        TOT_ASSETS_TURNOVER2
+                        TOT_ASSETS_TURNOVER3
+                        TOT_ASSETS_TURNOVER4
+                        TOT_ASSETS_TURNOVER5
+                      example:
                     CURR_CAPITAL_RATIO1:
                       type: string
-                      description: Current / Working Capital Ratio (%) 1
-                    CURR_CAPITAL_RATIO2 :
-                      type: string 
-                      description: Current / Working Capital Ratio (%) 2
-                    CURR_CAPITAL_RATIO3 :
-                      type: string
-                      description: Current / Working Capital Ratio (%) 3
-                    CURR_CAPITAL_RATIO4 :
-                      type: string
-                      description: Current / Working Capital Ratio (%) 4
-                    CURR_CAPITAL_RATIO5 :
-                      type: string
-                      description: Current / Working Capital Ratio (%) 5
+                      description: |+
+                        Current / Working Capital Ratio (%)
+                        Subsequent Years:
+                        CURR_CAPITAL_RATIO2
+                        CURR_CAPITAL_RATIO3
+                        CURR_CAPITAL_RATIO4
+                        CURR_CAPITAL_RATIO5
+                      example:
                     PROPRIETARY_RATIO1:
                       type: string
-                      description: Proprietary Ratio (%) 1
-                    PROPRIETARY_RATIO2 :
-                      type: string
-                      description: Proprietary Ratio (%) 2
-                    PROPRIETARY_RATIO3 :
-                      type: string
-                      description: Proprietary Ratio (%) 3
-                    PROPRIETARY_RATIO4:
-                      type: string
-                      description: Proprietary Ratio (%) 4
-                    PROPRIETARY_RATIO5:
-                      type: string  
-                      description: Proprietary Ratio (%) 5
+                      description: |+
+                        Proprietary Ratio (%) 1
+                        Subsequent Years:
+                        PROPRIETARY_RATIO2
+                        PROPRIETARY_RATIO3
+                        PROPRIETARY_RATIO4
+                        PROPRIETARY_RATIO5
+                      example:
                     TOTAL_DEBT_RATIO1 :
                       type: string
-                      description: Total Debt to Equity Ratio (%) 1
-                    TOTAL_DEBT_RATIO2 :
-                      type: string
-                      description: Total Debt to Equity Ratio (%) 2
-                    TOTAL_DEBT_RATIO3 :
-                      type: string
-                      description: Total Debt to Equity Ratio (%) 3
-                    TOTAL_DEBT_RATIO4 :
-                      type: string 
-                      description: Total Debt to Equity Ratio (%) 4
-                    TOTAL_DEBT_RATIO5 :
-                      type: string
-                      description: Total Debt to Equity Ratio (%) 5
+                      description: |+
+                        Total Debt to Equity Ratio (%) 1
+                        Subsequent Years:
+                        TOTAL_DEBT_RATIO2
+                        TOTAL_DEBT_RATIO3
+                        TOTAL_DEBT_RATIO4
+                        TOTAL_DEBT_RATIO5
+                      example:
                 LIST_FH_CHART_INFO :
                   type: array
                   example: "[FH_CHART_INFO]"
-                  description: List of financial chart information
+                  description: |+
+                    List of chart info with following children&#58;
+                    [FH_CHART_INFO]
+                  example:
                   items:
                     properties:
                       FH_CHART_INFO:
                         type: object
+                        description: |+
+                          Chart Info info with following children&#58;
+                          YEAR 
+                          REVENUE 
+                          PROFIT_LOSS
                         properties:
                           PROFIT_LOSS:
                             type: string
