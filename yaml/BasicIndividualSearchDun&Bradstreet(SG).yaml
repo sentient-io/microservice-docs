@@ -100,7 +100,7 @@ components:
               properties:
                 META_INFO:
                   type: object
-                  example:
+                  example: 
                   description:  |+
                     Meta Information details with following children&#58;
                     SERVICE
