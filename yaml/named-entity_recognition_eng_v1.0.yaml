@@ -26,21 +26,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example: 
-                message: Successfully Processed
-                results:
-                  loc:
-                  - Hubei
-                  - Singapore
-                  - SINGAPORE
-                  - China
-                  - Immigration
-                  misc:
-                  - ICA.They
-                  org:
-                  - Immigration and Checkpoints Authority
-                  - ICA
-                  - LOA
-                status: Success 
+                  LOC:
+                  - America
+                  - Saudi Arabia
+                  - Yemen
+                  - Abqaiq
+                  - Iraq
+                  - Iran
+                  - Khurais
+                  MISC:
+                  - Arabian
+                  - American
+                  - Saudi
+                  - Iranian
+                  - Shia
+                  ORG:
+                  - Houthi
+                  PER:
+                  - DONALD TRUMP
+                  - Mike Pompeo
         '401':
           description: Unauthorized
           content:
