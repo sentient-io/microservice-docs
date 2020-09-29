@@ -214,7 +214,7 @@ components:
                         FAX
                         SIC
                         SIC_DESC
-                      example:  |+
+                     example:
                       properties:
                         POSITION:
                           type: string
