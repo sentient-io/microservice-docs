@@ -122,7 +122,12 @@
                 items:
                   type: string
                 example:
-                  -Nat
+                  - Nat
+                  - Sentient.io
+                  - Home
+                  - Inte
+                  - CONTACT
+                  - Join
           message:
             type: string
             example: Successfully Processed
