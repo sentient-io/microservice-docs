@@ -50,6 +50,14 @@ NLP:
         versions:
             v2.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng_v2.0.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng.yaml"
+    Page Profiler JAP:
+        title: Page Profiler JAP
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_jp.yaml"
+    Page Profiler THAI:
+        title: Page Profiler THAI
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_thai.yaml"
     Taxonomy Matcher ENG:
         title: Taxonomy Matcher ENG
         versions:
