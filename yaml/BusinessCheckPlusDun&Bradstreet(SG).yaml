@@ -1393,6 +1393,51 @@ components:
                             type: string
                             description: Nationality
                             example: SINGAPORE P.R.
+                LIST_SALES_REVENUE_AMOUNT :
+                  type: array
+                  description: |+
+                    List of Sales Revenue Amount with following children&#58;
+                    [SALES_REVENUE_AMOUNT]
+                  example: |+
+                    <LIST_SALES_REVENUE_AMOUNT>
+                    <SALES_REVENUE_AMOUNT>
+                    <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2008]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>30000.00</AMOUNT>
+                    </SALES_REVENUE_AMOUNT>
+                    </LIST_SALES_REVENUE_AMOUNT>
+                  items:
+                    properties:
+                      SALES_REVENUE_AMOUNT :
+                        type: object
+                        description: |+
+                          Sales Revenue Amount details with following children&#58;
+                          ELEMENTS
+                          YEAR
+                          CURRENCY
+                          AMOUNT
+                        example: |+
+                          <SALES_REVENUE_AMOUNT>
+                          <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> 
+                          <YEAR><![CDATA[2008]]></YEAR> 
+                          <CURRENCY><![CDATA[SGD]]></CURRENCY>
+                          <AMOUNT>30000.00</AMOUNT>
+                          </SALES_REVENUE_AMOUNT>
+                        properties:
+                          ELEMENTS :
+                            type: string
+                            description: Description
+                            example: Sales Revenue Amount
+                          YEAR :
+                            type: string
+                            description: Year
+                            example: 2008
+                          CURRENCY :
+                            type: string
+                            description: Currency
+                            example: SGD
+                          AMOUNT :
+                            type: string
+                            description: Amount
+                            example: 30000.00
                 LIST_Ddrptcount :
                   type: array
                   description: |+
@@ -1470,10 +1515,14 @@ components:
                           Rcsep :
                             type: string
                             description: Count for September
+                            example:
+                          Rcoct : 1
                             example: 1
                           Rcoct :
                             type: string
                             description: Count for October
+                            example:
+                          Rcnov : 1
                             example: 1
                           Rcnov :
                             type: string
@@ -1503,52 +1552,6 @@ components:
                             type: string
                             description: Last update date
                             example:
-                LIST_SALES_REVENUE_AMOUNT :
-                  type: array
-                  description: |+
-                    List of Sales Revenue Amount with following children&#58;
-                    [SALES_REVENUE_AMOUNT]
-                  example: |+
-                    <LIST_SALES_REVENUE_AMOUNT>
-                    <SALES_REVENUE_AMOUNT>
-                    <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2008]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>30000.00</AMOUNT>
-                    </SALES_REVENUE_AMOUNT>
-                    </LIST_SALES_REVENUE_AMOUNT>
-                  items:
-                    properties:
-                      SALES_REVENUE_AMOUNT :
-                        type: object
-                        description: |+
-                          Sales Revenue Amount details with following children&#58;
-                          ELEMENTS
-                          YEAR
-                          CURRENCY
-                          AMOUNT
-                        example: |+
-                          <SALES_REVENUE_AMOUNT>
-                          <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> 
-                          <YEAR><![CDATA[2008]]></YEAR> 
-                          <CURRENCY><![CDATA[SGD]]></CURRENCY>
-                          <AMOUNT>30000.00</AMOUNT>
-                          </SALES_REVENUE_AMOUNT>
-                        properties:
-                          ELEMENTS :
-                            type: string
-                            description: Description
-                            example: Sales Revenue Amount
-                          YEAR :
-                            type: string
-                            description: Year
-                            example: 2008
-                          CURRENCY :
-                            type: string
-                            description: Currency
-                            example: SGD
-                          AMOUNT :
-                            type: string
-                            description: Amount
-                            example: 30000.00
-                
     unauthorized:
       type: object
       properties:
