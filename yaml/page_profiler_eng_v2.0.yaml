@@ -122,7 +122,13 @@
                 items:
                   type: string
                 example: 
-                  -Nat    
+                  -Nat
+                  -Sentient.io
+                  -Home
+                  -Inte
+                  -CONTACT
+                  -Join
+                description: "name of location found in the text string"                  
           message:
             type: string
             example: Successfully Processed
