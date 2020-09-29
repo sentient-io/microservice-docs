@@ -700,6 +700,206 @@ components:
                         TOT_LIABILITIES4 
                         TOT_LIABILITIES5
                       example:
+                    TL_CURRENT1 :
+                      type: string
+                      description: |+
+                        Total Current Liabilities (Only for Balance Sheet by Current / Non-Current)
+                        Subsequent Years:
+                        TL_CURRENT2
+                        TL_CURRENT3 
+                        TL_CURRENT4 
+                        TL_CURRENT5
+                      example:
+                    TL_NON_CURRENT1 :
+                      type: string
+                      description: |+
+                        Total Non-Current Liabilities (Only for Balance Sheet by Current / Non- Current)
+                        Subsequent Years:
+                        TL_NON_CURRENT2
+                        TL_NON_CURRENT3 
+                        TL_NON_CURRENT4 
+                        TL_NON_CURRENT5
+                      example:
+                    TOT_EQUITY1 :
+                      type: string
+                      description: |+
+                        Total Equity (inclusive of Equity Attributable to Equity Holders of Parent and Minority Interest)
+                        Subsequent Years:
+                        TOT_EQUITY2
+                        TOT_EQUITY3 
+                        TOT_EQUITY4 
+                        TOT_EQUITY5
+                      example:
+                    EQ_SH_CAPITAL1 :
+                      type: string
+                      description: |+
+                        Total Equity – Share Capital
+                        Subsequent Years:
+                        EQ_SH_CAPITAL2
+                        EQ_SH_CAPITAL3 
+                        EQ_SH_CAPITAL4 
+                        EQ_SH_CAPITAL5
+                      example:
+                    EQ_RESERVES1 :
+                      type: string
+                      description: |+
+                        Total Equity – Other Reserves
+                        Subsequent Years:
+                        EQ_RESERVES2
+                        EQ_RESERVES3 
+                        EQ_RESERVES4 
+                        EQ_RESERVES5
+                      example:
+                    EQ_RETAINED_EARN1 :
+                      type: string
+                      description: |+
+                        Total Equity – Retained Earnings (Accumulated Loss)
+                        Subsequent Years:
+                        EQ_RETAINED_EARN2
+                        EQ_RETAINED_EARN3 
+                        EQ_RETAINED_EARN4 
+                        EQ_RETAINED_EARN5
+                      example:
+                    GRP_REVENUE1 :
+                      type: string
+                      description: |+
+                        Group’s Revenue Amount
+                        Subsequent Years:
+                        GRP_REVENUE2
+                        GRP_REVENUE3 
+                        GRP_REVENUE4 
+                        GRP_REVENUE5
+                      example:
+                    GRP_PL_BEF_TAX1 :
+                      type: string
+                      description: |+
+                        Group Profit / Loss Before Tax from Continuing Operations
+                        Subsequent Years:
+                        GRP_PL_BEF_TAX2
+                        GRP_PL_BEF_TAX3 
+                        GRP_PL_BEF_TAX4 
+                        GRP_PL_BEF_TAX5
+                      example:
+                    GRP_PL_AFT_TAX1 :
+                      type: string
+                      description: |+
+                        Group Profit / Loss After Tax from Continuing Operations
+                        Subsequent Years:
+                        GRP_PL_AFT_TAX2
+                        GRP_PL_AFT_TAX3 
+                        GRP_PL_AFT_TAX4 
+                        GRP_PL_AFT_TAX5
+                      example:
+                    GRP_TOT_ASSETS1 :
+                      type: string
+                      description: |+
+                        Group’s Total Assets
+                        Subsequent Years:
+                        GRP_TOT_ASSETS2
+                        GRP_TOT_ASSETS3 
+                        GRP_TOT_ASSETS4 
+                        GRP_TOT_ASSETS5
+                      example:
+                    GRP_TA_CURRENT1 :
+                      type: string
+                      description: |+
+                        Group’s Total Current Assets (Only for Balance Sheet by Current / Non- Current)
+                        Subsequent Years:
+                        GRP_TA_CURRENT2
+                        GRP_TA_CURRENT3 
+                        GRP_TA_CURRENT4 
+                        GRP_TA_CURRENT4
+                      example:
+                    GRP_TA_NON_CURRENT1 :
+                      type: string
+                      description: |+
+                        Group’s Total Non-Current Assets (Only for Balance Sheet by Current / Non- Current)
+                        Subsequent Years:
+                        GRP_TA_NON_CURRENT2
+                        GRP_TA_NON_CURRENT3 
+                        GRP_TA_NON_CURRENT4 
+                        GRP_TA_NON_CURRENT4
+                      example:
+                    GRP_TOT_LIABILITIES1 :
+                      type: string
+                      description: |+
+                        Group’s Total Liabilities
+                        Subsequent Years:
+                        GRP_TOT_LIABILITIES2
+                        GRP_TOT_LIABILITIES3 
+                        GRP_TOT_LIABILITIES4 
+                        GRP_TOT_LIABILITIES5
+                      example:
+                    GRP_TL_CURRENT1 :
+                      type: string
+                      description: |+
+                        Group’s Total Current Liabilities (Only for Balance Sheet by Current / Non- Current)
+                        Subsequent Years:
+                        GRP_TL_CURRENT2
+                        GRP_TL_CURRENT3 
+                        GRP_TL_CURRENT4 
+                        GRP_TL_CURRENT5
+                      example:
+                    GRP_TL_NON_CURRENT1 :
+                      type: string
+                      description: |+
+                        Group’s Total Non-Current Liabilities (Only for Balance Sheet by Current / Non- Current)
+                        Subsequent Years:
+                        GRP_TL_NON_CURRENT2
+                        GRP_TL_NON_CURRENT3 
+                        GRP_TL_NON_CURRENT4 
+                        GRP_TL_NON_CURRENT5
+                      example:
+                    GRP_TOT_EQUITY1 :
+                      type: string
+                      description: |+
+                        Group’s Total Equity (inclusive of Equity Attributable to Equity Holders of Parent and Minority Interest)
+                        Subsequent Years:
+                        GRP_TOT_EQUITY2
+                        GRP_TOT_EQUITY3 
+                        GRP_TOT_EQUITY4 
+                        GRP_TOT_EQUITY5
+                      example:
+                    GRP_SH_CAPITAL1 :
+                      type: string
+                      description: |+
+                        Group’s Share Capital
+                        Subsequent Years:
+                        GRP_SH_CAPITAL2
+                        GRP_SH_CAPITAL3 
+                        GRP_SH_CAPITAL4 
+                        GRP_SH_CAPITAL5
+                      example:
+                    GRP_RESERVES1 :
+                      type: string
+                      description: |+
+                        Group’s Other Reserves
+                        Subsequent Years:
+                        GRP_RESERVES2
+                        GRP_RESERVES3 
+                        GRP_RESERVES4 
+                        GRP_RESERVES5
+                      example:
+                    GRP_RETAINED_EARN1 :
+                      type: string
+                      description: |+
+                        Group’s – Retained Earnings (Accumulated Loss)
+                        Subsequent Years:
+                        GRP_RETAINED_EARN2
+                        GRP_RETAINED_EARN3 
+                        GRP_RETAINED_EARN4 
+                        GRP_RETAINED_EARN5
+                      example:
+                    GRP_INDICATOR1 :
+                      type: string
+                      description: |+
+                        XBRL Financial Highlights Group Indicator
+                        Subsequent Years:
+                        GRP_INDICATOR2
+                        GRP_INDICATOR3 
+                        GRP_INDICATOR4 
+                        GRP_INDICATOR5
+                      example:
                 FH_RATIOS_DTL:
                   type: object
                   description: Financial Ratio History
