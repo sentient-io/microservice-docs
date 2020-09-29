@@ -201,19 +201,19 @@ components:
                     CURRENT_COMP:
                       type: object
                       description: |+
-                      Current companies detail with following children&#58;
-                      POSITION
-                      APPOINTMENT_DATE
-                      COMP_NAME
-                      SEQ_NO
-                      SHARE_VALUE1
-                      COMP_STATUS
-                      PROFIT_VALUE
-                      SHARE_VALUE
-                      TEL
-                      FAX
-                      SIC
-                      SIC_DESC
+                        Current companies detail with following children&#58;
+                        POSITION
+                        APPOINTMENT_DATE
+                        COMP_NAME
+                        SEQ_NO
+                        SHARE_VALUE1
+                        COMP_STATUS
+                        PROFIT_VALUE
+                        SHARE_VALUE
+                        TEL
+                        FAX
+                        SIC
+                        SIC_DESC
                       example: "POSITION APPOINTMENT_DATE COMP_NAME SEQ_NO SHARE_VALUE1 COMP_STATUS PROFIT_VALUE SHARE_VALUE TEL FAX SIC SIC_DESC"
                       properties:
                         POSITION:
