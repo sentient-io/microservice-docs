@@ -128,23 +128,23 @@ components:
                     SERVICE:
                       type: string
                       description: Report requested
-                      example: "<![CDATA[BC]]>"
+                      example: "BC"
                     SYSTEM_ID :
                       type: string
                       description: System ID
-                      example: "<![CDATA[DDP]]>"
+                      example: "DDP"
                     CREATION_DATE:
                       type: datetime
                       description: Report request date
-                      example: "<![CDATA[Wed Apr 08 11:37:51 MYT 2009]]>"
+                      example: "Wed Apr 08 11:37:51 MYT 2009"
                     USER_ID :
                       type: string
                       description: Valid user id in DDP system. It is for (For internal use)
-                      example: "<![CDATA[plcust102]]>"
+                      example: "N/A"
                     CLASS:
                       type: string
                       description: Class location for metabean. It is for (For internal use)
-                      example: "<![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]>"
+                      example: "N/A"
                 REGISTRY_DETAIL :
                   type: object
                   example: |+
