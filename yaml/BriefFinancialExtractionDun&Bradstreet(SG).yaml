@@ -174,7 +174,7 @@
                       AC_RATIOS_YR5
                     example: 
                     properties:
-                      COMP_NAME  :
+                      COMP_NAME :
                         type: string
                         description: Company Name
                         example: "DUN & BRADSTREET (SINGAPORE) PTE. LTD."
@@ -185,16 +185,16 @@
                       REQ_DATE :
                         type: string
                         description: Requested Date
-                        example: "2009-04-21 10:56:06.716"
+                        example: "2009-04-21"
                       REQ_REG_NO :
                         type: string
                         description: Request Registration Number
                         example: "200003058W"
-                      REQ_NAME  :
+                      REQ_NAME :
                         type: string
                         description: Request Name
                         example: "DUN & BRADSTREET (SINGAPORE) PTE. LTD."
-                      REQ_DATE_STR  :
+                      REQ_DATE_STR :
                         type: string    
                         description: Request Date String
                         example: "21/04/2009 10:56:06"
