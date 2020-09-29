@@ -121,14 +121,9 @@
                 type: array
                 items:
                   type: string
-                example: 
+                example:
                   -Nat
-                  -Sentient.io
-                  -Home
-                  -Inte
-                  -CONTACT
-                  -Join
-                description: "name of location found in the text string"                  
+                description: "name of location found in the text string"
           message:
             type: string
             example: Successfully Processed
@@ -136,7 +131,7 @@
           status:
             type: string
             example: Success
-            description: The status of the API call success/failure            
+            description: The status of the API call success/failure 
       unauthorized:
         type: object
         properties:
