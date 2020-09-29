@@ -876,7 +876,7 @@ components:
                             description: Description
                             example: Sales Revenue Amount
                           YEAR :
-                            type: string
+                            type: integer
                             description: Year
                             example: 2008
                           CURRENCY :
@@ -884,7 +884,7 @@ components:
                             description: Currency
                             example: SGD
                           AMOUNT :
-                            type: string
+                            type: float
                             description: Amount
                             example: 30000.00
                 LIST_Ddrptcount :
@@ -930,55 +930,55 @@ components:
                             description: Internal database value
                             example: N/A
                           Rcjan :
-                            type: string
+                            type: integer
                             description: Count for January
                             example: 1
                           Rcfeb :
-                            type: string
+                            type: integer
                             description: Count for February
                             example: 1
                           Rcmar :
-                            type: string
+                            type: integer
                             description: Count for March
                             example: 1
                           Rcapr :
-                            type: string
+                            type: integer
                             description: Count for April
                             example: 1
                           Rcmay :
-                            type: string
+                            type: integer
                             description: Count for May
                             example: 1
                           Rcjun :
-                            type: string
+                            type: integer
                             description: Count for June
                             example: 1
                           Rcjul :
-                            type: string
+                            type: integer
                             description: Count for July
                             example: 1
                           Rcaug :
-                            type: string
+                            type: integer
                             description: Count for August
                             example: 1
                           Rcsep :
-                            type: string
+                            type: integer
                             description: Count for September
                             example: 1
                           Rcoct :
-                            type: string
+                            type: integer
                             description: Count for October
                             example: 1
                           Rcnov :
-                            type: string
+                            type: integer
                             description: Count for November
                             example: 1
                           Rcdec :
-                            type: string
+                            type: integer
                             description: Count for December
                             example: 1
                           Rcid :
-                            type: string
+                            type: integer
                             description: Internal database value
                             example:
                           Rcreg :
@@ -990,7 +990,7 @@ components:
                             description: Product Type
                             example:
                           Rcsecflag :
-                            type: string
+                            type: integer
                             description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
                             example: 1
                           LastUpdateDate :
