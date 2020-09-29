@@ -127,7 +127,6 @@ components:
           type: string
           example: Success
           description: The status of the API call success/failure
-          
     unauthorized:
       type: object
       properties:
