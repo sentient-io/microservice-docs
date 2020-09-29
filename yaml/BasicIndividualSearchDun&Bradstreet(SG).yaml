@@ -86,13 +86,28 @@ components:
         properties:
             REPORT:
               type: object
-              example: "[META_INFO] [BASIC_INFO] [LIT_SEARCH_INFO] [LIST_CURRENT_COMP] [LIST_PREVIOUS_COMP] [LIST_BANKRUPTCY] [LIST_LIT] [LIST_LIT_DTL]"
-              description: Report
+              example: 
+              description:|+
+                Report details with following children&#58;
+                [META_INFO]
+                [BASIC_INFO]
+                [LIT_SEARCH_INFO]
+                [LIST_CURRENT_COMP]
+                [LIST_PREVIOUS_COMP]
+                [LIST_BANKRUPTCY]
+                [LIST_LIT]
+                [LIST_LIT_DTL]
               properties:
                 META_INFO:
                   type: object
-                  example: "SERVICE SYSTEM_ID CREATION_DATE USER_ID"
-                  description: Meta Information
+                  example: |+
+                  "SERVICE SYSTEM_ID CREATION_DATE USER_ID"
+                  description: |+
+                  Meta Information details with following children&#58;
+                  SERVICE
+                  SYSTEM_ID
+                  CREATION_DATE
+                  USER_ID
                   properties:
                     SERVICE:
                       type: string
@@ -103,7 +118,7 @@ components:
                       example: "<![CDATA[DDP]]>"
                       description: System ID
                     CREATION_DATE:
-                      type: string
+                      type: datetime
                       example: "25/02/2009 17:31:44.678"
                       description: Report Request Date
                     USER_ID :
@@ -112,7 +127,12 @@ components:
                       description: Valid user id in DDP system
                 BASIC_INFO :
                   type: object
-                  description: Basic information
+                  description: |+
+                    Basic Information with following children&#58;
+                    PA_REG_NO
+                    ADDRESS1
+                    ADDRESS2
+                    ADDRESS3
                   example: PA_REG_NO ADDRESS1 ADDRESS2 ADDRESS3
                   properties:
                     PA_REG_NO :
@@ -134,7 +154,15 @@ components:
                 LIT_SEARCH_INFO :
                   type: object
                   example: "COMP_NAME REG_NO REPORT_TYPE REQ_DATE REQ_REG_NO REQ_NAME REQ_DATE_STR"
-                  description: Litigation search information
+                  description: |+
+                    Litigation search information with following children&#58;
+                    COMP_NAME
+                    REG_NO
+                    REPORT_TYPE
+                    REQ_DATE
+                    REQ_REG_NO
+                    REQ_NAME
+                    REQ_DATE_STR
                   properties:
                     COMP_NAME:
                       type: string
@@ -149,7 +177,7 @@ components:
                       description: Report Type
                       example: "<![CDATA[BIS]]>"
                     REQ_DATE:
-                      type: string
+                      type: datetime
                       description: Requested Date
                       example: "25/02/2009 17:31:44"
                     REQ_REG_NO:
@@ -166,12 +194,27 @@ components:
                       example: "<![CDATA[25/02/2009 15:04:14]]>"
                 LIST_CURRENT_COMP :
                   type: object
-                  description: List of current companies
+                  description: |+
+                  List of current companies with following children&#58;
+                  [CURRENT_COMP]
                   example: "[CURRENT_COMP]"
                   properties:
                     CURRENT_COMP :
                       type: object
-                      description: Current companies detail
+                      description: |+
+                      Current companies detail with following children&#58;
+                      POSITION
+                      APPOINTMENT_DATE
+                      COMP_NAME
+                      SEQ_NO
+                      SHARE_VALUE1
+                      COMP_STATUS
+                      PROFIT_VALUE
+                      SHARE_VALUE
+                      TEL
+                      FAX
+                      SIC
+                      SIC_DESC
                       example: "POSITION APPOINTMENT_DATE COMP_NAME SEQ_NO SHARE_VALUE1 COMP_STATUS PROFIT_VALUE SHARE_VALUE TEL FAX SIC SIC_DESC"
                       properties:
                         POSITION:
