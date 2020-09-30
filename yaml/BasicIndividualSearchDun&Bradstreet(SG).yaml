@@ -195,7 +195,7 @@ components:
                     USER_ID :
                       type: string
                       example: N/A
-                      description: Valid user id in DDP system. 
+                      description: Valid user id in DDP system. It is for (For internal use)
                 BASIC_INFO :
                   type: object
                   description: |+
@@ -212,7 +212,7 @@ components:
                     <ADDRESS3><![CDATA[470137, SINGAPORE]]></ADDRESS3>
                     </BASIC_INFO>
                   properties:
-                    PA_REG_NO222:
+                    PA_REG_NO :
                       type: string
                       description: Public Accountant Registration No.
                       example: "00091"
@@ -220,7 +220,11 @@ components:
                       type: string
                       example: N/A
                       description: Valid user id in DDP system. It is for (For internal use)
-                    ADDRESS2:
+                    USER_ID2 :
+                      type: string
+                      example: N/A
+                      description: Valid user id in DDP system. It is for (For internal use)
+                    ADDRESS2 :
                       type: string
                       description: Address 2
                       example: "vvvvv"
