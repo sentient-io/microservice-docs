@@ -8,6 +8,7 @@
       
       This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
     version: '1.0'
+    x-subscribelink: page_profiler_thai
   servers:
     - url: 'https://apis.sentient.io'
   tags:
