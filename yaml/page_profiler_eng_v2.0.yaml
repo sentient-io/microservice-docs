@@ -216,7 +216,7 @@
             default: true
             example: https://www.sentient.io/en/
             description: |+
-              The absolute input url, i.e exact, full address (URL) to the page
+              The URL of the page to be profile. Kindly note that the URL has to be spelt in full, including "https://www."
               
     securitySchemes:
       APIAuthorizer:
