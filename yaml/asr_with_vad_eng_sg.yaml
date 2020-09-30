@@ -204,7 +204,7 @@ components:
         file_type:
           x-name: file_type
           type: string
-          default: false
+          default: true
           example: wav
           description: |+
             Input file extension. Only “wav” is supported at the moment.
@@ -212,7 +212,7 @@ components:
           x-name: vad_threshold
           type: number
           format: float
-          default: false
+          default: true
           example: 0.4
           description: |+
             0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
