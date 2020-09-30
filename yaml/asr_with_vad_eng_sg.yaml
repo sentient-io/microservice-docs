@@ -6,6 +6,7 @@ info:
 
     This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k
   version: '0.1'
+  x-subscribelink: asr_with_vad_eng_sg
 servers:
   - url: 'https://apis.sentient.io'
 tags:
