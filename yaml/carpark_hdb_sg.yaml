@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: HDB Carpark Locations (SG)
+  x-subscribelink: carpark_hdb_sg
   description: |+
     This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.
 
