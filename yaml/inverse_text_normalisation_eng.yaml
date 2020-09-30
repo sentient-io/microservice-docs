@@ -6,6 +6,7 @@ info:
     
     It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case.
   version: '0.1'
+  x-subscribelink: inverse_text_normalisation_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
