@@ -216,10 +216,14 @@ components:
                       type: string
                       description: Public Accountant Registration No.
                       example: "00091"
-                    ADDRESS1:
+                    PA_REG_NO222:
                       type: string
-                      description: Address 1
-                      example: "137"
+                      description: Public Accountant Registration No.
+                      example: "00091"
+                    USER_ID :
+                      type: string
+                      example: N/A
+                      description: Valid user id in DDP system. It is for (For internal use)
                     ADDRESS2:
                       type: string
                       description: Address 2
