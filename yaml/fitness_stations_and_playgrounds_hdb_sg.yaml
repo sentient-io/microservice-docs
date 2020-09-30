@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: HDB Fitness Stations and Playgrounds (SG)
+  x-subscribelink: fitness_stations_and_playgrounds_hdb_sg
   description: |+
     This Data microservice captures the indicative outline of fitness stations/playgrounds for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery (2014) and manually digitized. Objects largely obstructed by trees, structures and/or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were extrapolated where possible and may not fully represent the actual shape of the actual object.
     As this is a dataset download microservice, a successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
