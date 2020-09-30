@@ -129,7 +129,13 @@
                       SYSTEM_ID
                       CREATION_DATE
                       USER_ID
-                    example:
+                    example:  |+
+                      <META_INFO>
+                      <SERVICE><![CDATA[BFE]]></SERVICE>
+                      <SYSTEM_ID><![CDATA[DDP]]></SYSTEM_ID>
+                      <CREATION_DATE>25/02/2009 17:31:44></CREATION_DATE>
+                      <USER_ID><![CDATA[plcust102]]></USER_ID>
+                      </META_INFO>
                     properties:
                       SERVICE:
                         type: string
@@ -172,7 +178,28 @@
                       AC_RATIOS_YR3
                       AC_RATIOS_YR4
                       AC_RATIOS_YR5
-                    example: 
+                    example:  |+
+                      <FH_SEARCH_INFO>
+                      <COMP_NAME><![CDATA[DUN & BRADSTREET (SINGAPORE) PTE. LTD.]]></COMP_NAME>
+                      <REG_NO><![CDATA[200003058W]]></REG_NO>
+                      <REQ_DATE>2009-04-21 10:56:06.716</REQ_DATE>
+                      <REQ_REG_NO><![CDATA[200003058W]]></REQ_REG_NO>
+                      <REQ_NAME><![CDATA[DUN & BRADSTREET (SINGAPORE) PTE. LTD.]]></REQ_NAME>
+                      <REQ_DATE_STR><![CDATA[21/04/2009 10:56:06]]></REQ_DATE_STR>
+                      <FH_BEFORE_YR1>2004</FH_BEFORE_YR1>
+                      <FH_BEFORE_YR2>2003</FH_BEFORE_YR2>
+                      <FH_BEFORE_YR3>2002</FH_BEFORE_YR3>
+                      <FH_AFTER_YR1>2005</FH_AFTER_YR1>
+                      <FH_AFTER_YR2>2006</FH_AFTER_YR2>
+                      <FH_AFTER_YR3>2007</FH_AFTER_YR3>
+                      <FH_AFTER_YR4>2008</FH_AFTER_YR4>
+                      <FH_AFTER_YR5>2009</FH_AFTER_YR5>
+                      <AC_RATIOS_YR1>2008</AC_RATIOS_YR1>
+                      <AC_RATIOS_YR2>2007</AC_RATIOS_YR2>
+                      <AC_RATIOS_YR3>2006</AC_RATIOS_YR3>
+                      <AC_RATIOS_YR4>2005</AC_RATIOS_YR4>
+                      <AC_RATIOS_YR5>2004</AC_RATIOS_YR5>
+                      </FH_SEARCH_INFO>
                     properties:
                       COMP_NAME:
                         type: string
@@ -201,7 +228,7 @@
                       FH_BEFORE_YR1:
                         type: string
                         description: Financial Highlight filed before year 1
-                        example: 2004
+                        example: "2004"
                       FH_BEFORE_YR2:
                         type: string
                         description: Financial Highlight filed before year 2
