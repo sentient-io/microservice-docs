@@ -9,7 +9,7 @@
       The named-entity classes extracted are persons, locations, organisations and miscellaneous.
       
       This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
-    x-subscribelink: "page_profiler_eng"
+    x-subscribelink: page_profiler_eng
     version: '1.0'
   servers:
     - url: 'https://apis.sentient.io'
