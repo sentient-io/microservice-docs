@@ -195,7 +195,7 @@
             x-name: url
             type: string
             default: true
-            example: https://www.sentient.io/en/
+            example: "The absolute input url, i.e exact, full address (URL) to the page"
             description: |+
               Input url 
               
