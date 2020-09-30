@@ -194,17 +194,17 @@ components:
             1. news_parliament - 16 kHz, mono channel, .wav format. Trained on Singapore news and parliament corpus.
             2. nsc_parliament - 16 kHz, mono channel, .wav format. Trained on National Speech Corpus and parliament corpus.
             3. nscfull_8k - 8 kHz, mono channel, .wav format. Trained on National Speech Corpus. Trained on Full National Speech Corpus corpus.
-        wav_base64:
-          x-name: wav_base64
+        wav_url/wav_base64:
+          x-name: wav_url/wav_base64
           type: string
           default: true
-          example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+          example: https://api.sentient.io/test2.wav or UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: |+
-            Input audio wav file in base64 format. Mono channel, 8kHz / 16kHz sampling rate.
+            The public URL link to the wave file or Input audio wav file in base64 format. Mono channel, 8kHz / 16kHz sampling rate.
         file_type:
           x-name: file_type
           type: string
-          default: true
+          default: false
           example: wav
           description: |+
             Input file extension. Only “wav” is supported at the moment.
@@ -212,7 +212,7 @@ components:
           x-name: vad_threshold
           type: number
           format: float
-          default: true
+          default: false
           example: 0.4
           description: |+
             0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.

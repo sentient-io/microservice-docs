@@ -302,7 +302,7 @@ components:
           type: string
           default: true
           example: https://www.bbc.co.uk
-          description: Web page URL
+          description: The absolute input url, i.e exact, full address (URL) to the page
         queryList:
           type: array
           default: false

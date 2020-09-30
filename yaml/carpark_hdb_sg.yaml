@@ -185,8 +185,8 @@ paths:
                     _source:
                       cpk_no: BE37
                       block: BLK 282
-                      street: BISHAN STREET 22
-                      address: BLK 282 BISHAN STREET 22
+                      street: BE37 BISHAN STREET 22
+                      address: BLK 282 BE37 BISHAN STREET 22
                       source: hdb
                       xcoord: '29235.553'
                       ycoord: '37787.1371'
