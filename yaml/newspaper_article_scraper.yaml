@@ -290,9 +290,9 @@ components:
       properties:
         url:
           type: string
-          example: "The absolute input url, i.e exact, full address (URL) to the page"
+          example: https://www.bangkokpost.com/learning/news/1272315/study-and-work-in-australia-%E2%80%93-many-opportunities-ahead
           default: true
-          description: News article web URL.
+          description: The absolute input url, i.e exact, full address (URL) to the page
   securitySchemes:
     APIAuthorizer:
       type: apiKey
