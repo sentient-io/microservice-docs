@@ -4,6 +4,7 @@ info:
   description: |+
     This API is used to extract the sound from a video file and save it in an audio file.
   version: '0.1'
+  x-subscribelink: video-to-audio_convertor
 servers:
   - url: 'https://apis.sentient.io'
 tags:
