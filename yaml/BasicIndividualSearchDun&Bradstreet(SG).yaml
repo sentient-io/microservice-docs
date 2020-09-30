@@ -28,7 +28,73 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example: |+
-                <success><report><meta_info><service>string</service> <system_id>string</system_id> <creation_date>string</creation_date> <user_id>string</user_id></meta_info> <basic_info><pa_reg_no>string</pa_reg_no> <address1>string</address1> <address2>string</address2> <address3>string</address3></basic_info> <lit_search_info><comp_name>string</comp_name> <reg_no>string</reg_no> <report_type>string</report_type> <req_date>string</req_date> <req_reg_no>string</req_reg_no> <req_name>string</req_name> <req_date_str>string</req_date_str></lit_search_info> <list_current_comp><current_comp><position>string</position> <appointment_date>string</appointment_date> <comp_name>string</comp_name> <seq_no>string</seq_no> <share_value1>string</share_value1> <comp_status>string</comp_status> <profit_value1>string</profit_value1> <profit_value2>string</profit_value2> <profit_value3>string</profit_value3> <share_value>string</share_value> <tel>string</tel> <fax>string</fax> <sic>string</sic> <sic_desc>string</sic_desc></current_comp> </list_current_comp><list_previous_comp><previous_comp><position>string</position> <appointment_date>string</appointment_date> <comp_name>string</comp_name> <seq_no>string</seq_no> <share_value1>string</share_value1> <comp_status>string</comp_status> <cessation_date>string</cessation_date> <share_value>string</share_value> <tel>string</tel> <fax>string</fax> <sic>string</sic> <sic_desc>string</sic_desc></previous_comp> </list_previous_comp><list_bankruptcy><bankruptcy><subject_name>string</subject_name> <court_code>string</court_code> <case_code>string</case_code> <case_year>string</case_year> <action_date>string</action_date> <bankruptcy_act>string</bankruptcy_act> <hearing_date>string</hearing_date> <currency1>string</currency1> <amount1>string</amount1> <currency2>string</currency2> <amount2>string</amount2> <currency3>string</currency3> <bankruptcy_type>string</bankruptcy_type> <list_plaintiff><plaintiff><pla_name>string</pla_name> <pla_solicitor>string</pla_solicitor> <pla_solicitor_id>string</pla_solicitor_id> <pla_file_ref>string</pla_file_ref></plaintiff> </list_plaintiff></bankruptcy></list_bankruptcy><list_lit><lit><subject_name>string</subject_name> <seq_no>string</seq_no> <formatted_id>string</formatted_id></lit> </list_lit><list_lit_dtl><lit_dtl><nature_of_claim>string</nature_of_claim> <status_date>string</status_date> <case_no>string</case_no> <formatted_id>string</formatted_id> <doc_remarks>string</doc_remarks> <currency1>string</currency1> <currency2>string</currency2> <currency3>string</currency3> <currency4>string</currency4> <currency5>string</currency5> <case_status>string</case_status> <amount1>string</amount1> <amount2>string</amount2> <amount3>string</amount3> <amount4>string</amount4> <amount5>string</amount5> <list_plaintiff><plaintiff><pla_name>string</pla_name> <law_firm>string</law_firm> <write_date>string</write_date> <pla_solicitor>string</pla_solicitor> <pla_solicitor_id>string</pla_solicitor_id> <pla_file_ref>string</pla_file_ref> <pla_status>string</pla_status> <pla_status_date>string</pla_status_date> <pla_id>string</pla_id></plaintiff> </list_plaintiff><list_defendant><defendant><def_solicitor>string</def_solicitor> <def_solicitor_id>string</def_solicitor_id> <def_law_firm>string</def_law_firm> <def_file_ref>string</def_file_ref></defendant> </list_defendant></lit_dtl></list_lit_dtl><list_ddrptcount><ddrptcount><rcjan>0</rcjan> <rcfeb>0</rcfeb> <rcmar>0</rcmar> <rcapr>0</rcapr> <rcmay>0</rcmay> <rcjun>0</rcjun> <rcjul>0</rcjul> <rcaug>0</rcaug> <rcsep>0</rcsep> <rcoct>0</rcoct> <rcnov>0</rcnov> <rcdec>0</rcdec> <rcyear>0</rcyear> <rcsecflag>0</rcsecflag></ddrptcount></list_ddrptcount></report></success>
+                <REPORT> <META_INFO>
+                <SERVICE><![CDATA[BIS]]></SERVICE> <SYSTEM_ID><![CDATA[DDP]]></SYSTEM_ID> <CREATION_DATE>25/02/2009 17:31:44.678</CREATION_DATE> <USER_ID><![CDATA[plcust102]]></USER_ID>
+                </META_INFO> <BASIC_INFO>
+                <PA_REG_NO type="String"><![CDATA[00091]]></ PA_REG_NO>
+                <ADDRESS1><![CDATA[137, BEDOK RESERVOIR ROAD, 06 - 1451]]></ADDRESS1> <ADDRESS2><![CDATA[-]]></ADDRESS2>
+                <ADDRESS3><![CDATA[470137, SINGAPORE]]></ADDRESS3>
+                </BASIC_INFO> <LIT_SEARCH_INFO>
+                <COMP_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></COMP_NAME> <REG_NO><![CDATA[197803191K]]></REG_NO> <REPORT_TYPE><![CDATA[BIS]]></REPORT_TYPE> <REQ_DATE>25/02/2009 17:31:44</REQ_DATE> <REQ_REG_NO><![CDATA[197803191K]]></REQ_REG_NO> <REQ_NAME><![CDATA[LOY KOK TOON]]></REQ_NAME> <REQ_DATE_STR><![CDATA[25/02/2009 15:04:14]]></REQ_DATE_STR>
+                </LIT_SEARCH_INFO> <LIST_CURRENT_COMP>
+                <CURRENT_COMP>
+                <POSITION><![CDATA[OWNER]]></POSITION> <APPOINTMENT_DATE><![CDATA[01/09/1971]]></APPOINTMENT_DATE> <COMP_NAME><![CDATA[BAN HOE LEONG COMPANY]]></COMP_NAME> <SEQ_NO><![CDATA[03647300J]]></SEQ_NO> <SHARE_VALUE1><![CDATA[15.00]]></SHARE_VALUE1> <COMP_STATUS><![CDATA[LIVE]]></COMP_STATUS> <PROFIT_VALUE1><![CDATA[2008 = -]]></PROFIT_VALUE1> <PROFIT_VALUE2><![CDATA[2007 = -]]></PROFIT_VALUE2> <PROFIT_VALUE3><![CDATA[2006 = -]]></PROFIT_VALUE3> <SHARE_VALUE><![CDATA[150000]]></SHARE_VALUE> <TEL><![CDATA[62994842]]></TEL>
+                <FAX><![CDATA[62992797]]></FAX>
+                <SIC><![CDATA[5012]]></SIC>
+                <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
+                </CURRENT_COMP> </LIST_CURRENT_COMP> <LIST_PREVIOUS_COMP>
+                <PREVIOUS_COMP>
+                <POSITION><![CDATA[SHAREHOLDER]]></POSITION> <APPOINTMENT_DATE><![CDATA[30/06/1988]]></APPOINTMENT_DATE>
+                <COMP_NAME><![CDATA[ENG YICK INDUSTRIES PTE LTD]]></COMP_NAME> <SEQ_NO><![CDATA[198101820Z]]></SEQ_NO>
+                <SHARE_VALUE1><![CDATA[100.00]]></SHARE_VALUE1>
+                <COMP_STATUS><![CDATA[DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)]]></COMP_STATUS> <CESSATION_DATE><![CDATA[22/09/1992]]></CESSATION_DATE> <SHARE_VALUE><![CDATA[390002]]></SHARE_VALUE>
+                <TEL><![CDATA[62994842]]></TEL>
+                <FAX><![CDATA[67467646]]></FAX>
+                <SIC><![CDATA[2325]]></SIC>
+                <SIC_DESC><![CDATA[Menâ€TMs and Boysâ€TM Separate Trousers and Slacks]]></SIC_DESC>
+                </PREVIOUS_COMP> </LIST_PREVIOUS_COMP> <LIST_BANKRUPTCY>
+                <BANKRUPTCY>
+                <SUBJECT_NAME><![CDATA[-]]></SUBJECT_NAME> <COURT_CODE><![CDATA[CWU]]></COURT_CODE> <CASE_CODE><![CDATA[381]]></CASE_CODE> <CASE_YEAR><![CDATA[2000]]></CASE_YEAR> <ACTION_DATE><![CDATA[22/12/2000]]></ACTION_DATE> <BANKRUPTCY_ACT><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT> <HEARING_DATE><![CDATA[26/03/2009]]></HEARING_DATE> <CURRENCY1><![CDATA[-]]></CURRENCY1> <AMOUNT1><![CDATA[334,616.00]]></AMOUNT1> <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                <AMOUNT2><![CDATA[0.00]]></AMOUNT1>
+                <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                <BANKRUPTCY_TYPE><![CDATA[COMPANY WINDING UP PETITION]]></BANKRUPTCY_TYPE> <LIST_PLAINTIFF>
+                <PLAINTIFF>
+                <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME> <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID> <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                </PLAINTIFF> </LIST_PLAINTIFF>
+                </BANKRUPTCY> </LIST_BANKRUPTCY> <LIST_LIT>
+                <LIT>
+                <SUBJECT_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></SUBJECT_NAME> <SEQ_NO><![CDATA[1]]></SEQ_NO> <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID >
+                </LIT> </LIST_LIT>
+                <LIST_LIT_DTL> <LIT_DTL>
+                <NATURE_OF_CLAIM><![CDATA[CONTRACTS-WORK DONE & SERVICES RENDERED]]></NATURE_OF_CLAIM> <STATUS_DATE><![CDATA[13/08/2001]]></STATUS_DATE>
+                <CASE_NO><![CDATA[MC 23631 / 2001]]></CASE_NO> <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID>
+                <DOC_REMARKS><![CDATA[WRIT OF SUMMONS]]></DOC_REMARKS> <CURRENCY1><![CDATA[SIN]]></CURRENCY1> <CURRENCY2><![CDATA[-]]></CURRENCY2> <CURRENCY3><![CDATA[-]]></CURRENCY3> <CURRENCY4><![CDATA[-]]></CURRENCY4> <CURRENCY5><![CDATA[-]]></CURRENCY5> <CASE_STATUS><![CDATA[PENDING AS AT STATUS DATE]]></CASE_STATUS> <AMOUNT1><![CDATA[36,196.00]]></AMOUNT1> <AMOUNT2><![CDATA[0.00]]></AMOUNT2> <AMOUNT3><![CDATA[0.00]]></AMOUNT3> <AMOUNT4><![CDATA[0.00]]></AMOUNT4> <AMOUNT5><![CDATA[0.00]]></AMOUNT5>
+                <LIST_PLAINTIFF> <PLAINTIFF>
+                <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME> <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM> <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE> <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID> <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                <PLA_STATUS>-</PLA_STATUS> <PLA_STATUS_DATE>-</PLA_STATUS_DATE> <PLA_ID>S7250163B</PLA_ID>
+                </PLAINTIFF> <PLAINTIFF>
+                <PLA_NAME><![CDATA[ABC PTE LTD]]></PLA_NAME> <LAW_FIRM><![CDATA[JAMES & JOE]]></LAW_FIRM> <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE> <PLA_SOLICITOR><![CDATA[KHOO JAMES]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID> <PLA_FILE_REF><![CDATA[CHH 6253 X10]]></PLA_FILE_REF>
+                <PLA_STATUS>-</PLA_STATUS> <PLA_STATUS_DATE>-</PLA_STATUS_DATE> <PLA_ID>S7250163B</PLA_ID>
+                </PLAINTIFF> </LIST_PLAINTIFF> <LIST_DEFENDANT>
+                <DEFENDANT> <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR> <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID> <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM> <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                </DEFENDANT> </LIST_DEFENDANT>
+                </LIT_DTL> </LIST_LIT_DTL>
+                <LIST_Ddrptcount> <Ddrptcount>
+                <Rcjan>1</Rcjan> <Rcfeb>1</Rcfeb> <Rcmar>1</Rcmar> <Rcapr>1</Rcapr> <Rcmay>1</Rcmay> <Rcjun>1</Rcjun> <Rcjul>1</Rcjul> <Rcaug>1</Rcaug> <Rcsep>1</Rcsep> <Rcoct>1</Rcoct> <Rcnov>1</Rcnov> <Rcdec>1</Rcdec> <Rcyear>2017</Rcyear> <Rcsecflag>1</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov> <Rcdec>0</Rcdec> <Rcyear>2016</Rcyear> <Rcsecflag>1</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov> <Rcdec>0</Rcdec> <Rcyear>2015</Rcyear> <Rcsecflag>1</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov> <Rcdec>0</Rcdec> <Rcyear>2017</Rcyear> <Rcsecflag>0</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov> <Rcdec>0</Rcdec> <Rcyear>2016</Rcyear> <Rcsecflag>0</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov>
+                <Rcdec>0</Rcdec> <Rcyear>2015</Rcyear> <Rcsecflag>0</Rcsecflag>
+                </Ddrptcount> </LIST_Ddrptcount>
+                </REPORT>
         '401':
           description: Unauthorized
           content:
@@ -1185,15 +1251,15 @@ components:
           default: false
         ENQUIRY:
           type: object
-          example: 
+          example: |+
+            <ENQUIRY><SUBJECT_IDNO>197601887E</SUBJECT_IDNO><SUBJECT_NAME>TRANSTAR TRAVEL PTE LTD</SUBJECT_NAME></ENQUIRY>
           description: Contains information of each request details
           default: true
           properties:
             SUBJECT_IDNO:
               type: string
-              example: "199707714C"
-              description: |+
-                Subjects ID Number (individual) or Registration
+              example: 199707714C
+              description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
               default: true
             SUBJECT_NAME:
               type: string
