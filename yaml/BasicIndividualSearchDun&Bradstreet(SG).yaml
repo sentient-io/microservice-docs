@@ -319,23 +319,7 @@ components:
                         FAX
                         SIC
                         SIC_DESC
-                      example:  |+
-                        <CURRENT_COMP>
-                        <POSITION><![CDATA[OWNER]]></POSITION>
-                        <APPOINTMENT_DATE><![CDATA[01/09/1971]]></APPOINTMENT_DATE>
-                        <COMP_NAME><![CDATA[BAN HOE LEONG COMPANY]]></COMP_NAME>
-                        <SEQ_NO><![CDATA[03647300J]]></SEQ_NO>
-                        <SHARE_VALUE1><![CDATA[15.00]]></SHARE_VALUE1>
-                        <COMP_STATUS><![CDATA[LIVE]]></COMP_STATUS>
-                        <PROFIT_VALUE1><![CDATA[2008 = -]]></PROFIT_VALUE1>
-                        <PROFIT_VALUE2><![CDATA[2007 = -]]></PROFIT_VALUE2>
-                        <PROFIT_VALUE3><![CDATA[2006 = -]]></PROFIT_VALUE3>
-                        <SHARE_VALUE><![CDATA[150000]]></SHARE_VALUE>
-                        <TEL><![CDATA[62994842]]></TEL>
-                        <FAX><![CDATA[62992797]]></FAX>
-                        <SIC><![CDATA[5012]]></SIC>
-                        <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
-                        </CURRENT_COMP> 
+                      example: 
                       properties:
                         POSITION:
                           type: string
