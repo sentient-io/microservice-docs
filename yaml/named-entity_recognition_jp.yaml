@@ -8,6 +8,7 @@ info:
     
     This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
   version: '0.1'
+  x-subscribelink: named-entity_recognition_jp
 servers:
   - url: 'https://apis.sentient.io'
 tags:
