@@ -41,7 +41,7 @@ paths:
                   - worlds
                   language: en
                   link: https://www.bangkokpost.com/learning/news/1272315/study-and-work-in-australia-%E2%80%93-many-opportunities-ahead-
-                  publish_date: []
+                  publish_date: 2020-09-30T07:11:15
                   summary: |-
                     Australia is a country welcoming international students to study at all levels of education with its quality and the part-time work rights given.
                     Moreover, there are opportunities to work full-time and to migrate and hold Australian citizenship after graduation from Australia.
@@ -168,7 +168,7 @@ components:
               description: Main article link url.
             publish_date: 
               type: string
-              example: []
+              example: 2020-09-30T07:11:15
               description: Published date of news article.
             summary: 
               type: string
@@ -290,7 +290,7 @@ components:
       properties:
         url:
           type: string
-          example: https://www.bangkokpost.com/learning/news/1272315/study-and-work-in-australia-%E2%80%93-many-opportunities-ahead
+          example: "The absolute input url, i.e exact, full address (URL) to the page"
           default: true
           description: News article web URL.
   securitySchemes:
