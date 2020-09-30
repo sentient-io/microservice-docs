@@ -496,85 +496,193 @@ components:
                             example:
                 LIST_LIT_DTL:
                   type: array
-                  description: List of litigation detail
+                  description:  |+
+                    List of litigation detail with following children&#58;
+                    [LIT_DTL]
                   example: "[LIT_DTL]"
                   items:
                     properties:
                       LIT_DTL:
                         type: object
+                        description:  |+
+                          Litigation detail with following children&#58;
+                          NATURE_OF_CLAIM
+                          STATUS_DATE
+                          CASE_NO
+                          FORMATTED_ID
+                          DOC_REMARKS
+                          CURRENCY1
+                          CURRENCY2
+                          CURRENCY3
+                          CURRENCY4
+                          CURRENCY5
+                          CASE_STATUS
+                          AMOUNT1
+                          AMOUNT2
+                          AMOUNT3
+                          AMOUNT4
+                          AMOUNT5
+                          [LIST_PLAINTIFF]
+                          [LIST_DEFENDANT]
+                        example:
                         properties:                      
                           NATURE_OF_CLAIM:
                             type: string
+                            description: Nature of Claim 
+                            example:
                           STATUS_DATE:
                             type: string
+                            description: Status Date
+                            example:
                           CASE_NO:
                             type: string
+                            description: Case No.
+                            example:
                           FORMATTED_ID:
                             type: string
+                            description: Formatted ID 
+                            example:
                           DOC_REMARKS:
                             type: string
+                            description: Document Remark
+                            example:
                           CURRENCY1:
-                            type: string 
+                            type: string
+                            description: Currency 1 
+                            example:
                           CURRENCY2:
                             type: string
+                            description: Currency 2
+                            example:
                           CURRENCY3:
                             type: string
+                            description: Currency 3
+                            example:
                           CURRENCY4:
-                            type: string 
+                            type: string
+                            description: Currency 4
+                            example:
                           CURRENCY5:
                             type: string
+                            description: Currency 5
+                            example:
                           CASE_STATUS:
                             type: string
+                            description: Status
+                            example:
                           AMOUNT1:
-                            type: string 
+                            type: string
+                            description: Amount 1 
+                            example:
                           AMOUNT2:
                             type: string
+                            description: Amount 2
+                            example:
                           AMOUNT3:
                             type: string
+                            description: Amount 3
+                            example:
                           AMOUNT4:
-                            type: string     
+                            type: string
+                            description: Amount 4
+                            example:
                           AMOUNT5:
-                            type: string      
+                            type: string
+                            description: Amount 5
+                            example:
                           LIST_PLAINTIFF:
                             type: array
+                            description:  |+
+                              List of plaintiff with following children&#58;
+                              [PLAINTIFF]
+                            example:
                             items:
                               properties:
                                 PLAINTIFF:
                                   type: object
+                                  description:   |+
+                                    Plaintiff detail with following children&#58;
+                                    PLA_NAME
+                                    LAW_FIRM
+                                    WRITE_DATE
+                                    PLA_SOLICITOR
+                                    PLA_SOLICITOR_ID
+                                    PLA_FILE_REF
+                                    PLA_STATUS
+                                    PLA_STATUS_DATE
+                                    PLA_ID
+                                  example:
                                   properties:
                                     PLA_NAME:
                                       type: string
+                                      description: Plaintiff Name 
+                                      example:
                                     LAW_FIRM:
                                       type: string
+                                      description: Pla. Law Firm 
+                                      example:
                                     WRITE_DATE:
                                       type: string
+                                      description: Writ date
+                                      example:
                                     PLA_SOLICITOR:
-                                      type: string  
+                                      type: string
+                                      description: Plaintiff Solicitor
+                                      example:
                                     PLA_SOLICITOR_ID:
                                       type: string
+                                      description: Plaintiff Solicitor ID
+                                      example:
                                     PLA_FILE_REF:
                                       type: string
+                                      description: Pla. File Ref.
+                                      example:
                                     PLA_STATUS:
                                       type: string
+                                      description: Plaintiff Status
+                                      example:
                                     PLA_STATUS_DATE:
-                                      type: string       
+                                      type: string
+                                      description: Plaintiff Status Date 
+                                      example:
                                     PLA_ID:
-                                      type: string  
+                                      type: string
+                                      description: Plaintiff ID
+                                      example:
                           LIST_DEFENDANT:
                             type: array
+                            description:  |+
+                              List of defendant with following children&#58;
+                              [DEFENDANT]
+                            example:
                             items:
                               properties:
                                 DEFENDANT:
                                   type: object
+                                  description:  |+
+                                    Defendant detail with following children&#58;
+                                    DEF_SOLICITOR
+                                    DEF_SOLICITOR_ID
+                                    DEF_LAW_FIRM
+                                    DEF_FILE_REF
+                                  example:
                                   properties:
                                     DEF_SOLICITOR:
                                       type: string
+                                      description: Def. Solicitor
+                                      example:
                                     DEF_SOLICITOR_ID:
                                       type: string
+                                      description: Def. Solicitor ID 
+                                      example:
                                     DEF_LAW_FIRM:
                                       type: string
+                                      description: Def. Law Firm 
+                                      example:
                                     DEF_FILE_REF:
                                       type: string
+                                      description: Def. File Ref. 
+                                      example:
                 LIST_Ddrptcount:
                   type: array
                   description: List of Search By Financial Sectors and Search By Non-Financial Sectors
