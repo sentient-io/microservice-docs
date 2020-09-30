@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: HDB Lamp Posts Locations (SG)
+  x-subscribelink: amenities_lamp_posts_hdb_sg
   description: |+
    This Data microservice returns the indicative location of lamp posts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. 
    As this is a dataset download microservice, a successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
