@@ -377,98 +377,123 @@ components:
                         properties:
                           SUBJECT_NAME :
                             type: string
-                            description:
+                            description:  Subject Name  
                             example:
                           COURT_CODE:
                             type: string
-                            description:
+                            description: Court Code
                             example:
                           CASE_CODE:
                             type: string
-                            description:
+                            description: Case Code
                             example:
                           CASE_YEAR:
                             type: string
-                            description:
+                            description: Case Year
                             example:
                           ACTION_DATE:
                             type: string
-                            description:
+                            description: Action Date 
                             example:
                           BANKRUPTCY_ACT:
                             type: string
-                            description:
+                            description: Act of Bankruptcy
                             example:
                           HEARING_DATE :
                             type: string
-                            description:
+                            description: Hearing Date
                             example:
                           CURRENCY1:
                             type: string
-                            description:
+                            description: Currency
                             example:
                           AMOUNT1:
                             type: string
-                            description:
+                            description: Amount
                             example:
                           CURRENCY2:
                             type: string
-                            description:
+                            description: Currency
                             example:
                           AMOUNT2:
                             type: string
-                            description:
+                            description: Amount
                             example:
                           CURRENCY3:
                             type: string
-                            description:
+                            description: Currency
                             example:
+                          AMOUNT3:
+                            type: string
+                            description: Amount
                           BANKRUPTCY_TYPE:
                             type: string
-                            description:
+                            description: Bankruptcy Type 
                             example:
                           LIST_PLAINTIFF:
                             type: array
-                            description:
+                            description:  |+
+                              List of Plaintiff with following children&#58;
+                              [PLAINTIFF]
                             example:
                             items:
                               properties:
                                 PLAINTIFF:
                                   type: object
-                                  description:
+                                  description:   |+
+                                    Plaintiff detail with following children&#58;
+                                    PLA_NAME
+                                    PLA_SOLICITOR
+                                    PLA_SOLICITOR_ID
+                                    PLA_FILE_REF
                                   example:
                                   properties:
                                     PLA_NAME:
                                       type: string
-                                      description:
+                                      description: Pla. Name
                                       example:
                                     PLA_SOLICITOR:
                                       type: string
-                                      description:
+                                      description: Pla. Solicitor
                                       example:
                                     PLA_SOLICITOR_ID:
                                       type: string
-                                      description:
+                                      description: Pla. Solicitor ID 
                                       example:
                                     PLA_FILE_REF:
                                       type: string
-                                      description:
+                                      description: Pla. File Ref.
                                       example:
                 LIST_LIT:
                   type: array
-                  description: List of litigation
+                  description:  |+
+                    List of litigation with following children&#58;
+                    [LIT]
                   example: "[LIT]"
                   items:
                     properties:
                       LIT:
                         type: object
+                        description:   |+
+                          Basic litigation info with following children&#58;
+                          SUBJECT_NAME
+                          SEQ_NO
+                          FORMATTED_ID
+                          [LIST_LIT_DTL]
+                        example:
                         properties:                      
                           SUBJECT_NAME:
                             type: string
+                            description: Name
+                            example:
                           SEQ_NO:
-                            type: string
+                            type: integer
+                            description: Sequence No.
+                            example:
                           FORMATTED_ID:
                             type: string
+                            description: Formatted ID
+                            example:
                 LIST_LIT_DTL:
                   type: array
                   description: List of litigation detail
