@@ -10,6 +10,7 @@ info:
     
     Supported languages: Hindi, German, Spanish, Portuguese, French, Turkish, Italian, Russian, Arabic, Indonesian, Chinese, Japanese and Korean.
   version: '1.0'
+  x-subscribelink: pdf_extractor
 servers:
   - url: 'https://apis.sentient.io'
 tags:
