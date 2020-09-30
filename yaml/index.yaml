@@ -67,7 +67,7 @@ NLP:
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/word_sense_disambiguation_eng.yaml"
     Named-Entity Recognition JP:
-        title: Named-Entity Recognition JAP
+        title: Named-Entity Recognition JP
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_jp_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_jp.yaml"
