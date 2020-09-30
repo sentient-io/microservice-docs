@@ -301,7 +301,7 @@ components:
         url:
           type: string
           default: true
-          example: https://www.bbc.co.uk
+          example: "The absolute input url, i.e exact, full address (URL) to the page"
           description: Web page URL
         queryList:
           type: array
