@@ -6,6 +6,7 @@ info:
     
     Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
   version: '0.1'
+  x-subscribelink: video-to-image_convertor
 servers:
   - url: 'https://apis.sentient.io'
 tags:
