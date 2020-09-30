@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: HDB Residential Occupancy Status (SG)
+  x-subscribelink: residential_sales_and_rental_hdb_sg
   description: |+
    This Data microservice retreives comprehensive details of each HDB block in Singapore including the number of units for each type of flats and whether they were sold or leased. Queries based on keywords and proximity to particular locations can be performed. Updated weekly.
 
