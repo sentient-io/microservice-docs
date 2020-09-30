@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: Directory of Singapore Startups
+  x-subscribelink: directory_of_singapore_startups
   description: |+
     This Data microservice retrieves the list of all Singapore startup companies found on the internet through web scraping. Updated quarterly.
   x-additionalinfo: |+
