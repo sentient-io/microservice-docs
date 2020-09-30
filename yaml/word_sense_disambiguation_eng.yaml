@@ -6,6 +6,7 @@ info:
     
     If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
   version: '0.1'
+  x-subscribelink: word_sense_disambiguation_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
