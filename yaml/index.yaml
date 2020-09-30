@@ -39,11 +39,25 @@ NLP:
     Named-Entity Recognition ENG:
         title: Named-Entity Recognition ENG
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_eng_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_eng.yaml"
+    spaCy NER:
+        title: spaCy NER
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/spacy_named-entity_recognition_eng.yaml"
     Page Profiler ENG:
         title: Page Profiler ENG
         versions:
+            v2.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/page_profiler_eng_v2.0.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/page_profiler_eng.yaml"
+    Page Profiler JAP:
+        title: Page Profiler JAP
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/page_profiler_jp.yaml"
+    Page Profiler THAI:
+        title: Page Profiler THAI
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/page_profiler_thai.yaml"
     Taxonomy Matcher ENG:
         title: Taxonomy Matcher ENG
         versions:
@@ -55,10 +69,12 @@ NLP:
     Named-Entity Recognition JAP:
         title: Named-Entity Recognition JAP
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_jap_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_jap.yaml"
     Named Entity Recognition THAI:
         title: Named Entity Recognition THAI
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_thai_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/named-entity_recognition_thai.yaml"
     Script Alignment:
         title: Script Alignment
@@ -195,8 +211,25 @@ Data:
         title: HDB Shelters Locations (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_shelters_hdb_sg.yaml"
+    Business Check Plus Dun & Bradstreet (SG):
+        title: Business Check Plus Dun & Bradstreet (SG)
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/BusinessCheckPlusDun&Bradstreet(SG).yaml"
+    Basic Individual Search Dun & Bradstreet (SG):
+        title: Basic Individual Search Dun & Bradstreet (SG)
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/BasicIndividualSearchDun&Bradstreet(SG).yaml"
+    Business Check Dun & Bradstreet (SG):
+        title: Business Check Dun & Bradstreet (SG)
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/BusinessCheckDun&Bradstreet(SG).yaml"
+    Brief Financial Extraction Dun & Bradstreet (SG):
+        title: Brief Financial Extraction Dun & Bradstreet (SG)
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/BriefFinancialExtractionDun&Bradstreet(SG).yaml"
 Data Alliance:
     Download Dataset API:
         title: Download Dataset API
+        urlkey: download_dataset_api
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/download_dataset.yaml"
