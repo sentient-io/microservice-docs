@@ -1123,7 +1123,44 @@ components:
                     TOTAL_DEBT_RATIO1
 
                     Note: Each tag will consist of maximum 5 sets with suffix 1 to 5. But it is optional, depending on how many years of FH & XBRL data displayed in the report.
-                  example:
+                  example:  |+
+                    <FH_RATIOS_DTL>
+                    <RATE_NET_PROFIT1>12.39</RATE_NET_PROFIT1>
+                    <RATE_NET_PROFIT2>2.63</RATE_NET_PROFIT2>
+                    <RATE_NET_PROFIT3>0.00</RATE_NET_PROFIT3>
+                    <RATE_NET_PROFIT4>0.00</RATE_NET_PROFIT4>
+                    <RATE_NET_PROFIT5>0.00</RATE_NET_PROFIT5>
+                    <RET_INVESTMENT1>20.53</RET_INVESTMENT1>
+                    <RET_INVESTMENT2>4.84</RET_INVESTMENT2>
+                    <RET_INVESTMENT3>0.00</RET_INVESTMENT3>
+                    <RET_INVESTMENT4>0.00</RET_INVESTMENT4>
+                    <RET_INVESTMENT5>0.00</RET_INVESTMENT5>
+                    <RET_SH_FUNDS1>-72.01</RET_SH_FUNDS1>
+                    <RET_SH_FUNDS2>-8.16</RET_SH_FUNDS2>
+                    <RET_SH_FUNDS3>-0.00</RET_SH_FUNDS3>
+                    <RET_SH_FUNDS4>-0.00</RET_SH_FUNDS4>
+                    <RET_SH_FUNDS5>-0.00</RET_SH_FUNDS5>
+                    <TOT_ASSETS_TURNOVER1>1.66</TOT_ASSETS_TURNOVER1>
+                    <TOT_ASSETS_TURNOVER2>1.84</TOT_ASSETS_TURNOVER2>
+                    <TOT_ASSETS_TURNOVER3>2.42</TOT_ASSETS_TURNOVER3>
+                    <TOT_ASSETS_TURNOVER4>2.54</TOT_ASSETS_TURNOVER4>
+                    <TOT_ASSETS_TURNOVER5>1.78</TOT_ASSETS_TURNOVER5>
+                    <CURR_CAPITAL_RATIO1>0.74</CURR_CAPITAL_RATIO1>
+                    <CURR_CAPITAL_RATIO2>0.62</CURR_CAPITAL_RATIO2>
+                    <CURR_CAPITAL_RATIO3>0.50</CURR_CAPITAL_RATIO3>
+                    <CURR_CAPITAL_RATIO4>0.46</CURR_CAPITAL_RATIO4>
+                    <CURR_CAPITAL_RATIO5>0.55</CURR_CAPITAL_RATIO5>
+                    <PROPRIETARY_RATIO1>-28.51</PROPRIETARY_RATIO1>
+                    <PROPRIETARY_RATIO2>-59.33</PROPRIETARY_RATIO2>
+                    <PROPRIETARY_RATIO3>-89.51</PROPRIETARY_RATIO3>
+                    <PROPRIETARY_RATIO4>-101.59</PROPRIETARY_RATIO4>
+                    <PROPRIETARY_RATIO5>-75.15</PROPRIETARY_RATIO5>
+                    <TOTAL_DEBT_RATIO1>128.51</TOTAL_DEBT_RATIO1>
+                    <TOTAL_DEBT_RATIO2>168.27</TOTAL_DEBT_RATIO2>
+                    <TOTAL_DEBT_RATIO3>189.51</TOTAL_DEBT_RATIO3>
+                    <TOTAL_DEBT_RATIO4>201.59</TOTAL_DEBT_RATIO4>
+                    <TOTAL_DEBT_RATIO5>175.15</TOTAL_DEBT_RATIO5>
+                    </FH_RATIOS_DTL>
                   properties:
                     RATE_NET_PROFIT1 :
                       type: string
@@ -1134,7 +1171,7 @@ components:
                         RATE_NET_PROFIT3
                         RATE_NET_PROFIT4
                         RATE_NET_PROFIT5
-                      example:
+                      example: "12.39"
                     RET_INVESTMENT1 :
                       type: string   
                       description: |+
@@ -1144,7 +1181,7 @@ components:
                         RET_INVESTMENT3
                         RET_INVESTMENT4
                         RET_INVESTMENT5
-                      example:
+                      example: "20.53"
                     RET_SH_FUNDS1 :
                       type: string
                       description: |+
@@ -1154,7 +1191,7 @@ components:
                         RET_SH_FUNDS3
                         RET_SH_FUNDS4
                         RET_SH_FUNDS4
-                      example:
+                      example: "-72.01"
                     TOT_ASSETS_TURNOVER1 :
                       type: string
                       description: |+
@@ -1164,7 +1201,7 @@ components:
                         TOT_ASSETS_TURNOVER3
                         TOT_ASSETS_TURNOVER4
                         TOT_ASSETS_TURNOVER5
-                      example:
+                      example: "1.66"
                     CURR_CAPITAL_RATIO1:
                       type: string
                       description: |+
@@ -1174,7 +1211,7 @@ components:
                         CURR_CAPITAL_RATIO3
                         CURR_CAPITAL_RATIO4
                         CURR_CAPITAL_RATIO5
-                      example:
+                      example: "0.74"
                     PROPRIETARY_RATIO1:
                       type: string
                       description: |+
@@ -1184,7 +1221,7 @@ components:
                         PROPRIETARY_RATIO3
                         PROPRIETARY_RATIO4
                         PROPRIETARY_RATIO5
-                      example:
+                      example: "-28.51"
                     TOTAL_DEBT_RATIO1 :
                       type: string
                       description: |+
@@ -1194,10 +1231,17 @@ components:
                         TOTAL_DEBT_RATIO3
                         TOTAL_DEBT_RATIO4
                         TOTAL_DEBT_RATIO5
-                      example:
+                      example: "128.51"
                 LIST_FH_CHART_INFO :
                   type: array
-                  example: "[FH_CHART_INFO]"
+                  example:  |+
+                    <LIST_FH_CHART_INFO>
+                    <FH_CHART_INFO>
+                    <PROFIT_LOSS>1121483.0</PROFIT_LOSS>
+                    <REVENUE>10877254</REVENUE>
+                    <YEAR>2008</YEAR>
+                    </FH_CHART_INFO>
+                    </LIST_FH_CHART_INFO>
                   description: |+
                     List of chart info with following children&#58;
                     [FH_CHART_INFO]
