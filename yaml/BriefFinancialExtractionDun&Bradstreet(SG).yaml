@@ -129,7 +129,13 @@ components:
                     SYSTEM_ID
                     CREATION_DATE
                     USER_ID
-                  example:
+                  example:  |+
+                    <META_INFO>
+                    <SERVICE><![CDATA[BFE]]></SERVICE>
+                    <SYSTEM_ID><![CDATA[DDP]]></SYSTEM_ID>
+                    <CREATION_DATE>25/02/2009 17:31:44></CREATION_DATE>
+                    <USER_ID><![CDATA[plcust102]]></USER_ID>
+                    </META_INFO>
                   properties:
                     SERVICE:
                       type: string
@@ -172,7 +178,28 @@ components:
                     AC_RATIOS_YR3
                     AC_RATIOS_YR4
                     AC_RATIOS_YR5
-                  example: 
+                  example:  |+
+                    <FH_SEARCH_INFO>
+                    <COMP_NAME><![CDATA[DUN & BRADSTREET (SINGAPORE) PTE. LTD.]]></COMP_NAME>
+                    <REG_NO><![CDATA[200003058W]]></REG_NO>
+                    <REQ_DATE>2009-04-21 10:56:06.716</REQ_DATE>
+                    <REQ_REG_NO><![CDATA[200003058W]]></REQ_REG_NO>
+                    <REQ_NAME><![CDATA[DUN & BRADSTREET (SINGAPORE) PTE. LTD.]]></REQ_NAME>
+                    <REQ_DATE_STR><![CDATA[21/04/2009 10:56:06]]></REQ_DATE_STR>
+                    <FH_BEFORE_YR1>2004</FH_BEFORE_YR1>
+                    <FH_BEFORE_YR2>2003</FH_BEFORE_YR2>
+                    <FH_BEFORE_YR3>2002</FH_BEFORE_YR3>
+                    <FH_AFTER_YR1>2005</FH_AFTER_YR1>
+                    <FH_AFTER_YR2>2006</FH_AFTER_YR2>
+                    <FH_AFTER_YR3>2007</FH_AFTER_YR3>
+                    <FH_AFTER_YR4>2008</FH_AFTER_YR4>
+                    <FH_AFTER_YR5>2009</FH_AFTER_YR5>
+                    <AC_RATIOS_YR1>2008</AC_RATIOS_YR1>
+                    <AC_RATIOS_YR2>2007</AC_RATIOS_YR2>
+                    <AC_RATIOS_YR3>2006</AC_RATIOS_YR3>
+                    <AC_RATIOS_YR4>2005</AC_RATIOS_YR4>
+                    <AC_RATIOS_YR5>2004</AC_RATIOS_YR5>
+                    </FH_SEARCH_INFO>
                   properties:
                     COMP_NAME  :
                       type: string
@@ -288,7 +315,105 @@ components:
                     GRP_INDICATOR1
                     
                     Note: Each tag will consist of maximum 5 sets with suffix 1 to 5. But it is optional, depending on how many years of FH data displayed in the report.
-                  example: 
+                  example:  |+
+                    <FH_DTL>
+                    <FH_YR1_CURR><![CDATA[(SGD)]]></FH_YR1_CURR >
+                    <FH_YR2_CURR><![CDATA[(SGD)]]></FH_YR2_CURR >
+                    <FH_YR3_CURR><![CDATA[(SGD)]]></FH_YR3_CURR >
+                    <TURNOVER1>9403795.00</TURNOVER1>
+                    <TURNOVER2>8617168.00</TURNOVER2>
+                    <TURNOVER3>7807393.00</TURNOVER3>
+                    <PL_BEF_TAX1>31467.00</PL_BEF_TAX1>
+                    <PL_BEF_TAX2>162620.00</PL_BEF_TAX2>
+                    <PL_BEF_TAX3>1281387.00</PL_BEF_TAX3>
+                    <PL_AFT_TAX1>31467.00</PL_AFT_TAX1>
+                    <PL_AFT_TAX2>162620.00</PL_AFT_TAX2>
+                    <PL_AFT_TAX3>1281387.00</PL_AFT_TAX3>
+                    <NETINC_NON_EXT1>0.00</NETINC_NON_EXT1>
+                    <NETINC_NON_EXT2>0.00</NETINC_NON_EXT2>
+                    <NETINC_NON_EXT3>60318.00></NETINC_NON_EXT3>
+                    <PL_AFT_TAX_EXT1>31467.00</PL_AFT_TAX_EXT1>
+                    <PL_AFT_TAX_EXT2>162620.00</PL_AFT_TAX_EXT2>
+                    <PL_AFT_TAX_EXT3>1341705.00</PL_AFT_TAX_EXT3>
+                    <TOT_ASSETS1>3889213.00</TOT_ASSETS1>
+                    <TOT_ASSETS2>3395740.00</TOT_ASSETS2>
+                    <TOT_ASSETS3>4374368.00</TOT_ASSETS3>
+                    <TA_CURRENT1>3359007.00</TA_CURRENT1>
+                    <TA_CURRENT2>2855754.00</TA_CURRENT2>
+                    <TA_CURRENT3>3546381.00</TA_CURRENT3>
+                    <TA_FIXED1>530206.00</TA_FIXED1>
+                    <TA_FIXED2>539986.00</TA_FIXED2>
+                    <TA_FIXED3>827987.00></TA_FIXED3>
+                    <TOT_LIABILITIES1>7370430.00</TOT_LIABILITIES1>
+                    <TOT_LIABILITIES2>6845490.00</TOT_LIABILITIES2>
+                    <TOT_LIABILITIES3>7661498.00</TOT_LIABILITIES3>
+                    <TL_CURRENT1>6739073.00</TL_CURRENT1>
+                    <TL_CURRENT2>6157560.00</TL_CURRENT2>
+                    <TL_CURRENT3>6435365.00</TL_CURRENT3>
+                    <TL_NON_CURRENT1>631357.00</TL_NON_CURRENT1>
+                    <TL_NON_CURRENT2>687930.00</TL_NON_CURRENT2>
+                    <TL_NON_CURRENT3>122133.00</TL_NON_CURRENT3>
+                    <SH_FUNDS1>-3481217.00</SH_FUNDS1>
+                    <SH_FUNDS2>-3449750.00</SH_FUNDS2>
+                    <SH_FUNDS3>-3287130.00</SH_FUNDS3>
+                    <SH_PAIDUP_CAPITAL1>2000000.00</SH_PAIDUP_CAPITAL1>
+                    <SH_PAIDUP_CAPITAL2>2000000.00</SH_PAIDUP_CAPITAL2>
+                    <SH_PAIDUP_CAPITAL3>2000000.00</SH_PAIDUP_CAPITAL3>
+                    <SH_RESERVES1>0.00</SH_RESERVES1>
+                    <SH_RESERVES2>0.00</SH_RESERVES2>
+                    <SH_RESERVES3>0.00</SH_RESERVES3>
+                    <SH_ACCUM_LOSS1>5481217.00</SH_ACCUM_LOSS1>
+                    <SH_ACCUM_LOSS2>5449750.00</SH_ACCUM_LOSS2>
+                    <SH_ACCUM_LOSS3>5287130.00</SH_ACCUM_LOSS3>
+                    <GRP_TURNOVER1>0.00</GRP_TURNOVER1>
+                    <GRP_TURNOVER2>0.00</GRP_TURNOVER2>
+                    <GRP_TURNOVER3>0.00</GRP_TURNOVER3>
+                    <GRP_PL_BEF_TAX1>0.00</GRP_PL_BEF_TAX1>
+                    <GRP_PL_BEF_TAX2>0.00</GRP_PL_BEF_TAX2>
+                    <GRP_PL_BEF_TAX3>0.00</GRP_PL_BEF_TAX3>
+                    <GRP_PL_AFT_TAX1>0.00</GRP_PL_AFT_TAX1>
+                    <GRP_PL_AFT_TAX2>0.00</GRP_PL_AFT_TAX2>
+                    <GRP_PL_AFT_TAX3>0.00</GRP_PL_AFT_TAX3>
+                    <GRP_NETINC_NON_EXT1>0.00</GRP_NETINC_NON_EXT1>
+                    <GRP_NETINC_NON_EXT2>0.00</GRP_NETINC_NON_EXT2>
+                    <GRP_NETINC_NON_EXT3>0.00</GRP_NETINC_NON_EXT3>
+                    <GRP_PL_AFT_TAX_EXT1>0.00</GRP_PL_AFT_TAX_EXT1>
+                    <GRP_PL_AFT_TAX_EXT2>0.00</GRP_PL_AFT_TAX_EXT2>
+                    <GRP_PL_AFT_TAX_EXT3>0.00</GRP_PL_AFT_TAX_EXT3>
+                    <GRP_TOT_ASSETS1>0.00</GRP_TOT_ASSETS1>
+                    <GRP_TOT_ASSETS2>0.00</GRP_TOT_ASSETS2>
+                    <GRP_TOT_ASSETS3>0.00</GRP_TOT_ASSETS3>
+                    <GRP_TA_CURRENT1>0.00</GRP_TA_CURRENT1>
+                    <GRP_TA_CURRENT2>0.00</GRP_TA_CURRENT2>
+                    <GRP_TA_CURRENT3>0.00</GRP_TA_CURRENT3>
+                    <GRP_TA_FIXED1>0.00</GRP_TA_FIXED1>
+                    <GRP_TA_FIXED2>0.00</GRP_TA_FIXED2>
+                    <GRP_TA_FIXED3>0.00</GRP_TA_FIXED3>
+                    <GRP_TOT_LIABILITIES1>0.00</GRP_TOT_LIABILITIES1>
+                    <GRP_TOT_LIABILITIES2>0.00</GRP_TOT_LIABILITIES2>
+                    <GRP_TOT_LIABILITIES3>0.00</GRP_TOT_LIABILITIES3>
+                    <GRP_TL_CURRENT1>0.00</GRP_TL_CURRENT1>
+                    <GRP_TL_CURRENT2>0.00</GRP_TL_CURRENT2>
+                    <GRP_TL_CURRENT3>0.00</GRP_TL_CURRENT3>
+                    <GRP_TL_NON_CURRENT1>0.00</GRP_TL_NON_CURRENT1>
+                    <GRP_TL_NON_CURRENT2>0.00</GRP_TL_NON_CURRENT2>
+                    <GRP_TL_NON_CURRENT3>0.00</GRP_TL_NON_CURRENT3>
+                    <GRP_SH_FUNDS1>0.00</GRP_SH_FUNDS1>
+                    <GRP_SH_FUNDS2>0.00</GRP_SH_FUNDS2>
+                    <GRP_SH_FUNDS3>0.00</GRP_SH_FUNDS3>
+                    <GRP_SH_PAIDUP_CAPITAL1>0.00</GRP_SH_PAIDUP_CAPITAL1>
+                    <GRP_SH_PAIDUP_CAPITAL2>0.00</GRP_SH_PAIDUP_CAPITAL2>
+                    <GRP_SH_PAIDUP_CAPITAL3>0.00</GRP_SH_PAIDUP_CAPITAL3>
+                    <GRP_SH_RESERVES1>0.00</GRP_SH_RESERVES1>
+                    <GRP_SH_RESERVES2>0.00</GRP_SH_RESERVES2>
+                    <GRP_SH_RESERVES3>0.00</GRP_SH_RESERVES3>
+                    <GRP_SH_ACCUM_LOSS1>0.00</GRP_SH_ACCUM_LOSS1>
+                    <GRP_SH_ACCUM_LOSS2>0.00</GRP_SH_ACCUM_LOSS2>
+                    <GRP_SH_ACCUM_LOSS3>0.00</GRP_SH_ACCUM_LOSS3>
+                    <GRP_INDICATOR1><![CDATA[B]]></GRP_INDICATOR1>
+                    <GRP_INDICATOR2><![CDATA[B]]></GRP_INDICATOR2>
+                    <GRP_INDICATOR3><![CDATA[B]]></GRP_INDICATOR3>
+                    </FH_DTL>
                   properties:
                     FH_YR1_CURR :
                       type: string
@@ -299,7 +424,7 @@ components:
                         FH_YR3_CURR
                         FH_YR4_CURR
                         FH_YR5_CURR
-                      example:
+                      example: "(SGD)"
                     TURNOVER1 :
                       type: string
                       description: |+
@@ -309,7 +434,7 @@ components:
                         TURNOVER3
                         TURNOVER4
                         TURNOVER5
-                      example: 
+                      example: "9403795.00"
                     PL_BEF_TAX1 :
                       type: string
                       description: |+
@@ -319,7 +444,7 @@ components:
                         PL_BEF_TAX3
                         PL_BEF_TAX4
                         PL_BEF_TAX5
-                      example: 
+                      example: "31467.00"
                     PL_AFT_TAX1:
                       type: string  
                       description: |+
@@ -329,7 +454,7 @@ components:
                         PL_AFT_TAX3 
                         PL_AFT_TAX4 
                         PL_AFT_TAX5
-                      example: 
+                      example: "31467.00"
                     NETINC_NON_EXT1:
                       type: string
                       description: |+
@@ -339,7 +464,7 @@ components:
                         NETINC_NON_EXT3 
                         NETINC_NON_EXT4 
                         NETINC_NON_EXT5
-                      example: 
+                      example: "0.00"
                     PL_AFT_TAX_EXT1 :
                       type: string
                       description: |+
@@ -349,7 +474,7 @@ components:
                         PL_AFT_TAX_EXT3 
                         PL_AFT_TAX_EXT4 
                         PL_AFT_TAX_EXT5
-                      example: 
+                      example: "31467.00"
                     TOT_ASSETS1 :
                       type: string
                       description: |+
@@ -359,7 +484,7 @@ components:
                         TOT_ASSETS3 
                         TOT_ASSETS4 
                         TOT_ASSETS5
-                      example: 
+                      example: "3889213.00"
                     TA_CURRENT1 :
                       type: string  
                       description: |+
@@ -369,7 +494,7 @@ components:
                         TA_CURRENT3 
                         TA_CURRENT4 
                         TA_CURRENT5
-                      example: 
+                      example: "3359007.00"
                     TA_FIXED1 :
                       type: string
                       description: |+
@@ -379,7 +504,7 @@ components:
                         TA_FIXED3 
                         TA_FIXED4 
                         TA_FIXED5
-                      example: 
+                      example: "530206.00"
                     TOT_LIABILITIES1 :
                       type: string
                       description: |+
@@ -389,7 +514,7 @@ components:
                         TOT_LIABILITIES3 
                         TOT_LIABILITIES4 
                         TOT_LIABILITIES5
-                      example: 
+                      example: "7370430.00"
                     TL_CURRENT1 :
                       type: string
                       description: |+
@@ -399,7 +524,7 @@ components:
                         TL_CURRENT3 
                         TL_CURRENT4 
                         TL_CURRENT5
-                      example: 
+                      example: "6739073.00"
                     TL_NON_CURRENT1 :
                       type: string 
                       description: |+
@@ -409,7 +534,7 @@ components:
                         TL_NON_CURRENT3
                         TL_NON_CURRENT4
                         TL_NON_CURRENT5
-                      example: 
+                      example: "631357.00"
                     SH_FUNDS1:
                       type: string
                       description: |+
@@ -419,7 +544,7 @@ components:
                         SH_FUNDS3 
                         SH_FUNDS4 
                         SH_FUNDS5
-                      example: 
+                      example: "-3481217.00"
                     SH_PAIDUP_CAPITAL1 :
                       type: string
                       description: |+
@@ -429,7 +554,7 @@ components:
                         SH_PAIDUP_CAPITAL3 
                         SH_PAIDUP_CAPITAL4 
                         SH_PAIDUP_CAPITAL5
-                      example: 
+                      example: "2000000.00"
                     SH_RESERVES1 :
                       type: string
                       description: |+
@@ -439,7 +564,7 @@ components:
                         SH_RESERVES3 
                         SH_RESERVES4 
                         SH_RESERVES5
-                      example: 
+                      example: "0.00"
                     SH_ACCUM_LOSS1:
                       type: string
                       description: |+
@@ -449,7 +574,7 @@ components:
                         SH_ACCUM_LOSS3 
                         SH_ACCUM_LOSS4 
                         SH_ACCUM_LOSS5
-                      example: 
+                      example: "5481217.00"
                     GRP_TURNOVER1 :
                       type: string
                       description: |+
@@ -459,7 +584,7 @@ components:
                         GRP_TURNOVER3 
                         GRP_TURNOVER4 
                         GRP_TURNOVER5
-                      example: 
+                      example: "0.00"
                     GRP_PL_BEF_TAX1 :
                       type: string
                       description: |+
@@ -469,7 +594,7 @@ components:
                         GRP_PL_BEF_TAX3 
                         GRP_PL_BEF_TAX4 
                         GRP_PL_BEF_TAX5
-                      example: 
+                      example: "0.00"
                     GRP_PL_AFT_TAX1 :
                       type: string
                       description: |+
@@ -479,7 +604,7 @@ components:
                         GRP_PL_AFT_TAX3 
                         GRP_PL_AFT_TAX4 
                         GRP_PL_AFT_TAX5
-                      example: 
+                      example: "0.00"
                     GRP_NETINC_NON_EXT1 :
                       type: string
                       description: |+
@@ -489,7 +614,7 @@ components:
                         GRP_NETINC_NON_EXT3 
                         GRP_NETINC_NON_EXT4 
                         GRP_NETINC_NON_EXT5
-                      example: 
+                      example: "0.00"
                     GRP_PL_AFT_TAX_EXT1:
                       type: string
                       description: |+
@@ -499,7 +624,7 @@ components:
                         GRP_ PL_AFT_TAX_EXT3 
                         GRP_ PL_AFT_TAX_EXT4 
                         GRP_ PL_AFT_TAX_EXT5
-                      example: 
+                      example: "0.00"
                     GRP_TOT_ASSETS1:
                       type: string
                       description: |+
@@ -509,7 +634,7 @@ components:
                         GRP_TOT_ASSETS3 
                         GRP_TOT_ASSETS4 
                         GRP_TOT_ASSETS5
-                      example: 
+                      example: "0.00"
                     GRP_TA_CURRENT1 :
                       type: string
                       description: |+
@@ -519,7 +644,7 @@ components:
                         GRP_TA_CURRENT3 
                         GRP_TA_CURRENT4 
                         GRP_TA_CURRENT5
-                      example: 
+                      example: "0.00"
                     GRP_TA_FIXED1 :
                       type: string
                       description: |+
@@ -529,7 +654,7 @@ components:
                         GRP_TA_FIXED3 
                         GRP_TA_FIXED4 
                         GRP_TA_FIXED5
-                      example: 
+                      example: "0.00"
                     GRP_TOT_LIABILITIES1 :
                       type: string
                       description: |+
@@ -539,7 +664,7 @@ components:
                         GRP_TOT_LIABILITIES3 
                         GRP_TOT_LIABILITIES4 
                         GRP_TOT_LIABILITIES5
-                      example: 
+                      example: "0.00"
                     GRP_TL_CURRENT1 :
                       type: string
                       description: |+
@@ -549,7 +674,7 @@ components:
                         GRP_TL_CURRENT3 
                         GRP_TL_CURRENT4 
                         GRP_TL_CURRENT5
-                      example: 
+                      example: "0.00"
                     GRP_TL_NON_CURRENT1 :
                       type: string
                       description: |+
@@ -559,7 +684,7 @@ components:
                         GRP_TL_NON_CURRENT3 
                         GRP_TL_NON_CURRENT4 
                         GRP_TL_NON_CURRENT5
-                      example:
+                      example: "0.00"
                     GRP_SH_FUNDS1 :
                       type: string
                       description: |+
@@ -569,7 +694,7 @@ components:
                         GRP_ SH_FUNDS3 
                         GRP_ SH_FUNDS4 
                         GRP_ SH_FUNDS5
-                      example: 
+                      example: "0.00"
                     GRP_SH_PAIDUP_CAPITAL1 :
                       type: string
                       description: |+
@@ -579,7 +704,7 @@ components:
                         GRP_SH_PAIDUP_CAPITAL3 
                         GRP_SH_PAIDUP_CAPITAL4 
                         GRP_SH_PAIDUP_CAPITAL5
-                      example: 
+                      example: "0.00"
                     GRP_SH_RESERVES1:
                       type: string
                       description: |+
@@ -589,7 +714,7 @@ components:
                         GRP_SH_RESERVES3 
                         GRP_SH_RESERVES4 
                         GRP_SH_RESERVES5
-                      example: 
+                      example: "0.00"
                     GRP_SH_ACCUM_LOSS1 :
                       type: string
                       description: |+
@@ -599,7 +724,7 @@ components:
                         GRP_SH_ACCUM_LOSS3 
                         GRP_SH_ACCUM_LOSS4 
                         GRP_SH_ACCUM_LOSS5
-                      example: 
+                      example: "0.00"
                     GRP_INDICATOR1 :
                       type: string
                       description: |+
@@ -609,7 +734,7 @@ components:
                         GRP_INDICATOR3 
                         GRP_INDICATOR4 
                         GRP_INDICATOR5
-                      example: 
+                      example: "B"
                 XBRL_DTL:
                   type: object
                   description: |+
@@ -644,7 +769,66 @@ components:
                     GRP_INDICATOR1
                     
                     Note: Each tag will consist of maximum 5 sets with suffix 1 to 5. But it is optional, depending on how many years of XBRL data displayed in the report.
-                  example: ""
+                  example:  |+
+                    <XBRL_DTL>
+                    <XBRL_YR1_CURR><![CDATA[(SGD)]]></XBRL_YR1_CURR>
+                    <XBRL_YR2_CURR><![CDATA[(SGD)]]></XBRL_YR2_CURR>
+                    <REVENUE1>10877254.00</REVENUE1>
+                    <REVENUE2>9982533.00</REVENUE2>
+                    <PL_BEF_TAX1>1121483.00</PL_BEF_TAX1>
+                    <PL_BEF_TAX2>262632.00</PL_BEF_TAX2>
+                    <PL_AFT_TAX1>1347380.00</PL_AFT_TAX1>
+                    <PL_AFT_TAX2>262632.00</PL_AFT_TAX2>
+                    <TOT_ASSETS1>6562990.00</TOT_ASSETS1>
+                    <TOT_ASSETS2>5424551.00</TOT_ASSETS2>
+                    <TA_CURRENT1>6283449.00</TA_CURRENT1>
+                    <TA_CURRENT2>4948821.00</TA_CURRENT2>
+                    <TA_NON_CURRENT1>279541.00</TA_NON_CURRENT1>
+                    <TA_NON_CURRENT2>475730.00</TA_NON_CURRENT2>
+                    <TOT_LIABILITIES1>8434195.00</TOT_LIABILITIES1>
+                    <TOT_LIABILITIES2>8643136.00</TOT_LIABILITIES2>
+                    <TL_CURRENT1>8434195.00</TL_CURRENT1>
+                    <TL_CURRENT2>7933013.00</TL_CURRENT2>
+                    <TL_NON_CURRENT1>0.00</TL_NON_CURRENT1>
+                    <TL_NON_CURRENT2>710123.00</TL_NON_CURRENT2>
+                    <TOT_EQUITY1>-1871205.00</TOT_EQUITY1>
+                    <TOT_EQUITY2>-3218585.00</TOT_EQUITY2>
+                    <EQ_SH_CAPITAL1>2000000.00</EQ_SH_CAPITAL1>
+                    <EQ_SH_CAPITAL2>2000000.00</EQ_SH_CAPITAL2>
+                    <EQ_RESERVES1>0.00</EQ_RESERVES1>
+                    <EQ_RESERVES2>0.00</EQ_RESERVES2>
+                    <EQ_RETAINED_EARN1>-3,871,205.00</EQ_RETAINED_EARN1>
+                    <EQ_RETAINED_EARN2>-5,218,585.00</EQ_RETAINED_EARN2>
+                    <GRP_REVENUE1>0.00</GRP_REVENUE1>
+                    <GRP_REVENUE2>0.00</GRP_REVENUE2>
+                    <GRP_PL_BEF_TAX1>0.00</GRP_PL_BEF_TAX1>
+                    <GRP_PL_BEF_TAX2>0.00</GRP_PL_BEF_TAX2>
+                    <GRP_PL_AFT_TAX1>0.00</GRP_PL_AFT_TAX1>
+                    <GRP_PL_AFT_TAX2>0.00</GRP_PL_AFT_TAX2>
+                    <GRP_TOT_ASSETS1>0.00</GRP_TOT_ASSETS1>
+                    <GRP_TOT_ASSETS2>0.00</GRP_TOT_ASSETS2>
+                    <GRP_TA_CURRENT1>0.00</GRP_TA_CURRENT1>
+                    <GRP_TA_CURRENT2>0.00</GRP_TA_CURRENT2>
+                    <GRP_TA_NON_CURRENT1>0.00</GRP_TA_NON_CURRENT1>
+                    <GRP_TA_NON_CURRENT2>0.00</GRP_TA_NON_CURRENT2>
+                    <GRP_TOT_LIABILITIES1>0.00</GRP_TOT_LIABILITIES1>
+                    <GRP_TOT_LIABILITIES2>0.00</GRP_TOT_LIABILITIES2>
+                    <GRP_TL_CURRENT1>0.00</GRP_TL_CURRENT1>
+                    <GRP_TL_CURRENT2>0.00</GRP_TL_CURRENT2>
+                    <GRP_TL_NON_CURRENT1>0.00</GRP_TL_NON_CURRENT1>
+                    <GRP_TL_NON_CURRENT2>0.00</GRP_TL_NON_CURRENT2>
+                    <GRP_TOT_EQUITY1>0.00</GRP_TOT_EQUITY1>
+                    <GRP_TOT_EQUITY2>0.00</GRP_TOT_EQUITY2>
+                    <GRP_SH_CAPITAL1>0.00</GRP_SH_CAPITAL1>
+                    <GRP_SH_CAPITAL2>0.00</GRP_SH_CAPITAL2>
+                    <GRP_RESERVES1>0.00</GRP_RESERVES1>
+                    <GRP_RESERVES2>0.00</GRP_RESERVES2>
+                    <GRP_RETAINED_EARN1>0.00</GRP_RETAINED_EARN1>
+                    <GRP_RETAINED_EARN2>0.00</GRP_RETAINED_EARN2>
+                    <GRP_INDICATOR1><![CDATA[B]]></GRP_INDICATOR1>
+                    <GRP_INDICATOR2><![CDATA[B]]></GRP_INDICATOR2>
+                    <GRP_INDICATOR3><![CDATA[B]]></GRP_INDICATOR3>
+                    </XBRL_DTL>
                   properties:
                     XBRL_YR1_CURR:
                       type: string
@@ -655,7 +839,7 @@ components:
                         XBRL_YR3_CURR 
                         XBRL_YR4_CURR 
                         XBRL_YR5_CURR
-                      example: 
+                      example: "(SGD)"
                     REVENUE1 :
                       type: string
                       description: |+
@@ -665,7 +849,7 @@ components:
                         REVENUE3 
                         REVENUE4 
                         REVENUE5
-                      example: 
+                      example: "10877254.00"
                     PL_BEF_TAX1 :
                       type: string
                       description: |+
@@ -675,7 +859,7 @@ components:
                         PL_BEF_TAX3 
                         PL_BEF_TAX4 
                         PL_BEF_TAX5
-                      example: 
+                      example: "1121483.00"
                     PL_AFT_TAX1 :
                       type: string
                       description: |+
@@ -685,7 +869,7 @@ components:
                         PL_AFT_TAX3 
                         PL_AFT_TAX4 
                         PL_AFT_TAX5
-                      example: 
+                      example: "1347380.00"
                     TOT_ASSETS1 :
                       type: string
                       description: |+
@@ -695,7 +879,7 @@ components:
                         TOT_ASSETS3 
                         TOT_ASSETS4 
                         TOT_ASSETS5
-                      example: 
+                      example: "6562990.00"
                     TA_CURRENT1 :
                       type: string
                       description: |+
@@ -705,7 +889,7 @@ components:
                         TA_CURRENT3 
                         TA_CURRENT4
                         TA_CURRENT5
-                      example: 
+                      example: "6283449.00"
                     TA_NON_CURRENT1 :
                       type: string
                       description: |+
@@ -715,7 +899,7 @@ components:
                         TA_NON_CURRENT3 
                         TA_NON_CURRENT4 
                         TA_NON_CURRENT5
-                      example:  
+                      example:  "279541.00"
                     TOT_LIABILITIES1 :
                       type: string
                       description: |+
@@ -725,7 +909,7 @@ components:
                         TOT_LIABILITIES3 
                         TOT_LIABILITIES4 
                         TOT_LIABILITIES5
-                      example:
+                      example: "8434195.00"
                     TL_CURRENT1 :
                       type: string
                       description: |+
@@ -735,7 +919,7 @@ components:
                         TL_CURRENT3 
                         TL_CURRENT4 
                         TL_CURRENT5
-                      example:
+                      example: "8434195.00"
                     TL_NON_CURRENT1 :
                       type: string
                       description: |+
@@ -745,7 +929,7 @@ components:
                         TL_NON_CURRENT3 
                         TL_NON_CURRENT4 
                         TL_NON_CURRENT5
-                      example:
+                      example: "0.00"
                     TOT_EQUITY1 :
                       type: string
                       description: |+
@@ -755,7 +939,7 @@ components:
                         TOT_EQUITY3 
                         TOT_EQUITY4 
                         TOT_EQUITY5
-                      example:
+                      example: "-1871205.00"
                     EQ_SH_CAPITAL1 :
                       type: string
                       description: |+
@@ -765,7 +949,7 @@ components:
                         EQ_SH_CAPITAL3 
                         EQ_SH_CAPITAL4 
                         EQ_SH_CAPITAL5
-                      example:
+                      example: "2000000.00"
                     EQ_RESERVES1 :
                       type: string
                       description: |+
@@ -775,7 +959,7 @@ components:
                         EQ_RESERVES3 
                         EQ_RESERVES4 
                         EQ_RESERVES5
-                      example:
+                      example: "0.00"
                     EQ_RETAINED_EARN1 :
                       type: string
                       description: |+
@@ -785,7 +969,7 @@ components:
                         EQ_RETAINED_EARN3 
                         EQ_RETAINED_EARN4 
                         EQ_RETAINED_EARN5
-                      example:
+                      example: "-3,871,205.00"
                     GRP_REVENUE1 :
                       type: string
                       description: |+
@@ -795,7 +979,7 @@ components:
                         GRP_REVENUE3 
                         GRP_REVENUE4 
                         GRP_REVENUE5
-                      example:
+                      example: "0.00"
                     GRP_PL_BEF_TAX1 :
                       type: string
                       description: |+
@@ -805,7 +989,7 @@ components:
                         GRP_PL_BEF_TAX3 
                         GRP_PL_BEF_TAX4 
                         GRP_PL_BEF_TAX5
-                      example:
+                      example: "0.00"
                     GRP_PL_AFT_TAX1 :
                       type: string
                       description: |+
@@ -815,7 +999,7 @@ components:
                         GRP_PL_AFT_TAX3 
                         GRP_PL_AFT_TAX4 
                         GRP_PL_AFT_TAX5
-                      example:
+                      example: "0.00"
                     GRP_TOT_ASSETS1 :
                       type: string
                       description: |+
@@ -825,7 +1009,7 @@ components:
                         GRP_TOT_ASSETS3 
                         GRP_TOT_ASSETS4 
                         GRP_TOT_ASSETS5
-                      example:
+                      example: "0.00"
                     GRP_TA_CURRENT1 :
                       type: string
                       description: |+
@@ -835,7 +1019,7 @@ components:
                         GRP_TA_CURRENT3 
                         GRP_TA_CURRENT4 
                         GRP_TA_CURRENT4
-                      example:
+                      example: "0.00"
                     GRP_TA_NON_CURRENT1 :
                       type: string
                       description: |+
@@ -845,7 +1029,7 @@ components:
                         GRP_TA_NON_CURRENT3 
                         GRP_TA_NON_CURRENT4 
                         GRP_TA_NON_CURRENT4
-                      example:
+                      example: "0.00"
                     GRP_TOT_LIABILITIES1 :
                       type: string
                       description: |+
@@ -855,7 +1039,7 @@ components:
                         GRP_TOT_LIABILITIES3 
                         GRP_TOT_LIABILITIES4 
                         GRP_TOT_LIABILITIES5
-                      example:
+                      example: "0.00"
                     GRP_TL_CURRENT1 :
                       type: string
                       description: |+
@@ -865,7 +1049,7 @@ components:
                         GRP_TL_CURRENT3 
                         GRP_TL_CURRENT4 
                         GRP_TL_CURRENT5
-                      example:
+                      example: "0.00"
                     GRP_TL_NON_CURRENT1 :
                       type: string
                       description: |+
@@ -875,7 +1059,7 @@ components:
                         GRP_TL_NON_CURRENT3 
                         GRP_TL_NON_CURRENT4 
                         GRP_TL_NON_CURRENT5
-                      example:
+                      example: "0.00"
                     GRP_TOT_EQUITY1 :
                       type: string
                       description: |+
@@ -885,7 +1069,7 @@ components:
                         GRP_TOT_EQUITY3 
                         GRP_TOT_EQUITY4 
                         GRP_TOT_EQUITY5
-                      example:
+                      example: "0.00"
                     GRP_SH_CAPITAL1 :
                       type: string
                       description: |+
@@ -895,7 +1079,7 @@ components:
                         GRP_SH_CAPITAL3 
                         GRP_SH_CAPITAL4 
                         GRP_SH_CAPITAL5
-                      example:
+                      example: "0.00"
                     GRP_RESERVES1 :
                       type: string
                       description: |+
@@ -905,7 +1089,7 @@ components:
                         GRP_RESERVES3 
                         GRP_RESERVES4 
                         GRP_RESERVES5
-                      example:
+                      example: "0.00"
                     GRP_RETAINED_EARN1 :
                       type: string
                       description: |+
@@ -915,7 +1099,7 @@ components:
                         GRP_RETAINED_EARN3 
                         GRP_RETAINED_EARN4 
                         GRP_RETAINED_EARN5
-                      example:
+                      example: "0.00"
                     GRP_INDICATOR1 :
                       type: string
                       description: |+
@@ -925,7 +1109,7 @@ components:
                         GRP_INDICATOR3 
                         GRP_INDICATOR4 
                         GRP_INDICATOR5
-                      example:
+                      example: "B"
                 FH_RATIOS_DTL:
                   type: object
                   description: |+
