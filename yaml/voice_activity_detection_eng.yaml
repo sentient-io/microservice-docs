@@ -6,6 +6,7 @@ info:
     
     An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.
   version: '0.1'
+  x-subscribelink: voice_activity_detection_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
