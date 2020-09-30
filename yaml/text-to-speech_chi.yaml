@@ -6,6 +6,7 @@ info:
     
     The Text-to-Speech AI generated synthesized voice speaks with native Mandarin accent.
   version: '0.1'
+  x-subscribelink: text-to-speech_chi
 servers:
   - url: 'https://apis.sentient.io'
 tags:
