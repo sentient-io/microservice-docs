@@ -211,7 +211,16 @@
           status:
             type: string
             example: Failure 
-
+      versions:
+        type: object
+        properties: 
+          v0.1:
+           type: array
+           items:
+            oneOf:
+              - type: string
+                example: Published Date - Sep 30, 2020
+                description: Initial version release    
       input:
         type: object
         required:
