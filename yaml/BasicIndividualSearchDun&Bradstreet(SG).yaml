@@ -436,7 +436,33 @@ components:
                   description:  |+
                     Bankruptcy/ Winding up with following children&#58;
                     [BANKRUPTCY]
-                  example: "[BANKRUPTCY]"
+                  example:  |+
+                    <LIST_BANKRUPTCY>
+                    <BANKRUPTCY>
+                    <SUBJECT_NAME><![CDATA[-]]></SUBJECT_NAME>
+                    <COURT_CODE><![CDATA[CWU]]></COURT_CODE>
+                    <CASE_CODE><![CDATA[381]]></CASE_CODE>
+                    <CASE_YEAR><![CDATA[2000]]></CASE_YEAR>
+                    <ACTION_DATE><![CDATA[22/12/2000]]></ACTION_DATE>
+                    <BANKRUPTCY_ACT><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT>
+                    <HEARING_DATE><![CDATA[26/03/2009]]></HEARING_DATE>
+                    <CURRENCY1><![CDATA[-]]></CURRENCY1>
+                    <AMOUNT1><![CDATA[334,616.00]]></AMOUNT1>
+                    <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                    <AMOUNT2><![CDATA[0.00]]></AMOUNT1>
+                    <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                    <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                    <BANKRUPTCY_TYPE><![CDATA[COMPANY WINDING UP PETITION]]></BANKRUPTCY_TYPE>
+                    <LIST_PLAINTIFF>
+                    <PLAINTIFF>
+                    <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                    <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                    <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                    <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                    </PLAINTIFF>
+                    </LIST_PLAINTIFF>
+                    </BANKRUPTCY>
+                    </LIST_BANKRUPTCY>
                   items:
                     properties:
                       BANKRUPTCY :
@@ -458,7 +484,31 @@ components:
                           AMOUNT3
                           BANKRUPTCY_TYPE
                           [LIST_PLAINTIFF]
-                        example:
+                        example:  |+
+                          <BANKRUPTCY>
+                          <SUBJECT_NAME><![CDATA[-]]></SUBJECT_NAME>
+                          <COURT_CODE><![CDATA[CWU]]></COURT_CODE>
+                          <CASE_CODE><![CDATA[381]]></CASE_CODE>
+                          <CASE_YEAR><![CDATA[2000]]></CASE_YEAR>
+                          <ACTION_DATE><![CDATA[22/12/2000]]></ACTION_DATE>
+                          <BANKRUPTCY_ACT><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT>
+                          <HEARING_DATE><![CDATA[26/03/2009]]></HEARING_DATE>
+                          <CURRENCY1><![CDATA[-]]></CURRENCY1>
+                          <AMOUNT1><![CDATA[334,616.00]]></AMOUNT1>
+                          <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                          <AMOUNT2><![CDATA[0.00]]></AMOUNT1>
+                          <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                          <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                          <BANKRUPTCY_TYPE><![CDATA[COMPANY WINDING UP PETITION]]></BANKRUPTCY_TYPE>
+                          <LIST_PLAINTIFF>
+                          <PLAINTIFF>
+                          <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                          <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                          <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                          <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                          </PLAINTIFF>
+                          </LIST_PLAINTIFF>
+                          </BANKRUPTCY> 
                         properties:
                           SUBJECT_NAME :
                             type: string
@@ -467,27 +517,27 @@ components:
                           COURT_CODE:
                             type: string
                             description: Court Code
-                            example:
+                            example: "CWU"
                           CASE_CODE:
                             type: string
                             description: Case Code
-                            example:
+                            example: "381"
                           CASE_YEAR:
                             type: string
                             description: Case Year
-                            example:
+                            example: "2000"
                           ACTION_DATE:
                             type: string
                             description: Action Date 
-                            example:
+                            example: "22/12/2000"
                           BANKRUPTCY_ACT:
                             type: string
                             description: Act of Bankruptcy
-                            example:
+                            example: "Petition for Winding Up"
                           HEARING_DATE :
                             type: string
                             description: Hearing Date
-                            example:
+                            example: "26/03/2009"
                           CURRENCY1:
                             type: string
                             description: Currency
@@ -495,7 +545,7 @@ components:
                           AMOUNT1:
                             type: string
                             description: Amount
-                            example:
+                            example: "334,616.00"
                           CURRENCY2:
                             type: string
                             description: Currency
@@ -503,7 +553,7 @@ components:
                           AMOUNT2:
                             type: string
                             description: Amount
-                            example:
+                            example: "0.00"
                           CURRENCY3:
                             type: string
                             description: Currency
@@ -511,16 +561,25 @@ components:
                           AMOUNT3:
                             type: string
                             description: Amount
+                            example: "0.00"
                           BANKRUPTCY_TYPE:
                             type: string
                             description: Bankruptcy Type 
-                            example:
+                            example: "COMPANY WINDING UP PETITION"
                           LIST_PLAINTIFF:
                             type: array
                             description:  |+
                               List of Plaintiff with following children&#58;
                               [PLAINTIFF]
-                            example:
+                            example:  |+
+                              <LIST_PLAINTIFF>
+                              <PLAINTIFF>
+                              <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                              <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                              <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                              <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                              </PLAINTIFF>
+                              </LIST_PLAINTIFF>
                             items:
                               properties:
                                 PLAINTIFF:
@@ -531,16 +590,22 @@ components:
                                     PLA_SOLICITOR
                                     PLA_SOLICITOR_ID
                                     PLA_FILE_REF
-                                  example:
+                                  example:  |+
+                                    <PLAINTIFF>
+                                    <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                                    <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                                    <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                                    <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                                    </PLAINTIFF>
                                   properties:
                                     PLA_NAME:
                                       type: string
                                       description: Pla. Name
-                                      example:
+                                      example: "B 2003 P1"
                                     PLA_SOLICITOR:
                                       type: string
                                       description: Pla. Solicitor
-                                      example:
+                                      example: "PATRICK KHOO ENG HOCK"
                                     PLA_SOLICITOR_ID:
                                       type: string
                                       description: Pla. Solicitor ID 
@@ -548,13 +613,20 @@ components:
                                     PLA_FILE_REF:
                                       type: string
                                       description: Pla. File Ref.
-                                      example:
+                                      example: "RSP/292668/1"
                 LIST_LIT:
                   type: array
                   description:  |+
                     List of litigation with following children&#58;
                     [LIT]
-                  example: "[LIT]"
+                  example:  |+
+                    <LIST_LIT>
+                    <LIT>
+                    <SUBJECT_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></SUBJECT_NAME>
+                    <SEQ_NO><![CDATA[1]]></SEQ_NO>
+                    <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID >
+                    </LIT>
+                    </LIST_LIT>
                   items:
                     properties:
                       LIT:
@@ -565,26 +637,83 @@ components:
                           SEQ_NO
                           FORMATTED_ID
                           [LIST_LIT_DTL]
-                        example:
+                        example:  |+
+                          <LIT>
+                          <SUBJECT_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></SUBJECT_NAME>
+                          <SEQ_NO><![CDATA[1]]></SEQ_NO>
+                          <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID >
+                          </LIT>
                         properties:                      
                           SUBJECT_NAME:
                             type: string
                             description: Name
-                            example:
+                            example: "ENG YICK HOLDINGS PTE LTD"
                           SEQ_NO:
                             type: integer
                             description: Sequence No.
-                            example:
+                            example: 1
                           FORMATTED_ID:
                             type: string
                             description: Formatted ID
-                            example:
+                            example: "197803191K"
                 LIST_LIT_DTL:
                   type: array
                   description:  |+
                     List of litigation detail with following children&#58;
                     [LIT_DTL]
-                  example: "[LIT_DTL]"
+                  example:  |+
+                    <LIST_LIT_DTL>
+                    <LIT_DTL>
+                    <NATURE_OF_CLAIM><![CDATA[CONTRACTS-WORK DONE & SERVICES RENDERED]]></NATURE_OF_CLAIM>
+                    <STATUS_DATE><![CDATA[13/08/2001]]></STATUS_DATE>
+                    <CASE_NO><![CDATA[MC 23631 / 2001]]></CASE_NO>
+                    <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID>
+                    <DOC_REMARKS><![CDATA[WRIT OF SUMMONS]]></DOC_REMARKS>
+                    <CURRENCY1><![CDATA[SIN]]></CURRENCY1>
+                    <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                    <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                    <CURRENCY4><![CDATA[-]]></CURRENCY4>
+                    <CURRENCY5><![CDATA[-]]></CURRENCY5>
+                    <CASE_STATUS><![CDATA[PENDING AS AT STATUS DATE]]></CASE_STATUS>
+                    <AMOUNT1><![CDATA[36,196.00]]></AMOUNT1>
+                    <AMOUNT2><![CDATA[0.00]]></AMOUNT2>
+                    <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                    <AMOUNT4><![CDATA[0.00]]></AMOUNT4>
+                    <AMOUNT5><![CDATA[0.00]]></AMOUNT5>
+                    <LIST_PLAINTIFF>
+                    <PLAINTIFF>
+                    <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME>
+                    <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM>
+                    <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                    <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR>
+                    <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                    <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                    <PLA_STATUS>-</PLA_STATUS>
+                    <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                    <PLA_ID>S7250163B</PLA_ID>
+                    </PLAINTIFF>
+                    <PLAINTIFF>
+                    <PLA_NAME><![CDATA[ABC PTE LTD]]></PLA_NAME>
+                    <LAW_FIRM><![CDATA[JAMES & JOE]]></LAW_FIRM>
+                    <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                    <PLA_SOLICITOR><![CDATA[KHOO JAMES]]></PLA_SOLICITOR>
+                    <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                    <PLA_FILE_REF><![CDATA[CHH 6253 X10]]></PLA_FILE_REF>
+                    <PLA_STATUS>-</PLA_STATUS>
+                    <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                    <PLA_ID>S7250163B</PLA_ID>
+                    </PLAINTIFF>
+                    </LIST_PLAINTIFF>
+                    <LIST_DEFENDANT>
+                    <DEFENDANT>
+                    <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR>
+                    <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID>
+                    <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM>
+                    <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                    </DEFENDANT>
+                    </LIST_DEFENDANT>
+                    </LIT_DTL>
+                    </LIST_LIT_DTL>
                   items:
                     properties:
                       LIT_DTL:
@@ -609,32 +738,82 @@ components:
                           AMOUNT5
                           [LIST_PLAINTIFF]
                           [LIST_DEFENDANT]
-                        example:
+                        example:  |+
+                          <LIT_DTL>
+                          <NATURE_OF_CLAIM><![CDATA[CONTRACTS-WORK DONE & SERVICES RENDERED]]></NATURE_OF_CLAIM>
+                          <STATUS_DATE><![CDATA[13/08/2001]]></STATUS_DATE>
+                          <CASE_NO><![CDATA[MC 23631 / 2001]]></CASE_NO>
+                          <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID>
+                          <DOC_REMARKS><![CDATA[WRIT OF SUMMONS]]></DOC_REMARKS>
+                          <CURRENCY1><![CDATA[SIN]]></CURRENCY1>
+                          <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                          <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                          <CURRENCY4><![CDATA[-]]></CURRENCY4>
+                          <CURRENCY5><![CDATA[-]]></CURRENCY5>
+                          <CASE_STATUS><![CDATA[PENDING AS AT STATUS DATE]]></CASE_STATUS>
+                          <AMOUNT1><![CDATA[36,196.00]]></AMOUNT1>
+                          <AMOUNT2><![CDATA[0.00]]></AMOUNT2>
+                          <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                          <AMOUNT4><![CDATA[0.00]]></AMOUNT4>
+                          <AMOUNT5><![CDATA[0.00]]></AMOUNT5>
+                          <LIST_PLAINTIFF>
+                          <PLAINTIFF>
+                          <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME>
+                          <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM>
+                          <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                          <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR>
+                          <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                          <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                          <PLA_STATUS>-</PLA_STATUS>
+                          <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                          <PLA_ID>S7250163B</PLA_ID>
+                          </PLAINTIFF>
+                          <PLAINTIFF>
+                          <PLA_NAME><![CDATA[ABC PTE LTD]]></PLA_NAME>
+                          <LAW_FIRM><![CDATA[JAMES & JOE]]></LAW_FIRM>
+                          <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                          <PLA_SOLICITOR><![CDATA[KHOO JAMES]]></PLA_SOLICITOR>
+                          <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                          <PLA_FILE_REF><![CDATA[CHH 6253 X10]]></PLA_FILE_REF>
+                          <PLA_STATUS>-</PLA_STATUS>
+                          <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                          <PLA_ID>S7250163B</PLA_ID>
+                          </PLAINTIFF>
+                          </LIST_PLAINTIFF>
+                          <LIST_DEFENDANT>
+                          <DEFENDANT>
+                          <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR>
+                          <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID>
+                          <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM>
+                          <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                          </DEFENDANT>
+                          </LIST_DEFENDANT>
+                          </LIT_DTL>
                         properties:                      
                           NATURE_OF_CLAIM:
                             type: string
                             description: Nature of Claim 
-                            example:
+                            example: "CONTRACTS-WORK DONE & SERVICES RENDERED"
                           STATUS_DATE:
                             type: string
                             description: Status Date
-                            example:
+                            example: "13/08/2001"
                           CASE_NO:
                             type: string
                             description: Case No.
-                            example:
+                            example: "MC 23631 / 2001"
                           FORMATTED_ID:
                             type: string
                             description: Formatted ID 
-                            example:
+                            example: "197803191K"
                           DOC_REMARKS:
                             type: string
                             description: Document Remark
-                            example:
+                            example: "WRIT OF SUMMONS"
                           CURRENCY1:
                             type: string
                             description: Currency 1 
-                            example:
+                            example: "SIN"
                           CURRENCY2:
                             type: string
                             description: Currency 2
@@ -654,33 +833,46 @@ components:
                           CASE_STATUS:
                             type: string
                             description: Status
-                            example:
+                            example: "PENDING AS AT STATUS DATE"
                           AMOUNT1:
                             type: string
                             description: Amount 1 
-                            example:
+                            example: "36,196.00"
                           AMOUNT2:
                             type: string
                             description: Amount 2
-                            example:
+                            example: "0.00"
                           AMOUNT3:
                             type: string
                             description: Amount 3
-                            example:
+                            example: "0.00"
                           AMOUNT4:
                             type: string
                             description: Amount 4
-                            example:
+                            example: "0.00"
                           AMOUNT5:
                             type: string
                             description: Amount 5
-                            example:
+                            example: "0.00"
                           LIST_PLAINTIFF:
                             type: array
                             description:  |+
                               List of plaintiff with following children&#58;
                               [PLAINTIFF]
-                            example:
+                            example:  |+
+                              <LIST_PLAINTIFF>
+                              <PLAINTIFF>
+                              <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME>
+                              <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM>
+                              <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                              <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR>
+                              <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                              <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                              <PLA_STATUS>-</PLA_STATUS>
+                              <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                              <PLA_ID>S7250163B</PLA_ID>
+                              </PLAINTIFF>
+                              </LIST_PLAINTIFF>
                             items:
                               properties:
                                 PLAINTIFF:
@@ -696,32 +888,43 @@ components:
                                     PLA_STATUS
                                     PLA_STATUS_DATE
                                     PLA_ID
-                                  example:
+                                  example:  |+
+                                    <PLAINTIFF>
+                                    <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME>
+                                    <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM>
+                                    <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                                    <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR>
+                                    <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                                    <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                                    <PLA_STATUS>-</PLA_STATUS>
+                                    <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                                    <PLA_ID>S7250163B</PLA_ID>
+                                    </PLAINTIFF>
                                   properties:
                                     PLA_NAME:
                                       type: string
                                       description: Plaintiff Name 
-                                      example:
+                                      example: "ROTARY PILING PTE LTD"
                                     LAW_FIRM:
                                       type: string
                                       description: Pla. Law Firm 
-                                      example:
+                                      example: "JOSEPH HOO MORRIS & KUMAR"
                                     WRITE_DATE:
                                       type: string
                                       description: Writ date
-                                      example:
+                                      example: "13/08/2001"
                                     PLA_SOLICITOR:
                                       type: string
                                       description: Plaintiff Solicitor
-                                      example:
+                                      example: "HOO JOSEPH"
                                     PLA_SOLICITOR_ID:
                                       type: string
                                       description: Plaintiff Solicitor ID
-                                      example:
+                                      example: "ORS"
                                     PLA_FILE_REF:
                                       type: string
                                       description: Pla. File Ref.
-                                      example:
+                                      example: "CHH 6253 D27"
                                     PLA_STATUS:
                                       type: string
                                       description: Plaintiff Status
@@ -733,13 +936,21 @@ components:
                                     PLA_ID:
                                       type: string
                                       description: Plaintiff ID
-                                      example:
+                                      example: "S7250163B"
                           LIST_DEFENDANT:
                             type: array
                             description:  |+
                               List of defendant with following children&#58;
                               [DEFENDANT]
-                            example:
+                            example:  |+
+                              <LIST_DEFENDANT>
+                              <DEFENDANT>
+                              <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR>
+                              <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID>
+                              <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM>
+                              <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                              </DEFENDANT>
+                              </LIST_DEFENDANT>
                             items:
                               properties:
                                 DEFENDANT:
@@ -750,7 +961,13 @@ components:
                                     DEF_SOLICITOR_ID
                                     DEF_LAW_FIRM
                                     DEF_FILE_REF
-                                  example:
+                                  example:   |+
+                                    <DEFENDANT>
+                                    <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR>
+                                    <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID>
+                                    <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM>
+                                    <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                                    </DEFENDANT>
                                   properties:
                                     DEF_SOLICITOR:
                                       type: string
@@ -759,7 +976,7 @@ components:
                                     DEF_SOLICITOR_ID:
                                       type: string
                                       description: Def. Solicitor ID 
-                                      example:
+                                      example: N/A
                                     DEF_LAW_FIRM:
                                       type: string
                                       description: Def. Law Firm 
@@ -773,7 +990,25 @@ components:
                   description:  |+
                     List of Search By Financial Sectors and Search By Non-Financial Sectors with following children&#58;
                     [Ddrptcount]
-                  example: "[Ddrptcount]"
+                  example:  |+
+                    <LIST_Ddrptcount>
+                    <Ddrptcount>
+                    <Rcjan>1</Rcjan>
+                    <Rcfeb>1</Rcfeb>
+                    <Rcmar>1</Rcmar>
+                    <Rcapr>1</Rcapr>
+                    <Rcmay>1</Rcmay>
+                    <Rcjun>1</Rcjun>
+                    <Rcjul>1</Rcjul>
+                    <Rcaug>1</Rcaug>
+                    <Rcsep>1</Rcsep>
+                    <Rcoct>1</Rcoct>
+                    <Rcnov>1</Rcnov>
+                    <Rcdec>1</Rcdec>
+                    <Rcyear>2017</Rcyear>
+                    <Rcsecflag>1</Rcsecflag>
+                    </Ddrptcount>
+                    <LIST_Ddrptcount>
                   items:
                     properties:
                       Ddrptcount:
@@ -794,7 +1029,23 @@ components:
                           Rcdec
                           Rcyear
                           Rcsecflag
-                        example: Rcjan Rcfeb Rcmar Rcapr Rcmay Rcjun Rcjul Rcaug Rcsep Rcoct Rcnov Rcdec Rcyear Rcsecflag
+                        example:  |+
+                          <Ddrptcount>
+                          <Rcjan>1</Rcjan>
+                          <Rcfeb>1</Rcfeb>
+                          <Rcmar>1</Rcmar>
+                          <Rcapr>1</Rcapr>
+                          <Rcmay>1</Rcmay>
+                          <Rcjun>1</Rcjun>
+                          <Rcjul>1</Rcjul>
+                          <Rcaug>1</Rcaug>
+                          <Rcsep>1</Rcsep>
+                          <Rcoct>1</Rcoct>
+                          <Rcnov>1</Rcnov>
+                          <Rcdec>1</Rcdec>
+                          <Rcyear>2017</Rcyear>
+                          <Rcsecflag>1</Rcsecflag>
+                          </Ddrptcount>
                         properties:                      
                           Rcjan:
                             type: integer
