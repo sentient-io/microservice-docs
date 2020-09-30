@@ -198,7 +198,13 @@
               - type: string
                 example: Published Date - Sep 30, 2020
                 description: Updated version release             
-
+          v1.0:
+           type: array
+           items:
+            oneOf:
+              - type: string
+                example: Published Date - Apr 11, 2018
+                description: Initial version release  
       input:
         type: object
         required:
