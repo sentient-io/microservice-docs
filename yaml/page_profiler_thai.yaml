@@ -242,9 +242,9 @@
             x-name: url
             type: string
             default: true
-            example: "The absolute input url, i.e exact, full address (URL) to the page"
+            example: https://www.komchadluek.net/
             description: |+
-              Input url 
+              The absolute input url, i.e exact, full address (URL) to the page
               
     securitySchemes:
       APIAuthorizer:
