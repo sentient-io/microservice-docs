@@ -4,6 +4,7 @@ info:
   description: |+
     This Utiltiy microservice generates Public key and Private key pair, useful for encryption purposes.
   version: '0.1'
+  x-subscribelink: pki_key_generator
 servers:
   - url: 'https://apis.sentient.io'
 tags:
