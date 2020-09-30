@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Named-Entity Recognition ENG using SPACY
+  title: spaCy NER
   description: |+
     This NLP microservice locates and classifies the named-entities classes from input unstructured English text.
     
@@ -13,7 +13,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Sept 28, 2020"
+  description: "Published Date - Sep 30, 2020"
 paths:
   /microservices/nlp/spacyner/v0.1/getpredictions:
     post:
@@ -275,7 +275,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Sept 28,2020
+              example: Published Date - Sep 30, 2020
               description: Initial version release    
     input:
       type: object
