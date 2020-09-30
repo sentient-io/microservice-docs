@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: HDB Block Coordinates (SG)
+  x-subscribelink: building_addresses_hdb_sg
   description: |+
    This Data microservice retrieves information on the Singapore Housing Development Board building blocks in Singapore that includes addresses, postal code, latitude and longitude coordinates. Updated monthly
 
