@@ -220,7 +220,7 @@ components:
                       type: string
                       example: N/A
                       description: Valid user id in DDP system. It is for (For internal use)
-                    ADDRESS1:
+                    ADD_ADDRESS1:
                       type: string
                       description: Address Line 1
                       example: "1 HARBOURFRONT AVENUE , 18 - 01"
