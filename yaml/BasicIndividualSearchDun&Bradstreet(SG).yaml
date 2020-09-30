@@ -685,69 +685,86 @@ components:
                                       example:
                 LIST_Ddrptcount:
                   type: array
-                  description: List of Search By Financial Sectors and Search By Non-Financial Sectors
+                  description:  |+
+                    List of Search By Financial Sectors and Search By Non-Financial Sectors with following children&#58;
+                    [Ddrptcount]
                   example: "[Ddrptcount]"
                   items:
                     properties:
                       Ddrptcount:
                         type: object
-                        description: 6 XML tags (open then close) displays Search By Financial Sectors (counts for 3 recent years).Search By Non-Financial Sectors (counts for 3 recent years)
+                        description:  |+
+                          6 XML tags (open then close) displays Search By Financial Sectors (counts for 3 recent years).Search By Non-Financial Sectors (counts for 3 recent years) with following children&#58;
+                          Rcjan
+                          Rcfeb
+                          Rcmar
+                          Rcapr
+                          Rcmay
+                          Rcjun
+                          Rcjul
+                          Rcaug
+                          Rcsep
+                          Rcoct
+                          Rcnov
+                          Rcdec
+                          Rcyear
+                          Rcsecflag
                         example: Rcjan Rcfeb Rcmar Rcapr Rcmay Rcjun Rcjul Rcaug Rcsep Rcoct Rcnov Rcdec Rcyear Rcsecflag
                         properties:                      
                           Rcjan:
-                            type: number
+                            type: integer
                             description: Count for January
                             example: "1"
                           Rcfeb:
-                            type: number
+                            type: integer
                             description: Count for February
                             example: "1"
                           Rcmar:
-                            type: number
+                            type: integer
                             description: Count for March
                             example: "1"
                           Rcapr:
-                            type: number
+                            type: integer
                             description: Count for April
                             example: "1"
                           Rcmay:
-                            type: number
+                            type: integer
                             description: Count for May
                             example: "1"
                           Rcjun:
-                            type: number 
+                            type: integer 
                             description: Count for June
                             example: "1"
                           Rcjul:
-                            type: number
+                            type: integer
                             description: Count for July
                             example: "1"
                           Rcaug:
-                            type: number
+                            type: integer
                             description: Count for August
                             example: "1"
                           Rcsep:
-                            type: number 
+                            type: integer 
                             description: Count for September
                             example: "1"
                           Rcoct:
-                            type: number
+                            type: integer
                             description: Count for October
                             example: "1"
                           Rcnov:
-                            type: number
+                            type: integer
                             description: Count for November
                             example: "1"
                           Rcdec:
-                            type: number 
+                            type: integer 
                             description: Count for December
                             example: "1"
                           Rcyear:
-                            type: number
+                            type: integer
                             description: To show the year
                             example: "1"
                           Rcsecflag:
-                            type: number
+                            type: integer
                             description: Differentiate Search By Financial Sectors and Search By Non-Financial Sectors
                             example: "1"
     unauthorized:
