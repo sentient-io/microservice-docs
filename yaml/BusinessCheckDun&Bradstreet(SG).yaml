@@ -893,7 +893,7 @@ components:
                             description: Currency
                             example: SGD
                           AMOUNT :
-                            type: float
+                            type: integer
                             description: Amount
                             example: 30000.00
                 LIST_Ddrptcount :
