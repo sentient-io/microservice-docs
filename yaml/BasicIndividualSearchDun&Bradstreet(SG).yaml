@@ -100,7 +100,13 @@ components:
               properties:
                 META_INFO:
                   type: object
-                  example: 
+                  example:  |+
+                    <META_INFO>
+                    <SERVICE><![CDATA[BIS]]></SERVICE>
+                    <SYSTEM_ID><![CDATA[DDP]]></SYSTEM_ID>
+                    <CREATION_DATE>25/02/2009 17:31:44.678</CREATION_DATE>
+                    <USER_ID><![CDATA[plcust102]]></USER_ID>
+                    </META_INFO>
                   description:  |+
                     Meta Information details with following children&#58;
                     SERVICE
@@ -110,11 +116,11 @@ components:
                   properties:
                     SERVICE:
                       type: string
-                      example: "<![CDATA[BIS]]>"
+                      example: "BIS"
                       description: Report Requested
                     SYSTEM_ID :
                       type: string
-                      example: "<![CDATA[DDP]]>"
+                      example: "DDP"
                       description: System ID
                     CREATION_DATE:
                       type: datetime
@@ -122,8 +128,8 @@ components:
                       description: Report Request Date
                     USER_ID :
                       type: string
-                      example: "<![CDATA[plcust102]]>"
-                      description: Valid user id in DDP system
+                      example: N/A
+                      description: Valid user id in DDP system. It is for (For internal use)
                 BASIC_INFO :
                   type: object
                   description: |+
@@ -132,27 +138,42 @@ components:
                     ADDRESS1
                     ADDRESS2
                     ADDRESS3
-                  example: PA_REG_NO ADDRESS1 ADDRESS2 ADDRESS3
+                  example:  |+
+                    <BASIC_INFO>
+                    <PA_REG_NO type="String"><![CDATA[00091]]></ PA_REG_NO>
+                    <ADDRESS1><![CDATA[137, BEDOK RESERVOIR ROAD, 06 - 1451]]></ADDRESS1>
+                    <ADDRESS2><![CDATA[-]]></ADDRESS2>
+                    <ADDRESS3><![CDATA[470137, SINGAPORE]]></ADDRESS3>
+                    </BASIC_INFO>
                   properties:
                     PA_REG_NO :
                       type: string
                       description: Public Accountant Registration No.
-                      example: "<![CDATA[00091]]>"
+                      example: "00091"
                     ADDRESS1:
                       type: string
                       description: Address 1
-                      example: "<![CDATA[137, BEDOK RESERVOIR ROAD, 06 - 1451]]>"
+                      example: "137, BEDOK RESERVOIR ROAD, 06 - 1451"
                     ADDRESS2:
                       type: string
                       description: Address 2
-                      example: "<![CDATA[-]]>"
+                      example:
                     ADDRESS3:
                       type: string
                       description: Address 3
-                      example: "<![CDATA[470137, SINGAPORE]]>"
+                      example: "470137, SINGAPORE"
                 LIT_SEARCH_INFO :
                   type: object
-                  example: "COMP_NAME REG_NO REPORT_TYPE REQ_DATE REQ_REG_NO REQ_NAME REQ_DATE_STR"
+                  example:  |+
+                    <LIT_SEARCH_INFO>
+                    <COMP_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></COMP_NAME>
+                    <REG_NO><![CDATA[197803191K]]></REG_NO>
+                    <REPORT_TYPE><![CDATA[BIS]]></REPORT_TYPE>
+                    <REQ_DATE>25/02/2009 17:31:44</REQ_DATE>
+                    <REQ_REG_NO><![CDATA[197803191K]]></REQ_REG_NO>
+                    <REQ_NAME><![CDATA[LOY KOK TOON]]></REQ_NAME>
+                    <REQ_DATE_STR><![CDATA[25/02/2009 15:04:14]]></REQ_DATE_STR>
+                    </LIT_SEARCH_INFO>
                   description: |+
                     Litigation search information with following children&#58;
                     COMP_NAME
@@ -166,15 +187,15 @@ components:
                     COMP_NAME:
                       type: string
                       description: Company Name
-                      example: "<![CDATA[ENG YICK HOLDINGS PTE LTD]]>"
+                      example: "ENG YICK HOLDINGS PTE LTD"
                     REG_NO:
                       type: string
                       description: Company Registration No
-                      example: "<![CDATA[197803191K]]>"
+                      example: "197803191K"
                     REPORT_TYPE:
                       type: string
                       description: Report Type
-                      example: "<![CDATA[BIS]]>"
+                      example: "BIS"
                     REQ_DATE:
                       type: datetime
                       description: Requested Date
@@ -182,21 +203,39 @@ components:
                     REQ_REG_NO:
                       type: string
                       description: Request Registration Number
-                      example: "<![CDATA[197803191K]]>"
+                      example: "197803191K"
                     REQ_NAME:
                       type: string
                       description: Request Name
-                      example: "<![CDATA[LOY KOK TOON]]>"
+                      example: "LOY KOK TOON"
                     REQ_DATE_STR:
                       type: string
                       description: Request Date String
-                      example: "<![CDATA[25/02/2009 15:04:14]]>"
+                      example: "25/02/2009 15:04:14"
                 LIST_CURRENT_COMP :
                   type: object
                   description:  |+
                     List of current companies with following children&#58;
                     [CURRENT_COMP]
-                  example:
+                  example:  |+
+                    <LIST_CURRENT_COMP>
+                    <CURRENT_COMP>
+                    <POSITION><![CDATA[OWNER]]></POSITION>
+                    <APPOINTMENT_DATE><![CDATA[01/09/1971]]></APPOINTMENT_DATE>
+                    <COMP_NAME><![CDATA[BAN HOE LEONG COMPANY]]></COMP_NAME>
+                    <SEQ_NO><![CDATA[03647300J]]></SEQ_NO>
+                    <SHARE_VALUE1><![CDATA[15.00]]></SHARE_VALUE1>
+                    <COMP_STATUS><![CDATA[LIVE]]></COMP_STATUS>
+                    <PROFIT_VALUE1><![CDATA[2008 = -]]></PROFIT_VALUE1>
+                    <PROFIT_VALUE2><![CDATA[2007 = -]]></PROFIT_VALUE2>
+                    <PROFIT_VALUE3><![CDATA[2006 = -]]></PROFIT_VALUE3>
+                    <SHARE_VALUE><![CDATA[150000]]></SHARE_VALUE>
+                    <TEL><![CDATA[62994842]]></TEL>
+                    <FAX><![CDATA[62992797]]></FAX>
+                    <SIC><![CDATA[5012]]></SIC>
+                    <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
+                    </CURRENT_COMP>
+                    </LIST_CURRENT_COMP>
                   properties:
                     CURRENT_COMP:
                       type: object
@@ -215,66 +254,98 @@ components:
                         SIC
                         SIC_DESC
                       example:  |+
+                        <CURRENT_COMP>
+                        <POSITION><![CDATA[OWNER]]></POSITION>
+                        <APPOINTMENT_DATE><![CDATA[01/09/1971]]></APPOINTMENT_DATE>
+                        <COMP_NAME><![CDATA[BAN HOE LEONG COMPANY]]></COMP_NAME>
+                        <SEQ_NO><![CDATA[03647300J]]></SEQ_NO>
+                        <SHARE_VALUE1><![CDATA[15.00]]></SHARE_VALUE1>
+                        <COMP_STATUS><![CDATA[LIVE]]></COMP_STATUS>
+                        <PROFIT_VALUE1><![CDATA[2008 = -]]></PROFIT_VALUE1>
+                        <PROFIT_VALUE2><![CDATA[2007 = -]]></PROFIT_VALUE2>
+                        <PROFIT_VALUE3><![CDATA[2006 = -]]></PROFIT_VALUE3>
+                        <SHARE_VALUE><![CDATA[150000]]></SHARE_VALUE>
+                        <TEL><![CDATA[62994842]]></TEL>
+                        <FAX><![CDATA[62992797]]></FAX>
+                        <SIC><![CDATA[5012]]></SIC>
+                        <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
+                        </CURRENT_COMP> 
                       properties:
                         POSITION:
                           type: string
                           description: Position
-                          example: "<![CDATA[OWNER]]>"
+                          example: "OWNER"
                         APPOINTMENT_DATE:
                           type: string
                           description: Appointment Date
-                          example: "<![CDATA[01/09/1971]]>"
+                          example: "01/09/1971"
                         COMP_NAME:
                           type: string
                           description: Company Name
-                          example: "<![CDATA[BAN HOE LEONG COMPANY]]>"
+                          example: "BAN HOE LEONG COMPANY"
                         SEQ_NO:
                           type: string
                           description: Company Registration No.
-                          example: "<![CDATA[03647300J]]>"
+                          example: "03647300J"
                         SHARE_VALUE1:
                           type: string
                           description: Share Percentage
-                          example: "<![CDATA[15.00]]>"
+                          example: "15.00"
                         COMP_STATUS:
                           type: string
                           description: Company Status
-                          example: "<![CDATA[LIVE]]>"
+                          example: "LIVE"
                         PROFIT_VALUE1:
                           type: string
                           description: Profit Making 1
-                          example: "<![CDATA[2008 = -]]>"
+                          example: "2008 = -"
                         PROFIT_VALUE2:
                           type: string
                           description: Profit Making 2
-                          example: "<![CDATA[2007 = -]]>"
+                          example: "2007 = -"
                         PROFIT_VALUE3:
                           type: string
                           description: Profit Making 3
-                          example: "<![CDATA[2006 = -]]>"
+                          example: "2006 = -"
                         SHARE_VALUE:
                           type: string
                           description: Number Of Shares
-                          example: "<![CDATA[150000]]>"
+                          example: "150000"
                         TEL:
                           type: string
                           description: Telephone Number
-                          example: "<![CDATA[62994842]]>"
+                          example: "62994842"
                         FAX:
                           type: string
                           description: Fax Number
-                          example: "<![CDATA[62992797]]>"
+                          example: "62992797"
                         SIC:
                           type: string
                           description: SIC Code
-                          example: "<![CDATA[5012]]>"
+                          example: "5012"
                         SIC_DESC:
                           type: string
                           description: SIC Description
-                          example: "<![CDATA[Automobiles and other Motor Vehicles]]>"
+                          example: "Automobiles and other Motor Vehicles"
                 LIST_PREVIOUS_COMP:
                   type: array
-                  example: "[PREVIOUS_COMP]"
+                  example:  |+
+                    <LIST_PREVIOUS_COMP>
+                    <PREVIOUS_COMP>
+                    <POSITION><![CDATA[SHAREHOLDER]]></POSITION>
+                    <APPOINTMENT_DATE><![CDATA[30/06/1988]]></APPOINTMENT_DATE>
+                    <COMP_NAME><![CDATA[ENG YICK INDUSTRIES PTE LTD]]></COMP_NAME>
+                    <SEQ_NO><![CDATA[198101820Z]]></SEQ_NO>
+                    <SHARE_VALUE1><![CDATA[100.00]]></SHARE_VALUE1>
+                    <COMP_STATUS><![CDATA[DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)]]></COMP_STATUS>
+                    <CESSATION_DATE><![CDATA[22/09/1992]]></CESSATION_DATE>
+                    <SHARE_VALUE><![CDATA[390002]]></SHARE_VALUE>
+                    <TEL><![CDATA[62994842]]></TEL>
+                    <FAX><![CDATA[67467646]]></FAX>
+                    <SIC><![CDATA[2325]]></SIC>
+                    <SIC_DESC><![CDATA[Menâ€™s and Boysâ€™ Separate Trousers and Slacks]]></SIC_DESC>
+                    </PREVIOUS_COMP>
+                    </LIST_PREVIOUS_COMP>
                   description:  |+
                     List of previous companies with following children&#58;
                     [PREVIOUS_COMP]
@@ -296,56 +367,70 @@ components:
                           FAX
                           SIC
                           SIC_DESC
-                        example:
+                        example:  |+
+                          <PREVIOUS_COMP>
+                          <POSITION><![CDATA[SHAREHOLDER]]></POSITION>
+                          <APPOINTMENT_DATE><![CDATA[30/06/1988]]></APPOINTMENT_DATE>
+                          <COMP_NAME><![CDATA[ENG YICK INDUSTRIES PTE LTD]]></COMP_NAME>
+                          <SEQ_NO><![CDATA[198101820Z]]></SEQ_NO>
+                          <SHARE_VALUE1><![CDATA[100.00]]></SHARE_VALUE1>
+                          <COMP_STATUS><![CDATA[DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)]]></COMP_STATUS>
+                          <CESSATION_DATE><![CDATA[22/09/1992]]></CESSATION_DATE>
+                          <SHARE_VALUE><![CDATA[390002]]></SHARE_VALUE>
+                          <TEL><![CDATA[62994842]]></TEL>
+                          <FAX><![CDATA[67467646]]></FAX>
+                          <SIC><![CDATA[2325]]></SIC>
+                          <SIC_DESC><![CDATA[Menâ€™s and Boysâ€™ Separate Trousers and Slacks]]></SIC_DESC>
+                          </PREVIOUS_COMP> 
                         properties:
                           POSITION :
                             type: string
                             description: Position
-                            example:
+                            example: "SHAREHOLDER"
                           APPOINTMENT_DATE:
                             type: string
                             description: Appointment Date 
-                            example:
+                            example: "30/06/1988"
                           COMP_NAME:
                             type: string
                             description: Company Name
-                            example:
+                            example: "ENG YICK INDUSTRIES PTE LTD"
                           SEQ_NO:
                             type: string
                             description: Company Registration No.
-                            example:
+                            example: "198101820Z"
                           SHARE_VALUE1:
                             type: string
                             description: Share Value Percentage
-                            example:
+                            example: "100.00"
                           COMP_STATUS:
                             type: string
                             description: Company Status
-                            example:
+                            example: "DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)"
                           CESSATION_DATE :
                             type: string
                             description: Cessation Date 
-                            example:
+                            example: "22/09/1992"
                           SHARE_VALUE:
                             type: string
                             description: Number Of Shares 
-                            example:
+                            example: "390002"
                           TEL:
                             type: string
                             description: Telephone Number
-                            example:
+                            example: "62994842"
                           FAX:
                             type: string
                             description: Fax Number
-                            example:
+                            example: "67467646"
                           SIC:
                             type: string
                             description: SIC Code 
-                            example:
+                            example: "2325"
                           SIC_DESC:
                             type: string
                             description: SIC Description 
-                            example:
+                            example: "Menâ€™s and Boysâ€™ Separate Trousers and Slacks"
                 LIST_BANKRUPTCY:
                   type: array
                   description:  |+
