@@ -279,7 +279,7 @@ components:
                       description: Request Date String
                       example: "25/02/2009 15:04:14"
                 LIST_CURRENT_COMP :
-                  type: object
+                  type: array
                   description:  |+
                     List of current companies with following children&#58;
                     [CURRENT_COMP]
@@ -302,97 +302,98 @@ components:
                     <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
                     </CURRENT_COMP>
                     </LIST_CURRENT_COMP>
-                  properties:
-                    CURRENT_COMP:
-                      type: object
-                      description: |+
-                        Current companies detail with following children&#58;
-                        POSITION
-                        APPOINTMENT_DATE
-                        COMP_NAME
-                        SEQ_NO
-                        SHARE_VALUE1
-                        COMP_STATUS
-                        PROFIT_VALUE
-                        SHARE_VALUE
-                        TEL
-                        FAX
-                        SIC
-                        SIC_DESC
-                      example:  |+
-                        <CURRENT_COMP>
-                        <POSITION><![CDATA[OWNER]]></POSITION>
-                        <APPOINTMENT_DATE><![CDATA[01/09/1971]]></APPOINTMENT_DATE>
-                        <COMP_NAME><![CDATA[BAN HOE LEONG COMPANY]]></COMP_NAME>
-                        <SEQ_NO><![CDATA[03647300J]]></SEQ_NO>
-                        <SHARE_VALUE1><![CDATA[15.00]]></SHARE_VALUE1>
-                        <COMP_STATUS><![CDATA[LIVE]]></COMP_STATUS>
-                        <PROFIT_VALUE1><![CDATA[2008 = -]]></PROFIT_VALUE1>
-                        <PROFIT_VALUE2><![CDATA[2007 = -]]></PROFIT_VALUE2>
-                        <PROFIT_VALUE3><![CDATA[2006 = -]]></PROFIT_VALUE3>
-                        <SHARE_VALUE><![CDATA[150000]]></SHARE_VALUE>
-                        <TEL><![CDATA[62994842]]></TEL>
-                        <FAX><![CDATA[62992797]]></FAX>
-                        <SIC><![CDATA[5012]]></SIC>
-                        <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
-                        </CURRENT_COMP>  
-                      properties:
-                        POSITION:
-                          type: string
-                          description: Position
-                          example: "OWNER"
-                        APPOINTMENT_DATE:
-                          type: string
-                          description: Appointment Date
-                          example: "01/09/1971"
-                        COMP_NAME:
-                          type: string
-                          description: Company Name
-                          example: "BAN HOE LEONG COMPANY"
-                        SEQ_NO:
-                          type: string
-                          description: Company Registration No.
-                          example: "03647300J"
-                        SHARE_VALUE1:
-                          type: string
-                          description: Share Percentage
-                          example: "15.00"
-                        COMP_STATUS:
-                          type: string
-                          description: Company Status
-                          example: "LIVE"
-                        PROFIT_VALUE1:
-                          type: string
-                          description: Profit Making 1
-                          example: "2008 = -"
-                        PROFIT_VALUE2:
-                          type: string
-                          description: Profit Making 2
-                          example: "2007 = -"
-                        PROFIT_VALUE3:
-                          type: string
-                          description: Profit Making 3
-                          example: "2006 = -"
-                        SHARE_VALUE:
-                          type: string
-                          description: Number Of Shares
-                          example: "150000"
-                        TEL:
-                          type: string
-                          description: Telephone Number
-                          example: "62994842"
-                        FAX:
-                          type: string
-                          description: Fax Number
-                          example: "62992797"
-                        SIC:
-                          type: string
-                          description: SIC Code
-                          example: "5012"
-                        SIC_DESC:
-                          type: string
-                          description: SIC Description
-                          example: "Automobiles and other Motor Vehicles"
+                  items:
+                    properties:
+                      CURRENT_COMP:
+                        type: object
+                        description: |+
+                          Current companies detail with following children&#58;
+                          POSITION
+                          APPOINTMENT_DATE
+                          COMP_NAME
+                          SEQ_NO
+                          SHARE_VALUE1
+                          COMP_STATUS
+                          PROFIT_VALUE
+                          SHARE_VALUE
+                          TEL
+                          FAX
+                          SIC
+                          SIC_DESC
+                        example:  |+
+                          <CURRENT_COMP>
+                          <POSITION><![CDATA[OWNER]]></POSITION>
+                          <APPOINTMENT_DATE><![CDATA[01/09/1971]]></APPOINTMENT_DATE>
+                          <COMP_NAME><![CDATA[BAN HOE LEONG COMPANY]]></COMP_NAME>
+                          <SEQ_NO><![CDATA[03647300J]]></SEQ_NO>
+                          <SHARE_VALUE1><![CDATA[15.00]]></SHARE_VALUE1>
+                          <COMP_STATUS><![CDATA[LIVE]]></COMP_STATUS>
+                          <PROFIT_VALUE1><![CDATA[2008 = -]]></PROFIT_VALUE1>
+                          <PROFIT_VALUE2><![CDATA[2007 = -]]></PROFIT_VALUE2>
+                          <PROFIT_VALUE3><![CDATA[2006 = -]]></PROFIT_VALUE3>
+                          <SHARE_VALUE><![CDATA[150000]]></SHARE_VALUE>
+                          <TEL><![CDATA[62994842]]></TEL>
+                          <FAX><![CDATA[62992797]]></FAX>
+                          <SIC><![CDATA[5012]]></SIC>
+                          <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
+                          </CURRENT_COMP>  
+                        properties:
+                          POSITION:
+                            type: string
+                            description: Position
+                            example: "OWNER"
+                          APPOINTMENT_DATE:
+                            type: string
+                            description: Appointment Date
+                            example: "01/09/1971"
+                          COMP_NAME:
+                            type: string
+                            description: Company Name
+                            example: "BAN HOE LEONG COMPANY"
+                          SEQ_NO:
+                            type: string
+                            description: Company Registration No.
+                            example: "03647300J"
+                          SHARE_VALUE1:
+                            type: string
+                            description: Share Percentage
+                            example: "15.00"
+                          COMP_STATUS:
+                            type: string
+                            description: Company Status
+                            example: "LIVE"
+                          PROFIT_VALUE1:
+                            type: string
+                            description: Profit Making 1
+                            example: "2008 = -"
+                          PROFIT_VALUE2:
+                            type: string
+                            description: Profit Making 2
+                            example: "2007 = -"
+                          PROFIT_VALUE3:
+                            type: string
+                            description: Profit Making 3
+                            example: "2006 = -"
+                          SHARE_VALUE:
+                            type: string
+                            description: Number Of Shares
+                            example: "150000"
+                          TEL:
+                            type: string
+                            description: Telephone Number
+                            example: "62994842"
+                          FAX:
+                            type: string
+                            description: Fax Number
+                            example: "62992797"
+                          SIC:
+                            type: string
+                            description: SIC Code
+                            example: "5012"
+                          SIC_DESC:
+                            type: string
+                            description: SIC Description
+                            example: "Automobiles and other Motor Vehicles"
                 LIST_PREVIOUS_COMP:
                   type: array
                   example:  |+
