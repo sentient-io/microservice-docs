@@ -105,13 +105,7 @@ components:
                     ADDRESS1
                     ADDRESS2
                     ADDRESS3
-                  example: |+
-                    <BASIC_INFO>
-                    <PA_REG_NO type="String"><![CDATA[00091]]></ PA_REG_NO>
-                    <ADDRESS1><![CDATA[137, BEDOK RESERVOIR ROAD, 06 - 1451]]></ADDRESS1>
-                    <ADDRESS2><![CDATA[-]]></ADDRESS2>
-                    <ADDRESS3><![CDATA[470137, SINGAPORE]]></ADDRESS3>
-                    </BASIC_INFO>
+                  example: 
                   properties:
                     PA_REG_NO :
                       type: string
