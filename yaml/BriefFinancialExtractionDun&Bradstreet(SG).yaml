@@ -1350,7 +1350,7 @@ components:
         ENQUIRY:
           type: object
           example: |+
-            "<ENQUIRY><SUBJECT_IDNO>197601887E</SUBJECT_IDNO><SUBJECT_NAME>TRANSTAR TRAVEL PTE LTD</SUBJECT_NAME></ENQUIRY>"
+            &lt;ENQUIRY><SUBJECT_IDNO>197601887E</SUBJECT_IDNO><SUBJECT_NAME>TRANSTAR TRAVEL PTE LTD</SUBJECT_NAME>&lt;/ENQUIRY>
           description: Contains information of each request details
           default: true
           properties:
