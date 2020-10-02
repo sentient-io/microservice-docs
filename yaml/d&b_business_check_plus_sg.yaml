@@ -1563,7 +1563,11 @@ components:
                             example: 0001
                           Rcsecflag :
                             type: integer
-                            description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
+                            description: |+
+                              Differentiate Search By Financial Sectors and Search By Non- Financial Sectors.
+                              Possible values are&#58;
+                                1 SEARCH BY FINANCIAL SECTORS 
+                                0 SEARCH BY NON FINANCIAL SECTORS
                             example: 1
                           LastUpdateDate :
                             type: datetime
