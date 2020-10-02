@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: HDB Commercial Directories (SG)
+  x-subscribelink: commercial_directories_hdb_sg
   description: |+
    This Data microservice retrieves the list of all retail shops in Singapore which allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates type of business. The resultant dataset offers useful information like the shop operating hours and contact number. Updated weekly. 
 

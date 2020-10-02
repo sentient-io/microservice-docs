@@ -6,6 +6,7 @@ info:
     
     This can be use with PKI Key Generator.
   version: '0.1'
+  x-subscribelink: encryption_using_pki_key
 servers:
   - url: 'https://apis.sentient.io'
 tags:

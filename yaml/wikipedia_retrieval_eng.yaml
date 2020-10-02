@@ -4,6 +4,7 @@ info:
   description: |+
     It is an API that provides the user with a Wikipedia article based on the input keyword. Refer to this link for the full list of Wikipedias - <u>https://meta.wikimedia.org/wiki/List_of_Wikipedias</u>
   version: '0.1'
+  x-subscribelink: wikipedia_retrieval_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:

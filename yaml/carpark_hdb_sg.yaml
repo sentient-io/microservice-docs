@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: HDB Carpark Locations (SG)
+  x-subscribelink: carpark_hdb_sg
   description: |+
     This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates that includes location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.
 
@@ -185,8 +186,8 @@ paths:
                     _source:
                       cpk_no: BE37
                       block: BLK 282
-                      street: BE37 BISHAN STREET 22
-                      address: BLK 282 BE37 BISHAN STREET 22
+                      street: BISHAN STREET 22
+                      address: BLK 282 BISHAN STREET 22
                       source: hdb
                       xcoord: '29235.553'
                       ycoord: '37787.1371'

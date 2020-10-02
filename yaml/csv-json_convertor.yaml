@@ -4,6 +4,7 @@ info:
   description: |+
     This Utility microservice converts the input CSV to JSON format. The headers should be the keywords and columns should be the value of proper keywords.
   version: '1.0'
+  x-subscribelink: csv-json_convertor
 servers:
   - url: 'https://apis.sentient.io'
 tags:

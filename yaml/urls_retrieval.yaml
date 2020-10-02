@@ -4,6 +4,7 @@ info:
   description: |+
     This Utility microservice crawls and retrieves their content from the input URLs, up to the specified depth.
   version: '0.1'
+  x-subscribelink: urls_retrieval
 servers:
   - url: 'https://apis.sentient.io'
 tags:

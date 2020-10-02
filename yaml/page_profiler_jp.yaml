@@ -1,6 +1,6 @@
   openapi: 3.0.1
   info:
-    title: Page Profiler JAP
+    title: Page Profiler JP
     description: |+
       This NLP microservice retrieves web content in Japanese from the input URL. From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output. 
       
@@ -8,6 +8,7 @@
       
       This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
     version: '0.1'
+    x-subscribelink: page_profiler_jp
   servers:
     - url: 'https://apis.sentient.io'
   tags:
@@ -232,7 +233,7 @@
             default: true
             example: https://www.bbc.com/japanese
             description: |+
-              The absolute input url, i.e exact, full address (URL) to the page
+              The URL of the page to be profile. Kindly note that the URL has to be spelt in full, including "https://www."
     securitySchemes:
       APIAuthorizer:
         type: apiKey

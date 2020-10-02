@@ -6,6 +6,7 @@ info:
     
     This microservice works best for if the audio file consists of mostly speech with no long pauses in between.
   version: '0.1'
+  x-subscribelink: automatic_speech_recognition_chi_sg
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -180,6 +181,14 @@ components:
           description: |+
             Input file in base64 format and needs to be prefixed by the data type and encoding
             data:audio/wav;base64,<wav in base64 string>
+        language:
+          x-name: language
+          type: string
+          default: true
+          example: 1
+          description: |+
+            Language setting&#58;
+              1 Mandarin
     versions:
       type: object
       properties: 

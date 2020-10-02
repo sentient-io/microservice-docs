@@ -4,6 +4,7 @@ info:
   description: |+
     This Utility microservice retrieves the Youtube video of the input URL and output a download link.
   version: '0.1'
+  x-subscribelink: youtube_video_downloader
 servers:
   - url: 'https://apis.sentient.io'
 tags:

@@ -4,6 +4,7 @@ info:
   description: |+
     This api allows to extracting & curating articles and delivers Instapaper style article extraction. Current supported languages: Arabic, Russian, Dutch, German, English, Spanish, French, Hebrew, Italian, Korean, Norwegian, Persian, Polish, Portuguese, Swedish, Hungarian, Finnish, Danish, Chinese, Indonesian, Vietnamese, Swahili, Turkish, Greek, Ukrainian. Supports automatic languages detection.
   version: '0.1'
+  x-subscribelink: newspaper_article_scraper
 servers:
   - url: 'https://apis.sentient.io'
 tags:

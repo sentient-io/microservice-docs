@@ -8,6 +8,7 @@ info:
     
     This microservice can help identify the types of concept that are frequently mentioned in an article.
   version: '0.1'
+  x-subscribelink: taxonomy_matcher_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:

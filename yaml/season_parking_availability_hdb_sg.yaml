@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: HDB Season Parking Availability (SG)
+  x-subscribelink: season_parking_availability_hdb_sg
   description: |+
     This Data microservice returns season car park availability information within Housing Development Board of Singapore (HDB) estates that includes location address, postal code, branch office, vehicle type and parking lot availability for different types of vehicle by carpark location. 
 

@@ -4,6 +4,7 @@ info:
   description: |+
     This Utility microservice converts the input JSON (json string or json file) to CSV format.
   version: '1.0'
+  x-subscribelink: json-csv_convertor
 servers:
   - url: 'https://apis.sentient.io'
 tags:

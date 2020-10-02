@@ -6,6 +6,7 @@ info:
     
     This microservice returns the number of people detected in that video, the likelihood of overestimation/underestimation, the first appearance and the duration and confidence of each person detected.
   version: '0.1'
+  x-subscribelink: people_counting
 servers:
   - url: 'https://apis.sentient.io'
 tags:

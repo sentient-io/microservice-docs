@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Named-Entity Recognition JAP
+  title: Named-Entity Recognition JP
   description: |+
     This NLP microservice locates and classifies the named-entities classes from input unstructured Japanese text.
     
@@ -8,6 +8,7 @@ info:
     
     This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
   version: '0.1'
+  x-subscribelink: named-entity_recognition_jp
 servers:
   - url: 'https://apis.sentient.io'
 tags:

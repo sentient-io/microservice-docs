@@ -6,6 +6,7 @@ info:
     
     The microservice returns the detected landmark and confidence score.
   version: '0.1'
+  x-subscribelink: landmark_detection_jp
 servers:
   - url: 'https://apis.sentient.io'
 tags:

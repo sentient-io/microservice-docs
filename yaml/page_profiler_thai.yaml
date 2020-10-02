@@ -8,6 +8,7 @@
       
       This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
     version: '1.0'
+    x-subscribelink: page_profiler_thai
   servers:
     - url: 'https://apis.sentient.io'
   tags:
@@ -244,8 +245,7 @@
             default: true
             example: https://www.komchadluek.net/
             description: |+
-              The absolute input url, i.e exact, full address (URL) to the page
-              
+              The URL of the page to be profile. Kindly note that the URL has to be spelt in full, including "https://www."
     securitySchemes:
       APIAuthorizer:
         type: apiKey

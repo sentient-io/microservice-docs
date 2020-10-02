@@ -6,6 +6,7 @@ info:
     
     The output is the time-coded high-quality script.
   version: '0.1'
+  x-subscribelink: script_alignment
 servers:
   - url: 'https://apis.sentient.io'
 tags:

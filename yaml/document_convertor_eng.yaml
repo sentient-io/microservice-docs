@@ -4,6 +4,7 @@ info:
   description: |+
     This Utility microservice extracts the English text content of singular input Microsoft Word, HTML or PDF documents and outputs into plain text format.
   version: '1.0'
+  x-subscribelink: document_convertor_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
