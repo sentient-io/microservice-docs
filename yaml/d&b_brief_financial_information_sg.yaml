@@ -3,6 +3,7 @@ info:
   title: D&B Brief Financial Information (SG)
   description:  This Data microservice provides the annual financial information of the Singapore-registered business, inclusive of annual profit and loss and financial ratios. Updated daily.
   version: '0.1'
+  x-subscribelink: d&b_brief_financial_information_sg
 servers:
   - url: 'https://api.sentient.io'
 tags:
