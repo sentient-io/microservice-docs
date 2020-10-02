@@ -324,7 +324,7 @@ components:
                     CREATION_DATE:
                       type: datetime
                       description: Report request date
-                      example: "Wed Apr 08 11:37:51 MYT 2009"
+                      example: Wed Apr 08 11:37:51 MYT 2009
                     USER_ID :
                       type: string
                       description: Valid user id in DDP system. It is for (For internal use)
@@ -507,7 +507,7 @@ components:
                     REQ_DATE:
                       type: datetime
                       description: Report Requested Date
-                      example: "2009-04-08 11:36:03.611"
+                      example: 2009-04-08 11:36:03.611
                     REQ_REG_NO:
                       type: string
                       description: Request Registration Number
@@ -539,7 +539,7 @@ components:
                     AMOUNT:
                       type: integer
                       description: Number of employee
-                      example: "300"
+                      example: 300
                 LIST_BIZ_BRANCH :
                   type: array
                   description: |+
