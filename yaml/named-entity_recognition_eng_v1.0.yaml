@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Named-Entity Recognition ENG Updated
+  title: Named-Entity Recognition ENG
   description: |+
     This NLP microservice locates and classifies the named-entities classes from input unstructured English text.
     
