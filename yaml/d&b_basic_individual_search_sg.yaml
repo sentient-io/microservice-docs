@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Basic Individual Search Dun & Bradstreet (SG)
+  title: D&B Basic Individual Search (SG)
   description:  |+
     This Data microservice provides the information on the (Singapore-registered) business interest of an individual that includes the individual’s actual name, residential address, business and shareholding in businesses, current & previous ownership, litigation against individual and businesses, bankruptcy record and count on the times this individual has been searched on. Updated daily.
   version: '0.1'
