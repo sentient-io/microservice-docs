@@ -187,9 +187,6 @@ components:
       type: array
       required:
         - text
-        - start
-        - end
-        - seqNum
       items:
         type: object
         properties:
