@@ -211,22 +211,22 @@ Data:
         title: HDB Shelters Locations (SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/amenities_shelters_hdb_sg.yaml"
-    Business Check Plus Dun & Bradstreet (SG):
-        title: Business Check Plus Dun & Bradstreet (SG)
+    D&B Business Check Plus (SG):
+        title: D&B Business Check Plus (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/BusinessCheckPlusDun&Bradstreet(SG).yaml"
-    Basic Individual Search Dun & Bradstreet (SG):
-        title: Basic Individual Search Dun & Bradstreet (SG)
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/d&b_business_check_plus_sg.yaml"
+    D&B Basic Individual Search (SG):
+        title: D&B Basic Individual Search (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/BasicIndividualSearchDun&Bradstreet(SG).yaml"
-    Business Check Dun & Bradstreet (SG):
-        title: Business Check Dun & Bradstreet (SG)
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/d&b_basic_individual_search_sg.yaml"
+    D&B Business Check (SG):
+        title: D&B Business Check (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/BusinessCheckDun&Bradstreet(SG).yaml"
-    Brief Financial Extraction Dun & Bradstreet (SG):
-        title: Brief Financial Extraction Dun & Bradstreet (SG)
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/d&b_business_check_sg.yaml"
+    D&B Brief Financial Information (SG):
+        title: D&B Brief Financial Information (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/BriefFinancialExtractionDun&Bradstreet(SG).yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/d&b_brief_financial_information_sg.yaml"
 Data Alliance:
     Download Dataset API:
         title: Download Dataset API
