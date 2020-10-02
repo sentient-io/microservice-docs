@@ -505,7 +505,7 @@ components:
                       description: Subject’s ID Number (individual) or Registration Number (company/business)
                       example: "197401835M"
                     REQ_DATE:
-                      type: date
+                      type: datetime
                       description: Report Requested Date
                       example: "2009-04-08 11:36:03.611"
                     REQ_REG_NO:
