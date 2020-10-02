@@ -1535,7 +1535,7 @@ components:
                           Rcoct :
                             type: integer
                             description: Count for October
-                            example:
+                            example: 1
                           Rcnov :
                             type: integer
                             description: Count for November
@@ -1546,8 +1546,10 @@ components:
                             example: 1
                           Rcid :
                             type: string
-                            description: Internal database value
-                            example:
+                            description: |+
+                              Internal database value, respond value from table Primary Key ID
+                              It is for (For internal use)
+                            example: N/A
                           Rcreg :
                             type: string
                             description: Company Registration Number
