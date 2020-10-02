@@ -1,0 +1,1122 @@
+openapi: 3.0.1
+info:
+  title: D&B Business Check (SG)
+  description: |+
+    This Data microservice provides key business information of a Singapore-registered company includes the business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholders. Updated daily.
+  version: '0.1'
+servers:
+  - url: 'https://api.sentient.io'
+tags:
+- name: "v0.1"
+  description: "Published Date - Jul 23, 2019"
+paths:
+   /dnb/prod/sbc:
+    post:
+      tags:
+        - v0.1
+      summary: Adds a new user
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/REQUEST'              
+      responses:
+        '200':
+          description: success response
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: |+
+                <success><report><meta_info><service>string</service> <system_id>string</system_id> <creation_date>string</creation_date> <user_id>string</user_id> <class>string</class></meta_info> <req_search_info><comp_name>string</comp_name> <reg_no>string</reg_no> <req_date>string</req_date> <req_reg_no>string</req_reg_no> <req_name>string</req_name> <req_date_str>string</req_date_str></req_search_info> <registry_detail><comp_name>string</comp_name> <renewal_date>string</renewal_date> <address1>string</address1> <address2>string</address2> <address3>string</address3> <address4>string</address4> <comp_type_code>string</comp_type_code> <reg_date>string</reg_date> <reg_activity1>string</reg_activity1> <reg_activity2>string</reg_activity2> <acc_date>string</acc_date> <status_effect_date>string</status_effect_date> <name_effect_date>string</name_effect_date> <expiry_date>string</expiry_date> <comp_type>string</comp_type> <change_addr_date>string</change_addr_date> <comp_status>string</comp_status> <reg_activity_desc1>string</reg_activity_desc1> <reg_activity_desc2>string</reg_activity_desc2> <auditor>string</auditor> <auditor_appmt_date>string</auditor_appmt_date> <last_ar_date>string</last_ar_date> <last_agm_date>string</last_agm_date> <country_incorp>string</country_incorp></registry_detail> <employee_size><elements>string</elements> <amount>string</amount></employee_size> <list_biz_branch><biz_branch><addr_building>string</addr_building> <addr_postcode>string</addr_postcode> <addr_address1>string</addr_address1></biz_branch> </list_biz_branch><list_reg_charges><reg_charges><charge_no>string</charge_no> <charge_date>string</charge_date> <chargee_comp>string</chargee_comp> <currency>string</currency> <amt_secured>string</amt_secured> <status_satisfaction>string</status_satisfaction></reg_charges> </list_reg_charges><list_liquidator><liquidator><liq_name>string</liq_name> <liq_id>string</liq_id> <liq_position>string</liq_position> <liq_comp>string</liq_comp> <liq_address1>string</liq_address1> <liq_address2>string</liq_address2> <liq_address3>string</liq_address3> <liq_address4>string</liq_address4> <liq_appointment_date>string</liq_appointment_date></liquidator> </list_liquidator><list_sales_revenue_amount><sales_revenue_amount><elements>string</elements> <year>string</year> <currency>string</currency> <amount>0</amount></sales_revenue_amount></list_sales_revenue_amount><list_shareholder><shareholder><address>string</address>
+
+                  <comp_id>string</comp_id> <no_of_share>string</no_of_share> <currency>string</currency> <shareholder_type>string</shareholder_type> <share_type>string</share_type> <shareholder_name>string</shareholder_name> <change_addr_date>string</change_addr_date> <addr_type>string</addr_type> <nationality>string</nationality></shareholder> </list_shareholder><list_share_interest_comp><share_interest_comp><comp_name>string</comp_name> <share_owned_unit>string</share_owned_unit> <share_owned_percent>string</share_owned_percent> <status>string</status></share_interest_comp></list_share_interest_comp><list_officer_owner><officer_owner><address>string</address>
+                  
+                  <identity_id>string</identity_id> <position>string</position> <addr_type>string</addr_type> <cessation_date>string</cessation_date> <officer_name>string</officer_name> <change_addr_date>string</change_addr_date> <appmt_date>string</appmt_date> <nationality>string</nationality></officer_owner> </list_officer_owner><list_capital><capital><capital_category>string</capital_category> <capital_type>string</capital_type> <currency>string</currency> <capital_amt>string</capital_amt> <no_of_shares>string</no_of_shares></capital> </list_capital><list_name_change><name_change><prev_name>string</prev_name> <effect_date>string</effect_date></name_change></list_name_change></report></success>
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '420':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'        
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'        
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+        type: object
+        properties:
+            REPORT:
+              type: object
+              example:
+              description: |+
+                Report details with following children&#58;
+                [META_INFO]
+                [REGISTRY_DETAIL]
+                [REQ_SEARCH_INFO]
+                [EMPLOYEE_SIZE]
+                [LIST_BIZ_BRANCH]
+                [LIST_REG_CHARGES]
+                [LIST_LIQUIDATOR]
+                [LIST_SHARE_INTEREST_COMP]
+                [LIST_NAME_CHANGE]
+                [LIST_SHAREHOLDER]
+                [LIST_CAPITAL]
+                [LIST_OFFICER_OWNER]
+                [LIST_SALES_REVENUE_AMOUNT]
+              properties:
+                META_INFO:
+                  type: object
+                  example: |+
+                    <META_INFO>
+                    <SERVICE type="String"><![CDATA[BC]]></SERVICE>
+                    <SYSTEM_ID type="String"><![CDATA[DDP]]></SYSTEM_ID>
+                    <CREATION_DATE type="Date"><![CDATA[Wed Apr 08 11:37:51 MYT 2009]]></CREATION_DATE>
+                    <USER_ID type="String"><![CDATA[plcust102]]></USER_ID>
+                    <CLASS type="String"><![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]></CLASS>
+                    </META_INFO>
+                  description: |+
+                    Meta Information details with following children&#58;
+                    SERVICE
+                    SYSTEM_ID
+                    CREATION_DATE
+                    USER_ID
+                    CLASS
+                  properties:
+                    SERVICE:
+                      type: string
+                      description: Report requested
+                      example: "BC"
+                    SYSTEM_ID :
+                      type: string
+                      description: System ID
+                      example: "DDP"
+                    CREATION_DATE:
+                      type: datetime
+                      description: Report request date
+                      example: "Wed Apr 08 11:37:51 MYT 2009"
+                    USER_ID :
+                      type: string
+                      description: Valid user id in DDP system. It is for (For internal use)
+                      example: "N/A"
+                    CLASS:
+                      type: string
+                      description: Class location for metabean. It is for (For internal use)
+                      example: "N/A"
+                REGISTRY_DETAIL :
+                  type: object
+                  example: |+
+                    <REGISTRY_DETAIL className="com.technodex.ddp.report.bean.CommercialBizRegistryBean">
+                    <RENEWAL_DATE type="String"><![CDATA[23/12/2008]]></RENEWAL_DATE>
+                    <ADDRESS1 type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 - 01]]></ADDRESS1>
+                    <ADDRESS2 type="String"><![CDATA[KEPPEL BAY TOWER]]></ADDRESS2>
+                    <ADDRESS3 type="String"><![CDATA[098632]]></ADDRESS3>
+                    <ADDRESS4 type="String"><![CDATA[SINGAPORE]]></ADDRESS4>
+                    <COMP_TYPE_CODE type="String"><![CDATA[CP]]></COMP_TYPE_CODE>
+                    <REG_DATE type="String"><![CDATA[14/10/1974]]></REG_DATE>
+                    <REG_ACTIVITY1 type="String"><![CDATA[OTHER INVESTMENT HOLDING
+                    COMPANIES]]></REG_ACTIVITY1>
+                    <REG_ACTIVITY2 type="String"><![CDATA[SHIP MANAGEMENT SERVICES]]></REG_ACTIVITY2>
+                    <ACC_DATE type="String"><![CDATA[31/12/2007]]></ACC_DATE>
+                    <STATUS_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></STATUS_EFFECT_DATE>
+                    <NAME_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></NAME_EFFECT_DATE>
+                    <EXPIRY_DATE type="String"><![CDATA[25/10/2009]]></EXPIRY_DATE>
+                    <COMP_TYPE type="String"><![CDATA[LIMITED PRIVATE COMPANY]]></COMP_TYPE>
+                    <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE>
+                    <COMP_STATUS type="String"><![CDATA[Live Company]]></COMP_STATUS>
+                    <REG_ACTIVITY_DESC1 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC1>
+                    <REG_ACTIVITY_DESC2 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC2>
+                    <AUDITOR type="String"><![CDATA[-]]></AUDITOR>
+                    <AUDITOR_APPMT_DATE type="String"><![CDATA[13/06/1990]]></AUDITOR_APPMT_DATE>
+                    <LAST_AR_DATE type="String"><![CDATA[30/06/2008]]></LAST_AR_DATE>
+                    <LAST_AGM_DATE type="String"><![CDATA[11/06/2008]]></LAST_AGM_DATE>
+                    <COUNTRY_INCORP type="String"><![CDATA[SINGAPORE]]></COUNTRY_INCORP>
+                    </REGISTRY_DETAIL>
+                  description: |+
+                    Registry Details with following children&#58;
+                    RENEWAL_DATE
+                    ADDRESS1
+                    ADDRESS2
+                    ADDRESS3
+                    ADDRESS4
+                    COMP_TYPE_CODE
+                    REG_DATE
+                    REG_ACTIVITY1 
+                    REG_ACTIVITY2
+                    ACC_DATE
+                    STATUS_EFFECT_DATE
+                    NAME_EFFECT_DATE
+                    EXPIRY_DATE
+                    COMP_TYPE
+                    CHANGE_ADDR_DATE
+                    COMP_STATUS
+                    REG_ACTIVITY_DESC1
+                    REG_ACTIVITY_DESC2
+                    AUDITOR
+                    AUDITOR_APPMT_DATE
+                    LAST_AR_DATE
+                    LAST_AGM_DATE
+                    COUNTRY_INCORP
+                  properties:
+                    RENEWAL_DATE:
+                      type: string
+                      description: Renewal Date
+                      example: "23/12/2008"
+                    ADDRESS1:
+                      type: string
+                      description: Address Line 1
+                      example: "1 HARBOURFRONT AVENUE , 18 - 01"
+                    ADDRESS2:
+                      type: string
+                      description: Address Line 2
+                      example: "KEPPEL BAY TOWER"
+                    ADDRESS3:
+                      type: string
+                      description: Address Line 3
+                      example: "098632"
+                    ADDRESS4:
+                      type: string
+                      description: Address Line 4
+                      example: "SINGAPORE"
+                    COMP_TYPE_CODE:
+                      type: string
+                      example: CP
+                      description: |+
+                       Report Code. Available values are&#58;
+                       1. CP Corporate
+                       2. SP Sole Proprietor
+                    REG_DATE:
+                      type: string
+                      description: Registration Date
+                      example: "14/10/1974"
+                    REG_ACTIVITY1:
+                      type: string
+                      description: Registered Activities 1
+                      example: "OTHER INVESTMENT HOLDING COMPANIES"
+                    REG_ACTIVITY2:
+                      type: string
+                      description: Registered Activities 2
+                      example: "SHIP MANAGEMENT SERVICES"
+                    ACC_DATE:
+                      type: string
+                      description: Account Date
+                      example: "31/12/2007"
+                    STATUS_EFFECT_DATE:
+                      type: string
+                      description: Status Effective Date
+                      example: "14/10/1974"
+                    NAME_EFFECT_DATE:
+                      type: string
+                      description: Name Effective Date
+                      example: "14/10/1974"
+                    EXPIRY_DATE:
+                      type: string
+                      description: Expiry Date
+                      example: "25/10/2009"
+                    COMP_TYPE:
+                      type: string
+                      description: Company Type
+                      example: "LIMITED PRIVATE COMPANY"
+                    CHANGE_ADDR_DATE:
+                      type: string
+                      description: Change Address Date
+                      example: "09/05/2003"
+                    COMP_STATUS:
+                      type: string
+                      description: Company Status
+                      example: "Live Company"
+                    REG_ACTIVITY_DESC1:
+                      type: string
+                      description: Registered Activities Description
+                      example:
+                    REG_ACTIVITY_DESC2:
+                      type: string
+                      description: Registered Activities Description
+                      example:
+                    AUDITOR:
+                      type: string
+                      description: Auditor Name
+                      example:
+                    AUDITOR_APPMT_DATE:
+                      type: string
+                      description: Auditor Appointment Date
+                      example: "13/06/1990"
+                    LAST_AR_DATE:
+                      type: string
+                      description: Date of Last AR
+                      example: "30/06/2008"
+                    LAST_AGM_DATE:
+                      type: string
+                      description: Date of Last AGM
+                      example: "11/06/2008"
+                    COUNTRY_INCORP:
+                      type: string
+                      description: Country Incorporated
+                      example: "SINGAPORE"
+                REQ_SEARCH_INFO :
+                  type: object
+                  example: |+
+                    <REQ_SEARCH_INFO className="com.technodex.ddp.report.bean.LitigationSearchInfoBean">
+                    <COMP_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></COMP_NAME>
+                    <REG_NO type="String"><![CDATA[197401835M]]></REG_NO>
+                    <REQ_DATE type="Date"><![CDATA[2009-04-08 11:36:03.611]]></REQ_DATE>
+                    <REQ_REG_NO type="String"><![CDATA[197401835M]]></REQ_REG_NO>
+                    <REQ_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></REQ_NAME>
+                    <REQ_DATE_STR type="String"><![CDATA[08/04/2009 11:36:03]]></REQ_DATE_STR>
+                    </REQ_SEARCH_INFO>
+                  description: |+
+                    Request criteria & search record with following children&#58;
+                    COMP_NAME
+                    REG_NO
+                    REQ_DATE
+                    REQ_REG_NO
+                    REQ_NAME
+                    REQ_DATE_STR
+                  properties:
+                    COMP_NAME:
+                      type: string
+                      description: Company Name
+                      example: "KAPAL MANAGEMENT (PRIVATE) LIMITED"
+                    REG_NO:
+                      type: string
+                      description: Subject’s ID Number (individual) or Registration Number (company/business)
+                      example: "197401835M"
+                    REQ_DATE:
+                      type: string
+                      description: Report Requested Date
+                      example: "2009-04-08 11:36:03.611"
+                    REQ_REG_NO:
+                      type: string
+                      description: Request Registration Number
+                      example: "197401835M"
+                    REQ_NAME:
+                      type: string
+                      description: Request Name
+                      example: "KAPAL MANAGEMENT (PRIVATE) LIMITED"
+                    REQ_DATE_STR:
+                      type: string
+                      description: Request Date String
+                      example: "08/04/2009 11:36:03"
+                EMPLOYEE_SIZE :
+                  type: object
+                  description: |+
+                    Employee Size details with following children&#58;
+                    ELEMENTS
+                    AMOUNT
+                  example: |+
+                    <EMPLOYEE_SIZE>
+                    <ELEMENTS><![CDATA[Employee Size]]></ELEMENTS>
+                    <AMOUNT>300</AMOUNT>
+                    </EMPLOYEE_SIZE>
+                  properties:
+                    ELEMENTS:
+                      type: string
+                      description: Description
+                      example: "Employee Size"
+                    AMOUNT:
+                      type: string
+                      description: Number of employee
+                      example: "300"
+                LIST_BIZ_BRANCH :
+                  type: array
+                  description: |+
+                    List of Business Branches with following children&#58;
+                    [BIZ_BRANCH]
+                  example: |+
+                    <LIST_BIZ_BRANCH className="com.technodex.ddp.report.bean.CommercialBizBranchBean">
+                    <BIZ_BRANCH>
+                    <ADDR_BUILDING type="String"><![CDATA[-]]></ADDR_BUILDING>
+                    <ADDR_POSTCODE type="String"><![CDATA[289848]]></ADDR_POSTCODE> <ADDR_ADDRESS1 type="String"><![CDATA[251A ARCADIA ROAD , - - -]]></ADDR_ADDRESS1>
+                    </BIZ_BRANCH>
+                    </LIST_BIZ_BRANCH>
+                  properties:
+                    BIZ_BRANCH :
+                      type: object
+                      description: |+
+                        Business Branches with following children&#58;
+                        ADDR_BUILDING
+                        ADDR_POSTCODE
+                        ADDR_ADDRESS1
+                      example: |+
+                        <BIZ_BRANCH>
+                        <ADDR_BUILDING type="String"><![CDATA[-]]></ADDR_BUILDING>
+                        <ADDR_POSTCODE type="String"><![CDATA[289848]]></ADDR_POSTCODE> 
+                        <ADDR_ADDRESS1 type="String"><![CDATA[251A ARCADIA ROAD , - - -]]></ADDR_ADDRESS1>
+                        </BIZ_BRANCH>
+                      properties:
+                        ADDR_BUILDING:
+                          type: string
+                          description: Building Name
+                          example: 
+                        ADDR_POSTCODE:
+                          type: string
+                          description: Postcode
+                          example: 289848
+                        ADDR_ADDRESS1:
+                          type: string
+                          description: Address
+                          example: 251A ARCADIA ROAD
+                LIST_REG_CHARGES:
+                  type: array
+                  description: |+
+                    List of Registered Charges with following children&#58;
+                    [REG_CHARGES]
+                  example: |+
+                    <LIST_REG_CHARGES className="com.technodex.ddp.report.bean.CommercialBizChgRegBean">
+                    <REG_CHARGES>
+                    <CHARGE_NO type="String"><![CDATA[8205117]]></CHARGE_NO>
+                    <CHARGE_DATE type="String"><![CDATA[26/11/1982]]></CHARGE_DATE>
+                    <CHARGEE_COMP type="String"><![CDATA[UNITED OVERSEAS BANK LIMITED]]></CHARGEE_COMP>
+                    <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
+                    <AMT_SECURED type="String"><![CDATA[0.00]]></AMT_SECURED>
+                    <STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION>
+                    </REG_CHARGES>
+                    </LIST_REG_CHARGES>
+                  items:
+                    properties:
+                      REG_CHARGES :
+                        type: object
+                        description: |+
+                          Registered Charges details with following children&#58;
+                          CHARGE_NO
+                          CHARGE_DATE
+                          CHARGEE_COMP
+                          CURRENCY
+                          AMT_SECURED
+                          STATUS_SATISFACTION
+                        example: |+
+                          <REG_CHARGES>
+                          <CHARGE_NO type="String"><![CDATA[8205117]]></CHARGE_NO>
+                          <CHARGE_DATE type="String"><![CDATA[26/11/1982]]></CHARGE_DATE>
+                          <CHARGEE_COMP type="String"><![CDATA[UNITED OVERSEAS BANK LIMITED]]></CHARGEE_COMP>
+                          <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
+                          <AMT_SECURED type="String"><![CDATA[0.00]]></AMT_SECURED>
+                          <STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION>
+                          </REG_CHARGES>
+                        properties:
+                          CHARGE_NO :
+                            type: string
+                            description: Charge No.
+                            example: 8205117
+                          CHARGE_DATE:
+                            type: string
+                            description: Charge Date
+                            example: 26/11/1982
+                          CHARGEE_COMP:
+                            type: string
+                            description: Charges Company
+                            example: UNITED OVERSEAS BANK LIMITED
+                          CURRENCY:
+                            type: string
+                            description: Currency
+                            example: 
+                          AMT_SECURED:
+                            type: string
+                            description: Amount Secured
+                            example: 0.00
+                          STATUS_SATISFACTION:
+                            type: string
+                            description: Status of Satisfaction
+                            example:
+                LIST_LIQUIDATOR:
+                  type: array
+                  description: |+
+                    List of Liquidator / Receiver / Judicial Manager with following children&#58;
+                    [LIQUIDATOR]
+                  example: |+
+                    <LIST_LIQUIDATOR>
+                    <LIQUIDATOR>
+                    <LIQ_NAME>ABUTHAHIR ABDUL GAFOOR</LIQ_NAME> <LIQ_ID>S1676216D</LIQ_ID>
+                    <LIQ_POSITION>Liquidator</LIQ_POSITION>
+                    <LIQ_COMP>EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.</LIQ_COMP> <LIQ_ADDRESS1>1 RAFFLES PLACE</LIQ_ADDRESS1> <LIQ_ADDRESS2>#20-01</LIQ_ADDRESS2>
+                    <LIQ_ADDRESS3>OUB CENTRE</LIQ_ADDRESS3> <LIQ_ADDRESS4>SINGAPORE 048616</LIQ_ADDRESS4> <LIQ_APPOINTMENT_DATE>30/03/2009</LIQ_APPOINTMENT_DATE>
+                    </LIQUIDATOR>
+                    </LIST_LIQUIDATOR>
+                  items:
+                    properties:
+                      LIQUIDATOR :
+                        type: object
+                        description: |+
+                          Liquidator details with following children&#58;
+                          LIQ_POSITION
+                          LIQ_ID
+                          LIQ_NAME
+                          LIQ_COMP
+                          LIQ_ADDRESS1
+                          LIQ_ADDRESS2
+                          LIQ_ADDRESS3
+                          LIQ_ADDRESS4
+                          LIQ_APPOINTMENT_DATE
+                        example: |+
+                          <LIQUIDATOR>
+                          <LIQ_NAME>ABUTHAHIR ABDUL GAFOOR</LIQ_NAME>
+                          <LIQ_ID>S1676216D</LIQ_ID>
+                          <LIQ_POSITION>Liquidator</LIQ_POSITION>
+                          <LIQ_COMP>EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.</LIQ_COMP>
+                          <LIQ_ADDRESS1>1 RAFFLES PLACE</LIQ_ADDRESS1>
+                          <LIQ_ADDRESS2>#20-01</LIQ_ADDRESS2>
+                          <LIQ_ADDRESS3>OUB CENTRE</LIQ_ADDRESS3>
+                          <LIQ_ADDRESS4>SINGAPORE 048616</LIQ_ADDRESS4>
+                          <LIQ_APPOINTMENT_DATE>30/03/2009</LIQ_APPOINTMENT_DATE>
+                          </LIQUIDATOR>
+                        properties:
+                          LIQ_POSITION:
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Position
+                            example: Liquidator
+                          LIQ_ID:
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager ID
+                            example: S1676216D
+                          LIQ_NAME :
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Name
+                            example: ABUTHAHIR ABDUL GAFOOR
+                          LIQ_COMP:
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Company Name
+                            example: EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.
+                          LIQ_ADDRESS1:
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Address 1
+                            example: 1 RAFFLES PLACE
+                          LIQ_ADDRESS2:
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Address 2
+                            example: #20-01
+                          LIQ_ADDRESS3:
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Address 3
+                            example: OUB CENTRE
+                          LIQ_ADDRESS4:
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Address 4
+                            example: SINGAPORE 048616
+                          LIQ_APPOINTMENT_DATE:
+                            type: string
+                            description: Liquidator / Receiver / Judicial Manager Appointment Date
+                            example: 30/03/2009
+                LIST_SHARE_INTEREST_COMP :
+                  type: array
+                  description: |+
+                    List of Share Interest In Companies with following children&#58;
+                    [SHARE_INTEREST_COMP]
+                  example: |+
+                    <LIST_SHARE_INTEREST_COMP className="com.technodex.ddp.report.bean.CommercialShareInterestBean">
+                    <SHARE_INTEREST_COMP>
+                    <COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> 
+                    <SHARE_OWNED_UNIT type="String"><![CDATA[500000]]></SHARE_OWNED_UNIT> 
+                    <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT>
+                    <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
+                    </SHARE_INTEREST_COMP>
+                    </LIST_SHARE_INTEREST_COMP>
+                  items:
+                    properties:
+                      SHARE_INTEREST_COMP :
+                        type: object
+                        description: |+
+                          Share Interest In Companies details with following children&#58;
+                          COMP_NAME
+                          SHARE_OWNED_UNIT
+                          SHARE_OWNED_PERCENT
+                          STATUS
+                        example: |+
+                          <SHARE_INTEREST_COMP>
+                          <COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> 
+                          <SHARE_OWNED_UNIT type="String"><![CDATA[500000]]></SHARE_OWNED_UNIT> 
+                          <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT>
+                          <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
+                          </SHARE_INTEREST_COMP>
+                        properties:
+                          COMP_NAME :
+                            type: string
+                            description: Company Name
+                            example: ORCHID (HOLDINGS) PTE. LTD.
+                          SHARE_OWNED_UNIT :
+                            type: string
+                            description: Shares Owned Unit
+                            example: 500000
+                          SHARE_OWNED_PERCENT :
+                            type: string
+                            description: Shares Owned Value (%)
+                            example: 100.00
+                          STATUS :
+                            type: string
+                            description: Status
+                            example: DISSOLVED - MEMBERS' VOLUNTARY WINDING UP
+                LIST_NAME_CHANGE :
+                  type: array
+                  description: |+
+                    List of Change of Company/Business Name(s) with following children&#58;
+                    [NAME_CHANGE]
+                  example: |+
+                    <LIST_NAME_CHANGE className="com.technodex.ddp.report.bean.CommercialBizChgCmpBean">
+                    <NAME_CHANGE>
+                    <PREV_NAME type="String"><![CDATA[HUA XI EATING HOUSE]]></PREV_NAME>
+                    <EFFECT_DATE type="String"><![CDATA[25/10/1997 00:00:00]]></EFFECT_DATE>
+                    </NAME_CHANGE>
+                    </LIST_NAME_CHANGE>
+                  items:
+                    properties:
+                      NAME_CHANGE :
+                        type: object
+                        description: |+
+                          Change of Company/Business Name(s) with following children&#58;
+                          PREV_NAME
+                          EFFECT_DATE
+                        example: |+
+                          <NAME_CHANGE>
+                          <PREV_NAME type="String"><![CDATA[HUA XI EATING HOUSE]]></PREV_NAME>
+                          <EFFECT_DATE type="String"><![CDATA[25/10/1997 00:00:00]]></EFFECT_DATE>
+                          </NAME_CHANGE>
+                        properties:
+                          PREV_NAME :
+                            type: string
+                            description: Previous Name
+                            example: HUA XI EATING HOUSE
+                          EFFECT_DATE :
+                            type: string
+                            description: Effective Date
+                            example: 25/10/1997 00:00:00
+                LIST_SHAREHOLDER :
+                  type: array
+                  description: |+
+                    List of Shareholders with following children&#58;
+                    [SHAREHOLDER]
+                  example: |+
+                    <LIST_SHAREHOLDER className="com.technodex.ddp.report.bean.CommercialShareHoldersBean">
+                    <SHAREHOLDER>
+                    <ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632,
+                    SINGAPORE]]></ADDRESS>
+                    <COMP_ID type="String"><![CDATA[198200406H]]></COMP_ID>
+                    <NO_OF_SHARE type="String"><![CDATA[657]]></NO_OF_SHARE>
+                    <CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY> <SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
+                    <SHARE_TYPE type="String"><![CDATA[Preference]]></SHARE_TYPE>
+                    <SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL COMMUNICATIONS PTE
+                    LTD]]></SHAREHOLDER_NAME>
+                    <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE> <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
+                    <NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
+                    </SHAREHOLDER>
+                    </LIST_SHAREHOLDER>
+                  items:
+                    properties:
+                      SHAREHOLDER :
+                        type: object
+                        description: |+
+                          Shareholders details with following children&#58;
+                          ADDRESS
+                          COMP_ID
+                          NO_OF_SHARE
+                          CURRENCY
+                          SHAREHOLDER_TYPE
+                          SHARE_TYPE
+                          SHAREHOLDER_NAME
+                          CHANGE_ADDR_DATE
+                          ADDR_TYPE
+                          NATIONALITY
+                        example: |+
+                          <SHAREHOLDER>
+                          <ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632, SINGAPORE]]></ADDRESS>
+                          <COMP_ID type="String"><![CDATA[198200406H]]></COMP_ID>
+                          <NO_OF_SHARE type="String"><![CDATA[657]]></NO_OF_SHARE>
+                          <CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY>
+                          <SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
+                          <SHARE_TYPE type="String"><![CDATA[Preference]]></SHARE_TYPE>
+                          <SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL COMMUNICATIONS PTE LTD]]></SHAREHOLDER_NAME>
+                          <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE>
+                          <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
+                          <NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
+                          </SHAREHOLDER>
+                        properties:
+                          ADDRESS :
+                            type: string
+                            description: Address
+                            example: 1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632, SINGAPORE
+                          COMP_ID :
+                            type: string
+                            description: Company/ Identity No.
+                            example: 198200406H
+                          NO_OF_SHARE :
+                            type: string
+                            description: No. of Shares
+                            example: 657
+                          CURRENCY :
+                            type: string
+                            description: Currency
+                            example: UNITED STATES OF AMERICA, DOLLARS
+                          SHAREHOLDER_TYPE :
+                            type: string
+                            description: Indicator for Shareholder type
+                            example: 2
+                          SHARE_TYPE :
+                            type: string
+                            description: Share Type
+                            example: Preference
+                          SHAREHOLDER_NAME :
+                            type: string
+                            description: Shareholder Name
+                            example: KEPPEL COMMUNICATIONS PTE LTD
+                          CHANGE_ADDR_DATE :
+                            type: string
+                            description: Change Address Date
+                            example: 09/05/2003
+                          ADDR_TYPE :
+                            type: string
+                            description: Address Type, indicates if it is Singapore or foreign address.
+                            example:
+                          NATIONALITY :
+                            type: string
+                            description: Nationality
+                            example: SINGAPORE
+                LIST_CAPITAL :
+                  type: array
+                  description: |+
+                    List of Capital details with following children&#58;
+                    [CAPITAL]
+                  example: |+
+                    <LIST_CAPITAL className="com.technodex.ddp.report.bean.CommercialBizCapitalBean">
+                    <CAPITAL>
+                    <CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY>
+                    <CAPITAL_TYPE type="String"><![CDATA[Ordinary]]></CAPITAL_TYPE> 
+                    <CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY> 
+                    <CAPITAL_AMT type="String"><![CDATA[100,000.00]]></CAPITAL_AMT> 
+                    <NO_OF_SHARES type="String"><![CDATA[100,000]]></NO_OF_SHARES>
+                    </CAPITAL>
+                    </LIST_CAPITAL>
+                  items:
+                    properties:
+                      CAPITAL :
+                        type: object
+                        description: |+
+                          Capital details with following children&#58;
+                          CAPITAL_CATEGORY
+                          CAPITAL_TYPE
+                          CURRENCY
+                          CAPITAL_AMT
+                          NO_OF_SHARES
+                        example: |+
+                          <CAPITAL>
+                          <CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY>
+                          <CAPITAL_TYPE type="String"><![CDATA[Ordinary]]></CAPITAL_TYPE> 
+                          <CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY> 
+                          <CAPITAL_AMT type="String"><![CDATA[100,000.00]]></CAPITAL_AMT> 
+                          <NO_OF_SHARES type="String"><![CDATA[100,000]]></NO_OF_SHARES>
+                          </CAPITAL>
+                        properties:
+                          CAPITAL_CATEGORY :
+                            type: string
+                            description: Capital Category
+                            example: Issued
+                          CAPITAL_TYPE :
+                            type: string
+                            description: Capital Type
+                            example: Ordinary
+                          CURRENCY :
+                            type: string
+                            description: Currency
+                            example: SINGAPORE, DOLLARS
+                          CAPITAL_AMT :
+                            type: string
+                            description: Capital Amount
+                            example: 100,000.00
+                          NO_OF_SHARES :
+                            type: string
+                            description: Nos. of Shares
+                            example: 100,000
+                LIST_OFFICER_OWNER :
+                  type: array
+                  description: |+
+                    List of Officer(s) / Owner(s) with following children&#58;
+                    [OFFICER_OWNER]
+                  example: |+
+                    <LIST_OFFICER_OWNER className="com.technodex.ddp.report.bean.CommercialBizOfficeOwerBean">
+                    <OFFICER_OWNER>
+                    <ADDRESS type="String"><![CDATA[50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742,
+                    SINGAPORE]]></ADDRESS>
+                    <IDENTITY_ID type="String"><![CDATA[S1674174D]]></IDENTITY_ID>
+                    <POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
+                    <ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
+                    <CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE> <OFFICER_NAME type="String"><![CDATA[NGIAM SHARE CHING]]></OFFICER_NAME> <CHANGE_ADDR_DATE type="String"><![CDATA[25/10/2008]]></CHANGE_ADDR_DATE> <APPMT_DATE type="String"><![CDATA[30/09/2008]]></APPMT_DATE>
+                    <NATIONALITY type="String"><![CDATA[SINGAPORE CITIZEN]]></NATIONALITY>
+                    </OFFICER_OWNER>  
+                    </LIST_OFFICER_OWNER>
+                  items:
+                    properties:
+                      OFFICER_OWNER :
+                        type: object
+                        description: |+
+                          Officer(s) / Owner(s) details with following children&#58;
+                          ADDRESS 
+                          IDENTITY_ID
+                          PA_REG_NO 
+                          POSITION
+                          ADDR_TYPE
+                          CESSATION_DATE
+                          OFFICER_NAME
+                          CHANGE_ADDR_DATE
+                          APPMT_DATE
+                          NATIONALITY
+                        example: |+
+                          <OFFICER_OWNER>
+                          <ADDRESS type="String"><![CDATA[50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742, SINGAPORE]]></ADDRESS>
+                          <IDENTITY_ID type="String"><![CDATA[S1674174D]]></IDENTITY_ID>
+                          <POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
+                          <ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
+                          <CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE>
+                          <OFFICER_NAME type="String"><![CDATA[NGIAM SHARE CHING]]></OFFICER_NAME> 
+                          <CHANGE_ADDR_DATE type="String"><![CDATA[25/10/2008]]></CHANGE_ADDR_DATE> 
+                          <APPMT_DATE type="String"><![CDATA[30/09/2008]]></APPMT_DATE>
+                          <NATIONALITY type="String"><![CDATA[SINGAPORE CITIZEN]]></NATIONALITY>
+                          </OFFICER_OWNER>  
+                        properties:
+                          ADDRESS :
+                            type: string
+                            description: Address
+                            example: 50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742, SINGAPORE
+                          IDENTITY_ID :
+                            type: string
+                            description: Identity No.
+                            example: S1674174D
+                          PA_REG_NO :
+                            type: string
+                            description: Public Accountant Registration No.
+                            example: 00091
+                          POSITION :
+                            type: string
+                            description: Position
+                            example: DIRECTOR
+                          ADDR_TYPE :
+                            type: string
+                            description: Address Type, indicates if it is Singapore or foreign address.
+                            example: S
+                          CESSATION_DATE :
+                            type: string
+                            description: Cessation Date
+                            example: 30/10/2003
+                          OFFICER_NAME :
+                            type: string
+                            description: Officer Name
+                            example: HENRY GOH
+                          CHANGE_ADDR_DATE :
+                            type: string
+                            description: Change Address Date
+                            example: 30/10/2003
+                          APPMT_DATE :
+                            type: string
+                            description: Appointment Date
+                            example: 30/10/2003
+                          NATIONALITY :
+                            type: string
+                            description: Nationality
+                            example: SINGAPORE P.R.
+                LIST_SALES_REVENUE_AMOUNT :
+                  type: array
+                  description: |+
+                    List of Sales Revenue Amount with following children&#58;
+                    [SALES_REVENUE_AMOUNT]
+                  example: |+
+                    <LIST_SALES_REVENUE_AMOUNT>
+                    <SALES_REVENUE_AMOUNT>
+                    <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2008]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>30000.00</AMOUNT>
+                    </SALES_REVENUE_AMOUNT>
+                    </LIST_SALES_REVENUE_AMOUNT>
+                  items:
+                    properties:
+                      SALES_REVENUE_AMOUNT :
+                        type: object
+                        description: |+
+                          Sales Revenue Amount details with following children&#58;
+                          ELEMENTS
+                          YEAR
+                          CURRENCY
+                          AMOUNT
+                        example: |+
+                          <SALES_REVENUE_AMOUNT>
+                          <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> 
+                          <YEAR><![CDATA[2008]]></YEAR> 
+                          <CURRENCY><![CDATA[SGD]]></CURRENCY>
+                          <AMOUNT>30000.00</AMOUNT>
+                          </SALES_REVENUE_AMOUNT>
+                        properties:
+                          ELEMENTS :
+                            type: string
+                            description: Description
+                            example: Sales Revenue Amount
+                          YEAR :
+                            type: integer
+                            description: Year
+                            example: 2008
+                          CURRENCY :
+                            type: string
+                            description: Currency
+                            example: SGD
+                          AMOUNT :
+                            type: integer
+                            description: Amount
+                            example: 30000.00
+                LIST_Ddrptcount :
+                  type: array
+                  description: |+
+                    List of Search By Financial Sectors and Search By Non- Financial Sectors with following children&#58;
+                    [Ddrptcount]
+                  example: 
+                  items:
+                    properties:
+                      Ddrptcount :
+                        type: object
+                        description: |+
+                          6 XML tags (open then close) displays 
+                          Search By Financial Sectors (counts for 3 recent years)
+                          Search By Non- Financial Sectors (counts for 3 recent years) 
+                          Following children are&#58;
+                          Rcyear
+                          RcFlag (only respond for the year exists)
+                          Rcjan
+                          Rcfeb
+                          Rcmar
+                          Rcapr
+                          Rcmay
+                          Rcjun
+                          Rcjul
+                          Rcaug
+                          Rcsep
+                          Rcoct
+                          Rcnov
+                          Rcdec
+                          Rcid (only respond for the year exists) Rcreg (only respond for the year exists) Rcrptyid (only respond for the year exists)
+                          Rcsecflag
+                          LastUpdateDate (only respond for the year exists)
+                        example:
+                        properties:
+                          Rcyear :
+                            type: string
+                            description: To show the year
+                            example: 2017
+                          RcFlag :
+                            type: string
+                            description: Internal database value
+                            example: N/A
+                          Rcjan :
+                            type: integer
+                            description: Count for January
+                            example: 1
+                          Rcfeb :
+                            type: integer
+                            description: Count for February
+                            example: 1
+                          Rcmar :
+                            type: integer
+                            description: Count for March
+                            example: 1
+                          Rcapr :
+                            type: integer
+                            description: Count for April
+                            example: 1
+                          Rcmay :
+                            type: integer
+                            description: Count for May
+                            example: 1
+                          Rcjun :
+                            type: integer
+                            description: Count for June
+                            example: 1
+                          Rcjul :
+                            type: integer
+                            description: Count for July
+                            example: 1
+                          Rcaug :
+                            type: integer
+                            description: Count for August
+                            example: 1
+                          Rcsep :
+                            type: integer
+                            description: Count for September
+                            example: 1
+                          Rcoct :
+                            type: integer
+                            description: Count for October
+                            example: 1
+                          Rcnov :
+                            type: integer
+                            description: Count for November
+                            example: 1
+                          Rcdec :
+                            type: integer
+                            description: Count for December
+                            example: 1
+                          Rcid :
+                            type: integer
+                            description: Internal database value
+                            example:
+                          Rcreg :
+                            type: string
+                            description: Company Registration Number
+                            example:
+                          Rcrptyid :
+                            type: string
+                            description: Product Type
+                            example:
+                          Rcsecflag :
+                            type: integer
+                            description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
+                            example: 1
+                          LastUpdateDate :
+                            type: string
+                            description: Last update date
+                            example:
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    REQUEST:
+      type: object
+      properties:
+        TOT_ITEMS:
+          type: number
+          example: 1
+          description: Number of subjects being enquired relating to the Run
+          default: false
+        ENQUIRY:
+          type: object
+          example: |+
+            <ENQUIRY><SUBJECT_IDNO>197601887E</SUBJECT_IDNO><SUBJECT_NAME>TRANSTAR TRAVEL PTE LTD</SUBJECT_NAME></ENQUIRY>
+          description: Contains information of each request details
+          default: true
+          properties:
+            SUBJECT_IDNO:
+              type: string
+              example: 199707714C
+              description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
+              default: true
+            SUBJECT_NAME:
+              type: string
+              example: GPS INDUSTRIES PTE LTD
+              description: Subjects Name as captured in DDP
+              default: false
+    versions:
+      type: object
+      properties: 
+        v0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 23, 2019
+              description: Initial version release
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
