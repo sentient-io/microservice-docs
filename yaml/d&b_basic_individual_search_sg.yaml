@@ -658,7 +658,7 @@ components:
                             PLA_SOLICITOR
                             PLA_SOLICITOR_ID
                             PLA_FILE_REF
-                         example:  |+
+                          example:  |+
                             <PLAINTIFF>
                             <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
                             <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
