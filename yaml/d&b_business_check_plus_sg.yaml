@@ -322,7 +322,7 @@ components:
                       description: System ID
                       example: "DDP"
                     CREATION_DATE:
-                      type: string
+                      type: datetime
                       description: Report request date
                       example: "Wed Apr 08 11:37:51 MYT 2009"
                     USER_ID :
@@ -505,7 +505,7 @@ components:
                       description: Subject’s ID Number (individual) or Registration Number (company/business)
                       example: "197401835M"
                     REQ_DATE:
-                      type: string
+                      type: date
                       description: Report Requested Date
                       example: "2009-04-08 11:36:03.611"
                     REQ_REG_NO:
@@ -537,7 +537,7 @@ components:
                       description: Description
                       example: "Employee Size"
                     AMOUNT:
-                      type: string
+                      type: integer
                       description: Number of employee
                       example: "300"
                 LIST_BIZ_BRANCH :
@@ -1232,7 +1232,13 @@ components:
                             example: UNITED STATES OF AMERICA, DOLLARS
                           SHAREHOLDER_TYPE :
                             type: string
-                            description: Indicator for Shareholder type
+                            description: |+
+                              Indicator for Shareholder type. 
+                              Possible values are&#58;
+                                1 Individual
+                                2 Company
+                                3 Unregistered foreign company
+                                4 Unregistered local company
                             example: 2
                           SHARE_TYPE :
                             type: string
@@ -1248,8 +1254,12 @@ components:
                             example: 09/05/2003
                           ADDR_TYPE :
                             type: string
-                            description: Address Type, indicates if it is Singapore or foreign address.
-                            example:
+                            description: |+
+                              Address Type, indicates if it is Singapore or foreign address.
+                              Possible values are&#58;
+                                S Indicates Singapore address 
+                                - Indicates foreign address
+                            example: S
                           NATIONALITY :
                             type: string
                             description: Nationality
@@ -1373,7 +1383,11 @@ components:
                             example: DIRECTOR
                           ADDR_TYPE :
                             type: string
-                            description: Address Type, indicates if it is Singapore or foreign address.
+                            description: |+
+                              Address Type, indicates if it is Singapore or foreign address.
+                              Possible values are&#58;
+                                S Indicates Singapore address 
+                                - Indicates foreign address
                             example: S
                           CESSATION_DATE :
                             type: string
@@ -1438,7 +1452,7 @@ components:
                             example: SGD
                           AMOUNT :
                             type: string
-                            description: Amount
+                            description: Amount. Amount values that higher than 1000 have a comma to delimit every 3 digits of the amount value.
                             example: 30000.00
                 LIST_Ddrptcount :
                   type: array
@@ -1483,51 +1497,51 @@ components:
                             description: Internal database value
                             example: N/A
                           Rcjan :
-                            type: string
+                            type: integer
                             description: Count for January
                             example: 1
                           Rcfeb :
-                            type: string
+                            type: integer
                             description: Count for February
                             example: 1
                           Rcmar :
-                            type: string
+                            type: integer
                             description: Count for March
                             example: 1
                           Rcapr :
-                            type: string
+                            type: integer
                             description: Count for April
                             example: 1
                           Rcmay :
-                            type: string
+                            type: integer
                             description: Count for May
                             example: 1
                           Rcjun :
-                            type: string
+                            type: integer
                             description: Count for June
                             example: 1
                           Rcjul :
-                            type: string
+                            type: integer
                             description: Count for July
                             example: 1
                           Rcaug :
-                            type: string
+                            type: integer
                             description: Count for August
                             example: 1
                           Rcsep :
-                            type: string
+                            type: integer
                             description: Count for September
                             example: 1
                           Rcoct :
-                            type: string
+                            type: integer
                             description: Count for October
                             example:
                           Rcnov :
-                            type: string
+                            type: integer
                             description: Count for November
                             example: 1
                           Rcdec :
-                            type: string
+                            type: integer
                             description: Count for December
                             example: 1
                           Rcid :
