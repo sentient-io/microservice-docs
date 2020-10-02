@@ -634,54 +634,54 @@ components:
                             type: string
                             description: Bankruptcy Type 
                             example: "COMPANY WINDING UP PETITION"
-                          LIST_PLAINTIFF:
-                            type: array
-                            description:  |+
-                              List of Plaintiff with following children&#58;
-                              [PLAINTIFF]
-                            example:  |+
-                              <LIST_PLAINTIFF>
-                              <PLAINTIFF>
-                              <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
-                              <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
-                              <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
-                              <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
-                              </PLAINTIFF>
-                              </LIST_PLAINTIFF>
-                            items:
-                              properties:
-                                PLAINTIFF:
-                                  type: object
-                                  description:   |+
-                                    Plaintiff detail with following children&#58;
-                                    PLA_NAME
-                                    PLA_SOLICITOR
-                                    PLA_SOLICITOR_ID
-                                    PLA_FILE_REF
-                                  example:  |+
-                                    <PLAINTIFF>
-                                    <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
-                                    <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
-                                    <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
-                                    <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
-                                    </PLAINTIFF>
-                                  properties:
-                                    PLA_NAME:
-                                      type: string
-                                      description: Pla. Name
-                                      example: "B 2003 P1"
-                                    PLA_SOLICITOR:
-                                      type: string
-                                      description: Pla. Solicitor
-                                      example: "PATRICK KHOO ENG HOCK"
-                                    PLA_SOLICITOR_ID:
-                                      type: string
-                                      description: Pla. Solicitor ID 
-                                      example:
-                                    PLA_FILE_REF:
-                                      type: string
-                                      description: Pla. File Ref.
-                                      example: "RSP/292668/1"
+                LIST_PLAINTIFF:
+                   type: array
+                   description:  |+
+                      List of Plaintiff with following children&#58;
+                      [PLAINTIFF]
+                   example:  |+
+                      <LIST_PLAINTIFF>
+                      <PLAINTIFF>
+                      <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                      <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                      <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                      <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                      </PLAINTIFF>
+                      </LIST_PLAINTIFF>
+                   items:
+                      properties:
+                        PLAINTIFF:
+                          type: object
+                          description:  |+
+                            Plaintiff detail with following children&#58;
+                            PLA_NAME
+                            PLA_SOLICITOR
+                            PLA_SOLICITOR_ID
+                            PLA_FILE_REF
+                          example:  |+
+                            <PLAINTIFF>
+                            <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                            <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                            <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                            <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                            </PLAINTIFF>
+                          properties:
+                            PLA_NAME:
+                              type: string
+                              description: Pla. Name
+                              example: "B 2003 P1"
+                            PLA_SOLICITOR:
+                              type: string
+                              description: Pla. Solicitor
+                              example: "PATRICK KHOO ENG HOCK"
+                            PLA_SOLICITOR_ID:
+                              type: string
+                              description: Pla. Solicitor ID 
+                              example:
+                            PLA_FILE_REF:
+                              type: string
+                              description: Pla. File Ref.
+                              example: "RSP/292668/1"
                 LIST_LIT:
                   type: array
                   description:  |+
