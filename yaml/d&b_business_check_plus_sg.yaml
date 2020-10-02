@@ -1540,16 +1540,19 @@ components:
                             example:
                           Rcrptyid :
                             type: string
-                            description: Product Type
-                            example:
+                            description: |+
+                              Product Type. Possible values are&#58;
+                              1. Biz Check: 0001
+                              2. Biz Check Plus: 0002
+                            example: 0001
                           Rcsecflag :
-                            type: string
+                            type: integer
                             description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
                             example: 1
                           LastUpdateDate :
-                            type: string
+                            type: datetime
                             description: Last update date
-                            example:
+                            example: YYYY-MM-DD 00:00:00.0
     unauthorized:
       type: object
       properties:
