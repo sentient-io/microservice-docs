@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Brief Financial Extraction Dun & Bradstreet (SG)
+  title: D&B Brief Financial Information (SG)
   description:  This Data microservice provides the annual financial information of the Singapore-registered business, inclusive of annual profit and loss and financial ratios. Updated daily.
   version: '0.1'
 servers:
