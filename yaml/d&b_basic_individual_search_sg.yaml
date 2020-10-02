@@ -652,7 +652,7 @@ components:
                       properties:
                         PLAINTIFF:
                           type: object
-                          description:   |+
+                          description:  |+
                             Plaintiff detail with following children&#58;
                             PLA_NAME
                             PLA_SOLICITOR
@@ -665,7 +665,7 @@ components:
                             <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
                             <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
                             </PLAINTIFF>
-                         properties:
+                          properties:
                             PLA_NAME:
                               type: string
                               description: Pla. Name
