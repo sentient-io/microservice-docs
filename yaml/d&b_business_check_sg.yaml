@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Business Check Dun & Bradstreet (SG)
+  title: D&B Business Check (SG)
   description: |+
     This Data microservice provides key business information of a Singapore-registered company includes the business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholders. Updated daily.
   version: '0.1'
