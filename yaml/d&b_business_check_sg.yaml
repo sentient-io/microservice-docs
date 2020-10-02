@@ -357,7 +357,7 @@ components:
                       description: Description
                       example: "Employee Size"
                     AMOUNT:
-                      type: string
+                      type: integer
                       description: Number of employee
                       example: "300"
                 LIST_BIZ_BRANCH :
@@ -689,7 +689,13 @@ components:
                             example: UNITED STATES OF AMERICA, DOLLARS
                           SHAREHOLDER_TYPE :
                             type: string
-                            description: Indicator for Shareholder type
+                            description:  |+
+                              Indicator for Shareholder type
+                              Possible values are&#58;
+                                1 Individual
+                                2 Company
+                                3 Unregistered foreign company
+                                4 Unregistered local company
                             example: 2
                           SHARE_TYPE :
                             type: string
@@ -830,7 +836,11 @@ components:
                             example: DIRECTOR
                           ADDR_TYPE :
                             type: string
-                            description: Address Type, indicates if it is Singapore or foreign address.
+                            description:  |+
+                              Address Type, indicates if it is Singapore or foreign address.
+                              Possible values are&#58;
+                                S Indicates Singapore address 
+                                - Indicates foreign address
                             example: S
                           CESSATION_DATE :
                             type: string
@@ -988,25 +998,34 @@ components:
                             description: Count for December
                             example: 1
                           Rcid :
-                            type: integer
-                            description: Internal database value
-                            example:
+                            type: string
+                            description:  |+
+                              Internal database value, respond value from table Primary Key ID
+                              It is for (For internal use)
+                            example: N/A
                           Rcreg :
                             type: string
                             description: Company Registration Number
                             example:
                           Rcrptyid :
                             type: string
-                            description: Product Type
-                            example:
+                            description:  |+
+                              Product Type. Possible values are&#58;
+                              1. Biz Check: 0001
+                              2. Biz Check Plus: 0002
+                            example: 0001
                           Rcsecflag :
                             type: integer
-                            description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
+                            description:  |+
+                              Differentiate Search By Financial Sectors and Search By Non- Financial Sectors.
+                              Possible values are&#58;
+                                1 SEARCH BY FINANCIAL SECTORS 
+                                0 SEARCH BY NON FINANCIAL SECTORS
                             example: 1
                           LastUpdateDate :
                             type: string
                             description: Last update date
-                            example:
+                            example: YYYY-MM-DD 00:00:00.0
     unauthorized:
       type: object
       properties:
