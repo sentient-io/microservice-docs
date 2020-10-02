@@ -271,15 +271,15 @@ components:
                     REG_ACTIVITY_DESC1:
                       type: string
                       description: Registered Activities Description
-                      example:
+                      example: "N/A"
                     REG_ACTIVITY_DESC2:
                       type: string
                       description: Registered Activities Description
-                      example:
+                      example: "N/A"
                     AUDITOR:
                       type: string
                       description: Auditor Name
-                      example:
+                      example: "N/A"
                     AUDITOR_APPMT_DATE:
                       type: string
                       description: Auditor Appointment Date
@@ -390,7 +390,7 @@ components:
                         ADDR_BUILDING:
                           type: string
                           description: Building Name
-                          example: 
+                          example: "N/A"
                         ADDR_POSTCODE:
                           type: string
                           description: Postcode
@@ -460,7 +460,7 @@ components:
                           STATUS_SATISFACTION:
                             type: string
                             description: Status of Satisfaction
-                            example:
+                            example: "N/A"
                 LIST_LIQUIDATOR:
                   type: array
                   description: |+
