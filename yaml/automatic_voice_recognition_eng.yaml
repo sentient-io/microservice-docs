@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Automatic Speech Recognition ENG
+  title: Automatic Voice Recognition ENG
   description: |+
     This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.
     
