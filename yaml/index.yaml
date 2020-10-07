@@ -4,35 +4,35 @@ Voice:
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_voice_recognition_eng.yaml"
     Automatic Speech Recognition ENG (SG):
-        title: Automatic Speech Recognition ENG (SG)
+        title: Automatic-Speech-Recognition-ENG-(SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_eng_sg.yaml"
     Automatic Speech Recognition CHI (SG):
-        title: Automatic Speech Recognition CHI (SG)
+        title: Automatic-Speech-Recognition-CHI-(SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_chi_sg.yaml"
     Online Automatic Speech Recognition ENG (SG):
-        title: Online Automatic Speech Recognition ENG (SG)
+        title: Online-Automatic-Speech-Recognition-ENG-(SG)
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/online_automatic_speech_recognition_eng_sg.yaml"
     Online Command Automatic Speech Recognition ENG (SG):
-        title: Online Command Automatic Speech Recognition ENG (SG)
+        title: Online-Command-Automatic-Speech-Recognition-ENG-(SG)
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/online_command_automatic_speech_recognition_eng_sg.yaml"
     Text-To-Speech ENG:
-        title: Text-To-Speech ENG
+        title: Text-To-Speech-ENG
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/text-to-speech_eng.yaml"
     Text-To-Speech CHI:
-        title: Text-To-Speech CHI
+        title: Text-To-Speech-CHI
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/text-to-speech_chi.yaml"
     ASR with Voice Activity Detection ENG (SG):
-        title: ASR with Voice Activity Detection ENG (SG)
+        title: ASR-with-Voice-Activity-Detection-ENG-(SG)
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_vad_eng_sg.yaml"  
     Voice Activity Detection ENG:
-        title: Voice Activity Detection ENG
+        title: Voice-Activity-Detection-ENG
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng.yaml"  
 NLP:
@@ -228,7 +228,7 @@ Data:
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_business_check_sg.yaml"
     D&B Brief Financial Information (SG):
-        title: D&B Brief Financial Information (SG)
+        title: D&amp;B-Brief-Financial-Information-(SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_brief_financial_information_sg.yaml"
 Data Alliance:
