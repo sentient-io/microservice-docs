@@ -228,7 +228,7 @@ Data:
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_business_check_sg.yaml"
     D&B Brief Financial Information (SG):
-        title: "D&B-Brief-Financial-Information-(SG)"
+        title: D&B-Brief-Financial-Information-(SG)
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_brief_financial_information_sg.yaml"
 Data Alliance:
