@@ -138,10 +138,10 @@ Utility:
         title: Decryption using PKI Key
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/decryption_using_pki_key.yaml"
-    Wikipedia Retrieval ENG:
-        title: Wikipedia Retrieval ENG
+    Wikipedia Retrieval:
+        title: Wikipedia Retrieval
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/wikipedia_retrieval_eng.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/wikipedia_retrieval.yaml"
     JSON-CSV Convertor:
         title: JSON-CSV Convertor
         versions:
