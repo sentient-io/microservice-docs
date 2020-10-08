@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Audio convertor
+  title: Audio Format Convertor
   description: >-
     This API is used to convert your audio like music(any format) to the WAV format.
   version: '0.1'
