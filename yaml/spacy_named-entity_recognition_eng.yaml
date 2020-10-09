@@ -15,7 +15,7 @@ tags:
 - name: "v0.1"
   description: "Published Date - Sep 30, 2020"
 paths:
-  /microservices/nlp/spacyner/v0.1/getpredictions:
+  /microservices/nlp/spacyner/v1/getpredictions:
     post:
       tags:
         - v0.1
