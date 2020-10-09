@@ -15,7 +15,7 @@
   - name: "v2.0"
     description: "Published Date - Sep 30, 2020"
   paths:
-    /microservices/nlp/pageprofiler/v2.0/getpredictions:
+    /microservices/nlp/pageprofiler/v2/getpredictions:
       post:
         tags:
           - v2.0
