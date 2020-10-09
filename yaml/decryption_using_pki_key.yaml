@@ -11,7 +11,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Mar 13, 2020"
+  description: "Published Date - Aug 30, 2019"
 paths:
   /microservices/utility/rsa_decode/v0.1/getresults:
     post:
@@ -181,7 +181,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 13, 2020
+              example: Published Date - Aug 30, 2019
               description: Initial version release
     input:
       type: object
