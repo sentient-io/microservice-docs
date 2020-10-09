@@ -214,9 +214,9 @@ components:
           x-name: model
           type: string
           default: true
-          example: sg_parliament_2019
+          example: sg-parliament-2019
           description: |+
-            Model name. “sg_parliament_2019” is trained on Singapore Members of Parliament - 2019.
+            Model name. “sg-parliament-2019” is trained on Singapore Members of Parliament - 2019.
         img_base64:
           x-name: img_base64
           type: string
