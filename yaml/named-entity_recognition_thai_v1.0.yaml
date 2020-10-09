@@ -15,7 +15,7 @@ tags:
 - name: "v1.0"
   description: "Published Date - Sep 30, 2020"
 paths:
-  /microservices/nlp/thainer/v1.0/getpredictions:
+  /microservices/nlp/thainer/v1/getpredictions:
     post:
       tags:
         - v1.0
