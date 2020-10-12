@@ -4,7 +4,7 @@ info:
 # tags must include in to the documentation, to read the description text for published date
 tags:
 - name: "v0.1"
-  description: "Published Date - August 31, 2020"
+  description: "Published Date - Aug 31, 2020"
 html: |+
      <iframe src="https://docs.sentient.io/static/online_command_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
      </iframe>
