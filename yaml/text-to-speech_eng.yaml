@@ -7,6 +7,159 @@ info:
     The Text-to-Speech AI generated synthesized voice speaks with Singapore English accent.
   version: '0.1'
   x-subscribelink: text-to-speech_eng
+  x-codeSamples:
+        - lang: Node + Request
+          source: |
+            const request = require('request');
+
+            const options = {
+              method: 'POST',
+              url: 'https://apis.sentient.io/microservices/voice/asreng/v0.1/getpredictions',
+              headers: {'content-type': 'application/json', 'x-api-key': 'REPLACE_KEY_VALUE'},
+              body: {audio: 'data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...'},
+              json: true
+            };
+
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+
+              console.log(body);
+            });
+        - lang: Shell + Curl
+          source: |-
+            curl --request POST \
+              --url https://apis.sentient.io/microservices/voice/asreng/v0.1/getpredictions \
+              --header 'content-type: application/json' \
+              --header 'x-api-key: REPLACE_KEY_VALUE' \
+              --data '{"audio":"data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA..."}'
+        - lang: Shell + Httpie
+          source: >-
+            echo
+            '{"audio":"data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA..."}'
+            |  \
+              http POST https://apis.sentient.io/microservices/voice/asreng/v0.1/getpredictions \
+              content-type:application/json \
+              x-api-key:REPLACE_KEY_VALUE
+        - lang: Python + Python3
+          source: >-
+            import http.client
+
+
+            conn = http.client.HTTPSConnection("apis.sentient.io")
+
+
+            payload =
+            "{\"audio\":\"data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...\"}"
+
+
+            headers = {
+                'content-type': "application/json",
+                'x-api-key': "REPLACE_KEY_VALUE"
+                }
+
+            conn.request("POST",
+            "/microservices/voice/asreng/v0.1/getpredictions", payload, headers)
+
+
+            res = conn.getresponse()
+
+            data = res.read()
+
+
+            print(data.decode("utf-8"))
+        - lang: Php + Curl
+          source: |-
+            <?php
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+              CURLOPT_URL => "https://apis.sentient.io/microservices/voice/asreng/v0.1/getpredictions",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "POST",
+              CURLOPT_POSTFIELDS => "{\"audio\":\"data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...\"}",
+              CURLOPT_HTTPHEADER => [
+                "content-type: application/json",
+                "x-api-key: REPLACE_KEY_VALUE"
+              ],
+            ]);
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              echo $response;
+            }
+        - lang: Php + Http1
+          source: >-
+            <?php
+
+
+            $request = new HttpRequest();
+
+            $request->setUrl('https://apis.sentient.io/microservices/voice/asreng/v0.1/getpredictions');
+
+            $request->setMethod(HTTP_METH_POST);
+
+
+            $request->setHeaders([
+              'content-type' => 'application/json',
+              'x-api-key' => 'REPLACE_KEY_VALUE'
+            ]);
+
+
+            $request->setBody('{"audio":"data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA..."}');
+
+
+            try {
+              $response = $request->send();
+
+              echo $response->getBody();
+            } catch (HttpException $ex) {
+              echo $ex;
+            }
+        - lang: Php + Http2
+          source: >-
+            <?php
+
+
+            $client = new http\Client;
+
+            $request = new http\Client\Request;
+
+
+            $body = new http\Message\Body;
+
+            $body->append('{"audio":"data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA..."}');
+
+
+            $request->setRequestUrl('https://apis.sentient.io/microservices/voice/asreng/v0.1/getpredictions');
+
+            $request->setRequestMethod('POST');
+
+            $request->setBody($body);
+
+
+            $request->setHeaders([
+              'content-type' => 'application/json',
+              'x-api-key' => 'REPLACE_KEY_VALUE'
+            ]);
+
+
+            $client->enqueue($request)->send();
+
+            $response = $client->getResponse();
+
+
+            echo $response->getBody();
 servers:
   - url: 'https://apis.sentient.io'
 tags:
