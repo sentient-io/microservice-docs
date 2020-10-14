@@ -226,11 +226,11 @@ components:
           description: Json Object of returned results 
           properties:                
             total: 
-              type: number
+              type: integer
               example: 1
               description: Total number of records
             max_score:
-              type: number
+              type: integer
               example: 17.995623
               description: The highest score value                   
             hits:
@@ -253,7 +253,7 @@ components:
                       description: Document ID
                       example: "uLxcqWgBv3dNEHq2Dznn"                    
                     _score: 
-                      type: number
+                      type: integer
                       description: The document score for the search request
                       example: 12.08503                    
                     _source:
