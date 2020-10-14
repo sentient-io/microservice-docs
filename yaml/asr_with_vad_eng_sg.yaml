@@ -211,7 +211,7 @@ components:
             Input file extension. Only “wav” is supported at the moment.
         vad_threshold:
           x-name: vad_threshold
-          type: number
+          type: integer
           format: float
           default: true
           example: 0.4
