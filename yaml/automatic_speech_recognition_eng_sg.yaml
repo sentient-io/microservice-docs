@@ -101,16 +101,16 @@ components:
                 example: {seqNum: 1,start: 1.0,end: 4.0,text: HELLO WORLD}
                 properties:
                   end:
-                    type: number
+                    type: integer
                     format: float
                     example: 23.72
                     description: End time of utterance in seconds
                   seqNum:
-                    type: number
+                    type: integer
                     example: 1
                     description: Running sequence. Starts from 1.
                   start:
-                    type: number
+                    type: integer
                     format: float
                     example: 0.64
                     description: Start time of utterance in seconds
@@ -227,7 +227,7 @@ components:
                 properties:
                   end:
                     x-name: end
-                    type: number
+                    type: integer
                     format: float
                     default: false
                     example: "4.0"
@@ -235,14 +235,14 @@ components:
                       "End time of utterance, in seconds. Offset from the start of stream."
                   seqNum:
                     x-name: seqNum
-                    type: number
+                    type: integer
                     default: false
                     example: "1"
                     description: |+
                       "Running sequence. Starts from 1."
                   start:
                     x-name: start
-                    type: number
+                    type: integer
                     format: float
                     default: false
                     example: "1.0"
