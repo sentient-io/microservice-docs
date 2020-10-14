@@ -273,11 +273,11 @@ components:
           description: Json Object of returned results
           properties:
             total:
-              type: number
+              type: integer
               example: 986
               description: Total number of records
             max_score:
-              type: number
+              type: integer
               example: 17.995623
               description: The highest score value
             hits:
@@ -300,7 +300,7 @@ components:
                     description: Document ID
                     example: "K7scqWgBv3dNEHq2WvMo"
                   _score: 
-                    type: number
+                    type: integer
                     description: The document score for the search request
                     example: 17.995623
                   _source: 
@@ -358,15 +358,15 @@ components:
                                     description: WGS84 (GPS) longitude
                                     example: 103.8469821
                             car:
-                              type: number
+                              type: integer
                               description: Number of car parking lots
                               example: 18
                             lorry:
-                              type: number
+                              type: integer
                               description: Number of lorry parking lots
                               example: 6
                             mc:
-                              type: number
+                              type: integer
                               description: Number of motorcycle parking lots
                               example: 0
                             createddate:
