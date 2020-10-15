@@ -235,11 +235,11 @@ components:
           description: Json Object of returned results
           properties:
             total:
-              type: number
+              type: integer
               example: 1
               description: Total number of records
             max_score:
-              type: number
+              type: integer
               example: 13.663734
               description: The highest score value
             hits:
@@ -258,7 +258,7 @@ components:
                     description: Document ID
                     example: "AM/G40/Y/552506"
                   _score: 
-                    type: number
+                    type: integer
                     description: The document score for the search request
                     example: 13.663734
                   _source: 
@@ -285,7 +285,7 @@ components:
                                 S - Season (Car)
                               example: "Y"
                             car_park_availability: 
-                              type: number
+                              type: integer
                               description: Car Park Availability
                               example: 15
                             postalcode: 
