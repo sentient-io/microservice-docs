@@ -241,11 +241,11 @@ components:
           description: Json Object of returned results 
           properties:
             total:
-              type: number
+              type: integer
               example: 12150
               description: Total number of records
             max_score:
-              type: number
+              type: integer
               example: 1
               description: The highest score value
             hits:
@@ -268,7 +268,7 @@ components:
                     description: Document ID
                     example: '750405'
                   _score: 
-                    type: number
+                    type: integer
                     description: The document score for the search request
                     example: 1
                   _source:
@@ -281,59 +281,59 @@ components:
                         description: Postal code
                         example: '750405'
                       year_completed:
-                        type: number
+                        type: integer
                         description: Completed year of the Building
                         example: 1999
                       total_dwelling_units:
-                        type: number
+                        type: integer
                         description: Total Dwelling units
                         example: 112
                       1room_sold: 
-                        type: number
+                        type: integer
                         description: No. of one room units sold
                         example: 0
                       2room_sold: 
-                        type: number
+                        type: integer
                         description: No. of two room units sold
                         example: 0
                       3room_sold:
-                        type: number
+                        type: integer
                         description: No. of three room units sold
                         example: 0
                       4room_sold: 
-                        type: number
+                        type: integer
                         description: No. of four room units sold
                         example: 112
                       5room_sold: 
-                        type: number
+                        type: integer
                         description: No. of five room units sold
                         example: 0
                       exec_sold: 
-                        type: number
+                        type: integer
                         description: No. of executive units sold
                         example: 0
                       multigen_sold: 
-                        type: number
+                        type: integer
                         description: No. of multi generation units sold
                         example: 0
                       studio_apartment_sold: 
-                        type: number
+                        type: integer
                         description: No. of studio units sold
                         example: 0
                       1room_rental:
-                        type: number
+                        type: integer
                         description: No. of one room units rented
                         example: 0
                       2room_rental: 
-                        type: number
+                        type: integer
                         description: No. of two room units rented
                         example: 0
                       3room_rental: 
-                        type: number
+                        type: integer
                         description: No. of three room units rented
                         example: 0
                       other_room_rental: 
-                        type: number
+                        type: integer
                         description: No. of other units rented
                         example: 0
                       block:
