@@ -96,7 +96,7 @@ components:
               - type: object 
                 properties:
                   conf:
-                    type: number
+                    type: integer
                     format: float
                     example: 0.6588699206768599
                     description: 0.0 to 1.0. Confidence score of identification. Higher is more confidence.
@@ -110,7 +110,7 @@ components:
                     description: bounding box of the face in pixel coordinates of top, right, bottom, left.
                     items:
                       oneOf:
-                        - type: number
+                        - type: integer
                           example: 67
                     
     unauthorized:
@@ -233,7 +233,7 @@ components:
             Type of image file. If not specified, the type of file is detected and processed.Refers to Python Imaging Library (PIL) for supported formats: bmp, gif, jpg/jpeg, png.
         threshold:
           x-name: threshold
-          type: number
+          type: integer
           format: float
           default: false
           example: 0.5
