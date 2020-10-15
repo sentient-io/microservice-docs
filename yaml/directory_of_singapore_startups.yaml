@@ -245,11 +245,11 @@ components:
           description: Json Object of returned results
           properties: 
             total:
-              type: number
+              type: integer
               example: 986
               description: Total number of records
             max_score:
-              type: number
+              type: integer
               example: 1
               description: The highest score value
             hits:
