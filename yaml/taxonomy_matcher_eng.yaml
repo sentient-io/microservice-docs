@@ -197,7 +197,7 @@ components:
             A list of object names to be classified. Up to a maximum of 20 search terms can be processed each time.
         threshold:
           x-name: threshold
-          type: number
+          type: integer
           default: true
           example: 1
           description: |+
