@@ -1,38 +1,38 @@
 Voice:
     Automatic Voice Recognition ENG:
-        title: Automatic_Voice_Recognition_ENG
+        title: automatic_voice_recognition_eng
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_voice_recognition_eng.yaml"
     Automatic Speech Recognition ENG (SG):
-        title: Automatic_Speech_Recognition_ENG_(SG)
+        title: automatic_speech_recognition_eng_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_eng_sg.yaml"
     Automatic Speech Recognition CHI (SG):
-        title: Automatic-Speech-Recognition-CHI-(SG)
+        title: automatic_speech_recognition_chi_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_chi_sg.yaml"
     Online Automatic Speech Recognition ENG (SG):
-        title: Online-Automatic-Speech-Recognition-ENG-(SG)
+        title: online_automatic_speech_recognition_eng_sg
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/online_automatic_speech_recognition_eng_sg.yaml"
     Online Command Automatic Speech Recognition ENG (SG):
-        title: Online-Command-Automatic-Speech-Recognition-ENG-(SG)
+        title: online_command_automatic_speech_recognition_eng_sg
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/online_command_automatic_speech_recognition_eng_sg.yaml"
     Text-To-Speech ENG:
-        title: Text-To-Speech-ENG
+        title: text-to-speech_eng
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/text-to-speech_eng.yaml"
     Text-To-Speech CHI:
-        title: Text-To-Speech-CHI
+        title: text-to-speech_chi
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/text-to-speech_chi.yaml"
     ASR with Voice Activity Detection ENG (SG):
-        title: ASR-with-Voice-Activity-Detection-ENG-(SG)
+        title: asr_with_voice_activity_detection_eng_sg
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_vad_eng_sg.yaml"  
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_voice_activity_detection_eng_sg.yaml"  
     Voice Activity Detection ENG:
-        title: Voice-Activity-Detection-ENG
+        title: voice_activity_detection_eng
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng.yaml"  
 NLP:
