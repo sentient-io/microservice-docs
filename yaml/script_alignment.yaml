@@ -218,14 +218,14 @@ components:
                 properties:
                   seqNum:
                     x-name: seqNum
-                    type: number
+                    type: integer
                     default: true
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
                   start:
                     x-name: start
-                    type: number
+                    type: integer
                     format: float
                     default: true
                     example: 1.0
@@ -233,7 +233,7 @@ components:
                       Start time of utterance, in seconds. Offset from the start of stream.
                   end:
                     x-name: end
-                    type: number
+                    type: integer
                     format: float
                     default: true
                     example: 4.0
