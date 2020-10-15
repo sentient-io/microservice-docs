@@ -229,11 +229,11 @@ components:
           description: Json Object of returned results 
           properties:
             total:
-              type: number
+              type: integer
               example: 986
               description: Total number of records
             max_score:
-              type: number
+              type: integer
               example: 17.995623
               description: The highest score value
             hits:
@@ -256,7 +256,7 @@ components:
                     description: Document ID
                     example: "050533/40<T<=50"
                   _score: 
-                    type: number
+                    type: integer
                     description: The document score for the search request
                     example: 1
                   _source: 
@@ -273,7 +273,7 @@ components:
                         description: Range of length
                         example: "40 < t <= 50"
                       len_of_ownership_id: 
-                        type: number
+                        type: integer
                         description: |+
                           Length Types
                           1 (t <= 10)
@@ -285,7 +285,7 @@ components:
                    
                         example: "5"
                       no_of_units:
-                        type: number
+                        type: integer
                         description: Ownership units
                         example: "29"
                       block:
