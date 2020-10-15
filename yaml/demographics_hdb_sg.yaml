@@ -223,11 +223,11 @@ components:
           description: Json Object of returned results 
           properties:
             total:
-              type: number
+              type: integer
               example: 986
               description: Total number of records
             max_score:
-              type: number
+              type: integer
               example: 17.995623
               description: The highest score value
             hits:
@@ -250,7 +250,7 @@ components:
                     description: Document ID
                     example: "K7scqWgBv3dNEHq2WvMo"
                   _score: 
-                    type: number
+                    type: integer
                     description: The document score for the search request
                     example: 17.995623
                   _source: 
@@ -271,7 +271,7 @@ components:
                               description: Range of age groups
                               example: "50 to 59"
                             age_group_id:
-                              type: number
+                              type: integer
                               description: |+
                                 Age group ID represents a certain age range&#58;
                                 1 (<10 years)
@@ -284,7 +284,7 @@ components:
                                 8 (>70 years)
                               example: 6
                             residents:
-                              type: number
+                              type: integer
                               description: Number of residents
                               example: 54
                             block:
