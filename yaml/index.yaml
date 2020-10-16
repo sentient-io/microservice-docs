@@ -167,13 +167,13 @@ Utility:
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/urls_retrieval.yaml"
     Base64 File Encode:
-        title: Base64 File Encode
+        title: base64_file_encode
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-encode.yaml"
+           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-encode.yaml"
     Base64 File Decode:
-        title: Base64 File Decode
+        title: base64_file_decode
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-decode.yaml"
+           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-decode.yaml"
 Data:
     HDB Commercial Directories (SG):
         title: HDB Commercial Directories (SG)
