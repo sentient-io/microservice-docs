@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Base64 File Encode
   description: |+
-    This Utility microservice converts given file to Base64 encoded text. This is also known as a binary to text converter. If you are looking for the reverse process, check Base64 File Decode.
+    This Utility microservice converts uploaded file to Base64 encoded text. This is also known as a binary to text converter. If you are looking for the reverse process, check Base64 File Decode.
     
     Supported formats are:
     Text File - TXT, HTML, CSS, PDF, Excel and Docs
@@ -104,7 +104,7 @@ components:
           properties:
             base64:
               type: string
-              description: Converted base64 encode string
+              description: Converted base64 encoded text
               example: /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMCAggIBQUICAUGBQUGBgYGBgUFBQYGBgYGBgYGBgYGBgYGBQYGBgYGBgYGBgoGBgcICQkJBgYLDgoIDQYICQgBAwQEBgUGCAYGCAgHBwcICAgICAgBAABAgMFBgcECP....
         message:
           type: string
