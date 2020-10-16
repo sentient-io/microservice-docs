@@ -197,12 +197,12 @@ components:
           example: upload file
           default: true
           description: The file object.
-        type:
+        format:
           type: string
           example: "xml"
           default: false
           description: |+
-            The output type. Possible values are: 
+            The output format. Possible values are: 
               1. plaintext (default)
               2. json
               3. hyperlink
