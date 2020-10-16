@@ -3,7 +3,7 @@ info:
   title: Base64 File Encode
   description: |+
     This Utility microservice converts given file to Base64 encoded text. This is also known as a binary to text converter. If you are looking for the reverse process, check Base64 File Decode.
-    Suuported formats are:
+    Supported formats are:
     Text File - TXT, HTML, CSS, PDF, Excel and Docs
     Image File - JPG, PNG, GIF, TIFF, ICO, SVG and WEBP 
     Audio File - AAC, OGG and WAV
