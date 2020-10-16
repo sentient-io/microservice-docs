@@ -2,7 +2,14 @@ openapi: 3.0.1
 info:
   title: Base64 File Encode
   description: |+
-    Base64 encoding schemes are commonly used when there is a need to encode binary data that needs be stored and transferred over media that are designed to deal with textual data.This is to ensure that the data remains intact without modification during transport. Encode file such as HTML, JSON, IMAGE or XML to Base64.
+    This Utility microservice converts given file to Base64 encoded text. This is also known as a binary to text converter. If you are looking for the reverse process, check Base64 File Decode.
+    Suuported formats are:
+    Text File - TXT, HTML, CSS, PDF, Excel and Docs
+    Image File - JPG, PNG, GIF, TIFF, ICO, SVG and WEBP 
+    Audio File - AAC, OGG and WAV
+    Video File - AVI, M4V, MOV, MP4, MPEG, MPG, VOB, WEBM and WMV
+    Archive File - TAR and ZIP
+    Font File - TTF
   version: '1.0'
   x-subscribelink: base64_file_encode
 servers:
