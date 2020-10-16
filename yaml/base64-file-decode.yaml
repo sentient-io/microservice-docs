@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Base64 File Decode
   description: |+
-    This microservice converts base64 string in to file 
+    The Base64 decode algorithm converts plain text into original data. Technically, it can be said that it converts six-bit bytes into eight-bit bytes. The encoded data usually consist of continuous text, even newlines are converted into their base64 encoded forms. Prior decoding all non-encoded whitespaces are stripped from the input to take care of its integrity.
   version: '1.0'
   x-subscribelink: base64_file_decode
 servers:
@@ -23,7 +23,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example: 
-                data: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
+                url: https://storage.googleapis.com/base64decode_dev/24f03729131e469181a2fc22eb3a627a.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20201015%2Fa...
                 message: Successfully Processed
                 status: Success
         '401':
@@ -95,10 +95,10 @@ components:
           type: string
           example: Success
           description: The status of the API call success/failure
-        audioContent:
+        url:
           type: string
-          example: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
-          description: Audio wav file convert to base64 encode string
+          example: https://storage.googleapis.com/base64decode_dev/24f03729131e469181a2fc22eb3a627a.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20201015%2Fauto%2Fstora...
+          description: Base64 converted to file and returned as url to download
     unauthorized:
       type: object
       properties:
@@ -190,7 +190,7 @@ components:
           x-name: text
           type: string
           default: true
-          example: Testing microservice
+          example: Test base64 encoded string
           description: |+
             Input text
   securitySchemes:
