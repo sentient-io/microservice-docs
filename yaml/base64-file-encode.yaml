@@ -3,6 +3,7 @@ info:
   title: Base64 File Encode
   description: |+
     This Utility microservice converts given file to Base64 encoded text. This is also known as a binary to text converter. If you are looking for the reverse process, check Base64 File Decode.
+    
     Supported formats are:
     Text File - TXT, HTML, CSS, PDF, Excel and Docs
     Image File - JPG, PNG, GIF, TIFF, ICO, SVG and WEBP 
@@ -103,7 +104,7 @@ components:
           properties:
             base64:
               type: string
-              description: File convert to base64 encode string
+              description: Converted base64 encode string
               example: /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMCAggIBQUICAUGBQUGBgYGBgUFBQYGBgYGBgYGBgYGBgYGBQYGBgYGBgYGBgoGBgcICQkJBgYLDgoIDQYICQgBAwQEBgUGCAYGCAgHBwcICAgICAgBAABAgMFBgcECP....
         message:
           type: string
@@ -200,7 +201,13 @@ components:
           type: string
           example: "xml"
           default: false
-          description: can choose the return type as plaintext/json/hyperlink/datauri/xml. plaintext is default if none selected
+          description: |+
+            The output type. Possible values are: 
+              1. plaintext (default)
+              2. json
+              3. hyperlink
+              4. datauri
+              5. xml
     versions:
       type: object
       properties: 
