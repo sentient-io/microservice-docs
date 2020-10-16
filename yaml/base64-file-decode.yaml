@@ -2,7 +2,8 @@ openapi: 3.0.1
 info:
   title: Base64 File Decode
   description: |+
-    The Base64 decode algorithm converts plain text into original data. Technically, it can be said that it converts six-bit bytes into eight-bit bytes. The encoded data usually consist of continuous text, even newlines are converted into their base64 encoded forms. Prior decoding all non-encoded whitespaces are stripped from the input to take care of its integrity.
+    This Utility microservice converts base64 string to file. Prior decoding all non-encoded whitespaces are stripped from the input to take care of its integrity.
+    If you are looking for the reverse process, check Base64 File Encode.
   version: '1.0'
   x-subscribelink: base64_file_decode
 servers:
@@ -97,8 +98,8 @@ components:
           description: The status of the API call success/failure
         url:
           type: string
-          example: https://storage.googleapis.com/base64decode_dev/24f03729131e469181a2fc22eb3a627a.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20201015%2Fauto%2Fstora...
-          description: Base64 converted to file and returned as url to download
+          example: https://storage.googleapis.com/base64decode/24f03729131e469181a2fc22eb3a627a.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20201015%2Fauto%2Fstora...
+          description: Pre-signed URL to download the file
     unauthorized:
       type: object
       properties:
@@ -184,15 +185,15 @@ components:
     input:
       type: object
       required:
-        - text
+        - base64
       properties:
-        data:
+        base64:
           x-name: text
           type: string
           default: true
-          example: Test base64 encoded string
+          example: UklGRoboDgBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjAuMTAwAGRhdGFA6A4AAAAAAAAAAAAAAAAAAAAAAAAA...
           description: |+
-            Input text
+            Input base64 encode string
   securitySchemes:
     APIAuthorizer:
       type: apiKey
