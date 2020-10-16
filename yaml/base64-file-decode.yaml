@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Base64 File Decode
   description: |+
-    This Utility microservice converts base64 string to file.
+    This Utility microservice converts base64 encoded text to file.
     If you are looking for the reverse process, check Base64 File Encode.
   version: '1.0'
   x-subscribelink: base64_file_decode
