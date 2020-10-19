@@ -119,7 +119,14 @@ components:
                 - Immigration and Checkpoints Authority
                 - ICA
                 - LOA
-              description: "name of organizations names found in the text string"   
+              description: "name of organizations names found in the text string" 
+            per:
+              type: array
+              items:
+                type: string
+              example: 
+                - Lee Hsien Loong
+              description: "person names found in the text string"  
         message:
           type: string
           example: Successfully Processed
