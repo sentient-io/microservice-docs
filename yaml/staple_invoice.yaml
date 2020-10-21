@@ -1432,18 +1432,94 @@ paths:
 components:
   schemas:
     success:
-      type: object
-      properties:
-        results:
-          scanDocuments:
-          type: object
-          properties: 
-            data:
-              type: object
-              properties:
-                BigBoxes:
-                type: string
-                example: [{"box": [102,131,227,166,164.5,148.5],"page": 0}]                
+type: object
+properties:
+  results:
+		scanDocuments:
+		type: object
+		properties:	  
+			data:
+				type: object
+				properties:	 			
+				  BigBoxes:
+					type: array
+					example: [{"box": [102,131,227,166,164.5,148.5],"page": 0}]
+				  Currency:
+					type: object
+					properties:				  
+						UICategory:
+							type: string
+							example: VAT & Amounts
+						UIName: 
+							type: string
+							example: Currency
+						UIType: 
+							type: string
+							example: Text						
+						matches:
+							type: array
+							example: [1160,1594,1171]						
+						  match: 
+							type: string
+							example: "$"							  
+						  matchmulti:
+							type: string
+							example: "$"						  
+						  page: 
+							type: string
+							example: 0							  
+						  value:
+							type: array
+							example: [1160,1594,1171]
+				  Customer:
+				  		type: string
+						example: null
+				  DetectedText: 
+				  		type: string
+						example: GSSA INVOICE Thank you c/o Greg Derderian Treasurer 32 TinkerRoad Nashua NH 03064 Phone 603-595-4357 fax none DATE: INVOICE # FOR: May 2 2009 100 Annual Dues Bill To: GSSA Member 2009 Phone DESCRIPTION AMOUNT Annual Dues per team 2009 summer swim season $ 100.00 TOTAL $ 100.00 Make
+				  DocSize:
+					type: array
+					example: [1160,1594,1171]
+				  Email:
+					UICategory:
+						type: string
+						example: Vendor & Customer
+					UIName: 
+						type: string
+						example: Email
+					UIType: 
+						type: string
+						example: Text					
+					matches:
+						type: array
+						example: [{"keyword": null,"match": null}]				  
+				  LineItems:
+						type: object
+						properties:				  
+							Amount:
+								type: string
+								example: 22009
+							Description:
+								type: array
+								example: [{"32 Tinker Road","DATE:"}]
+				  num_pages: 
+						type: string
+						example: 1				  
+			docId: 
+				type: string
+				example: 7905				
+			status: 
+				type: string
+				example: COMPLETED			
+  message:
+	type: string
+	example: Successfully Processed
+	description: Detail description on the API status
+  status:
+	type: string
+	example: Success
+	description: The status of the API call success/failure 
+              
     unauthorized:
       type: object
       properties:
