@@ -1439,8 +1439,11 @@ components:
           type: object
           properties: 
             data:
-              type: string
-              example: "tet"
+              type: object
+              properties:
+                BigBoxes:
+                type: string
+                example: [{"box": [102,131,227,166,164.5,148.5],"page": 0}]                
     unauthorized:
       type: object
       properties:
