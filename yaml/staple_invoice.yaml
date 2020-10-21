@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Staple Invoice
   description: |+
-    Scan the invoice document from file and explore the data by catagorywise. 
+    Scan the Invoice document from file and explore the data by catagorywise. 
   version: '1.0'
-  x-subscribelink: staple_invoice
+  x-subscribelink: staple_receipt
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
@@ -27,614 +27,524 @@ paths:
                 results:
                   scanDocuments:
                     data:
+                      AccountName:
+                        UICategory: Payment Instructions
+                        UIName: Account Name
+                        UIType: Text
+                        matches:
+                        - keyword: 
+                          match: 
+                          matchmulti: 
+                          page: 
+                          value: 
+                      AccountNumber:
+                        UICategory: Payment Instructions
+                        UIName: Account Number
+                        UIType: Text
+                        matches:
+                        - keyword: 
+                          match: 
+                          matchmulti: 
+                          page: 
+                          value: 
                       BigBoxes:
                       - box:
-                        - 904
-                        - 118
-                        - 1315
-                        - 189
-                        - 1109.5
-                        - 153.5
-                        - 'sentient.io'
-                        - 'sentient.io'
+                        - 106
+                        - 134
+                        - 385
+                        - 174
+                        - 245.5
+                        - 154
+                        - East Repair Inc.
+                        - East Repair Inc.
                         page: 0
                       - box:
-                        - 903
-                        - 210
-                        - 1312
-                        - 229
-                        - 1107.5
-                        - 219.5
-                        - |
-                          NATURALLY
-                          INTELLIGENT
-                        - |
-                          NATURALLY
-                          INTELLIGENT
+                        - 1148
+                        - 129
+                        - 1308
+                        - 171
+                        - 1228
+                        - 150
+                        - RECEIPT
+                        - RECEIPT
                         page: 0
                       - box:
-                        - 186
-                        - 346
-                        - 366
-                        - 386
-                        - 276
-                        - 366
-                        - 'INVOICE
-                
-                '
-                        - 'INVOICE
-                
-                '
+                        - 102
+                        - 208
+                        - 322
+                        - 273
+                        - 212
+                        - 240.5
+                        - |-
+                          1912 Harvest Lane
+                          New York, NY 12210
+                        - |-
+                          1912 Harvest Lane
+                          New York , NY 12210
                         page: 0
                       - box:
-                        - 683
-                        - 333
-                        - 798
-                        - 382
-                        - 740.5
-                        - 357.5
-                        - |
-                          Invoice Date
-                          02 Oct 2020
-                        - |
-                          Invoice Date
-                          02 Oct 2020
+                        - 1232
+                        - 455
+                        - 1307
+                        - 479
+                        - 1269.5
+                        - 467
+                        - US-001
+                        - US-001
                         page: 0
                       - box:
-                        - 1022
-                        - 335
-                        - 1207
-                        - 466
-                        - 1114.5
-                        - 400.5
-                        - |
-                          Sentient_Mohamed
-                          3 Fusionopolis Place
-                          # 03-56 GALAXIS
-                          WORK LOFT 138523
-                          SINGAPORE
-                        - |
-                          Sentient_Mohamed
-                          3 Fusionopolis Place
-                          # 03-56 GALAXIS
-                          WORK LOFT 138523
-                          SINGAPORE
+                        - 102
+                        - 452
+                        - 322
+                        - 591
+                        - 212
+                        - 521.5
+                        - |-
+                          Bill To
+                          John Smith
+                          2 Court Square
+                          New York, NY 12210
+                        - |-
+                          Bill To
+                          John Smith
+                          2 Court Square
+                          New York , NY 12210
                         page: 0
                       - box:
-                        - 683
-                        - 419
-                        - 841
-                        - 466
-                        - 762
-                        - 442.5
-                        - |
-                          Account Number
-                          495
-                        - |
-                          Account Number
-                          495
+                        - 529
+                        - 454
+                        - 766
+                        - 595
+                        - 647.5
+                        - 524.5
+                        - |-
+                          Ship To
+                          John Smith
+                          3787 Pineview Drive
+                          Cambridge, MA 12210
+                        - |-
+                          Ship To
+                          John Smith
+                          3787 Pineview Drive
+                          Cambridge , MA 12210
                         page: 0
                       - box:
-                        - 211
-                        - 419
-                        - 376
-                        - 521
-                        - 293.5
-                        - 470
-                        - |
-                          Al org test
-                          123 Thomson Rd
-                          308123
-                          SINGAPORE
-                        - |
-                          Al org test
-                          123 Thomson Rd
-                          308123
-                          SINGAPORE
+                        - 972
+                        - 452
+                        - 1113
+                        - 531
+                        - 1042.5
+                        - 491.5
+                        - |-
+                          Receipt #
+                          Receipt Date
+                        - |-
+                          Receipt #
+                          Receipt Date
                         page: 0
                       - box:
-                        - 683
-                        - 502
-                        - 830
-                        - 548
-                        - 756.5
-                        - 525
-                        - |
-                          Invoice Number
-                          INV-0019
-                        - |
-                          Invoice Number
-                          INV-0019
+                        - 1193
+                        - 500
+                        - 1309
+                        - 527
+                        - 1251
+                        - 513.5
+                        - 11/02/2019
+                        - 11/02/2019
                         page: 0
                       - box:
-                        - 683
-                        - 585
-                        - 775
-                        - 603
-                        - 729
-                        - 594
-                        - 'Reference
-                
-                '
-                        - 'Reference
-                
-                '
+                        - 1055
+                        - 553
+                        - 1114
+                        - 575
+                        - 1084.5
+                        - 564
+                        - 'PO #'
+                        - 'P.O. #'
                         page: 0
                       - box:
-                        - 170
-                        - 731
-                        - 286
-                        - 757
-                        - 228
-                        - 744
-                        - 'Description
-                
-                '
-                        - 'Description
-                
-                '
+                        - 1200
+                        - 553
+                        - 1310
+                        - 576
+                        - 1255
+                        - 564.5
+                        - 2312/2019
+                        - 2312/2019
                         page: 0
                       - box:
-                        - 578
-                        - 731
-                        - 668
-                        - 757
+                        - 1012
+                        - 600
+                        - 1112
+                        - 622
+                        - 1062
+                        - 611
+                        - Due Date
+                        - Due Date
+                        page: 0
+                      - box:
+                        - 1193
+                        - 600
+                        - 1310
                         - 623
-                        - 744
-                        - 'Quantity
-                
-                '
-                        - 'Quantity
-                
-                '
+                        - 1251.5
+                        - 611.5
+                        - 26/02/2019
+                        - 26/02/2019
                         page: 0
                       - box:
-                        - 711
-                        - 731
-                        - 810
-                        - 752
-                        - 760.5
-                        - 741.5
-                        - 'Unit Price
-                
-                '
-                        - 'Unit Price
-                
-                '
-                        page: 0
-                      - box:
-                        - 874
-                        - 733
-                        - 954
+                        - 130
+                        - 732
+                        - 178
                         - 751
-                        - 914
-                        - 742
-                        - 'Discount
-                
-                '
-                        - 'Discount
-                
-                '
+                        - 154
+                        - 741.5
+                        - QTY
+                        - QTY
                         page: 0
                       - box:
-                        - 1126
-                        - 734
-                        - 1160
+                        - 422
+                        - 731
+                        - 580
                         - 752
-                        - 1143
-                        - 743
-                        - 'Tax
-                
-                '
-                        - 'Tax
-                
-                '
+                        - 501
+                        - 741.5
+                        - DESCRIPTION
+                        - DESCRIPTION
+                        page: 0
+                      - box:
+                        - 831
+                        - 722
+                        - 962
+                        - 759
+                        - 896.5
+                        - 740.5
+                        - UNIT PRICE
+                        - UNIT PRICE
+                        page: 0
+                      - box:
+                        - 1102
+                        - 730
+                        - 1205
+                        - 752
+                        - 1153.5
+                        - 741
+                        - AMOUNT
+                        - AMOUNT
+                        page: 0
+                      - box:
+                        - 149
+                        - 793
+                        - 155
+                        - 813
+                        - 152
+                        - 803
+                        - '1'
+                        - '1'
+                        page: 0
+                      - box:
+                        - 229
+                        - 793
+                        - 518
+                        - 816
+                        - 373.5
+                        - 804.5
+                        - Front and rear brake cables
+                        - Front and rear brake cables
+                        page: 0
+                      - box:
+                        - 911
+                        - 793
+                        - 981
+                        - 814
+                        - 946
+                        - 803.5
+                        - '100.00'
+                        - '100.00'
+                        page: 0
+                      - box:
+                        - 1220
+                        - 793
+                        - 1289
+                        - 816
+                        - 1254.5
+                        - 804.5
+                        - '100.00'
+                        - '100.00'
+                        page: 0
+                      - box:
+                        - 148
+                        - 857
+                        - 159
+                        - 876
+                        - 153.5
+                        - 866.5
+                        - '2'
+                        - '2'
+                        page: 0
+                      - box:
+                        - 229
+                        - 852
+                        - 463
+                        - 884
+                        - 346
+                        - 868
+                        - New set of pedal arms
+                        - New set of pedal arms
+                        page: 0
+                      - box:
+                        - 925
+                        - 857
+                        - 981
+                        - 879
+                        - 953
+                        - 868
+                        - '15.00'
+                        - '15.00'
+                        page: 0
+                      - box:
+                        - 1231
+                        - 856
+                        - 1290
+                        - 879
+                        - 1260.5
+                        - 867.5
+                        - '30.00'
+                        - '30.00'
+                        page: 0
+                      - box:
+                        - 149
+                        - 920
+                        - 160
+                        - 939
+                        - 154.5
+                        - 929.5
+                        - '3'
+                        - '3'
+                        page: 0
+                      - box:
+                        - 229
+                        - 918
+                        - 340
+                        - 939
+                        - 284.5
+                        - 928.5
+                        - Labor 3hrs
+                        - Labor 3hrs
+                        page: 0
+                      - box:
+                        - 936
+                        - 920
+                        - 980
+                        - 940
+                        - 958
+                        - 930
+                        - '5.00'
+                        - '5.00'
+                        page: 0
+                      - box:
+                        - 1233
+                        - 920
+                        - 1289
+                        - 941
+                        - 1261
+                        - 930.5
+                        - '15.00'
+                        - '15.00'
+                        page: 0
+                      - box:
+                        - 897
+                        - 981
+                        - 981
+                        - 1003
+                        - 939
+                        - 992
+                        - Subtotal
+                        - Subtotal
                         page: 0
                       - box:
                         - 1219
-                        - 733
-                        - 1347
-                        - 752
-                        - 1283
-                        - 742.5
-                        - 'Amount USD
-                
-                '
-                        - 'Amount USD
-                
-                '
-                        page: 0
-                      - box:
-                        - 167
-                        - 794
-                        - 397
-                        - 814
-                        - 282
-                        - 804
-                        - 'Top up of Sentient Credit
-                
-                '
-                        - 'Top up of Sentient Credit
-                
-                '
-                        page: 0
-                      - box:
-                        - 588
-                        - 795
-                        - 667
-                        - 815
-                        - 627.5
-                        - 805
-                        - '5,000.00
-                
-                '
-                        - '5,000.00
-                
-                '
-                        page: 0
-                      - box:
-                        - 773
-                        - 794
-                        - 809
-                        - 814
-                        - 791
-                        - 804
-                        - '0.01
-                
-                '
-                        - '0.01
-                
-                '
-                        page: 0
-                      - box:
-                        - 904
-                        - 794
-                        - 953
-                        - 812
-                        - 928.5
-                        - 803
-                        - '10.00
-                
-                '
-                        - '10.00
-                
-                '
-                        page: 0
-                      - box:
-                        - 1134
-                        - 794
-                        - 1160
-                        - 812
-                        - 1147
-                        - 803
-                        - '7%
-                
-                '
-                        - '7%
-                
-                '
-                        page: 0
-                      - box:
-                        - 1298
-                        - 795
-                        - 1348
-                        - 813
-                        - 1323
-                        - 804
-                        - '40.00
-                
-                '
-                        - '40.00
-                
-                '
-                        page: 0
-                      - box:
-                        - 825
-                        - 836
-                        - 1169
-                        - 859
-                        - 997
-                        - 847.5
-                        - 'Subtotal ( includes discount of $ 10.00 )
-                
-                '
-                        - 'Subtotal ( includes discount of $ 10.00 )
-                
-                '
-                        page: 0
-                      - box:
-                        - 1299
-                        - 838
-                        - 1348
-                        - 856
-                        - 1323.5
-                        - 847
-                        - '40.00
-                
-                '
-                        - '40.00
-                
-                '
-                        page: 0
-                      - box:
-                        - 770
-                        - 877
-                        - 1169
-                        - 900
-                        - 969.5
-                        - 888.5
-                        - 'Total Local supply of goods and services 7%
-                
-                '
-                        - 'Total Local supply of goods and services 7%
-                
-                '
-                        page: 0
-                      - box:
-                        - 1309
-                        - 879
-                        - 1348
-                        - 896
-                        - 1328.5
-                        - 887.5
-                        - '2.80
-                
-                '
-                        - '2.80
-                
-                '
-                        page: 0
-                      - box:
-                        - 1080
-                        - 921
-                        - 1169
-                        - 940
-                        - 1124.5
-                        - 930.5
-                        - 'Total USD
-                
-                '
-                        - 'Total USD
-                
-                '
-                        page: 0
-                      - box:
-                        - 1299
-                        - 922
-                        - 1348
-                        - 939
-                        - 1323.5
-                        - 930.5
-                        - '42.80
-                
-                '
-                        - '42.80
-                
-                '
-                        page: 0
-                      - box:
-                        - 989
-                        - 960
-                        - 1169
-                        - 986
-                        - 1079
-                        - 973
-                        - 'Total Net Payments
-                
-                '
-                        - 'Total Net Payments
-                
-                '
-                        page: 0
-                      - box:
-                        - 1309
-                        - 963
-                        - 1347
                         - 980
-                        - 1328
-                        - 971.5
-                        - '0.00
-                
-                '
-                        - '0.00
-                
-                '
+                        - 1288
+                        - 1002
+                        - 1253.5
+                        - 991
+                        - '145.00'
+                        - '145.00'
                         page: 0
                       - box:
-                        - 1006
-                        - 1006
-                        - 1169
-                        - 1025
-                        - 1087.5
-                        - 1015.5
-                        - 'Amount Due USD
-                
-                '
-                        - 'Amount Due USD
-                
-                '
+                        - 803
+                        - 1042
+                        - 980
+                        - 1063
+                        - 891.5
+                        - 1052.5
+                        - Sales Tax 6.25%
+                        - Sales Tax 6.25%
                         page: 0
                       - box:
-                        - 1298
-                        - 1006
-                        - 1349
-                        - 1025
-                        - 1323.5
-                        - 1015.5
-                        - '42.80
-                
-                '
-                        - '42.80
-                
-                '
+                        - 1244
+                        - 1042
+                        - 1289
+                        - 1065
+                        - 1266.5
+                        - 1053.5
+                        - '9.06'
+                        - '9.06'
                         page: 0
                       - box:
-                        - 183
-                        - 1103
-                        - 504
-                        - 1181
-                        - 343.5
-                        - 1142
-                        - |
-                          For GST reporting purposes
-                          * Total Tax equivalent to SGD 3.82
-                          1 SGD = 0.732767 USD
-                        - |
-                          For GST reporting purposes
-                          * Total Tax equivalent to SGD 3.82
-                          1 SGD = 0.732767 USD
+                        - 872
+                        - 1104
+                        - 981
+                        - 1137
+                        - 926.5
+                        - 1120.5
+                        - TOTAL
+                        - TOTAL
                         page: 0
                       - box:
-                        - 183
-                        - 1311
-                        - 1349
-                        - 1371
-                        - 766
-                        - 1341
-                        - |
-                          Make all checks payable to SENTIENT.IO PTE LTD and mail to our address above Please write your invoice number
-                          at the back of your check Alternatively you may perform a telegraphic transfer to our bank account below
-                        - |
-                          Make all checks payable to SENTIENT.IO PTE LTD and mail to our address above Please write your invoice number
-                          at the back of your check Alternatively you may perform a telegraphic transfer to our bank account below
+                        - 1172
+                        - 1101
+                        - 1289
+                        - 1140
+                        - 1230.5
+                        - 1120.5
+                        - "$ 154.06"
+                        - "$ 154.06"
                         page: 0
                       - box:
-                        - 181
-                        - 1405
-                        - 1317
-                        - 1548
-                        - 749
-                        - 1476.5
-                        - |
-                          Bank DBS Limited
-                          Swift code DBSSSGSG
-                          Bank address 12 Marina Boulevard DBS Asia Central Marina Bay Financial Centre Tower 3 Singapore 018982
-                          A/C Name SENTIENT.IO PTE LTD
-                          A/C No.: 003-948675-8
-                        - |
-                          Bank DBS Limited
-                          Swift code DBSSSGSG
-                          Bank address 12 Marina Boulevard DBS Asia Central Marina Bay Financial Centre Tower 3 Singapore 018982
-                          A/C Name SENTIENT.IO PTE LTD
-                          A/C No.: 003-948675-8
+                        - 102
+                        - 1728
+                        - 422
+                        - 1801
+                        - 262
+                        - 1764.5
+                        - |-
+                          Terms & Conditions
+                          Payment is due within 15 days
+                        - |-
+                          Terms & Conditions
+                          Payment is due within 15 days
                         page: 0
                       - box:
-                        - 183
-                        - 1623
-                        - 415
-                        - 1642
-                        - 299
-                        - 1632.5
-                        - 'Due Date: 02 Oct 2020
-                
-                '
-                        - 'Due Date: 02 Oct 2020
-                
-                '
+                        - 104
+                        - 1841
+                        - 616
+                        - 1871
+                        - 360
+                        - 1856
+                        - 'Please make checks payable to: East Repair Inc.'
+                        - 'Please make checks payable to: East Repair Inc.'
                         page: 0
-                      - box:
-                        - 183
-                        - 1950
-                        - 829
-                        - 1970
-                        - 506
-                        - 1960
-                        - 'Registered Office 3 Fusionopolis Place # 03-56 GALAXIS WORK LOFT 138523
-                          SINGAPORE
-                
-                '
-                        - 'Registered Office 3 Fusionopolis Place # 03-56 GALAXIS WORK LOFT 138523
-                          SINGAPORE
-                
-                '
-                        page: 0
+                      BillingAddress:
+                        UICategory: Vendor & Customer
+                        UIName: Billing Address
+                        UIType: Text
+                        matches:
+                        - keyword:
+                          - 102
+                          - 452
+                          - 322
+                          - 591
+                          - 212
+                          - 521.5
+                          - |-
+                            Bill To
+                            John Smith
+                            2 Court Square
+                            New York, NY 12210
+                          - |-
+                            Bill To
+                            John Smith
+                            2 Court Square
+                            New York , NY 12210
+                          match: |-
+                            John Smith
+                            2 Court Square
+                            New York, NY 12210
+                          matchmulti: Bill To John Smith 2 Court Square New York , NY 12210
+                          page: 0
+                          value:
+                          - 102
+                          - 452
+                          - 322
+                          - 591
+                          - 212
+                          - 521.5
+                          - |-
+                            Bill To
+                            John Smith
+                            2 Court Square
+                            New York, NY 12210
+                          - |-
+                            Bill To
+                            John Smith
+                            2 Court Square
+                            New York , NY 12210
+                      CompanyName:
+                        UICategory: Vendor & Customer
+                        UIName: Vendor Name
+                        UIType: Text
+                        matches:
+                        - keyword:
+                          - 106
+                          - 134
+                          - 385
+                          - 174
+                          - 245.5
+                          - 154
+                          - East Repair Inc.
+                          - East Repair Inc.
+                          match: East Repair Inc.
+                          matchmulti: East Repair Inc.
+                          page: 0
+                          value:
+                          - 106
+                          - 134
+                          - 385
+                          - 174
+                          - 245.5
+                          - 154
+                          - East Repair Inc.
+                          - East Repair Inc.
                       Currency:
                         UICategory: VAT & Amounts
                         UIName: Currency
                         UIType: Text
                         matches:
                         - keyword:
-                          - 1080
-                          - 921
-                          - 1169
-                          - 940
-                          - 1124.5
-                          - 930.5
-                          - Total USD
-                          - Total USD
-                          match: USD
-                          matchmulti: Total USD
+                          - 872
+                          - 1104
+                          - 981
+                          - 1137
+                          - 926.5
+                          - 1120.5
+                          - TOTAL
+                          - TOTAL
+                          match: "$"
+                          matchmulti: "$ 154.06"
                           page: 0
                           value:
-                          - 1080
-                          - 921
-                          - 1169
-                          - 940
-                          - 1124.5
-                          - 930.5
-                          - Total USD
-                          - Total USD
-                        - keyword:
-                          - 1006
-                          - 1006
-                          - 1169
-                          - 1025
-                          - 1087.5
-                          - 1015.5
-                          - Amount Due USD
-                          - Amount Due USD
-                          match: USD
-                          matchmulti: Amount Due USD
-                          page: 0
-                          value:
-                          - 1006
-                          - 1006
-                          - 1169
-                          - 1025
-                          - 1087.5
-                          - 1015.5
-                          - Amount Due USD
-                          - Amount Due USD
-                        - keyword:
-                          - 183
-                          - 1131
-                          - 504
-                          - 1155
-                          - 343.5
-                          - 1143
-                          - "* Total Tax equivalent to SGD 3.82"
-                          - "* Total Tax equivalent to SGD 3.82"
-                          match: SGD
-                          matchmulti: "* Total Tax equivalent to SGD 3.82"
-                          page: 0
-                          value:
-                          - 183
-                          - 1131
-                          - 504
-                          - 1155
-                          - 343.5
-                          - 1143
-                          - "* Total Tax equivalent to SGD 3.82"
-                          - "* Total Tax equivalent to SGD 3.82"
+                          - 1172
+                          - 1101
+                          - 1289
+                          - 1140
+                          - 1230.5
+                          - 1120.5
+                          - "$ 154.06"
+                          - "$ 154.06"
                       Customer: 
-                      DetectedText: 'sentient.io NATURALLY INTELLIGENT INVOICE Invoice Date 02 Oct
-                        2020 Sentient_Mohamed 3 Fusionopolis Place # 03-56 GALAXIS WORK LOFT 138523
-                        SINGAPORE Account Number 495 Al org test 123 Thomson Rd 308123 SINGAPORE Invoice
-                        Number INV-0019 Reference Description Quantity Unit Price Discount Tax Amount
-                        USD Top up of Sentient Credit 5,000.00 0.01 10.00 7% 40.00 Subtotal ( includes
-                        discount of $ 10.00 ) 40.00 Total Local supply of goods and services 7% 2.80
-                        Total USD 42.80 Total Net Payments 0.00 Amount Due USD 42.80 For GST reporting
-                        purposes * Total Tax equivalent to SGD 3.82 1 SGD = 0.732767 USD Make all
-                        checks payable to SENTIENT.IO PTE LTD and mail to our address above Please
-                        write your invoice number at the back of your check Alternatively you may
-                        perform a telegraphic transfer to our bank account below Bank DBS Limited
-                        Swift code DBSSSGSG Bank address 12 Marina Boulevard DBS Asia Central Marina
-                        Bay Financial Centre Tower 3 Singapore 018982 A/C Name SENTIENT.IO PTE LTD
-                        A/C No.: 003-948675-8 Due Date: 02 Oct 2020 Registered Office 3 Fusionopolis
-                        Place # 03-56 GALAXIS WORK LOFT 138523 SINGAPORE '
+                      DetectedText: 'East Repair Inc. RECEIPT 1912 Harvest Lane New York, NY 12210
+                        US-001 Bill To John Smith 2 Court Square New York, NY 12210 Ship To John Smith
+                        3787 Pineview Drive Cambridge, MA 12210 Receipt # Receipt Date 11/02/2019
+                        PO # 2312/2019 Due Date 26/02/2019 QTY DESCRIPTION UNIT PRICE AMOUNT 1 Front
+                        and rear brake cables 100.00 100.00 2 New set of pedal arms 15.00 30.00 3
+                        Labor 3hrs 5.00 15.00 Subtotal 145.00 Sales Tax 6.25% 9.06 TOTAL $ 154.06
+                        Terms & Conditions Payment is due within 15 days Please make checks payable
+                        to: East Repair Inc. '
                       DocSize:
                       - - 2000
-                        - 1546
+                        - 1413
                       Email:
                         UICategory: Vendor & Customer
                         UIName: Email
@@ -645,9 +555,55 @@ paths:
                           matchmulti: 
                           page: 
                           value: 
-                      GSTNumber:
-                        UICategory: Vendor & Customer
-                        UIName: GST Number
+                      Freight:
+                        UICategory: VAT & Amounts
+                        UIName: Freight
+                        UIType: Amount
+                        matches:
+                        - keyword: 
+                          match: 
+                          matchmulti: 
+                          page: 
+                          value: 
+                      IBAN:
+                        UICategory: Payment Instructions
+                        UIName: IBAN
+                        UIType: Text
+                        matches:
+                        - keyword: 
+                          match: 
+                          matchmulti: 
+                          page: 
+                          value: 
+                      InvoiceDate:
+                        UICategory: Basic Information
+                        UIName: Invoice Date
+                        UIType: Date
+                        matches:
+                        - keyword:
+                          - 972
+                          - 499
+                          - 1113
+                          - 531
+                          - 1042.5
+                          - 515
+                          - Receipt Date
+                          - Receipt Date
+                          match: '2019-11-02'
+                          matchmulti: 11/02/2019
+                          page: 0
+                          value:
+                          - 1193
+                          - 500
+                          - 1309
+                          - 527
+                          - 1251
+                          - 513.5
+                          - 11/02/2019
+                          - 11/02/2019
+                      InvoiceNumber:
+                        UICategory: Basic Information
+                        UIName: Invoice Number
                         UIType: Text
                         matches:
                         - keyword: 
@@ -656,743 +612,667 @@ paths:
                           page: 
                           value: 
                       LineItems:
-                      - - Amount:
-                          - 40
-                          Description:
-                          - Top up of Sentient Credit
-                          - '5,000.00'
-                          - '0.01'
-                          - '10.00'
-                          - 7%
-                        - Amount:
-                          - 40
-                          Description:
-                          - Subtotal ( includes discount of $ 10.00 )
-                        - Amount:
-                          - 2.8
-                          Description:
-                          - Total Local supply of goods and services 7%
+                      - - 'AMOUNT ':
+                          - '100.00'
+                          'DESCRIPTION ':
+                          - Front and rear brake cables
+                          'QTY ':
+                          - '1'
+                          'UNIT PRICE ':
+                          - '100.00'
+                        - 'AMOUNT ':
+                          - '30.00'
+                          'DESCRIPTION ':
+                          - New set of pedal arms
+                          'QTY ':
+                          - '2'
+                          'UNIT PRICE ':
+                          - '15.00'
+                        - 'AMOUNT ':
+                          - '15.00'
+                          'DESCRIPTION ':
+                          - Labor 3hrs
+                          'QTY ':
+                          - '3'
+                          'UNIT PRICE ':
+                          - '5.00'
                       LineItems_standardHeader:
-                      - - Description: Top up of Sentient Credit 5,000.00 0.01 10.00 7%
-                          LineAmount: 40
+                      - - Description: Front and rear brake cables
+                          LineAmount: 100
                           Quantity: 1
-                          UnitAmount: 40
-                        - Description: Subtotal ( includes discount of $ 10.00 )
-                          LineAmount: 40
-                          Quantity: 1
-                          UnitAmount: 40
-                        - Description: Total Local supply of goods and services 7%
-                          LineAmount: 2.8
-                          Quantity: 1
-                          UnitAmount: 2.8
+                          UnitAmount: 100
+                        - Description: New set of pedal arms
+                          LineAmount: 30
+                          Quantity: 2
+                          UnitAmount: 15
+                        - Description: Labor 3hrs
+                          LineAmount: 15
+                          Quantity: 3
+                          UnitAmount: 5
+                      OtherAddress:
+                        UICategory: Vendor & Customer
+                        UIName: Other Address
+                        UIType: Text
+                        matches:
+                        - keyword: 
+                          match: 
+                          matchmulti: 
+                          page: 
+                          value: 
                       OtherDate:
                         UICategory: Basic Information
                         UIName: Other Date
                         UIType: Date
                         matches:
                         - keyword: 
-                          match: '2020-10-02'
-                          matchmulti: 'Due Date: 02 Oct 2020'
+                          match: 
+                          matchmulti: 
+                          page: 
+                          value: 
+                      PONumber:
+                        UICategory: Vendor & Customer
+                        UIName: PO Number
+                        UIType: Text
+                        matches:
+                        - keyword:
+                          - 1055
+                          - 553
+                          - 1114
+                          - 575
+                          - 1084.5
+                          - 564
+                          - 'PO #'
+                          - 'P.O. #'
+                          match: 2312/2019
+                          matchmulti: 2312/2019
                           page: 0
                           value:
-                          - 183
-                          - 1623
-                          - 415
-                          - 1642
-                          - 299
-                          - 1632
-                          - 'Due Date: 02 Oct 2020'
+                          - 1200
+                          - 553
+                          - 1310
+                          - 576
+                          - 1255
+                          - 564.5
+                          - 2312/2019
+                          - 2312/2019
+                      PaymentDate:
+                        UICategory: Basic Information
+                        UIName: Payment Date
+                        UIType: Date
+                        matches:
+                        - keyword:
+                          - 1012
+                          - 600
+                          - 1112
+                          - 622
+                          - 1062
+                          - 611
+                          - Due Date
+                          - Due Date
+                          match: '2019-02-26'
+                          matchmulti: 26/02/2019
+                          page: 0
+                          value:
+                          - 1193
+                          - 600
+                          - 1310
+                          - 623
+                          - 1251.5
+                          - 611.5
+                          - 26/02/2019
+                          - 26/02/2019
                       SenderAddress:
                         UICategory: Vendor & Customer
                         UIName: Vendor Address
                         UIType: Text
                         matches:
                         - keyword:
-                          - 904
-                          - 118
-                          - 1315
-                          - 189
-                          - 1109.5
-                          - 153.5
-                          - 'sentient.io
-                
-                '
-                          - 'sentient.io
-                
-                '
-                          match: |
-                            Sentient_Mohamed
-                            3 Fusionopolis Place
-                            # 03-56 GALAXIS
-                            WORK LOFT 138523
-                            SINGAPORE
-                          matchmulti: 'Sentient_Mohamed 3 Fusionopolis Place # 03-56 GALAXIS WORK
-                            LOFT 138523 SINGAPORE'
+                          - 106
+                          - 134
+                          - 385
+                          - 174
+                          - 245.5
+                          - 154
+                          - East Repair Inc.
+                          - East Repair Inc.
+                          match: East Repair Inc.
+                          matchmulti: East Repair Inc.
                           page: 0
                           value:
-                          - 1022
-                          - 335
-                          - 1207
-                          - 466
-                          - 1114.5
-                          - 400.5
-                          - |
-                            Sentient_Mohamed
-                            3 Fusionopolis Place
-                            # 03-56 GALAXIS
-                            WORK LOFT 138523
-                            SINGAPORE
-                          - |
-                            Sentient_Mohamed
-                            3 Fusionopolis Place
-                            # 03-56 GALAXIS
-                            WORK LOFT 138523
-                            SINGAPORE
-                      ServiceCharge:
-                        UICategory: VAT & Amounts
-                        UIName: Service Charge
-                        UIType: Amount
+                          - 106
+                          - 134
+                          - 385
+                          - 174
+                          - 245.5
+                          - 154
+                          - East Repair Inc.
+                          - East Repair Inc.
+                      ShippingAddress:
+                        UICategory: Vendor & Customer
+                        UIName: Shipping Address
+                        UIType: Text
                         matches:
-                        - keyword: 
-                          match: 
-                          matchmulti: 
-                          page: 
-                          value: 
+                        - keyword:
+                          - 529
+                          - 454
+                          - 766
+                          - 595
+                          - 647.5
+                          - 524.5
+                          - |-
+                            Ship To
+                            John Smith
+                            3787 Pineview Drive
+                            Cambridge, MA 12210
+                          - |-
+                            Ship To
+                            John Smith
+                            3787 Pineview Drive
+                            Cambridge , MA 12210
+                          match: |-
+                            John Smith
+                            3787 Pineview Drive
+                            Cambridge, MA 12210
+                          matchmulti: Ship To John Smith 3787 Pineview Drive Cambridge , MA 12210
+                          page: 0
+                          value:
+                          - 529
+                          - 454
+                          - 766
+                          - 595
+                          - 647.5
+                          - 524.5
+                          - |-
+                            Ship To
+                            John Smith
+                            3787 Pineview Drive
+                            Cambridge, MA 12210
+                          - |-
+                            Ship To
+                            John Smith
+                            3787 Pineview Drive
+                            Cambridge , MA 12210
                       SmallBoxes:
                       - box:
-                        - 904
-                        - 118
-                        - 1315
-                        - 189
-                        - 1109.5
-                        - 153.5
-                        - sentient.io
-                        - sentient.io
-                        page: 0
-                      - box:
-                        - 903
-                        - 210
-                        - 1080
-                        - 229
-                        - 991.5
-                        - 219.5
-                        - NATURALLY
-                        - NATURALLY
-                        page: 0
-                      - box:
-                        - 1104
-                        - 210
-                        - 1312
-                        - 229
-                        - 1208
-                        - 219.5
-                        - INTELLIGENT
-                        - INTELLIGENT
-                        page: 0
-                      - box:
-                        - 186
-                        - 346
-                        - 366
-                        - 386
-                        - 276
-                        - 366
-                        - INVOICE
-                        - INVOICE
-                        page: 0
-                      - box:
-                        - 684
-                        - 333
-                        - 799
-                        - 355
-                        - 741.5
-                        - 344
-                        - Invoice Date
-                        - Invoice Date
-                        page: 0
-                      - box:
-                        - 683
-                        - 363
-                        - 793
-                        - 382
-                        - 738
-                        - 372.5
-                        - 02 Oct 2020
-                        - 02 Oct 2020
-                        page: 0
-                      - box:
-                        - 1023
-                        - 335
-                        - 1204
-                        - 355
-                        - 1113.5
-                        - 345
-                        - Sentient_Mohamed
-                        - Sentient_Mohamed
-                        page: 0
-                      - box:
-                        - 1023
-                        - 362
-                        - 1206
+                        - 106
+                        - 134
                         - 385
-                        - 1114.5
-                        - 373.5
-                        - 3 Fusionopolis Place
-                        - 3 Fusionopolis Place
+                        - 174
+                        - 245.5
+                        - 154
+                        - East Repair Inc.
+                        - East Repair Inc.
                         page: 0
                       - box:
-                        - 1024
-                        - 393
-                        - 1169
-                        - 411
-                        - 1096.5
-                        - 402
-                        - "# 03-56 GALAXIS"
-                        - "# 03-56 GALAXIS"
+                        - 1148
+                        - 129
+                        - 1308
+                        - 171
+                        - 1228
+                        - 150
+                        - RECEIPT
+                        - RECEIPT
                         page: 0
                       - box:
-                        - 1023
-                        - 419
-                        - 1204
-                        - 436
-                        - 1113.5
-                        - 427.5
-                        - WORK LOFT 138523
-                        - WORK LOFT 138523
+                        - 105
+                        - 208
+                        - 302
+                        - 241
+                        - 203.5
+                        - 224.5
+                        - 1912 Harvest Lane
+                        - 1912 Harvest Lane
                         page: 0
                       - box:
-                        - 1024
-                        - 447
-                        - 1129
-                        - 466
-                        - 1076.5
-                        - 456.5
-                        - SINGAPORE
-                        - SINGAPORE
-                        page: 0
-                      - box:
-                        - 683
-                        - 419
-                        - 841
-                        - 438
-                        - 762
-                        - 428.5
-                        - Account Number
-                        - Account Number
-                        page: 0
-                      - box:
-                        - 683
-                        - 447
-                        - 715
-                        - 466
-                        - 699
-                        - 456.5
-                        - '495'
-                        - '495'
-                        page: 0
-                      - box:
-                        - 211
-                        - 419
-                        - 305
-                        - 440
-                        - 258
-                        - 429.5
-                        - Al org test
-                        - Al org test
-                        page: 0
-                      - box:
-                        - 214
-                        - 445
-                        - 364
-                        - 468
-                        - 289
-                        - 456.5
-                        - 123 Thomson Rd
-                        - 123 Thomson Rd
-                        page: 0
-                      - box:
+                        - 102
+                        - 242
+                        - 322
+                        - 273
                         - 212
-                        - 474
-                        - 278
+                        - 257.5
+                        - New York, NY 12210
+                        - New York , NY 12210
+                        page: 0
+                      - box:
+                        - 1232
+                        - 455
+                        - 1307
+                        - 479
+                        - 1269.5
+                        - 467
+                        - US-001
+                        - US-001
+                        page: 0
+                      - box:
+                        - 104
+                        - 452
+                        - 174
+                        - 481
+                        - 139
+                        - 466.5
+                        - Bill To
+                        - Bill To
+                        page: 0
+                      - box:
+                        - 103
                         - 492
-                        - 245
-                        - 483
-                        - '308123'
-                        - '308123'
+                        - 220
+                        - 524
+                        - 161.5
+                        - 508
+                        - John Smith
+                        - John Smith
                         page: 0
                       - box:
-                        - 213
-                        - 502
-                        - 318
-                        - 521
-                        - 265.5
-                        - 511.5
-                        - SINGAPORE
-                        - SINGAPORE
+                        - 103
+                        - 527
+                        - 262
+                        - 559
+                        - 182.5
+                        - 543
+                        - 2 Court Square
+                        - 2 Court Square
                         page: 0
                       - box:
-                        - 683
-                        - 501
-                        - 830
-                        - 520
-                        - 756.5
-                        - 510.5
-                        - Invoice Number
-                        - Invoice Number
+                        - 102
+                        - 560
+                        - 322
+                        - 591
+                        - 212
+                        - 575.5
+                        - New York, NY 12210
+                        - New York , NY 12210
                         page: 0
                       - box:
-                        - 685
+                        - 529
+                        - 454
+                        - 616
+                        - 482
+                        - 572.5
+                        - 468
+                        - Ship To
+                        - Ship To
+                        page: 0
+                      - box:
                         - 530
-                        - 767
-                        - 548
-                        - 726
-                        - 539
-                        - INV-0019
-                        - INV-0019
+                        - 494
+                        - 647
+                        - 523
+                        - 588.5
+                        - 508.5
+                        - John Smith
+                        - John Smith
                         page: 0
                       - box:
-                        - 683
-                        - 585
-                        - 775
-                        - 603
-                        - 729
-                        - 594
-                        - Reference
-                        - Reference
-                        page: 0
-                      - box:
-                        - 170
-                        - 731
-                        - 286
-                        - 757
-                        - 228
+                        - 530
+                        - 527
                         - 744
-                        - Description
-                        - Description
+                        - 555
+                        - 637
+                        - 541
+                        - 3787 Pineview Drive
+                        - 3787 Pineview Drive
                         page: 0
                       - box:
-                        - 578
-                        - 731
-                        - 668
-                        - 757
+                        - 529
+                        - 559
+                        - 766
+                        - 595
+                        - 647.5
+                        - 577
+                        - Cambridge, MA 12210
+                        - Cambridge , MA 12210
+                        page: 0
+                      - box:
+                        - 1009
+                        - 452
+                        - 1113
+                        - 483
+                        - 1061
+                        - 467.5
+                        - 'Receipt #'
+                        - 'Receipt #'
+                        page: 0
+                      - box:
+                        - 972
+                        - 499
+                        - 1113
+                        - 531
+                        - 1042.5
+                        - 515
+                        - Receipt Date
+                        - Receipt Date
+                        page: 0
+                      - box:
+                        - 1193
+                        - 500
+                        - 1309
+                        - 527
+                        - 1251
+                        - 513.5
+                        - 11/02/2019
+                        - 11/02/2019
+                        page: 0
+                      - box:
+                        - 1055
+                        - 553
+                        - 1114
+                        - 575
+                        - 1084.5
+                        - 564
+                        - 'PO #'
+                        - 'P.O. #'
+                        page: 0
+                      - box:
+                        - 1200
+                        - 553
+                        - 1310
+                        - 576
+                        - 1255
+                        - 564.5
+                        - 2312/2019
+                        - 2312/2019
+                        page: 0
+                      - box:
+                        - 1012
+                        - 600
+                        - 1112
+                        - 622
+                        - 1062
+                        - 611
+                        - Due Date
+                        - Due Date
+                        page: 0
+                      - box:
+                        - 1193
+                        - 600
+                        - 1310
                         - 623
-                        - 744
-                        - Quantity
-                        - Quantity
+                        - 1251.5
+                        - 611.5
+                        - 26/02/2019
+                        - 26/02/2019
                         page: 0
                       - box:
-                        - 711
+                        - 130
                         - 732
-                        - 810
-                        - 753
-                        - 760.5
-                        - 742.5
-                        - Unit Price
-                        - Unit Price
-                        page: 0
-                      - box:
-                        - 874
-                        - 733
-                        - 954
+                        - 178
                         - 751
-                        - 914
-                        - 742
-                        - Discount
-                        - Discount
+                        - 154
+                        - 741.5
+                        - QTY
+                        - QTY
                         page: 0
                       - box:
-                        - 1126
-                        - 734
-                        - 1160
+                        - 422
+                        - 731
+                        - 580
                         - 752
-                        - 1143
-                        - 743
-                        - Tax
-                        - Tax
+                        - 501
+                        - 741.5
+                        - DESCRIPTION
+                        - DESCRIPTION
+                        page: 0
+                      - box:
+                        - 831
+                        - 722
+                        - 962
+                        - 759
+                        - 896.5
+                        - 740.5
+                        - UNIT PRICE
+                        - UNIT PRICE
+                        page: 0
+                      - box:
+                        - 1102
+                        - 730
+                        - 1205
+                        - 752
+                        - 1153.5
+                        - 741
+                        - AMOUNT
+                        - AMOUNT
+                        page: 0
+                      - box:
+                        - 149
+                        - 793
+                        - 155
+                        - 813
+                        - 152
+                        - 803
+                        - '1'
+                        - '1'
+                        page: 0
+                      - box:
+                        - 229
+                        - 793
+                        - 518
+                        - 816
+                        - 373.5
+                        - 804.5
+                        - Front and rear brake cables
+                        - Front and rear brake cables
+                        page: 0
+                      - box:
+                        - 911
+                        - 793
+                        - 981
+                        - 814
+                        - 946
+                        - 803.5
+                        - '100.00'
+                        - '100.00'
+                        page: 0
+                      - box:
+                        - 1220
+                        - 793
+                        - 1289
+                        - 816
+                        - 1254.5
+                        - 804.5
+                        - '100.00'
+                        - '100.00'
+                        page: 0
+                      - box:
+                        - 148
+                        - 857
+                        - 159
+                        - 876
+                        - 153.5
+                        - 866.5
+                        - '2'
+                        - '2'
+                        page: 0
+                      - box:
+                        - 229
+                        - 852
+                        - 463
+                        - 884
+                        - 346
+                        - 868
+                        - New set of pedal arms
+                        - New set of pedal arms
+                        page: 0
+                      - box:
+                        - 925
+                        - 857
+                        - 981
+                        - 879
+                        - 953
+                        - 868
+                        - '15.00'
+                        - '15.00'
+                        page: 0
+                      - box:
+                        - 1231
+                        - 856
+                        - 1290
+                        - 879
+                        - 1260.5
+                        - 867.5
+                        - '30.00'
+                        - '30.00'
+                        page: 0
+                      - box:
+                        - 149
+                        - 920
+                        - 160
+                        - 939
+                        - 154.5
+                        - 929.5
+                        - '3'
+                        - '3'
+                        page: 0
+                      - box:
+                        - 229
+                        - 918
+                        - 340
+                        - 939
+                        - 284.5
+                        - 928.5
+                        - Labor 3hrs
+                        - Labor 3hrs
+                        page: 0
+                      - box:
+                        - 936
+                        - 920
+                        - 980
+                        - 940
+                        - 958
+                        - 930
+                        - '5.00'
+                        - '5.00'
+                        page: 0
+                      - box:
+                        - 1233
+                        - 920
+                        - 1289
+                        - 941
+                        - 1261
+                        - 930.5
+                        - '15.00'
+                        - '15.00'
+                        page: 0
+                      - box:
+                        - 897
+                        - 981
+                        - 981
+                        - 1003
+                        - 939
+                        - 992
+                        - Subtotal
+                        - Subtotal
                         page: 0
                       - box:
                         - 1219
-                        - 733
-                        - 1347
-                        - 752
-                        - 1283
-                        - 742.5
-                        - AmountUSD
-                        - Amount USD
-                        page: 0
-                      - box:
-                        - 167
-                        - 793
-                        - 397
-                        - 815
-                        - 282
-                        - 804
-                        - Top up of Sentient Credit
-                        - Top up of Sentient Credit
-                        page: 0
-                      - box:
-                        - 588
-                        - 795
-                        - 667
-                        - 815
-                        - 627.5
-                        - 805
-                        - '5,000.00'
-                        - '5,000.00'
-                        page: 0
-                      - box:
-                        - 773
-                        - 794
-                        - 809
-                        - 814
-                        - 791
-                        - 804
-                        - '0.01'
-                        - '0.01'
-                        page: 0
-                      - box:
-                        - 904
-                        - 794
-                        - 953
-                        - 812
-                        - 928.5
-                        - 803
-                        - '10.00'
-                        - '10.00'
-                        page: 0
-                      - box:
-                        - 1134
-                        - 794
-                        - 1160
-                        - 813
-                        - 1147
-                        - 803.5
-                        - 7%
-                        - 7%
-                        page: 0
-                      - box:
-                        - 1298
-                        - 795
-                        - 1348
-                        - 813
-                        - 1323
-                        - 804
-                        - '40.00'
-                        - '40.00'
-                        page: 0
-                      - box:
-                        - 825
-                        - 836
-                        - 1169
-                        - 859
-                        - 997
-                        - 847.5
-                        - Subtotal ( includes discount of $ 10.00 )
-                        - Subtotal ( includes discount of $ 10.00 )
-                        page: 0
-                      - box:
-                        - 1299
-                        - 838
-                        - 1348
-                        - 856
-                        - 1323.5
-                        - 847
-                        - '40.00'
-                        - '40.00'
-                        page: 0
-                      - box:
-                        - 770
-                        - 877
-                        - 1169
-                        - 900
-                        - 969.5
-                        - 888.5
-                        - Total Local supply of goods and services 7%
-                        - Total Local supply of goods and services 7%
-                        page: 0
-                      - box:
-                        - 1309
-                        - 879
-                        - 1348
-                        - 896
-                        - 1328.5
-                        - 887.5
-                        - '2.80'
-                        - '2.80'
-                        page: 0
-                      - box:
-                        - 1080
-                        - 921
-                        - 1169
-                        - 940
-                        - 1124.5
-                        - 930.5
-                        - Total USD
-                        - Total USD
-                        page: 0
-                      - box:
-                        - 1299
-                        - 922
-                        - 1348
-                        - 939
-                        - 1323.5
-                        - 930.5
-                        - '42.80'
-                        - '42.80'
-                        page: 0
-                      - box:
-                        - 989
-                        - 960
-                        - 1169
-                        - 986
-                        - 1079
-                        - 973
-                        - Total Net Payments
-                        - Total Net Payments
-                        page: 0
-                      - box:
-                        - 1309
-                        - 963
-                        - 1347
                         - 980
-                        - 1328
-                        - 971.5
-                        - '0.00'
-                        - '0.00'
+                        - 1288
+                        - 1002
+                        - 1253.5
+                        - 991
+                        - '145.00'
+                        - '145.00'
                         page: 0
                       - box:
-                        - 1006
-                        - 1006
-                        - 1169
-                        - 1025
-                        - 1087.5
-                        - 1015.5
-                        - Amount Due USD
-                        - Amount Due USD
+                        - 803
+                        - 1042
+                        - 980
+                        - 1063
+                        - 891.5
+                        - 1052.5
+                        - Sales Tax 6.25%
+                        - Sales Tax 6.25%
                         page: 0
                       - box:
-                        - 1298
-                        - 1006
-                        - 1349
-                        - 1025
-                        - 1323.5
-                        - 1015.5
-                        - '42.80'
-                        - '42.80'
+                        - 1244
+                        - 1042
+                        - 1289
+                        - 1065
+                        - 1266.5
+                        - 1053.5
+                        - '9.06'
+                        - '9.06'
                         page: 0
                       - box:
-                        - 183
-                        - 1103
-                        - 437
-                        - 1128
-                        - 310
-                        - 1115.5
-                        - For GST reporting purposes
-                        - For GST reporting purposes
+                        - 872
+                        - 1104
+                        - 981
+                        - 1137
+                        - 926.5
+                        - 1120.5
+                        - TOTAL
+                        - TOTAL
                         page: 0
                       - box:
-                        - 183
-                        - 1131
-                        - 504
-                        - 1155
-                        - 343.5
-                        - 1143
-                        - "* Total Tax equivalent to SGD 3.82"
-                        - "* Total Tax equivalent to SGD 3.82"
+                        - 1172
+                        - 1101
+                        - 1289
+                        - 1140
+                        - 1230.5
+                        - 1120.5
+                        - "$ 154.06"
+                        - "$ 154.06"
                         page: 0
                       - box:
-                        - 184
-                        - 1158
-                        - 387
-                        - 1177
-                        - 285.5
-                        - 1167.5
-                        - 1 SGD = 0.732767 USD
-                        - 1 SGD = 0.732767 USD
+                        - 102
+                        - 1728
+                        - 327
+                        - 1760
+                        - 214.5
+                        - 1744
+                        - Terms & Conditions
+                        - Terms & Conditions
                         page: 0
                       - box:
-                        - 184
-                        - 1311
-                        - 1349
-                        - 1338
-                        - 766.5
-                        - 1324.5
-                        - Make all checks payable to SENTIENT.IO PTE LTD and mail to our address above
-                          Please write your invoice number
-                        - Make all checks payable to SENTIENT.IO PTE LTD and mail to our address above
-                          Please write your invoice number
+                        - 104
+                        - 1767
+                        - 422
+                        - 1801
+                        - 263
+                        - 1784
+                        - Payment is due within 15 days
+                        - Payment is due within 15 days
                         page: 0
                       - box:
-                        - 183
-                        - 1343
-                        - 1277
-                        - 1371
-                        - 730
-                        - 1357
-                        - at the back of your check Alternatively you may perform a telegraphic transfer
-                          to our bank account below
-                        - at the back of your check Alternatively you may perform a telegraphic transfer
-                          to our bank account below
-                        page: 0
-                      - box:
-                        - 183
-                        - 1405
-                        - 364
-                        - 1426
-                        - 273.5
-                        - 1415.5
-                        - Bank DBS Limited
-                        - Bank DBS Limited
-                        page: 0
-                      - box:
-                        - 183
-                        - 1438
-                        - 406
-                        - 1459
-                        - 294.5
-                        - 1448.5
-                        - Swift code DBSSSGSG
-                        - Swift code DBSSSGSG
-                        page: 0
-                      - box:
-                        - 184
-                        - 1467
-                        - 1310
-                        - 1494
-                        - 747
-                        - 1480.5
-                        - Bank address 12 Marina Boulevard DBS Asia Central Marina Bay Financial Centre
-                          Tower 3 Singapore 018982
-                        - Bank address 12 Marina Boulevard DBS Asia Central Marina Bay Financial Centre
-                          Tower 3 Singapore 018982
-                        page: 0
-                      - box:
-                        - 181
-                        - 1497
-                        - 513
-                        - 1522
-                        - 347
-                        - 1509.5
-                        - A/C Name SENTIENT.IO PTE LTD
-                        - A/C Name SENTIENT.IO PTE LTD
-                        page: 0
-                      - box:
-                        - 182
-                        - 1528
-                        - 415
-                        - 1552
-                        - 298.5
-                        - 1540
-                        - 'A/C No.: 003-948675-8'
-                        - 'A/C No.: 003-948675-8'
-                        page: 0
-                      - box:
-                        - 183
-                        - 1623
-                        - 415
-                        - 1642
-                        - 299
-                        - 1632.5
-                        - 'Due Date: 02 Oct 2020'
-                        - 'Due Date: 02 Oct 2020'
-                        page: 0
-                      - box:
-                        - 183
-                        - 1950
-                        - 829
-                        - 1970
-                        - 506
-                        - 1960
-                        - 'Registered Office 3 Fusionopolis Place # 03-56 GALAXIS WORK LOFT 138523
-                          SINGAPORE'
-                        - 'Registered Office 3 Fusionopolis Place # 03-56 GALAXIS WORK LOFT 138523
-                          SINGAPORE'
+                        - 104
+                        - 1841
+                        - 616
+                        - 1871
+                        - 360
+                        - 1856
+                        - 'Please make checks payable to: East Repair Inc.'
+                        - 'Please make checks payable to: East Repair Inc.'
                         page: 0
                       Subtotal:
                         UICategory: VAT & Amounts
                         UIName: Subtotal
                         UIType: Amount
                         matches:
-                        - keyword: 
-                          match: 
-                          matchmulti: 
-                          page: 
-                          value: 
+                        - keyword:
+                          - 897
+                          - 775
+                          - 981
+                          - 797
+                          - 939
+                          - 992
+                          - Subtotal
+                          - Subtotal
+                          match: 145
+                          matchmulti: '145.00'
+                          page: 0
+                          value:
+                          - 1219
+                          - 980
+                          - 1288
+                          - 1002
+                          - 1253.5
+                          - 991
+                          - '145.00'
+                          - '145.00'
                       Supplier: 
-                      TableDetected: true
-                      Tables:
-                      - GridX:
-                        - 167
-                        - 1288
-                        - 1358
-                        GridY:
-                        - 795
-                        - 838
-                        - 879
-                        - 916
-                        GridYPages:
-                        - 0
-                        - 0
-                        - 0
-                        - 0
-                        HeaderPage: 0
-                        header: []
-                        headernum: 2
-                      TaxTotal:
-                        UICategory: VAT & Amounts
-                        UIName: Tax Total
-                        UIType: Amount
-                        matches:
-                        - keyword:
-                          - 183
-                          - 1131
-                          - 504
-                          - 1155
-                          - 343.5
-                          - 1143
-                          - "* Total Tax equivalent to SGD 3.82"
-                          - "* Total Tax equivalent to SGD 3.82"
-                          match: 3.82
-                          matchmulti: "* Total Tax equivalent to SGD 3.82"
-                          page: 0
-                          value:
-                          - 183
-                          - 1131
-                          - 504
-                          - 1155
-                          - 343.5
-                          - 1143
-                          - "* Total Tax equivalent to SGD 3.82"
-                          - "* Total Tax equivalent to SGD 3.82"
-                      Total:
-                        UICategory: VAT & Amounts
-                        UIName: Total
-                        UIType: Amount
-                        matches:
-                        - keyword:
-                          - 1006
-                          - 1006
-                          - 1169
-                          - 1025
-                          - 1087.5
-                          - 1015.5
-                          - Amount Due USD
-                          - Amount Due USD
-                          match: 42.8
-                          matchmulti: '42.80'
-                          page: 0
-                          value:
-                          - 1298
-                          - 1006
-                          - 1349
-                          - 1025
-                          - 1323.5
-                          - 1015.5
-                          - '42.80'
-                          - '42.80'
-                      Type: receipt
-                      UENNumber:
-                        UICategory: Vendor & Customer
-                        UIName: UEN Number
+                      SwiftCode:
+                        UICategory: Payment Instructions
+                        UIName: Swift Code
                         UIType: Text
                         matches:
                         - keyword: 
@@ -1400,6 +1280,84 @@ paths:
                           matchmulti: 
                           page: 
                           value: 
+                      TableDetected: true
+                      Tables:
+                      - GridX:
+                        - 106
+                        - 212
+                        - 797
+                        - 1002
+                        - 1309
+                        GridY:
+                        - 775
+                        - 833
+                        - 895
+                        - 958
+                        GridYPages:
+                        - 0
+                        - 0
+                        - 0
+                        - 0
+                        HeaderPage: 0
+                        header:
+                        - 120
+                        - 720
+                        - 1293
+                        - 761
+                        headernum: 4
+                      TaxTotal:
+                        UICategory: VAT & Amounts
+                        UIName: Tax Total
+                        UIType: Amount
+                        matches:
+                        - keyword:
+                          - 803
+                          - 836
+                          - 980
+                          - 857
+                          - 891.5
+                          - 1052.5
+                          - Sales Tax 6.25%
+                          - Sales Tax 6.25%
+                          match: 6.2
+                          matchmulti: Sales Tax 6.25%
+                          page: 0
+                          value:
+                          - 803
+                          - 1042
+                          - 980
+                          - 1063
+                          - 891.5
+                          - 1052.5
+                          - Sales Tax 6.25%
+                          - Sales Tax 6.25%
+                      Total:
+                        UICategory: VAT & Amounts
+                        UIName: Total
+                        UIType: Amount
+                        matches:
+                        - keyword:
+                          - 872
+                          - 898
+                          - 981
+                          - 931
+                          - 926.5
+                          - 1120.5
+                          - TOTAL
+                          - TOTAL
+                          match: 154.06
+                          matchmulti: "$ 154.06"
+                          page: 0
+                          value:
+                          - 1172
+                          - 1101
+                          - 1289
+                          - 1140
+                          - 1230.5
+                          - 1120.5
+                          - "$ 154.06"
+                          - "$ 154.06"
+                      Type: invoice_image
                       URL:
                         UICategory: Vendor & Customer
                         UIName: URL
@@ -1411,10 +1369,9 @@ paths:
                           page: 
                           value: 
                       num_pages: 1
-                    docId: 7658
+                    docId: 7650
                     status: COMPLETED
                 status: Success
-
 
         '401':
           description: Unauthorized
@@ -1575,7 +1532,7 @@ components:
           format: binary
           default: true
           example:  upload file
-          description: The invoice document
+          description: The receipt document
         endpointUrl:
           type: string
           default: staple url
