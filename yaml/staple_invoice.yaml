@@ -1442,8 +1442,8 @@ components:
               type: object
               properties:
                 BigBoxes:
-                type: array
-                example: [{"box": [102,131,227,166,164.5,148.5],"page": 0}]
+                 type: array
+                 example: [{"box": [102,131,227,166,164.5,148.5],"page": 0}]
     unauthorized:
       type: object
       properties:
