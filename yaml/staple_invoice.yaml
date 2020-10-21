@@ -1435,10 +1435,23 @@ components:
       type: object
       properties:
           results:
-            type: object
-            properties:          
-              scanDocuments:
-                type: object
+              type: object
+              example: {<Json Object>}
+              description: Json Object of returned results
+              properties:          
+                scanDocuments:
+                  type: object
+                  example: 
+                  description: 
+                  properties:                 
+                    data:
+                    type: object
+                    example: 
+                    description: 
+                    properties:                    
+                      BigBoxes:
+                      type: array
+                      example: [{"box": [904,118,1315,189,1109.5,153.5,"sentient.io\n","sentient.io\n"],"page": 0}]
     unauthorized:
       type: object
       properties:
@@ -1535,7 +1548,7 @@ components:
           description: The receipt document
         endpointUrl:
           type: string
-          default: staple url
+          default: true
           description: The staple endpoint url          
   securitySchemes:
     APIAuthorizer:
