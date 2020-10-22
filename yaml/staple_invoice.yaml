@@ -90,9 +90,13 @@ components:
             description: The result of the API call
             properties:
               scanDocuments: 
-                type: string
-                example: "{"data":{"BigBoxes": [{"box": [904,118,1315,189,1109.5,153.5,"sentient.io\n","sentient.io\n"],"page": 0}]}}"
+                type: object
+                example: { "<Json": "Object>" }
                 description: The result of the API call
+                properties:
+                  data:
+                  type: string
+                  exapmle: test
         message:
           type: string
           example: Successfully Processed
