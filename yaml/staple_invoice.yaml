@@ -91,11 +91,11 @@ components:
             properties:
               scanDocuments: 
                 type: object
-                example: details of documents
+                description: The result of the API call
                 properties: 
                   data:
                     type: object
-                    example: data categories
+                    example: {"BigBoxes": [{"box": [904,118,1315,189,1109.5,153.5,"sentient.io\n","sentient.io\n"],"page": 0}]}
         message:
           type: string
           example: Successfully Processed
