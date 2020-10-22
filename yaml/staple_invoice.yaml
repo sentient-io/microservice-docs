@@ -82,29 +82,19 @@ paths:
 components:
   schemas:
     success:
-      type: object
-      properties: 
-        results:
-          type: object
-          example: { "<Json": "Object>" }
-          description: Json Object of returned results
-          properties:
-            loc:
-             type: array
-             example: ["Nat","Sentient.io","Home","Inte","CONTACT","Join"]
-             description: "name of location found in the text string"
-            misc:
-             type: array
-             example: ["Sentient.io","English"]
-             description: "name of misc found in the text string"    
-            org:
-             type: array
-             example: ["Our Clients","AI","APIs","Sentient.io","Our Technology Partners","Named Entity Recognition","Our Investors"]
-             description: "name of org found in the text string"   
-            per:
-             type: array
-             example: ["Sentient.io","Speech","LinkedIn"]
-             description: "name of persons found in the text string"                 
+        type: object
+        properties: 
+          results:
+            type: object
+            example: { "<Json": "Object>" }
+            description: Json Object of returned results
+            properties:
+                scanDocuments:
+                type: object
+                properties:
+                  BigBoxes:
+                    type: string
+                    example: "test"               
         message:
           type: string
           example: Successfully Processed
