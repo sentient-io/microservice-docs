@@ -91,10 +91,11 @@ components:
             properties:
               scanDocuments:
                 type: object
+                example: { "<Json": "test>" } 
                 properties:
                   BigBoxes:
                     type: string
-                    example: "test"               
+                    example: test        
         message:
           type: string
           example: Successfully Processed
