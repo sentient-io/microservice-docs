@@ -89,7 +89,7 @@ components:
             example: { "<Json": "Object>" }
             description: Json Object of returned results
             properties:
-                scanDocuments:
+              scanDocuments:
                 type: object
                 properties:
                   BigBoxes:
