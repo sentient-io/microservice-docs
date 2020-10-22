@@ -91,12 +91,13 @@ components:
             properties:
               scanDocuments: 
                 type: object
-                example: { "<Json": "Object>" }
-                description: The result of the API call
+                example: 
+                description: The details of documents
                 properties:
                   data:
-                  type: string
-                  exapmle: test
+                    type: object
+                    exapmle: test
+                    description: The data of scan copy
         message:
           type: string
           example: Successfully Processed
