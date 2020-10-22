@@ -87,15 +87,11 @@ components:
           results:
             type: object
             example: { "<Json": "Object>" }
-            description: Json Object of returned results
+            description: The result of the API call
             properties:
-              scanDocuments:
+              scanDocuments: 
                 type: object
-                example: { "<Json": "test>" } 
-                properties:
-                  BigBoxes:
-                    type: string
-                    example: test        
+                example: { "<Json": "Object>" }   
         message:
           type: string
           example: Successfully Processed
