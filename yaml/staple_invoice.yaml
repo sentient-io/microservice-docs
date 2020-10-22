@@ -91,11 +91,11 @@ components:
             properties:
               scanDocuments: 
                 type: object
-                example: { "<Json": "Object>" }
+                example: details of documents
                 properties: 
                   data:
                     type: object
-                    example: { "<Json": "Object>" }                  
+                    example: data categories
         message:
           type: string
           example: Successfully Processed
