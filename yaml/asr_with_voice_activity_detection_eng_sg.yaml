@@ -11,7 +11,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Sep 30, 2019"
+  description: "Published Date - Dec 14, 2019"
 paths:
   /microservices/voice/vadasr/v0.1/getpredictions:
     post:
@@ -225,7 +225,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Sept 30,2019
+              example: Published Date - Dec 14,2019
               description: Initial version release
             
   securitySchemes:
