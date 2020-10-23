@@ -11,7 +11,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - July 3, 2020"
+  description: "Published Date - Jul 03, 2020"
 paths:
   /microservices/voice/asr/v0.1/getpredictions:
     post:
@@ -256,7 +256,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 03,2020
+              example: Published Date - Jul 03,2020
               description: Initial version release                  
   securitySchemes:
     APIAuthorizer:
