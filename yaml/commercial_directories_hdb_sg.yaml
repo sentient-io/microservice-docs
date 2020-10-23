@@ -107,17 +107,17 @@ info:
          
          > filterdata = {"filter":[{"match_phrase": {"trade":"cake shop"}},{"match": {"block":"122"}},{"match_phrase": {"street":"bukit merah lane 1"}}]}
   
-  version: '0.1'
+  version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
 tags:
-- name: "v0.1"
+- name: "v0.1.0"
   description: "Published Date - Dec 26, 2018"
 paths:
    /DaaS/prod/directories/hdb/searchdir:
     get:
       tags:
-        - v0.1
+        - v0.1.0
       parameters:
         - in: query
           name: querystring
@@ -487,7 +487,7 @@ components:
     versions:
       type: object
       properties: 
-        v0.1:
+        v0.1.0:
          type: array
          items:
           oneOf:
