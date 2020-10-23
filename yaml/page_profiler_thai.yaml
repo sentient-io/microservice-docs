@@ -12,13 +12,13 @@
   servers:
     - url: 'https://apis.sentient.io'
   tags:
-  - name: "v0.1.0"
+  - name: "v1.0.0"
     description: "Published Date - Sep 30, 2020"
   paths:
     /microservices/nlp/pageprofilerthai/v1/getpredictions:
       post:
         tags:
-          - v0.1.0
+          - v1.0.0
         responses:
           '200':
             description: success response
@@ -227,6 +227,13 @@
       versions:
         type: object
         properties: 
+          v1.0.0:
+           type: array
+           items:
+            oneOf:
+              - type: string
+                example: Published Date - Oct 30, 2020
+                description: Updated for Partial URL support         
           v0.1.0:
            type: array
            items:
