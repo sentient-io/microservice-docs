@@ -94,7 +94,7 @@ servers:
   - url: 'https://api.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Oct 10, 2019"
+  description: "Published Date - May 15, 2020"
 paths:
    /DaaS/prod/hdb/carparkavailability:
     get:
@@ -425,7 +425,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Oct 10,2019
+              example: Published Date - May 15,2020
               description: Initial version release
   securitySchemes:
     APIAuthorizer:
