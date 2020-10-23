@@ -2,53 +2,53 @@ Voice:
     Automatic Voice Recognition ENG:
         title: automatic_voice_recognition_eng
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_voice_recognition_eng.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_voice_recognition_eng.yaml"
     Automatic Speech Recognition ENG (SG):
         title: automatic_speech_recognition_eng_sg
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_eng_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_eng_sg.yaml"
     Automatic Speech Recognition CHI (SG):
         title: automatic_speech_recognition_chi_sg
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_chi_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_chi_sg.yaml"
     Online Automatic Speech Recognition ENG (SG):
         title: online_automatic_speech_recognition_eng_sg
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/online_automatic_speech_recognition_eng_sg.yaml"
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/online_automatic_speech_recognition_eng_sg.yaml"
     Online Command Automatic Speech Recognition ENG (SG):
         title: online_command_automatic_speech_recognition_eng_sg
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/online_command_automatic_speech_recognition_eng_sg.yaml"
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/online_command_automatic_speech_recognition_eng_sg.yaml"
     Text-To-Speech ENG:
         title: text-to-speech_eng
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/text-to-speech_eng.yaml"
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/text-to-speech_eng.yaml"
     Text-To-Speech CHI:
         title: text-to-speech_chi
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/text-to-speech_chi.yaml"
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/text-to-speech_chi.yaml"
     ASR with Voice Activity Detection ENG (SG):
         title: asr_with_voice_activity_detection_eng_sg
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_voice_activity_detection_eng_sg.yaml"  
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_voice_activity_detection_eng_sg.yaml"  
     Voice Activity Detection ENG:
         title: voice_activity_detection_eng
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng.yaml"  
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng.yaml"  
 NLP:
     Inverse Text Normalisation ENG:
         title: Inverse Text Normalisation ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/inverse_text_normalisation_eng.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/inverse_text_normalisation_eng.yaml"
     Named-Entity Recognition ENG:
         title: Named-Entity Recognition ENG
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng_v1.0.yaml"
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng.yaml"
+            v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng_v1.0.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng.yaml"
     spaCy NER:
         title: spaCy NER
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/spacy_named-entity_recognition_eng.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/spacy_named-entity_recognition_eng.yaml"
     Page Profiler ENG:
         title: Page Profiler ENG
         versions:
@@ -57,33 +57,33 @@ NLP:
     Page Profiler JP:
         title: Page Profiler JP
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_jp.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_jp.yaml"
     Page Profiler THAI:
         title: Page Profiler THAI
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_thai.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_thai.yaml"
     Taxonomy Matcher ENG:
         title: Taxonomy Matcher ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/taxonomy_matcher_eng.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/taxonomy_matcher_eng.yaml"
     Word Sense Disambiguation ENG:
         title: Word Sense Disambiguation ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/word_sense_disambiguation_eng.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/word_sense_disambiguation_eng.yaml"
     Named-Entity Recognition JP:
         title: Named-Entity Recognition JP
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_jp_v1.0.yaml"
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_jp.yaml"
+            v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_jp_v1.0.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_jp.yaml"
     Named Entity Recognition THAI:
         title: Named Entity Recognition THAI
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_thai_v1.0.yaml"
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_thai.yaml"
+            v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_thai_v1.0.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_thai.yaml"
     Script Alignment:
         title: Script Alignment
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment.yaml"
     Staple Invoice:
         title: Staple Invoice
         versions:
@@ -91,89 +91,89 @@ NLP:
     Staple Receipt:
         title: Staple Receipt
         versions:
-           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_receipt.yaml"
+           v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_receipt.yaml"
 Computer Vision:
     Object Detection:
         title: Object Detection
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/object_detection.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/object_detection.yaml"
     Face Recognition Politicians (SG):
         title: Face Recognition Politicians (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg.yaml"
     People Counting:
         title: People Counting
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/people_counting.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/people_counting.yaml"
     Landmark Detection (SG):
         title: Landmark Detection (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_sg.yaml"
     Landmark Detection (JP):
         title: Landmark Detection (JP)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_jp.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_jp.yaml"
 Utility:
     Youtube Video Downloader:
         title: Youtube Video Downloader
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/youtube_video_downloader.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/youtube_video_downloader.yaml"
     Video-To-Audio Convertor:
         title: Video-To-Audio Convertor
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/video-to-audio_convertor.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/video-to-audio_convertor.yaml"
     Web Scraper:
         title: Web Scraper
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/web_scraper.yaml"  
+            v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/web_scraper.yaml"  
     Document Convertor ENG:
         title: Document Convertor ENG
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/document_convertor_eng.yaml"
+            v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/document_convertor_eng.yaml"
     PDF Extractor:
         title: PDF Extractor
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/pdf_extractor.yaml" 
+            v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/pdf_extractor.yaml" 
     PKI Key Generator:
         title: PKI Key Generator
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/pki_key_generator.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/pki_key_generator.yaml"
     Encryption using PKI Key:
         title: Encryption using PKI Key
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/encryption_using_pki_key.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/encryption_using_pki_key.yaml"
     Decryption using PKI Key:
         title: Decryption using PKI Key
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/decryption_using_pki_key.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/decryption_using_pki_key.yaml"
     Wikipedia Retrieval:
         title: Wikipedia Retrieval
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/wikipedia_retrieval.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/wikipedia_retrieval.yaml"
     JSON-CSV Convertor:
         title: JSON-CSV Convertor
         versions:
-             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/json-csv_convertor.yaml"
+             v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/json-csv_convertor.yaml"
     CSV-JSON Convertor:
         title: CSV-JSON Convertor
         versions:
-             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/csv-json_convertor.yaml"
+             v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/csv-json_convertor.yaml"
     Audio Format Convertor:
         title: Audio Format Convertor
         versions:
-             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/audio_format_convertor.yaml"
+             v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/audio_format_convertor.yaml"
     Video-to-Image Convertor:
         title: Video-to-Image Convertor
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/video-to-image_convertor.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/video-to-image_convertor.yaml"
     Newspaper Article Scraper:
         title: Newspaper Article Scraper
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/newspaper_article_scraper.yaml"
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/newspaper_article_scraper.yaml"
     URLs Retrieval:
         title: URLs Retrieval
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/urls_retrieval.yaml"
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/urls_retrieval.yaml"
     Base64 File Encode:
         title: base64_file_encode
         versions:
@@ -186,70 +186,70 @@ Data:
     HDB Commercial Directories (SG):
         title: HDB Commercial Directories (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/commercial_directories_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/commercial_directories_hdb_sg.yaml"
     HDB Block Coordinates (SG):
         title: HDB Block Coordinates (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/building_addresses_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/building_addresses_hdb_sg.yaml"
     HDB Residential Occupancy Status (SG):
         title: HDB Residential Occupancy Status (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/residential_sales_and_rental_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/residential_sales_and_rental_hdb_sg.yaml"
     HDB Carpark Locations (SG):
         title: HDB Carpark Locations (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/carpark_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/carpark_hdb_sg.yaml"
     HDB Demographics (SG):
         title: HDB Demographics (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/demographics_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/demographics_hdb_sg.yaml"
     HDB Flat Ownership Duration (SG):
         title: HDB Flat Ownership Duration (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/flat_ownership_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/flat_ownership_hdb_sg.yaml"
     HDB Season Parking Availability (SG):
         title: HDB Season Parking Availability (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/season_parking_availability_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/season_parking_availability_hdb_sg.yaml"
     Directory of Singapore Startups:
         title: Directory of Singapore Startups
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/directory_of_singapore_startups.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/directory_of_singapore_startups.yaml"
     HDB Fitness Stations and Playgrounds (SG):
         title: HDB Fitness Stations and Playgrounds (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/fitness_stations_and_playgrounds_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/fitness_stations_and_playgrounds_hdb_sg.yaml"
     HDB Lamp Posts Locations (SG):
         title: HDB Lamp Posts Locations (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/amenities_lamp_posts_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/amenities_lamp_posts_hdb_sg.yaml"
     HDB Hardcourts Locations (SG):
         title: HDB Hardcourts Locations (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/amenities_hardcourts_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/amenities_hardcourts_hdb_sg.yaml"
     HDB Shelters Locations (SG):
         title: HDB Shelters Locations (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/amenities_shelters_hdb_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/amenities_shelters_hdb_sg.yaml"
     D&B Business Check Plus (SG):
         title: D&B Business Check Plus (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_business_check_plus_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_business_check_plus_sg.yaml"
     D&B Basic Individual Search (SG):
         title: D&B Basic Individual Search (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_basic_individual_search_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_basic_individual_search_sg.yaml"
     D&B Business Check (SG):
         title: "D&B Business Check (SG)"
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_business_check_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_business_check_sg.yaml"
     D&B Brief Financial Information (SG):
         title: D&B-Brief-Financial-Information-(SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_brief_financial_information_sg.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_brief_financial_information_sg.yaml"
 Data Alliance:
     Download Dataset API:
         title: Download Dataset API
         urlkey: download_dataset_api
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/download_dataset.yaml"
+            v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/download_dataset.yaml"
