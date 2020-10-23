@@ -11,7 +11,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - July 3, 2020"
+  description: "Published Date - Jul 03, 2020"
 paths:
   /microservices/voice/vad/v0.1/getpredictions:
     post:
