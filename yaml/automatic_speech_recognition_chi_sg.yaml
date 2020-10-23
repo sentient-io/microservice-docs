@@ -11,7 +11,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Jun 18, 2018"
+  description: "Published Date - Jun 21, 2018"
 paths:
   /microservices/voice/asrsch/v0.1/getpredictions:
     post:
@@ -197,7 +197,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 18,2018
+              example: Published Date - Jun 21,2018
               description: Initial version release
   securitySchemes:
     APIAuthorizer:
