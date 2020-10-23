@@ -9,18 +9,18 @@ info:
     Output format supported: plain text or HTML.
     
     Supported languages: Hindi, German, Spanish, Portuguese, French, Turkish, Italian, Russian, Arabic, Indonesian, Chinese, Japanese and Korean.
-  version: '1.0'
+  version: '1.0.0'
   x-subscribelink: pdf_extractor
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0"
+- name: "v1.0.0"
   description: "Published Date - Jul 30, 2020"  
 paths:
   /microservices/utility/pdfextractor/v1.0/getresults:
     post:
       tags:
-        - v1.0
+        - v1.0.0
       responses:
               '200':
                 description: success response
@@ -188,7 +188,7 @@ components:
     versions:
       type: object
       properties: 
-        v1.0:
+        v1.0.0:
          type: array
          items:
           oneOf:
