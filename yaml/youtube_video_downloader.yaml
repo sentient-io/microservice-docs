@@ -9,7 +9,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Oct 22, 2019"
+  description: "Published Date - Nov 25, 2019"
 paths:
   /microservices/utility/downloadyoutubevideos/v0.1/getresults:
     post:
@@ -194,7 +194,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Oct 22, 2019
+              example: Published Date - Nov 25, 2019
               description: Initial version release
   securitySchemes:
     APIAuthorizer:
