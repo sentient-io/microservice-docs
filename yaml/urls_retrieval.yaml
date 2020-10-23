@@ -208,6 +208,13 @@ components:
          items:
           oneOf:
             - type: string
+              example: Published Date - Oct 30, 2020
+              description: Updated for Partial URL support       
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
               example: Published Date - Sep 1, 2020
               description: Initial version release
     input:
