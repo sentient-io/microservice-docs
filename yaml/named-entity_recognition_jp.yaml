@@ -203,7 +203,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - May 15,2020
+              example: Published Date - Sep 30,2020
               description: Updated version release v1.0
         v0.1:
          type: array
