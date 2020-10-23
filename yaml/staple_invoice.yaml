@@ -11,7 +11,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Oct 30, 2020"
 paths:
-  /microservices/utility/stapleinvoice/v0/getresults:
+  /microservices/utility/scaninvoice/v0/getresults:
     post:
       tags:
         - v0.1.0
