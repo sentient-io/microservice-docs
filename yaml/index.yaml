@@ -177,11 +177,11 @@ Utility:
     Base64 File Encode:
         title: base64_file_encode
         versions:
-           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-encode.yaml"
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-encode.yaml"
     Base64 File Decode:
         title: base64_file_decode
         versions:
-           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-decode.yaml"
+           v0.1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-decode.yaml"
 Data:
     HDB Commercial Directories (SG):
         title: HDB Commercial Directories (SG)
