@@ -52,8 +52,8 @@ NLP:
     Page Profiler ENG:
         title: Page Profiler ENG
         versions:
-            v2.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng_v2.0.yaml"
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng.yaml"
+            v2.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng_v2.0.yaml"
+            v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng.yaml"
     Page Profiler JP:
         title: Page Profiler JP
         versions:
@@ -87,7 +87,7 @@ NLP:
     Staple Invoice:
         title: Staple Invoice
         versions:
-           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_invoice.yaml"
+           v1.0.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_invoice.yaml"
     Staple Receipt:
         title: Staple Receipt
         versions:
