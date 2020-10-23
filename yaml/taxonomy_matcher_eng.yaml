@@ -13,7 +13,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Dec 27, 2019"
+  description: "Published Date - Jan 24, 2020"
 paths:
   /microservices/nlp/taxonomy/v0.1/getpredictions:
     post:
@@ -181,7 +181,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Dec 27, 2019
+              example: Published Date - Jan 24, 2020
               description: Initial version release
     input:
       type: object
