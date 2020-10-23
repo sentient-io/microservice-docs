@@ -3,18 +3,18 @@ info:
   title: Staple Invoice
   description: |+
     Scan the Invoice document from file and explore the data by catagorywise. 
-  version: '1.0.0'
+  version: '0.1.0'
   x-subscribelink: staple_receipt
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.1.0"
   description: "Published Date - Oct 30, 2020"
 paths:
   /microservices/utility/stapleinvoice/v1/getresults:
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: success response
@@ -91,13 +91,8 @@ components:
             properties:
               scanDocuments: 
                 type: object
-                example: 
+                example: { "<Json": "Object>" }
                 description: The details of documents
-                properties:
-                  data:
-                    type: object
-                    exapmle: test
-                    description: The data of scan copy
         message:
           type: string
           example: Successfully Processed
@@ -181,7 +176,7 @@ components:
     versions:
       type: object
       properties: 
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
@@ -200,10 +195,9 @@ components:
           default: true
           example:  upload file
           description: The receipt document
-        endpointUrl:
+        handwritten:
           type: string
-          default: true
-          description: The staple endpoint url          
+          description: Sholud be true of false. Default is false  
   securitySchemes:
     APIAuthorizer:
       type: apiKey
