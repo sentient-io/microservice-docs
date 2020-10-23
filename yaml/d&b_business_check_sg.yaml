@@ -9,7 +9,7 @@ servers:
   - url: 'https://api.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Jul 23, 2019"
+  description: "Published Date - Aug 15, 2019"
 paths:
    /dnb/prod/sbc:
     post:
@@ -1112,7 +1112,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jul 23, 2019
+              example: Published Date - Aug 15, 2019
               description: Initial version release
   securitySchemes:
     APIAuthorizer:
