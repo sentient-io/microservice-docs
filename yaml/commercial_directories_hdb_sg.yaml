@@ -112,7 +112,7 @@ servers:
   - url: 'https://api.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Oct 31, 2018"
+  description: "Published Date - Dec 26, 2018"
 paths:
    /DaaS/prod/directories/hdb/searchdir:
     get:
@@ -492,7 +492,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Oct 31,2018
+              example: Published Date - Dec 26,2018
               description: Initial version release          
   securitySchemes:
     APIAuthorizer:
