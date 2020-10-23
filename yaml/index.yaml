@@ -84,6 +84,14 @@ NLP:
         title: Script Alignment
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment.yaml"
+    Staple Invoice:
+        title: Staple Invoice
+        versions:
+           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_invoice.yaml"
+    Staple Receipt:
+        title: Staple Receipt
+        versions:
+           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_receipt.yaml"
 Computer Vision:
     Object Detection:
         title: Object Detection
@@ -174,14 +182,6 @@ Utility:
         title: base64_file_decode
         versions:
            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-decode.yaml"
-    Staple Invoice:
-        title: Staple Invoice
-        versions:
-           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_invoice.yaml"
-    Staple Receipt:
-        title: Staple Receipt
-        versions:
-           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_receipt.yaml"
 Data:
     HDB Commercial Directories (SG):
         title: HDB Commercial Directories (SG)
