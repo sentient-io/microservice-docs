@@ -11,7 +11,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1"
-  description: "Published Date - Jun 18, 2020"
+  description: "Published Date - Jun 05, 2020"
 paths:
   /microservices/nlp/scriptalignment/v0.1/getpredictions:
     post:
@@ -190,7 +190,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 18, 2020
+              example: Published Date - Jun 05, 2020
               description: Initial version release
     input:
       type: object
