@@ -7,18 +7,18 @@ info:
     The microservice returns detected objects with their classes and their bounding boxes in the image coordinates.
     
     The classes are: person, bicycle, car, motorbike, aeroplane, bus, train, truck, boat, traffic light, fire hydrant, stop sign, parking meter, bench, bird, cat, dog, horse, sheep, cow, elephant, bear, zebra, giraffe, backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard, sports ball, kite, baseball bat, baseball glove, skateboard, surfboard, tennis racket, bottle, wine glass, cup, fork, knife, spoon, bowl, banana, apple, sandwich, orange, broccoli, carrot, hot dog, pizza, donut, cake, chair, sofa, pottedplant, bed, diningtable, toilet, tvmonitor, laptop, mouse, remote, keyboard, cell phone, microwave, oven, toaster, sink, refrigerator, book, clock, vase, scissors, teddy bear, hair drier, toothbrush
-  version: '0.1'
+  version: '0.1.0'
   x-subscribelink: object_detection
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1"
+- name: "v0.1.0"
   description: "Published Date - May 15, 2020"
 paths:
   /microservices/cv/objectdetection/v0.1/getpredictions:
     post:
       tags:
-        - v0.1
+        - v0.1.0
       responses:
         '200':
           description: success response
@@ -196,7 +196,7 @@ components:
     versions:
       type: object
       properties: 
-        v0.1:
+        v0.1.0:
          type: array
          items:
           oneOf:
