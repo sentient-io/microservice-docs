@@ -5,10 +5,10 @@ info:
   title: Online Automatic Speech Recognition ENG (SG)
   description: >-
     This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
-  version: '0.1'
+  version: '0.1.0'
 # tags must include in to the documentation, to read the description text for published date
 tags:
-- name: "v0.1"
+- name: "v0.1.0"
   description: "Published Date - Apr 17, 2020"
 html: |+
      <div id="iframe-container">
