@@ -212,7 +212,7 @@
             oneOf:
               - type: string
                 example: Published Date - May 15, 2018
-                description: Swaping the NLP with Named-Entity Recognition ENG             
+                description: Swap the NLP with Named-Entity Recognition ENG             
           v0.1.0:
            type: array
            items:
