@@ -250,7 +250,7 @@
             x-name: url
             type: string
             default: true
-            example: https://www.komchadluek.net/
+            example: https://www.naewna.com/entertain/527527
             description: |+
               The URL of the page to be profile. Kindly note that the URL has to be spelt in full, including "https://www."
     securitySchemes:
