@@ -13,7 +13,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Oct 30, 2020"
 paths:
-  /microservices/nlp/wordsensedisambiguation/v0.1/getpredictions:
+  /microservices/nlp/wordsensedisambiguation/v1/getpredictions:
     post:
       tags:
         - v1.0.0
@@ -285,10 +285,10 @@ components:
         v1.0.0:
           type: array
           items:
-           oneOf:
-             - type: string
-               example: Published Date - Oct 30,2020
-               description: Standardizing Output JSON
+            oneOf:
+              - type: string
+                example: Published Date - Oct 30,2020
+                description: Standardizing Output JSON
         v0.1.0:
           type: array
           items:
