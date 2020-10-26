@@ -6,6 +6,8 @@ info:
     
     It also extracts from password-protected PDFs, if the correct password is provided.
     
+    We recommend that you keep the size of your PDF file to less than 7 MB.
+    
     Output format supported: plain text or HTML.
     
     Supported languages: Hindi, German, Spanish, Portuguese, French, Turkish, Italian, Russian, Arabic, Indonesian, Chinese, Japanese and Korean.
@@ -205,7 +207,7 @@ components:
           format: binary
           default: true
           example: file upload
-          description: The file object Max. file size upto - 7MB. *Image pdf not supported
+          description: Text-only PDF files are supported. Image or mixed PDF files are not recommended.
         pageNumbers:
           type: number
           default: false
