@@ -1,0 +1,305 @@
+openapi: 3.0.1
+info:
+  title: Word Sense Disambiguation ENG
+  description: |+
+    This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence.
+    
+    If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
+  version: '1.0'
+  x-subscribelink: word_sense_disambiguation_eng
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v1.0"
+  description: "Published Date - Oct 30, 2020"
+paths:
+  /microservices/nlp/wordsensedisambiguation/v0.1/getpredictions:
+    post:
+      tags:
+        - v1.0
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                results:
+                  sentence_index:
+                    '4': 'But our genius for creative storytelling , combined with our inability to
+                      detect our own ignorance , can sometimes lead to situations that are embarrassing
+                      , unfortunate , or downright dangerous – especially in a technologically advanced
+                      , complex democratic societythat occasionally invests mistaken popular beliefs
+                      with immense destructive power ( See : crisis , financial ; war , Iraq ) .'
+                  tokens:
+                    '4':
+                      society:
+                      - token_index: 40
+                        synset_name: society.n.01
+                        synset_definition: an extended social group having a distinctive cultural and
+                          economic organization
+                        synset_score: 0.9870249032974243
+                        hypernyms:
+                        - hypernym_name: social_group.n.01
+                          hypernym_definition: people sharing some social relation
+                          potential_candidate_score: 1
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '420':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'       
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties:
+            sentence_index:
+                type: object
+                example: {"4": "But our genius for creative storytelling , combined with our inability to detect our own ignorance , can sometimes lead to situations that are embarrassing , unfortunate , or downright dangerous \u2013 especially in a technologically advanced , complex democratic society that occasionally invests mistaken popular beliefs with immense destructive power ( See : crisis , financial ; war , Iraq ) .","7": "The society of extraordinary gentlemen has a natural way of overcoming difficulties in tough times to come out stronger , saving society from itself ."}
+                description: Is a mapping from an index of the sentence in the presented text (say, 0, 1, 2...) to the text of the sentence itself.
+                properties:
+                  4:
+                    type: string
+                    example: { 4:But our genius for creative storytelling , combined with our inability to detect our own ignorance , can sometimes lead to situations that are embarrassing , unfortunate , or downright dangerous \u2013 especially in a technologically advanced , complex democratic society that occasionally invests mistaken popular beliefs with immense destructive power}
+                    description: mapping value 
+            tokens:
+                type: object
+                example: {"4": {"society": [{"hypernyms": [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}],"synset_definition": "an extended social group having a distinctive cultural and economic organization","synset_name": "society.n.01","synset_score": 0.9870249032974243,"token_index": 40}]}}
+                description: Is a mapping from the sentence_index to the target word's potential synsets and hypernms.
+                properties:
+                  4:
+                    type: object
+                    example: {"society": [{"hypernyms": [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}],"synset_definition": "an extended social group having a distinctive cultural and economic organization","synset_name": "society.n.01","synset_score": 0.9870249032974243,"token_index": 40}]}
+                    description: Mapping value
+                    properties:
+                      <target_word>:
+                        type: array
+                        example: [{"hypernyms": [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}],"synset_definition": "an extended social group having a distinctive cultural and economic organization","synset_name": "society.n.01","synset_score": 0.9870249032974243,"token_index": 40}]
+                        description: Details about the target word given as input
+                        items:
+                          properties:      
+                            hypernyms:
+                              type: array
+                              example: [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}]
+                              description: A hypernym can be thought of as a parent class. For example, "colour" is a hypernym of "red".
+                              items:
+                                properties:
+                                  hypernym_definition:
+                                    type: string
+                                    example: people sharing some social relation
+                                    description: Definition of the hypernym
+                                  hypernym_name:
+                                    type: string
+                                    example: social_group.n.01
+                                    description: Describes the category in which the target word belongs to. Eg:car is a transport. car is the target word and transport is the category(hypernym) 
+                                  potential_candidate_score:
+                                    type: integer
+                                    example: 1   
+                                    description: Is the confidence score from the network  
+                            synset_definition:
+                              type: string
+                              example: An extended social group having a distinctive cultural and economic organization
+                              description: A synset is a collection of synonyms, identified using the WordNet synset name. It connects a word to the synset it belongs via a definition. A word can belong to more than one synset. Basically definition of the target_word
+                            synset_name:
+                              type: string
+                              example: society.n.01 
+                              description: The target word name in wordnet library
+                            synset_score:
+                              type: number
+                              format : float
+                              example: 0.9870249032974243  
+                              description: Is the confidence score from the network
+                            token_index:
+                              type: number
+                              example: 40    
+                              description: Is the target word position in the sentence  
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure                           
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure      
+    input:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          x-name: text
+          type: string
+          default: true
+          example: An estimated 180,000 people were under mandatory evacuation orders, including parts of Santa Rosa and a large swath of Sonoma County all the way to the Pacific Ocean.
+          description: |+
+            Input text. A complete sentence or paragraph
+        target_word:
+          x-name: target_word
+          type: string
+          default: true
+          example: County
+          description: |+
+            A noun token that can be found in text
+        repeat:
+          x-name: repeat
+          type: string
+          default: true
+          example: "True"
+          description: |+
+            Indicates whether the target_word that was first identified in the input text is to be used alone or all the target_words identified in the text are to be used.
+            If False, then it uses the first target_word alone in text and ignores the rest.
+    versions:
+      type: object
+      properties: 
+        v1.0:
+          type: array
+          items:
+           oneOf:
+             - type: string
+               example: Published Date - Oct 30,2020
+               description: Updated version release v1.0
+        v0.1:
+          type: array
+          items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 06, 2020
+              description: Initial version release  
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
