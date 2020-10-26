@@ -210,7 +210,9 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input image in base64 format. Only 'RGB' (8-bit RGB, 3 channels) and 'L' (black and white) file formats are supported.
+            Input image in base64 format. 
+            
+            Only 'RGB' (8-bit RGB, 3 channels) and 'L' (black and white) file formats are supported.
 
   securitySchemes:
     APIAuthorizer:
