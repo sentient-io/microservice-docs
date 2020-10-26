@@ -197,7 +197,7 @@ Data:
     HDB Carpark Locations (SG):
         title: HDB Carpark Locations (SG)
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/carpark_hdb_sg.yaml"
+            v0.2: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/carpark_hdb_sg.yaml"
     HDB Demographics (SG):
         title: HDB Demographics (SG)
         versions:
