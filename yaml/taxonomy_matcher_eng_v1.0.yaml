@@ -7,18 +7,18 @@ info:
     The full taxonomy consists of major categories (for e.g. retail, cars, etc.). Each category is stored as a separate taxonomy tree within the Taxonomy instance. Each node in a taxonomy tree is identified using a node_id. It has attributes: name (a human readable string), level (how far it is from the root node) and type (whether it is a root node, leaf node or body node).
     
     This microservice can help identify the types of concept that are frequently mentioned in an article.
-  version: '1.0'
+  version: '1.0.0'
   x-subscribelink: taxonomy_matcher_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0"
+- name: "v1.0.0"
   description: "Published Date - Oct 30, 2020"
 paths:
   /microservices/nlp/taxonomy/v0.1/getpredictions:
     post:
       tags:
-        - v1.0
+        - v1.0.0
       responses:
         '200':
           description: success response
@@ -192,14 +192,14 @@ components:
     versions:
       type: object
       properties: 
-        v1.0:
+        v1.0.0:
           type: array
           items:
            oneOf:
              - type: string
                example: Published Date - Oct 30,2020
-               description: Updated version release v1.0
-        v0.1:
+               description: Standardizing Output JSON
+        v0.1.0:
           type: array
           items:
           oneOf:

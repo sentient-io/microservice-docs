@@ -5,18 +5,18 @@ info:
     This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence.
     
     If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
-  version: '1.0'
+  version: '1.0.0'
   x-subscribelink: word_sense_disambiguation_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0"
+- name: "v1.0.0"
   description: "Published Date - Oct 30, 2020"
 paths:
   /microservices/nlp/wordsensedisambiguation/v0.1/getpredictions:
     post:
       tags:
-        - v1.0
+        - v1.0.0
       responses:
         '200':
           description: success response
@@ -282,14 +282,14 @@ components:
     versions:
       type: object
       properties: 
-        v1.0:
+        v1.0.0:
           type: array
           items:
            oneOf:
              - type: string
                example: Published Date - Oct 30,2020
-               description: Updated version release v1.0
-        v0.1:
+               description: Standardizing Output JSON
+        v0.1.0:
           type: array
           items:
           oneOf:

@@ -5,18 +5,18 @@ info:
     This NLP microservice recovers the missing punctuations such as full stop, comma, exclamation mark, and question mark from the input text.
     
     It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case.
-  version: '1.0'
+  version: '1.0.0'
   x-subscribelink: inverse_text_normalisation_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0"
+- name: "v1.0.0"
   description: "Published Date - Oct 30, 2020"
 paths:
   /microservices/nlp/inversenorm/v0.1/getpredictions:
     post:
       tags:
-        - v1.0
+        - v1.0.0
       responses:
         '200':
           description: success response
@@ -193,14 +193,14 @@ components:
     versions:
       type: object
       properties: 
-        v1.0:
+        v1.0.0:
           type: array
           items:
            oneOf:
              - type: string
                example: Published Date - Oct 30,2020
-               description: Updated version release v1.0
-        v0.1:
+               description: Standardizing Output JSON
+        v0.1.0:
           type: array
           items:
           oneOf:
