@@ -99,7 +99,7 @@ components:
           example: 1
           description: Running sequence number starts from 1.
         start:
-          type: float
+          type: integer
           example: 0.64
           description: Start time of utterance
         text:
