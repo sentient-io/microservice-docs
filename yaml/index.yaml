@@ -53,7 +53,6 @@ NLP:
         title: Page Profiler ENG
         versions:
             v2.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng_v2.1.yaml"
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng.yaml"
     Page Profiler JP:
         title: Page Profiler JP
         versions:
