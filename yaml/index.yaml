@@ -56,11 +56,11 @@ NLP:
     Page Profiler JP:
         title: Page Profiler JP
         versions:
-            v1.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_jp.yaml"
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_jp.yaml"
     Page Profiler THAI:
         title: Page Profiler THAI
         versions:
-            v1.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_thai.yaml"
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_thai.yaml"
     Taxonomy Matcher ENG:
         title: Taxonomy Matcher ENG
         versions:
