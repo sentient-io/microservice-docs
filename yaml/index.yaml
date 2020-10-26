@@ -52,16 +52,16 @@ NLP:
     Page Profiler ENG:
         title: Page Profiler ENG
         versions:
-            v2.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng_v2.0.yaml"
+            v2.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng_v2.1.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng.yaml"
     Page Profiler JP:
         title: Page Profiler JP
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_jp.yaml"
+            v1.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_jp.yaml"
     Page Profiler THAI:
         title: Page Profiler THAI
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_thai.yaml"
+            v1.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_thai.yaml"
     Taxonomy Matcher ENG:
         title: Taxonomy Matcher ENG
         versions:
@@ -125,7 +125,7 @@ Utility:
     Web Scraper:
         title: Web Scraper
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/web_scraper.yaml"  
+            v1.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/web_scraper.yaml"  
     Document Convertor ENG:
         title: Document Convertor ENG
         versions:
@@ -173,7 +173,7 @@ Utility:
     URLs Retrieval:
         title: URLs Retrieval
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/urls_retrieval.yaml"
+           v0.2: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/urls_retrieval.yaml"
     Base64 File Encode:
         title: base64_file_encode
         versions:
