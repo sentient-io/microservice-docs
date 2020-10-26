@@ -115,17 +115,17 @@ info:
        > querystring = "bishan street 22"
        > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
 
-  version: '0.1.0'
+  version: '0.2.0'
 servers:
   - url: 'https://api.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Nov 25, 2019"
+- name: "v0.2.0"
+  description: "Published Date - Sep 15, 2020"
 paths:
    /DaaS/prod/hdb/carpark:
     get:
       tags:
-        - v0.1.0
+        - v0.2.0
       parameters:
         - in: query
           name: querystring
@@ -460,6 +460,16 @@ components:
     versions:
       type: object
       properties: 
+        v0.2.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 15,2020
+              description: |+
+                The following additional fields are added&#58;
+                1. postalcode - list of postal code
+                2. location - lat / log of the carpark park
         v0.1.0:
          type: array
          items:
