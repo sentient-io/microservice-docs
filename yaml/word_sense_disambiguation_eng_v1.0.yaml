@@ -292,10 +292,10 @@ components:
         v0.1.0:
           type: array
           items:
-          oneOf:
-            - type: string
-              example: Published Date - Mar 06, 2020
-              description: Initial version release  
+            oneOf:
+              - type: string
+                example: Published Date - Mar 06, 2020
+                description: Initial version release  
   securitySchemes:
     APIAuthorizer:
       type: apiKey
