@@ -216,7 +216,7 @@ components:
           default: true
           example: /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUG...
           description: |+
-            Input image file in base64 format. Only 'RGB' (8-bit RGB, 3 channels) are supported.
+            Input image file in base64 format. Images in the formats .bmp, .dib., .jpeg, .jpg, .jpe, .jp2, .png, .webp, .pbm, .pgm, .ppm, .pxm, .pnm, .sr, .ras, .tiff, .tif, .exr, .hdr, .pic are all supported.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
