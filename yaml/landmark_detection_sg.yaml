@@ -5,6 +5,8 @@ info:
     This Computer Vision microservice identifies Singapore landmarks from multiple input images. 
     
     This microservice returns the detected landmark and confidence score.
+    
+    There are no restrictions to image size.
   version: '0.1.0'
   x-subscribelink: landmark_detection_sg
 servers:
@@ -208,7 +210,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input image in base64 format
+            Input image in base64 format. Only 'RGB' (8-bit RGB, 3 channels) and 'L' (black and white) file formats are supported.
 
   securitySchemes:
     APIAuthorizer:
