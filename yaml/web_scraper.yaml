@@ -57,7 +57,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.1.0"
-  description: "Published Date - Jul 03, 2020"
+  description: "Published Date - Oct 30, 2020"
 paths:
   /microservices/utility/webscraping/v1/getresults:
     post:
@@ -302,6 +302,13 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 03, 2020
+              description: Updated with improved search criteria using queryList
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 18, 2018
               description: Initial version release
     input:
       type: object
