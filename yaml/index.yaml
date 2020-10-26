@@ -39,8 +39,8 @@ NLP:
     Inverse Text Normalisation ENG:
         title: Inverse Text Normalisation ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/inverse_text_normalisation_eng.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/inverse_text_normalisation_eng_v1.0.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/inverse_text_normalisation_eng.yaml"
     Named-Entity Recognition ENG:
         title: Named-Entity Recognition ENG
         versions:
@@ -65,13 +65,13 @@ NLP:
     Taxonomy Matcher ENG:
         title: Taxonomy Matcher ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/taxonomy_matcher_eng.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/taxonomy_matcher_eng_v1.0.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/taxonomy_matcher_eng.yaml"
     Word Sense Disambiguation ENG:
         title: Word Sense Disambiguation ENG
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/word_sense_disambiguation_eng.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/word_sense_disambiguation_eng_v1.0.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/word_sense_disambiguation_eng.yaml"
     Named-Entity Recognition JP:
         title: Named-Entity Recognition JP
         versions:
@@ -85,8 +85,8 @@ NLP:
     Script Alignment:
         title: Script Alignment
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment_v1.0.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment.yaml"
     Staple Invoice:
         title: Staple Invoice
         versions:
