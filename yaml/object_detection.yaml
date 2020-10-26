@@ -218,7 +218,7 @@ components:
           description: |+
             Input image file in base64 format. 
             
-            Images in the formats .bmp, .dib., .jpeg, .jpg, .jpe, .jp2, .png, .webp, .pbm, .pgm, .ppm, .pxm, .pnm, .sr, .ras, .tiff, .tif, .exr, .hdr, .pic are all supported.
+            Images in the formats: .bmp, .dib., .jpeg, .jpg, .jpe, .jp2, .png, .webp, .pbm, .pgm, .ppm, .pxm, .pnm, .sr, .ras, .tiff, .tif, .exr, .hdr, .pic are all supported.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
