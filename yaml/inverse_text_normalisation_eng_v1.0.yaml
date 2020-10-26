@@ -13,7 +13,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Oct 30, 2020"
 paths:
-  /microservices/nlp/inversenorm/v0.1/getpredictions:
+  /microservices/nlp/inversenorm/v1/getpredictions:
     post:
       tags:
         - v1.0.0
