@@ -3,7 +3,7 @@ info:
   title: Staple Receipt
   description: |+
     Scan the Receipt document from file and explore the data by catagorywise. 
-    Supported formats are : pdf, jpg, png
+    Supported formats are : pdf, jpg, png, docx, doc
   version: '1.0.0'
   x-subscribelink: staple_receipt
 servers:
