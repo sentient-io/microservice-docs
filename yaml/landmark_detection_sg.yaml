@@ -6,7 +6,7 @@ info:
     
     This microservice returns the detected landmark and confidence score.
     
-    The size of your image file should be **less than 5 MB**. 
+    The size of your image file should be **5 MB or less**. 
   version: '0.1.0'
   x-subscribelink: landmark_detection_sg
 servers:
