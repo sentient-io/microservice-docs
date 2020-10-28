@@ -2,7 +2,11 @@ openapi: 3.0.1
 info:
   title: Newspaper Article Scraper
   description: |+
-    This api allows to extracting & curating articles and delivers Instapaper style article extraction. Current supported languages: Arabic, Russian, Dutch, German, English, Spanish, French, Hebrew, Italian, Korean, Norwegian, Persian, Polish, Portuguese, Swedish, Hungarian, Finnish, Danish, Chinese, Indonesian, Vietnamese, Swahili, Turkish, Greek, Ukrainian. Supports automatic languages detection.
+    This api allows to extracting & curating articles and delivers Instapaper style article extraction. 
+    
+    Current supported languages: Arabic, Russian, Dutch, German, English, Spanish, French, Hebrew, Italian, Korean, Norwegian, Persian, Polish, Portuguese, Swedish, Hungarian, Finnish, Danish, Chinese, Indonesian, Vietnamese, Swahili, Turkish, Greek, Ukrainian. Supports automatic languages detection.
+    
+    Note that the URL has to be **spelt in full**, including "https://www."
   version: '0.1.0'
   x-subscribelink: newspaper_article_scraper
 servers:
@@ -293,7 +297,7 @@ components:
           type: string
           example: https://www.bangkokpost.com/learning/news/1272315/study-and-work-in-australia-%E2%80%93-many-opportunities-ahead
           default: true
-          description: The absolute input url, i.e exact, full address (URL) to the page
+          description: The absolute input url, i.e exact, full address (URL) to the page.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
