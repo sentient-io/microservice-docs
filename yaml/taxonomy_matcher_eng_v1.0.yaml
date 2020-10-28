@@ -7,6 +7,8 @@ info:
     The full taxonomy consists of major categories (for e.g. retail, cars, etc.). Each category is stored as a separate taxonomy tree within the Taxonomy instance. Each node in a taxonomy tree is identified using a node_id. It has attributes: name (a human readable string), level (how far it is from the root node) and type (whether it is a root node, leaf node or body node).
     
     This microservice can help identify the types of concept that are frequently mentioned in an article.
+    
+    Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
   x-subscribelink: taxonomy_matcher_eng
 servers:
@@ -218,6 +220,8 @@ components:
           example: ["bus","cars","bike","train","buildings","Audi R8"]
           description: |+
             A list of object names to be classified. Up to a maximum of 20 search terms can be processed each time.
+            
+            Supported formats: ASCII only
         threshold:
           x-name: threshold
           type: number
