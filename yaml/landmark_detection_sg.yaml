@@ -6,7 +6,7 @@ info:
     
     This microservice returns the detected landmark and confidence score.
     
-    There are no restrictions to image size.
+    The size of your image file should be **less than 5 MB**. 
   version: '0.1.0'
   x-subscribelink: landmark_detection_sg
 servers:
@@ -212,7 +212,7 @@ components:
           description: |+
             Input image in base64 format. 
             
-            Only 'RGB' (8-bit RGB, 3 channels) and 'L' (black and white) file formats are supported.
+            Supported formats: blp, bmp, bufr, cur, dcx, dds, dib, eps, ps, fit, fits, flc, fli, fpx, ftc, ftu, gbr, gif, grib, h5, hd5, icns, ico, im, iim, jpeg, jp2, mic, mpeg, msp, pcd, pcx, pxr, png, ppm, psd, sgi, ras, tga, tiff, wmf, xbm, xpm.
 
   securitySchemes:
     APIAuthorizer:
