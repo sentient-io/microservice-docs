@@ -3,6 +3,8 @@ info:
   title: PKI Key Generator
   description: |+
     This Utiltiy microservice generates Public key and Private key pair, useful for encryption purposes.
+    
+    Do ensure that your text is **within 512 characters**.
   version: '0.1.0'
   x-subscribelink: pki_key_generator
 servers:
