@@ -5,6 +5,8 @@ info:
     "This Voice microservice converts English text into speech in a female voice.
 
     The Text-to-Speech AI generated synthesized voice speaks with Singapore English accent.
+    
+    Do ensure that your text is within **2000 characters**.
   version: '0.1.0'
   x-subscribelink: text-to-speech_eng
 servers:
