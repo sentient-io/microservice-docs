@@ -3,6 +3,8 @@ info:
   title: Document Convertor ENG
   description: |+
     This Utility microservice extracts the English text content of singular input Microsoft Word, HTML or PDF documents and outputs into plain text format.
+    
+    The size of your document file should be **7 MB or less**.
   version: '1.0.0'
   x-subscribelink: document_convertor_eng
 servers:
@@ -201,7 +203,9 @@ components:
           format: binary
           default: true
           example: file upload
-          description: The file object. Supported formats - docx,txt,pdf.Maximum file size up to - 7MB
+          description: The file object. 
+          
+          Supported formats: docx, pdf, txt.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
