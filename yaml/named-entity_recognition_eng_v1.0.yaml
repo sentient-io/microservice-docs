@@ -7,6 +7,8 @@ info:
     The named-entity classes extracted are persons, locations, organisations and miscellaneous.
     
     This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+    
+    Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
   x-subscribelink: named-entity_recognition_eng
 servers:
@@ -235,7 +237,9 @@ components:
           default: true
           example: SINGAPORE - Immigration officers have issued 77 stay-home notices as of noon on Wednesday (Feb 19), 12 hours after the scheme kicked in.These notices were issued to Singapore residents, long-term pass holders and foreign workers who have travelled to mainland China in the last 14 days, said the Immigration and Checkpoints Authority (ICA) in response to queries on Thursday.Travellers from Hubei province are excluded from this scheme, as they are quarantined.Those who are issued the new notices, which took effect at 11.59pm on Tuesday, cannot leave their homes for 14 days./n This is stricter than the leave of absence (LOA), which allowed people to briefly leave their homes for necessities. LOA will no longer be issued.Those who do not observe the stay-home period can be prosecuted under the Infectious Diseases Act, warned the ICA.They could be fined up to $10,000 or jailed for up to six month, or both, for the first offence. For subsequent offences, this could go up to a maximum of $20,000 and up to a year.
           description: |+
-            Input text
+            Input text.
+            
+            Supported formats: ASCII only
   securitySchemes:
     APIAuthorizer:
       type: apiKey
