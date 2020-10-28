@@ -3,6 +3,8 @@ info:
   title: Youtube Video Downloader
   description: |+
     This Utility microservice retrieves the Youtube video of the input URL and output a download link.
+    
+    Note that the URL has to be **spelt in full**, including "https://www."
   version: '0.1.0'
   x-subscribelink: youtube_video_downloader
 servers:
@@ -185,7 +187,7 @@ components:
           default: true
           example: https://www.youtube.com/watch?v=1bumPyvzCyo
           description: |+
-            Youtube URL
+            Youtube URL.
     versions:
       type: object
       properties: 
