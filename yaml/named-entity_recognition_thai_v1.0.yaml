@@ -7,6 +7,8 @@ info:
     The named-entity classes extracted are persons, locations, organisations and miscellaneous.
 
     This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+    
+    Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
   x-subscribelink: named-entity_recognition_thai
 servers:
@@ -295,7 +297,9 @@ components:
           default: true
           example: ประเทศไทย [a] ราชอาณาจักรไทยอย่างเป็นทางการและมีชื่อเดิมว่าสยาม [b] เป็นประเทศในเอเชียตะวันออกเฉียงใต้ ตั้งอยู่ที่ใจกลางคาบสมุทรอินโดจีนประกอบด้วย 76 จังหวัดและครอบคลุมพื้นที่ 513,120 ตารางกิโลเมตร (198,120 ตารางไมล์) และมีประชากรมากกว่า 66 ล้านคน [4] ประเทศไทยเป็นประเทศที่มีพื้นที่ทางบกมากเป็นอันดับที่ 50ของโลกและเป็นประเทศที่มีประชากรมากที่สุดเป็นอันดับที่ 22 ของโลก เมืองหลวงและเมืองที่ใหญ่ที่สุดคือกรุงเทพมหานครซึ่งเป็นเขตปกครองพิเศษ ประเทศไทยมีพรมแดนติดทางทิศเหนือติดกับเมียนมาร์และลาวทางทิศตะวันออกติดกับลาวและกัมพูชาทางทิศใต้ติดกับอ่าวไทยและมาเลเซียและทางทิศตะวันตกติดกับทะเลอันดามันและทางตอนใต้ของประเทศพม่า พรมแดนทางทะเล ได้แก่ เวียดนามในอ่าวไทยทางตะวันออกเฉียงใต้และอินโดนีเซียและอินเดียทางทะเลอันดามันทางตะวันตกเฉียงใต้ ประเทศไทยเป็นระบอบรัฐธรรมนูญและประชาธิปไตยแบบรัฐสภา อย่างไรก็ตามในประวัติศาสตร์ที่ผ่านมารัฐบาลของตนต้องเผชิญกับการรัฐประหารหลายครั้งและช่วงเวลาแห่งการปกครองแบบเผด็จการทหารย เวลา
           description: |+
-            Input text
+            Input text.
+            
+            Supported formats: ASCII only
   securitySchemes:
     APIAuthorizer:
       type: apiKey
