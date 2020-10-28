@@ -5,6 +5,8 @@ info:
     This Computer Vision microservice recognises faces from input image files of Singapore Members of Parliament.
     
     This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction.
+    
+    The size of your image file should be **less than 5 MB**, and the image dimension should be **least more than 416x416 pixels**. 
   version: '0.1.0'
   x-subscribelink: face_recognition_politicians_sg
 servers:
@@ -230,7 +232,9 @@ components:
           default: false
           example: jpg
           description: |+
-            Type of image file. If not specified, the type of file is detected and processed.Refers to Python Imaging Library (PIL) for supported formats: bmp, gif, jpg/jpeg, png.
+            Type of image file. If not specified, the type of file is detected and processed. 
+            
+            Refer to Python Imaging Library (PIL) for supported formats: bmp, gif, jpg/jpeg, png.
         threshold:
           x-name: threshold
           type: float
