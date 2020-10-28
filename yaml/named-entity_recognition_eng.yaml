@@ -6,7 +6,9 @@ info:
     
     The named-entity classes extracted are persons, locations, organisations and miscellaneous.
     
-    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc. 
+    
+    Do ensure that your text is in the **ASCII format**.
   version: '0.1.0'
   x-subscribelink: named-entity_recognition_eng
 servers:
