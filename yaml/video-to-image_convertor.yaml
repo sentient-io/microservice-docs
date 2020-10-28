@@ -4,7 +4,7 @@ info:
   description: |+
     This Utility microservice captures the images from the input video file at frame rate of 1 frame per second.
     
-    Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
+    The size of your video file should be **less than 10 MB**.
   version: '0.1.0'
   x-subscribelink: video-to-image_convertor
 servers:
@@ -210,7 +210,9 @@ components:
           format: binary
           default: true
           example:  upload file
-          description: The Video file object. Maximum file size up to 10 MB
+          description: The Video file object.
+          
+          Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
