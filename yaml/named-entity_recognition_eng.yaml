@@ -8,7 +8,7 @@ info:
     
     This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc. 
     
-    Do ensure that your text is in the **ASCII format**.
+    Do ensure that your text is within **5000 characters**.
   version: '0.1.0'
   x-subscribelink: named-entity_recognition_eng
 servers:
@@ -230,7 +230,9 @@ components:
           default: true
           example: The Singaporean procedure of hanging condemned individuals is similar to the methods formerly used in the United Kingdom.
           description: |+
-            Input text
+            Input text. 
+            
+            Supported formats: ASCII only
   securitySchemes:
     APIAuthorizer:
       type: apiKey
