@@ -3,6 +3,8 @@ info:
   title: Video-To-Audio Converter
   description: |+
     This API is used to extract the sound from a video file and save it in an audio file.
+    
+    The size of your video file should be **less than 3.5 MB**.
   version: '0.1.0'
   x-subscribelink: video-to-audio_convertor
 servers:
@@ -188,7 +190,9 @@ components:
           format: binary
           example: upload file
           default: true
-          description: The file object. Maximum file size up to - 3.5MB
+          description: The file object. 
+          
+          Supported formats: 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v.
         samplerate:
           type: string
           example: "16000"
