@@ -4,7 +4,7 @@ info:
   description: >-
     This API is used to convert your audio like music(any format) to the WAV format.
     
-    The size of your audio file should be **less than 10 MB**.
+    The size of your audio file should be **10 MB or less**.
   version: '0.1.0'
   x-subscribelink: audio_format_convertor
 servers:
