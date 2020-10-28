@@ -5,6 +5,8 @@ info:
     This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.
     
     This microservice works best for if the audio file consists of mostly speech with no long pauses in between.
+    
+    The size of your audio file should be **between 3 KB to 10 MB**.
   version: '0.1.1'
   x-subscribelink: automatic_speech_recognition_chi_sg
 servers:
@@ -179,8 +181,11 @@ components:
           default: true
           example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input file in base64 format and needs to be prefixed by the data type and encoding
-            data:audio/wav;base64,<wav in base64 string>
+            Input file in base64 format. 
+            
+            Input file needs to be prefixed by the data type and encoding.
+            
+            Data:audio/wav;base64,<wav in base64 string>
         language:
           x-name: language
           type: string
