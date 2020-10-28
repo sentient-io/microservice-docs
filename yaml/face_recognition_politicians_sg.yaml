@@ -6,7 +6,7 @@ info:
     
     This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction.
     
-    The size of your image file should be **less than 5 MB**, and the image dimension should be **least more than 416x416 pixels**. 
+    The size of your image file should be **5 MB or less**, and the image dimension should be **least more than 416x416 pixels**. 
   version: '0.1.0'
   x-subscribelink: face_recognition_politicians_sg
 servers:
