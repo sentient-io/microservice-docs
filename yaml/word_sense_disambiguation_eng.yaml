@@ -5,6 +5,9 @@ info:
     This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence.
     
     If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
+    
+    Do ensure that your text is within **5000 characters**.
+
   version: '0.1.0'
   x-subscribelink: word_sense_disambiguation_eng
 servers:
@@ -247,7 +250,9 @@ components:
           default: true
           example: An estimated 180,000 people were under mandatory evacuation orders, including parts of Santa Rosa and a large swath of Sonoma County all the way to the Pacific Ocean.
           description: |+
-            Input text. A complete sentence or paragraph
+            Input text can be a complete sentence or paragraph.
+            
+            Supported formats: ASCII only
         target_word:
           x-name: target_word
           type: string
