@@ -5,6 +5,8 @@ info:
     This NLP microservice recovers the missing punctuations such as full stop, comma, exclamation mark, and question mark from the input text.
     
     It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case.
+    
+    Do ensure that your text is within **5000 characters**.
   version: '0.1.0'
   x-subscribelink: inverse_text_normalisation_eng
 servers:
@@ -196,7 +198,9 @@ components:
             default: true
             example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
             description: |+
-              Input text
+              Input text.
+              
+              Supported formats: ASCII only
   securitySchemes:
     APIAuthorizer:
       type: apiKey
