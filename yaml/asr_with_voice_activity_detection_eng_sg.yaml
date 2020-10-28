@@ -4,7 +4,9 @@ info:
   description: |+
     This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
 
-    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k
+    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k.
+    
+    The size of your audio file should be **between 3 KB to 10 MB**.
   version: '0.1.0'
   x-subscribelink: asr_with_voice_activity_detection_eng_sg
 servers:
@@ -201,14 +203,18 @@ components:
           default: true
           example: https://api.sentient.io/test2.wav or UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: |+
-            The public URL link to the wave file or Input audio wav file in base64 format. Mono channel, 8kHz / 16kHz sampling rate.
+            The public URL link to the wave file or Input audio wav file in base64 format. 
+            
+            Mono channel, 8kHz / 16kHz sampling rate.
         file_type:
           x-name: file_type
           type: string
           default: true
           example: wav
           description: |+
-            Input file extension. Only “wav” is supported at the moment.
+            Input file extension.
+            
+            Currently supported formats: .wav
         vad_threshold:
           x-name: vad_threshold
           type: number
