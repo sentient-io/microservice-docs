@@ -7,6 +7,8 @@
       From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output.
       
       The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+      
+      Do ensure that your URL text is in the **ASCII format**.
     version: '1.0.0'
     x-subscribelink: page_profiler_eng
     x-depreciated: "Oct 15, 2020"
@@ -220,7 +222,9 @@
             default: true
             example: https://www.sentient.io/en/
             description: |+
-              The URL of the page to be profile. Kindly note that the URL has to be spelt in full, including "https://www."
+              The URL of the page to be profiled. 
+              
+              Note that the URL has to be spelt in full, including "https://www."
               
     securitySchemes:
       APIAuthorizer:
