@@ -4,7 +4,7 @@ info:
   description: |+
     This Utility microservice extracts the English text content of singular input Microsoft Word, HTML or PDF documents and outputs into plain text format.
     
-    The size of your document file should be **7 MB or less**.
+    The size of your document file should **not exceed 7 MB**.
   version: '1.0.0'
   x-subscribelink: document_convertor_eng
 servers:
