@@ -3,6 +3,8 @@ info:
   title: Audio Format Convertor
   description: >-
     This API is used to convert your audio like music(any format) to the WAV format.
+    
+    The size of your audio file should be **less than 10 MB**.
   version: '0.1.0'
   x-subscribelink: audio_format_convertor
 servers:
@@ -193,7 +195,7 @@ components:
           format: binary
           default: true
           example: upload file
-          description: Maximum file size up to 10MB
+          description: Maximum file size up to 10 MB.
         samplerate:
           type: string
           default: false
