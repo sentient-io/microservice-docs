@@ -10,7 +10,7 @@ info:
     
     Supported languages: Hindi, German, Spanish, Portuguese, French, Turkish, Italian, Russian, Arabic, Indonesian, Chinese, Japanese and Korean.
     
-    The size of your PDF file should be **7 MB or less**.
+    The size of your PDF file should **not exceed 7 MB**.
   version: '1.0.0'
   x-subscribelink: pdf_extractor
 servers:
