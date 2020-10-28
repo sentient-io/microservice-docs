@@ -8,7 +8,7 @@ info:
 
     This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
     
-    Do ensure that your text is within **5000 characters**.
+    Do ensure that your text is **within 5000 characters**.
   version: '1.0.0'
   x-subscribelink: named-entity_recognition_thai
 servers:
