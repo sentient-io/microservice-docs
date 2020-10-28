@@ -3,6 +3,8 @@ info:
   title: CSV-JSON Convertor
   description: |+
     This Utility microservice converts the input CSV to JSON format. The headers should be the keywords and columns should be the value of proper keywords.
+    
+    The size of your file should be **less than 3.5 MB**.
   version: '1.0.0'
   x-subscribelink: csv-json_convertor
 servers:
@@ -202,7 +204,7 @@ components:
           format: binary
           default: true
           example: upload file
-          description: The file object Max. file size upto - 3.5MB
+          description: The file object.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
