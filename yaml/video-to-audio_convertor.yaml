@@ -4,7 +4,7 @@ info:
   description: |+
     This API is used to extract the sound from a video file and save it in an audio file.
     
-    The size of your video file should be **less than 3.5 MB**.
+    The size of your video file should **not exceed 3.5 MB**.
   version: '0.1.0'
   x-subscribelink: video-to-audio_convertor
 servers:
