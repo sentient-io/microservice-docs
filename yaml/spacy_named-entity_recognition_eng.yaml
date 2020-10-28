@@ -7,6 +7,9 @@ info:
       The named-entity classes extracted include persons, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals. 
 
       This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+      
+      Do ensure that your text is **within 5000 characters**.
+
   version: '0.1.0'
   x-subscribelink: spacy_ner
 servers:
