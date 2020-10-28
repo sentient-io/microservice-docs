@@ -5,6 +5,8 @@ info:
     This Voice microservice converts Mandarin text into speech in a female voice.
     
     The Text-to-Speech AI generated synthesized voice speaks with native Mandarin accent.
+    
+    Do ensure that your text is **within 750 characters**.
   version: '0.1.0'
   x-subscribelink: text-to-speech_chi
 servers:
