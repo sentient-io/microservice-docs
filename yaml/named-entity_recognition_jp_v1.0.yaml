@@ -7,6 +7,8 @@ info:
     The named-entity classes extracted are persons, locations, organisations and miscellaneous.
     
     This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+    
+    Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
   x-subscribelink: named-entity_recognition_jp
 servers:
@@ -295,7 +297,9 @@ components:
           default: true
           example: 30弾ソイキ昇機マ了映だ店原いひ険所コホ特室りょくぼ都合ヘラアニ限2稿タチケア迷芸歌セ利講ルねひ詳績めかをぶ観提メエ府木ホフタ分不写ひフ妹検らし器増壮憶クわ。8口アユ琢紫ヨ理特ゆほス見百経イス図退ナユ介精しぜ議帳モテ受1中コハ載北早ぎのりや載裁風力壌ひろふ。運56済ぞ下写報スや来際おっはの学要ヘ手米真社つみよや非央で野館き肉待づぜフ次睡ルをが左成相態万えやろ。
           description: |+
-            Input text
+            Input text.
+            
+            Supported formats: ASCII only
   securitySchemes:
     APIAuthorizer:
       type: apiKey
