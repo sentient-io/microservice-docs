@@ -5,6 +5,8 @@ info:
     This Utiltiy microservice decrypts the input text using the input key string.
     
     This can be use with PKI Key Generator.
+    
+    Do ensure that your text is **within 512 characters**.
   version: '0.1.0'
   x-subscribelink: decryption_using_pki_key
 servers:
