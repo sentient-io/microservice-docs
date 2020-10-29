@@ -190,8 +190,8 @@ components:
           default: true
           description: The file object. Maximum file size up to - 3.5MB
         samplerate:
-          type: string
-          example: "16000"
+          type: integer
+          example: 16000
           default: false
           description: Sample rate of the audio file in Hz
         channel:
