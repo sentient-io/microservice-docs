@@ -328,23 +328,23 @@ components:
           items:
             oneOf:
               - type: object
-              properties:
-                findType:
-                  type: string
-                tag:
-                  type: string
-                id:
-                  type: string
-                class:
-                  type: string
-                nestedclassid:
-                  type: string
-                attribute:
-                  type: string
-                title:
-                  type: string
-                returnType:
-                  type: string
+                properties:
+                  findType:
+                    type: string
+                  tag:
+                    type: string
+                  id:
+                    type: string
+                  class:
+                    type: string
+                  nestedclassid:
+                    type: string
+                  attribute:
+                    type: string
+                  title:
+                    type: string
+                  returnType:
+                    type: string
   securitySchemes:
     APIAuthorizer:
       type: apiKey
