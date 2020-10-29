@@ -194,8 +194,8 @@ components:
           
           Supported formats: 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v.
         samplerate:
-          type: string
-          example: "16000"
+          type: number
+          example: 16000
           default: false
           description: Sample rate of the audio file in Hz
         channel:
