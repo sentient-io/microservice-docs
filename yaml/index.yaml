@@ -162,6 +162,14 @@ Utility:
         title: URLs Retrieval
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/urls_retrieval.yaml"
+    Base64 Encoder:
+        title: Base64 Encoder
+        versions:
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/base64-file-encode.yaml"
+    Base64 Decoder:
+        title: Base64 Decoder
+        versions:
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/base64-file-decode.yaml"
 Data:
     HDB Commercial Directories (SG):
         title: HDB Commercial Directories (SG)
