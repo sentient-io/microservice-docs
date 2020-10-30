@@ -336,56 +336,59 @@ components:
                     example: |+
                       findType - find_all / select
                     description: |+
-                      
+                      select - To get only one result 
+                      find_all - To get more than one results
                   tag:
                     x-name: tag
                     type: string
                     default: false
-                    example: 1
+                    example: h1/img/a/
                     description: |+
-                      Running sequence. Start from 1.
+                      Specifying particular html element tage name
                   id:
                     x-name: id
                     type: string
                     default: false
-                    example: 1
+                    example: sampleid 
                     description: |+
-                      Running sequence. Start from 1.
+                      Specifying particular id name of html element
                   class:
                     x-name: class
                     type: string
                     default: false
-                    example: 1
+                    example: sampleclass 
                     description: |+
-                      Running sequence. Start from 1.
+                      Specifying particular class name of html elements
                   nestedclassid:
                     x-name: nestedclassid
                     type: string
                     default: false
-                    example: 1
+                    example: p.strikeout
                     description: |+
-                      Running sequence. Start from 1.
+                      p is tag name of html element
+                      strikeout is class name inside the p element 
+                      concating both using .(dot)
                   attribute:
                     x-name: attribute
                     type: string
                     default: false
-                    example: 1
+                    example: src/href
                     description: |+
-                      Running sequence. Start from 1.
+                      specifying the attribute of the elements
                   title:
                     x-name: title
                     type: string
                     default: false
-                    example: 1
+                    example: mytitle
                     description: |+
-                      Running sequence. Start from 1.
+                      It is an optional parameter, if title is empty the return json key is "values"
                   returnType:
                     x-name: returnType
                     type: string
                     default: false
-                    example: 1
+                    example: html
                     description: |+
-                      Running sequence. Start from 1.
+                      It is an optional parameter, returns as html if specify html
   securitySchemes:
     APIAuthorizer:
       type: apiKey
