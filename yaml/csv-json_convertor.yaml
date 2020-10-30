@@ -203,7 +203,7 @@ components:
           type: string
           format: binary
           default: true
-          example: upload file
+          example: sample.csv
           description: The file object.
   securitySchemes:
     APIAuthorizer:
