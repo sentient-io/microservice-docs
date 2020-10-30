@@ -209,7 +209,7 @@ components:
           type: string
           format: binary
           default: true
-          example:  upload file
+          example:  sample.mp4
           description: The Video file object.
           
           Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
