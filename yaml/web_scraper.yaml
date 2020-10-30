@@ -333,9 +333,9 @@ components:
                     x-name: findType
                     type: string
                     default: false
-                    example: findType : find_all, select
+                    example: findType : find_all / select
                     description: |+
-                      Running sequence. Start from 1.
+                      
                   tag:
                     x-name: tag
                     type: string
