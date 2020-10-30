@@ -186,7 +186,7 @@ components:
         filePath:
           type: string
           format: binary
-          example: upload file
+          example: sample.txt
           default: true
           description: The file object.
         format:
