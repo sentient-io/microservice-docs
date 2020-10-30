@@ -333,7 +333,7 @@ components:
                     x-name: findType
                     type: string
                     default: false
-                    example: 1
+                    example: findType : find_all, select
                     description: |+
                       Running sequence. Start from 1.
                   tag:
