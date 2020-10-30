@@ -187,67 +187,67 @@ Utility:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-decode.yaml"
 Data:
     HDB Commercial Directories (SG):
-        title: HDB Commercial Directories (SG)
+        title: commercial_directories_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/commercial_directories_hdb_sg.yaml"
     HDB Block Coordinates (SG):
-        title: HDB Block Coordinates (SG)
+        title: building_addresses_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/building_addresses_hdb_sg.yaml"
     HDB Residential Occupancy Status (SG):
-        title: HDB Residential Occupancy Status (SG)
+        title: residential_sales_and_rental_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/residential_sales_and_rental_hdb_sg.yaml"
     HDB Carpark Locations (SG):
-        title: HDB Carpark Locations (SG)
+        title: carpark_hdb_sg
         versions:
             v0.2: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/carpark_hdb_sg.yaml"
     HDB Demographics (SG):
-        title: HDB Demographics (SG)
+        title: demographics_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/demographics_hdb_sg.yaml"
     HDB Flat Ownership Duration (SG):
-        title: HDB Flat Ownership Duration (SG)
+        title: flat_ownership_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/flat_ownership_hdb_sg.yaml"
     HDB Season Parking Availability (SG):
-        title: HDB Season Parking Availability (SG)
+        title: season_parking_availability_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/season_parking_availability_hdb_sg.yaml"
     Directory of Singapore Startups:
-        title: Directory of Singapore Startups
+        title: directory_of_singapore_startups
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/directory_of_singapore_startups.yaml"
     HDB Fitness Stations and Playgrounds (SG):
-        title: HDB Fitness Stations and Playgrounds (SG)
+        title: fitness_stations_and_playgrounds_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/fitness_stations_and_playgrounds_hdb_sg.yaml"
     HDB Lamp Posts Locations (SG):
-        title: HDB Lamp Posts Locations (SG)
+        title: amenities_lamp_posts_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/amenities_lamp_posts_hdb_sg.yaml"
     HDB Hardcourts Locations (SG):
-        title: HDB Hardcourts Locations (SG)
+        title: amenities_hardcourts_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/amenities_hardcourts_hdb_sg.yaml"
     HDB Shelters Locations (SG):
-        title: HDB Shelters Locations (SG)
+        title: amenities_shelters_hdb_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/amenities_shelters_hdb_sg.yaml"
     D&B Business Check Plus (SG):
-        title: D&B Business Check Plus (SG)
+        title: d&b_business_check_plus_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_business_check_plus_sg.yaml"
     D&B Basic Individual Search (SG):
-        title: D&B Basic Individual Search (SG)
+        title: d&b_basic_individual_search_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_basic_individual_search_sg.yaml"
     D&B Business Check (SG):
-        title: "D&B Business Check (SG)"
+        title: d&b_business_check_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_business_check_sg.yaml"
     D&B Brief Financial Information (SG):
-        title: D&B-Brief-Financial-Information-(SG)
+        title: d&b_brief_financial_information_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_brief_financial_information_sg.yaml"
 Data Alliance:
