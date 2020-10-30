@@ -37,53 +37,53 @@ Voice:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng.yaml"  
 NLP:
     Inverse Text Normalisation ENG:
-        title: Inverse Text Normalisation ENG
+        title: inverse_text_normalisation_eng
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/inverse_text_normalisation_eng_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/inverse_text_normalisation_eng.yaml"
     Named-Entity Recognition ENG:
-        title: Named-Entity Recognition ENG
+        title: named-entity_recognition_eng
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_eng.yaml"
     spaCy NER:
-        title: spaCy NER
+        title: spacy_ner
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/spacy_named-entity_recognition_eng.yaml"
     Page Profiler ENG:
-        title: Page Profiler ENG
+        title: page_profiler_eng
         versions:
             v2.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_eng_v2.1.yaml"
     Page Profiler JP:
-        title: Page Profiler JP
+        title: page_profiler_jp
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_jp.yaml"
     Page Profiler THAI:
-        title: Page Profiler THAI
+        title: page_profiler_thai
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/page_profiler_thai.yaml"
     Taxonomy Matcher ENG:
-        title: Taxonomy Matcher ENG
+        title: taxonomy_matcher_eng
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/taxonomy_matcher_eng_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/taxonomy_matcher_eng.yaml"
     Word Sense Disambiguation ENG:
-        title: Word Sense Disambiguation ENG
+        title: word_sense_disambiguation_eng
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/word_sense_disambiguation_eng_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/word_sense_disambiguation_eng.yaml"
     Named-Entity Recognition JP:
-        title: Named-Entity Recognition JP
+        title: named-entity_recognition_jp
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_jp_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_jp.yaml"
     Named Entity Recognition THAI:
-        title: Named Entity Recognition THAI
+        title: named-entity_recognition_thai
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_thai_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/named-entity_recognition_thai.yaml"
     Script Alignment:
-        title: Script Alignment
+        title: script_alignment
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment.yaml"
