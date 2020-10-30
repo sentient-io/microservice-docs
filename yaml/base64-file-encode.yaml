@@ -3,18 +3,18 @@ info:
   title: Base64 Encoder
   description: |+
     This Utility microservice converts an uploaded file to Base64 encoded text (also known as a binary file to text converter). This microservice supports most documents, images, audio, video, archive and font files. See documentation for the detailed list of supported file formats.<br><br> User can choose the output base64 text string in 5 different formats (plain text, JSON, hyperlink, datauri, XML). <br><br>For the reverse process (converting Base64 string back to binary file), check out the Base 64 File Decode microservice.
-  version: '1.0.0'
+  version: '0.0.1'
   x-subscribelink: base64_file_encode
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.0.1"
   description: "Published Date - Oct 30, 2020"
 paths:
   /microservices/utility/base64encode/v0/getresults:
     post:
       tags:
-        - v1.0.0
+        - v0.0.1
       responses:
         '200':
           description: success response
@@ -203,7 +203,7 @@ components:
     versions:
       type: object
       properties: 
-        v1.0.0:
+        v0.0.1:
          type: array
          items:
           oneOf:
