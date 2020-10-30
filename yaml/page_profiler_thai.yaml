@@ -7,8 +7,6 @@
       The named-entity classes extracted are persons, locations, organisations and miscellaneous.
       
       This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
-      
-      Note that the URL has to be **spelt in full**, including "https://www."
     version: '1.0.0'
     x-subscribelink: page_profiler_thai
   servers:
