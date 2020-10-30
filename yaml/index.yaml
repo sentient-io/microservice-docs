@@ -97,23 +97,23 @@ NLP:
            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_receipt.yaml"
 Computer Vision:
     Object Detection:
-        title: Object Detection
+        title: object_detection
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/object_detection.yaml"
     Face Recognition Politicians (SG):
-        title: Face Recognition Politicians (SG)
+        title: face_recognition_politicians_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg.yaml"
     People Counting:
-        title: People Counting
+        title: people_counting
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/people_counting.yaml"
     Landmark Detection (SG):
-        title: Landmark Detection (SG)
+        title: landmark_detection_sg
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_sg.yaml"
     Landmark Detection (JP):
-        title: Landmark Detection (JP)
+        title: landmark_detection_jp
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_jp.yaml"
 Utility:
