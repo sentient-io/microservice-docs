@@ -202,7 +202,7 @@ components:
           type: string
           format: binary
           default: true
-          example: file upload
+          example: sample.txt
           description: The file object. 
           
           Supported formats: docx, pdf, txt.
