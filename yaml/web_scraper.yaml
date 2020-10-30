@@ -320,6 +320,71 @@ components:
           default: true
           example: https://www.bbc.co.uk
           description: The absolute input url, i.e exact, full address (URL) to the page.
+        queryList:
+          type: array
+          default: false
+          example: [{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"h1", "returnType":"html"}]
+          description: Array object
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  findType:
+                    x-name: findType
+                    type: string
+                    default: true
+                    example: 1
+                    description: |+
+                      Running sequence. Start from 1.
+                  tag:
+                    x-name: tag
+                    type: string
+                    default: true
+                    example: 1
+                    description: |+
+                      Running sequence. Start from 1.
+                  id:
+                    x-name: id
+                    type: string
+                    default: true
+                    example: 1
+                    description: |+
+                      Running sequence. Start from 1.
+                  class:
+                    x-name: class
+                    type: string
+                    default: true
+                    example: 1
+                    description: |+
+                      Running sequence. Start from 1.
+                  nestedclassid:
+                    x-name: nestedclassid
+                    type: string
+                    default: true
+                    example: 1
+                    description: |+
+                      Running sequence. Start from 1.
+                  attribute:
+                    x-name: attribute
+                    type: string
+                    default: true
+                    example: 1
+                    description: |+
+                      Running sequence. Start from 1.
+                  title:
+                    x-name: title
+                    type: string
+                    default: true
+                    example: 1
+                    description: |+
+                      Running sequence. Start from 1.
+                  returnType:
+                    x-name: returnType
+                    type: string
+                    default: true
+                    example: 1
+                    description: |+
+                      Running sequence. Start from 1.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
