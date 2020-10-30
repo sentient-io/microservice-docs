@@ -334,10 +334,9 @@ components:
                     type: string
                     default: false
                     example: |+
-                      find_all / select
+                      "find_all / select"
                     description: |+
-                      select - To get only one result
-                      find_all - To get more than one results
+                      "select is to get only one result find_all is To get more than one results"
                       
                   tag:
                     x-name: tag
