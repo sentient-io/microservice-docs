@@ -323,7 +323,7 @@ components:
         queryList:
           type: array
           default: false
-          example: "[{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"h1", "returnType":"html"}]"
+          example: [{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"h1", "returnType":"html"}]
           description: Array object
           items:
             oneOf:
@@ -333,9 +333,10 @@ components:
                     x-name: findType
                     type: string
                     default: false
-                    example: 1
+                    example: findType : find_all / select
+                    example: |+
+                      findType - find_all / select
                     description: |+
-                      select is to get only one result find_all is To get more than one results
                       
                   tag:
                     x-name: tag
