@@ -194,7 +194,7 @@ components:
           type: string
           format: binary
           default: true
-          example: upload file
+          example: sample.mp4
           description: Maximum file size up to 10 MB.
         samplerate:
           type: string
