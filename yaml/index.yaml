@@ -252,7 +252,7 @@ Data:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/d&b_brief_financial_information_sg.yaml"
 Data Alliance:
     Download Dataset API:
-        title: Download Dataset API
+        title: download_dataset_api
         urlkey: download_dataset_api
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/download_dataset.yaml"
