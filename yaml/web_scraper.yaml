@@ -4,9 +4,7 @@ info:
   x-subscribelink: web_scraper
   description: |+
     This API is used to extract content or specific HTML elements from web pages. Supports both HTML and Text output. The web scraper can be instructed to extract HTML elements that match the criteria given in the queryList HTTP request parameter, it can even do navigate down the html tree like get all p tag inside a div class "class":"class_name p".
-    
-    Note that the URL has to be **spelt in full**, including "https://www."
-  x-additionalinfo: |+
+      x-additionalinfo: |+
     Examples:
     
     To get article content, as text
