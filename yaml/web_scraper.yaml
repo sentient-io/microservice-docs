@@ -147,6 +147,10 @@ components:
     success:
       type: object
       properties:
+        message:
+          type: string
+          example: successfully processed
+          description: Detail description on the API status
         results:
           type: array
           example: [{"title":"imagelinks", "findType":"find_all","tag":"img","attribute":"src"}]
@@ -160,10 +164,6 @@ components:
                     example: |+
                       <h1 class=\"css-139ck4j-StyledHeading e1fj1fc10\" id=\"main-heading\" tabindex=\"-1\">BBC Homepage</h1>
                     description: End time of word, in seconds. Offset from the start of stream.
-        message:
-          type: string
-          example: successfully processed
-          description: Detail description on the API status
         status:
           type: string
           example: success
