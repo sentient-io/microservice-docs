@@ -332,56 +332,56 @@ components:
                   findType:
                     x-name: findType
                     type: string
-                    default: true
+                    default: false
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
                   tag:
                     x-name: tag
                     type: string
-                    default: true
+                    default: false
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
                   id:
                     x-name: id
                     type: string
-                    default: true
+                    default: false
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
                   class:
                     x-name: class
                     type: string
-                    default: true
+                    default: false
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
                   nestedclassid:
                     x-name: nestedclassid
                     type: string
-                    default: true
+                    default: false
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
                   attribute:
                     x-name: attribute
                     type: string
-                    default: true
+                    default: false
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
                   title:
                     x-name: title
                     type: string
-                    default: true
+                    default: false
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
                   returnType:
                     x-name: returnType
                     type: string
-                    default: true
+                    default: false
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
