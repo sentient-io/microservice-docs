@@ -73,16 +73,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                url: string
-                queryList:
-                - findType: string
-                  tag: string
-                  id: string
-                  class: string
-                  nestedclassid: string
-                  attribute: string
-                  title: string
-                  returnType: string
+                message: Successfully Processed
+                results:
+                  results:
+                  - My Title:
+                    - value: <h1 class="css-139ck4j-StyledHeading e1fj1fc10" id="main-heading" tabindex="-1">BBC
+                        Homepage</h1>
+                status: Success
         '400':
           description: Restricted
           content:
@@ -155,50 +152,14 @@ components:
           example: [{"title":"imagelinks", "findType":"find_all","tag":"img","attribute":"src"}]
           description: The result of the API call
           items:
-            properties:
-              links:
-                type: array
-                items:
-                  oneOf:
-                    - type: string
-                      example: https://www.bbc.co.uk
-                    - type: string
-                      example: https://www.bbc.co.uk/accessibility/
-                    - type: string
-                      example: https://www.bbc.co.uk/news
-                    - type: string
-                      example: https://www.bbc.co.uk/news
-                    - type: string
-                      example: https://www.bbc.co.uk/news
-                    - type: string
-                      example: https://www.bbc.co.uk/weather
-              values:
-                type: array
-                items:
-                  oneOf:
-                    - type: object
-                      properties:
-                        value: 
-                          type: string
-                          example: <a href=\"https://www.bbc.co.uk\">Home</a>
-                    - type: object
-                      properties:
-                        value: 
-                          type: string
-                          example: <a href=\"https://www.bbc.co.uk/news\">News</a>
-                    - type: object
-                      properties:
-                        value:
-                          type: string
-                          example: <a href=\"https://www.bbc.co.uk/sport\">Sport</a>
-              images:
-                  type: array
-                  items:
-                    oneOf:
-                      - type: string
-                        example: https://ichef.bbci.co.uk/news/320/cpsprodpb/0DDC/production/_112984530_gettyimages-1227286994.jpg       
-                      - type: string
-                        example: https://ichef.bbci.co.uk/images/ic/720x405/p08dwhp8.jpg
+            oneOf:
+              - type: object
+                properties:
+                  value:
+                    type: string
+                    example: |+
+                      <h1 class=\"css-139ck4j-StyledHeading e1fj1fc10\" id=\"main-heading\" tabindex=\"-1\">BBC Homepage</h1>
+                    description: End time of word, in seconds. Offset from the start of stream.
         message:
           type: string
           example: successfully processed
