@@ -88,11 +88,11 @@ NLP:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/script_alignment.yaml"
     Staple Invoice:
-        title: Staple Invoice
+        title: staple_invoice
         versions:
            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_invoice.yaml"
     Staple Receipt:
-        title: Staple Receipt
+        title: staple_receipt
         versions:
            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/staple_receipt.yaml"
 Computer Vision:
