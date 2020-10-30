@@ -3,18 +3,18 @@ info:
   title: Base64 Decoder
   description: |+
     This Utility microservice converts a Base64 encoded text string to a binary file.<br><br>For the reverse process (convert binary file to Base64 encoded text string), check out the Base64 File Encode microservice.
-  version: '1.0.0'
+  version: '0.0.1'
   x-subscribelink: base64_file_decode
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.0.1"
   description: "Published Date - Oct 30, 2020"
 paths:
   /microservices/utility/base64decode/v0/getresults:
     post:
       tags:
-        - "1.0.0"
+        - "0.0.1"
       responses:
         '200':
           description: success response
@@ -174,7 +174,7 @@ components:
     versions:
       type: object
       properties: 
-        v1.0.0:
+        v0.0.1:
          type: array
          items:
           oneOf:
