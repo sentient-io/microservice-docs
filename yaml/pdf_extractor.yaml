@@ -206,7 +206,7 @@ components:
           type: string
           format: binary
           default: true
-          example: file upload
+          example: sample.pdf
           description: Text-only PDF files are supported. Image or mixed PDF files are not recommended.
         pageNumbers:
           type: number
