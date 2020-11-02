@@ -162,6 +162,7 @@ components:
           description: The status of the API call success/failure
         results:
           type: object
+          example: {<Json Object>}
           properties:
             data: 
               type: string
