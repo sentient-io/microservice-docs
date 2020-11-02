@@ -285,12 +285,12 @@ components:
           type: string
           default: true
           example: https://www.bbc.co.uk
-          description: The input url to the page. Input can give as partial url like bbc.co.uk
+          description: Webpage URL. It also support partial URL like bbc.co.uk
         queryList:
           type: array
           default: false
           example: [{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"h1", "returnType":"html"}]
-          description: Array object
+          description: List of extraction conditions.
           items:
             oneOf:
               - type: object
@@ -302,59 +302,60 @@ components:
                     example: |+
                       findType - find_all / select
                     description: |+
-                      select - To get only one result 
-                      find_all - To get more than one results
+                      Extraction Type. Possible values are:
+                      1. select - Finds only the first occurance 
+                      2. find_all - Finds all occurance of the extraction pattern
                   tag:
                     x-name: tag
                     type: string
                     default: false
                     example: h1/img/a/
                     description: |+
-                      Specifying particular html element tage name
+                      The HTML tag to extract
                   id:
                     x-name: id
                     type: string
                     default: false
                     example: sampleid 
                     description: |+
-                      Specifying particular id name of html element
+                      The HTML element id to extract
                   class:
                     x-name: class
                     type: string
                     default: false
                     example: sampleclass 
                     description: |+
-                      Specifying particular class name of html elements
+                      The HTML element classname to extract
                   nestedClassId:
                     x-name: nestedclassid
                     type: string
                     default: false
                     example: p.strikeout
                     description: |+
-                      p is tag name of html element
-                      strikeout is class name inside the p element 
-                      concating both using .(dot)
+                      The nested HTML tags example: p.strikeout looks for those matching strikeout classname inside the p element.
+                      Add additional nesting elments using  using .(dot) to concatenate
                   attribute:
                     x-name: attribute
                     type: string
                     default: false
                     example: src/href
                     description: |+
-                      specifying the attribute of the elements
+                      The HTML element attribute to extract
                   title:
                     x-name: title
                     type: string
                     default: false
                     example: mytitle
                     description: |+
-                      It is an optional parameter, if title is empty the return json key is "values"
+                      The key value of the extracted result. By default, the return json key is "values".
                   returnType:
                     x-name: returnType
                     type: string
                     default: false
                     example: html
                     description: |+
-                      It is an optional parameter, returns as html if specify html
+                      The result return type. By default, its text only. Possible values are
+                      1. html
   securitySchemes:
     APIAuthorizer:
       type: apiKey
