@@ -163,6 +163,7 @@ components:
         results:
           type: object
           example: {<Json Object>}
+          description: Json Object of returned results
           properties:
             data: 
               type: string
