@@ -25,30 +25,30 @@ info:
     Returns all links/text/html/images matches the class name:
     <i>queryList:[{"findType":"find_all", "class":<class_name>,"tag":"a", "attribute":"href"}],{"findType":"find_all", "class":<class_name>, "tag":"a"},{"findType":"find_all", "class":<class_name>, "tag":"a", "returnType":"html"},{"findType":"find_all", "class":<class_name>, "tag":"img", "attribute":"src"}]</i>
     
-    Using select in findType, either class/tag/id/nestedclassid is mandatory:
+    Using select in findType, either class/tag/id/nestedClassId is mandatory:
     <i>queryList:[{"findType":"select", "class_":<class_name>, "tag":<tag_name>}]
     queryList:[{"findType":"select", "class_":<class_name>}]
     queryList:[{"findType":"select", "tag":<tag_name>}]
     queryList:[{"findType":"select", "id":, "tag":<tag_name>}]
     queryList:[{"findType":"select", "id":}]
     queryList:[{"findType":"select", "tag":<tag_name>}]
-    queryList:[{"findType":"select", "nestedclassid":<nested class/id/tags>}]
-    queryList:[{"findType":"select", "nestedclassid":<nested class/id/tags>, "returnType":"html"}]
-    queryList:[{"findType":"select", "nestedclassid":<nested class/id/tags>, "attribute":"href"}]</i>
-    Example using nestedclassid:<pre>&lt;div&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is heading&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 1&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 3&lt;/h1>&gt;<br>&lt;/div&gt;<br>&lt;div id="div2" class="divclass2"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is another heading 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 4&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 5&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 6&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.google.com"&gt;&lt;/a&gt;Google&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="class3"&gt;&lt;a href="<https://www.facebook.com"&gt;&lt;/a&gt;Facebook&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.twitter.com"&gt;&lt;/a&gt;Twitter&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>&lt;/div&gt;</pre><br>To get tags that match one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"p.strikeout"}]</i>
+    queryList:[{"findType":"select", "nestedClassId":<nested class/id/tags>}]
+    queryList:[{"findType":"select", "nestedClassId":<nested class/id/tags>, "returnType":"html"}]
+    queryList:[{"findType":"select", "nestedClassId":<nested class/id/tags>, "attribute":"href"}]</i>
+    Example using nestedClassId:<pre>&lt;div&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is heading&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 1&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 3&lt;/h1>&gt;<br>&lt;/div&gt;<br>&lt;div id="div2" class="divclass2"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is another heading 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 4&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 5&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 6&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.google.com"&gt;&lt;/a&gt;Google&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="class3"&gt;&lt;a href="<https://www.facebook.com"&gt;&lt;/a&gt;Facebook&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.twitter.com"&gt;&lt;/a&gt;Twitter&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>&lt;/div&gt;</pre><br>To get tags that match one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"p.strikeout"}]</i>
     To get h1 tags that match one or more class names
-    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"h1"}]</i>
+    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"h1"}]</i>
     To get all p tags that matches element id
-    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"div#div2 p"}]</i>
-    To get all litags that matches the element id<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"div#div2 ul li"}]</i><br/>To get links from ul list
-    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"ul li a"}]</i>
-    To get links from ul list that matches one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"ul li.class3 a"}]</i>
-    To get links a element that matches the element id and class name<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"div#div2 ul li.class3 a"}]</i>
+    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"div#div2 p"}]</i>
+    To get all litags that matches the element id<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"div#div2 ul li"}]</i><br/>To get links from ul list
+    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"ul li a"}]</i>
+    To get links from ul list that matches one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"ul li.class3 a"}]</i>
+    To get links a element that matches the element id and class name<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"div#div2 ul li.class3 a"}]</i>
     
     <b>Notes:</b>
     title - is an optional parameter, if title is empty the return json key is "values"<br/>findType - find/find_all/select
     &nbsp;&nbsp;&nbsp;&bull;&nbsp;find - returns first matching possibility<br/>&nbsp;&nbsp;&nbsp;&bull;&nbsp;find_all - returns all matching possibilities
-    &nbsp;&nbsp;&nbsp;&bull;&nbsp;select - If you want to search for tags that match two or more CSS classes. either class/tag/id/nestedclassid is mandatory
+    &nbsp;&nbsp;&nbsp;&bull;&nbsp;select - If you want to search for tags that match two or more CSS classes. either class/tag/id/nestedClassId is mandatory
     **return type is not supported alone with attribute.
     
     The results are returned in JSON format and allow for developers to rapidly retrieve website elements like tables, images, etc. from URL
