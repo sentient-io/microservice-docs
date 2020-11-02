@@ -300,7 +300,7 @@ components:
                     type: string
                     default: false
                     example: |+
-                      findType - find_all / select
+                     find_all
                     description: |+
                       Extraction Type. Possible values are:
                       1. select - Finds only the first occurance 
@@ -309,7 +309,7 @@ components:
                     x-name: tag
                     type: string
                     default: false
-                    example: h1/img/a/
+                    example: h1
                     description: |+
                       The HTML tag to extract
                   id:
@@ -338,7 +338,7 @@ components:
                     x-name: attribute
                     type: string
                     default: false
-                    example: src/href
+                    example: src
                     description: |+
                       The HTML element attribute to extract
                   title:
