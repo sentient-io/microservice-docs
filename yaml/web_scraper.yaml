@@ -170,7 +170,7 @@ components:
               description: Full Content of webpage.
             dataList:
               type: array
-              example: ["https://ichef.bbci.co.uk/images/ic/240x135/p08x3gpx.jpg","https://ichef.bbci.co.uk/curationkit-ichef/240x135/cpsprodpb/16FC3/production/_115174149_063942058.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08x2qxp.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08x39pc.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08wsqty.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08vchc7.jpg"]}]
+              example: [{"imagelinks": ["https://ichef.bbci.co.uk/images/ic/240x135/p08x3gpx.jpg","https://ichef.bbci.co.uk/curationkit-ichef/240x135/cpsprodpb/16FC3/production/_115174149_063942058.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08x2qxp.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08x39pc.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08wsqty.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08vchc7.jpg"]}]
               description: Extracted results of query string
     unauthorized:
       type: object
