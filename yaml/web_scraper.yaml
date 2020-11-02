@@ -48,8 +48,8 @@ info:
     <b>Notes:</b>
     title - is an optional parameter, if title is empty the return json key is "values"<br/>findType - find/find_all/select
     &nbsp;&nbsp;&nbsp;&bull;&nbsp;find - returns first matching possibility<br/>&nbsp;&nbsp;&nbsp;&bull;&nbsp;find_all - returns all matching possibilities
-    &nbsp;&nbsp;&nbsp;&bull;&nbsp;select - If you want to search for tags that match two or more CSS classes. either class/tag/id/nestedClassId is mandatory
-    **returnType is not supported alone with attribute.
+    &nbsp;&nbsp;&nbsp;&bull;&nbsp;select - If you want to search for tags that match two or more CSS classes. either nestedClassId is mandatory
+    **returnType is not supported with attribute.
     
     The results are returned in JSON format and allow for developers to rapidly retrieve website elements like tables, images, etc. from URL
   version: '1.1.0'
@@ -305,7 +305,7 @@ components:
                       Extraction Type. Possible values are:
                       1. find - returns the first matching possibility
                       2. find_all - returns the all matching possibility
-                      3. select - If you want to search for tags that match two or more CSS classes. either class/tag/id/nestedClassId is mandatory 
+                      3. select - If you want to search for tags that match two or more CSS classes. either nestedClassId is mandatory 
                   tag:
                     x-name: tag
                     type: string
@@ -341,7 +341,7 @@ components:
                     default: false
                     example: src
                     description: |+
-                      The HTML element attribute to extract
+                      The HTML element attribute to extract, supported only with tag/id/class/nestedClassId
                   title:
                     x-name: title
                     type: string
