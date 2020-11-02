@@ -6,7 +6,7 @@ info:
   version: '0.0.1'
   x-subscribelink: base64_file_decode
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.0.1"
   description: "Published Date - Oct 30, 2020"
