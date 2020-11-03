@@ -355,9 +355,9 @@ components:
                     default: false
                     example: html
                     description: |+
-                      The result return type. By default, its text only. **Not supported with attibute.
-                      Possible values are:
-                      1. html - returns extracted HTML result
+                      The return type as html. By default, its text only. 
+                      **Not supported with attibute.
+                      
   securitySchemes:
     APIAuthorizer:
       type: apiKey
