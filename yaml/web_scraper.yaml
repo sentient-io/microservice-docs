@@ -355,8 +355,8 @@ components:
                     default: false
                     example: html
                     description: |+
-                      The return type as html. By default, its text only. 
-                      **Not supported with attibute.
+                      Optional input parameter. If no input parameter is specified, the default return type would be text. 
+                      Use “html” to set return type to HTML format
                       
   securitySchemes:
     APIAuthorizer:
