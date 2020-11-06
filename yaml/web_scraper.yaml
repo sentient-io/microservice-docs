@@ -257,21 +257,21 @@ components:
     versions:
       type: object
       properties: 
-        v1.1:
+        v0.1.1:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Oct 30, 2020
               description: Partial URL support 
-        v1.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jul 03, 2020
               description: Improvised search filters using queryList, now you can even navigate down the html tree like get all p tag inside a div class "class":"class_name p"
-        v0.1:
+        v0.0.1:
          type: array
          items:
           oneOf:
