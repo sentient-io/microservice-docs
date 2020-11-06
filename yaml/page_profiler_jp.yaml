@@ -10,7 +10,7 @@
     version: '1.0.0'
     x-subscribelink: page_profiler_jp
   servers:
-    - url: 'https://dev-apis.sentient.io'
+    - url: 'https://apis.sentient.io'
   tags:
   - name: "v1.0.0"
     description: "Published Date - Oct 30, 2020"
