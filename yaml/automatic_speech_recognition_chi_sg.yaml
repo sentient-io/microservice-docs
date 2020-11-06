@@ -5,18 +5,20 @@ info:
     This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.
     
     This microservice works best for if the audio file consists of mostly speech with no long pauses in between.
-  version: '0.1'
+    
+    The size of your audio file should be **between 3 KB to 10 MB**.
+  version: '0.1.1'
   x-subscribelink: automatic_speech_recognition_chi_sg
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1"
-  description: "Published Date - Jun 18, 2018"
+- name: "v0.1.1"
+  description: "Published Date - Sep 28, 2018"
 paths:
   /microservices/voice/asrsch/v0.1/getpredictions:
     post:
       tags:
-        - v0.1
+        - v0.1.1
       responses:
         '200':
           description: success response
@@ -179,8 +181,11 @@ components:
           default: true
           example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input file in base64 format and needs to be prefixed by the data type and encoding
-            data:audio/wav;base64,<wav in base64 string>
+            Input file in base64 format. 
+            
+            Input file needs to be prefixed by the data type and encoding.
+            
+            Data:audio/wav;base64,<wav in base64 string>
         language:
           x-name: language
           type: string
@@ -192,12 +197,19 @@ components:
     versions:
       type: object
       properties: 
-        v0.1:
+        v0.1.1:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 18,2018
+              example: Published Date - Sep 28,2018
+              description: Patch update on bug fixes
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 21,2018
               description: Initial version release
   securitySchemes:
     APIAuthorizer:

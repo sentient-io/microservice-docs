@@ -1,24 +1,24 @@
   openapi: 3.0.1
   info:
-    title: Page Profiler THAI
+    title: Page Profiler ENG
     description: |+
-      This NLP microservice retrieves web content in Thai from the input URL. From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output. 
+      This NLP microservice retrieves web content in English from the input URL. 
       
-      The named-entity classes extracted are persons, locations, organisations and miscellaneous.
+      From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output.
       
-      This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
-    version: '1.0.0'
-    x-subscribelink: page_profiler_thai
+      The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+    x-subscribelink: page_profiler_eng  
+    version: '2.1.0'
   servers:
     - url: 'https://apis.sentient.io'
   tags:
-  - name: "v1.0.0"
+  - name: "v2.1.0"
     description: "Published Date - Oct 30, 2020"
   paths:
-    /microservices/nlp/pageprofilerthai/v1/getpredictions:
+    /microservices/nlp/pageprofiler/v2/getpredictions:
       post:
         tags:
-          - v1.0.0
+          - v2.1.0
         responses:
           '200':
             description: success response
@@ -26,39 +26,7 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/success'
-                example: 
-                  message: Successfully Processed
-                  results:
-                    law:
-                    - รุ้ง" จัดกิจกรรม"ตามหานาย" หน้ากองพันทหารม้าที่ 4 กองพล 1 รอ.ทวงถามความรับผิดชอบ
-                      28 กันยายน 2563
-                      ติดต่อโฆษณาออนไลน์ Worarak
-                    location:
-                    - กทม.
-                    - เมียนมา
-                    - อินเดีย
-                    - ไทย
-                    money:
-                    - 7หมื่นชิ้น
-                    - 33 ล้าน
-                    organization:
-                    - ทัพเพื่อไทย
-                    - กรมอุตุฯ
-                    - รฟม.
-                    - มหาดไทย
-                    - ปธ.อำนวยการ
-                    person:
-                    - น้องวีจิ
-                    - สักงูเขียว รับผิดขอโทษ
-                    - บิ๊กตู่
-                    - มาดามเดียร์"ติงนโยบายยกเว้นภาษี เปิดช่องรร.ทำกำไร
-                    - ชูศักดิ์
-                    - รร.สารสาสน์
-                    - บิ๊กบราเธอร์"
-                    - ครูจุ๋ม'
-                    - ครูจุ๋ม"
-                  status: Success
-
+                example: {"message":"SuccessfullyProcessed","results":{"loc":["Hubei","Singapore","SINGAPORE","China","Immigration"],"misc":["ICA.They"],"org":["ImmigrationandCheckpointsAuthority","ICA","LOA"]},"status":"Success"}             
           '401':
             description: Unauthorized
             content:
@@ -125,25 +93,22 @@
             example: { "<Json": "Object>" }
             description: Json Object of returned results
             properties:
-              location:
-                x-name: location
-                type: array
-                example: [ สหรัฐอเมริ ]
-                description: name of location found in the text string
-              
-              person:
-                x-name: person
-                type: array
-                example: [ ประธานาธิบดีทร ]
-                description: name of person found in the text string       
-                message:
-                  type: string
-                  example: Successfully Processed
-                  description: Detail description on the API status
-                status:
-                  type: string
-                  example: Success
-                  description: The status of the API call success/failure
+              loc:
+               type: array
+               example: ["Nat","Sentient.io","Home","Inte","CONTACT","Join"]
+               description: "name of location found in the text string"
+              misc:
+               type: array
+               example: ["Sentient.io","English"]
+               description: "name of misc found in the text string"    
+              org:
+               type: array
+               example: ["Our Clients","AI","APIs","Sentient.io","Our Technology Partners","Named Entity Recognition","Our Investors"]
+               description: "name of org found in the text string"   
+              per:
+               type: array
+               example: ["Sentient.io","Speech","LinkedIn"]
+               description: "name of persons found in the text string"                 
           message:
             type: string
             example: Successfully Processed
@@ -151,7 +116,7 @@
           status:
             type: string
             example: Success
-            description: The status of the API call success/failure                  
+            description: The status of the API call success/failure 
       unauthorized:
         type: object
         properties:
@@ -227,20 +192,34 @@
       versions:
         type: object
         properties: 
-          v1.0.0:
+          v2.1.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
                 description: Partial URL support         
-          v0.1.0:
+          v2.0.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Sep 30, 2020
-                description: Initial version release    
+                description: Standardizing Output JSON           
+          v1.0.0:
+           type: array
+           items:
+            oneOf:
+              - type: string
+                example: Published Date - May 15, 2018
+                description: Swap the NLP with Named-Entity Recognition ENG             
+          v0.1.0:
+           type: array
+           items:
+            oneOf:
+              - type: string
+                example: Published Date - Apr 16, 2018
+                description: Initial version release  
       input:
         type: object
         required:
@@ -250,7 +229,7 @@
             x-name: url
             type: string
             default: true
-            example: https://www.naewna.com/entertain/527527
+            example: https://www.sentient.io/en/
             description: |+
               The URL of the page to be profiled.
               

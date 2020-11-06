@@ -3,8 +3,8 @@ info:
   title: Web Scraper
   x-subscribelink: web_scraper
   description: |+
-    This API is used to extract content or specific HTML elements from web pages. Supports both HTML and Text output. The web scraper can be instructed to extract HTML elements that match the criteria given in the queryList HTTP request parameter, it can even do navigate down the html tree like get all p tag inside a div class "class":"class_name p"
-  x-description2: |+
+    This API is used to extract content or specific HTML elements from web pages. Supports both HTML and Text output. The web scraper can be instructed to extract HTML elements that match the criteria given in the queryList HTTP request parameter, it can even do navigate down the html tree like get all p tag inside a div class "class":"class_name p".  
+  x-additionalinfo: |+
     Examples:
     
     To get article content, as text
@@ -25,44 +25,44 @@ info:
     Returns all links/text/html/images matches the class name:
     <i>queryList:[{"findType":"find_all", "class":<class_name>,"tag":"a", "attribute":"href"}],{"findType":"find_all", "class":<class_name>, "tag":"a"},{"findType":"find_all", "class":<class_name>, "tag":"a", "returnType":"html"},{"findType":"find_all", "class":<class_name>, "tag":"img", "attribute":"src"}]</i>
     
-    Using select in findType, either class/tag/id/nestedclassid is mandatory:
+    Using select in findType, either class/tag/id/nestedClassId is mandatory:
     <i>queryList:[{"findType":"select", "class_":<class_name>, "tag":<tag_name>}]
     queryList:[{"findType":"select", "class_":<class_name>}]
     queryList:[{"findType":"select", "tag":<tag_name>}]
     queryList:[{"findType":"select", "id":, "tag":<tag_name>}]
     queryList:[{"findType":"select", "id":}]
     queryList:[{"findType":"select", "tag":<tag_name>}]
-    queryList:[{"findType":"select", "nestedclassid":<nested class/id/tags>}]
-    queryList:[{"findType":"select", "nestedclassid":<nested class/id/tags>, "returnType":"html"}]
-    queryList:[{"findType":"select", "nestedclassid":<nested class/id/tags>, "attribute":"href"}]</i>
-    Example using nestedclassid:<pre>&lt;div&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is heading&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 1&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 3&lt;/h1>&gt;<br>&lt;/div&gt;<br>&lt;div id="div2" class="divclass2"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is another heading 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 4&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 5&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 6&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.google.com"&gt;&lt;/a&gt;Google&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="class3"&gt;&lt;a href="<https://www.facebook.com"&gt;&lt;/a&gt;Facebook&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.twitter.com"&gt;&lt;/a&gt;Twitter&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>&lt;/div&gt;</pre><br>To get tags that match one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"p.strikeout"}]</i>
+    queryList:[{"findType":"select", "nestedClassId":<nested class/id/tags>}]
+    queryList:[{"findType":"select", "nestedClassId":<nested class/id/tags>, "returnType":"html"}]
+    queryList:[{"findType":"select", "nestedClassId":<nested class/id/tags>, "attribute":"href"}]</i>
+    Example using nestedClassId:<pre>&lt;div&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is heading&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 1&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 3&lt;/h1>&gt;<br>&lt;/div&gt;<br>&lt;div id="div2" class="divclass2"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is another heading 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 4&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 5&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 6&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.google.com"&gt;&lt;/a&gt;Google&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="class3"&gt;&lt;a href="<https://www.facebook.com"&gt;&lt;/a&gt;Facebook&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.twitter.com"&gt;&lt;/a&gt;Twitter&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>&lt;/div&gt;</pre><br>To get tags that match one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"p.strikeout"}]</i>
     To get h1 tags that match one or more class names
-    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"h1"}]</i>
+    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"h1"}]</i>
     To get all p tags that matches element id
-    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"div#div2 p"}]</i>
-    To get all litags that matches the element id<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"div#div2 ul li"}]</i><br/>To get links from ul list
-    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"ul li a"}]</i>
-    To get links from ul list that matches one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"ul li.class3 a"}]</i>
-    To get links a element that matches the element id and class name<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedclassid":"div#div2 ul li.class3 a"}]</i>
+    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"div#div2 p"}]</i>
+    To get all litags that matches the element id<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"div#div2 ul li"}]</i><br/>To get links from ul list
+    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"ul li a"}]</i>
+    To get links from ul list that matches one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"ul li.class3 a"}]</i>
+    To get links a element that matches the element id and class name<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"div#div2 ul li.class3 a"}]</i>
     
     <b>Notes:</b>
     title - is an optional parameter, if title is empty the return json key is "values"<br/>findType - find/find_all/select
     &nbsp;&nbsp;&nbsp;&bull;&nbsp;find - returns first matching possibility<br/>&nbsp;&nbsp;&nbsp;&bull;&nbsp;find_all - returns all matching possibilities
-    &nbsp;&nbsp;&nbsp;&bull;&nbsp;select - If you want to search for tags that match two or more CSS classes. either class/tag/id/nestedclassid is mandatory
-    **return type is not supported alone with attribute.
+    &nbsp;&nbsp;&nbsp;&bull;&nbsp;select - If you want to search for tags that match two or more CSS classes. either nestedClassId is mandatory
+    **returnType is not supported with attribute.
     
     The results are returned in JSON format and allow for developers to rapidly retrieve website elements like tables, images, etc. from URL
-  version: '1.0'
+  version: '1.1.0'
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0"
-  description: "Published Date - Feb 10, 2020"
+- name: "v1.1.0"
+  description: "Published Date - Oct 30, 2020"
 paths:
-  /microservices/utility/webscraping/v1.0/getresults:
+  /microservices/utility/webscraping/v1/getresults:
     post:
       tags:
-        - v1.0
+        - v1.1.0
       responses:
         '200':
           description: success response
@@ -71,16 +71,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                url: string
-                queryList:
-                - findType: string
-                  tag: string
-                  id: string
-                  class: string
-                  nestedclassid: string
-                  attribute: string
-                  title: string
-                  returnType: string
+                message: Successfully Processed
+                results:
+                  data: |-
+                    BBC - HomeBBC HomepageSkip to contentAccessibility Helpsign-inBBC AccountHomeNewsSportReelWorklifeTravelFutureCultureMenuMorecaret-downsearchSearchHomeNewsSportReelWorklifeTravelFutureCultureMusicTVWeatherSoundsnoClose menuWelcome to the BBCBBC HomepagePM warns virus deaths could be 'twice as bad' as springAttributionUKPrince William 'contracted Covid-19 in April'AttributionUKWhich Strictly celeb is the first to leave?AttributionBBC OneMore top storiesBale heads winner to send Spurs secondAttributionFootballWho's ahead in the polls - Trump or Biden?AttributionUS Election 2020Five alternatives to saving money with the bankAttributionBBC ScotlandCoronavirus pandemicnextSpain's funeral homes strike as virus cases riseAttributionEuropeHow many coronavirus cases are there in your area?AttributionUKPolice battle to break up 700-strong illegal raveAttributionEnglandNews headlinesnextScotland's new regional Covid restrictions go liveAttributionScotlandBiden and Trump criss-cross the US as vote nearsAttributionUS Election 2020Veteran journalist Robert Fisk dies aged 74AttributionMiddle EastSport headlinesnextPogba says he made 'stupid mistake'AttributionMan Utd'I don't know the direction Man Utd are going' - MOTD2 analysis. Video'I don't know the direction Man Utd are going' - MOTD2 analysisAttributionMan UtdplayMan City win FA Cup after extra timeAttributionWomen's FootballUS Election 2020nextUS election: Trump is in the fight of his political lifeAttributionUS Election 2020The Asians who want Trump to win re-electionAttributionAsiaThe 750,000 people you didn't know could voteAttributionUS Election 2020Around the UKnextScotland's new regional Covid restrictions go liveAttributionScotlandFollow rules plea ahead of post-lockdown exit planAttributionWalesEight more coronavirus-related deaths in NIAttributionNorthern IrelandThe BBC around the UKScotlandALBAWalesCymruNI3 things we love todayYour pictures on the theme of 'urban living'AttributionIn PicturesCan you guess the celebrity childhood photo?AttributionBBC BitesizeThis Celtic rainforest has the calm vibes we all need. VideoThis Celtic rainforest has the calm vibes we all needAttributionBBC TwoplayPlant powerPlant power, Should you swap that beef burger for a vegan version?Should you swap that beef burger for a vegan version?Watch what might happen if the entire world switched to a plant-based dietAttributionBBC IdeasEntertainment news'This is one of my films of the year'AttributionBBC Radio 5 LiveBill surprises fans with nimble feet (and an elephant)AttributionBBC OneSean Connery's greatest moments on screen - in picturesAttributionEntertainment & ArtsSocietyCouple trolled for intimate wedding photoshootAttributionIndia'I raise £2,000 a month to keep my daughter alive'AttributionEngland'Collaborative effort' needed to help gay players come outAttributionEnglandOur Planet NownextThe BBC’s ongoing focus on the environment and the challenges facing our planetYou've got cheap data, how about cheap power too?Publishedduration2 days agoAttributionScience & EnvironmentThe Repair Shop's Jay Blades: 'Make do and mend' for the planet. Video, 00:03:15The Repair Shop's Jay Blades: 'Make do and mend' for the planetPublishedduration2 days agoplay3:15'You could see avocados growing in Hackney' Video, 00:01:04'You could see avocados growing in Hackney'Publishedduration3 days agoAttributionLondonplay1:04Real-life storiesSteph McGovern on 'toning it down' for TV, Trump and pregnancy. AudioSteph McGovern on 'toning it down' for TV, Trump and pregnancyAttributionBBC Radio 4listen'Nobody would help me until Keanu Reeves turned up!' Video'Nobody would help me until Keanu Reeves turned up!'AttributionBBC OneplayDoctor duped into buying 'Aladdin's lamp' for $41,600AttributionIndiaYou might have missedA magical underwater moment captured on film. VideoA magical underwater moment captured on filmAttributionBBC TwoplayHouse prices climb to record high, says NationwideAttributionBusinessCornwall Poldark house fallen into 'complete disrepair'AttributionEnglandFoodnextPerfect pot-roasts with minimum effortAttributionBBC FoodA super-speedy version of a takeaway classicAttributionBBC FoodHealthy winter warmers to keep you full for longerAttributionBBC FoodLifestyleThree tips to help you through redundancy. VideoThree tips to help you through redundancyAttributionBBC IdeasplayGet your ramble on with Countryfile's top hiking tipsAttributionBBC Children in NeedAwesome autumn activities for younger kidsAttributionTiny Happy PeopleThis week in sportWilder questions Fury gloves in rematchAttributionBoxingTributes after ex-Hearts captain Zaliukas dies aged 36AttributionFootballVerstappen sorry for offensive language during
+                    Portuguese GPAttributionFormula 1Behind the headlinesCharlie Hebdo attack suspect tests positive for Covid-19AttributionEuropeBerlin's new €6bn airport opens... 10 years late. VideoBerlin's new €6bn airport opens... 10 years lateAttributionWorldplayNew York man plunges into rat-infested sinkholeAttributionUS & CanadaTime well spentSam Smith's track-by-track guide to their new album. AudioSam Smith's track-by-track guide to their new albumAttributionBBC Radio 1listenRap Game star shares his Black History Month picksAttributionBBC ThreeThese eerie stories might just keep you awake at nightAttributionBBC Radio 4Modern Slavery StatementRead moreThe BBC around the UKScotlandALBAWalesCymruNIOther servicesComplaintsUS Election 2020A really simple guide to the electionAttributionBBC NewsDisinformation: How to spot it. iPlayerDisinformation: How to spot itAttributionBBC iPlayeriplayerWho do you think will win?AttributionBBC NewsOdd happenings from past US electionsAttributionBBC BitesizeHomeNewsSportReelWorklifeTravelFutureCultureMusicTVWeatherSoundsTerms of UseAbout the BBCPrivacy PolicyCookiesAccessibility HelpParental GuidanceContact the BBCGet Personalised NewslettersWhy you can trust the BBCAdvertise with usAdChoices / Do Not Sell My Info© 2020 BBC. The BBC is not responsible for the content of external sites. Read about our approach to external linking.
+                  dataList:
+                  - imagelinks:
+                    - https://ichef.bbci.co.uk/images/ic/240x135/p08x3gpx.jpg
+                    - https://ichef.bbci.co.uk/curationkit-ichef/240x135/cpsprodpb/16FC3/production/_115174149_063942058.jpg
+                    - https://ichef.bbci.co.uk/images/ic/240x135/p08x2qxp.jpg
+                    - https://ichef.bbci.co.uk/images/ic/240x135/p08x39pc.jpg
+                    - https://ichef.bbci.co.uk/images/ic/240x135/p08wsqty.jpg
+                    - https://ichef.bbci.co.uk/images/ic/240x135/p08vchc7.jpg
+                status: Success              
         '400':
           description: Restricted
           content:
@@ -148,55 +152,6 @@ components:
     success:
       type: object
       properties:
-        results:
-          type: array
-          example: [{"title":"imagelinks", "findType":"find_all","tag":"img","attribute":"src"}]
-          description: The result of the API call
-          items:
-            properties:
-              links:
-                type: array
-                items:
-                  oneOf:
-                    - type: string
-                      example: https://www.bbc.co.uk
-                    - type: string
-                      example: https://www.bbc.co.uk/accessibility/
-                    - type: string
-                      example: https://www.bbc.co.uk/news
-                    - type: string
-                      example: https://www.bbc.co.uk/news
-                    - type: string
-                      example: https://www.bbc.co.uk/news
-                    - type: string
-                      example: https://www.bbc.co.uk/weather
-              values:
-                type: array
-                items:
-                  oneOf:
-                    - type: object
-                      properties:
-                        value: 
-                          type: string
-                          example: <a href=\"https://www.bbc.co.uk\">Home</a>
-                    - type: object
-                      properties:
-                        value: 
-                          type: string
-                          example: <a href=\"https://www.bbc.co.uk/news\">News</a>
-                    - type: object
-                      properties:
-                        value:
-                          type: string
-                          example: <a href=\"https://www.bbc.co.uk/sport\">Sport</a>
-              images:
-                  type: array
-                  items:
-                    oneOf:
-                      - type: string
-                        example: https://ichef.bbci.co.uk/news/320/cpsprodpb/0DDC/production/_112984530_gettyimages-1227286994.jpg       
-                      - type: string
-                        example: https://ichef.bbci.co.uk/images/ic/720x405/p08dwhp8.jpg
         message:
           type: string
           example: successfully processed
@@ -205,6 +160,19 @@ components:
           type: string
           example: success
           description: The status of the API call success/failure
+        results:
+          type: object
+          example: 	{"data":"text content of the webpage","dataList": [{ "title": "imagelinks", "findType": "find_all", "tag": "img", "attribute": "src" }]}
+          description: Json Object of returned results
+          properties:
+            data: 
+              type: string
+              example: "BBC - HomeBBC HomepageSkip to contentAccessibility Helpsign-inBBC AccountHomeNewsSportReelWorklifeTravelFutureCultureMenuMorecaret-downsearchSearchHomeNewsSportReelWorklifeTravelFutureCultureMusicTVWeatherSoundsnoClose menuWelcome to the BBCBBC HomepagePM warns virus deaths could be 'twice as bad' as springAttributionUKPrince William 'contracted Covid-19 in April'AttributionUKWhich Strictly celeb is the first to leave?AttributionBBC OneMore top storiesBale heads winner to send Spurs secondAttributionFootballWho's ahead in the polls - Trump or Biden?AttributionUS Election 2020Five alternatives to saving money with the bankAttributionBBC ScotlandCoronavirus pandemicnextSpain's funeral homes strike as virus cases riseAttributionEuropeHow many coronavirus cases are there in your area?AttributionUKPolice battle to break up 700-strong illegal raveAttributionEnglandNews headlinesnextScotland's new regional Covid restrictions go liveAttributionScotlandBiden and Trump criss-cross the US as vote nearsAttributionUS Election 2020Veteran journalist Robert Fisk dies aged 74AttributionMiddle EastSport headlinesnextPogba says he made 'stupid mistake'AttributionMan Utd'I don't know the direction Man Utd are going' - MOTD2 analysis. Video'I don't know the direction Man Utd are going' - MOTD2 analysisAttributionMan UtdplayMan City win FA Cup after extra timeAttributionWomen's FootballUS Election 2020nextUS election: Trump is in the fight of his political lifeAttributionUS Election 2020The Asians who want Trump to win re-electionAttributionAsiaThe 750,000 people you didn't know could voteAttributionUS Election 2020Around the UKnextScotland's new regional Covid restrictions go liveAttributionScotlandFollow rules plea ahead of post-lockdown exit planAttributionWalesEight more coronavirus-related deaths in NIAttributionNorthern IrelandThe BBC around the UKScotlandALBAWalesCymruNI3 things we love todayYour pictures on the theme of 'urban living'AttributionIn PicturesCan you guess the celebrity childhood photo?AttributionBBC BitesizeThis Celtic rainforest has the calm vibes we all need. VideoThis Celtic rainforest has the calm vibes we all needAttributionBBC TwoplayPlant powerPlant power, Should you swap that beef burger for a vegan version?Should you swap that beef burger for a vegan version?Watch what might happen if the entire world switched to a plant-based dietAttributionBBC IdeasEntertainment news'This is one of my films of the year'AttributionBBC Radio 5 LiveBill surprises fans with nimble feet (and an elephant)AttributionBBC OneSean Connery's greatest moments on screen - in picturesAttributionEntertainment & ArtsSocietyCouple trolled for intimate wedding photoshootAttributionIndia'I raise £2,000 a month to keep my daughter alive'AttributionEngland'Collaborative effort' needed to help gay players come outAttributionEnglandOur Planet NownextThe BBC’s ongoing focus on the environment and the challenges facing our planetYou've got cheap data, how about cheap power too?Publishedduration2 days agoAttributionScience & EnvironmentThe Repair Shop's Jay Blades: 'Make do and mend' for the planet. Video, 00:03:15The Repair Shop's Jay Blades: 'Make do and mend' for the planetPublishedduration2 days agoplay3:15'You could see avocados growing in Hackney' Video, 00:01:04'You could see avocados growing in Hackney'Publishedduration3 days agoAttributionLondonplay1:04Real-life storiesSteph McGovern on 'toning it down' for TV, Trump and pregnancy. AudioSteph McGovern on 'toning it down' for TV, Trump and pregnancyAttributionBBC Radio 4listen'Nobody would help me until Keanu Reeves turned up!' Video'Nobody would help me until Keanu Reeves turned up!'AttributionBBC OneplayDoctor duped into buying 'Aladdin's lamp' for $41,600AttributionIndiaYou might have missedA magical underwater moment captured on film. VideoA magical underwater moment captured on filmAttributionBBC TwoplayHouse prices climb to record high, says NationwideAttributionBusinessCornwall Poldark house fallen into 'complete disrepair'AttributionEnglandFoodnextPerfect pot-roasts with minimum effortAttributionBBC FoodA super-speedy version of a takeaway classicAttributionBBC FoodHealthy winter warmers to keep you full for longerAttributionBBC FoodLifestyleThree tips to help you through redundancy. VideoThree tips to help you through redundancyAttributionBBC IdeasplayGet your ramble on with Countryfile's top hiking tipsAttributionBBC Children in NeedAwesome autumn activities for younger kidsAttributionTiny Happy PeopleThis week in sportWilder questions Fury gloves in rematchAttributionBoxingTributes after ex-Hearts captain Zaliukas dies aged 36AttributionFootballVerstappen sorry for offensive language during\nPortuguese GPAttributionFormula 1Behind the headlinesCharlie Hebdo attack suspect tests positive for Covid-19AttributionEuropeBerlin's new €6bn airport opens... 10 years late. VideoBerlin's new €6bn airport opens... 10 years lateAttributionWorldplayNew York man plunges into rat-infested sinkholeAttributionUS & CanadaTime well spentSam Smith's track-by-track guide to their new album. AudioSam Smith's track-by-track guide to their new albumAttributionBBC Radio 1listenRap Game star shares his Black History Month picksAttributionBBC ThreeThese eerie stories might just keep you awake at nightAttributionBBC Radio 4Modern Slavery StatementRead moreThe BBC around the UKScotlandALBAWalesCymruNIOther servicesComplaintsUS Election 2020A really simple guide to the electionAttributionBBC NewsDisinformation: How to spot it. iPlayerDisinformation: How to spot itAttributionBBC iPlayeriplayerWho do you think will win?AttributionBBC NewsOdd happenings from past US electionsAttributionBBC BitesizeHomeNewsSportReelWorklifeTravelFutureCultureMusicTVWeatherSoundsTerms of UseAbout the BBCPrivacy PolicyCookiesAccessibility HelpParental GuidanceContact the BBCGet Personalised NewslettersWhy you can trust the BBCAdvertise with usAdChoices / Do Not Sell My Info© 2020 BBC. The BBC is not responsible for the content of external sites. Read about our approach to external linking."
+              description: Text content of the webpage.
+            dataList:
+              type: array
+              example: [{"imagelinks": ["https://ichef.bbci.co.uk/images/ic/240x135/p08x3gpx.jpg","https://ichef.bbci.co.uk/curationkit-ichef/240x135/cpsprodpb/16FC3/production/_115174149_063942058.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08x2qxp.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08x39pc.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08wsqty.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08vchc7.jpg"]}]
+              description: Extracted results of queryList in a list format.
     unauthorized:
       type: object
       properties:
@@ -289,12 +257,26 @@ components:
     versions:
       type: object
       properties: 
-        v0.1:
+        v1.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Feb 10, 2020
+              example: Published Date - Oct 30, 2020
+              description: Partial URL support 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 03, 2020
+              description: Improvised search filters using queryList, now you can even navigate down the html tree like get all p tag inside a div class "class":"class_name p"
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 18, 2018
               description: Initial version release
     input:
       type: object
@@ -303,30 +285,79 @@ components:
           type: string
           default: true
           example: https://www.bbc.co.uk
-          description: The absolute input url, i.e exact, full address (URL) to the page
+          description: Webpage URL. It also support partial URL like bbc.co.uk
         queryList:
           type: array
           default: false
           example: [{"title":<give_your_name_for_the block>,"findType":"find_all","tag":"h1", "returnType":"html"}]
-          description: Array object
+          description: List of extraction conditions.
           items:
-            properties:
-              findType:
-                type: string
-              tag:
-                type: string
-              id:
-                type: string
-              class:
-                type: string
-              nestedclassid:
-                type: string
-              attribute:
-                type: string
-              title:
-                type: string
-              returnType:
-                type: string
+            oneOf:
+              - type: object
+                properties:
+                  findType:
+                    x-name: findType
+                    type: string
+                    default: false
+                    example: |+
+                     find_all
+                    description: |+
+                      Extraction Type. Possible values are:
+                      1. find - returns the first matching possibility
+                      2. find_all - returns the all matching possibility
+                      3. select - If you want to search for tags that match two or more CSS classes. either nestedClassId is mandatory 
+                  tag:
+                    x-name: tag
+                    type: string
+                    default: false
+                    example: h1
+                    description: |+
+                      The HTML tag to extract
+                  id:
+                    x-name: id
+                    type: string
+                    default: false
+                    example: sampleid 
+                    description: |+
+                      The HTML element id to extract
+                  class:
+                    x-name: class
+                    type: string
+                    default: false
+                    example: sampleclass 
+                    description: |+
+                      The HTML element classname to extract
+                  nestedClassId:
+                    x-name: nestedclassid
+                    type: string
+                    default: false
+                    example: p.strikeout
+                    description: |+
+                      The nested HTML tags. Example: p.strikeout - looks for those matching "strikeout" classname inside the "p" element.
+                      Add additional nesting elments using .(dot) to concatenate
+                  attribute:
+                    x-name: attribute
+                    type: string
+                    default: false
+                    example: src
+                    description: |+
+                      The HTML element attribute to extract, supported only with tag/id/class/nestedClassId
+                  title:
+                    x-name: title
+                    type: string
+                    default: false
+                    example: mytitle
+                    description: |+
+                      The key value of the extracted result. By default, the return json key is "values".
+                  returnType:
+                    x-name: returnType
+                    type: string
+                    default: false
+                    example: html
+                    description: |+
+                      Optional input parameter. If no input parameter is specified, the default return type would be text. 
+                      Use “html” to set return type to HTML format
+                      
   securitySchemes:
     APIAuthorizer:
       type: apiKey

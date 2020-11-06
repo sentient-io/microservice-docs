@@ -2,19 +2,23 @@ openapi: 3.0.1
 info:
   title: Newspaper Article Scraper
   description: |+
-    This api allows to extracting & curating articles and delivers Instapaper style article extraction. Current supported languages: Arabic, Russian, Dutch, German, English, Spanish, French, Hebrew, Italian, Korean, Norwegian, Persian, Polish, Portuguese, Swedish, Hungarian, Finnish, Danish, Chinese, Indonesian, Vietnamese, Swahili, Turkish, Greek, Ukrainian. Supports automatic languages detection.
-  version: '0.1'
+    This api allows to extracting & curating articles and delivers Instapaper style article extraction. 
+    
+    Current supported languages: Arabic, Russian, Dutch, German, English, Spanish, French, Hebrew, Italian, Korean, Norwegian, Persian, Polish, Portuguese, Swedish, Hungarian, Finnish, Danish, Chinese, Indonesian, Vietnamese, Swahili, Turkish, Greek, Ukrainian. Supports automatic languages detection.
+    
+    Note that the URL has to be **spelt in full**, including "https://www."
+  version: '0.1.0'
   x-subscribelink: newspaper_article_scraper
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1"
-  description: "Published Date - Aug 04, 2020"
+- name: "v0.1.0"
+  description: "Published Date - Aug 07, 2020"
 paths:
   /microservices/utility/newsarticle/v0.1/getresults:
     post:
       tags:
-        - v0.1
+        - v0.1.0
       responses:
         '200':
           description: success response
@@ -277,12 +281,12 @@ components:
     versions:
       type: object
       properties: 
-        v1.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Aug 04, 2020
+              example: Published Date - Aug 07, 2020
               description: Initial version release
     input:
       type: object
@@ -293,7 +297,7 @@ components:
           type: string
           example: https://www.bangkokpost.com/learning/news/1272315/study-and-work-in-australia-%E2%80%93-many-opportunities-ahead
           default: true
-          description: The absolute input url, i.e exact, full address (URL) to the page
+          description: The absolute input url, i.e exact, full address (URL) to the page.
   securitySchemes:
     APIAuthorizer:
       type: apiKey

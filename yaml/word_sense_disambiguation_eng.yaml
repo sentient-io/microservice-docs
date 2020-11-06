@@ -5,18 +5,21 @@ info:
     This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence.
     
     If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
-  version: '0.1'
+    
+    Do ensure that your text is within **5000 characters**.
+
+  version: '0.1.0'
   x-subscribelink: word_sense_disambiguation_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1"
-  description: "Published Date - Feb 12, 2020"
+- name: "v0.1.0"
+  description: "Published Date - Mar 06, 2020"
 paths:
   /microservices/nlp/wordsensedisambiguation/v0.1/getpredictions:
     post:
       tags:
-        - v0.1
+        - v0.1.0
       responses:
         '200':
           description: success response
@@ -156,12 +159,12 @@ components:
                             example: society.n.01 
                             description: The target word name in wordnet library
                           synset_score:
-                            type: integer
+                            type: number
                             format : float
                             example: 0.9870249032974243  
                             description: Is the confidence score from the network
                           token_index:
-                            type: integer
+                            type: number
                             example: 40    
                             description: Is the target word position in the sentence                         
     unauthorized:
@@ -247,7 +250,9 @@ components:
           default: true
           example: An estimated 180,000 people were under mandatory evacuation orders, including parts of Santa Rosa and a large swath of Sonoma County all the way to the Pacific Ocean.
           description: |+
-            Input text. A complete sentence or paragraph
+            Input text can be a complete sentence or paragraph.
+            
+            Supported formats: ASCII only
         target_word:
           x-name: target_word
           type: string
@@ -266,12 +271,12 @@ components:
     versions:
       type: object
       properties: 
-        v0.1:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Feb 12,2020
+              example: Published Date - Mar 06, 2020
               description: Initial version release  
   securitySchemes:
     APIAuthorizer:

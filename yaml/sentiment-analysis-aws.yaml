@@ -3,14 +3,14 @@ info:
   title: Sentiment Analysis AWS
   description: >-
     The sentiment analysis will help to determine the expressed emotional state of person by using natural language processing to analyse a range of parameters, including tone of voice, choice of words.<br><br>This is a passthrough to AWS’s sentiment analyser.
-  version: '1.0'
+  version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
 paths:
   /sentimentanalysis/prod/awssa:
     post:
       tags:
-        - v0.1
+        - v0.1.0
       responses:
         '200':
           description: success response

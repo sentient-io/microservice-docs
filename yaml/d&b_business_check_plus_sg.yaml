@@ -2,18 +2,18 @@ openapi: 3.0.1
 info:
   title: D&B Business Check Plus (SG)
   description:  The Data microservice provides key business information, litigation information (High and Subordinate Courts) and Winding Up Trace of a company including the Business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholder, litigation information. Updated daily.
-  version: '0.1'
+  version: '0.1.0'
   x-subscribelink: d&b_business_check_plus_sg
 servers:
   - url: 'https://api.sentient.io'
 tags:
-- name: "v0.1"
-  description: "Published Date - Jul 23, 2019"
+- name: "v0.1.0"
+  description: "Published Date - Aug 15, 2019"
 paths:
    /dnb/prod/sbcp:
     post:
       tags:
-        - v0.1
+        - v0.1.0
       summary: Adds a new user
       requestBody:
         content:
@@ -1563,11 +1563,7 @@ components:
                             example: 0001
                           Rcsecflag :
                             type: integer
-                            description: |+
-                              Differentiate Search By Financial Sectors and Search By Non- Financial Sectors.
-                              Possible values are&#58;
-                                1 SEARCH BY FINANCIAL SECTORS 
-                                0 SEARCH BY NON FINANCIAL SECTORS
+                            description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
                             example: 1
                           LastUpdateDate :
                             type: datetime
@@ -1649,7 +1645,7 @@ components:
       type: object
       properties:
         TOT_ITEMS:
-          type: integer
+          type: number
           example: 1
           description: Number of subjects being enquired relating to the Run
           default: false
@@ -1673,12 +1669,12 @@ components:
     versions:
       type: object
       properties: 
-        v0.1:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Jul 23, 2019
+              example: Published Date - Aug 15, 2019
               description: Initial version release
   securitySchemes:
     APIAuthorizer:

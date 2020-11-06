@@ -1,21 +1,20 @@
 openapi: 3.0.1
 info:
-  title: Text-To-Speech CHI
+  title: Automatic Voice Recognition ENG
   description: |+
-    This Voice microservice converts Mandarin text into speech in a female voice.
+    This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.
     
-    The Text-to-Speech AI generated synthesized voice speaks with native Mandarin accent.
+    The Automatic Speech Recognition (ASR) AI model is employed to understand the mapping of sound features to actual words in English.
     
-    Do ensure that your text is **within 750 characters**.
+    Use this microservice if the audio file consists of mostly speech with no long pauses in between.
   version: '0.1.0'
-  x-subscribelink: text-to-speech_chi
 servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Sep 28, 2018"
+  description: "Published Date - Jun 18, 2018"
 paths:
-  /microservices/voice/ttssch/v0.1/getpredictions:
+  /microservices/voice/asreng/v0.1/getpredictions:
     post:
       tags:
         - v0.1.0
@@ -26,10 +25,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: 
-                audioContent: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
-                message: Successfully Processed
-                status: Success
+              example:
+                message: Hi there
+                status: success
         '401':
           description: Unauthorized
           content:
@@ -65,7 +63,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'       
+                $ref: '#/components/schemas/inputlimitexceeded'
         '500':
           description: Internal Server Error
           content:
@@ -83,26 +81,24 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/input'
+              schema:
+                $ref: '#/components/schemas/input'
         required: true
 components:
   schemas:
     success:
       type: object
       properties:
-        message:
-          type: string
-          example: Successfully Processed
-          description: Detail description on the api status
-        status:
-          type: string
-          example: Success
-          description: The status of the API call success/failure
-        audioContent:
-          type: string
-          example: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
-          description: Audio wav file convert to base64 encode string
+              message:
+                x-name: message
+                type: string
+                example: Hi there
+                description: Converted Text
+              status:
+               x-name: status
+               type: string
+               example: success
+               description: The status of the API call success/failure
     unauthorized:
       type: object
       properties:
@@ -174,7 +170,20 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure   
+          example: Failure
+    input:
+      type: object
+      required:
+        - audio 
+      properties:
+        audio:
+          x-name: audio
+          type: string
+          default: true
+          example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
+          description: |+
+            Input file in base64 format and needs to be prefixed by the data type and encoding
+            data:audio/wav;base64,<wav in base64 string>
     versions:
       type: object
       properties: 
@@ -183,20 +192,8 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Sep 28,2018
-              description: Initial version release   
-    input:
-      type: object
-      required:
-        - text
-      properties:
-        text:
-          x-name: text
-          type: string
-          default: true
-          example: 大家好 我叫 墓园
-          description: |+
-            Input text
+              example: Published Date - Jun 18,2018
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey

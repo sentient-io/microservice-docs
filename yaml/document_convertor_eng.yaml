@@ -3,18 +3,20 @@ info:
   title: Document Convertor ENG
   description: |+
     This Utility microservice extracts the English text content of singular input Microsoft Word, HTML or PDF documents and outputs into plain text format.
-  version: '1.0'
+    
+    The size of your document file should **not exceed 7 MB**.
+  version: '1.0.0'
   x-subscribelink: document_convertor_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0"
+- name: "v1.0.0"
   description: "Published Date - Jul 30, 2020"
 paths:
   /microservices/utility/docconversion/v1.0/getresults:
     post:
       tags:
-        - v1.0
+        - v1.0.0
       responses:
               '200':
                 description: success response
@@ -177,12 +179,19 @@ components:
     versions:
       type: object
       properties: 
-        v1.0:
+        v1.0.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jul 30, 2020
+              description: Change libary for PDF reader
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 16, 2018
               description: Initial version release
     input:
       type: object
@@ -193,8 +202,10 @@ components:
           type: string
           format: binary
           default: true
-          example: file upload
-          description: The file object. Supported formats - docx,txt,pdf.Maximum file size up to - 7MB
+          example: sample.txt
+          description: The file object. 
+          
+          Supported formats: docx, pdf, txt.
   securitySchemes:
     APIAuthorizer:
       type: apiKey

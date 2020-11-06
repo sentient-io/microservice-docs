@@ -6,19 +6,21 @@ info:
     
     The named-entity classes extracted are persons, locations, organisations and miscellaneous.
     
-    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
-  version: '0.1'
+    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc. 
+    
+    Do ensure that your text is within **5000 characters**.
+  version: '0.1.0'
   x-subscribelink: named-entity_recognition_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1"
+- name: "v0.1.0"
   description: "Published Date - Nov 25, 2019"
 paths:
   /microservices/nlp/namedentityrecognition/v0.1/getpredictions:
     post:
       tags:
-        - v0.1
+        - v0.1.0
       responses:
         '200':
           description: success response
@@ -203,14 +205,14 @@ components:
     versions:
       type: object
       properties: 
-        v1.0:
+        v1.0.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Nov 25,2019
               description: Updated version release v1.0
-        v0.1:
+        v0.1.0:
          type: array
          items:
           oneOf:
@@ -228,7 +230,9 @@ components:
           default: true
           example: The Singaporean procedure of hanging condemned individuals is similar to the methods formerly used in the United Kingdom.
           description: |+
-            Input text
+            Input text. 
+            
+            Supported formats: ASCII only
   securitySchemes:
     APIAuthorizer:
       type: apiKey

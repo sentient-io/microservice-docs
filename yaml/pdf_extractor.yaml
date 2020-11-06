@@ -5,22 +5,24 @@ info:
     This Utility microservice extracts the text content of the input PDF document  with the options to extract specific pages.
     
     It also extracts from password-protected PDFs, if the correct password is provided.
-    
+        
     Output format supported: plain text or HTML.
     
     Supported languages: Hindi, German, Spanish, Portuguese, French, Turkish, Italian, Russian, Arabic, Indonesian, Chinese, Japanese and Korean.
-  version: '1.0'
+    
+    The size of your PDF file should **not exceed 7 MB**.
+  version: '1.0.0'
   x-subscribelink: pdf_extractor
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0"
+- name: "v1.0.0"
   description: "Published Date - Jul 30, 2020"  
 paths:
   /microservices/utility/pdfextractor/v1.0/getresults:
     post:
       tags:
-        - v1.0
+        - v1.0.0
       responses:
               '200':
                 description: success response
@@ -188,7 +190,7 @@ components:
     versions:
       type: object
       properties: 
-        v1.0:
+        v1.0.0:
          type: array
          items:
           oneOf:
@@ -204,25 +206,25 @@ components:
           type: string
           format: binary
           default: true
-          example: file upload
-          description: The file object Max. file size upto - 7MB. *Image pdf not supported
+          example: sample.pdf
+          description: Text-only PDF files are supported. Image or mixed PDF files are not recommended.
         pageNumbers:
-          type: integer
+          type: number
           default: false
           example: "1,3,6"
           description: Page numbers, example 1,3,6. Default all pages
         maxPages:
-          type: integer
+          type: number
           default: false
           example: "3"
           description: Maximum of page number. Default all pages
         startPage:
-          type: integer
+          type: number
           default: false
           example: "1"
           description: Starting page number, if used endPage parameter is mandatory
         endPage:
-          type: integer
+          type: number
           default: false
           example: "5"
           description: End of page number, if used startPage parameter is mandatory
