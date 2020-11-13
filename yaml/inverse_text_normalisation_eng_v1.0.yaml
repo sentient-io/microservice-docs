@@ -5,6 +5,8 @@ info:
     This NLP microservice recovers the missing punctuations such as full stop, comma, exclamation mark, and question mark from the input text.
     
     It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case.
+    
+    Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
   x-subscribelink: inverse_text_normalisation_eng
 servers:
