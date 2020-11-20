@@ -243,10 +243,10 @@ components:
           default: true
           example: sg-parliament-2019
           description: |+
-            Model name. \u201Csg-parliament-2019\u201D is trained on Singapore\
-            \ Members of Parliament - 2019.\r\n\u201Csg-parliament-2020\u201D is trained\
-            \ on Singapore Members of Parliament - 2020.\r\n\u201Csg-jp-2020\u201D is trained\
-            \ on Singapore and Japan public figures - 2020."
+            Model names. 
+            sg-parliament-2019 is trained on Singapore Members of Parliament - 2019.
+            sg-parliament-2020 is trained on Singapore Members of Parliament - 2020.
+            sg-jp-2020 is trained on Singapore and Japan public figures - 2020.
         image_base64:
           x-name: image_base64
           type: string

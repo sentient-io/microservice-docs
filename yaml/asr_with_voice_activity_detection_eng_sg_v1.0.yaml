@@ -240,7 +240,7 @@ components:
             Input file extension.
             
             Currently supported formats: .wav
-        vad_threshold:
+        threshold:
           x-name: threshold
           type: number
           format: float
