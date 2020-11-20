@@ -5,7 +5,6 @@ info:
     This Computer Vision microservice recognises faces from input image files of Singapore Members of Parliament and Japan Public figures.
     
     This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction.
-
     Some models also provide the option to filter the returned identity based on predefined attributes"
     
     The size of your image file should **not exceed 5 MB**, and the image dimension should be **at least 416x416 pixels**. 
@@ -222,13 +221,13 @@ components:
           items:
             oneOf:
             - type: string
-                example: Published Date - Nov 30,2020
-                description: Standardizing Output JSON and model update
+              example: Published Date - Nov 30,2020
+              description: Standardizing Output JSON and model update
 
         v0.1.0:
           type: array
           items:
-          oneOf:
+            oneOf:
             - type: string
               example: Published Date - Jul 03,2020
               description: Initial version release
@@ -266,7 +265,7 @@ components:
             Refer to Python Imaging Library (PIL) for supported formats: bmp, gif, jpg/jpeg, png.
         threshold:
           x-name: threshold
-          type: float
+          type: integer
           format: float
           default: false
           example: 0.5
