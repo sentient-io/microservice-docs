@@ -116,6 +116,10 @@ Computer Vision:
         title: landmark_detection_jp
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_jp.yaml"
+    Demographic Classification:
+        title: demographic_classification
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/Demographics_classification.yaml"
 Utility:
     Youtube Video Downloader:
         title: youtube_video_downloader
