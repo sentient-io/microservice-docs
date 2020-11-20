@@ -103,21 +103,21 @@ components:
                     items:
                         oneOf:
                         - type: object 
-                            properties:
-                              end:
-                                  type: number
-                                  format: float
-                                  example: 23.72
-                                  description: End time of utterance, in seconds. Offset from the start of stream.
-                              seqNum:
-                                  type: number
-                                  example: 1
-                                  description: Running sequence. Starts from 1.
-                              start:
-                                  type: number
-                                  format: float
-                                  example: 0.64
-                                  description: Start time of utterance, in seconds. Offset from the start of stream.
+                          properties:
+                            end:
+                              type: number
+                              format: float
+                              example: 23.72
+                              description: End time of utterance, in seconds. Offset from the start of stream.
+                            seqNum:
+                              type: number
+                              example: 1
+                              description: Running sequence. Starts from 1.
+                            start:
+                              type: number
+                              format: float
+                              example: 0.64
+                              description: Start time of utterance, in seconds. Offset from the start of stream.
                 message:
                     type: string
                     example: Successfully Processed
@@ -222,19 +222,19 @@ components:
       type: object
       properties:
         v1.0.0:
-            type: array
-            items:
-                oneOf:
-                - type: string
-                    example: Published Date - Nov 30,2020
-                    description: Standardizing Output JSON 
+          type: array
+          items:
+            oneOf:
+            - type: string
+                example: Published Date - Nov 30,2020
+                description: Standardizing Output JSON 
         v0.1.0:
-            type: array
-            items:
-                oneOf:
-                - type: string
-                    example: Published Date - Jul 03,2020
-                    description: Initial version release
+          type: array
+          items:
+            oneOf:
+            - type: string
+                example: Published Date - Jul 03,2020
+                description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey

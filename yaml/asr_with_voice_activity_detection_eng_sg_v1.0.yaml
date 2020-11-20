@@ -108,23 +108,23 @@ components:
                 items:
                   oneOf:
                   - type: object 
-                      properties:
-                        end:
-                          type: string
-                          example: 23.72
-                          description: End time of utterance
-                        seqNum:
-                          type: string
-                          example: 1
-                          description: Running sequence number starts from 1.
-                        start:
-                          type: integer
-                          example: 0.64
-                          description: Start time of utterance
-                        text:
-                          type: string
-                          description: Converted text from the input audio file
-                          example: THE COMING YEAR LIFE FOR A REASON A CITIZEN OR A LIFETIME LIKE YOU WHEN SOMEONE IS IN YOUR LIFE A REASON IT USUALLY TO MEET IN NEED WITHIN YOU HAVE NEVER MET YOU BUT I LIKE YOU WHEN SOMEONE IS IN YOUR LIFE FOR A SEASON IS BECAUSE IT IS YOUR TURN TO SHARE LEARN AND GROW AND WANT SOMEONE IN YOUR LIFE FOR A LIFETIME IT CITY THROUGH LESSONS AND IF NOT WHAT THE PEOPLE
+                    properties:
+                      end:
+                        type: string
+                        example: 23.72
+                        description: End time of utterance
+                      seqNum:
+                        type: string
+                        example: 1
+                        description: Running sequence number starts from 1.
+                      start:
+                        type: integer
+                        example: 0.64
+                        description: Start time of utterance
+                      text:
+                        type: string
+                        description: Converted text from the input audio file
+                        example: THE COMING YEAR LIFE FOR A REASON A CITIZEN OR A LIFETIME LIKE YOU WHEN SOMEONE IS IN YOUR LIFE A REASON IT USUALLY TO MEET IN NEED WITHIN YOU HAVE NEVER MET YOU BUT I LIKE YOU WHEN SOMEONE IS IN YOUR LIFE FOR A SEASON IS BECAUSE IT IS YOUR TURN TO SHARE LEARN AND GROW AND WANT SOMEONE IN YOUR LIFE FOR A LIFETIME IT CITY THROUGH LESSONS AND IF NOT WHAT THE PEOPLE
         message:
           type: string
           example: Successfully Processed
@@ -253,19 +253,19 @@ components:
       properties:
         v1.0.0:
           type: array
-            items:
-              oneOf:
-              - type: string
-                  example: Published Date - Nov 30,2020
-                  description: Standardizing Output JSON  
+          items:
+            oneOf:
+            - type: string
+                example: Published Date - Nov 30,2020
+                description: Standardizing Output JSON  
         
         v0.1.0:
           type: array
-            items:
-              oneOf:
-              - type: string
-                example: Published Date - Dec 14,2019
-                description: Initial version release
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Dec 14,2019
+              description: Initial version release
             
   securitySchemes:
     APIAuthorizer:
