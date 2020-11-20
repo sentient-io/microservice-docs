@@ -16,7 +16,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Nov 30, 2020"
 paths:
-  /microservices/cv/facerecognition/v0.1/getpredictions:
+  /microservices/cv/facerecognition/v1/getpredictions:
     post:
       tags:
         - v1.0.0
