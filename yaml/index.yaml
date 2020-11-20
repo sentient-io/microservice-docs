@@ -6,8 +6,8 @@ Voice:
     Automatic Speech Recognition ENG (SG):
         title: automatic_speech_recognition_eng_sg
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_eng_sg.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_eng_sg_v1.0.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_eng_sg.yaml" 
     Automatic Speech Recognition CHI (SG):
         title: automatic_speech_recognition_chi_sg
         versions:
@@ -31,13 +31,13 @@ Voice:
     ASR with Voice Activity Detection ENG (SG):
         title: asr_with_voice_activity_detection_eng_sg
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_voice_activity_detection_eng_sg.yaml"
            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_voice_activity_detection_eng_sg_v1.0.yaml"
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_voice_activity_detection_eng_sg.yaml"
     Voice Activity Detection ENG:
         title: voice_activity_detection_eng
         versions:
-           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng.yaml"
            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng_v1.0.yaml"
+           v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng.yaml"
 NLP:
     Inverse Text Normalisation ENG:
         title: inverse_text_normalisation_eng
@@ -106,8 +106,8 @@ Computer Vision:
     Face Recognition Politicians (SG):
         title: face_recognition_politicians_sg
         versions:
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg.yaml"
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg_v1.0.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg.yaml"
     People Counting:
         title: people_counting
         versions:
