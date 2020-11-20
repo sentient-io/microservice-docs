@@ -15,7 +15,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Nov 30, 2020"
 paths:
-  /microservices/voice/vadasr/v0.1/getpredictions:
+  /microservices/voice/vadasr/v1/getpredictions:
     post:
       tags:
         - v1.0.0
