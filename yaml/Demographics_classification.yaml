@@ -6,7 +6,7 @@ info:
   version: v0.1.0
   x-subscribelink: TO FILL MANUALLY
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - November 30, 2020"
