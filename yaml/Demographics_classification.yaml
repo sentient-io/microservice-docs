@@ -11,7 +11,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - November 30, 2020"
 paths:
-  /microservices/cv/demographicsclassification/v0/getpredictions:
+  /microservices/cv/democlass/v0/getpredictions:
     post:
       tags:
         - v0.1.0
