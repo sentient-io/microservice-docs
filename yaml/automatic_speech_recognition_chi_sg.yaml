@@ -3,10 +3,8 @@ info:
   title: Automatic Speech Recognition CHI (SG)
   description: |+
     This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.
-    
-    This microservice works best for if the audio file consists of mostly speech with no long pauses in between.
-    
-    The size of your audio file should be **between 3 KB to 10 MB**.
+
+    This microservice works best when the audio file consists of mostly speech with no long pauses in between.
   version: '0.1.1'
   x-subscribelink: automatic_speech_recognition_chi_sg
 servers:
