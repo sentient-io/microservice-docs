@@ -6,7 +6,7 @@ info:
     
     This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction.
     
-    The size of your image file should **not exceed 5 MB**, and the image dimension should be **least more than 416x416 pixels**. 
+    The size of your image file should **not exceed 5 MB**, and the image dimension should be **at least 416x416 pixels**. 
   version: '0.1.0'
   x-subscribelink: face_recognition_politicians_sg
 servers:
@@ -63,7 +63,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'        
+                $ref: '#/components/schemas/inputlimitexceeded'  
+        '422':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
@@ -206,6 +212,15 @@ components:
             - type: string
               example: Published Date - Jul 03,2020
               description: Initial version release
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     input:
       type: object
       required:

@@ -81,7 +81,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'       
+                $ref: '#/components/schemas/inputlimitexceeded' 
+        '422':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
@@ -207,6 +213,15 @@ components:
         status:
           type: string
           example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     notfound:
       type: object
       properties:
@@ -272,17 +287,14 @@ components:
           description: The search term, highest match to the title of the Wikipedia page.
         pageid: 
           type: integer
-          example: 1
           default: true
           description: The Wikipedia id of the page requested.
         language:
           type: string
-          example: ISO 639-1
           default: false
           description: Indicates the language in which the Wikipedia page is written. Default is English, for other languages give the input as ISO 639-1 language code
         filter_key:
           type: string
-          example: all
           default: false
           description: Indicates the filter criteria of the output result fields. The default return set includes pageid, url, and summary.“all” - returns all the fields. You can also filter by individual fields using the list value. Possible values are pageid, url, summary, content, links, and images
   securitySchemes:

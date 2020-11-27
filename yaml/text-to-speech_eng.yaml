@@ -66,6 +66,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputlimitexceeded'
+        '422':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
@@ -226,6 +232,15 @@ components:
         message:
           type: string
           example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
         status:
           type: string
           example: Failure
