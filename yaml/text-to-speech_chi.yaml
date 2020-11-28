@@ -7,6 +7,13 @@ info:
     The Text-to-Speech AI generated synthesized voice speaks with native Mandarin accent.
     
     Do ensure that your text is **within 750 characters**.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Voice bots in contact centers - Deliver a better voice experience for customer service by dynamically generating speech, instead of playing static, pre-recorded audio. Engage with synthesized voices that give callers a sense of familiarity and personalization.
+
+    - Voice generation in devices - Enable natural communications with users by empowering your devices to speak humanlike voices. Build an end-to-end voice user interface together with Speech-to-Text and improve user experience with easy and engaging interactions.
+
+    - Accessible EPGs (Electronic Program Guides) - Implement text-to-speech functionality in EPGs to provide a better user experience to customers and meet accessibility requirements for services and applications.
   version: '0.1.0'
   x-subscribelink: text-to-speech_chi
 servers:
