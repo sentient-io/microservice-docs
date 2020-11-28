@@ -3,6 +3,9 @@ info:
   title: JSON-CSV Convertor
   description: |+
     This Utility microservice converts the input JSON (json string or json file) to CSV format.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - For users who would like to combine data into useful spreadsheets for others to analyze, update, or refer to. This microservice can convert a collection of JSON into CSV spreadsheets like Google Sheets or Excel to analyze data without programming.
   version: '1.0.0'
   x-subscribelink: json-csv_convertor
 servers:
