@@ -3,6 +3,9 @@ info:
   title: Youtube Video Downloader
   description: |+
     This Utility microservice retrieves the Youtube video of the input URL and outputs a download link.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Can be integrated into apps used to download and watch videos when the user wants to save limited data.
   version: '0.1.0'
   x-subscribelink: youtube_video_downloader
 servers:
