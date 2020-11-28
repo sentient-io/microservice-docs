@@ -7,6 +7,15 @@ info:
     The Text-to-Speech AI generated synthesized voice speaks with Singapore English accent.
     
     Do ensure that your text is within **2000 characters**.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Transcribes spoken English words, sentences or phrases into written forms
+
+    - Voice bots in contact centers - deliver a better voice experience for customer service by dynamically generating speech, instead of playing static, pre-recorded audio. Engage with synthesized voices that give callers a sense of familiarity and personalization.
+
+    - Voice generation in devices - enable natural communications with users by empowering your devices to speak humanlike voices. Build an end-to-end voice user interface together with Speech-to-Text and improve user experience with easy and engaging interactions.
+
+    - Accessible EPGs (Electronic Program Guides) - implement text-to-speech functionality in EPGs to provide a better user experience to customers and meet accessibility requirements for services and applications.
   version: '0.1.0'
   x-subscribelink: text-to-speech_eng
 servers:
