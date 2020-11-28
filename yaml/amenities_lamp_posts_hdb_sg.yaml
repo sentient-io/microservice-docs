@@ -7,6 +7,9 @@ info:
    As this is a dataset download microservice, a successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
   x-additionalinfo: |+
+    Suggested Use Cases:
+    - Real estate services or social service solutions - can be used as a background check solution to extract information related to lampposts present in an area for people with certain preferences when buying or renting a HDB home. For example, the elderly may prefer HDB homes surrounded with more lampposts as they require more aid in terms of lighting when walking home.
+    
     Download the complete dataset using a pre-signed URL. It's a two steps process  
   
     **Step 1:**  Get the pre-signed URL 
