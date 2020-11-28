@@ -3,6 +3,9 @@ info:
   title: PKI Key Generator
   description: |+
     This Utiltiy microservice generates Public key and Private key pair, and is useful for encryption purposes.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - This microservice can be used to simplify the deployment, management, and security of one's enterprise PKI with a microservice that helps to automate time-consuming, risky, and error-prone infrastructure tasks, freeing users to focus on higher-value projects.
   version: '0.1.0'
   x-subscribelink: pki_key_generator
 servers:
