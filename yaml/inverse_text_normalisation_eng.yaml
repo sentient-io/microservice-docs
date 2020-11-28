@@ -7,6 +7,9 @@ info:
     This NLP microservice also converts pre-defined abbreviations from lower case to upper case.
 
     This NLP microservice also converts first letters of sentences to upper case.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Can be integrated into services or apps that offer digital writing assistance to make writing clear and effective.
   version: '0.1.0'
   x-subscribelink: inverse_text_normalisation_eng
 servers:
