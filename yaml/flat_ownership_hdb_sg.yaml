@@ -8,6 +8,9 @@ info:
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
   x-additionalinfo : |+
+    Suggested Use Cases:
+    - Real estate services - for example, this microservice can be used for services that are related to HDB ownership transfer (i.e. when one transfer, include, withdraw and/or substitute owners for a flat), such as when drafting up related legal documents.
+    
     **Refining queries in the filterdata field using filter types and match types**
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
   
