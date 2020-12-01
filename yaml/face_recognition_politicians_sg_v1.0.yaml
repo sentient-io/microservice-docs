@@ -29,7 +29,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  results: {conf: 0.6588699206768599,identity: "Lee Hsien Loong",location: [67,339,196,210]}
+                  output: {conf: 0.6588699206768599,identity: "Lee Hsien Loong",location: [67,339,196,210]}
                 message: Successfully Processed
                 status: Success
         '401':
@@ -104,7 +104,7 @@ components:
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties:
-            results:
+            output:
               type: array
               example: {conf: 0.6588699206768599,identity: "Lee Hsien Loong",location: [67,339,196,210]}
               description: Details of the face recognised from the image
