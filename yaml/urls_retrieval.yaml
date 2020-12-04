@@ -8,18 +8,18 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Use this microservice to update web content or indices of other sites' web content. 
-  version: '0.2.0'
+  version: '0.2.1'
   x-subscribelink: urls_retrieval
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.2.0"
-  description: "Published Date - Oct 30, 2020"
+- name: "v0.2.1"
+  description: "Published Date - Dec 04, 2020"
 paths:
   /microservices/utility/crawlurls/v0/getresults:
     post:
       tags:
-        - v0.2.0
+        - v0.2.1
       responses:
         '200':
           description: success response
@@ -223,6 +223,13 @@ components:
     versions:
       type: object
       properties: 
+        v0.2.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Dec 04, 2020
+              description: Patch Update       
         v0.2.0:
          type: array
          items:
