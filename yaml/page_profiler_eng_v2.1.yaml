@@ -207,6 +207,13 @@
       versions:
         type: object
         properties: 
+          v2.1.1:
+           type: array
+           items:
+            oneOf:
+              - type: string
+                example: Published Date - Dec 04, 2020
+                description: Patch Update             
           v2.1.0:
            type: array
            items:
