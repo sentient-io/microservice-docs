@@ -291,11 +291,11 @@ components:
           type: string
           example: Singapore
           default: true
-          description: The search term, highest match to the title of the Wikipedia page.
+          description: The search term, highest match to the title of the Wikipedia page. Mandatory, if pageid not passes.
         pageid: 
           type: integer
-          default: true
           example: 27318
+          default: true
           description: The Wikipedia id of the page requested.
         language:
           type: string
