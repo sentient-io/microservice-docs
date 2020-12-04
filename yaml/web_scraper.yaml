@@ -278,7 +278,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Oct 30, 2020
-              description: Partial URL support 
+              description: Patch Update
         v1.0.0:
          type: array
          items:
