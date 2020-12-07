@@ -8,6 +8,10 @@ info:
     
     Do ensure that your text is **within 5000 characters**.
   version: '1.0.0'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Information Retrieval - this microservice can be used to build a system that assists users in finding the information they required but it does not explicitly return the answers of the questions. 
+    - Text Mining and Information Extraction - this microservice can be used to do accurate analysis of text. For example it can help to create an intelligent gathering system to do flagging of the correct words e.g. medical intelligent system might need flagging of “red balloon” rather than “led balloon”.
   x-subscribelink: word_sense_disambiguation_eng
 servers:
   - url: 'https://apis.sentient.io'
