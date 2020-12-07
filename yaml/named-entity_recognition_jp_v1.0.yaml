@@ -10,6 +10,11 @@ info:
     
     Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Extract structured pre-defined information from text.
+    - Insights from online customers - extract structured information from unstructured text data such as chatlogs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
+    - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
   x-subscribelink: named-entity_recognition_jp
 servers:
   - url: 'https://apis.sentient.io'
