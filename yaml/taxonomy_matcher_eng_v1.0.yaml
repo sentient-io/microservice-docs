@@ -10,6 +10,10 @@ info:
     
     Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Categorise a particular word to pre-built taxonomy tree.
+    - This microservice can be used to manage taxonomies, such as a hierarchy of product categories used for an eCommerce site. The information in a taxonomy is meta-information about the categories used to classify a set of things. For an eCommerce site, the set of things are items in the product catalog. Users can use this meta-information to enhance search.
   x-subscribelink: taxonomy_matcher_eng
 servers:
   - url: 'https://apis.sentient.io'
