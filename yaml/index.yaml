@@ -27,6 +27,7 @@ Voice:
     ASR with Voice Activity Detection ENG (SG):
         title: asr_with_voice_activity_detection_eng_sg
         versions:
+           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_voice_activity_detection_eng_sg_v1.0.yaml"
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/asr_with_voice_activity_detection_eng_sg.yaml"  
     Voice Activity Detection ENG:
         title: voice_activity_detection_eng
