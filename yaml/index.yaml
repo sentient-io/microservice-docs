@@ -2,7 +2,7 @@ Voice:
     Automatic Speech Recognition ENG (SG):
         title: automatic_speech_recognition_eng_sg
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/automatic_speech_recognition_eng_sg_v1.0.yaml"
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/automatic_speech_recognition_eng_sg_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/automatic_speech_recognition_eng_sg.yaml"
     Automatic Speech Recognition CHI (SG):
         title: automatic_speech_recognition_chi_sg
