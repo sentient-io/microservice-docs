@@ -3,7 +3,6 @@ info:
   title: ASR with Voice Activity Detection ENG (SG)
   description: |+
     This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
-
     This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k.
     
     The size of your audio file should be **between 3 KB to 10 MB**.
@@ -13,7 +12,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Nov 30, 2020"
+  description: "Published Date - Dec 09, 2020"
 paths:
   /microservices/voice/vadasr/v1/getpredictions:
     post:
@@ -271,7 +270,7 @@ components:
           items:
             oneOf:
             - type: string
-              example: Published Date - Nov 30,2020
+              example: Published Date - Dec 09, 2020
               description: Standardizing Output JSON  
         
         v0.1.0:
