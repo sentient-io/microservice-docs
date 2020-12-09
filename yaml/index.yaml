@@ -30,6 +30,7 @@ Voice:
     Voice Activity Detection ENG:
         title: voice_activity_detection_eng
         versions:
+           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng_v1.0.yaml"
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/voice_activity_detection_eng.yaml"  
 NLP:
     Inverse Text Normalisation ENG:
