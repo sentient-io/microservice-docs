@@ -94,6 +94,7 @@ Computer Vision:
     Face Recognition Politicians (SG):
         title: face_recognition_politicians_sg
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/face_recognition_politicians_sg.yaml"
     People Counting:
         title: people_counting
