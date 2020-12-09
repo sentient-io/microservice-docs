@@ -27,12 +27,12 @@ Voice:
     ASR with Voice Activity Detection ENG (SG):
         title: asr_with_voice_activity_detection_eng_sg
         versions:
-           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/asr_with_voice_activity_detection_eng_sg_v1.0.yaml"
+           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/asr_with_voice_activity_detection_eng_sg_v1.0.yaml"
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/asr_with_voice_activity_detection_eng_sg.yaml"  
     Voice Activity Detection ENG:
         title: voice_activity_detection_eng
         versions:
-           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/voice_activity_detection_eng_v1.0.yaml"
+           v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/voice_activity_detection_eng_v1.0.yaml"
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/voice_activity_detection_eng.yaml"  
 NLP:
     Inverse Text Normalisation ENG:
@@ -94,7 +94,7 @@ Computer Vision:
     Face Recognition Politicians (SG):
         title: face_recognition_politicians_sg
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg_v1.0.yaml"
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/face_recognition_politicians_sg_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/face_recognition_politicians_sg.yaml"
     People Counting:
         title: people_counting
@@ -108,6 +108,10 @@ Computer Vision:
         title: landmark_detection_jp
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/landmark_detection_jp.yaml"
+    Demographic Classification:
+        title: demographic_classification
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/Demographics_classification.yaml"            
 Utility:
     Youtube Video Downloader:
         title: youtube_video_downloader
