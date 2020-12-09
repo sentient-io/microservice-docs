@@ -12,18 +12,18 @@
       - Insights from online customers - extract structured information from unstructured text data such as chatlogs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
 
       - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
-    version: '1.0.0'
+    version: '1.1.0'
     x-subscribelink: page_profiler_jp
   servers:
     - url: 'https://apis.sentient.io'
   tags:
-  - name: "v1.0.0"
-    description: "Published Date - Oct 30, 2020"
+  - name: "v1.1.0"
+    description: "Published Date - Dec 07, 2020"
   paths:
     /microservices/nlp/pageprofilerjp/v1/getpredictions:
       post:
         tags:
-          - v1.0.0
+          - v1.1.0
         responses:
           '200':
             description: success response
@@ -234,7 +234,14 @@
             example: Failure 
       versions:
         type: object
-        properties: 
+        properties:
+          v1.1.0:
+           type: array
+           items:
+            oneOf:
+              - type: string
+                example: Published Date - Dec 07, 2020
+                description: Patch Update        
           v1.0.0:
            type: array
            items:
