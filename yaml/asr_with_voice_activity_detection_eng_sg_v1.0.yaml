@@ -12,7 +12,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Nov 30, 2020"
+  description: "Published Date - Dec 09, 2020"
 paths:
   /microservices/voice/vadasr/v1/getpredictions:
     post:
@@ -270,7 +270,7 @@ components:
           items:
             oneOf:
             - type: string
-              example: Published Date - Nov 30,2020
+              example: Published Date - Dec 09, 2020
               description: Standardizing Output JSON  
         
         v0.1.0:
