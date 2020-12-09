@@ -7,10 +7,10 @@ info:
   version: v0.1.0
   x-subscribelink: TO FILL MANUALLY
 servers:
-  - url: 'https://dev-apis.sentient.io' 
+  - url: 'https://apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - November 30, 2020"
+  description: "Published Date - Dec 09, 2020"
 paths:
   /microservices/cv/democlass/v0/getpredictions:
     post:
@@ -263,7 +263,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - November 30, 2020
+                example: Published Date - Dec 09, 2020
                 description: Initial version release     
     input:
       type: object
