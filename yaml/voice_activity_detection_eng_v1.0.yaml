@@ -8,7 +8,7 @@ info:
   version: '1.0.0'
   x-subscribelink: voice_activity_detection_eng
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Nov 30, 2020"
@@ -26,7 +26,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results: 
-                    results: [{end: 23.72,seqNum: 1,start: 0.64}]
+                    output: [{end: 23.72,seqNum: 1,start: 0.64}]
                 message: Successfully Processed
                 status: Success
                 
@@ -102,7 +102,7 @@ components:
             description: The result of the API call.
             example: { "<Json": "Object>" }
             properties:
-                results:
+                output:
                     type: array
                     example: [{end: 23.72,seqNum: 1,start: 0.64}]
                     description: List of details of start and end time of utterances in the input audio
