@@ -11,7 +11,7 @@ info:
   version: '1.0.0'
   x-subscribelink: face_recognition_politicians_sg
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Nov 30, 2020"
@@ -29,7 +29,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  results: {conf: 0.6588699206768599,identity: "Lee Hsien Loong",location: [67,339,196,210]}
+                  output: {conf: 0.6588699206768599,identity: "Lee Hsien Loong",location: [67,339,196,210]}
                 message: Successfully Processed
                 status: Success
         '401':
@@ -104,7 +104,7 @@ components:
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties:
-            results:
+            output:
               type: array
               example: {conf: 0.6588699206768599,identity: "Lee Hsien Loong",location: [67,339,196,210]}
               description: Details of the face recognised from the image
