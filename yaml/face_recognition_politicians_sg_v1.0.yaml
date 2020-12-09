@@ -280,9 +280,9 @@ components:
           x-name: filter
           type: array
           default: false
-          example: ["Japan", "television_actors"]
+          example: ["japan", "television_actors"]
           description: |+
-            Filter list of attributes to reduce wrong matches. Supported attributes are model-dependent.
+            Filter list of attributes to reduce wrong matches.
         
   securitySchemes:
     APIAuthorizer:
