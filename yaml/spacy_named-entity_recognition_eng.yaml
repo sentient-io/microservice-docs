@@ -188,12 +188,12 @@ components:
               x-name: ordinal
               type: array
               example: [ninth,seventh,second]
-              description: “first”, “second”, etc.
+              description: Ordinal numbers such as "First", "Second", "Third", etc; that tells the position of something in a list.
             cardinal:
               x-name: cardinal
               type: array
               example: [four]
-              description: Numerals that do not fall under another type.
+              description: Cardinal numbers such as 1, 3, or 10; that tells you how many things there are in a group but not what order they are in.
         message:
           x-name: message
           type: string
