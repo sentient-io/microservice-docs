@@ -11,7 +11,7 @@ info:
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to a person that is a Singaporean politician, or a Singaporean/Japanese public figure.
+    - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to a person that is a Singaporean politician, or a Singaporean/Japanese public figure.
   x-subscribelink: face_recognition
 servers:
   - url: 'https://apis.sentient.io'
