@@ -293,6 +293,16 @@ components:
           example: ["Japan", "television_actors"]
           description: |+
             Filter list of attributes to reduce wrong matches. Supported attributes are model-dependent.
+            For model sg-jp-2020 the filter tags are as follows Eg : [Country,category1,category2] independent of order
+            Country can have unique values Japan and Singapore
+            The first category has unique values for both countries and they are ['social_media_personalities','politicians','celebrities','athletes','business_leaders']
+            The second category has unique values which are different for both countries
+            The country value with Singapore has the following category2 unique values based on category1 values
+            {'social_media_personalities': ['people_of_interest', 'bloggers'],'celebrities': ['male_singers','television_actors','television_personalities','film_directors','female_singers','television_actresses','journalists','television_presenters','film_actors','film_people','radio_people','screenwriters','writers','film_actresses','photojournalists','singer-songwriters','film_producers','broadcast_news_analysts','columnists','participants_in_reality_television_series'],'athletes': ['sportsman', 'Paralympic_competitors'],'business_leaders': ['chief_executives','business_executives','chairmen_of_corporations']}
+            The country value with Japan has the following category2 unique values based on category1 values
+            {'celebrities': ['film_actresses','television_actresses','film_actors','female_pop_singers','male_pop_singers','television_actors','pop_singers'],'athletes': ['Olympic_medalist', 'Paralympic_medalist']}
+
+
         
   securitySchemes:
     APIAuthorizer:
