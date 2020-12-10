@@ -9,7 +9,7 @@ info:
     Suggested Use Cases:
     - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to the person that is a Member of the Singapore Parliament.
   version: '0.1.0'
-  x-subscribelink: face_recognition_politicians_sg
+  x-subscribelink: face_recognition
 servers:
   - url: 'https://apis.sentient.io'
 tags:
