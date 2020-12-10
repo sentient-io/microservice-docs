@@ -9,6 +9,7 @@ info:
     
     The size of your image file should **not exceed 5 MB**, and the image dimension should be **at least 416x416 pixels**. 
   version: '1.0.0'
+  x-additionalinfo: |+
   Suggested Use Cases:
     - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to the person that is a Member of the Singapore Parliament.
   x-subscribelink: face_recognition_politicians_sg
