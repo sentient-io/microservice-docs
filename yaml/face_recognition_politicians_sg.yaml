@@ -7,7 +7,7 @@ info:
     This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to the person that is a Member of the Singapore Parliament.
+    - - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to a person that is a Singaporean politician, or a Singaporean/Japanese public figure.
   version: '0.1.0'
   x-subscribelink: face_recognition
 servers:
