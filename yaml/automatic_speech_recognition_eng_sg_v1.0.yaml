@@ -8,6 +8,9 @@ info:
     
     The size of your audio file should be **between 3 KB to 10 MB**.
   version: '1.0.0'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands.
   x-subscribelink: automatic_speech_recognition_eng_sg
 servers:
   - url: 'https://apis.sentient.io'
