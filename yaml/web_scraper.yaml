@@ -5,6 +5,10 @@ info:
   description: |+
     This API is used to extract content or specific HTML elements from web pages. Supports both HTML and Text output. The web scraper can be instructed to extract HTML elements that match the criteria given in the queryList HTTP request parameter, it can even do navigate down the html tree like get all p tag inside a div class "class":"class_name p".  
   x-additionalinfo: |+
+    x-additionalinfo: |+
+      Suggested Use Cases:
+      - Can be used for contact scraping, and as a component of applications used for web indexing, web mining and data mining, online price change monitoring and price comparison, product review scraping (to watch the competition), gathering real estate listings, weather data monitoring, website change detection, research, tracking online presence and reputation, web mashup and, web data integration.
+    
     Examples:
     
     To get article content, as text
@@ -278,14 +282,14 @@ components:
           oneOf:
             - type: string
               example: Published Date - Dec 04, 2020
-              description: Patch Update      
+              description: Patch Update       
         v1.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Oct 30, 2020
-              description: Partial URL Support
+              description: Partial URL support 
         v1.0.0:
          type: array
          items:

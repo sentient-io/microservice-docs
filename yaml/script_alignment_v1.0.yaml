@@ -8,6 +8,9 @@ info:
     
     Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Can be used to create time-coded high-quality script for services like radio broadcasting, television broadcasting and digital content creation.
   x-subscribelink: script_alignment
 servers:
   - url: 'https://apis.sentient.io'

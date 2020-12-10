@@ -2,12 +2,14 @@ openapi: 3.0.1
 info:
   title: Word Sense Disambiguation ENG
   description: |+
-    This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence.
-    
-    If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
-    
-    Do ensure that your text is within **5000 characters**.
+    This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence. For example, colour is a hypernym of red.
 
+    If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Information Retrieval - this microservice can be used to build a system that assists users in finding the information they required but it does not explicitly return the answers of the questions. 
+
+    - Text Mining and Information Extraction - this microservice can be used to do accurate analysis of text. For example it can help to create an intelligent gathering system to do flagging of the correct words e.g. medical intelligent system might need flagging of “red balloon” rather than “led balloon”.
   version: '0.1.0'
   x-subscribelink: word_sense_disambiguation_eng
 servers:

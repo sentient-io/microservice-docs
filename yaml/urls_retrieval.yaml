@@ -2,14 +2,19 @@ openapi: 3.0.1
 info:
   title: URLs Retrieval
   description: |+
-    This Utility microservice crawls and retrieves their content from the input URLs, up to the specified depth.
+    This Utility microservice crawls and retrieves content from the input URLs, up to the specified depth. 
+
+    Default depth is 0 and maximum number of URLs is 500.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Use this microservice to update web content or indices of other sites' web content. 
   version: '0.2.1'
   x-subscribelink: urls_retrieval
 servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.2.1"
-  description: "Published Date - Dev 04, 2020"
+  description: "Published Date - Dec 04, 2020"
 paths:
   /microservices/utility/crawlurls/v0/getresults:
     post:
@@ -224,7 +229,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Dec 04, 2020
-              description: Patch Update     
+              description: Patch Update       
         v0.2.0:
          type: array
          items:

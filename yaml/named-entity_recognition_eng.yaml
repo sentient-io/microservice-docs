@@ -9,6 +9,13 @@ info:
     This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc. 
     
     Do ensure that your text is within **5000 characters**.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Extracting structured pre-defined information from text.
+
+    - Gain insights from online customers - extract structured information from unstructured text data such as chatlogs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
+
+    - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
   version: '0.1.0'
   x-subscribelink: named-entity_recognition_eng
 servers:

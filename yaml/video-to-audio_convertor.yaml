@@ -6,6 +6,9 @@ info:
     
     The size of your video file should **not exceed 3.5 MB**.
   version: '0.1.0'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - For building applications that extracts audio from videos in batches. Users can further pipe the audio into microservices involving ASR for further transciption.
   x-subscribelink: video-to-audio_convertor
 servers:
   - url: 'https://apis.sentient.io'
