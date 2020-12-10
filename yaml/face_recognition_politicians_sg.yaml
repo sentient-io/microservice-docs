@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Face Recognition Politicians (SG)
+  title: Face Recognition
   description: |+
     This Computer Vision microservice recognises faces from input image files of the Members of Singapore Parliament.
 
