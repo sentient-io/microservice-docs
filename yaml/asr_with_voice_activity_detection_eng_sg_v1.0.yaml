@@ -6,18 +6,18 @@ info:
     This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k.
     
     The size of your audio file should be **between 3 KB to 10 MB**.
-  version: '1.0.0'
+  version: '1.1.0'
   x-subscribelink: asr_with_voice_activity_detection_eng_sg
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v1.1.0"
   description: "Published Date - Dec 09, 2020"
 paths:
   /microservices/voice/vadasr/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.1.0
       responses:
         '200':
           description: success response
@@ -233,9 +233,9 @@ components:
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             
-            1. news_parliament - 16 kHz, mono channel, .wav format. Trained on Singapore news and parliament corpus.
+            1. prepared_speech - 16 kHz, mono channel, .wav format. Trained on Singapore news and parliament corpus.
             2. nsc_parliament - 16 kHz, mono channel, .wav format. Trained on National Speech Corpus and parliament corpus.
-            3. nscfull_8k - 8 kHz, mono channel, .wav format. Trained on National Speech Corpus. Trained on Full National Speech Corpus corpus.
+            3. telephony - 8 kHz, mono channel, .wav format. Trained on National Speech Corpus. Trained on Full National Speech Corpus corpus.
         wav_base64:
           x-name: wav_base64
           type: string
