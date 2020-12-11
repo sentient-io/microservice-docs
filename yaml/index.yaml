@@ -103,8 +103,8 @@ Computer Vision:
         title: object_detection
         versions:
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/object_detection.yaml"
-    Face Recognition Politicians (SG):
-        title: face_recognition_politicians_sg
+    Face Recognition:
+        title: face_recognition
         versions:
             v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg.yaml"
