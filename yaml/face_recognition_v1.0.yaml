@@ -9,7 +9,7 @@ info:
     Help us grow this microservice! [Let us know](https://www.sentient.io/contact) which other public figures you would like us this microservice to also recognise (e.g. a new country or a new category). We will expand the capability of this microservices based on user feedback and demand.
   version: '1.0.0'
   x-additionalinfo: |+
-    ##Full List of Filters##
+    **Full List of Filters**
     Users may choose to filter the output using any of these filters below. 
     
     1. Countries&#58;
@@ -57,7 +57,7 @@ info:
     3. Individual Names
     If you happen to know the individual names of the faces you hope to recognise, you may also put in the individual names as a filter. 
     
-    ##Suggested Use Cases##
+    **Suggested Use Cases**
     - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to a person that is a Singaporean politician, or a Singaporean/Japanese public figure.
     
     
