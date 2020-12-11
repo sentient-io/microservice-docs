@@ -4,7 +4,7 @@ info:
   description: |+
     This Voice microservice transcribes the input audio stream into text.
     
-    This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case: prepared_speech, nsc_parliament and telephony.
+    This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case, whether for prepared speech (16kHz) or telephony (8kHz).
     
     The size of your audio file should be **between 3 KB to 10 MB**.
   version: '1.1.0'
@@ -237,9 +237,8 @@ components:
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             
-            1. prepared_speech - 16 kHz, mono channel, .wav format. Trained on Singapore news and parliament corpus.
-            2. nsc_parliament - 16 kHz, mono channel, .wav format. Trained on National Speech Corpus and parliament corpus.
-            3. telephony - 8 kHz, mono channel, .wav format. Trained on National Speech Corpus. Trained on Full National Speech Corpus corpus.
+            1. prepared_speech - Better suited for transcribing prepared / formal speech (e.g. news or parliamentary speeches). 16 kHz, mono channel, .wav format.
+            2. telephony - Better suited for conversational speech or telephony use cases. 8 kHz, mono channel, .wav format. 
         wav_base64:
           x-name: wav_base64
           type: string
