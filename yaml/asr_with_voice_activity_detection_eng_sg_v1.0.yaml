@@ -270,8 +270,8 @@ components:
           items:
             oneOf:
             - type: string
-              example: Published Date - Dec 09, 2020
-              description: Model name change
+              example: Published Date - Dec 14, 2020
+              description: Model name update
         v1.0.0:
           type: array
           items:
