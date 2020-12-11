@@ -4,13 +4,63 @@ info:
   description: |+
     This Computer Vision microservice recognises faces of Singaporean and Japanese public figures (e.g. athletes, business leaders, celebrities, politicians, TV personalities, etc). 
 
-    This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction. Users can further filter the results by countries, categories or even down to the individual names.  
+    This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction. Users can further filter the results by countries, profession or even down to the individual names.  
 
     Help us grow this microservice! [Let us know](https://www.sentient.io/contact) which other public figures you would like us this microservice to also recognise (e.g. a new country or a new category). We will expand the capability of this microservices based on user feedback and demand.
   version: '1.0.0'
   x-additionalinfo: |+
-    Suggested Use Cases:
+    ##Full List of Filters##
+    Users may choose to filter the output using any of these filters below. 
+    
+    1. Countries&#58;
+    - Japan
+    - Singapore
+    
+    2. Categories&#58;
+    - Olympic_medalist
+    - Paralympic_competitors
+    - Paralympic_medalist
+    - athletes
+    - bloggers 
+    - broadcast_news_analysts
+    - business_executives
+    - business_leaders
+    - celebrities
+    - chairmen_of_corporations
+    - chief_executives
+    - columnists
+    - female_pop_singers
+    - female_singers
+    - film_actors
+    - film_actresses
+    - film_directors
+    - film_people
+    - film_producers
+    - journalists
+    - male_pop_singers
+    - male_singers
+    - participants_in_reality_television_series
+    - people_of_interest
+    - photojournalists
+    - politicians
+    - pop_singers
+    - radio_people
+    - screenwriters
+    - singer-songwriters
+    - social_media_personalities
+    - sportsman
+    - television_actors
+    - television_actresses
+    - television_personalities
+    - television_presenters
+
+    3. Individual Names
+    If you happen to know the individual names of the faces you hope to recognise, you may also put in the individual names as a filter. 
+    
+    ##Suggested Use Cases##
     - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to a person that is a Singaporean politician, or a Singaporean/Japanese public figure.
+    
+    
   x-subscribelink: face_recognition
 servers:
   - url: 'https://apis.sentient.io'
@@ -284,11 +334,13 @@ components:
           default: false
           example: ["japan", "television_actors"]
           description: |+
-            List of categories that allows the user to filter the output. There are 3 types of filters&#58;
+            Optional filters that allows the user to refine the output. There are 3 types of filters&#58;
             
             1. Countries - e.g. "Singapore", "Japan"
-            2. Person category type - e.g. "atheletes", "pop_singers"
-            3. Individual person name - e.g. "Lee Hsien Loong". Useful if the user only wants to detect for specific people.
+            2. Professions - e.g. "atheletes", "pop_singers"
+            3. Individual person names - e.g. "Lee Hsien Loong". Useful if the user only wants to detect for specific people.
+            
+            See "Additional Information" section for full list of available filters
         
   securitySchemes:
     APIAuthorizer:
