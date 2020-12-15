@@ -1,15 +1,17 @@
 openapi: 3.0.1
 info:
-  title: Face Recognition Politicians (SG)
+  title: Face Recognition
   description: |+
-    This Computer Vision microservice recognises faces from input image files of the Members of Singapore Parliament.
+    This Computer Vision microservice recognises faces of Singaporean and Japanese public figures (e.g. athletes, business leaders, celebrities, politicians, TV personalities, etc). 
 
-    This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction.
+    This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction. Users can further filter 
+
+    Help us grow this microservice! [Let us know](https://www.sentient.io/contact) which other public figures you would like us this microservice to also recognise (e.g. a new country or a new category). We will expand the capability of this microservices based on user feedback and demand.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to the person that is a Member of the Singapore Parliament.
+    - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to a person that is a Singaporean politician, or a Singaporean/Japanese public figure.
   version: '0.1.0'
-  x-subscribelink: face_recognition_politicians_sg
+  x-subscribelink: face_recognition
 servers:
   - url: 'https://apis.sentient.io'
 tags:

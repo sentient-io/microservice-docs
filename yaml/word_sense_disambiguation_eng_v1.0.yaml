@@ -11,7 +11,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Information Retrieval - this microservice can be used to build a system that assists users in finding the information they required but it does not explicitly return the answers of the questions. 
-    - Text Mining and Information Extraction - this microservice can be used to do accurate analysis of text. For example it can help to create an intelligent gathering system to do flagging of the correct words e.g. flagging of “red balloon” rather than “led balloon”.
+    - Text Mining and Information Extraction - this microservice can be used to do accurate analysis of text. For example it can help to create an intelligent gathering system to do flagging of the correct words e.g. medical intelligent system might need flagging of “red balloon” rather than “led balloon”.
   x-subscribelink: word_sense_disambiguation_eng
 servers:
   - url: 'https://apis.sentient.io'
@@ -136,11 +136,7 @@ components:
             tokens:
                 type: object
                 example: {"4": {"society": [{"hypernyms": [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}],"synset_definition": "an extended social group having a distinctive cultural and economic organization","synset_name": "society.n.01","synset_score": 0.9870249032974243,"token_index": 40}]}}
-                description: Is a mapping from the sentence_index to the target word's potential synsets and hypernyms.
-                
-                Hypernym refers to the specific meaning of the word within the context of the sentence. For example, colour is a hypernym of red.
-                
-                Synsets are a set of synonyms that are interchangeable in some context without changing the truth value of the proposition in which they are embedded. For example, "animal" and "creature".
+                description: Is a mapping from the sentence_index to the target word's potential synsets and hypernms.
                 properties:
                   4:
                     type: object
@@ -295,7 +291,7 @@ components:
           default: true
           example: County
           description: |+
-            A noun that can be found in text.
+            A noun token that can be found in text
         repeat:
           x-name: repeat
           type: string
