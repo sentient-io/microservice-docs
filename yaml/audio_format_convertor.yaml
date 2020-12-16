@@ -218,7 +218,7 @@ components:
           type: string
           default: false
           example: '16000'
-          description: Sample rate of the audio file in Hz
+          description: Sample rate of the audio file in Hz. The Hz range of the rate is between 0 to 50000 Hz. Note that decimals and negative values are not supported.
         channel:
           type: string
           default: false
