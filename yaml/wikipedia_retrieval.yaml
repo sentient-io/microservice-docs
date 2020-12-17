@@ -293,7 +293,7 @@ components:
         pageid: 
           type: integer
           default: true
-          example: 1
+          example: 27318
           description: The Wikipedia id of the page requested.
         language:
           type: string
