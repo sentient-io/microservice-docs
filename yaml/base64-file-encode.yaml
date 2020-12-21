@@ -7,7 +7,7 @@ info:
     Suggested Use Cases:
     - As a pre-processor for microservices that only takes in Base64 inputs 
   version: '0.0.1'
-  x-subscribelink: base64_file_encode
+  x-subscribelink: base64_encode
 servers:
   - url: 'https://apis.sentient.io'
 tags:
