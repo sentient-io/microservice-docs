@@ -7,7 +7,7 @@ info:
     Suggested Use Cases:
     - As a post-processor for microservices that only outputs Base64 encoded text
   version: '0.0.1'
-  x-subscribelink: base64_file_decode
+  x-subscribelink: base64_decoder
 servers:
   - url: 'https://apis.sentient.io'
 tags:
