@@ -189,12 +189,12 @@ Utility:
         title: urls_retrieval
         versions:
            v0.2: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/urls_retrieval.yaml"
-    Base64 File Encode:
-        title: base64_file_encode
+    Base64 Encoder:
+        title: base64_encoder
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-encode.yaml"
-    Base64 File Decode:
-        title: base64_file_decode
+    Base64 Decoder:
+        title: base64_decoder
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-decode.yaml"
 Data:
