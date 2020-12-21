@@ -123,21 +123,21 @@ components:
                         description: Bounding box of the image
                         properties:
                           bottom: 
-                          type: number
-                          example: 742
-                          description: Bottom coordinate of the box
+                            type: number
+                            example: 742
+                            description: Bottom coordinate of the box
                           left: 
-                          type: number
-                          example: 19
-                          description: Left coordinate of the box
+                            type: number
+                            example: 19
+                            description: Left coordinate of the box
                           right: 
-                          type: number
-                          example: 1019
-                          description: Right coordinate of the box
+                            type: number
+                            example: 1019
+                            description: Right coordinate of the box
                           top: 
-                          type: number
-                          example: 73   
-                          description: Top coordinate of the box 
+                            type: number
+                            example: 73   
+                            description: Top coordinate of the box 
                       class:
                         type: string
                         example: person
