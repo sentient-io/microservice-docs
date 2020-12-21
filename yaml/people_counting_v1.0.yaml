@@ -30,7 +30,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: {"results": {"counter": 11, "likelihood of overestimation": 0.76,"likelihood of underestimation": 0.39,"people": [{"assigning confidence": 1,"bounding boxes": {"frame": {"294": {"bottom": 420,"left": 249,"right": 417,"top": 207},"300": {"bottom": 420,"left": 249,"right": 417,"top": 207}}}},"detection confidence": 0.76,"duration appeared": 0.20,"first appearance": 10.13,"person id": "011"]},"message": "Successfully Processed","status": "Success"}
+              example: {"results": {"counter": 11, "likelihood of overestimation": 0.76,"likelihood of underestimation": 0.39,"people": [{"assigning confidence": 1,"bounding boxes": {"frame": {"294": {"bottom": 420,"left": 249,"right": 417,"top": 207},"300": {"bottom": 420,"left": 249,"right": 417,"top": 207}}},"detection confidence": 0.76,"duration appeared": 0.20689655172413793,"first appearance": 10.137931034482758,"person id": "011"}]},"message": "Successfully Processed","status": "Success"}
         '401':
           description: Unauthorized
           content:
