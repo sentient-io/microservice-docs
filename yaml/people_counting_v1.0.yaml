@@ -100,31 +100,32 @@ components:
   schemas:
     success:
       type: object
-      results:
-        type: object
-        description: The result of the API call.
-        example: { "<Json": "Object>" }
-        properties:
-          counter:
-            type: integer
-            example: 11
-            description: Number of people detected in video
-          likelihood of overestimation:
-            type: number
-            format: float
-            example: 0.76
-            description:  How likely would there be ID spikes causing counter to increase People
-          likelihood of underestimation:
-            type: number
-            format: float
-            example: 0.39
-            description:  How likely the model might miss out detecting people in the video
-          people:
-            type: array
-            example: [{'person id': "001",'first appearance': 1.28, 'duration appeared': 7.66, 'detection confidence': 0.77, 'assigning confidence': 1,"bounding boxes": {"frame": {"294": {"bottom": 420,"left": 249,"right": 417,"top": 207},"300": {"bottom": 420,"left": 249,"right": 417,"top": 207}}}}]
-            description: Contains a list of individual Persons and their metadata.
-            items:
-              oneOf:
+      properties: 
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties:
+            counter:
+              type: integer
+              example: 11
+              description: Number of people detected in video
+            likelihood of overestimation:
+              type: number
+              format: float
+              example: 0.76
+              description:  How likely would there be ID spikes causing counter to increase People
+            likelihood of underestimation:
+              type: number
+              format: float
+              example: 0.39
+              description:  How likely the model might miss out detecting people in the video
+            people:
+              type: array
+              example: [{'person id': "001",'first appearance': 1.28, 'duration appeared': 7.66, 'detection confidence': 0.77, 'assigning confidence': 1,"bounding boxes": {"frame": {"294": {"bottom": 420,"left": 249,"right": 417,"top": 207},"300": {"bottom": 420,"left": 249,"right": 417,"top": 207}}}}]
+              description: Contains a list of individual Persons and their metadata.
+              items:
+                oneOf:
                 - type: object
                   example: {'person id': "001",'first appearance': 1.28, 'duration appeared': 7.66, 'detection confidence': 0.77, 'assigning confidence': 1,"bounding boxes": {"frame": {"294": {"bottom": 420,"left": 249,"right": 417,"top": 207},"300": {"bottom": 420,"left": 249,"right": 417,"top": 207}}}}
     unauthorized:
