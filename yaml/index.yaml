@@ -102,6 +102,7 @@ Computer Vision:
     Object Detection:
         title: object_detection
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/object_detection_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/object_detection.yaml"
     Face Recognition:
         title: face_recognition
@@ -111,14 +112,17 @@ Computer Vision:
     People Counting:
         title: people_counting
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/people_counting_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/people_counting.yaml"
     Landmark Detection (SG):
         title: landmark_detection_sg
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_sg_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_sg.yaml"
     Landmark Detection (JP):
         title: landmark_detection_jp
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_jp_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_jp.yaml"
     Demographic Classification:
         title: demographic_classification
