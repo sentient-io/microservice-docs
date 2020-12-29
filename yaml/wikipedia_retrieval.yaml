@@ -186,6 +186,8 @@ components:
               description: A short summary of the Wikipedia article that was requested
             thumbnail:
               type: object
+              example: { "<Json": "Object>" }
+              description: Json Object of returned results
               properties:
                 height:
                   type: string
