@@ -187,7 +187,7 @@ components:
             thumbnail:
               type: object
               example: { "height":333,"source":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png", "width":500 }
-              description: Json Object of returned results
+              description: List of objects for the thumbnail on the page.
               properties:
                 height:
                   type: string
