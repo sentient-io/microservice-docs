@@ -48,7 +48,12 @@ paths:
                   summary: Singapore officially the Republic of Singapore, is a sovereign city-state
                     and island country located in maritime Southeast Asia. Singapore lies about one
                     degree of latitude (137 kilometres or 85 miles) north of the equator.
+                  thumbnail:
+                    height: 333
+                    source: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png
+                    width: 500
                   url: https://en.wikipedia.org/wiki/Singapore
+                  
                 message: Successfully Processed
                 status: Success
         '401':
@@ -179,6 +184,18 @@ components:
               example: Singapore officially the Republic of Singapore, is a sovereign city-state and island country located in maritime Southeast Asia. 
                   Singapore lies about one degree of latitude (137 kilometres or 85 miles) north of the equator.
               description: A short summary of the Wikipedia article that was requested
+            thumbnail:
+              type: object
+              properties:
+                height:
+                  type: string
+                  example: 333
+                source:
+                  type: string
+                  example: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png
+                width:
+                  type: string
+                  example: 500
             url: 
               type: string
               example: https://en.wikipedia.org/wiki/Singapore
@@ -280,7 +297,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Apr 23, 2020
+              example: Published Date - Dec 31, 2020
               description: Initial version release
     input:
       type: object
