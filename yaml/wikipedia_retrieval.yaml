@@ -14,7 +14,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Apr 23, 2020"
+  description: "Published Date - Dec 31, 2020"
 paths:
   /microservices/utility/wikipedia/v0.1/getresults:
     post:
