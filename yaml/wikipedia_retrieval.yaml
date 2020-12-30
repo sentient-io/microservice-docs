@@ -187,19 +187,20 @@ components:
               type: object
               example: {"height":333,"source":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png", "width":500}
               description: URL and dimensions of thumbnail image associated with page, if any.
-              properties:
-                height:
-                  type: string
-                  example: 333
-                  description: Height of the thumbnail image
-                source:
-                  type: string
-                  example: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png
-                  description: Source URL of the thumbnail image
-                width:
-                  type: string
-                  example: 500
-                  description: Width of the thumbnail image
+              items:
+                properties:
+                  height:
+                    type: string
+                    example: 333
+                    description: Height of the thumbnail image
+                  source:
+                    type: string
+                    example: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png
+                    description: Source URL of the thumbnail image
+                  width:
+                    type: string
+                    example: 500
+                    description: Width of the thumbnail image
             url: 
               type: string
               example: https://en.wikipedia.org/wiki/Singapore
