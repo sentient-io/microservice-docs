@@ -185,7 +185,7 @@ components:
               description: A short summary of the Wikipedia article that was requested
             thumbnail:
               type: object
-              example: { "<Json": "Object>" }
+              example: {"height":333,"source":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png", "width":500}
               description: URL and dimensions of thumbnail image associated with page, if any.
               properties:
                 height:
