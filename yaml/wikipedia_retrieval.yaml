@@ -327,12 +327,12 @@ components:
           type: string
           default: false
           example: en
-          description: Indicates the language in which the Wikipedia page is written. Default is English, for other languages give the input as ISO 639-1 language code.Please refer this link for language code https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+          description: Indicates the language in which the Wikipedia page is written. Default is English, for other languages give the input as ISO 639-1 language code. Please refer this link for language code https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
         filter_key:
           type: string
           default: false
           example: all
-          description: Indicates the filter criteria of the output result fields. The default return set includes pageid, url, and summary.“all” - returns all the fields. You can also filter by individual fields using the list value. Possible values are pageid, url, summary, content, links, and images
+          description: Indicates the filter criteria of the output result fields. The default return set includes pageid, url, summary and thumbnail.“all” - returns all the fields i.e pageid, url, summary, content, links, images and thumbnail.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
