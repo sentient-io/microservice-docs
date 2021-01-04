@@ -107,8 +107,8 @@ Computer Vision:
     Face Recognition:
         title: face_recognition
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_v1.0.yaml"
-            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_politicians_sg.yaml"
+            v1.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition_v1.1.yaml"
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/face_recognition.yaml"
     People Counting:
         title: people_counting
         versions:
