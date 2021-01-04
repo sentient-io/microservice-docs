@@ -313,7 +313,7 @@ components:
         model:
           x-name: model
           type: string
-          default: true
+          default: false
           example: sg-parliament-2019
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
