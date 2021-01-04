@@ -1,15 +1,67 @@
 openapi: 3.0.1
 info:
-  title: Face Recognition Politicians (SG)
+  title: Face Recognition
   description: |+
-    This Computer Vision microservice recognises faces from input image files of Singapore Members of Parliament and Japan Public figures.
-    
-    This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction.
-    Some models also provide the option to filter the returned identity based on predefined attributes"
-    
-    The size of your image file should **not exceed 5 MB**, and the image dimension should be **at least 416x416 pixels**. 
+    This Computer Vision microservice recognises faces of Singaporean and Japanese public figures (e.g. athletes, business leaders, celebrities, politicians, TV personalities, etc). 
+
+    This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction. Users can further filter the results by countries, profession or even down to the individual names.  
+
+    Help us grow this microservice! [Let us know](https://www.sentient.io/contact) which other public figures you would like us this microservice to also recognise (e.g. a new country or a new category). We will expand the capability of this microservices based on user feedback and demand.
   version: '1.1.0'
-  x-subscribelink: face_recognition_politicians_sg
+  x-additionalinfo: |+
+    **Full List of Filters**
+    Users may choose to filter the output using any of these filters below. 
+    
+    1. Countries&#58;
+    - Japan
+    - Singapore
+    
+    2. Categories&#58;
+    - Olympic_medalist
+    - Paralympic_competitors
+    - Paralympic_medalist
+    - athletes
+    - bloggers 
+    - broadcast_news_analysts
+    - business_executives
+    - business_leaders
+    - celebrities
+    - chairmen_of_corporations
+    - chief_executives
+    - columnists
+    - female_pop_singers
+    - female_singers
+    - film_actors
+    - film_actresses
+    - film_directors
+    - film_people
+    - film_producers
+    - journalists
+    - male_pop_singers
+    - male_singers
+    - participants_in_reality_television_series
+    - people_of_interest
+    - photojournalists
+    - politicians
+    - pop_singers
+    - radio_people
+    - screenwriters
+    - singer-songwriters
+    - social_media_personalities
+    - sportsman
+    - television_actors
+    - television_actresses
+    - television_personalities
+    - television_presenters
+
+    3. Individual Names
+    If you happen to know the individual names of the faces you hope to recognise, you may also put in the individual names as a filter. 
+    
+    **Suggested Use Cases**
+    - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to a person that is a Singaporean politician, or a Singaporean/Japanese public figure.
+    
+    
+  x-subscribelink: face_recognition
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
@@ -237,7 +289,7 @@ components:
             oneOf:
             - type: string
               example: Published Date - Jan 05, 2021
-              description: Add new models - sg-parliament-2019 , sg-parliament-2020 , sg-jp-2020 , artists
+              description: Model update
         v1.0.0:
           type: array
           items:
@@ -264,12 +316,10 @@ components:
           default: true
           example: sg-parliament-2019
           description: |+
-            Model selection. For best performance, select the model which best matches the use-case&#58;
-            
-            1. sg-parliament-2019 - is trained on Singapore Members of Parliament - 2019
-            2. sg-parliament-2020 - is trained on Singapore Members of Parliament - 2020
-            3. sg-jp-2020 - is trained on Singapore and Japan public figures - 2020
-            4. artists - is trained on well known artists globally
+            Model name. "sg-parliament-2019" is trained on Singapore Members of Parliament - 2019.
+            "sg-parliament-2020" is trained on Singapore Members of Parliament - 2020.
+            "sg-jp-2020" is trained on Singapore and Japan public figures - 2020.
+            "artists" is trained on globally well know artists.
         image_base64:
           x-name: image_base64
           type: string
@@ -301,7 +351,7 @@ components:
           example: ["japan", "television_actors"]
           description: |+
             Optional filters that allows the user to refine the output. There are 3 types of filters&#58;
-              
+            
             1. Countries - e.g. "Singapore", "Japan"
             2. Professions - e.g. "atheletes", "pop_singers"
             3. Individual person names - e.g. "Lee Hsien Loong". Useful if the user only wants to detect for specific people.
