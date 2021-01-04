@@ -8,18 +8,18 @@ info:
     Some models also provide the option to filter the returned identity based on predefined attributes"
     
     The size of your image file should **not exceed 5 MB**, and the image dimension should be **at least 416x416 pixels**. 
-  version: '1.0.0'
+  version: '1.1.0'
   x-subscribelink: face_recognition_politicians_sg
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v1.1.0"
   description: "Published Date - Jan 05, 2021"
 paths:
   /microservices/cv/facerecognition/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.1.0
       responses:
         '200':
           description: success response
@@ -231,13 +231,13 @@ components:
     versions:
       type: object
       properties:
-        v1.0.1:
+        v1.1.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - Jan 05, 2021
-              description: Model update
+              description: Add new models - sg-parliament-2019 , sg-parliament-2020 , sg-jp-2020 , artists
         v1.0.0:
           type: array
           items:
@@ -264,10 +264,12 @@ components:
           default: true
           example: sg-parliament-2019
           description: |+
-            Model name."sg-parliament-2019" is trained on Singapore Members of Parliament - 2019.
-            "sg-parliament-2020" is trained on Singapore Members of Parliament - 2020.
-            "sg-jp-2020" is trained on Singapore and Japan public figures - 2020.
-            "artists" is trained on well known artists globally
+            Model selection. For best performance, select the model which best matches the use-case&#58;
+            
+            1. sg-parliament-2019 - is trained on Singapore Members of Parliament - 2019
+            2. sg-parliament-2020 - is trained on Singapore Members of Parliament - 2020
+            3. sg-jp-2020 - is trained on Singapore and Japan public figures - 2020
+            4. artists - is trained on well known artists globally
         image_base64:
           x-name: image_base64
           type: string
