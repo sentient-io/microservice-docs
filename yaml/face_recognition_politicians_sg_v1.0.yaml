@@ -298,7 +298,13 @@ components:
           default: false
           example: ["japan", "television_actors"]
           description: |+
-            Filter list of attributes to reduce wrong matches.
+            Optional filters that allows the user to refine the output. There are 3 types of filters&#58;
+              
+            1. Countries - e.g. "Singapore", "Japan"
+            2. Professions - e.g. "atheletes", "pop_singers"
+            3. Individual person names - e.g. "Lee Hsien Loong". Useful if the user only wants to detect for specific people.
+            
+            See "Additional Information" section for full list of available filters
         
   securitySchemes:
     APIAuthorizer:
