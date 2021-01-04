@@ -289,7 +289,7 @@ components:
             oneOf:
             - type: string
               example: Published Date - Jan 05, 2021
-              description: Model update
+              description: Add new models - sg-parliament-2019 , sg-parliament-2020 , sg-jp-2020 , artists
         v1.0.0:
           type: array
           items:
@@ -316,10 +316,12 @@ components:
           default: true
           example: sg-parliament-2019
           description: |+
-            Model name. "sg-parliament-2019" is trained on Singapore Members of Parliament - 2019.
-            "sg-parliament-2020" is trained on Singapore Members of Parliament - 2020.
-            "sg-jp-2020" is trained on Singapore and Japan public figures - 2020.
-            "artists" is trained on globally well know artists.
+            Model selection. For best performance, select the model which best matches the use-case&#58;
+              
+            1. sg-parliament-2019 - is trained on Singapore Members of Parliament - 2019
+            2. sg-parliament-2020 - is trained on Singapore Members of Parliament - 2020
+            3. sg-jp-2020 - is trained on Singapore and Japan public figures - 2020
+            4. artists - is trained on well known artists globally
         image_base64:
           x-name: image_base64
           type: string
