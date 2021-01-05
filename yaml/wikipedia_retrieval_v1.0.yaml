@@ -16,7 +16,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Dec 31, 2020"
 paths:
-  /microservices/utility/wikipedia/v0.1/getresults:
+  /microservices/utility/wikipedia/v1/getresults:
     post:
       tags:
         - v1.0.0
