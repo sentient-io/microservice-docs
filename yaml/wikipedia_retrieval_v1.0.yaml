@@ -14,7 +14,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Dec 31, 2020"
+  description: "Published Date - Jan 10, 2021"
 paths:
   /microservices/utility/wikipedia/v1/getresults:
     post:
@@ -301,7 +301,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Dec 31, 2020
+              example: Published Date - Jan 10, 2021
               description: Patch Update, Optimization and added thumbnail to default output
         v0.1.0:
          type: array
