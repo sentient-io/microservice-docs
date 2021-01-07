@@ -332,7 +332,7 @@ components:
           type: string
           default: false
           example: all
-          description: Indicates the filter criteria of the output result fields. The default return set includes pageid, url, summary and thumbnail. “all” - returns all the fields i.e pageid, url, summary, content, links, images and thumbnail.
+          description: The default returns the pageid, url, summary and thumbnail, when given “all” - returns all the fields i.e pageid, url, summary, content, links, images and thumbnail.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
