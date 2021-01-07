@@ -302,7 +302,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jan 10, 2021
-              description: Patch Update, Optimization and added thumbnail to default output
+              description: Patch Update, Optimization and thumbnail is added as an additional field 
         v0.1.0:
          type: array
          items:
@@ -332,7 +332,7 @@ components:
           type: string
           default: false
           example: all
-          description: Indicates the filter criteria of the output result fields. The default return set includes pageid, url, summary and thumbnail.“all” - returns all the fields i.e pageid, url, summary, content, links, images and thumbnail.
+          description: Indicates the filter criteria of the output result fields. The default return set includes pageid, url, summary and thumbnail. “all” - returns all the fields i.e pageid, url, summary, content, links, images and thumbnail.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
