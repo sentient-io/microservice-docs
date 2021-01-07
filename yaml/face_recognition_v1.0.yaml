@@ -7,7 +7,7 @@ info:
     This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction. Users can further filter the results by countries, profession or even down to the individual names.  
 
     Help us grow this microservice! [Let us know](https://www.sentient.io/contact) which other public figures you would like us this microservice to also recognise (e.g. a new country or a new category). We will expand the capability of this microservices based on user feedback and demand.
-  version: '1.0.0'
+  version: '1.0.1'
   x-additionalinfo: |+
     **Full List of Filters**
     Users may choose to filter the output using any of these filters below. 
@@ -63,15 +63,15 @@ info:
     
   x-subscribelink: face_recognition
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v1.0.1"
   description: "Published Date - Dec 09, 2020"
 paths:
   /microservices/cv/facerecognition/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.0.1
       responses:
         '200':
           description: success response
@@ -281,6 +281,15 @@ components:
           type: string
           example: Failure
     versions:
+      type: object
+      properties:
+        v1.0.1:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Jan 08, 2021
+              description: Bug fix - Threshold value   
       type: object
       properties:
         v1.0.0:
