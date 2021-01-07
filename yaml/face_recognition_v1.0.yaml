@@ -290,8 +290,6 @@ components:
             - type: string
               example: Published Date - Jan 08, 2021
               description: Bug fix - Threshold value   
-      type: object
-      properties:
         v1.0.0:
           type: array
           items:
