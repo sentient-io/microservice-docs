@@ -210,7 +210,7 @@ components:
           default: true
           example: UklGRoboDgBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjAuMTAwAGRhdGFA6A4AAAAAAAAAAAAAAAAAAAAAAAAA...
           description: |+
-            Input base64 encoded string
+            Input a base64 encoded string.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
