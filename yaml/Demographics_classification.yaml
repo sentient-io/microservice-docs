@@ -281,7 +281,7 @@ components:
           default: True
           example: /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUG...
           description: |+
-            input image's base64 string representation
+            Input image file in base64 format.
         
         
   securitySchemes:
