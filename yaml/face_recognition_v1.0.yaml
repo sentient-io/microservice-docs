@@ -317,7 +317,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input image file in base64 format
+            Input image file in base64 format.
         file_type:
           x-name: file_type
           type: string
