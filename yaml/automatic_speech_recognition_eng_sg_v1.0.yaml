@@ -236,7 +236,7 @@ components:
           x-name: model
           type: string
           default: true
-          example: nsc_parliament
+          example: prepared_speech
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             
@@ -248,7 +248,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input wav file in base64 format.
+            Input audio file in base64 format.
         srt:
           x-name: srt
           type: array
