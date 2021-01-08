@@ -234,7 +234,7 @@ components:
         audioContent:
           type: string
           example: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
-          description: Audio wav file convert to base64 encode string
+          description: Audio file converted to base64 encoded string.
     unauthorized:
       type: object
       properties:
