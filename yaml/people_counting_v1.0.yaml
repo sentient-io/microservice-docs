@@ -246,7 +246,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input video in base64 format.
+            Input video file in base64 format.
             
             Supported formats: acm, anm, apc, au, avi, bfi, bmp_pipe, bmv, codec2, dsf, dss, dvd, fifo, genh, gif, gxf, hls, iff, ifv, ipod, jpeg_pipe, jv, m4v, mjpeg, mlp, mlv, mov, mp2, mp3, mp4, pbm_pipe, pmp, png_pipe, psd_pipe, psp, rawvideo, sdp, sds, sdx, tmv, uncodedframecrc, vcd, vidc, vmd, voc, vpk, wav, webm, wsd, wsvqa, wtv, xmv, xpm_pipe.
         
