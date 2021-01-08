@@ -247,7 +247,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input image in base64 format.
+            Input image file in base64 format.
             
             Supported formats: blp, bmp, bufr, cur, dcx, dds, dib, eps, ps, fit, fits, flc, fli, fpx, ftc, ftu, gbr, gif, grib, h5, hd5, icns, ico, im, iim, jpeg, jp2, mic, mpeg, msp, pcd, pcx, pxr, png, ppm, psd, sgi, ras, tga, tiff, wmf, xbm, xpm.
         
