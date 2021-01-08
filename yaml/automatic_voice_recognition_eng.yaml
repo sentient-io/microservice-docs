@@ -197,7 +197,8 @@ components:
           default: true
           example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input file in base64 format and needs to be prefixed by the data type and encoding
+            Input audio file in base64 format. It also needs to be prefixed by the data type and encoding.
+            
             data:audio/wav;base64,<wav in base64 string>
     versions:
       type: object
