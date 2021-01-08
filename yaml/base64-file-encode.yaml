@@ -105,7 +105,7 @@ components:
           properties:
             base64:
               type: string
-              description: Converted base64 encoded text in the requested output format
+              description: Base64 encoded text converted to the requested output format.
               example: /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMCAggIBQUICAUGBQUGBgYGBgUFBQYGBgYGBgYGBgYGBgYGBQYGBgYGBgYGBgoGBgcICQkJBgYLDgoIDQYICQgBAwQEBgUGCAYGCAgHBwcICAgICAgBAABAgMFBgcECP....
         message:
           type: string
