@@ -232,7 +232,7 @@ components:
           x-name: model
           type: string
           default: true
-          example: news_parliament
+          example: prepared_speech
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             
@@ -244,7 +244,7 @@ components:
           default: true
           example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: |+
-            Input audio wav file in base64 format. 
+            Input audio file in base64 format. 
             
             Mono channel, 8kHz / 16kHz sampling rate.
         file_type:
