@@ -230,7 +230,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Required. Input audio file in base64 format 
+            Required. Input audio file in base64 format. 
         threshold:
           x-name: threshold
           type: number
