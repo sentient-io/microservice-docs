@@ -11,7 +11,7 @@ info:
   version: '0.1.0'
   x-subscribelink: wikipedia_retrieval
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Apr 23, 2020"
