@@ -63,7 +63,7 @@ info:
     
   x-subscribelink: face_recognition
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date - Jan 08, 2021"
