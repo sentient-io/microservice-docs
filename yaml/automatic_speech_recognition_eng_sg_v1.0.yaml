@@ -248,7 +248,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input audio file in base64 format.
+            Input .wav file in base64 format.
         srt:
           x-name: srt
           type: array
