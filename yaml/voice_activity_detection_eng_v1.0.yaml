@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Voice Activity Detection ENG
   description: |+
-    This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.
+    This Voice microservice detects utterances in the input audio (.wav format) and outputs the start and end time of these utterances.
     
     An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.
   version: '1.0.0'
@@ -230,7 +230,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Required. Input audio file in base64 format. 
+            Input .wav file in base64 format. 
         threshold:
           x-name: threshold
           type: number
@@ -238,7 +238,7 @@ components:
           default: false
           example: 0.2
           description: |+
-            Optional. Threshold ranges between 0.0 and 1.0 and default is 0.4
+            Threshold ranges between 0.0 and 1.0 and default is 0.4
     versions:
       type: object
       properties:
