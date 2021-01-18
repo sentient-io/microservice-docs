@@ -4,7 +4,7 @@ info:
   description: |+
     This Voice microservice transcribes the input audio stream into text.
     
-    This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case, whether for prepared speech (16kHz) or telephony (8kHz).
+    This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament and nscfull_8k.
     
     The size of your audio file should be **between 3 KB to 10 MB**.
   version: '1.1.0'
