@@ -14,7 +14,7 @@
       - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
     version: '2.1.1'
   servers:
-    - url: 'https://apis.sentient.io'
+    - url: 'https://dev-apis.sentient.io'
   tags:
   - name: "v2.1.1"
     description: "Published Date - Dec 04, 2020"
