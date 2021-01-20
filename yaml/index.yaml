@@ -100,17 +100,14 @@ Computer Vision:
     People Counting:
         title: people_counting
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/people_counting_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/people_counting.yaml"
     Landmark Detection (SG):
         title: landmark_detection_sg
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/landmark_detection_sg_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/landmark_detection_sg.yaml"
     Landmark Detection (JP):
         title: landmark_detection_jp
         versions:
-            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/landmark_detection_jp_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/master/yaml/landmark_detection_jp.yaml"
     Demographics Classification:
         title: demographics_classification
