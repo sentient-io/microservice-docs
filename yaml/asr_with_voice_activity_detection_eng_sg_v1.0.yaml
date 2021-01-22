@@ -3,7 +3,9 @@ info:
   title: ASR with Voice Activity Detection ENG (SG)
   description: |+
     This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
-    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k.
+    This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case, whether for prepared speech (16kHz) or telephony (8kHz).
+    
+    The size of your audio file should be **between 3 KB to 10 MB**.
   version: '1.1.0'
   x-additionalinfo: |+
     Suggested Use Cases:
