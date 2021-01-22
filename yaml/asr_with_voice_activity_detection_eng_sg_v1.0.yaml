@@ -232,7 +232,7 @@ components:
           x-name: model
           type: string
           default: true
-          example: news_parliament
+          example: prepared_speech
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             
