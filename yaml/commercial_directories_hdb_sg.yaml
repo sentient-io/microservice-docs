@@ -116,7 +116,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Dec 26, 2018"
 paths:
-   /DaaS/prod/directories/hdb/searchdir:
+   /DaaS/dev/directories/hdb/searchdir:
     get:
       tags:
         - v0.1.0
