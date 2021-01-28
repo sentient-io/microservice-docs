@@ -31,24 +31,32 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/success'
-                example: 
+                example:
                   message: Successfully Processed
                   results:
-                    company: 
-                      - 和歌山製鉄所 
-                    date:
-                      - 7日,2023年9月
-                      - 22年9月 
-                    domestic_region: 
-                      - 呉製鉄所
-                    material: 
-                      - 鉄鋼最大手 
-                    n_product: 
-                      - 高炉2基
-                      - 2基","1基
-                    province:
-                      - 広島県呉市
-                      - 和歌山市
+                    age:
+                    - '56'
+                    countx_other:
+                    - 2稿
+                    - 8口
+                    doctrine_method_other:
+                    - 険所コホ特室りょ
+                    n_event:
+                    - 受1
+                    numex_other:
+                    - 百経
+                    ordinal_number:
+                    - 30弾
+                    person:
+                    - くぼ
+                    - 壮
+                    - 琢紫
+                    - ナユ
+                    product_other:
+                    - 都合ヘラアニ限
+                    - 議帳
+                    show_organization:
+                    - 左成相態
                   status: Success
           '401':
             description: Unauthorized
