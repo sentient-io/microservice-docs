@@ -13,7 +13,7 @@ info:
   version: '1.0.0'
   x-subscribelink: landmark_detection_sg
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Jan 25, 2021"
