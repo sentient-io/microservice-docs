@@ -117,10 +117,12 @@ Computer Vision:
     Landmark Detection (SG):
         title: landmark_detection_sg
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_sg_v1.0.yaml"        
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_sg.yaml"
     Landmark Detection (JP):
         title: landmark_detection_jp
         versions:
+            v1.0: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_jp_v1.0.yaml"
             v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/landmark_detection_jp.yaml"
     Demographic Classification:
         title: demographic_classification
