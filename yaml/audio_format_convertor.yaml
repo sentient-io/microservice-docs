@@ -215,9 +215,7 @@ components:
           format: binary
           default: true
           example: sample.wav
-          description: Maximum file size up to 10 MB.
-          
-          The current file formats supported are .mp3, .wav, .amr, .aac, .ac3, .aiff, .flac, .m4a, .ogg, .opus, and .wma.
+          description: Maximum file size up to 10 MB.The current file formats supported are .mp3, .wav, .amr, .aac, .ac3, .aiff, .flac, .m4a, .ogg, .opus, and .wma.
         samplerate:
           type: string
           default: false
