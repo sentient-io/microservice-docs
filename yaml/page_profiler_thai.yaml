@@ -94,13 +94,13 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/inputfieldmissing'
-          '420':
+          '413':
             description: Not Found
             content:
               application/json:
                 schema:
                   $ref: '#/components/schemas/inputlimitexceeded'
-          '422':
+          '415':
             description: Invalid Input
             content:
               application/json:
