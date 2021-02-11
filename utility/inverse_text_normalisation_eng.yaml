@@ -1,13 +1,24 @@
 openapi: 3.0.1
 info:
-  title: Sentiment Analysis AWS
-  description: >-
-    The sentiment analysis will help to determine the expressed emotional state of person by using natural language processing to analyse a range of parameters, including tone of voice, choice of words.<br><br>This is a passthrough to AWS’s sentiment analyser.
+  title: Inverse Text Normalisation ENG
+  description: |+
+    This NLP microservice recovers missing punctuations such as full stop, comma, exclamation mark, and question mark from the input text.
+
+    This NLP microservice also converts pre-defined abbreviations from lower case to upper case.
+
+    This NLP microservice also converts first letters of sentences to upper case.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Can be integrated into services or apps that offer digital writing assistance to make writing clear and effective.
   version: '0.1.0'
+  x-subscribelink: inverse_text_normalisation_eng
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Mar 24, 2020"
 paths:
-  /sentimentanalysis/prod/awssa:
+  /microservices/nlp/inversenorm/v0.1/getpredictions:
     post:
       tags:
         - v0.1.0
@@ -18,6 +29,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                '0': |+
+                     Apple said, the project-financing fund was the 1 of its kind, real estate developers,
+                      often secure bonds for affordable housing development, but must service the debt
+                      during construction, until the houses are built and start to generate revenue, apple
+                      and state officials hope to provide bridge financing during construction at rates
+                      below those from commercial lenders.
+                '1': |+
+                  The $2000000000 in funding will be deployable across NTU while the remaining
+                  5500000000 will go toward efforts specific to apple's home region in northern california,
+                  where fast-growing tech companies have drawn protests from residents who blame them
+                  for rising, housing costs.
         '401':
           description: Unauthorized
           content:
@@ -48,20 +71,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-        '420':
+        '413':
           description: Input Limit Exceeded
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'       
-        '422':
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
           description: Invalid Input
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/invalidinput'
         '500':
-          description: Internal Server error
+          description: Internal Server Error
           content:
             application/json:
               schema:
@@ -85,13 +108,10 @@ components:
     success:
       type: object
       properties:
-        Sentiment:
+        <order sequence number> :
           type: string
-          example: NEUTRAL
-        SentimentScore:
-          items:
-            type: string
-            example: 'Positive: 0.05698205158114433, Negative: 0.030973462387919426, Neutral: 0.912034809589386, Mixed: 0.00000966900734056253'
+          example: { 0: Apple said, the project-financing fund was the 1 of its kind, real estate developers, often secure bonds for affordable housing development, but must service the debt during construction, until the houses are built and start to generate revenue, apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders.}
+          description: Order sequence number 
     unauthorized:
       type: object
       properties:
@@ -107,15 +127,6 @@ components:
         message:
           type: string
           example: Access Denied Unauthorized User
-        status:
-          type: string
-          example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -142,7 +153,7 @@ components:
       properties:
         message:
           type: string
-          example: Internal Server error
+          example: Internal Server Error
         status:
           type: string
           example: Failure
@@ -172,15 +183,46 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure      
-    input:
+          example: Failure  
+    invalidinput:
       type: object
       properties:
-        key:
+        message:
           type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 24, 2020
+              description: Initial version release
+    input:
+      type: array
+      required:
+        - text
+      items:
+        type: object
+        properties:
+          text:
+            x-name: text
+            type: string
+            default: true
+            example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
+            description: |+
+              Input text.
+              
+              Supported formats: ASCII only
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

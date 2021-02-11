@@ -1,16 +1,28 @@
 openapi: 3.0.1
 info:
-  title: Sentiment Analysis Google
-  description: >-
-    The sentiment analysis will help to determine the expressed emotional state of person by using natural language processing to analyse a range of parameters, including tone of voice, choice of words.<br><br>This is a passthrough to Google’s sentiment analyser.
-  version: '0.1.0'
+  title: Landmark Detection (SG)
+  description: |+
+    This Computer Vision microservice identifies Singapore landmarks from multiple input images. 
+    
+    This microservice returns the detected landmark and confidence score.
+    
+    The size of your image file should **not exceed 5 MB**. 
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Can be used for geo-targeting apps with map feature or property development planning resource apps. 
+  version: '1.0.0'
+  x-subscribelink: landmark_detection_sg
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - Dec 31, 2020"
 paths:
-  /sentimentanalysis/prod/googlesa:
+  /microservices/cv/landmarksg/v1/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
+
       responses:
         '200':
           description: success response
@@ -18,6 +30,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
+              example:
+                results:
+                  confidence: 100%
+                  landmark: Artscience Museum
+                message: Successfully Processed
+                status: Success
+                    
         '401':
           description: Unauthorized
           content:
@@ -53,9 +72,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'        
+                $ref: '#/components/schemas/inputlimitexceeded'  
+        '422':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
-          description: Internal Server error
+          description: Internal Server Error
           content:
             application/json:
               schema:
@@ -68,35 +93,61 @@ paths:
                 $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
+      
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/input'
         required: true
+
+
 components:
   schemas:
     success:
       type: object
       properties:
-        documentSentiment:
-          items:
-            type: string
-            example: 'magnitude: 0.1,score: 0.1'
-        language:
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties:
+            confidence:
+              x-name: confidence
+              type: string
+              example: 100%
+              description: Confidence score of identification. Higher is more confidence.
+            landmark:
+              x-name: landmark
+              type: string
+              example: Artscience Museum
+              description: Name of the landmark
+        message:
           type: string
-          example: en
-        sentences:
-          items:
-            type: string
-            example: 'text: {content: hi there,
-      beginOffset: 0},sentiment:{magnitude: 0.1,score: 0.1}'
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+            
+        
+    
     unauthorized:
       type: object
       properties:
         message:
           type: string
           example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    restricted:
+      type: object
+      properties:
+        message:
+          type: string
+          example: The content is restricted
         status:
           type: string
           example: Failure
@@ -123,7 +174,7 @@ components:
       properties:
         message:
           type: string
-          example: Invalid Request URL
+          example: Invalid Request
         status:
           type: string
           example: Failure
@@ -132,7 +183,7 @@ components:
       properties:
         message:
           type: string
-          example: Internal Server error
+          example: Internal Server Error
         status:
           type: string
           example: Failure
@@ -162,15 +213,52 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure      
-    input:
+          example: Failure
+    invalidinput:
       type: object
       properties:
-        key:
+        message:
           type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Dec 31, 2020
+              description: Standardizing Output JSON
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Jul 30,2020
+              description: Initial version release
+    input:
+      type: object
+      required:
+        - image_base64
+      properties:
+        image_base64:
+          x-name: image_base64
+          type: string
+          default: true
+          example: UklGRkbiBABXQVZFZm10IBAAAAABA...
+          description: |+
+            Input image file in base64 format. 
+            
+            Supported formats: blp, bmp, bufr, cur, dcx, dds, dib, eps, ps, fit, fits, flc, fli, fpx, ftc, ftu, gbr, gif, grib, h5, hd5, icns, ico, im, iim, jpeg, jp2, mic, mpeg, msp, pcd, pcx, pxr, png, ppm, psd, sgi, ras, tga, tiff, wmf, xbm, xpm.
+
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
