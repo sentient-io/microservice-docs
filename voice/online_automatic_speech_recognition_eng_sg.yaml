@@ -1,0 +1,17 @@
+# This is a testing yaml file fir MS that does not have a proper yaml documentation
+# API Documentation Platfrom will check if the yaml file has a "html" key
+# If have "html", will read HTML content and hide all other API documentation element
+info:
+  title: Online Automatic Speech Recognition ENG (SG)
+  description: >-
+    This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+  version: '0.1.0'
+# tags must include in to the documentation, to read the description text for published date
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Apr 17, 2020"
+html: |+
+     <div id="iframe-container">
+     <iframe src="https://docs.sentient.io/static/online_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
+     </iframe>
+     </div>

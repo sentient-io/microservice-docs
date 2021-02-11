@@ -1,0 +1,10 @@
+info:
+  title: Data Alliance - Download Dataset API
+  version: '0.1.0'
+# tags must include in to the documentation, to read the description text for published date
+tags:
+- name: "v0.1.0"
+  description: " "
+html: |+
+     <iframe src="https://docs.sentient.io/static/download_dataset.html" width="100%" height="800px">
+     </iframe>
