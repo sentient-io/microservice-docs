@@ -89,13 +89,13 @@
                 schema:
                   $ref: '#/components/schemas/notfound'
           '419':
-            description: Not Found
+            description: Input Field Missing
             content:
               application/json:
                 schema:
                   $ref: '#/components/schemas/inputfieldmissing'
           '413':
-            description: Not Found
+            description: Input Limit Exceeded
             content:
               application/json:
                 schema:
