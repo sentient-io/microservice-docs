@@ -59,7 +59,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-        '413:
+        '413':
           description: Input Limit Exceeded
           content:
             application/json:
