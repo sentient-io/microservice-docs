@@ -60,18 +60,18 @@
                 schema:
                   $ref: '#/components/schemas/notfound'
           '419':
-            description: Not Found
+            description: Input Field Missing
             content:
               application/json:
                 schema:
                   $ref: '#/components/schemas/inputfieldmissing'
-          '420':
-            description: Not Found
+          '413':
+            description: Input Limit Exceeded
             content:
               application/json:
                 schema:
                   $ref: '#/components/schemas/inputlimitexceeded'
-          '422':
+          '415':
             description: Invalid Input
             content:
               application/json:
