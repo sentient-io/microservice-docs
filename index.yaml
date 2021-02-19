@@ -274,6 +274,10 @@ data:
     title: D&B Brief Financial Information (SG)
     versions:
       0.1.0: 'd&b_brief_financial_information_sg.yaml'
+  ihi_data_pointcloud:
+    title: IHI Point Cloud
+    versions:
+      0.1.0: 'ihi_data_pointcloud.yaml'
 data alliance:
   download_dataset_api:
     title: Download Dataset API
