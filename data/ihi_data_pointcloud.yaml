@@ -99,7 +99,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "2020/7/7T20:29:14.280Z"
+          example: "SD"
           default: false
         - in: query
           name: offset
