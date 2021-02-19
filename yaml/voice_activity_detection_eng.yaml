@@ -5,6 +5,7 @@ info:
     This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.
     
     An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.
+    The length of your audio should be **upto 60 seconds**.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Narrate a blurb or chunk of text in English
