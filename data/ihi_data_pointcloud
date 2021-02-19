@@ -3,7 +3,7 @@ info:
   title: IHI Pointcloud Data
   x-subscribelink: ihi_data
   description: |+
-   This Data microservice returns information on IHI Pointcloud Data which includes the location address, postal code, gender and age groups, down to block-level granularity.The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
+   This microservice returns information on Ishikawajima-Harima Heavy Industries(IHI) Pointcloud Data which includes the 3DLR Location of Boon Lay Way-Yuan Ching Road, Singapore. The Data comprises all the vehicle detection and does contain any pedestrian data. The IHI LiDAR programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with IHI to manage and facilitate the sharing of data for the LiDAR Programme.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
@@ -83,9 +83,9 @@ servers:
   - url: 'https://api.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 15, 2020"
+  description: "Published Date - Feb 26, 2021"
 paths:
-  /DaaS/prod/hdb/demographics:
+  /DaaS/dev/ihidata:
     get:
       tags:
         - v0.1.0
@@ -99,7 +99,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "tampines"
+          example: "2020/7/7T20:29:14.280Z"
           default: false
         - in: query
           name: offset
@@ -127,7 +127,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"filter":[{"match":{"age_group_id":7}},{"match":{"gender":"male"}},{"match":{"postalcode":520423}}]}
+            {"filter":[{"match":{_id": "57464093"}},{"match":{"dataclass": "SD"}},{"match":{"detecttime": "2020-7-7T18:28:45.365Z"}}]}
       responses:
         '200':
           description: success response
@@ -137,30 +137,38 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  total: 986
-                  max_score: 17.995623
+                  total: 607176
+                  max_score: 1.0
                   hits:
-                  - _index: sentient_demographics_hdb_index
+                  - _index: index_ihi_pointcloud
                     _type: dir_doc
-                    _id: K7scqWgBv3dNEHq2WvMo
-                    _score: 17.995623
+                    _id: 57364055
+                    _score: 1.0
                     _source:
-                      postalcode: '560720'
-                      gender: 'male'
-                      age_group: '50 to 59'
-                      age_group_id: 6
-                      residents: 54
-                      block: '34'
-                      street: 'upper cross street'
-                      xcoord: 29520.58
-                      ycoord: 39311.68
-                      address: '34 upper cross street'
-                      createddate: '2020-04-23'
-                      lastupdated: '2020-04-23'
-                      location:
-                        lat: 1.37179535
-                        lon: 103.8469821
-                      source: hdb
+                      1x: 79
+                      1y: 3927
+                      2x: 79
+                      2y: 4515
+                      createddate: '2021-02-18T16:19:09.689Z'
+                      lastupdated: '2021-02-18T16:19:09.689Z'
+                      dataclass: "SD"
+                      datalen: 612
+                      datanumlow: 15
+                      datanumup: 0
+                      detecttime: '2020-7-7T18:28:45.365Z'
+                      height: 261
+                      identify: 11
+                      jamlane: 0
+                      length: 588
+                      originid: "0x145D"
+                      sendtime: '2020-7-7T18:38:35.653Z'
+                      seqno: 573
+                      situation: "0x02"
+                      targetid: 64055
+                      targetidx: "0x1451"
+                      width: 250
+                      xspeed: -8
+                      yspeed: -60
                 message: Successfully Processed
                 status: Success                              
         '401':
@@ -231,11 +239,11 @@ components:
           properties:
             total:
               type: number
-              example: 986
+              example: 607176
               description: Total number of records
             max_score:
               type: number
-              example: 17.995623
+              example: 1.0
               description: The highest score value
             hits:
               type: array
@@ -247,7 +255,7 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "sentient_demographics_hdb_index"
+                    example: "index_ihi_pointcloud"
                   _type: 
                     type: string
                     description: Content type of the document
@@ -255,90 +263,112 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "K7scqWgBv3dNEHq2WvMo"
+                    example: "57364055"
                   _score: 
                     type: number
                     description: The document score for the search request
-                    example: 17.995623
+                    example: 1.0
                   _source: 
                     type: object
                     example: {<Json Object>}
                     description: Json Object of returned hits                    
                     properties:
-                            postalcode: 
-                              type: string
-                              description: Postal code of a block
-                              example: "560720"
-                            gender: 
-                              type: string
-                              description: Gender details, values are male/female
-                              example: "male"
-                            age_group: 
-                              type: string
-                              description: Range of age groups
-                              example: "50 to 59"
-                            age_group_id:
+                            1x: 
                               type: number
-                              description: |+
-                                Age group ID represents a certain age range&#58;
-                                1 (<10 years)
-                                2 (10-19 years)
-                                3 (20-29 years)
-                                4 (30-39 years)
-                                5 (40-49 years)
-                                6 (50-59 years)
-                                7 (60-69 years)
-                                8 (>70 years)
-                              example: 6
-                            residents:
+                              description: X direction central top position of target
+                              example: 79
+                            1y: 
                               type: number
-                              description: Number of residents
-                              example: 54
-                            block:
+                              description: Y direction central top position of target
+                              example: 3927
+                            2x: 
+                              type: number
+                              description: X direction central tail position of target
+                              example: 79
+                            2y:
+                              type: number
+                              description: Y direction central tail position of target
+                              example: 4515
+                            dataclass:
                               type: string
-                              description: Address block
-                              example: "34"
-                            street:
+                              description: Type of Data
+                              example: "SD"
+                            datalen:
+                              type: number
+                              description: Lenght of the information
+                              example: 612
+                            datanumlow:
+                              type: number
+                              description: Lower data number
+                              example: 15
+                            datanumup:
+                              type: number
+                              description: Upper data number
+                              example: 0
+                            detecttime:
                               type: string
-                              description: Street Address or building name
-                              example: "upper cross street"
-                            xcoord:
+                              description: Target detected time
+                              example: "2020-7-7T18:28:45.365Z"
+                            height:
+                              type: number
+                              description: Height of target
+                              example: 261
+                            identify:
+                              type: number
+                              description: Target vehicle type
+                              example: 11
+                            jamlane:
+                              type: number
+                              description: Jam lane number
+                              example: 0
+                            length:
+                              type: number
+                              description: Length of target
+                              example: 588
+                            originid:
                               type: string
-                              description: SVY21 X coordinates
-                              example: 29520.58
-                            ycoord:
+                              description: Origin Id
+                              example: "0x145D"
+                            sendtime:
                               type: string
-                              description: SVY21 Y coordinates
-                              example: 39311.68
-                            address:
-                              type: string
-                              description: Building full address
-                              example: "34 upper cross street"
+                              description: Target send time
+                              example: "2020-7-7T18:38:35.653Z"
                             createddate:
                               type: string
                               description: Record first release date on sentient
-                              example: "2020-04-23"
+                              example: "2021-02-18T16:19:09.689Z"
                             lastupdated:
                               type: string
                               description: Record last updated date on sentient
-                              example: "2020-04-23"
-                            location:
-                              type: object
-                              description: WGS84 coordinates lat/long
-                              example: {"lat":1.37179535,"lon":103.8469821}                                  
-                              properties:
-                                  lat: 
-                                    type: string
-                                    description: WGS84 latitude
-                                    example: 1.37179535
-                                  lon:
-                                    type: string
-                                    description: WGS84 longitude
-                                    example: 103.8469821
-                            source: 
+                              example: "2021-02-18T16:19:09.689Z"
+                            seqno:
+                              type: number
+                              description: Sequence number of target
+                              example: 573 
+                            situation:
                               type: string
-                              description: Dataset source
-                              example: "hdb"
+                              description: Situation of target
+                              example: "0x02"
+                            targetid:
+                              type: number
+                              description: Target Id
+                              example: 64055
+                            targetidx:
+                              type: string
+                              description: Target Idx
+                              example: "0x1451"
+                            width:
+                              type: number
+                              description: Width of target
+                              example: 250
+                            xspeed:
+                              type: number
+                              description: xspeed of target
+                              example: -8
+                            yspeed:
+                              type: number
+                              description: yspeed of target
+                              example: -60
         message:
           type: string
           example: Successfully Processed
@@ -436,7 +466,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - May 15,2020
+              example: Published Date - Feb 26,2021
               description: Initial version release               
   securitySchemes:
     APIAuthorizer:
