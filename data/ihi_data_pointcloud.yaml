@@ -55,7 +55,7 @@ info:
       
     * **exists** - Returns results that contain any indexed value for a field
     
-      > {"filter":[{"terms":{"exists":{ "field":"identify"}}]}
+      > {"filter":[{"exists":{ "field":"identify"}}]}
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
