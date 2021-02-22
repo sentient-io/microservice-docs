@@ -22,7 +22,7 @@ info:
       > {"must":[{"match_phrase":{"identify":10}}]}
     
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      > {"must_not":[{"match":{"jamlane":0}}]}
+      > {"must_not":[{"match":{"identify":10}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       > {"should":[{"match_phrase":{"seqno":39736}}]}
