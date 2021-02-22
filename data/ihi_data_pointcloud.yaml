@@ -39,7 +39,7 @@ info:
     * **match** - Search within a full text field for a single word
       > {"filter":[{"match":{"dataclass": "SD"}}]}
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"seqno":39736}}
+      > {"filter":[{"match_phrase":{"targetidx": "0x1451"}}]}
     * **match_phrase_prefix** - Search within a full text field with prefix
       > {"match_phrase_prefix":{"originid":"0x145D"}}
     * **term** - Returns results that contain an exact term in a provided field
