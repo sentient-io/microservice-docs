@@ -30,7 +30,7 @@ paths:
         - v1.0.0
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
