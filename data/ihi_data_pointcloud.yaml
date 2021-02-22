@@ -49,13 +49,13 @@ info:
       
     * **range** - Returns results that contain terms within a stipulated range
     
-      > {"range":{"residents":{"gte":10}}}
-      > {"range":{"residents":{"lte":50}}}
-      > {"range":{"residents":{"gte":10,"lte":50}}}
+      > {"filter":[{"range":{"detecttime":{"gte":"2020-7-7T18:28:45.365Z"}}}]}
+      > {"filter":[{"range":{"detecttime":{"lte":"2020-7-7T19:19:39.985Z"}}}]}
+      > {"filter":[{"range":{"detecttime":{"gte":"2020-7-7T18:28:45.365Z","lte":"2020-7-7T19:19:39.985Z"}}}]}
       
     * **exists** - Returns results that contain any indexed value for a field
     
-      > {"exists":{ "field":"identify"}}
+      > {"filter":[{"terms":{"exists":{ "field":"identify"}}]}
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
