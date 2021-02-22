@@ -43,9 +43,9 @@ info:
     * **match_phrase_prefix** - Search within a full text field with prefix
       > {"filter":[{"match_phrase_prefix":{"originid":"0x145D"}}]}
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"situation":"0x02"}}
+      > {"filter":[{"term":{"situation":"0x02"}}]}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"identify":[10,11,12]}}
+      > {"filter":[{"terms":{"identify":[10,11,12]}}]}
       
     * **range** - Returns results that contain terms within a stipulated range
     
