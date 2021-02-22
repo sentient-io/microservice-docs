@@ -204,17 +204,21 @@ components:
               example: Published Date - Mar 24, 2020
               description: Initial version release
     input:
-      type: object
+      type: array
       required:
         - text
-      properties:
-        text:
-          x-name: text
-          type: string
-          default: true
-          example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
-          description: |+
-            Input text
+      items:
+        type: object
+        properties:
+          text:
+            x-name: text
+            type: string
+            default: true
+            example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
+            description: |+
+              Input text.
+              
+              Supported formats: ASCII only
   securitySchemes:
     APIAuthorizer:
       type: apiKey
