@@ -37,7 +37,7 @@ info:
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
-      > {"match":{"dataclass":"SD"}}
+      > {"filter":[{"match":{"dataclass": "SD"}}]}
     * **match_phrase** - Search within a full text field
       > {"match_phrase":{"seqno":39736}}
     * **match_phrase_prefix** - Search within a full text field with prefix
@@ -74,7 +74,7 @@ info:
       
       > {"filter":[{"match":{"street":"tampines street 41"}},{"match":{"block":"423"}},{"terms":{"age_group_id":[6,7,8]}}]}
       
-    2. **Search for the different types of cars like Motorcycle, Normal car, Large car of dataclass "SD" in detected time of "2020-7-7T19:19:39.985Z".**
+    2. **Search for the different types of vehicles like Motorcycle, Normal car, Large car of dataclass "SD" in detected time of "2020-7-7T19:19:39.985Z".**
       Using a filterdata only&#58;
       
       > {"filter":[{"terms":{"identify":[10,11,12]}},{"match":{"dataclass":"SD"}},{"terms":{"detecttime":"2020-7-7T19:19:39.985Z"}}]}
