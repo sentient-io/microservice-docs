@@ -75,7 +75,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputlimitexceeded'
-        '415':
+        '422':
           description: Invalid Input
           content:
             application/json:
