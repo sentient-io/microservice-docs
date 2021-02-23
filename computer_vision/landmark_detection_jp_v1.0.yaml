@@ -24,7 +24,7 @@ paths:
         - v1.0.0
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
@@ -65,14 +65,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-        '420':
-          description: Input Limit Exceeded
+        '413':
+          description: Payload Too Large
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputlimitexceeded' 
-        '422':
-          description: Invalid Input
+        '415':
+          description: Unsupported Media Type
           content:
             application/json:
               schema:
