@@ -16,6 +16,18 @@ paths:
     get:
       tags:
         - v0.2.0
+      parameters:
+        - in: query
+          name: querystring
+          schema:
+            type: string
+          description: |+
+            Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
+            
+            If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            
+          example: BE33
+          default: false
       responses:
         '200':
           description: success response
@@ -161,30 +173,6 @@ components:
           type: string
           example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#IncidentSet
           description: url
-        value:
-          type: array
-          example: [{
-		"Type": "Vehicle breakdown",
-		"Latitude": 1.3765155261589948,
-		"Longitude": 103.72976844706339,
-		"Message": "(24/2)19:01 Vehicle breakdown on KJE (towards BKE) before Sungei Tengah Exit."
-	}]
-          description: 
-                      Incident Types.
-                        • Accident
-                        • Road Works
-                        • Vehicle Breakdown
-                        • Weather
-                        • Obstacle
-                        • Road Block
-                        • Heavy Traffic
-                        • Misc.
-                        • Diversion
-                        • Unattended Vehicle
-          items:
-            oneOf:
-            - type: string
-              example: Accident
     unauthorized:
       type: object
       properties:
