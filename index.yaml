@@ -280,6 +280,10 @@ data:
     title: IHI Point Cloud
     versions:
       0.1.0: 'ihi_data_pointcloud.yaml'
+  traffic_incidents:
+    title: Traffic Incidents
+    versions:
+      0.1.0: 'traffic_incidents.yaml'      
 data alliance:
   download_dataset_api:
     title: Download Dataset API
