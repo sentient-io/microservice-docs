@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Weather Api
+  title: Realtime Weather
   description: |+
     Current weather or realtime weather API method allows a user to get up to date current weather information. The data is returned as a Current Object.
 
