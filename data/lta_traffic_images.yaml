@@ -1,10 +1,8 @@
 openapi: 3.0.1
 info:
-  title: Traffic Images
+  title: LTA Traffic Images
   description: |+
-     Returns links to images of live traffic conditions along expressways and
-      Woodlands & Tuas Checkpoints.
-      1 to 5 minutes – whenever there are updates
+     Returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 1 to 5 minutes or whenever there are updates.
   version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
