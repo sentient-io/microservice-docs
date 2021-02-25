@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: IHI Pointcloud Data
-  x-subscribelink: ihi_data
+  title: LiDAR Trajectory Data
+  x-subscribelink: lidar_trajectory_data
   description: |+
    This microservice returns information on Ishikawajima-Harima Heavy Industries(IHI) Pointcloud Data which includes the 3DLR Location of Boon Lay Way-Yuan Ching Road, Singapore. The Data comprises all the vehicle detection and does not contain any pedestrian data. The IHI LiDAR programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with IHI to manage and facilitate the sharing of data for the LiDAR Programme.
    
