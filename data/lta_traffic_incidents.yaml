@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
-  title: LTA Traffic Incidents
+  title: LTA Faulty Traffic Lights
   x-subscribelink: lta_traffic_incidents
   description: |+
-    Returns incidents currently happening on the roads, such as Accidents, Vehicle Breakdowns, Road Blocks, Traffic Diversions etc. Updated every 2 minutes or whenever there are updates.
+    Returns alerts of traffic lights that are currently faulty, or currently undergoing scheduled maintenance. Updated every 2 minutes or whenever there are updates.
   version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
@@ -11,7 +11,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Feb 28, 2021"
 paths:
-   /DaaS/dev/lta/TrafficIncidents:
+   /DaaS/dev/lta/FaultyTrafficLights:
     get:
       tags:
         - v0.1.0
