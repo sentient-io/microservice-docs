@@ -1,0 +1,235 @@
+openapi: 3.0.1
+info:
+  title: FAULTY TRAFFIC LIGHTS
+  description: |+
+    Returns alerts of traffic lights that are currently faulty, or currently
+    undergoing scheduled maintenance.
+    2 minutes – whenever there are updates
+  version: '0.1.0'
+servers:
+  - url: 'https://api.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Feb 28, 2021"
+paths:
+   /DaaS/dev/lta/FaultyTrafficLights:
+    get:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                odata.metadata: http://datamall2.mytransport.sg/ltaodataservice/$metadata#IncidentSet
+                value:
+                - AlarmID: GL703034136
+                  NodeID: 703034136
+                  Type: 13
+                  StartDate: 2014-04-12 01:58:00.0
+                  EndDate: 2014-04-13 01:58:00.0
+                  Message: (23/1)8:58 Flashing Yellow at
+                        Bedok North Interchange/Bedok
+                        North Street 1 Junc
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Input Limit Exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        odata.metadata:
+          type: string
+          example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#FaultyTrafficLights
+          description: url
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              AlarmID:
+                type: string
+                example: GL703034136
+                description: Technical alarm ID
+              NodeID:
+                type: string
+                example: 703034136
+                description: A unique code to represent each
+                    unique traffic light node
+              Type:
+                type: number
+                example: 13
+                description: Type of the technical alarm
+                              • 4 (Blackout)
+                              • 13 (Flashing Yellow)
+              StartDate:
+                type: string
+                example: 2014-04-12 01:58:00.0
+                description: YYYY-MM-DD HH:MM:SS.ms 
+              EndDate:
+                type: string
+                example: 2014-04-13 01:58:00.0
+                description: YYYY-MM-DD HH:MM:SS.ms
+                        (empty field if this is not a
+                        scheduled maintenance)                
+              Message:
+                type: string
+                example: (23/1)8:58 Flashing Yellow at
+                            Bedok North Interchange/Bedok
+                            North Street 1 Junc
+                description: Canning Message             
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 28, 2021
+              description: Initial version release
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
