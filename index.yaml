@@ -291,7 +291,11 @@ data:
   road_works:
     title: Road Works
     versions:
-      0.1.0: 'road_works.yaml'       
+      0.1.0: 'road_works.yaml'    
+  vms:
+    title: VMS
+    versions:
+      0.1.0: 'vms.yaml'          
   realtime_weather:
     title: Weather Api
     versions:
