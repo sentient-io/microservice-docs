@@ -384,7 +384,7 @@ components:
         city:
           type: string
           default: true
-          example: chennai
+          example: punggol
           description: city name
   securitySchemes:
     APIAuthorizer:
