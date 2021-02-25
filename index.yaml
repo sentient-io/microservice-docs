@@ -287,7 +287,11 @@ data:
   faulty_traffic_lights:
     title: Faulty Traffic Lights
     versions:
-      0.1.0: 'faulty_traffic_lights.yaml'        
+      0.1.0: 'faulty_traffic_lights.yaml'
+  road_works:
+    title: Road Works
+    versions:
+      0.1.0: 'road_works.yaml'       
   realtime_weather:
     title: Weather Api
     versions:
