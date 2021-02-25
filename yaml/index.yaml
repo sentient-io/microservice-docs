@@ -199,6 +199,10 @@ Utility:
         versions:
            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/base64-file-decode.yaml"
 Data:
+    LTA Traffic Incidents:
+        title: lta_traffic_incidents
+        versions:
+            v0.1: "https://raw.githubusercontent.com/sentient-io/microservice-docs/dev/yaml/lta_traffic_incidents.yaml"
     HDB Commercial Directories (SG):
         title: commercial_directories_hdb_sg
         versions:
