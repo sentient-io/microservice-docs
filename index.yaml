@@ -284,10 +284,10 @@ data:
     title: Traffic Incidents
     versions:
       0.1.0: 'traffic_incidents.yaml'  
-  weather:
+  realtime_weather:
     title: Weather Api
     versions:
-      0.1.0: 'weather.yaml'
+      0.1.0: 'weather_api.yaml'
 data alliance:
   download_dataset_api:
     title: Download Dataset API
