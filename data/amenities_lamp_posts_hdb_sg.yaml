@@ -91,17 +91,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
         '413':
-          description: Input Limit Exceeded
+          description: Payload Too Large
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'
+                $ref: '#/components/schemas/inputlimitexceeded'    
         '415':
-          description: Invalid Input
+          description: Unsupported Media Type
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/invalidinput' 
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
