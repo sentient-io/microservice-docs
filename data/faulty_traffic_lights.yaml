@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: FAULTY TRAFFIC LIGHTS
+  title: Faulty Traffic Lights
   description: |+
     Returns alerts of traffic lights that are currently faulty, or currently
     undergoing scheduled maintenance.
