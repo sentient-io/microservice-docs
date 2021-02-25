@@ -284,6 +284,10 @@ data:
     title: Traffic Incidents
     versions:
       0.1.0: 'traffic_incidents.yaml'  
+  faulty_traffic_lights:
+    title: Faulty Traffic Lights
+    versions:
+      0.1.0: 'faulty_traffic_lights.yaml'        
   realtime_weather:
     title: Weather Api
     versions:
