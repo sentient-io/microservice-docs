@@ -1,10 +1,8 @@
 openapi: 3.0.1
 info:
-  title: Traffic Incidents
+  title: LTA Traffic Incidents
   description: |+
-    Returns incidents currently happening on the roads, such as
-    Accidents, Vehicle Breakdowns, Road Blocks, Traffic Diversions etc.
-    2 minutes – whenever there are updates
+    Returns incidents currently happening on the roads, such as Accidents, Vehicle Breakdowns, Road Blocks, Traffic Diversions etc. Updated every 2 minutes or whenever there are updates.
   version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
