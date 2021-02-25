@@ -10,7 +10,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Feb 28, 2021"
 paths:
-   /DaaS/dev/lta/FaultyTrafficLights:
+   /DaaS/dev/lta/TrafficIncidents:
     get:
       tags:
         - v0.1.0
