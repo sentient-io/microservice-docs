@@ -296,6 +296,10 @@ data:
     title: Traffic Images
     versions:
       0.1.0: 'traffic_images.yaml'       
+  traffic_incidents:
+    title: Traffic Incidents
+    versions:
+      0.1.0: 'traffic_incidents.yaml'        
   realtime_weather:
     title: Weather Api
     versions:
