@@ -276,34 +276,34 @@ data:
     title: D&B Brief Financial Information (SG)
     versions:
       0.1.0: 'd&b_brief_financial_information_sg.yaml'
-  ihi_data_pointcloud:
-    title: IHI Point Cloud
+  lidar_trajectory_data:
+    title: LiDAR Trajectory Data
     versions:
-      0.1.0: 'ihi_data_pointcloud.yaml'  
-  faulty_traffic_lights:
-    title: Faulty Traffic Lights
+      0.1.0: 'lidar_trajectory_data.yaml'  
+  lta_faulty_traffic_lights:
+    title: LTA Faulty Traffic Lights
     versions:
-      0.1.0: 'faulty_traffic_lights.yaml'
-  road_works:
-    title: Road Works
+      0.1.0: 'lta_faulty_traffic_lights.yaml'
+  lta_road_works:
+    title: LTA Road Works
     versions:
-      0.1.0: 'road_works.yaml'
-  vms:
-    title: VMS
+      0.1.0: 'lta_road_works.yaml'
+  lta_vms:
+    title: LTA VMS
     versions:
-      0.1.0: 'vms.yaml'
-  traffic_images:
-    title: Traffic Images
+      0.1.0: 'lta_vms.yaml'
+  lta_traffic_images:
+    title: LTA Traffic Images
     versions:
-      0.1.0: 'traffic_images.yaml'
-  traffic_incidents:
-    title: Traffic Incidents
+      0.1.0: 'lta_traffic_images.yaml'
+  lta_traffic_incidents:
+    title: LTA Traffic Incidents
     versions:
-      0.1.0: 'traffic_incidents.yaml'        
+      0.1.0: 'lta_traffic_incidents.yaml'        
   realtime_weather:
-    title: Weather Api
+    title: Realtime Weather
     versions:
-      0.1.0: 'weather_api.yaml'
+      0.1.0: 'realtime_weather.yaml'
 data alliance:
   download_dataset_api:
     title: Download Dataset API
