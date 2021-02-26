@@ -287,7 +287,7 @@ data:
   lta_road_works:
     title: LTA Road Works
     versions:
-      0.1.0: 'road_works.yaml'
+      0.1.0: 'lta_road_works.yaml'
   lta_vms:
     title: LTA VMS
     versions:
