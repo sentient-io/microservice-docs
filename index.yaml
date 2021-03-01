@@ -292,10 +292,10 @@ data:
     title: LTA VMS
     versions:
       0.1.0: 'lta_vms.yaml'
-  lta_traffic_images:
-    title: LTA Traffic Images
+  lta_faulty_traffic_lights:
+    title: LTA Faulty Traffic Lights
     versions:
-      0.1.0: 'lta_traffic_images.yaml'
+      0.1.0: 'lta_faulty_traffic_lights.yaml'
   lta_traffic_incidents:
     title: LTA Traffic Incidents
     versions:
