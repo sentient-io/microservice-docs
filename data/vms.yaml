@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: VMS
+  x-subscribelink: vms
   description: |+
       Returns traffic advisories (via variable message services) concerning
       current traffic conditions that are displayed on EMAS signboards
@@ -94,31 +95,44 @@ components:
       properties:
         odata.metadata:
           type: string
-          example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#RoadWorks
+          example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#FaultyTrafficLights
           description: url
         value:
           type: array
           items:
             type: object
             properties:
-              EquipmentID:
+              AlarmID:
                 type: string
-                example: AVMS_01_00501
-                description: EMAS equipment ID 
-              Latitude:
+                example: GL703034136
+                description: Technical alarm ID
+              NodeID:
                 type: string
-                example: 1.3290499998616139
-                description: Latitude map coordinates of
-                              electronic signboard.
-              Longitude:
+                example: 703034136
+                description: A unique code to represent each
+                    unique traffic light node
+              Type:
+                type: number
+                example: 13
+                description: Type of the technical alarm
+                              • 4 (Blackout)
+                              • 13 (Flashing Yellow)
+              StartDate:
                 type: string
-                example: 103.87474391991731
-                description: Longitude map coordinates of
-                              electronic signboard.
+                example: 2014-04-12 01:58:00.0
+                description: YYYY-MM-DD HH:MM:SS.ms 
+              EndDate:
+                type: string
+                example: 2014-04-13 01:58:00.0
+                description: YYYY-MM-DD HH:MM:SS.ms
+                        (empty field if this is not a
+                        scheduled maintenance)                
               Message:
                 type: string
-                example: ROAD|WORKS ON|BENDEMEER
-                description: VEH BREAKDOWN SH,AFTU.THOMSON
+                example: (23/1)8:58 Flashing Yellow at
+                            Bedok North Interchange/Bedok
+                            North Street 1 Junc
+                description: Canning Message             
     unauthorized:
       type: object
       properties:
