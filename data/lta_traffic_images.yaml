@@ -99,10 +99,10 @@ components:
           items:
             type: object
             properties:
-              AlarmID:
+              CameraID:
                 type: string
-                example: GL703034136
-                description: Technical alarm ID
+                example: 1001
+                description: A unique ID for this camera
               NodeID:
                 type: string
                 example: 703034136
