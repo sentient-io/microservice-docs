@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: LTA Traffic Images
-  x-subscribelink: lta_traffic_images
+  x-subscribelink: ltatrafficimages
   description: |+
     Returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 1 to 5 minutes or whenever there are updates.
   version: '0.1.0'
