@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
-  title: LTA Faulty Traffic Lights
+  title: LTA Traffic Images
   x-subscribelink: lta_traffic_images
   description: |+
-    Returns alerts of traffic lights that are currently faulty, or currently undergoing scheduled maintenance. Updated every 2 minutes or whenever there are updates.
+        Returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 1 to 5 minutes or whenever there are updates.
   version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
@@ -11,7 +11,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Feb 28, 2021"
 paths:
-   /DaaS/dev/lta/FaultyTrafficLights:
+   /DaaS/dev/lta/Traffic-Imagesv2:
     get:
       tags:
         - v0.1.0
