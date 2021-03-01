@@ -92,7 +92,7 @@ components:
       properties:
         odata.metadata:
           type: string
-          example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#FaultyTrafficLights
+          example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#Traffic-Imagesv2
           description: url
         value:
           type: array
