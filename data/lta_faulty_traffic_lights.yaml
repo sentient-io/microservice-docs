@@ -23,7 +23,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                odata.metadata: http://datamall2.mytransport.sg/ltaodataservice/$metadata#IncidentSet
+                odata.metadata: http://datamall2.mytransport.sg/ltaodataservice/$metadata#FaultyTrafficLights
                 value:
                 - AlarmID: GL703034136
                   NodeID: 703034136
