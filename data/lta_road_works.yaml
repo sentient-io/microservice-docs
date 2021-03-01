@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
-  title: Road Works
+  title: LTA Road Works
+  x-subscribelink: ltaroadworks
   description: |+
     Returns all road works being / to be carried out.24 hours – whenever there are updates
   version: '0.1.0'
