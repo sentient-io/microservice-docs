@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
-  title: LTA Traffic Images
-  x-subscribelink: lta_traffic_images
+  title: LTA Faulty Traffic Lights
+  x-subscribelink: lta_faulty_traffic_lights
   description: |+
-    Returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 1 to 5 minutes or whenever there are updates.
+    Returns alerts of traffic lights that are currently faulty, or currently undergoing scheduled maintenance. Updated every 2 minutes or whenever there are updates.
   version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
@@ -11,7 +11,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Feb 28, 2021"
 paths:
-   /DaaS/dev/lta/Traffic-Imagesv2:
+   /DaaS/dev/lta/FaultyTrafficLights:
     get:
       tags:
         - v0.1.0
@@ -23,12 +23,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                odata.metadata: http://datamall2.mytransport.sg/ltaodataservice/$metadata#Traffic-Imagesv2
+                odata.metadata: http://datamall2.mytransport.sg/ltaodataservice/$metadata#IncidentSet
                 value:
-                - CameraID: 1001
-                  Latitude: 1.3290499998616139
-                  Longitude: 103.87474391991731
-                  ImageLink: https://dm-traffic-camera-itsc.s3.amazonaws.com/2021-02-25/15-27/1001_1523_20210225152731_1c29e4.jpg?x-amz-security-token=IQoJb3JpZ2luX2VjEA8aDmFwLXNvdXRoZWFzdC0xIkYwRAIgB9vybH4h7daI43qfBeZMS%2FSX6av1yjSu73Q0kqbTD4ICIDTHpUSoXG7OU3EOtK0z0F6NGxf1c0xQwrULNgEbaiFhKqMDCCgQAhoMMzQwNjQ1MzgxMzA0IgyLggWjvfs4g1sMc4UqgAOZXEmpoGYRlnDs9tu6COLECjNNgalDexWPvFpq1a3A9dDM%2Bp6mRAQxxuja%2Bcob2Ox1fPgE%2Bhf24arud9Xr11cNNybleHqCWnBGsjhOo6JNP2gOraux84cXhEjGarHp4%2FvwXGVFQbmF%2B1J9QQlCa2D4LW%2Ffr8hnBsNGKVMe7k7MoS1QfKePl500wUYvhDJEZqPej54BGt%2BlPGorwFBQ%2B10n8vyiwShBxd%2BHBQFxpbuf72fRS9VAYilkCyp8%2FeohmSVh%2BeJXVWvcS5rGiIKd%2FyTOK7nL91s08EiJ0uhwZNJdbu3XdZPFXPTI%2Ban%2BHSkurfa3%2B05mSo4aP%2FGm5NPxP9xzCphiu65ugpN%2BOYxUwwErT7oTPQjI1ZiUJOXvWGhSA5WpKEzVTNPx3aYDtjB8T7qDky8A%2BjsQyvKQARdxM9buz8H1pej8KDsnHr%2BAgupNy%2F9kNk9kBdxPnj67WaVot9WdIOHcj8knf4SVIZCy%2FMESBMVkXT%2BwRLJ8XJaSFR13sl4wvY3dgQY67AG3IH44KUVXKCnh36UJ5nCpEaT162Y6dleCP2Okragprp%2BhIMQHcb3spNoLRHVcq3Zj%2B53o2s4yF6%2FO6BUe1nSZ31X890J6Wao3yFwhrbyULbRAA8Ni3R%2ForYYK0l3213NtV%2FyaIp9o02EAyG7sWOhvsD7MbofMBI2GS%2FbrmEYHjdSTrMCkZje0zG6Q5L60rWgiRVBn5Sa2ogUYk0c%2F4ecnQ8taiVzEuoQsV5CTB5ou2pQVKP1fbefNyu1B18542VLLqJW8mHZ6eoYf%2FwGK7tqJaJf1sPRr2qZ0YbVtkQCo03ZYm0fetH3mXsCYWQ%3D%3D&AWSAccessKeyId=ASIAU6UAMAS4GTPW2LXI&Expires=1614238351&Signature=6xg03%2FpXKMJDVKyXV7X%2FjeLhVb8%3D
+                - AlarmID: GL703034136
+                  NodeID: 703034136
+                  Type: 13
+                  StartDate: 2014-04-12 01:58:00.0
+                  EndDate: 2014-04-13 01:58:00.0
+                  Message: (23/1)8:58 Flashing Yellow at
+                        Bedok North Interchange/Bedok
+                        North Street 1 Junc
         '401':
           description: Unauthorized
           content:
@@ -92,34 +96,44 @@ components:
       properties:
         odata.metadata:
           type: string
-          example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#RoadWorks
+          example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#FaultyTrafficLights
           description: url
         value:
           type: array
           items:
             type: object
             properties:
-              CameraID:
+              AlarmID:
                 type: string
-                example: 1001
-                description: A unique ID for this camera
-              Latitude:
+                example: GL703034136
+                description: Technical alarm ID
+              NodeID:
                 type: string
-                example: 1.3290499998616139
-                description: Latitude map coordinates
-              Longitude:
+                example: 703034136
+                description: A unique code to represent each
+                    unique traffic light node
+              Type:
+                type: number
+                example: 13
+                description: Type of the technical alarm
+                              • 4 (Blackout)
+                              • 13 (Flashing Yellow)
+              StartDate:
                 type: string
-                example: 103.87474391991731
-                description: Longitude map coordinates
-              ImageLink:
+                example: 2014-04-12 01:58:00.0
+                description: YYYY-MM-DD HH:MM:SS.ms 
+              EndDate:
                 type: string
-                example: https://dm-traffic-camera-itsc.s3.amazonaws.com/2021-02-25/15-27/1001_1523_20210225152731_1c29e4.jpg?x-amz-security-token=IQoJb3JpZ2luX2VjEA8aDmFwLXNvdXRoZWFzdC0xIkYwRAIgB9vybH4h7daI43qfBeZMS%2FSX6av1yjSu73Q0kqbTD4ICIDTHpUSoXG7OU3EOtK0z0F6NGxf1c0xQwrULNgEbaiFhKqMDCCgQAhoMMzQwNjQ1MzgxMzA0IgyLggWjvfs4g1sMc4UqgAOZXEmpoGYRlnDs9tu6COLECjNNgalDexWPvFpq1a3A9dDM%2Bp6mRAQxxuja%2Bcob2Ox1fPgE%2Bhf24arud9Xr11cNNybleHqCWnBGsjhOo6JNP2gOraux84cXhEjGarHp4%2FvwXGVFQbmF%2B1J9QQlCa2D4LW%2Ffr8hnBsNGKVMe7k7MoS1QfKePl500wUYvhDJEZqPej54BGt%2BlPGorwFBQ%2B10n8vyiwShBxd%2BHBQFxpbuf72fRS9VAYilkCyp8%2FeohmSVh%2BeJXVWvcS5rGiIKd%2FyTOK7nL91s08EiJ0uhwZNJdbu3XdZPFXPTI%2Ban%2BHSkurfa3%2B05mSo4aP%2FGm5NPxP9xzCphiu65ugpN%2BOYxUwwErT7oTPQjI1ZiUJOXvWGhSA5WpKEzVTNPx3aYDtjB8T7qDky8A%2BjsQyvKQARdxM9buz8H1pej8KDsnHr%2BAgupNy%2F9kNk9kBdxPnj67WaVot9WdIOHcj8knf4SVIZCy%2FMESBMVkXT%2BwRLJ8XJaSFR13sl4wvY3dgQY67AG3IH44KUVXKCnh36UJ5nCpEaT162Y6dleCP2Okragprp%2BhIMQHcb3spNoLRHVcq3Zj%2B53o2s4yF6%2FO6BUe1nSZ31X890J6Wao3yFwhrbyULbRAA8Ni3R%2ForYYK0l3213NtV%2FyaIp9o02EAyG7sWOhvsD7MbofMBI2GS%2FbrmEYHjdSTrMCkZje0zG6Q5L60rWgiRVBn5Sa2ogUYk0c%2F4ecnQ8taiVzEuoQsV5CTB5ou2pQVKP1fbefNyu1B18542VLLqJW8mHZ6eoYf%2FwGK7tqJaJf1sPRr2qZ0YbVtkQCo03ZYm0fetH3mXsCYWQ%3D%3D&AWSAccessKeyId=ASIAU6UAMAS4GTPW2LXI&Expires=1614238351&Signature=6xg03%2FpXKMJDVKyXV7X%2FjeLhVb8%3D
-                description: • Link for
-                              downloading
-                              this image.
-                             • Link will
-                              expire after
-                              5 minutes
+                example: 2014-04-13 01:58:00.0
+                description: YYYY-MM-DD HH:MM:SS.ms
+                        (empty field if this is not a
+                        scheduled maintenance)                
+              Message:
+                type: string
+                example: (23/1)8:58 Flashing Yellow at
+                            Bedok North Interchange/Bedok
+                            North Street 1 Junc
+                description: Canning Message             
     unauthorized:
       type: object
       properties:
