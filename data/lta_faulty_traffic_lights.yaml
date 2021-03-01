@@ -30,9 +30,7 @@ paths:
                   Type: 13
                   StartDate: 2014-04-12 01:58:00.0
                   EndDate: 2014-04-13 01:58:00.0
-                  Message: (23/1)8:58 Flashing Yellow at
-                        Bedok North Interchange/Bedok
-                        North Street 1 Junc
+                  Message: (23/1)8:58 Flashing Yellow at Bedok North Interchange/Bedok North Street 1 Junc
         '401':
           description: Unauthorized
           content:
