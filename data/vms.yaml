@@ -102,37 +102,22 @@ components:
           items:
             type: object
             properties:
-              AlarmID:
+              EquipmentID:
                 type: string
-                example: GL703034136
-                description: Technical alarm ID
-              NodeID:
+                example: AVMS_01_00501
+                description: EMAS equipment ID
+              Latitude:
                 type: string
-                example: 703034136
-                description: A unique code to represent each
-                    unique traffic light node
-              Type:
-                type: number
-                example: 13
-                description: Type of the technical alarm
-                              • 4 (Blackout)
-                              • 13 (Flashing Yellow)
-              StartDate:
+                example: 1.3290499998616139
+                description: Latitude map coordinates of electronic signboard.
+              Longitude:
                 type: string
-                example: 2014-04-12 01:58:00.0
-                description: YYYY-MM-DD HH:MM:SS.ms 
-              EndDate:
-                type: string
-                example: 2014-04-13 01:58:00.0
-                description: YYYY-MM-DD HH:MM:SS.ms
-                        (empty field if this is not a
-                        scheduled maintenance)                
+                example: 103.87474391991731
+                description: Longitude map coordinates of electronic signboard.
               Message:
                 type: string
-                example: (23/1)8:58 Flashing Yellow at
-                            Bedok North Interchange/Bedok
-                            North Street 1 Junc
-                description: Canning Message             
+                example: ROAD|WORKS ON|BENDEMEER
+                description: VEH BREAKDOWN SH,AFTU.THOMSON          
     unauthorized:
       type: object
       properties:
