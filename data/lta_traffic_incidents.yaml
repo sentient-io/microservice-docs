@@ -25,14 +25,10 @@ paths:
               example:
                 odata.metadata: http://datamall2.mytransport.sg/ltaodataservice/$metadata#IncidentSet
                 value:
-                - AlarmID: GL703034136
-                  NodeID: 703034136
-                  Type: 13
-                  StartDate: 2014-04-12 01:58:00.0
-                  EndDate: 2014-04-13 01:58:00.0
-                  Message: (23/1)8:58 Flashing Yellow at
-                        Bedok North Interchange/Bedok
-                        North Street 1 Junc
+                - Type: Roadwork
+                  Latitude: 1.3765155261589948
+                  Longitude: 103.72976844706339
+                  Message: "(25/2)13:13 Roadworks on Boon Lay Way (towards City) after Jalan Boon Lay. Avoid right lane."
         '401':
           description: Unauthorized
           content:
