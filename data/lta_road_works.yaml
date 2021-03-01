@@ -3,7 +3,7 @@ info:
   title: LTA Road Works
   x-subscribelink: ltaroadworks
   description: |+
-    Returns all road works being / to be carried out.24 hours – whenever there are updates
+    Returns all road works being / to be carried out. Updated every 24 hours or whenever there are updates.
   version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
