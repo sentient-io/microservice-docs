@@ -3,7 +3,7 @@ info:
   title: LTA Traffic Incidents
   x-subscribelink: lta_traffic_incidents
   description: |+
-    Returns incidents currently happening on the roads, such as Accidents, Vehicle Breakdowns, Road Blocks, Traffic Diversions etc. Updated every 2 minutes or whenever there are updates.
+    Returns alerts of traffic lights that are currently faulty, or currently undergoing scheduled maintenance. Updated every 2 minutes or whenever there are updates.
   version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
@@ -25,10 +25,14 @@ paths:
               example:
                 odata.metadata: http://datamall2.mytransport.sg/ltaodataservice/$metadata#IncidentSet
                 value:
-                - Type: Roadwork
-                  Latitude: 1.3765155261589948
-                  Longitude: 103.72976844706339
-                  Message: "(25/2)13:13 Roadworks on Boon Lay Way (towards City) after Jalan Boon Lay. Avoid right lane."
+                - AlarmID: GL703034136
+                  NodeID: 703034136
+                  Type: 13
+                  StartDate: 2014-04-12 01:58:00.0
+                  EndDate: 2014-04-13 01:58:00.0
+                  Message: (23/1)8:58 Flashing Yellow at
+                        Bedok North Interchange/Bedok
+                        North Street 1 Junc
         '401':
           description: Unauthorized
           content:
@@ -92,43 +96,44 @@ components:
       properties:
         odata.metadata:
           type: string
-          example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#IncidentSet
+          example: http://datamall2.mytransport.sg/ltaodataservice/$metadata#FaultyTrafficLights
           description: url
         value:
           type: array
           items:
             type: object
             properties:
+              AlarmID:
+                type: string
+                example: GL703034136
+                description: Technical alarm ID
+              NodeID:
+                type: string
+                example: 703034136
+                description: A unique code to represent each
+                    unique traffic light node
               Type:
+                type: number
+                example: 13
+                description: Type of the technical alarm
+                              • 4 (Blackout)
+                              • 13 (Flashing Yellow)
+              StartDate:
                 type: string
-                example: Roadwork
-                description: 
-                  Incident Types - 
-                          • Accident
-                          • Road Works
-                          • Vehicle Breakdown
-                          • Weather
-                          • Obstacle
-                          • Road Block
-                          • Heavy Traffic
-                          • Misc.
-                          • Diversion
-                          • Unattended Vehicle
-              Latitude:
+                example: 2014-04-12 01:58:00.0
+                description: YYYY-MM-DD HH:MM:SS.ms 
+              EndDate:
                 type: string
-                example: 1.3415018509600185
-                description: Latitude map coordinates for the
-                                  start point of this road incident
-              Longitude:
-                type: string
-                example: 103.71215415465709
-                description: Longitude map coordinates for
-                    the start point of this incident               
+                example: 2014-04-13 01:58:00.0
+                description: YYYY-MM-DD HH:MM:SS.ms
+                        (empty field if this is not a
+                        scheduled maintenance)                
               Message:
                 type: string
-                example: (25/2)13:13 Roadworks on Boon Lay Way (towards City) after Jalan Boon Lay. Avoid right lane.
-                description: Description message for this incident
-             
+                example: (23/1)8:58 Flashing Yellow at
+                            Bedok North Interchange/Bedok
+                            North Street 1 Junc
+                description: Canning Message             
     unauthorized:
       type: object
       properties:
