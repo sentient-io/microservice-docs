@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: LTA Traffic Incidents
-  x-subscribelink: lta_traffic_incidents
+  x-subscribelink: ltatrafficincidents
   description: |+
     Returns incidents currently happening on the roads, such as Accidents, Vehicle Breakdowns, Road Blocks, Traffic Diversions etc. 
     Updated every 2 minutes or whenever there are updates.
