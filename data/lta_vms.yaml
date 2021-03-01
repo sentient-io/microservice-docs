@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: VMS
-  x-subscribelink: vms
+  title: LTA VMS
+  x-subscribelink: lta_vms
   description: |+
       Returns traffic advisories (via variable message services) concerning current traffic conditions that are displayed on 
       EMAS signboards along expressways and arterial roads.2 minutes – whenever there are updates
