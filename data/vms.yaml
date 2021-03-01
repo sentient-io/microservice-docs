@@ -3,10 +3,8 @@ info:
   title: VMS
   x-subscribelink: vms
   description: |+
-      Returns traffic advisories (via variable message services) concerning
-      current traffic conditions that are displayed on EMAS signboards
-      along expressways and arterial roads.
-      2 minutes – whenever there are updates
+      Returns traffic advisories (via variable message services) concerning current traffic conditions that are displayed on EMAS signboards
+      along expressways and arterial roads.2 minutes – whenever there are updates
   version: '0.1.0'
 servers:
   - url: 'https://api.sentient.io'
