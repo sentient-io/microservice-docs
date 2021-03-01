@@ -288,8 +288,8 @@ data:
     title: LTA Road Works
     versions:
       0.1.0: 'lta_road_works.yaml'
-  lta_faulty_traffic_lights:
-    title: LTA Faulty Traffic Lights
+  lta_traffic_images:
+    title: LTA Traffic Images
     versions:
       0.1.0: 'lta_traffic_images.yaml'     
   realtime_weather:
