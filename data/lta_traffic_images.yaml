@@ -129,7 +129,7 @@ components:
                 example: (23/1)8:58 Flashing Yellow at
                             Bedok North Interchange/Bedok
                             North Street 1 Junc
-                description: Canning Message                 
+                description: Canning Message    
     unauthorized:
       type: object
       properties:
