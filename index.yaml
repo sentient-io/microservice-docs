@@ -295,7 +295,11 @@ data:
   lta_traffic_incidents:
     title: LTA Traffic Incidents
     versions:
-      0.1.0: 'lta_traffic_incidents.yaml'       
+      0.1.0: 'lta_traffic_incidents.yaml'   
+  vms:
+    title: VMS
+    versions:
+      0.1.0: 'vms.yaml'       
   realtime_weather:
     title: Realtime Weather
     versions:
