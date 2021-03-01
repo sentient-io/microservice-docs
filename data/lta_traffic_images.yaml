@@ -103,17 +103,14 @@ components:
                 type: string
                 example: 1001
                 description: A unique ID for this camera
-              NodeID:
+              Latitude:
                 type: string
-                example: 703034136
-                description: A unique code to represent each
-                    unique traffic light node
-              Type:
+                example: 1.3290499998616139
+                description: Latitude map coordinates
+              Longitude:
                 type: number
-                example: 13
-                description: Type of the technical alarm
-                              • 4 (Blackout)
-                              • 13 (Flashing Yellow)
+                example: 103.87474391991731
+                description: Longitude map coordinates
               StartDate:
                 type: string
                 example: 2014-04-12 01:58:00.0
