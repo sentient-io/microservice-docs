@@ -142,7 +142,7 @@ paths:
                   hits:
                   - _index: index_ihi_pointcloud
                     _type: dir_doc
-                    _id: 64406c95#64291
+                    _id: "64406c95#64291"
                     _score: 1.0
                     _source:
                       1x: 682
@@ -268,7 +268,7 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "57364055"
+                    example: "64406c95#64291"
                   _score: 
                     type: number
                     description: The document score for the search request
@@ -281,19 +281,19 @@ components:
                             1x: 
                               type: number
                               description: X direction central top position of target
-                              example: 79
+                              example: 682
                             1y: 
                               type: number
                               description: Y direction central top position of target
-                              example: 3927
+                              example: 6210
                             2x: 
                               type: number
                               description: X direction central tail position of target
-                              example: 79
+                              example: 782
                             2y:
                               type: number
                               description: Y direction central tail position of target
-                              example: 4515
+                              example: 6210
                             dataclass:
                               type: string
                               description: Type of Data
