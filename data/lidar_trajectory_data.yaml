@@ -127,7 +127,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"filter":[{"match":{"_id": "57464093"}},{"match":{"dataclass": "SD"}},{"match":{"detecttime": "2020-7-7T18:28:45.365Z"}}]}
+            {"filter":[{"match":{"_id": "64406c95#64291"}},{"match":{"dataclass": "SD"}},{"match":{"detecttime": "2020-7-7T18:28:45.365Z"}}]}
       responses:
         '200':
           description: success response
@@ -142,15 +142,15 @@ paths:
                   hits:
                   - _index: index_ihi_pointcloud
                     _type: dir_doc
-                    _id: 57364055
+                    _id: 64406c95#64291
                     _score: 1.0
                     _source:
-                      1x: 79
-                      1y: 3927
-                      2x: 79
-                      2y: 4515
-                      createddate: '2021-02-18T16:19:09.689Z'
-                      lastupdated: '2021-02-18T16:19:09.689Z'
+                      1x: 682
+                      1y: 6210
+                      2x: 782
+                      2y: 6210
+                      createddate: '2021-03-04T03:29:14.930Z'
+                      lastupdated: '2021-03-04T03:29:14.930Z'
                       dataclass: "SD"
                       datalen: 612
                       datanumlow: 15
