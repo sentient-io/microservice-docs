@@ -301,11 +301,11 @@ components:
                             datalen:
                               type: number
                               description: Lenght of the information
-                              example: 612
+                              example: 936
                             datanumlow:
                               type: number
                               description: Lower data number
-                              example: 15
+                              example: 24
                             datanumup:
                               type: number
                               description: Upper data number
@@ -313,15 +313,15 @@ components:
                             detecttime:
                               type: string
                               description: Target detected time
-                              example: "2020-7-7T18:28:45.365Z"
+                              example: "2020-7-7T18:28:48.671Z"
                             height:
                               type: number
                               description: Height of target
-                              example: 261
+                              example: 47
                             identify:
                               type: number
                               description: Target vehicle type
-                              example: 11
+                              example: 12
                             jamlane:
                               type: number
                               description: Jam lane number
@@ -329,7 +329,7 @@ components:
                             length:
                               type: number
                               description: Length of target
-                              example: 588
+                              example: 100
                             originid:
                               type: string
                               description: Origin Id
@@ -337,27 +337,27 @@ components:
                             sendtime:
                               type: string
                               description: Target send time
-                              example: "2020-7-7T18:38:35.653Z"
+                              example: "2020-7-7T18:28:48.792Z"
                             createddate:
                               type: string
                               description: Record first release date on sentient
-                              example: "2021-02-18T16:19:09.689Z"
+                              example: "2021-03-04T03:29:14.930Z"
                             lastupdated:
                               type: string
                               description: Record last updated date on sentient
-                              example: "2021-02-18T16:19:09.689Z"
+                              example: "2021-03-04T03:29:14.930Z"
                             seqno:
                               type: number
                               description: Sequence number of target
-                              example: 573 
+                              example: 64406 
                             situation:
                               type: string
                               description: Situation of target
                               example: "0x02"
                             targetid:
-                              type: number
+                              type: string
                               description: Target Id
-                              example: 64055
+                              example: "c95#64291"
                             targetidx:
                               type: string
                               description: Target Idx
@@ -365,15 +365,37 @@ components:
                             width:
                               type: number
                               description: Width of target
-                              example: 250
+                              example: 100
                             xspeed:
                               type: number
                               description: xspeed of target
-                              example: -8
+                              example: 12
                             yspeed:
                               type: number
                               description: yspeed of target
-                              example: -60
+                              example: 14
+                            xcoord:
+                              type: string
+                              description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
+                              example: "357844.6167091789"
+                            ycoord:
+                              type: string
+                              description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
+                              example: "148684.80620664736"
+                            location:
+                              type: object
+                              description: WGS84 (World Geodetic System) lat/long coordinates. This is the standard coordinate system used Global Positioning System (GPS).
+                              example: {"lat":1.3448589781787064,"lon":103.72224233670825}
+                              properties:
+                                  lat: 
+                                    type: string
+                                    description: WGS84 (GPS) latitude
+                                    example: "1.3448589781787064"
+                                  lon:
+                                    type: string
+                                    description: WGS84 (GPS) longitude
+                                    example: "103.72224233670825"
+                              
         message:
           type: string
           example: Successfully Processed
