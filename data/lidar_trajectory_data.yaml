@@ -127,7 +127,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"filter":[{"match":{"_id": "64406c95#64291"}},{"match":{"dataclass": "SD"}},{"match":{"detecttime": "2020-7-7T18:28:45.365Z"}}]}
+            {"filter":[{"match":{"_id": "64406c95#64291"}},{"match":{"dataclass": "SD"}},{"match":{"detecttime": "2020-7-7T18:28:48.671Z"}}]}
       responses:
         '200':
           description: success response
