@@ -28,7 +28,7 @@ info:
       > {"should":[{"match_phrase":{"seqno":39736}}]}
     
     * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
-      > {"filter":[{"match":{"targetid":9405}}]}
+      > {"filter":[{"match":{"targetid":"c95#10920"}}]}
       
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
