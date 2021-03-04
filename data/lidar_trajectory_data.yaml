@@ -152,23 +152,28 @@ paths:
                       createddate: '2021-03-04T03:29:14.930Z'
                       lastupdated: '2021-03-04T03:29:14.930Z'
                       dataclass: "SD"
-                      datalen: 612
-                      datanumlow: 15
+                      datalen: 936
+                      datanumlow: 24
                       datanumup: 0
-                      detecttime: '2020-7-7T18:28:45.365Z'
-                      height: 261
-                      identify: 11
+                      detecttime: '2020-7-7T18:28:48.671Z'
+                      height: 47
+                      identify: 12
                       jamlane: 0
-                      length: 588
+                      length: 100
                       originid: "0x145D"
-                      sendtime: '2020-7-7T18:38:35.653Z'
-                      seqno: 573
+                      sendtime: '2020-7-7T18:28:48.792Z'
+                      seqno: 64406
                       situation: "0x02"
-                      targetid: 64055
+                      targetid: c95#64291
                       targetidx: "0x1451"
-                      width: 250
-                      xspeed: -8
-                      yspeed: -60
+                      width: 100
+                      xspeed: 12
+                      yspeed: 14
+                      xcoord: "357844.6167091789"
+                      ycoord: "148684.80620664736"
+                      location:
+                        lat: 1.3448589781787064
+                        lon: 103.72224233670825                     
                 message: Successfully Processed
                 status: Success                              
         '401':
