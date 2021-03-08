@@ -131,7 +131,7 @@ paths:
             {"filter":[{"match":{"age_group_id":7}},{"match":{"gender":"male"}},{"match":{"postalcode":520423}}]}
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
