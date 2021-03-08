@@ -130,7 +130,7 @@ paths:
             {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}],"filter":[{"match":{"vehicle_type":"Y"}}],"should":[{"match":{"car_park_group":"G18"}}],"must_not":[{"match":{"postalcode":"550409"}}]}
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
