@@ -22,7 +22,7 @@ paths:
         - v0.2.1
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
