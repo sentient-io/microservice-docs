@@ -174,7 +174,7 @@ paths:
             {"must":[{"match":{"mc":0}}],"filter":[{"match":{"street":"bishan"}}],"should":[{"match_phrase":{"street":"ang mo kio"}}],"must_not":[{"match":{"postalcode":"570251"}}]}
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
