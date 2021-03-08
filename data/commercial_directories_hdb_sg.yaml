@@ -162,7 +162,7 @@ paths:
 
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
