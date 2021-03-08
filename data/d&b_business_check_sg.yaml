@@ -34,7 +34,7 @@ paths:
               $ref: '#/components/schemas/REQUEST'              
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/xml:
               schema:
