@@ -129,7 +129,7 @@ paths:
               {"must":[{"match":{"name":"technology"}}],"filter":[{"exists":{"field":"company.e27"}}],"should":[{"match":{"status.e27":"active"}}],"must_not":[{"match":{"yearestablished.e27":"2016"}}]}
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
