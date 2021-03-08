@@ -137,7 +137,7 @@ paths:
             {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"match":{"postalcode":"550209"}}],"should":[{"range":{"no_of_units":{"gte":10}}}],"must_not":[{"match":{"len_of_ownership_id":"5"}}]}
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
