@@ -57,18 +57,18 @@ voice:
   voice_activity_detection_eng:
     title: Voice Activity Detection ENG
     versions:
-      1.1.0: 'voice_activity_detection_eng_v1.0.yaml'
+      1.0.0: 'voice_activity_detection_eng_v1.0.yaml'
       0.1.0: 'voice_activity_detection_eng.yaml'
 nlp:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
     versions:
-      1.1.0: 'inverse_text_normalisation_eng_v1.0.yaml'
+      1.0.0: 'inverse_text_normalisation_eng_v1.0.yaml'
       0.1.0: 'inverse_text_normalisation_eng.yaml'
   named-entity_recognition_eng:
     title: Named-Entity Recognition ENG
     versions:
-      1.1.0: 'named-entity_recognition_eng_v1.0.yaml'
+      1.0.0: 'named-entity_recognition_eng_v1.0.yaml'
       0.1.0: 'named-entity_recognition_eng.yaml'
   spacy_ner:
     title: spaCy NER
