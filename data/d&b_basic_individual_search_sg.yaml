@@ -11,15 +11,15 @@ info:
   version: '0.1.0'
   x-subscribelink: d&b_basic_individual_search_sg
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 15, 2019"
 paths:
-   /dnb/prod/sbis:
+   /microservices/data/sbis/v0/getdata:
     post:
       tags:
-        - v0.1.0
+        - v0
       summary: Adds a new user
       requestBody:
         content:
