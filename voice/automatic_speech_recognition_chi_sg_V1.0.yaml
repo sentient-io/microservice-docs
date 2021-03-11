@@ -208,10 +208,10 @@ components:
     input:
       type: object
       required:
-        - audio 
+        - wav_base64 
       properties:
         wav_base64:
-          x-name: audio
+          x-name: wav_base64
           type: string
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
@@ -221,14 +221,6 @@ components:
             Input file needs to be prefixed by the data type and encoding.
             
             <wav in base64 string>
-        language:
-          x-name: language
-          type: string
-          default: true
-          example: 1
-          description: |+
-            Language setting&#58;
-              1 Mandarin
     versions:
       type: object
       properties: 
