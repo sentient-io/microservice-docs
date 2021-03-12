@@ -40,11 +40,57 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example: |+
-                <success><report><meta_info><service>string</service> <system_id>string</system_id> <creation_date>string</creation_date> <user_id>string</user_id> <class>string</class></meta_info> <req_search_info><comp_name>string</comp_name> <reg_no>string</reg_no> <req_date>string</req_date> <req_reg_no>string</req_reg_no> <req_name>string</req_name> <req_date_str>string</req_date_str></req_search_info> <registry_detail><comp_name>string</comp_name> <renewal_date>string</renewal_date> <address1>string</address1> <address2>string</address2> <address3>string</address3> <address4>string</address4> <comp_type_code>string</comp_type_code> <reg_date>string</reg_date> <reg_activity1>string</reg_activity1> <reg_activity2>string</reg_activity2> <acc_date>string</acc_date> <status_effect_date>string</status_effect_date> <name_effect_date>string</name_effect_date> <expiry_date>string</expiry_date> <comp_type>string</comp_type> <change_addr_date>string</change_addr_date> <comp_status>string</comp_status> <reg_activity_desc1>string</reg_activity_desc1> <reg_activity_desc2>string</reg_activity_desc2> <auditor>string</auditor> <auditor_appmt_date>string</auditor_appmt_date> <last_ar_date>string</last_ar_date> <last_agm_date>string</last_agm_date> <country_incorp>string</country_incorp></registry_detail> <employee_size><elements>string</elements> <amount>string</amount></employee_size> <list_biz_branch><biz_branch><addr_building>string</addr_building> <addr_postcode>string</addr_postcode> <addr_address1>string</addr_address1></biz_branch> </list_biz_branch><list_reg_charges><reg_charges><charge_no>string</charge_no> <charge_date>string</charge_date> <chargee_comp>string</chargee_comp> <currency>string</currency> <amt_secured>string</amt_secured> <status_satisfaction>string</status_satisfaction></reg_charges> </list_reg_charges><list_liquidator><liquidator><liq_name>string</liq_name> <liq_id>string</liq_id> <liq_position>string</liq_position> <liq_comp>string</liq_comp> <liq_address1>string</liq_address1> <liq_address2>string</liq_address2> <liq_address3>string</liq_address3> <liq_address4>string</liq_address4> <liq_appointment_date>string</liq_appointment_date></liquidator> </list_liquidator><list_sales_revenue_amount><sales_revenue_amount><elements>string</elements> <year>string</year> <currency>string</currency> <amount>0</amount></sales_revenue_amount></list_sales_revenue_amount><list_shareholder><shareholder><address>string</address>
-
-                  <comp_id>string</comp_id> <no_of_share>string</no_of_share> <currency>string</currency> <shareholder_type>string</shareholder_type> <share_type>string</share_type> <shareholder_name>string</shareholder_name> <change_addr_date>string</change_addr_date> <addr_type>string</addr_type> <nationality>string</nationality></shareholder> </list_shareholder><list_share_interest_comp><share_interest_comp><comp_name>string</comp_name> <share_owned_unit>string</share_owned_unit> <share_owned_percent>string</share_owned_percent> <status>string</status></share_interest_comp></list_share_interest_comp><list_officer_owner><officer_owner><address>string</address>
-                  
-                  <identity_id>string</identity_id> <position>string</position> <addr_type>string</addr_type> <cessation_date>string</cessation_date> <officer_name>string</officer_name> <change_addr_date>string</change_addr_date> <appmt_date>string</appmt_date> <nationality>string</nationality></officer_owner> </list_officer_owner><list_capital><capital><capital_category>string</capital_category> <capital_type>string</capital_type> <currency>string</currency> <capital_amt>string</capital_amt> <no_of_shares>string</no_of_shares></capital> </list_capital><list_name_change><name_change><prev_name>string</prev_name> <effect_date>string</effect_date></name_change></list_name_change></report></success>
+                results:
+                  REPORT: 
+					          LIST_BIZ_BRANCH:
+						          @className: "String"
+					          LIST_Ddrptcount:
+						          @className: "String"
+						          Ddrptcount: "Array"
+							          Rcapr:
+                          #text: 0
+                          @type: "Integer"
+                        Rcaug:
+                          #text: 0
+                          @type: "Integer"
+                        Rcdec:
+                          #text: 0
+                          @type: "Integer"
+                        Rcfeb:
+                          #text: 0
+                          @type: "Integer"
+                        Rcjan:
+                          #text: 0
+                          @type: "Integer"
+                        Rcjul:
+                          #text: 0
+                          @type: "Integer"
+                        Rcjun:
+                          #text: 0
+                          @type: "Integer"
+                        Rcmar:
+                          #text: 0
+                          @type: "Integer"
+                        Rcmay:
+                          #text: 0
+                          @type: "Integer"
+                        Rcnov:
+                          #text: 0
+                          @type: "Integer"
+                        Rcoct:
+                          #text: 0
+                          @type: "Integer"
+                        Rcsecflag:
+                          #text: 0
+                          @type: "Integer"
+                        Rcsep:
+                          #text: 0
+                          @type: "Integer"
+                        Rcyear:
+                          #text: "2020"
+                          @type: "String"
+                  message: Successfully Processed
+				          status: Success
         '401':
           description: Unauthorized
           content:
