@@ -42,12 +42,12 @@ paths:
               example: |+
                 results:
                   REPORT: 
-					          LIST_BIZ_BRANCH:
-						          @className: "String"
-					          LIST_Ddrptcount:
-						          @className: "String"
-						          Ddrptcount: "Array"
-							          Rcapr:
+	  LIST_BIZ_BRANCH:
+		  @className: "String"
+	  LIST_Ddrptcount:
+		  @className: "String"
+		  Ddrptcount: "Array"
+			  Rcapr:
                           #text: 0
                           @type: "Integer"
                         Rcaug:
@@ -90,7 +90,7 @@ paths:
                           #text: "2020"
                           @type: "String"
                   message: Successfully Processed
-				          status: Success
+		  status: Success
         '401':
           description: Unauthorized
           content:
