@@ -27,7 +27,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/REQUEST'              
+              $ref: '#/components/schemas/REQUEST'
+            example:  |+
+              {"total_items" : 10,"subject_idno":197803191, "subject_name":"GPSe"}
       responses:
         '200':
           description: Ok
