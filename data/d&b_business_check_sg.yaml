@@ -46,7 +46,7 @@ paths:
                         "@className": String
                       LIST_Ddrptcount:
                         "@className": String
-                        Ddrptcount:
+                        "Ddrptcount":
                         - Rcapr:
                             "#text": 0
                             "@type": Integer
