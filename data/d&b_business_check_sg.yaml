@@ -25,14 +25,14 @@ paths:
       summary: Adds a new user
       requestBody:
         content:
-          application/json:
+          application/xml:
             schema:
               $ref: '#/components/schemas/REQUEST'              
       responses:
         '200':
           description: Ok
           content:
-            application/json:
+            application/xml:
               schema:
                 $ref: '#/components/schemas/success'
               example: |+
