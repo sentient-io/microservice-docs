@@ -257,23 +257,23 @@ components:
                         "#text": "47112 - MINI-MARTS, CONVENIENCE STORES AND PROVISION SHOPS"
                         "@type": String
                     REG_ACTIVITY2: 
-                        #text: "-"
-                        @type: String
+                        "#text": "-"
+                        "@type": String
                     REG_ACTIVITY_DESC1: 
-                        #text: "-"
-                        @type: String
+                        "#text": "-"
+                        "@type": String
                     REG_ACTIVITY_DESC2: 
-                        #text: "-"
-                        @type: String
+                        "#text": "-"
+                        "@type": String
                     REG_DATE: 
-                        #text: "28/09/1974"
-                        @type: String
+                        "#text": "28/09/1974"
+                        "@type": String
                     RENEWAL_DATE: 
-                        #text: "25/08/2000"
-                        @type: String
+                        "#text": "25/08/2000"
+                        "@type": String
                     STATUS_EFFECT_DATE: 
-                        #text: "30/06/2005"
-                        @type: String
+                        "#text": "30/06/2005"
+                        "@type": String
                 description: |+
                   Registry Details with following children&#58;
                   RENEWAL_DATE
@@ -400,23 +400,23 @@ components:
                 example:
                   REQ_SEARCH_INFO: 
                       COMP_NAME: 
-                        #text": "MENNAPPAN COMPANY"
-                        @type": String
+                        "#text": "MENNAPPAN COMPANY"
+                        "@type": String
                       REG_NO: 
-                        #text: "00007400D"
-                        @type: String
+                        "#text": "00007400D"
+                        "@type": String
                       REQ_DATE: 
-                        #text: "Tue Sep 24 20:25:56 SGT 2019"
-                        @type: Date
+                        "#text": "Tue Sep 24 20:25:56 SGT 2019"
+                        "@type": Date
                       REQ_DATE_STR: 
-                        #text: "24/09/2019 20:25:56"
-                        @type: String
+                        "#text": "24/09/2019 20:25:56"
+                        "@type": String
                       REQ_NAME: 
-                        #text: "-"
-                        @type: String
+                        "#text": "-"
+                        "@type": String
                       REQ_REG_NO: 
-                        #text: "00007400D"
-                        @type: String
+                        "#text": "00007400D"
+                        "@type": String
                 description: |+
                   Request criteria & search record with following children&#58;
                   COMP_NAME
