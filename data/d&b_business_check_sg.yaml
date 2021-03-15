@@ -171,7 +171,7 @@ components:
             properties:
               META_INFO:
                 type: object
-                example: |+
+                example:
                   META_INFO: 
                       CLASS: 
                           #text: "class com.technodex.ddp.xmlbean.MetaBean"
@@ -218,7 +218,7 @@ components:
                     example: "N/A"
               REGISTRY_DETAIL :
                 type: object
-                example: |+
+                example:
                   REGISTRY_DETAIL: 
                     ADDRESS1: 
                         #text: "48 SERANGOON ROAD , 01 - 28"
@@ -397,7 +397,7 @@ components:
                     example: "SINGAPORE"
               REQ_SEARCH_INFO :
                 type: object
-                example: |+
+                example:
                   REQ_SEARCH_INFO: 
                       COMP_NAME: 
                         #text": "MENNAPPAN COMPANY"
