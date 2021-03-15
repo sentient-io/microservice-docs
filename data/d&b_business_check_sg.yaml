@@ -29,7 +29,7 @@ paths:
             schema:
               $ref: '#/components/schemas/REQUEST'
             example:  |+
-              {"total_items" : 10,"subject_idno":197803191, "subject_name":"GPSe"}
+              {"total_items" : 10,"subject_idno":"199707714C", "subject_name":"GPS INDUSTRIES PTE LTD"}
       responses:
         '200':
           description: Ok
