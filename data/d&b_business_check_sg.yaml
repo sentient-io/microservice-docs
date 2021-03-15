@@ -29,7 +29,7 @@ paths:
             schema:
               $ref: '#/components/schemas/REQUEST'
             example:  |+
-              {"total_items" : 10,"subject_idno":"199707714C", "subject_name":"GPS INDUSTRIES PTE LTD"}
+              {"total_items" : 1,"subject_idno":"199707714C", "subject_name":"GPS INDUSTRIES PTE LTD"}
       responses:
         '200':
           description: Ok
@@ -186,7 +186,7 @@ components:
                             #text: "DDP"
                             @type: String
                         USER_ID:
-                            #text: "B2BSENTIENT"
+                            #text: "AAA"
                             @type: String
                   description: |+
                     Meta Information details with following children&#58;
@@ -205,9 +205,9 @@ components:
                       description: System ID
                       example: "DDP"
                     CREATION_DATE:
-                      type: datetime
+                      type: string
                       description: Report request date
-                      example: "Wed Apr 08 11:37:51 MYT 2009"
+                      example: "Tue Sep 24 20:25:56 SGT 2019"
                     USER_ID :
                       type: string
                       description: Valid user id in DDP system. It is for (For internal use)
@@ -219,32 +219,61 @@ components:
                 REGISTRY_DETAIL :
                   type: object
                   example: |+
-                    <REGISTRY_DETAIL className="com.technodex.ddp.report.bean.CommercialBizRegistryBean">
-                    <RENEWAL_DATE type="String"><![CDATA[23/12/2008]]></RENEWAL_DATE>
-                    <ADDRESS1 type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 - 01]]></ADDRESS1>
-                    <ADDRESS2 type="String"><![CDATA[KEPPEL BAY TOWER]]></ADDRESS2>
-                    <ADDRESS3 type="String"><![CDATA[098632]]></ADDRESS3>
-                    <ADDRESS4 type="String"><![CDATA[SINGAPORE]]></ADDRESS4>
-                    <COMP_TYPE_CODE type="String"><![CDATA[CP]]></COMP_TYPE_CODE>
-                    <REG_DATE type="String"><![CDATA[14/10/1974]]></REG_DATE>
-                    <REG_ACTIVITY1 type="String"><![CDATA[OTHER INVESTMENT HOLDING
-                    COMPANIES]]></REG_ACTIVITY1>
-                    <REG_ACTIVITY2 type="String"><![CDATA[SHIP MANAGEMENT SERVICES]]></REG_ACTIVITY2>
-                    <ACC_DATE type="String"><![CDATA[31/12/2007]]></ACC_DATE>
-                    <STATUS_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></STATUS_EFFECT_DATE>
-                    <NAME_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></NAME_EFFECT_DATE>
-                    <EXPIRY_DATE type="String"><![CDATA[25/10/2009]]></EXPIRY_DATE>
-                    <COMP_TYPE type="String"><![CDATA[LIMITED PRIVATE COMPANY]]></COMP_TYPE>
-                    <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE>
-                    <COMP_STATUS type="String"><![CDATA[Live Company]]></COMP_STATUS>
-                    <REG_ACTIVITY_DESC1 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC1>
-                    <REG_ACTIVITY_DESC2 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC2>
-                    <AUDITOR type="String"><![CDATA[-]]></AUDITOR>
-                    <AUDITOR_APPMT_DATE type="String"><![CDATA[13/06/1990]]></AUDITOR_APPMT_DATE>
-                    <LAST_AR_DATE type="String"><![CDATA[30/06/2008]]></LAST_AR_DATE>
-                    <LAST_AGM_DATE type="String"><![CDATA[11/06/2008]]></LAST_AGM_DATE>
-                    <COUNTRY_INCORP type="String"><![CDATA[SINGAPORE]]></COUNTRY_INCORP>
-                    </REGISTRY_DETAIL>
+                    REGISTRY_DETAIL: 
+                      ADDRESS1: 
+                          #text: "48 SERANGOON ROAD , 01 - 28"
+                          @type: String
+                      ADDRESS2: 
+                          #text: "LITTLE INDIA ARCADE"
+                          @type: String
+                      ADDRESS3: 
+                          #text: "217959"
+                          @type: String
+                      ADDRESS4: 
+                          #text: "SINGAPORE"
+                          @type: String
+                      AddressStr: 
+                          #text: "48 SERANGOON ROAD , 01 - 28<br>LITTLE INDIA ARCADE<br>217959<br>SINGAPORE"
+                          @type: String
+                      CHANGE_ADDR_DATE: 
+                          #text: "15/02/1995"
+                          @type: String
+                      COMP_STATUS: 
+                          #text: "CANCELLED"
+                          @type: String
+                      COMP_TYPE: 
+                          #text: "SOLE PROPRIETOR"
+                          @type: String
+                      COMP_TYPE_CODE: 
+                          #text: "SP"
+                          @type: String
+                      EXPIRY_DATE: {
+                          #text: "28/09/2003"
+                          @type: String
+                      NAME_EFFECT_DATE: 
+                          #text: "28/09/1974"
+                          @type: String
+                      REG_ACTIVITY1: 
+                          #text: "47112 - MINI-MARTS, CONVENIENCE STORES AND PROVISION SHOPS"
+                          @type: String
+                      REG_ACTIVITY2: 
+                          #text: "-"
+                          @type: String
+                      REG_ACTIVITY_DESC1: 
+                          #text: "-"
+                          @type: String
+                      REG_ACTIVITY_DESC2: 
+                          #text: "-"
+                          @type: String
+                      REG_DATE: 
+                          #text: "28/09/1974"
+                          @type: String
+                      RENEWAL_DATE: 
+                          #text: "25/08/2000"
+                          @type: String
+                      STATUS_EFFECT_DATE: 
+                          #text: "30/06/2005"
+                          @type: String
                   description: |+
                     Registry Details with following children&#58;
                     RENEWAL_DATE
@@ -274,7 +303,7 @@ components:
                     RENEWAL_DATE:
                       type: string
                       description: Renewal Date
-                      example: "23/12/2008"
+                      example: "25/08/2000"
                     ADDRESS1:
                       type: string
                       description: Address Line 1
@@ -369,14 +398,25 @@ components:
                 REQ_SEARCH_INFO :
                   type: object
                   example: |+
-                    <REQ_SEARCH_INFO className="com.technodex.ddp.report.bean.LitigationSearchInfoBean">
-                    <COMP_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></COMP_NAME>
-                    <REG_NO type="String"><![CDATA[197401835M]]></REG_NO>
-                    <REQ_DATE type="Date"><![CDATA[2009-04-08 11:36:03.611]]></REQ_DATE>
-                    <REQ_REG_NO type="String"><![CDATA[197401835M]]></REQ_REG_NO>
-                    <REQ_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></REQ_NAME>
-                    <REQ_DATE_STR type="String"><![CDATA[08/04/2009 11:36:03]]></REQ_DATE_STR>
-                    </REQ_SEARCH_INFO>
+                    REQ_SEARCH_INFO: 
+                        COMP_NAME: 
+                          #text": "MENNAPPAN COMPANY"
+                          @type": String
+                        REG_NO: 
+                          #text: "00007400D"
+                          @type: String
+                        REQ_DATE: 
+                          #text: "Tue Sep 24 20:25:56 SGT 2019"
+                          @type: Date
+                        REQ_DATE_STR: 
+                          #text: "24/09/2019 20:25:56"
+                          @type: String
+                        REQ_NAME: 
+                          #text: "-"
+                          @type: String
+                        REQ_REG_NO: 
+                          #text: "00007400D"
+                          @type: String
                   description: |+
                     Request criteria & search record with following children&#58;
                     COMP_NAME
@@ -1166,10 +1206,9 @@ components:
           example: 1
           description: Number of subjects being enquired relating to the Run
           default: false
-      properties:
         subject_idno:
           type: string
-          example: 199707714C
+          example: "199707714C"
           description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
           default: true
         subject_name:
