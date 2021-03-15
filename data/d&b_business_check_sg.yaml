@@ -49,46 +49,46 @@ paths:
                         Ddrptcount:
                         - Rcapr:
                             "#text": 0
-                            @type: Integer
+                            "@type": Integer
                           Rcaug:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcdec:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcfeb:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcjan:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcjul:
-                            #text: 6
-                            @type: Integer
+                            "#text": 6
+                            "@type": Integer
                           Rcjun:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcmar:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcmay:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcnov:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcoct:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcsecflag:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcsep:
-                            #text: 0
-                            @type: Integer
+                            "#text": 0
+                            "@type": Integer
                           Rcyear:
-                            #text: '2020'
-                            @type: String
+                            "#text": '2020'
+                            "@type": String
         '401':
           description: Unauthorized
           content:
