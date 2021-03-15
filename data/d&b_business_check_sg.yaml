@@ -27,7 +27,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/REQUEST'              
+              $ref: '#/components/schemas/REQUEST'
+        required: true
       responses:
         '200':
           description: Ok
