@@ -174,20 +174,20 @@ components:
                 example:
                   META_INFO: 
                       CLASS: 
-                          #text: "class com.technodex.ddp.xmlbean.MetaBean"
-                          @type: String
+                          "#text": "class com.technodex.ddp.xmlbean.MetaBean"
+                          "@type": String
                       CREATION_DATE: 
-                          #text: "Tue Sep 24 20:25:56 SGT 2019"
-                          @type: Date
+                          "#text": "Tue Sep 24 20:25:56 SGT 2019"
+                          "@type": Date
                       SERVICE: 
-                          #text: "BC"
-                          @type: String
+                          "#text": "BC"
+                          "@type": String
                       SYSTEM_ID: 
-                          #text: "DDP"
-                          @type: String
+                          "#text": "DDP"
+                          "@type": String
                       USER_ID:
-                          #text: "AAA"
-                          @type: String
+                          "#text": "AAA"
+                          "@type": String
                 description: |+
                   Meta Information details with following children&#58;
                   SERVICE
@@ -221,41 +221,41 @@ components:
                 example:
                   REGISTRY_DETAIL: 
                     ADDRESS1: 
-                        #text: "48 SERANGOON ROAD , 01 - 28"
-                        @type: String
+                        "#text": "48 SERANGOON ROAD , 01 - 28"
+                        "@type": String
                     ADDRESS2: 
-                        #text: "LITTLE INDIA ARCADE"
-                        @type: String
+                        "#text": "LITTLE INDIA ARCADE"
+                        "@type": String
                     ADDRESS3: 
-                        #text: "217959"
-                        @type: String
+                        "#text": "217959"
+                        "@type": String
                     ADDRESS4: 
-                        #text: "SINGAPORE"
-                        @type: String
+                        "#text": "SINGAPORE"
+                        "@type": String
                     AddressStr: 
-                        #text: "48 SERANGOON ROAD , 01 - 28<br>LITTLE INDIA ARCADE<br>217959<br>SINGAPORE"
-                        @type: String
+                        "#text": "48 SERANGOON ROAD , 01 - 28<br>LITTLE INDIA ARCADE<br>217959<br>SINGAPORE"
+                        "@type": String
                     CHANGE_ADDR_DATE: 
-                        #text: "15/02/1995"
-                        @type: String
+                        "#text": "15/02/1995"
+                        "@type": String
                     COMP_STATUS: 
-                        #text: "CANCELLED"
-                        @type: String
+                        "#text": "CANCELLED"
+                        "@type": String
                     COMP_TYPE: 
-                        #text: "SOLE PROPRIETOR"
-                        @type: String
+                        "#text": "SOLE PROPRIETOR"
+                        "@type": String
                     COMP_TYPE_CODE: 
-                        #text: "SP"
-                        @type: String
+                        "#text": "SP"
+                        "@type": String
                     EXPIRY_DATE: {
-                        #text: "28/09/2003"
-                        @type: String
+                        "#text": "28/09/2003"
+                        "@type": String
                     NAME_EFFECT_DATE: 
-                        #text: "28/09/1974"
-                        @type: String
+                        "#text": "28/09/1974"
+                        "@type": String
                     REG_ACTIVITY1: 
-                        #text: "47112 - MINI-MARTS, CONVENIENCE STORES AND PROVISION SHOPS"
-                        @type: String
+                        "#text": "47112 - MINI-MARTS, CONVENIENCE STORES AND PROVISION SHOPS"
+                        "@type": String
                     REG_ACTIVITY2: 
                         #text: "-"
                         @type: String
