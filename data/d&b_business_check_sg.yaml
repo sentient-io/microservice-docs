@@ -37,7 +37,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: |+
+              example:
                   message: Successfully Processed
                   status: Success
                   results:
