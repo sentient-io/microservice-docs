@@ -226,7 +226,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Apr 09, 2021
-              description: Optimization done
+              description: Optimized release
         v0.1.0:
          type: array
          items:
