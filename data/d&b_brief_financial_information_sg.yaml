@@ -29,7 +29,7 @@ paths:
         '200':
           description: Ok
           content:
-            application/xml:
+            application/json:
               schema:
                 $ref: '#/components/schemas/success'
               example:
@@ -72,8 +72,7 @@ paths:
                         "#text": B2BSENTIENT
                         "@type": String
                     XBRL_DTL:
-                status: Success
-                
+                status: Success        
         '401':
           description: Unauthorized
           content:
@@ -155,13 +154,20 @@ components:
                     SYSTEM_ID
                     CREATION_DATE
                     USER_ID
-                  example:  |+
-                    <META_INFO>
-                    <SERVICE><![CDATA[BFE]]></SERVICE>
-                    <SYSTEM_ID><![CDATA[DDP]]></SYSTEM_ID>
-                    <CREATION_DATE>25/02/2009 17:31:44></CREATION_DATE>
-                    <USER_ID><![CDATA[plcust102]]></USER_ID>
-                    </META_INFO>
+                  example:  
+                      META_INFO:
+                        CREATION_DATE:
+                          "#text": 24/09/2019 20:27:06
+                          "@type": String
+                        SERVICE:
+                          "#text": BFE
+                          "@type": String
+                        SYSTEM_ID:
+                          "#text": DDP
+                          "@type": String
+                        USER_ID:
+                          "#text": B2BSENTIENT
+                          "@type": String
                   properties:
                     SERVICE:
                       type: string
