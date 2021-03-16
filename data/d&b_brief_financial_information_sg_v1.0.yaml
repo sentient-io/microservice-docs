@@ -23,7 +23,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/REQUEST'
+              $ref: '#/components/schemas/input'
       responses:
         '200':
           description: Ok
@@ -1563,7 +1563,7 @@ components:
         status:
           type: string
           example: Failure
-    REQUEST:
+    input:
       type: object
       properties:
         total_items:
