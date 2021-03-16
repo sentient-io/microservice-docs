@@ -13,12 +13,12 @@ info:
   version: '0.1.0'
   x-subscribelink: d&b_business_check_sg
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://api.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 15, 2019"
 paths:
-   /microservices/data/sbc/v0/getdata:
+   /dnb/prod/sbc:
     post:
       tags:
         - v0.1.0
@@ -27,13 +27,12 @@ paths:
         content:
           application/xml:
             schema:
-              $ref: '#/components/schemas/REQUEST'
-        required: true
+              $ref: '#/components/schemas/REQUEST'              
       responses:
         '200':
           description: Ok
           content:
-            application/json:
+            application/xml:
               schema:
                 $ref: '#/components/schemas/success'
               example: |+
@@ -1104,21 +1103,28 @@ components:
     REQUEST:
       type: object
       properties:
-        total_items:
+        TOT_ITEMS:
           type: number
           example: 1
           description: Number of subjects being enquired relating to the Run
           default: false
-        subject_idno:
-          type: string
-          example: 199707714C
-          description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
+        ENQUIRY:
+          type: object
+          example: |+
+            <ENQUIRY><SUBJECT_IDNO>197601887E</SUBJECT_IDNO><SUBJECT_NAME>TRANSTAR TRAVEL PTE LTD</SUBJECT_NAME></ENQUIRY>
+          description: Contains information of each request details
           default: true
-        subject_name:
-          type: string
-          example: GPS INDUSTRIES PTE LTD
-          description: Subjects Name as captured in DDP
-          default: false
+          properties:
+            SUBJECT_IDNO:
+              type: string
+              example: 199707714C
+              description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
+              default: true
+            SUBJECT_NAME:
+              type: string
+              example: GPS INDUSTRIES PTE LTD
+              description: Subjects Name as captured in DDP
+              default: false
     versions:
       type: object
       properties: 
