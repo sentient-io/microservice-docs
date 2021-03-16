@@ -1363,28 +1363,21 @@ components:
     REQUEST:
       type: object
       properties:
-        TOT_ITEMS:
+        total_items:
           type: number
           example: 1
           description: Number of subjects being enquired relating to the Run
           default: false
-        ENQUIRY:
-          type: object
-          example: |+
-            "<ENQUIRY><SUBJECT_IDNO>197601887E</SUBJECT_IDNO><SUBJECT_NAME>TRANSTAR TRAVEL PTE LTD</SUBJECT_NAME></ENQUIRY>"
-          description: Contains information of each request details
+        subject_idno:
+          type: string
+          example: 199707714C
+          description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
           default: true
-          properties:
-            SUBJECT_IDNO:
-              type: string
-              example: 199707714C
-              description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
-              default: true
-            SUBJECT_NAME:
-              type: string
-              example: GPS INDUSTRIES PTE LTD
-              description: Subjects Name as captured in DDP
-              default: false
+        subject_name:
+          type: string
+          example: GPS INDUSTRIES PTE LTD
+          description: Subjects Name as captured in DDP
+          default: false
     versions:
       type: object
       properties: 
