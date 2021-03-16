@@ -345,13 +345,12 @@ components:
                     SYSTEM_ID
                     CREATION_DATE
                     USER_ID
-                  example:  |+
-                    <META_INFO>
-                    <SERVICE><![CDATA[BFE]]></SERVICE>
-                    <SYSTEM_ID><![CDATA[DDP]]></SYSTEM_ID>
-                    <CREATION_DATE>25/02/2009 17:31:44></CREATION_DATE>
-                    <USER_ID><![CDATA[plcust102]]></USER_ID>
-                    </META_INFO>
+                  example: 
+                    META_INFO:
+                      SERVICE: BFE
+                      SYSTEM_ID: DDP
+                      CREATION_DATE: 25/02/2009 17:31:44>
+                      USER_ID: plcust102
                   properties:
                     SERVICE:
                       type: string
