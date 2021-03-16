@@ -252,6 +252,7 @@ data:
   amenities_lamp_posts_hdb_sg:
     title: HDB Lamp Posts Locations (SG)
     versions:
+      1.0.0: 'amenities_lamp_posts_hdb_sg_v1.0.yaml'
       0.1.0: 'amenities_lamp_posts_hdb_sg.yaml'
   amenities_hardcourts_hdb_sg:
     title: HDB Hardcourts Locations (SG)
