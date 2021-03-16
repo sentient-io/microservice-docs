@@ -22,7 +22,7 @@ paths:
       summary: Adds a new user
       requestBody:
         content:
-          application/json:
+          application/xml:
             schema:
               $ref: '#/components/schemas/REQUEST'
       responses:
