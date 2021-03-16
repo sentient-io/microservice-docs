@@ -262,6 +262,7 @@ data:
   amenities_shelters_hdb_sg:
     title: HDB Shelters Locations (SG)
     versions:
+      1.0.0: 'amenities_shelters_hdb_sg_v1.0.yaml'
       0.1.0: 'amenities_shelters_hdb_sg.yaml'
   d&b_business_check_plus_sg:
     title: D&B Business Check Plus (SG)
