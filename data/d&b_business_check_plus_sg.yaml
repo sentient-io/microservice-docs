@@ -5,20 +5,19 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Software solutions targeted at corporate finance and legal domains, e.g. in cases of mergers, joint ventures or partnerships.
-
-    - Aside from being able to protect your business via litigation checks to safeguard against reputational risk by avoiding companies potentially involved in financial crimes, the information from this microservice can serve as a quick solution for analysts or lawyers in a company whom are looking to draft documents related to cooperate finance or legal domains with one quick search.
+    - Aside from being able to protect your business via litigation checks to safeguard against reputational risk by avoiding companies potentially involved in financial crimes, the information from this microservice can serve as a quick solution for analysts or lawyers in a company whom are looking to draft documents related to cooperate finance or legal domains with one quick search.
   version: '0.1.0'
   x-subscribelink: d&b_business_check_plus_sg
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://api.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 15, 2019"
 paths:
-   /microservices/data/sbcp/v0/getdata:
+   /dnb/prod/sbcp:
     post:
       tags:
-        - v0
+        - v0.1.0
       summary: Adds a new user
       requestBody:
         content:
