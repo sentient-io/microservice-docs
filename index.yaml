@@ -211,11 +211,7 @@ utility:
   base64_decoder:
     title: Base64 Decoder
     versions:
-      0.1.0: 'base64-decoder.yaml'
-  get_ip:
-    title: Get IP
-    versions:
-      0.1.0: 'get_ip.yaml'      
+      0.1.0: 'base64-decoder.yaml'    
 data:
   commercial_directories_hdb_sg:
     title: HDB Commercial Directories (SG)
