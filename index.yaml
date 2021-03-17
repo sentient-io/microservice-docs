@@ -272,6 +272,7 @@ data:
   d&b_business_check_plus_sg:
     title: D&B Business Check Plus (SG)
     versions:
+      1.0.0: 'd&b_business_check_plus_sg_v1.0.yaml'
       0.1.0: 'd&b_business_check_plus_sg.yaml'
   d&b_basic_individual_search_sg:
     title: D&B Basic Individual Search (SG)
