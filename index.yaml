@@ -281,6 +281,7 @@ data:
   d&b_business_check_sg:
     title: D&B Business Check (SG)
     versions:
+      1.0.0: 'd&b_business_check_sg_v1.0.yaml'
       0.1.0: 'd&b_business_check_sg.yaml'
   d&b_brief_financial_information_sg:
     title: D&B Brief Financial Information (SG)
