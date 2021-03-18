@@ -1,0 +1,301 @@
+# This yaml file been updated for Sentient.io API Documentation v4.0.0 Beta
+# Latest update : 2021-Feb-4
+# For adding new microservices, please follow the format below:
+
+#-------------------------------------------------
+#
+# /// - microservice category have to be lower case,
+# ///the category name will be exactely same as the folder name
+# Category (voice / computer vision / nlp / etc.):
+#       /// - microservice SHOULD be same as the file name, except, don't need the version number
+#       microservice_name:
+#           /// - This will be the title appeared in the side navigation
+#           /// - Use the same title from info.title inside the microservice yaml file
+#           title: "Some Title"
+#           /// - Versions will contain version number and file name for each version
+#            versions:
+#               v1.0: "yaml_file_name_goes_here_v1.0.yaml"
+#               0.1.0: "yaml_file_name_goes_here_0.1.0.yaml"
+#
+#-------------------------------------------------
+
+# For Sentient.io API documentation maintenance:
+# There is a yamlPath variable contains the path of where the yaml file is stored
+# The final yaml link will be a combination of {{yamlPath + / + category + / + verions['v1.0']}}
+
+voice:
+  automatic_speech_recognition_eng_sg:
+    title: Automatic Speech Recognition ENG (SG)
+    versions:
+      1.1.0: 'automatic_speech_recognition_eng_sg_v1.0.yaml'
+      0.1.0: 'automatic_speech_recognition_eng_sg.yaml'
+  automatic_speech_recognition_chi_sg:
+    title: Automatic Speech Recognition CHI (SG)
+    versions:
+      1.0.0: 'automatic_speech_recognition_chi_sg_V1.0.yaml'
+      0.1.1: 'automatic_speech_recognition_chi_sg.yaml'
+  online_automatic_speech_recognition_eng_sg:
+    title: Online Automatic Speech Recognition ENG (SG)
+    versions:
+      0.1.0: 'online_automatic_speech_recognition_eng_sg.yaml'
+  online_command_automatic_speech_recognition_eng_sg:
+    title: Online Command Automatic Speech Recognition ENG (SG)
+    versions:
+      0.1.0: 'online_command_automatic_speech_recognition_eng_sg.yaml'
+  text-to-speech_eng:
+    title: Text-To-Speech ENG
+    versions:
+      0.1.0: 'text-to-speech_eng.yaml'
+  text-to-speech_chi:
+    title: Text-To-Speech CHI
+    versions:
+      0.1.0: 'text-to-speech_chi.yaml'
+  asr_with_voice_activity_detection_eng_sg:
+    title: ASR with Voice Activity Detection ENG (SG)
+    versions:
+      1.1.0: 'asr_with_voice_activity_detection_eng_sg_v1.0.yaml'
+      0.1.0: 'asr_with_voice_activity_detection_eng_sg.yaml'
+  voice_activity_detection_eng:
+    title: Voice Activity Detection ENG
+    versions:
+      1.0.0: 'voice_activity_detection_eng_v1.0.yaml'
+      0.1.0: 'voice_activity_detection_eng.yaml'
+nlp:
+  inverse_text_normalisation_eng:
+    title: Inverse Text Normalisation ENG
+    versions:
+      1.0.0: 'inverse_text_normalisation_eng_v1.0.yaml'
+      0.1.0: 'inverse_text_normalisation_eng.yaml'
+  named-entity_recognition_eng:
+    title: Named-Entity Recognition ENG
+    versions:
+      1.0.0: 'named-entity_recognition_eng_v1.0.yaml'
+      0.1.0: 'named-entity_recognition_eng.yaml'
+  spacy_ner:
+    title: spaCy NER
+    versions:
+      0.1.0: 'spacy_named-entity_recognition_eng.yaml'
+  page_profiler_eng:
+    title: Page Profiler ENG
+    versions:
+      2.1.1: 'page_profiler_eng_v2.1.yaml'
+  page_profiler_jp:
+    title: Page Profiler JP
+    versions:
+      1.1.0: 'page_profiler_jp.yaml'
+  page_profiler_thai:
+    title: Page Profiler THAI
+    versions:
+      1.1.0: 'page_profiler_thai.yaml'
+  taxonomy_matcher_eng:
+    title: Taxonomy Matcher ENG
+    versions:
+      1.0.0: 'taxonomy_matcher_eng_v1.0.yaml'
+      0.1.0: 'taxonomy_matcher_eng.yaml'
+  word_sense_disambiguation_eng:
+    title: Word Sense Disambiguation ENG
+    versions:
+      1.0.0: 'word_sense_disambiguation_eng_v1.0.yaml'
+      0.1.0: 'word_sense_disambiguation_eng.yaml'
+  named-entity_recognition_jp:
+    title: Named-Entity Recognition JP
+    versions:
+      1.0.0: 'named-entity_recognition_jp_v1.0.yaml'
+      0.1.0: 'named-entity_recognition_jp.yaml'
+  named-entity_recognition_thai:
+    title: Named Entity Recognition THAI
+    versions:
+      1.0.0: 'named-entity_recognition_thai_v1.0.yaml'
+      0.1.0: 'named-entity_recognition_thai.yaml'
+  script_alignment:
+    title: Script Alignment
+    versions:
+      1.0.0: 'script_alignment_v1.0.yaml'
+      0.1.0: 'script_alignment.yaml'
+computer vision:
+  object_detection:
+    title: Object Detection
+    versions:
+      1.0.0: 'object_detection_v1.0.yaml'
+      0.1.0: 'object_detection.yaml'
+  face_recognition:
+    title: Face Recognition
+    versions:
+      1.0.1: 'face_recognition_v1.0.yaml'
+      0.1.0: 'face_recognition_politicians_sg.yaml'
+  people_counting:
+    title: People Counting
+    versions:
+      1.0.0: 'people_counting_v1.0.yaml'
+      0.1.0: 'people_counting.yaml'
+  landmark_detection_sg:
+    title: Landmark Detection (SG)
+    versions:
+      1.0.0: 'landmark_detection_sg_v1.0.yaml'
+      0.1.0: 'landmark_detection_sg.yaml'
+  landmark_detection_jp:
+    title: Landmark Detection (JP)
+    versions:
+      1.0.0: 'landmark_detection_jp_v1.0.yaml'
+      0.1.0: 'landmark_detection_jp.yaml'
+  demographics_classification:
+    title: Demographics Classification
+    versions:
+      0.1.0: 'demographics_classification.yaml'
+utility:
+  youtube_video_downloader:
+    title: Youtube Video Downloader
+    versions:
+      0.1.0: 'youtube_video_downloader.yaml'
+  video-to-audio_convertor:
+    title: Video-To-Audio Convertor
+    versions:
+      0.1.0: 'video-to-audio_convertor.yaml'
+  web_scraper:
+    title: Web Scraper
+    versions:
+      1.1.1: 'web_scraper.yaml'
+  document_convertor_eng:
+    title: Document Convertor ENG
+    versions:
+      1.0.0: 'document_convertor_eng.yaml'
+  pdf_extractor:
+    title: PDF Extractor
+    versions:
+      1.0.0: 'pdf_extractor.yaml'
+  pki_key_generator:
+    title: PKI Key Generator
+    versions:
+      0.1.0: 'pki_key_generator.yaml'
+  encryption_using_pki_key:
+    title: Encryption using PKI Key
+    versions:
+      0.1.0: 'encryption_using_pki_key.yaml'
+  decryption_using_pki_key:
+    title: Decryption using PKI Key
+    versions:
+      0.1.0: 'decryption_using_pki_key.yaml'
+  wikipedia_retrieval:
+    title: Wikipedia Retrieval
+    versions:
+      1.0.0: 'wikipedia_retrieval_v1.0.yaml'
+      0.1.0: 'wikipedia_retrieval.yaml'
+  json-csv_convertor:
+    title: JSON-CSV Convertor
+    versions:
+      1.0.0: 'json-csv_convertor.yaml'
+  csv-json_convertor:
+    title: CSV-JSON Convertor
+    versions:
+      1.0.0: 'csv-json_convertor.yaml'
+  audio_format_convertor:
+    title: Audio Format Convertor
+    versions:
+      0.1.0: 'audio_format_convertor.yaml'
+  video-to-image_convertor:
+    title: Video-to-Image Convertor
+    versions:
+      0.1.0: 'video-to-image_convertor.yaml'
+  newspaper_article_scraper:
+    title: Newspaper Article Scraper
+    versions:
+      0.1.0: 'newspaper_article_scraper.yaml'
+  urls_retrieval:
+    title: URLs Retrieval
+    versions:
+      0.2.1: 'urls_retrieval.yaml'
+  base64_encoder:
+    title: Base64 Encoder
+    versions:
+      0.1.0: 'base64-encoder.yaml'
+  base64_decoder:
+    title: Base64 Decoder
+    versions:
+      0.1.0: 'base64-decoder.yaml'    
+  get_ip:
+    title: Get IP
+    versions:
+      0.1.0: 'get_ip.yaml'          
+data:
+  commercial_directories_hdb_sg:
+    title: HDB Commercial Directories (SG)
+    versions:
+      0.1.0: 'commercial_directories_hdb_sg.yaml'
+  building_addresses_hdb_sg:
+    title: HDB Block Coordinates (SG)
+    versions:
+      0.1.0: 'building_addresses_hdb_sg.yaml'
+  residential_sales_and_rental_hdb_sg:
+    title: HDB Residential Occupancy Status (SG)
+    versions:
+      0.1.0: 'residential_sales_and_rental_hdb_sg.yaml'
+  carpark_hdb_sg:
+    title: HDB Carpark Locations (SG)
+    versions:
+      0.2.0: 'carpark_hdb_sg.yaml'
+  demographics_hdb_sg:
+    title: HDB Demographics (SG)
+    versions:
+      0.1.0: 'demographics_hdb_sg.yaml'
+  flat_ownership_hdb_sg:
+    title: HDB Flat Ownership Duration (SG)
+    versions:
+      0.1.0: 'flat_ownership_hdb_sg.yaml'
+  season_parking_availability_hdb_sg:
+    title: HDB Season Parking Availability (SG)
+    versions:
+      0.1.0: 'season_parking_availability_hdb_sg.yaml'
+  directory_of_singapore_startups:
+    title: Directory of Singapore Startups
+    versions:
+      0.1.0: 'directory_of_singapore_startups.yaml'
+  fitness_stations_and_playgrounds_hdb_sg:
+    title: HDB Fitness Stations and Playgrounds (SG)
+    versions:
+      1.0.0: 'fitness_stations_and_playgrounds_hdb_sg_v1.0.yaml'
+      0.1.0: 'fitness_stations_and_playgrounds_hdb_sg.yaml'
+  amenities_lamp_posts_hdb_sg:
+    title: HDB Lamp Posts Locations (SG)
+    versions:
+      1.0.0: 'amenities_lamp_posts_hdb_sg_v1.0.yaml'
+      0.1.0: 'amenities_lamp_posts_hdb_sg.yaml'
+  amenities_hardcourts_hdb_sg:
+    title: HDB Hardcourts Locations (SG)
+    versions:
+      1.0.0: 'amenities_hardcourts_hdb_sg_v1.0.yaml'
+      0.1.0: 'amenities_hardcourts_hdb_sg.yaml'
+  amenities_shelters_hdb_sg:
+    title: HDB Shelters Locations (SG)
+    versions:
+      1.0.0: 'amenities_shelters_hdb_sg_v1.0.yaml'
+      0.1.0: 'amenities_shelters_hdb_sg.yaml'
+  d&b_business_check_plus_sg:
+    title: D&B Business Check Plus (SG)
+    versions:
+      1.0.0: 'd&b_business_check_plus_sg_v1.0.yaml'
+      0.1.0: 'd&b_business_check_plus_sg.yaml'
+  d&b_basic_individual_search_sg:
+    title: D&B Basic Individual Search (SG)
+    versions:
+      1.0.0: 'd&b_basic_individual_search_sg_v1.0.yaml'
+      0.1.0: 'd&b_basic_individual_search_sg.yaml'
+  d&b_business_check_sg:
+    title: D&B Business Check (SG)
+    versions:
+      1.0.0: 'd&b_business_check_sg_v1.0.yaml'
+      0.1.0: 'd&b_business_check_sg.yaml'
+  d&b_brief_financial_information_sg:
+    title: D&B Brief Financial Information (SG)
+    versions:
+      1.0.0: 'd&b_brief_financial_information_sg_v1.0.yaml'
+      0.1.0: 'd&b_brief_financial_information_sg.yaml'
+  realtime_weather:
+    title: Realtime Weather
+    versions:
+      0.1.0: 'realtime_weather.yaml'
+data alliance:
+  download_dataset_api:
+    title: Download Dataset API
+    urlkey: download_dataset_api
+    versions:
+      0.1.0: 'download_dataset.yaml'
