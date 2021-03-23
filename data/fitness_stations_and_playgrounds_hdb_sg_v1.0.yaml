@@ -83,24 +83,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/notfound'
-        '419':
-          description: Input Field Missing
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputfieldmissing'
-        '413':
-          description: Payload Too Large
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputlimitexceeded'    
-        '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
@@ -188,33 +170,6 @@ components:
         message:
           type: string
           example: Request Timeout
-        status:
-          type: string
-          example: Failure
-    inputfieldmissing:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Input Field Missing
-        status:
-          type: string
-          example: Failure
-    inputlimitexceeded:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Input Limit Exceeded
-        status:
-          type: string
-          example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
         status:
           type: string
           example: Failure
