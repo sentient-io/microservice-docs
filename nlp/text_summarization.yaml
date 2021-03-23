@@ -22,23 +22,7 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/success'
-                example: {
-                  "message": "Successfully Processed",
-                  "results": {
-                      "output": [
-                          {
-                              "score": 2.14511174780278,
-                              "text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."
-                          },
-                          {
-                              "score": 1.9220186222187634,
-                              "text": "the ministry of defence said the 39-year-old had a cardiac arrest on the way . he was conscious and taken to national university hospital in singapore . ambulance arrived at n.50am at 6.10 am , pronounced dead at ."
-                          }
-                      ]
-                  },
-                  "status": "Success"
-              }
-
+                example: {"message": "Successfully Processed","results": {"output": [{"score": 2.14511174780278,"text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."}]},"status": "Success"}
           '401':
             description: Unauthorized
             content:
@@ -114,16 +98,7 @@
               output:
                 x-name: output
                 type: array
-                example: [
-                  {
-                      "score": 2.14511174780278,
-                      "text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."
-                  },
-                  {
-                      "score": 1.9220186222187634,
-                      "text": "the ministry of defence said the 39-year-old had a cardiac arrest on the way . he was conscious and taken to national university hospital in singapore . ambulance arrived at n.50am at 6.10 am , pronounced dead at ."
-                  }
-              ]
+                example: [{"score": 2.14511174780278,"text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."}]
                 description: List of dictionaries containing summarized texts and their confidence score   
                 items:
                   oneOf:
@@ -247,7 +222,7 @@
             x-name: text
             type: array
             default: true
-            example: :["More than 2,000 Build-To-Order (BTO) Housing Board flats in Singapore's newest large estate, Bidadari, have been completed, with families progressively moving into their new homes.These flats are spread across three projects - Alkaff Vista,"]
+            example: :["More than 2,000 Build-To-Order (BTO) Housing Board flats in Singapore's newest large estate, Bidadari, have been completed, with families progressively moving into their new homes.These flats are spread across three projects - Alkaff Vista"]
             description: |+
               List of texts
             
