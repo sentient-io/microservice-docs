@@ -208,7 +208,7 @@
             x-name: trajectories
             type: array
             default: true
-            example: '[{"tid": "61568", "time": "2020-07-07T18:19:54.362000Z", "x": 888, "y": 2463}]'
+            example: []
             description: |+
               List of trajectory dictionary
             items:
