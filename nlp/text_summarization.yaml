@@ -2,7 +2,7 @@
   info:
     title: Text Summarization
     description: |+
-    Summarises the input text. Only handle up to 512 subword tokens. If too long, model will truncate the text automatically.
+      Summarises the input text. Only handle up to 512 subword tokens. If too long, model will truncate the text automatically.
     version: '0.1.0'
     x-subscribelink: text_summarization
   servers:
