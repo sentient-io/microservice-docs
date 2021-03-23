@@ -215,30 +215,34 @@
               oneOf:
                 - type: object
                   properties:
-                    x-name: tid
-                    type: string
-                    default: false
-                    example: [{"tid": "61568", "time": "2020-07-07T18:19:54.362000Z", "x": 888, "y": 2463}]
-                    description: |+
-                      Unique ID for each trajectory or trip
-                    x-name: time
-                    type: string
-                    default: false
-                    example: [{"tid": "61568", "time": "2020-07-07T18:19:54.362000Z", "x": 888, "y": 2463}]
-                    description: |+
-                      Timestamp when the location is recorded. In Date.toJSON() format. E.g. 2012-04-23T18:25:43.511Z
-                    x-name: x
-                    type: number
-                    default: false
-                    example: 888
-                    description: |+
-                      2D Location coordinates in X,Y
-                    x-name: "y"
-                    type: number
-                    default: false
-                    example: 2463
-                    description: |+
-                      2D Location coordinates in X,Y
+                    tid:
+                      x-name: tid
+                      type: string
+                      default: false
+                      example: [{"tid": "61568", "time": "2020-07-07T18:19:54.362000Z", "x": 888, "y": 2463}]
+                      description: |+
+                        Unique ID for each trajectory or trip
+                    time:
+                      x-name: time
+                      type: string
+                      default: false
+                      example: [{"tid": "61568", "time": "2020-07-07T18:19:54.362000Z", "x": 888, "y": 2463}]
+                      description: |+
+                        Timestamp when the location is recorded. In Date.toJSON() format. E.g. 2012-04-23T18:25:43.511Z
+                    x:
+                      x-name: x
+                      type: number
+                      default: false
+                      example: 888
+                      description: |+
+                        2D Location coordinates in X,Y
+                    y:
+                      x-name: "y"
+                      type: number
+                      default: false
+                      example: 2463
+                      description: |+
+                        2D Location coordinates in X,Y
     securitySchemes:
       APIAuthorizer:
         type: apiKey
