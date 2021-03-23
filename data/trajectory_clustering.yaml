@@ -208,7 +208,7 @@
             x-name: trajectories
             type: array
             default: true
-            example: []
+            example: ["a"]
             description: |+
               List of trajectory dictionary
             items:
