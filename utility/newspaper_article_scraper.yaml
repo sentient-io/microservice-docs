@@ -313,7 +313,7 @@ components:
       properties:
         url:
           type: string
-          example: https://www.bangkokpost.com/learning/news/1272315/study-and-work-in-australia-%E2%80%93-many-opportunities-ahead
+          example: https://www.bangkokpost.com/
           default: true
           description: The absolute input url, i.e exact, full address (URL) to the page.
   securitySchemes:
