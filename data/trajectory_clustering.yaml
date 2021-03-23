@@ -208,7 +208,7 @@
             x-name: trajectories
             type: array
             default: true
-            example: [{"tid": "61568", "time": "2020-07-07T18:19:54.362000Z", "x": 888, "y": 2463}]
+            example: [{"tid": "61568", "time": "2020-07-07T18:19:54.362000Z", "x": \888, "y": \2463}]
             description: |+
               List of trajectory dictionary
             items:
@@ -219,14 +219,14 @@
                       x-name: tid
                       type: string
                       default: false
-                      example: "61568"
+                      example: 61568
                       description: |+
                         Unique ID for each trajectory or trip
                     time:
                       x-name: time
                       type: string
                       default: false
-                      example: "2020-07-07T18:19:54.362000Z"
+                      example: 2020-07-07T18:19:54.362000Z
                       description: |+
                         Timestamp when the location is recorded. In Date.toJSON() format. E.g. 2012-04-23T18:25:43.511Z
                     x:
