@@ -22,22 +22,7 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/success'
-                example: {
-                  "message": "Successfully Processed",
-                  "results": {
-                    "13": [
-                      "1.0",
-                      "398.0",
-                      "410.0",
-                      "540.0",
-                      "601.0",
-                      "646.0",
-                      "1021.0",
-                      "1077.0"
-                    ]},
-                    "status": "Success"
-                  }
-
+                example: {"message": "Successfully Processed","results": {"13": ["1.0","398.0","410.0","540.0","601.0","646.0","1021.0","1077.0"]},"status": "Success"}
           '401':
             description: Unauthorized
             content:
@@ -113,20 +98,8 @@
               <cluster id>:
                 x-name: <cluster id>
                 type: array
-                example: 
-                  "13": [
-                    "1.0",
-                    "398.0",
-                    "410.0",
-                    "540.0",
-                    "601.0",
-                    "646.0",
-                    "1021.0",
-                    "1077.0"
-                  ]
+                example: ["1.0","398.0","410.0","540.0","601.0","646.0","1021.0","1077.0"]
                 description: group id where the tracks are being clustered. values dependent on existing group detected sensitive to training dataset. cluster -1 is a special cluster of which its members are unassigned. Each value within a cluster contains track id  
-              
-
           message:
             type: string
             example: Successfully Processed
