@@ -22,22 +22,7 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/success'
-                example: {
-                  "message": "Successfully Processed",
-                  "results": {
-                    "13": [
-                      "1.0",
-                      "398.0",
-                      "410.0",
-                      "540.0",
-                      "601.0",
-                      "646.0",
-                      "1021.0",
-                      "1077.0"
-                    ]},
-                    "status": "Success"
-                  }
-
+                example: {"message": "Successfully Processed","results": {"13": ["1.0","398.0","410.0","540.0","601.0","646.0","1021.0","1077.0"]},"status": "Success"}
           '401':
             description: Unauthorized
             content:
@@ -113,20 +98,8 @@
               <cluster id>:
                 x-name: <cluster id>
                 type: array
-                example: 
-                  "13": [
-                    "1.0",
-                    "398.0",
-                    "410.0",
-                    "540.0",
-                    "601.0",
-                    "646.0",
-                    "1021.0",
-                    "1077.0"
-                  ]
+                example: ["1.0","398.0","410.0","540.0","601.0","646.0","1021.0","1077.0"]
                 description: group id where the tracks are being clustered. values dependent on existing group detected sensitive to training dataset. cluster -1 is a special cluster of which its members are unassigned. Each value within a cluster contains track id  
-              
-
           message:
             type: string
             example: Successfully Processed
@@ -243,24 +216,28 @@
                 - type: object
                   properties:
                     tid:
+                      x-name: tid
                       type: string
                       default: false
-                      example: [{"tid": "61568", "time": "2020-07-07T18:19:54.362000Z", "x": 888, "y": 2463}]
+                      example: 61568
                       description: |+
                         Unique ID for each trajectory or trip
                     time:
+                      x-name: time
                       type: string
                       default: false
-                      example: [{"tid": "61568", "time": "2020-07-07T18:19:54.362000Z", "x": 888, "y": 2463}]
+                      example: 2020-07-07T18:19:54.362000Z
                       description: |+
                         Timestamp when the location is recorded. In Date.toJSON() format. E.g. 2012-04-23T18:25:43.511Z
                     x:
+                      x-name: x
                       type: number
                       default: false
                       example: 888
                       description: |+
                         2D Location coordinates in X,Y
                     y:
+                      x-name: "y"
                       type: number
                       default: false
                       example: 2463
