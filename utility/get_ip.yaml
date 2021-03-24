@@ -11,7 +11,7 @@ info:
       - Use this microservice to get public IP of user.
   version: '0.1.0'
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Mar 30, 2021"
