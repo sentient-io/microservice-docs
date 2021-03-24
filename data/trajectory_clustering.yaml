@@ -208,8 +208,7 @@
             x-name: trajectories
             type: array
             default: true
-            example: {
-              "trajectories": [
+            example: [
                 {"tid": "t1", "time": "2021-01-01T18:19:40.863000Z", "x": 360, "y": 851},
                  {"tid": "t1", "time": "2021-01-01T18:19:41.863000Z", "x": 361, "y": 852},
                  {"tid": "t1", "time": "2021-01-01T18:19:42.863000Z", "x": 362, "y": 853},
@@ -237,7 +236,6 @@
                  {"tid": "t5",   "time": "2021-01-01T18:40:30.171000Z",  "x": 372, "y": 883},
                  {"tid": "t5",   "time": "2021-01-01T18:40:34.171000Z",  "x": 392, "y": 883}
               ]
-            }
             description: |+
               List of trajectory dictionary
             items:
