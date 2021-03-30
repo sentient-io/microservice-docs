@@ -20,7 +20,7 @@ info:
   version: '1.0.0'
   x-subscribelink: automatic_speech_recognition_chi_sg
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Mar 30, 2021"
