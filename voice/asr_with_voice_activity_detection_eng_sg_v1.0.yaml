@@ -238,6 +238,7 @@ components:
             
             1. prepared_speech - Better suited for transcribing prepared / formal speech (e.g. news or parliamentary speeches). 16 kHz, mono channel, .wav format.
             2. telephony - Better suited for conversational speech or telephony use cases. 8 kHz, mono channel, .wav format.
+            3. generic_en - Large nnet3-chain factorized TDNN model, trained on ~1200 hours of audio. Generic English, 16KHz
         wav_base64:
           x-name: wav_base64
           type: string
