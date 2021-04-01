@@ -293,10 +293,6 @@ data:
     versions:
       1.0.0: 'd&b_brief_financial_information_sg_v1.0.yaml'
       0.1.0: 'd&b_brief_financial_information_sg.yaml'
-  realtime_weather:
-    title: Realtime Weather
-    versions:
-      0.1.0: 'realtime_weather.yaml'
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
