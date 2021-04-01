@@ -98,7 +98,7 @@
               <cluster id>:
                 x-name: <cluster id>
                 type: array
-                example: ["1.0","398.0","410.0","540.0","601.0","646.0","1021.0","1077.0"]
+                example: ["t1","t2"]
                 description: Group id where the tracks are being clustered. Values dependent on existing group detected sensitive to training dataset. Cluster -1 is a special cluster of which its members are unassigned. Each value within a cluster contains track id  
           message:
             type: string
