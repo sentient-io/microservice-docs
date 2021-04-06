@@ -94,19 +94,15 @@
             type: object
             example: { "<Json": "Object>" }
             description: Json Object of returned results
-            properties:
-                type: object
-                example: {"score": 2.14511174780278,"text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."}
-                description: Summarised texts and their confidence score   
-                properties:
-                  score:
-                    type: number
-                    example: 2.2100781633414535
-                    description: Confidence score
-                  text:
-                    type: string
-                    example: more than 2,000 build-to-orders have been completed by the hdb in 2015. more than 70 per cent of residents have moved into their new homes in alk by 50 per cent in bidadari .y greenrise will be the last bto to be
-                    description: Summarised text
+            properties:   
+              score:
+                type: number
+                example: 2.2100781633414535
+                description: Confidence score
+              text:
+                type: string
+                example: more than 2,000 build-to-orders have been completed by the hdb in 2015. more than 70 per cent of residents have moved into their new homes in alk by 50 per cent in bidadari .y greenrise will be the last bto to be
+                description: Summarised text
               
 
           message:
