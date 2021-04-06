@@ -1,6 +1,6 @@
   openapi: 3.0.1
   info:
-    title: Text Summarization
+    title: Text Summarisation
     description: |+
       Summarises the input text. Only handle up to 512 subword tokens. If too long, model will truncate the text automatically.
     version: '0.1.0'
