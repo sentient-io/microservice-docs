@@ -4,14 +4,14 @@
     description: |+
       Summarises the input text. Only handle up to 512 subword tokens. If too long, model will truncate the text automatically.
     version: '0.1.0'
-    x-subscribelink: text_summarization
+    x-subscribelink: text_summarisation
   servers:
     - url: 'https://dev-apis.sentient.io'
   tags:
   - name: "v0.1.0"
     description: "Published Date - Apr 05, 2021"
   paths:
-    /microservices/nlp/textsummarization/v0/getpredictions:
+    /microservices/nlp/textsummarisation/v0/getpredictions:
       post:
         tags:
           - v0.1.0
@@ -99,7 +99,7 @@
                 x-name: output
                 type: object
                 example: {"score": 2.14511174780278,"text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."}
-                description: List of dictionaries containing summarized texts and their confidence score   
+                description: List of dictionaries containing summarised texts and their confidence score   
                 properties:
                   score:
                     type: number
@@ -108,7 +108,7 @@
                   text:
                     type: string
                     example: more than 2,000 build-to-orders have been completed by the hdb in 2015. more than 70 per cent of residents have moved into their new homes in alk by 50 per cent in bidadari .y greenrise will be the last bto to be
-                    description: Summarized text
+                    description: Summarised text
               
 
           message:
