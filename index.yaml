@@ -113,7 +113,7 @@ nlp:
       1.0.0: 'script_alignment_v1.0.yaml'
       0.1.0: 'script_alignment.yaml'
   text_summarisation:
-    title: Text Summarization
+    title: Text Summarisation
     versions:
       0.1.0: 'text_summarisation.yaml'
 computer vision:
