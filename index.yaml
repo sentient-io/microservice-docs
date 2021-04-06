@@ -115,7 +115,7 @@ nlp:
   text_summarization:
     title: Text Summarization
     versions:
-      0.1.0: 'text_summarization.yaml'
+      0.1.0: 'text_summarisation.yaml'
 computer vision:
   object_detection:
     title: Object Detection
