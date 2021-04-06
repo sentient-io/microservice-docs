@@ -2,8 +2,12 @@
   info:
     title: Trajectory Clustering
     description: |+
-      This microservice clusters the input trajectories into clusters based on positions and velocity.
+      This Data Analytics microservice groups the input trajectories of objects into clusters based on positions and velocity. A target object can be anything mobile that is continuously tracked or "pinged-back" (e.g. vehicles, mobile phones). 
+      The clustering algorithm requires a set of trajectories. Each trajectory has a unique id (e.g. t1, t2) and a sequence of 2D points (X-Y coordinates and corresponding timestamps).
+      See additional information for relationship of target objects and their trajectories.
     version: '0.1.0'
+    x-additionalinfo: |+
+      In the ideal case, each trajectory should be mapped exactly to one target object. Due to known limitations of the tracking algorithms, sometimes a single target can have multiple trajectories/tracks. In less common cases of errors, multiple targets are combined into one trajectory/track.
     x-subscribelink: trajectory_clustering
   servers:
     - url: 'https://dev-apis.sentient.io'
