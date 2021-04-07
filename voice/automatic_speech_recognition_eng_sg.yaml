@@ -11,7 +11,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands.
-  x-subscribelink: automatic_speech_recognition_eng_sg
+  x-subscribelink: automatic_speech_recognition_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
