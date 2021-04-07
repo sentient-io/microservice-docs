@@ -28,20 +28,20 @@ voice:
     title: Automatic Speech Recognition ENG
     versions:
       1.1.0: 'automatic_speech_recognition_eng_v1.0.yaml'
-      0.1.0: 'automatic_speech_recognition_eng_sg.yaml'
-  automatic_speech_recognition_chi_sg:
-    title: Automatic Speech Recognition CHI (SG)
+      0.1.0: 'automatic_speech_recognition_eng.yaml'
+  automatic_speech_recognition_chi:
+    title: Automatic Speech Recognition CHI
     versions:
-      1.0.0: 'automatic_speech_recognition_chi_sg_v1.0.yaml'
-      0.1.0: 'automatic_speech_recognition_chi_sg.yaml'
-  online_automatic_speech_recognition_eng_sg:
-    title: Online Automatic Speech Recognition ENG (SG)
+      1.0.0: 'automatic_speech_recognition_chi_v1.0.yaml'
+      0.1.0: 'automatic_speech_recognition_chi.yaml'
+  online_automatic_speech_recognition_eng:
+    title: Online Automatic Speech Recognition ENG
     versions:
-      0.1.0: 'online_automatic_speech_recognition_eng_sg.yaml'
-  online_command_automatic_speech_recognition_eng_sg:
-    title: Online Command Automatic Speech Recognition ENG (SG)
+      0.1.0: 'online_automatic_speech_recognition_eng.yaml'
+  online_command_automatic_speech_recognition_eng:
+    title: Online Command Automatic Speech Recognition ENG
     versions:
-      0.1.0: 'online_command_automatic_speech_recognition_eng_sg.yaml'
+      0.1.0: 'online_command_automatic_speech_recognition_eng.yaml'
   text-to-speech_eng:
     title: Text-To-Speech ENG
     versions:
@@ -54,7 +54,7 @@ voice:
     title: ASR with Voice Activity Detection ENG
     versions:
       1.2.0: 'asr_with_voice_activity_detection_eng_v1.0.yaml'
-      0.1.0: 'asr_with_voice_activity_detection_eng_sg.yaml'
+      0.1.0: 'asr_with_voice_activity_detection_eng.yaml'
   voice_activity_detection_eng:
     title: Voice Activity Detection ENG
     versions:
