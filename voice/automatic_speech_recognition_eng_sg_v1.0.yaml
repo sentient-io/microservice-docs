@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Automatic Speech Recognition ENG (SG)
+  title: Automatic Speech Recognition ENG
   description: |+
     This Voice microservice transcribes the input audio stream into text.
     
@@ -236,7 +236,7 @@ components:
           x-name: model
           type: string
           default: true
-          example: prepared_speech
+          example: generic
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             
