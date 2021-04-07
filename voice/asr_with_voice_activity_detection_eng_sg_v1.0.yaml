@@ -232,7 +232,7 @@ components:
           x-name: model
           type: string
           default: true
-          example: prepared_speech
+          example: generic
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             
