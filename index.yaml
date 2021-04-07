@@ -24,7 +24,7 @@
 # The final yaml link will be a combination of {{yamlPath + / + category + / + verions['v1.0']}}
 
 voice:
-  automatic_speech_recognition_eng_sg:
+  automatic_speech_recognition_eng:
     title: Automatic Speech Recognition ENG
     versions:
       1.1.0: 'automatic_speech_recognition_eng_v1.0.yaml'
@@ -50,7 +50,7 @@ voice:
     title: Text-To-Speech CHI
     versions:
       0.1.0: 'text-to-speech_chi.yaml'
-  asr_with_voice_activity_detection_eng_sg:
+  asr_with_voice_activity_detection_eng:
     title: ASR with Voice Activity Detection ENG
     versions:
       1.2.0: 'asr_with_voice_activity_detection_eng_v1.0.yaml'
