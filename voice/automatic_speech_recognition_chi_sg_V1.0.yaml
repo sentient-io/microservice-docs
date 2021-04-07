@@ -111,6 +111,7 @@ components:
               results:
                 type: object
                 description: output object 
+                example: {"<Json":"Object>"}
                 properties:
                   output:
                     type: string
