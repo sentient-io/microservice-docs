@@ -3,8 +3,7 @@ info:
   title: Get IP
   x-subscribelink: get_ip
   description: |+
-        Locate and identify website visitors by "IP" address Know where your customers access your website from and 
-        customize user experiences based on IP
+        Locate and identify website visitors by IP (Internet Protocol) address. Know where your customers access your website from and customize user experiences based on IP
        
   x-additionalinfo : |+
     Suggested Use Cases:
