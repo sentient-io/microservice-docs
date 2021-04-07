@@ -9,7 +9,6 @@ info:
     Suggested Use Cases:
       - Use this microservice to get public IP of user.
   version: '0.1.0'
-  x-subscribelink: get_ip
 servers:
   - url: 'https://apis.sentient.io'
 tags:
