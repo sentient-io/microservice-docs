@@ -276,6 +276,10 @@ data:
     title: D&B Brief Financial Information (SG)
     versions:
       0.1.0: 'd&b_brief_financial_information_sg.yaml'
+  trajectory_clustering:
+    title: Trajectory Clustering
+    versions:
+      0.1.0: 'trajectory_clustering.yaml'      
 data alliance:
   download_dataset_api:
     title: Download Dataset API
