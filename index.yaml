@@ -25,7 +25,7 @@
 
 voice:
   automatic_speech_recognition_eng_sg:
-    title: Automatic Speech Recognition ENG (SG)
+    title: Automatic Speech Recognition ENG
     versions:
       1.1.0: 'automatic_speech_recognition_eng_sg_v1.0.yaml'
       0.1.0: 'automatic_speech_recognition_eng_sg.yaml'
@@ -50,7 +50,7 @@ voice:
     versions:
       0.1.0: 'text-to-speech_chi.yaml'
   asr_with_voice_activity_detection_eng_sg:
-    title: ASR with Voice Activity Detection ENG (SG)
+    title: ASR with Voice Activity Detection ENG
     versions:
       1.1.0: 'asr_with_voice_activity_detection_eng_sg_v1.0.yaml'
       0.1.0: 'asr_with_voice_activity_detection_eng_sg.yaml'
