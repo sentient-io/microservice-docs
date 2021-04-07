@@ -147,10 +147,6 @@ computer vision:
     versions:
       0.1.0: 'demographics_classification.yaml'
 utility:
-  youtube_video_downloader:
-    title: Youtube Video Downloader
-    versions:
-      0.1.0: 'youtube_video_downloader.yaml'
   video-to-audio_convertor:
     title: Video-To-Audio Convertor
     versions:
