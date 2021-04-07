@@ -10,7 +10,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands like “turn the volume up".
-  x-subscribelink: asr_with_voice_activity_detection_eng_sg
+  x-subscribelink: asr_with_voice_activity_detection_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
