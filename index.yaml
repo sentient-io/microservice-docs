@@ -27,7 +27,7 @@ voice:
   automatic_speech_recognition_eng_sg:
     title: Automatic Speech Recognition ENG
     versions:
-      1.1.0: 'automatic_speech_recognition_eng_sg_v1.0.yaml'
+      1.1.0: 'automatic_speech_recognition_eng_v1.0.yaml'
       0.1.0: 'automatic_speech_recognition_eng_sg.yaml'
   automatic_speech_recognition_chi_sg:
     title: Automatic Speech Recognition CHI (SG)
