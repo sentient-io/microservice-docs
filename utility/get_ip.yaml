@@ -15,7 +15,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Apr 07, 2021"
 paths:
-  /microservices/utility/getip/v0/getdata:
+  /microservices/utility/getip/v0/getresults:
     get:
       tags:
         - v0.1.0
