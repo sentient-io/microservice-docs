@@ -3,8 +3,8 @@ info:
   title: Automatic Speech Recognition ENG
   description: |+
     This Voice microservice transcribes the input audio stream into text.
-    
-    This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case, whether for prepared speech or generic(16kHz) or telephony (8kHz).
+
+    This microservice can be used on generic English or on specific use cases or accents. There's currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case
     
     The length of your audio should be **upto 60 seconds**.
   version: '1.2.0'
@@ -240,9 +240,10 @@ components:
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             
-            1. prepared_speech - Better suited for transcribing prepared / formal speech (e.g. news or parliamentary speeches). 16 kHz, mono channel, .wav format.
-            2. telephony - Better suited for conversational speech or telephony use cases. 8 kHz, mono channel, .wav format. 
-            3. generic - Large nnet3-chain factorized TDNN model, trained on ~1200 hours of audio. Generic English, 16KHz
+            1. generic - Large nnet3-chain factorized TDNN model, trained on ~1200 hours of audio. Generic English, 16KHz
+            2. prepared_speech - Better suited for transcribing prepared / formal speech (e.g. news or parliamentary speeches). 16 kHz, mono channel, .wav format.
+            3. telephony - Better suited for conversational speech or telephony use cases. 8 kHz, mono channel, .wav format. 
+            
         wav_base64:
           x-name: wav_base64
           type: string
@@ -293,7 +294,7 @@ components:
             oneOf:
             - type: string
               example: Published Date - Apr 05, 2021
-              description: New model generic_en introduced
+              description: New model generic introduced
         v1.1.0:
           type: array
           items:
