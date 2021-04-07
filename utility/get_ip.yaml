@@ -28,7 +28,8 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed
-                results: 123.123.123.123
+                results: 
+                  - 123.123.123.123
                 status: Success                             
         '401':
           description: Unauthorized
