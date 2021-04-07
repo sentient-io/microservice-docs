@@ -243,11 +243,33 @@ components:
             0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
     versions:
       type: object
-      properties: 
+      properties:
+        v1.2.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Apr 07, 2021
+              description: New model generic introduced
+        v1.1.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Jan 22, 2021
+              description: Model name update
+        v1.0.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Dec 09, 2020
+              description: Standardizing Output JSON  
+        
         v0.1.0:
-         type: array
-         items:
-          oneOf:
+          type: array
+          items:
+            oneOf:
             - type: string
               example: Published Date - Dec 14,2019
               description: Initial version release
