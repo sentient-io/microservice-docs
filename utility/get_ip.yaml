@@ -147,7 +147,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 30, 2021
+              example: Published Date - Apr 07, 2021
               description: Initial version release               
   securitySchemes:
     APIAuthorizer:
