@@ -13,10 +13,10 @@ info:
     - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands.
   x-subscribelink: automatic_speech_recognition_eng_sg
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.2.0"
-  description: "Published Date - Apr 05, 2021"
+  description: "Published Date - Apr 07, 2021"
 paths:
   /microservices/voice/asr/v1/getpredictions:
     post:
@@ -293,7 +293,7 @@ components:
           items:
             oneOf:
             - type: string
-              example: Published Date - Apr 05, 2021
+              example: Published Date - Apr 07, 2021
               description: New model generic introduced
         v1.1.0:
           type: array
