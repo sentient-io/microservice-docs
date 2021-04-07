@@ -2,7 +2,11 @@
   info:
     title: Text Summarisation
     description: |+
-      Summarises the input text. Only handle up to 512 subword tokens. If too long, model will truncate the text automatically.
+      This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words. 
+
+      The input text should not exceed 512 words. 
+
+      For longer text, we would suggest breaking them up into smaller chunks (each lesser than 512 words) and making multiple calls to this microservice for more effective summarisation.
     version: '0.1.0'
     x-subscribelink: text_summarisation
   servers:
