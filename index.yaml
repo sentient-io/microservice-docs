@@ -32,7 +32,7 @@ voice:
   automatic_speech_recognition_chi_sg:
     title: Automatic Speech Recognition CHI (SG)
     versions:
-      1.0.0: 'automatic_speech_recognition_chi_sg_V1.0.yaml'
+      1.0.0: 'automatic_speech_recognition_chi_sg_v1.0.yaml'
       0.1.1: 'automatic_speech_recognition_chi_sg.yaml'
   online_automatic_speech_recognition_eng_sg:
     title: Online Automatic Speech Recognition ENG (SG)
