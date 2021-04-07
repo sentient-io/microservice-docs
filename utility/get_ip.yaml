@@ -28,8 +28,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed
-                results: 
-                  - 123.123.123.123
+                results: <<userip>>
                 status: Success                             
         '401':
           description: Unauthorized
@@ -80,7 +79,7 @@ components:
           description: Response message
         results:
           type: string
-          example: 123.123.123.123
+          example: <<userip>>
           description: User IP
         status:
           type: string
