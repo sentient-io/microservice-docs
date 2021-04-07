@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Automatic Speech Recognition CHI (SG)
+  title: Automatic Speech Recognition CHI
   description: |+
     This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.
 
@@ -18,7 +18,7 @@ info:
 
     - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.
   version: '1.0.0'
-  x-subscribelink: automatic_speech_recognition_chi_sg
+  x-subscribelink: automatic_speech_recognition_chi
 servers:
   - url: 'https://apis.sentient.io'
 tags:
