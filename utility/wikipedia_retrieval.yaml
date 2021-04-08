@@ -275,6 +275,13 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jan 11, 2021
+              description: Patch Update, Optimization and thumbnail is added as an additional field 
         v0.1.0:
          type: array
          items:

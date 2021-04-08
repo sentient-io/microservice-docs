@@ -315,7 +315,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Jul 03,2020
+                example: Published Date - Jul 03, 2020
                 description: Initial version release                  
   securitySchemes:
     APIAuthorizer:

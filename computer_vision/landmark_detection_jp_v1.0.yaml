@@ -240,7 +240,7 @@ components:
           items:
             oneOf:
             - type: string
-              example: Published Date - Jul 30,2020
+              example: Published Date - Jul 30, 2020
               description: Initial version release
     input:
       type: object

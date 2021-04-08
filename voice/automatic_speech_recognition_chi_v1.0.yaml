@@ -3,6 +3,7 @@ info:
   title: Automatic Speech Recognition CHI
   description: |+
     This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text. This microservice works best when the audio file consists of mostly speech with no long pauses in between. 
+    
     The length of your audio should be **up to 20 seconds**.
   x-additionalinfo: |+
     Suggested Use Cases:
@@ -235,14 +236,14 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Sep 28,2018
+              example: Published Date - Sep 28, 2018
               description: Patch update on bug fixes
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 21,2018
+              example: Published Date - Jun 21, 2018
               description: Initial version release
   securitySchemes:
     APIAuthorizer:

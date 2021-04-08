@@ -208,12 +208,23 @@ components:
     versions:
       type: object
       properties: 
-        v0.1.0:
-         type: array
-         items:
-          oneOf:
+        v1.0.0:
+          type: array
+          items:
+            oneOf:
             - type: string
-              example: Published Date - Jul 30,2020
+              example: Published Date - Mar 05, 2021
+              description: |+
+                1. Standardizing Output JSON
+                2. Overall model accuracy improvements
+                3. Better accuracy in detecting non-landmarks
+                4. Fix bug in the confidence score computation
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Jul 30, 2020
               description: Initial version release
     input:
       type: object

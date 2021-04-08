@@ -220,19 +220,26 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 07, 2021
+              description: Standardizing Input and Output Updated.
         v0.1.1:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Sep 28,2018
+              example: Published Date - Sep 28, 2018
               description: Patch update on bug fixes
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 21,2018
+              example: Published Date - Jun 21, 2018
               description: Initial version release
   securitySchemes:
     APIAuthorizer:
