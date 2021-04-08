@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Automatic Speech Recognition CHI
-  description: >+
+  description: |+
     This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text. This microservice works best when the audio file consists of mostly speech with no long pauses in between. 
     
     
