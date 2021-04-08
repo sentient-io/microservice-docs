@@ -209,12 +209,27 @@ components:
     versions:
       type: object
       properties: 
-        v0.1.0:
-         type: array
-         items:
-          oneOf:
+        v1.0.1:
+          type: array
+          items:
+            oneOf:
             - type: string
-              example: Published Date - Jul 03,2020
+              example: Published Date - Jan 11, 2021
+              description: Bug fix - Threshold value   
+        v1.0.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Dec 09, 2020
+              description: Standardizing Output JSON and model update
+
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Jul 03, 2020
               description: Initial version release
     invalidinput:
       type: object
