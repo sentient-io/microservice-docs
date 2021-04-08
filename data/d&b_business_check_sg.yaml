@@ -1128,6 +1128,13 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 09, 2021
+              description: Optimized and Standardized results in Json Format
         v0.1.0:
          type: array
          items:
