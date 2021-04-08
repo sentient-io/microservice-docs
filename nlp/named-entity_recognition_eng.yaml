@@ -232,15 +232,15 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
+              example: Published Date - Sep 30, 2020
               description: Updated version release v1.0
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
-              description: Initial version release    
+              example: Published Date - Nov 25, 2019
+              description: Initial version release   
     input:
       type: object
       required:
