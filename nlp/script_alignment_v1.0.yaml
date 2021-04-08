@@ -228,7 +228,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Oct 30,2020
+                example: Published Date - Oct 30, 2020
                 description: Standardizing Output JSON
         v0.1.0:
           type: array
