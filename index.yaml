@@ -224,6 +224,7 @@ data:
   building_addresses_hdb_sg:
     title: HDB Block Coordinates (SG)
     versions:
+      1.0.0: 'building_addresses_hdb_sg_v1.0.yaml'
       0.1.0: 'building_addresses_hdb_sg.yaml'
   residential_sales_and_rental_hdb_sg:
     title: HDB Residential Occupancy Status (SG)
