@@ -9,12 +9,12 @@ info:
   version: '1.0.0'
   x-subscribelink: d&b_business_check_plus_sg
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Apr 09, 2021"
+  description: "Published Date - Apr 15, 2021"
 paths:
-   /microservices/data/sbcp/v0/getdata:
+   /microservices/data/sbcp/v1/getdata:
     post:
       tags:
         - v1.0.0
@@ -2468,7 +2468,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Apr 09, 2021
+              example: Published Date - Apr 15, 2021
               description: Optimized and Standardized results in Json Format
         v0.1.0:
          type: array
