@@ -80,17 +80,17 @@ info:
        
        > filterdata = {"filter":[{"match_phrase": {"street":"bishan street 24"}},{"range": {"4room_sold":{"gte":1}}}]}
        
-  version: '0.1.0'
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v0.1.0"
+- name: "v1.0.0"
   description: "Published Date - Nov 25, 2019"
 paths:
-   /DaaS/prod/hdb/buildinginfo:
+   /microservices/data/buildinginfo/v0/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
