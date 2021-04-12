@@ -233,6 +233,7 @@ data:
   carpark_hdb_sg:
     title: HDB Carpark Locations (SG)
     versions:
+      1.0.0: 'carpark_hdb_sg_v1.0.yaml'
       0.2.0: 'carpark_hdb_sg.yaml'
   demographics_hdb_sg:
     title: HDB Demographics (SG)
