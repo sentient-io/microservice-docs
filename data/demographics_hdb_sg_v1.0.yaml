@@ -431,7 +431,7 @@ components:
     versions:
       type: object
       properties: 
-        v0.1.0:
+        v1.0.0:
          type: array
          items:
           oneOf:
