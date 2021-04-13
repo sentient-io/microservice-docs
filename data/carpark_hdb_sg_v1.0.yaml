@@ -91,7 +91,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Apr 30, 2021"
 paths:
-   /microservices/data/carpark/v1/getdata:
+   /microservices/data/carpark/v0/getdata:
     get:
       tags:
         - v1.0.0
@@ -442,7 +442,7 @@ components:
     versions:
       type: object
       properties: 
-          v1.0.0:
+        v1.0.0:
          type: array
          items:
           oneOf:
