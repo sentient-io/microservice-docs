@@ -1391,7 +1391,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Apr 09, 2021
+              example: Published Date - Apr 15, 2021
               description: Optimized and Standardized results in Json format
         v0.1.0:
          type: array
