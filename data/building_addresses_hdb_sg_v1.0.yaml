@@ -78,12 +78,12 @@ info:
        
   version: '1.0.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Apr 30, 2021"
 paths:
-   /microservices/data/directories_searchbranch/v1/getdata:
+   /microservices/data/directories_searchbranch/v0/getdata:
     get:
       tags:
         - v1.0.0
