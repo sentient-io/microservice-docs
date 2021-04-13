@@ -125,7 +125,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"range":{"block":{"gte":100}}}],"should":[{"range":{"block":{"lte":200}}}],"filter":[{"match_phrase":{"street":"ang mo kio"}}],"must_not":[{"match":{"street":"avenue 3"}}]}
+              {"must":[{"range":{"block":{"gte":3}}}],"should":[{"range":{"block":{"lte":200}}}],"filter":[{"match_phrase":{"street":"serangoon road"}}],"must_not":[{"match":{"postalcode":"218152"}}]}
       responses:
         '200':
           description: Ok
