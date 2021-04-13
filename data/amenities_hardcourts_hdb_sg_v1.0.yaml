@@ -40,7 +40,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Apr 12, 2021"
+  description: "Published Date - Apr 15, 2021"
 paths:
    /microservices/data/hardcourt/v1/getdata:
     get:
@@ -180,7 +180,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Apr 12, 2021
+              example: Published Date - Apr 15, 2021
               description: Optimized release
         v0.1.0:
          type: array
