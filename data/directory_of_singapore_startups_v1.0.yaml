@@ -37,7 +37,7 @@ info:
     
     * **match_phrase** - Search within a full text field
     
-     > {"match_phrase":{"name":"nextwave partners"}}
+      > {"match_phrase":{"name":"nextwave partners"}}
     
     * **match_phrase_prefix** - Search within a full text field with prefix
     
