@@ -503,7 +503,14 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 30,2021
+              description: Optimized release
         v0.1.0:
          type: array
          items:
