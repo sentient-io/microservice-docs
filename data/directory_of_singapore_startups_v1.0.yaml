@@ -62,12 +62,12 @@ info:
       > {"exists":{"field":"company.e27"}}
     
     **Sample filterdata JSON:**
-    > {
-    > "must":[{"match":{"name":"technology"}}],
-    > "filter":[{"exists":{"field":"company.e27"}}],
-    > "should":[{"match":{"status.e27":"active"}}],
-    > "must_not":[{"match":{"yearestablished.e27":"2016"}}]
-    > }
+      > {
+      > "must":[{"match":{"name":"technology"}}],
+      > "filter":[{"exists":{"field":"company.e27"}}],
+      > "should":[{"match":{"status.e27":"active"}}],
+      > "must_not":[{"match":{"yearestablished.e27":"2016"}}]
+      > }
   version: '1.0.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
