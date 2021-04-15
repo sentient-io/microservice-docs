@@ -221,6 +221,13 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 15, 2021
+              description: Optimized release
         v0.1.0:
          type: array
          items:
