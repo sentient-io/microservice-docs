@@ -232,6 +232,7 @@ data:
   carpark_hdb_sg:
     title: HDB Carpark Locations (SG)
     versions:
+      1.0.0: 'carpark_hdb_sg_v1.0.yaml'
       0.2.0: 'carpark_hdb_sg.yaml'
   demographics_hdb_sg:
     title: HDB Demographics (SG)
@@ -252,34 +253,42 @@ data:
   fitness_stations_and_playgrounds_hdb_sg:
     title: HDB Fitness Stations and Playgrounds (SG)
     versions:
+      1.0.0: 'fitness_stations_and_playgrounds_hdb_sg_v1.0.yaml'
       0.1.0: 'fitness_stations_and_playgrounds_hdb_sg.yaml'
   amenities_lamp_posts_hdb_sg:
     title: HDB Lamp Posts Locations (SG)
     versions:
+      1.0.0: 'amenities_lamp_posts_hdb_sg_v1.0.yaml'
       0.1.0: 'amenities_lamp_posts_hdb_sg.yaml'
   amenities_hardcourts_hdb_sg:
     title: HDB Hardcourts Locations (SG)
     versions:
+      1.0.0: 'amenities_hardcourts_hdb_sg_v1.0.yaml'
       0.1.0: 'amenities_hardcourts_hdb_sg.yaml'
   amenities_shelters_hdb_sg:
     title: HDB Shelters Locations (SG)
     versions:
+      1.0.0: 'amenities_shelters_hdb_sg_v1.0.yaml'
       0.1.0: 'amenities_shelters_hdb_sg.yaml'
   d&b_business_check_plus_sg:
     title: D&B Business Check Plus (SG)
     versions:
+      1.0.0: 'd&b_business_check_plus_sg_v1.0.yaml'
       0.1.0: 'd&b_business_check_plus_sg.yaml'
   d&b_basic_individual_search_sg:
     title: D&B Basic Individual Search (SG)
     versions:
+      1.0.0: 'd&b_basic_individual_search_sg_v1.0.yaml'
       0.1.0: 'd&b_basic_individual_search_sg.yaml'
   d&b_business_check_sg:
     title: D&B Business Check (SG)
     versions:
+      1.0.0: 'd&b_business_check_sg_v1.0.yaml'
       0.1.0: 'd&b_business_check_sg.yaml'
   d&b_brief_financial_information_sg:
     title: D&B Brief Financial Information (SG)
     versions:
+      1.0.0: 'd&b_brief_financial_information_sg_v1.0.yaml'
       0.1.0: 'd&b_brief_financial_information_sg.yaml'
   trajectory_clustering:
     title: Trajectory Clustering
