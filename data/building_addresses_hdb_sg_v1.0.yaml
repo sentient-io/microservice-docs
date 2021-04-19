@@ -83,7 +83,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Apr 30, 2021"
 paths:
-   /microservices/data/directories_searchbranch/v0/getdata:
+   /microservices/data/directories_searchbranch/v1/getdata:
     get:
       tags:
         - v1.0.0
