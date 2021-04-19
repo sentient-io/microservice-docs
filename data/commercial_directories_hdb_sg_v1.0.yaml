@@ -88,7 +88,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Apr 30, 2021"
 paths:
-   /microservices/data/hdb_searchdir/v0/getdata:
+   /microservices/data/hdb_searchdir/v1/getdata:
     get:
       tags:
         - v1.0.0
