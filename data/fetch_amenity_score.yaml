@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: fetch amenity score
+  title: Fetch Amenity Score
   description: |+
     Given a Singapore postal code, fetch amenity scores for various amenity types 
   version: v0.1.0
