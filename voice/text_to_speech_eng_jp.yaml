@@ -200,7 +200,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - April 29, 2021
+                example: Published Date - April 30, 2021
                 description: Initial version release    
     input:
       type: object
@@ -231,7 +231,7 @@ components:
           default: False
           example: 1
           description: |+
-            the pitch factor for the synthesized voice (1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
+            the pitch factor for the synthesized voice (1 means default pitch, 0.5 means half pitch, 2 means twice the pitch)
         tempo_scale:
           x-name: tempo_scale
           type: integer
