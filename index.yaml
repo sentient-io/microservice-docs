@@ -60,6 +60,10 @@ voice:
     versions:
       1.0.0: 'voice_activity_detection_eng_v1.0.yaml'
       0.1.0: 'voice_activity_detection_eng.yaml'
+  text_to_speech_eng_jp:
+    title: Text to Speech
+    versions:
+      0.1.0: 'text_to_speech_eng_jp.yaml'
 nlp:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
