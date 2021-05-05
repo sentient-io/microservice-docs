@@ -1,18 +1,18 @@
 
 openapi: 3.0.1
 info:
-  title: Text to Speech 
+  title: Text-To-Speech JP 
   description: |+
-    A naturally sounding TTS system built using deep neural networks. Supports English and Japanese language
+    A naturally sounding TTS system built using deep neural networks for Japanese language
   version: v0.1.0
-  x-subscribelink: text_to_speech_eng_jp
+  x-subscribelink: text-to-speech_jp
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - April 30, 2021"
 paths:
-  /microservices/voice/tts/v0/getpredictions:
+  /microservices/voice/ttsjp/v0/getpredictions:
     post:
       tags:
         - v0.1.0
@@ -208,37 +208,30 @@ components:
       
         - text
       
-        - language
-      
       properties:
         text:
           x-name: text
           type: string
           default: True
-          example: This is a development server. Do not use it in a production deployment.
+          example: こんにちは、元気ですか
           description: |+
             input text to be synthesised 
-        language:
-          x-name: language
-          type: string
-          default: True
-          example: en
-          description: |+
-            the input text language (en or jp)
         pitch_scale:
           x-name: pitch_scale
-          type: integer
+          type: float
           default: False
           example: 1
           description: |+
-            the pitch factor for the synthesized voice (1 means default pitch, 0.5 means half pitch, 2 means twice the pitch)
+            The pitch factor for the synthesized voice. It ranges between 0.5 and 1.5 and default is 1.
+            1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
         tempo_scale:
           x-name: tempo_scale
-          type: integer
+          type: float
           default: False
           example: 1
           description: |+
-            the speed factor for the synthesized voice (1 means default speed, 0.5 is half speed, 2 is twice the speed)
+            The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1. 
+            1 means default speed, 0.5 is half speed, 2 is twice the speed
         
         
   securitySchemes:

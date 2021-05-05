@@ -50,6 +50,10 @@ voice:
     title: Text-To-Speech CHI
     versions:
       0.1.0: 'text-to-speech_chi.yaml'
+  text-to-speech_jp:
+    title: Text-To-Speech JP
+    versions:
+      0.1.0: 'text-to-speech_jp.yaml'
   asr_with_voice_activity_detection_eng:
     title: ASR with Voice Activity Detection ENG
     versions:
@@ -60,10 +64,6 @@ voice:
     versions:
       1.0.0: 'voice_activity_detection_eng_v1.0.yaml'
       0.1.0: 'voice_activity_detection_eng.yaml'
-  text_to_speech_eng_jp:
-    title: Text to Speech
-    versions:
-      0.1.0: 'text_to_speech_eng_jp.yaml'
 nlp:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
