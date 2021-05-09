@@ -23,7 +23,7 @@
 # There is a yamlPath variable contains the path of where the yaml file is stored
 # The final yaml link will be a combination of {{yamlPath + / + category + / + verions['v1.0']}}
 
-voice:
+Voice:
   automatic_speech_recognition_eng:
     title: Automatic Speech Recognition ENG
     versions:
@@ -64,7 +64,7 @@ voice:
     versions:
       1.0.0: 'voice_activity_detection_eng_v1.0.yaml'
       0.1.0: 'voice_activity_detection_eng.yaml'
-nlp:
+NLP:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
     versions:
@@ -120,7 +120,7 @@ nlp:
     title: Text Summarisation
     versions:
       0.1.1: 'text_summarisation.yaml'
-computer vision:
+Computer Vision:
   object_detection:
     title: Object Detection
     versions:
@@ -150,7 +150,7 @@ computer vision:
     title: Demographics Classification
     versions:
       0.1.0: 'demographics_classification.yaml'
-utility:
+Utility:
   video-to-audio_convertor:
     title: Video-To-Audio Convertor
     versions:
@@ -220,7 +220,7 @@ utility:
     title: Get IP
     versions:
       0.1.0: 'get_ip.yaml'          
-data:
+Data:
   commercial_directories_hdb_sg:
     title: HDB Commercial Directories (SG)
     versions:
