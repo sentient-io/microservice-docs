@@ -309,7 +309,7 @@ Data:
     title: Trajectory Clustering
     versions:
       0.1.0: 'trajectory_clustering.yaml'
-data alliance:
+Data Alliance:
   download_dataset_api:
     title: Download Dataset API
     urlkey: download_dataset_api
