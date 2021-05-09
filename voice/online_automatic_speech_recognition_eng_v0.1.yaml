@@ -1,0 +1,211 @@
+sentientapi: 0.0.0
+info:
+  title: Online Automatic Speech Recognition ENG
+  description: |+
+    This Voice microservice takes in an audio stream (.wav format) and transcribes English speech content within the stream into text. 
+    After each utterance, the microservice returns the transcript, the start and end timestamp of each word, and the confidence of the prediction of each word. 
+    An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause. This microservice performs well on Singaporean-accented English speech. 
+    For best performance, select the model which best matches the use-case: default, conversation, news or telephony.
+  version: '0.1.1'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Extraction of text from voice (both real-time as well as from sound files), especially with Singaporean accented English
+    - Extraction of text from video, especially with Singaporean accented English
+  x-subscribelink: online_automatic_speech_recognition_eng
+
+# This is new item, different from openapi 3.0.1
+websocketapi: 
+  eventsequence:
+    '1':
+      event: 'Establish Connection (websocket)'
+      description: 
+      input:
+        description: 'Client connects to server with extra header field' 
+        fields:
+          'API Endpoint':
+            type: null 
+            description: wss://onlineasr.sentient.io
+          'Authentation': 
+            type: null
+            description: 'Authentication is done using the x-api-key in the connect header'
+      response:
+        description: 'Server returns HTTP Status Code: 100 if connected and authenticated successfully. 
+          If HTTP Status Code is not 100, please refer to Sentient Standard Errors for troubleshooting.'
+        fields:
+          'Out-put':
+            type: 'application/json' 
+            description: 'JSON'
+    '2':
+      event: 'Connected'
+      descrption:
+        input:
+          description: 'Client send json message below: [Input parameters]'
+          samplecode: '
+            {
+              "x-api-key": "Replace this with your APIKey",
+              "action": "start",
+              "model": "en-SG",
+              "sampling-rate": 8000,
+              "diarization": {"type": "seminar", "nspk": 3}
+            }
+            '
+          fields:
+            'x-api-key':
+              required: true
+              type: 'String'
+              description: 'Your API KEY string'
+            'action':
+              required : true
+              type: 'String'
+              description: 'start'
+            'model':
+              required: true
+              type: 'String'
+              description: 'model name: "en-SG"  OR  "en-SG-conversation"  OR  "en-SG-news"  OR  "en-SG-telephony"  OR  "generic_en_vosk"'
+            'sampling-rate':
+              type: 'Integer'
+              description: 'Sampling rate of the input wave file. 8000 or 16000 (Default).'
+            'diarization':
+              type: 'Bool/dict'
+              description: 'If set to True or specified as dict, returns spkSeq at end of stream. spkSeq is ordered list of speaker ID for each utterance in stream.'
+            'type':
+              type: 'String'
+              description: '"seminar" or "meeting" (Default). "seminar": More than 10 people. "meeting": 1 to 10 people.'
+            'nspk':
+              type: 'Ingeger'
+              description: 'Number of speakers. Must be greater than 0. If unspecified, algorithm will estimate the number of speakers.'
+        response:
+          description: 'Server returns json'
+          samplecode: '
+          {
+            "status": "listening"
+          }
+          '
+          fields:
+            'status':
+              type: 'String'
+              description: 'listening'
+    '3':
+      event: 'Message exchange'
+      description: '
+        Client sends byte stream of audio:
+        - Format: wav
+        - Channel Type: mono
+        - Sample Rate: 8kHz or 16 kHz
+        Server returns 2 possible results, depending if the utterance is partial or complete
+        '
+      # This is different from response, because there are multiple cases of responses
+      responses: 
+        'case1': 
+          description: 'If utterance is partial, server returns:'
+          samplecode: '
+          {
+            "partial": "HELLO WORLD THESE"
+          }
+            '
+          fields: 
+            'partial': 
+              type: 'String'
+              description: 'Partial results of the received audio stream'
+        'case2':
+          description: 'If utterance is complete, server returns:'
+          samplecode: '
+          {
+              "result": [{"word": "HELLO", "start": 3.42, "end": 3.63, "conf": 1},
+              {"word": "WORLD", "start": 3.63, "end": 4.02, "conf": 1},
+              {"word": "THIS", "start": 4.02, "end": 4.14, "conf": 1},
+              {"word": "IS", "start": 4.14, "end": 4.26, "conf": 0.9976},
+              {"word": "A", "start": 4.26, "end": 4.439, "conf": 0.838751},
+              {"word": "TEST", "start": 4.47, "end": 4.92, "conf": 0.96717}],
+              "text": "HELLO WORLD THIS IS A TEST"
+          }
+          '
+          fields:
+            'partial':
+              type: 'String'
+              description: 'Predicted text for the utterance.'
+            'result or result struct':
+              type: 'array of structs'
+              description: 'Predicted words and meta-data of the utterance.'
+            'word':
+              type: 'String'
+              descirption: 'Predicted word.'
+            'start':
+              type: 'Float'
+              description: 'Start time of word, in seconds. Offset from the start of stream.'
+            'end':
+              type: 'Float'
+              description: 'End time of word, in seconds. Offset from the start of stream.'
+            'conf':
+              type: 'Float'
+              description: 'Confidence score, 0.0 to 1.0.'
+    '4':
+      event: 'End of stream'
+      response: 
+        description: 'Client sends 0 byte message to indicate end of stream.
+        Server returns final (partial or complete) result in json.'
+        samplecode: '
+          {
+            "text": "GOOD JOB",
+            "spkSeq": [0, 2, 1, 1],
+            "result": [{"word": "GOOD", "start": 3.42, "end": 3.63, "conf": 1},
+              {"word": "JOB", "start": 3.63, "end": 4.02, "conf": 1}]
+          }
+        '
+        sampledescription: '
+        In the above example, there are 4 utterances in the entire stream.
+        - Utterance 0 is spoken by Speaker_0
+        - Utterance 1 is spoken by Speaker_1
+        - Utterance 2 is spoken by Speaker_1
+        - Utterance 3 is spoken by Speaker_3
+        '
+        fields:
+          'text':
+            type: 'String'
+            description: 'Predicted text for the utterance.'
+          'spkSeq':
+            type: 'List of integer'
+            description: 'Optional. Only available is diarization param is passed. Ordered list of speaker ID for utterances in stream'
+          'partial':
+            type: 'String'
+            description: 'Only for partial result. Partial results of the received audio stream'
+          'result':
+            type: 'Array of dict'
+            description: 'Only for complete utterance. Predicted words and meta-data of the utterance.'
+          'word':
+            type: 'String'
+            description: 'Predicted word.'
+          'start':
+              type: 'Float'
+              description: 'Start time of word, in seconds. Offset from the start of stream.'
+          'end':
+            type: 'Float'
+            description: 'End time of word, in seconds. Offset from the start of stream.'
+          'conf':
+            type: 'Float'
+            description: 'Confidence score, 0.0 to 1.0.'
+
+# This responses item to be as similart to open API as possible
+  responses:
+    '400':
+      description: Unauthorized
+      content:
+        application/json:
+          schema: 
+            unauthorized:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Missing Authentication Token
+                status:
+                  type: string
+                  example: Failure
+
+# TODOS: to add in all the rest of response codes. 
+
+components:
+
+
+servers:
+  - url: 'https://apis.sentient.io'
