@@ -16,10 +16,10 @@ info:
     - This microservice can be used to manage taxonomies, such as a hierarchy of product categories used for an eCommerce site. The information in a taxonomy is meta-information about the categories used to classify a set of things. For an eCommerce site, the set of things are items in the product catalog. Users can use this meta-information to enhance search.
   x-subscribelink: taxonomy_matcher_eng
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.1"
-  description: "Published Date - Apr 30, 2020"
+  description: "Published Date - May 14, 2021"
 paths:
   /microservices/nlp/taxonomy/v1/getpredictions:
     post:
@@ -218,7 +218,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Apr 30, 2020
+                example: Published Date - May 14, 2021
                 description: Error handling fixed
         v1.0.0:
           type: array
