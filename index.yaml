@@ -94,7 +94,7 @@ nlp:
   taxonomy_matcher_eng:
     title: Taxonomy Matcher ENG
     versions:
-      1.0.0: 'taxonomy_matcher_eng_v1.0.yaml'
+      1.0.1: 'taxonomy_matcher_eng_v1.0.yaml'
       0.1.0: 'taxonomy_matcher_eng.yaml'
   word_sense_disambiguation_eng:
     title: Word Sense Disambiguation ENG
