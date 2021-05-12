@@ -50,6 +50,10 @@ voice:
     title: Text-To-Speech CHI
     versions:
       0.1.0: 'text-to-speech_chi.yaml'
+  text-to-speech_jp:
+    title: Text-To-Speech JP
+    versions:
+      0.1.0: 'text-to-speech_jp.yaml'      
   asr_with_voice_activity_detection_eng:
     title: ASR with Voice Activity Detection ENG
     versions:
@@ -90,7 +94,7 @@ nlp:
   taxonomy_matcher_eng:
     title: Taxonomy Matcher ENG
     versions:
-      1.0.0: 'taxonomy_matcher_eng_v1.0.yaml'
+      1.0.1: 'taxonomy_matcher_eng_v1.0.yaml'
       0.1.0: 'taxonomy_matcher_eng.yaml'
   word_sense_disambiguation_eng:
     title: Word Sense Disambiguation ENG
@@ -115,7 +119,7 @@ nlp:
   text_summarisation:
     title: Text Summarisation
     versions:
-      0.1.0: 'text_summarisation.yaml'      
+      0.1.1: 'text_summarisation.yaml'      
 computer vision:
   object_detection:
     title: Object Detection
@@ -289,6 +293,10 @@ data:
     versions:
       1.0.0: 'd&b_brief_financial_information_sg_v1.0.yaml'
       0.1.0: 'd&b_brief_financial_information_sg.yaml'
+  fetch_amenity_score:
+    title: Fetch Amenity Score
+    versions:
+      0.1.0: 'fetch_amenity_score.yaml'      
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
