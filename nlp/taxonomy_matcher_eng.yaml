@@ -198,6 +198,13 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - May 12, 2021
+                description: Error handling fixed
         v1.0.0:
           type: array
           items:
@@ -211,7 +218,7 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Jan 24, 2020
-                description: Initial version release
+                description: Initial version releaseelease
     input:
       type: object
       required:
