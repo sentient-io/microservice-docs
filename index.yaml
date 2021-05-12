@@ -301,10 +301,10 @@ data:
     versions:
       1.0.0: 'd&b_brief_financial_information_sg_v1.0.yaml'
       0.1.0: 'd&b_brief_financial_information_sg.yaml'
-  fetch_amenity_score:
-    title: Fetch Amenity Score
+  hdb_amenities_score:
+    title: HDB Amenities Score
     versions:
-      0.1.0: 'fetch_amenity_score.yaml'
+      0.1.0: 'hdb_amenities_score.yaml'
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
