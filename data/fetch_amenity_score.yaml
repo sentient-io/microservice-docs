@@ -130,19 +130,19 @@ components:
               example: '18'
               type: string
             chas_score:
-              description: score denoting the accessibility of the input postalcode area with respect to chas
+              description: Score denoting the accessibility of the input postalcode area with respect to chas
               example: 29.5454545455
               type: float
             gym_score:
-              description: score denoting the accessibility of the input postalcode area with respect to gym
+              description: Score denoting the accessibility of the input postalcode area with respect to gym
               example: 5.1282051282
               type: float
             hawker_score:
-              description: score denoting the accessibility of the input postalcode area with respect to hawker centres
+              description: Score denoting the accessibility of the input postalcode area with respect to hawker centres
               example: 33.3333333333
               type: float
             mrt_score:
-              description: score denoting the accessibility of the input postalcode area with respect to mrt
+              description: Score denoting the accessibility of the input postalcode area with respect to mrt
               example: 22.2222222222
               type: float
             overall_amenity_score:
@@ -150,19 +150,19 @@ components:
               example: 29.1585729086
               type: float
             preschool_score:
-              description: score denoting the accessibility of the input postalcode area with respect to pre schools
+              description: Score denoting the accessibility of the input postalcode area with respect to pre schools
               example: 22.2222222222
               type: float
             street_name:
-              description: score denoting the accessibility of the input postalcode area with respect to streets
+              description: Score denoting the accessibility of the input postalcode area with respect to streets
               example: GHIM MOH ROAD
               type: string
             supermarket_score:
-              description: score denoting the accessibility of the input postalcode area with respect to supermarkets
+              description: Score denoting the accessibility of the input postalcode area with respect to supermarkets
               example: 62.5
               type: float
             town:
-              description: score denoting the accessibility of the input postalcode area with respect to towns
+              description: Score denoting the accessibility of the input postalcode area with respect to towns
               example: QUEENSTOWN
               type: string
 

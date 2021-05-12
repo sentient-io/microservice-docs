@@ -219,7 +219,7 @@ components:
           default: True
           example: こんにちは、元気ですか
           description: |+
-            input text to be synthesised 
+            Input text to be synthesised 
         pitch_scale:
           x-name: pitch_scale
           type: float
