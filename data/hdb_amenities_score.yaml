@@ -5,7 +5,7 @@ info:
   description: |+
     Given a Singapore postal code, fetch amenity scores for various amenity types 
   version: v0.1.0
-  x-subscribelink: fetch_amenity_score
+  x-subscribelink: hdb_amenities_score
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
