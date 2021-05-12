@@ -13,7 +13,7 @@
     - url: 'https://apis.sentient.io'
   tags:
   - name: "v0.1.1"
-    description: "Published Date - May 14, 2021"
+    description: "Published Date - May 12, 2021"
   paths:
     /microservices/nlp/textsummarisation/v0/getpredictions:
       post:
@@ -206,7 +206,7 @@
             items:
              oneOf:
                - type: string
-                 example: Published Date - May 14, 2021
+                 example: Published Date - May 12, 2021
                  description: Postprocessing of Summarised text          
           v0.1.0:
            type: array
