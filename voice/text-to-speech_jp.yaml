@@ -11,7 +11,7 @@ info:
   version: v0.1.0
   x-subscribelink: text-to-speech_jp
 servers:
-  - url: 'https://dev-apis.sentient.io' 
+  - url: 'https://apis.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - May 15, 2021"
