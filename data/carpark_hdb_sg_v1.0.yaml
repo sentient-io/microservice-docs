@@ -86,7 +86,7 @@ info:
        > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
   version: '1.0.0'
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Apr 30, 2021"
