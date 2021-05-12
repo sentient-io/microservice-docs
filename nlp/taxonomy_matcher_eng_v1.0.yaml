@@ -9,7 +9,7 @@ info:
     This microservice can help identify the types of concept that are frequently mentioned in an article.
     
     Do ensure that your text is within **5000 characters**.
-  version: '1.0.0'
+  version: '1.0.1'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Categorise a particular word to pre-built taxonomy tree.
@@ -18,13 +18,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Oct 30, 2020"
+- name: "v1.0.1"
+  description: "Published Date - May 12, 2021"
 paths:
   /microservices/nlp/taxonomy/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.0.1
       responses:
         '200':
           description: Ok
@@ -213,6 +213,13 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - May 12, 2021
+                description: Error handling fixed
         v1.0.0:
           type: array
           items:
