@@ -1,15 +1,17 @@
 openapi: 3.0.1
 info:
-  title: HDB Demographics (SG)
-  x-subscribelink: demographics_hdb_sg
+  title: HDB Carpark Locations (SG)
+  x-subscribelink: carpark_hdb_sg
   description: |+
-   This Data microservice returns information on Housing Development Board of Singapore (HDB) estates and includes the location address, postal code, gender and age groups, down to block-level granularity.The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
-   
-   **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
-       
+    This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates and includes the location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.
+    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
+    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+  
   x-additionalinfo : |+
     Suggested Use Cases:
-    - This microservice can be used as a solution to help businesses better understand and connect with their customers, engage new prospects and increase revenue. For example, it can be used to create intelligent prospect lists that ensure one is always maximizing their marketing investment.
+    - Geo-targeting app with map feature, property development planning resource, or planning for vehicle-sharing app. 
+    - Real estate services - can be used as a background check solution to extract information related to the types and number of carparks present in an area for people with certain preferences when buying or renting a HDB home. 
+    - Can also be integrated into apps related to maps or parking for more detailed carpark information within Singapore HDB estates
     
     **Refining queries in the filterdata field using filter types and match types**
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
@@ -18,17 +20,15 @@ info:
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
     * **must** - All of the stated conditions must match. Equivalent to an AND operator.
-    
-      > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
-    
+      > {"must":[{"match":{"mc":0}}]}
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
       > {"must_not":[{"match":{"postalcode":"570251"}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
-      > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
+      > {"should":[{"match_phrase":{"street":"ang mo kio"}}]}
     
     * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
-      > {"filter":[{"match":{"street":"serangoon"}}]}
+      > {"filter":[{"match":{"street":"bishan"}}]}
       
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
@@ -37,70 +37,75 @@ info:
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
-      > {"match":{"street":"serangoon"}}
+      > {"match":{"street":"bishan"}}
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"street":"serangoon central"}}
+      > {"match_phrase":{"street":"bishan street 24"}}
     * **match_phrase_prefix** - Search within a full text field with prefix
-      > {"match_phrase_prefix":{"street":"serangoon central"}}
+      > {"match_phrase_prefix":{"street":"bishan street 24"}}
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"postalcode":"560720"}}
+      > {"term":{"cpk_no":"ak19"}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"postalcode":["560720","560721"]}}
-      
+      > {"terms":{"cpk_no":["ak19","be33"]}}
     * **range** - Returns results that contain terms within a stipulated range
-    
-      > {"range":{"residents":{"gte":10}}}
-      > {"range":{"residents":{"lte":50}}}
-      > {"range":{"residents":{"gte":10,"lte":50}}}
-      
+      > {"range":{"car":{"gte":100}}}
+      > {"range":{"car":{"lte":500}}}
+      > {"range":{"car":{"gte":100,"lte":500}}}
     * **exists** - Returns results that contain any indexed value for a field
-    
-      > {"exists":{ "field":"postalcode"}}
+      > {"exists":{ "field": "postalcode"}}
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
     Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
     
-     > {
-     > "must":[{"match_phrase":{"street":"serangoon+central"}}],
-     > "filter":[{"range":{"residents":{"gte":10}}}],
-     > "should":[{"match":{"gender":"male"}}],
-     > "must_not":[{"match":{"age_group_id":"2"}}]
-     > }
-
+    > {
+    > "must":[{"match":{"mc":0}}],
+    > "filter":[{"match":{"street":"bishan"}}],
+    > "should":[{"match_phrase":{"street":"ang mo kio"}}],
+    > "must_not":[{"match":{"postalcode":"570251"}}]
+    > }
     **Sample Queries Based on Use Cases**
+    1. **Search for all carparks around 414 Bedok North Road**
+       Using a querystring only&#58;
+      
+       > querystring = "414 bedok north road"
+    2. **Search for all carparks within a 1KM radius from Tampines Mall**
+       Using a filterdata only&#58;
+       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
+      
+    3. **Search for all carparks around Tampines with motorcycle parking**
+       Using both querystring + filterdata&#58;
+       
+       > querystring = tampines
+       > filterdata = {"filter":[ {"range":{"mc":{"gte":1}}} ]}
+      
+    4. **Search for all lorry parking lots for Bishan Street 22**
     
-    1. **Search for the number of elderly residents staying at Blk 423, Tampines Street 41 filter by age and gender.**
-      Using a filterdata only&#58;
+       Using both querystring + filterdata&#58;
       
-      > {"filter":[{"match":{"street":"tampines street 41"}},{"match":{"block":"423"}},{"terms":{"age_group_id":[6,7,8]}}]}
-      
-    2. **Search for the number of female residents between age 50 to 59 staying in the postal code from 050034 to 050532.**
-      Using a filterdata only&#58;
-      
-      > {"filter":[{"terms":{"postalcode":["050034","050532"]}},{"match":{"gender":"female"}},{"terms":{"age_group_id":[6]}}]}
-  version: '0.1.0'
+       > querystring = "bishan street 22"
+       > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - May 15, 2020"
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
 paths:
-  /DaaS/prod/hdb/demographics:
+   /microservices/data/carpark/v1/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
           schema:
             type: string
-          description: |+ 
+          description: |+
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
-            If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "tampines"
+          example: BE33
           default: false
         - in: query
           name: offset
@@ -119,7 +124,7 @@ paths:
         - in: query
           name: filterdata
           schema:
-            type: string
+            type: string  
           description: |+
             Refine the search further on any of the possible through the 4 filter types &#58;
             * must
@@ -128,7 +133,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"filter":[{"match":{"age_group_id":7}},{"match":{"gender":"male"}},{"match":{"postalcode":520423}}]}
+            {"must":[{"match":{"mc":0}}],"filter":[{"match":{"street":"bishan"}}],"should":[{"match_phrase":{"street":"ang mo kio"}}],"must_not":[{"match":{"postalcode":"570251"}}]}
       responses:
         '200':
           description: Ok
@@ -138,32 +143,42 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  total: 986
-                  max_score: 17.995623
+                  total: 1
+                  max_score: 7.510164
                   hits:
-                  - _index: sentient_demographics_hdb_index
+                  - _index: sentient_carpark_hdb_index
                     _type: dir_doc
-                    _id: K7scqWgBv3dNEHq2WvMo
-                    _score: 17.995623
+                    _id: BE37
+                    _score: 7.510164
                     _source:
-                      postalcode: '560720'
-                      gender: 'male'
-                      age_group: '50 to 59'
-                      age_group_id: 6
-                      residents: 54
-                      block: '34'
-                      street: 'upper cross street'
-                      xcoord: 29520.58
-                      ycoord: 39311.68
-                      address: '34 upper cross street'
-                      createddate: '2020-04-23'
-                      lastupdated: '2020-04-23'
-                      location:
-                        lat: 1.37179535
-                        lon: 103.8469821
+                      cpk_no: BE37
+                      block: BLK 282
+                      street: BISHAN STREET 22
+                      address: BLK 282 BISHAN STREET 22
                       source: hdb
+                      xcoord: '29235.553'
+                      ycoord: '37787.1371'
+                      car: 402
+                      lorry: 40
+                      mc: 0
+                      createddate: '2020-09-11'
+                      lastupdated: '2020-09-11'
+                      location:
+                        lat: 1.3580079412271227
+                        lon: 103.84442083770412
+                      postalcode:
+                      - '570278'
+                      - '570279'
+                      - '570280'
+                      - '570281'
+                      - '570282'
+                      - '570283'
+                      - '570284'
+                      - '570285'
+                      - '570286'
+                      - '570287'
                 message: Successfully Processed
-                status: Success                              
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -228,7 +243,7 @@ components:
         results:
           type: object
           example: {<Json Object>}
-          description: Json Object of returned results 
+          description: Json Object of returned results
           properties:
             total:
               type: number
@@ -248,7 +263,7 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "sentient_demographics_hdb_index"
+                    example: "sentient_carpark_hdb_index"
                   _type: 
                     type: string
                     description: Content type of the document
@@ -264,82 +279,77 @@ components:
                   _source: 
                     type: object
                     example: {<Json Object>}
-                    description: Json Object of returned hits                    
+                    description: Json Object of returned hits
                     properties:
-                            postalcode: 
+                            cpk_no: 
                               type: string
-                              description: Postal code of a block
-                              example: "560720"
-                            gender: 
+                              description: Carpark Number
+                              example: AK19
+                            block: 
                               type: string
-                              description: Gender details, values are male/female
-                              example: "male"
-                            age_group: 
+                              description: Address block no
+                              example: "BLOCK 253"
+                            street: 
                               type: string
-                              description: Range of age groups
-                              example: "50 to 59"
-                            age_group_id:
-                              type: number
-                              description: |+
-                                Age group ID represents a certain age range&#58;
-                                1 (<10 years)
-                                2 (10-19 years)
-                                3 (20-29 years)
-                                4 (30-39 years)
-                                5 (40-49 years)
-                                6 (50-59 years)
-                                7 (60-69 years)
-                                8 (>70 years)
-                              example: 6
-                            residents:
-                              type: number
-                              description: Number of residents
-                              example: 54
-                            block:
+                              description: Address street or building name
+                              example: "ANG MO KIO STREET 21"
+                            address: 
                               type: string
-                              description: Address block
-                              example: "34"
-                            street:
-                              type: string
-                              description: Street Address or building name
-                              example: "upper cross street"
-                            xcoord:
-                              type: string
-                              description: SVY21 X coordinates
-                              example: 29520.58
-                            ycoord:
-                              type: string
-                              description: SVY21 Y coordinates
-                              example: 39311.68
-                            address:
-                              type: string
-                              description: Building full address
-                              example: "34 upper cross street"
-                            createddate:
-                              type: string
-                              description: Record first release date on sentient
-                              example: "2020-04-23"
-                            lastupdated:
-                              type: string
-                              description: Record last updated date on sentient
-                              example: "2020-04-23"
-                            location:
-                              type: object
-                              description: WGS84 coordinates lat/long
-                              example: {"lat":1.37179535,"lon":103.8469821}                                  
-                              properties:
-                                  lat: 
-                                    type: string
-                                    description: WGS84 latitude
-                                    example: 1.37179535
-                                  lon:
-                                    type: string
-                                    description: WGS84 longitude
-                                    example: 103.8469821
+                              description: Address full address
+                              example: "BLOCK 253 ANG MO KIO STREET 21"
                             source: 
                               type: string
                               description: Dataset source
                               example: "hdb"
+                            postalcode: 
+                              type: array
+                              description: List of postal code
+                              example: ["570253", "570254"]
+                              items:
+                                type: string
+                                description: postal code
+                                example: "570253"
+                            xcoord:
+                              type: string
+                              description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
+                              example: 28185.4359
+                            ycoord:
+                              type: string
+                              description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
+                              example: 39012.6664
+                            location:
+                              type: object
+                              description: WGS84 (World Geodetic System) lat/long coordinates. This is the standard coordinate system used Global Positioning System (GPS).
+                              example: {"lat":1.364299477060462,"lon":103.8350609414261}
+                              properties:
+                                  lat: 
+                                    type: string
+                                    description: WGS84 (GPS) latitude
+                                    example: 1.37179535
+                                  lon:
+                                    type: string
+                                    description: WGS84 (GPS) longitude
+                                    example: 103.8469821
+                            car:
+                              type: number
+                              description: Number of car parking lots
+                              example: 18
+                            lorry:
+                              type: number
+                              description: Number of lorry parking lots
+                              example: 6
+                            mc:
+                              type: number
+                              description: Number of motorcycle parking lots
+                              example: 0
+                            createddate:
+                              type: string
+                              description: Record first release date on sentient
+                              example: "2019-10-17"
+                            lastupdated:
+                              type: string
+                              description: Record last updated date on sentient
+                              example: "2019-10-17"
         message:
           type: string
           example: Successfully Processed
@@ -419,7 +429,7 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure 
+          example: Failure
     invalidinput:
       type: object
       properties:
@@ -431,7 +441,7 @@ components:
           example: Failure
     versions:
       type: object
-      properties:
+      properties: 
         v1.0.0:
          type: array
          items:
@@ -439,13 +449,23 @@ components:
             - type: string
               example: Published Date - May 21,2021
               description: Optimized release
+        v0.2.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 15,2020
+              description: |+
+                The following additional fields are added&#58;
+                1. postalcode - list of postal code
+                2. location - lat / log of the carpark park
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - May 15,2020
-              description: Initial version release               
+              example: Published Date - Nov 25,2019
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey

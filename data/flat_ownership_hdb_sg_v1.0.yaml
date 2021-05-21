@@ -1,15 +1,15 @@
 openapi: 3.0.1
 info:
-  title: HDB Demographics (SG)
-  x-subscribelink: demographics_hdb_sg
+  title: HDB Flat Ownership Duration (SG)
+  x-subscribelink: flat_ownership_hdb_sg
   description: |+
-   This Data microservice returns information on Housing Development Board of Singapore (HDB) estates and includes the location address, postal code, gender and age groups, down to block-level granularity.The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
+   This Data microservice returns information on flat ownership within Housing Development Board of Singapore (HDB) estates and includes the location address, postal code, length of ownership and their quantity in units.The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme."
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
   x-additionalinfo : |+
     Suggested Use Cases:
-    - This microservice can be used as a solution to help businesses better understand and connect with their customers, engage new prospects and increase revenue. For example, it can be used to create intelligent prospect lists that ensure one is always maximizing their marketing investment.
+    - Real estate services - for example, this microservice can be used for services that are related to HDB ownership transfer (i.e. when one transfer, include, withdraw and/or substitute owners for a flat), such as when drafting up related legal documents.
     
     **Refining queries in the filterdata field using filter types and match types**
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
@@ -43,53 +43,50 @@ info:
     * **match_phrase_prefix** - Search within a full text field with prefix
       > {"match_phrase_prefix":{"street":"serangoon central"}}
     * **term** - Returns results that contain an exact term in a provided field
+    
       > {"term":{"postalcode":"560720"}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
+    
       > {"terms":{"postalcode":["560720","560721"]}}
       
     * **range** - Returns results that contain terms within a stipulated range
     
-      > {"range":{"residents":{"gte":10}}}
-      > {"range":{"residents":{"lte":50}}}
-      > {"range":{"residents":{"gte":10,"lte":50}}}
+      > {"range":{"no_of_units":{"gte":10}}}
+      > {"range":{"no_of_units":{"lte":50}}}
+      > {"range":{"no_of_units":{"gte":10,"lte":50}}}
       
     * **exists** - Returns results that contain any indexed value for a field
     
-      > {"exists":{ "field":"postalcode"}}
+      > {"exists":{ "field": "postalcode"}}
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
     Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
     
      > {
-     > "must":[{"match_phrase":{"street":"serangoon+central"}}],
-     > "filter":[{"range":{"residents":{"gte":10}}}],
-     > "should":[{"match":{"gender":"male"}}],
-     > "must_not":[{"match":{"age_group_id":"2"}}]
+     >  "must":[{"match_phrase":{"street":"serangoon+central"}}],
+     >  "filter":[{"match":{"postalcode":"550209"}}],
+     >  "should":[{"range":{"no_of_units":{"gte":10}}}],
+     >  "must_not":[{"match":{"len_of_ownership_id":"5"}}]
      > }
-
     **Sample Queries Based on Use Cases**
     
-    1. **Search for the number of elderly residents staying at Blk 423, Tampines Street 41 filter by age and gender.**
-      Using a filterdata only&#58;
+    1. **Search for all blocks with duration of ownership equal to or exceeding 10 years in Ang Mo Kio.**
+    
+       Using a filterdata only&#58;
       
-      > {"filter":[{"match":{"street":"tampines street 41"}},{"match":{"block":"423"}},{"terms":{"age_group_id":[6,7,8]}}]}
-      
-    2. **Search for the number of female residents between age 50 to 59 staying in the postal code from 050034 to 050532.**
-      Using a filterdata only&#58;
-      
-      > {"filter":[{"terms":{"postalcode":["050034","050532"]}},{"match":{"gender":"female"}},{"terms":{"age_group_id":[6]}}]}
-  version: '0.1.0'
+       > filterdata = {"filter":[{"match":{"street":"ang mo kio"}},{"match":{"len_of_ownership_id":"1"}}]}
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - May 15, 2020"
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
 paths:
-  /DaaS/prod/hdb/demographics:
+   /microservices/data/ownership/v1/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
@@ -98,9 +95,9 @@ paths:
           description: |+ 
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
-            If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            If this field is set to null, by default the microservice will return all units (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "tampines"
+          example: "serangoon"
           default: false
         - in: query
           name: offset
@@ -128,7 +125,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"filter":[{"match":{"age_group_id":7}},{"match":{"gender":"male"}},{"match":{"postalcode":520423}}]}
+            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"match":{"postalcode":"550209"}}],"should":[{"range":{"no_of_units":{"gte":10}}}],"must_not":[{"match":{"len_of_ownership_id":"5"}}]}
       responses:
         '200':
           description: Ok
@@ -141,21 +138,20 @@ paths:
                   total: 986
                   max_score: 17.995623
                   hits:
-                  - _index: sentient_demographics_hdb_index
+                  - _index: sentient_durationofownership_hdb_index
                     _type: dir_doc
-                    _id: K7scqWgBv3dNEHq2WvMo
-                    _score: 17.995623
+                    _id: 050533/40<T<=50
+                    _score: 1
                     _source:
                       postalcode: '560720'
-                      gender: 'male'
-                      age_group: '50 to 59'
-                      age_group_id: 6
-                      residents: 54
-                      block: '34'
-                      street: 'upper cross street'
+                      len_of_ownership: 40 < t <= 50
+                      len_of_ownership_id: '5'
+                      no_of_units: '29'
+                      block: '533'
+                      street: upper cross street
                       xcoord: 29520.58
                       ycoord: 39311.68
-                      address: '34 upper cross street'
+                      address: 533 upper cross street
                       createddate: '2020-04-23'
                       lastupdated: '2020-04-23'
                       location:
@@ -163,7 +159,7 @@ paths:
                         lon: 103.8469821
                       source: hdb
                 message: Successfully Processed
-                status: Success                              
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -248,7 +244,7 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "sentient_demographics_hdb_index"
+                    example: "sentient_durationofownership_hdb_index"
                   _type: 
                     type: string
                     description: Content type of the document
@@ -256,90 +252,85 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "K7scqWgBv3dNEHq2WvMo"
+                    example: "050533/40<T<=50"
                   _score: 
                     type: number
                     description: The document score for the search request
-                    example: 17.995623
+                    example: 1
                   _source: 
                     type: object
                     example: {<Json Object>}
                     description: Json Object of returned hits                    
                     properties:
-                            postalcode: 
+                      postalcode: 
+                        type: string
+                        description: Postal code of a block
+                        example: "560720"
+                      len_of_ownership: 
+                        type: string
+                        description: Range of length
+                        example: "40 < t <= 50"
+                      len_of_ownership_id: 
+                        type: number
+                        description: |+
+                          Length Types
+                          1 (t <= 10)
+                          2 (10 < t <= 20) 
+                          3 (20 < t <= 30)
+                          4 (30 < t <= 40)
+                          5 (40 < t <= 50)
+                          6 (t  > 50)
+                   
+                        example: "5"
+                      no_of_units:
+                        type: number
+                        description: Ownership units
+                        example: "29"
+                      block:
+                        type: string
+                        description: Address block
+                        example: "533"
+                      street:
+                        type: string
+                        description: Street Address or building name
+                        example: "upper cross street"
+                      xcoord:
+                        type: string
+                        description: SVY21 X coordinates
+                        example: 29520.58
+                      ycoord:
+                        type: string
+                        description: SVY21 Y coordinates
+                        example: 39311.68
+                      address:
+                        type: string
+                        description: Building full address
+                        example: "533 upper cross street"
+                      createddate:
+                        type: string
+                        description: Record first release date on sentient
+                        example: "2020-04-23"
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2020-04-23"
+                      location:
+                        type: object
+                        description: WGS84 coordinates lat/long
+                        example: {"lat":1.37179535,"lon":103.8469821}                        
+                        properties:
+                            lat: 
                               type: string
-                              description: Postal code of a block
-                              example: "560720"
-                            gender: 
+                              description: WGS84 latitude
+                              example: 1.37179535
+                            lon:
                               type: string
-                              description: Gender details, values are male/female
-                              example: "male"
-                            age_group: 
-                              type: string
-                              description: Range of age groups
-                              example: "50 to 59"
-                            age_group_id:
-                              type: number
-                              description: |+
-                                Age group ID represents a certain age range&#58;
-                                1 (<10 years)
-                                2 (10-19 years)
-                                3 (20-29 years)
-                                4 (30-39 years)
-                                5 (40-49 years)
-                                6 (50-59 years)
-                                7 (60-69 years)
-                                8 (>70 years)
-                              example: 6
-                            residents:
-                              type: number
-                              description: Number of residents
-                              example: 54
-                            block:
-                              type: string
-                              description: Address block
-                              example: "34"
-                            street:
-                              type: string
-                              description: Street Address or building name
-                              example: "upper cross street"
-                            xcoord:
-                              type: string
-                              description: SVY21 X coordinates
-                              example: 29520.58
-                            ycoord:
-                              type: string
-                              description: SVY21 Y coordinates
-                              example: 39311.68
-                            address:
-                              type: string
-                              description: Building full address
-                              example: "34 upper cross street"
-                            createddate:
-                              type: string
-                              description: Record first release date on sentient
-                              example: "2020-04-23"
-                            lastupdated:
-                              type: string
-                              description: Record last updated date on sentient
-                              example: "2020-04-23"
-                            location:
-                              type: object
-                              description: WGS84 coordinates lat/long
-                              example: {"lat":1.37179535,"lon":103.8469821}                                  
-                              properties:
-                                  lat: 
-                                    type: string
-                                    description: WGS84 latitude
-                                    example: 1.37179535
-                                  lon:
-                                    type: string
-                                    description: WGS84 longitude
-                                    example: 103.8469821
-                            source: 
-                              type: string
-                              description: Dataset source
-                              example: "hdb"
+                              description: WGS84 longitude
+                              example: 103.8469821
+                      source: 
+                          type: string
+                          description: Dataset source
+                          example: hdb
         message:
           type: string
           example: Successfully Processed
@@ -419,7 +410,7 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure 
+          example: Failure  
     invalidinput:
       type: object
       properties:

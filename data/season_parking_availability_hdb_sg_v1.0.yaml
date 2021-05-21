@@ -1,15 +1,16 @@
 openapi: 3.0.1
 info:
-  title: HDB Demographics (SG)
-  x-subscribelink: demographics_hdb_sg
+  title: HDB Season Parking Availability (SG)
+  x-subscribelink: season_parking_availability_hdb_sg
   description: |+
-   This Data microservice returns information on Housing Development Board of Singapore (HDB) estates and includes the location address, postal code, gender and age groups, down to block-level granularity.The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
-   
-   **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
-       
+     This Data microservice returns information on season car park availability within Housing Development Board of Singapore (HDB) estates and includes the location address, postal code, branch office, vehicle type and parking lot availability for different types of vehicle by carpark location. 
+     The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
+     **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+  
   x-additionalinfo : |+
     Suggested Use Cases:
-    - This microservice can be used as a solution to help businesses better understand and connect with their customers, engage new prospects and increase revenue. For example, it can be used to create intelligent prospect lists that ensure one is always maximizing their marketing investment.
+    - Real estate services - can be used as a background check solution to extract information related to season car park availability in an area for people with certain preferences when buying or renting a HDB home. 
+    - Can also be integrated into apps related to maps or parking for more detailed carpark information within Singapore HDB estates
     
     **Refining queries in the filterdata field using filter types and match types**
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
@@ -33,74 +34,72 @@ info:
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
     Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    
     **Match Types:**
+    
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
       > {"match":{"street":"serangoon"}}
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"street":"serangoon central"}}
+      > {"match_phrase":{"street":"bishan street 24"}}
     * **match_phrase_prefix** - Search within a full text field with prefix
-      > {"match_phrase_prefix":{"street":"serangoon central"}}
+      > {"match_phrase_prefix":{"street":"bishan street 24"}}
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"postalcode":"560720"}}
+      > {"term":{"car_park_group":"G15"}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"postalcode":["560720","560721"]}}
+      > {"terms":{"car_park_group":["G15","G39"]}}
       
     * **range** - Returns results that contain terms within a stipulated range
     
-      > {"range":{"residents":{"gte":10}}}
-      > {"range":{"residents":{"lte":50}}}
-      > {"range":{"residents":{"gte":10,"lte":50}}}
+      > {"range":{"car_park_availability":{"gte":10}}}
+      > {"range":{"car_park_availability":{"lte":50}}}
+      > {"range":{"car_park_availability":{"gte":10,"lte":50}}}
       
     * **exists** - Returns results that contain any indexed value for a field
     
-      > {"exists":{ "field":"postalcode"}}
+      > {"exists":{ "field": "postalcode"}}
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
     Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
     
      > {
-     > "must":[{"match_phrase":{"street":"serangoon+central"}}],
-     > "filter":[{"range":{"residents":{"gte":10}}}],
-     > "should":[{"match":{"gender":"male"}}],
-     > "must_not":[{"match":{"age_group_id":"2"}}]
+     > "must":[{"match_phrase":{"street":"serangoon north avenue 4"}}],
+     > "filter":[{"match":{"vehicle_type":"Y"}}],
+     > "should":[{"match":{"car_park_group":"G18"}}],
+     > "must_not":[{"match":{"postalcode":"550409"}}]
      > }
-
     **Sample Queries Based on Use Cases**
     
-    1. **Search for the number of elderly residents staying at Blk 423, Tampines Street 41 filter by age and gender.**
-      Using a filterdata only&#58;
+    1. **Search for the parking lot availability for commercial vehicle at the carpark of 503 Serangoon North Avenue 4.**
+    
+       Using a filterdata only&#58;
       
-      > {"filter":[{"match":{"street":"tampines street 41"}},{"match":{"block":"423"}},{"terms":{"age_group_id":[6,7,8]}}]}
-      
-    2. **Search for the number of female residents between age 50 to 59 staying in the postal code from 050034 to 050532.**
-      Using a filterdata only&#58;
-      
-      > {"filter":[{"terms":{"postalcode":["050034","050532"]}},{"match":{"gender":"female"}},{"terms":{"age_group_id":[6]}}]}
-  version: '0.1.0'
+       > filterdata = {"filter":[{"match":{"street":"serangoon north avenue 4"}},{"match":{"block":"503"}},{"match":{"vehicle_type":"H"}}]}
+       
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - May 15, 2020"
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
 paths:
-  /DaaS/prod/hdb/demographics:
+   /microservices/data/carparkavailability/v1/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
           schema:
             type: string
-          description: |+ 
+          description: |+
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
-            If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            If this field is set to null, by default the microservice will return all carparks (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "tampines"
+          example: serangoon
           default: false
         - in: query
           name: offset
@@ -119,7 +118,7 @@ paths:
         - in: query
           name: filterdata
           schema:
-            type: string
+            type: string  
           description: |+
             Refine the search further on any of the possible through the 4 filter types &#58;
             * must
@@ -128,7 +127,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"filter":[{"match":{"age_group_id":7}},{"match":{"gender":"male"}},{"match":{"postalcode":520423}}]}
+            {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}],"filter":[{"match":{"vehicle_type":"Y"}}],"should":[{"match":{"car_park_group":"G18"}}],"must_not":[{"match":{"postalcode":"550409"}}]}
       responses:
         '200':
           description: Ok
@@ -138,32 +137,32 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  total: 986
-                  max_score: 17.995623
+                  total: 1
+                  max_score: 13.663734
                   hits:
-                  - _index: sentient_demographics_hdb_index
+                  - _index: sentient_carparklotsavailble_hdb_index
                     _type: dir_doc
-                    _id: K7scqWgBv3dNEHq2WvMo
-                    _score: 17.995623
+                    _id: AM/G40/Y/552506
+                    _score: 13.663734
                     _source:
-                      postalcode: '560720'
-                      gender: 'male'
-                      age_group: '50 to 59'
-                      age_group_id: 6
-                      residents: 54
-                      block: '34'
-                      street: 'upper cross street'
-                      xcoord: 29520.58
-                      ycoord: 39311.68
-                      address: '34 upper cross street'
-                      createddate: '2020-04-23'
-                      lastupdated: '2020-04-23'
+                      branch_office: AM
+                      car_park_group: G40
+                      vehicle_type: Y
+                      car_park_availability: 15
+                      postalcode: '552506'
+                      block: 506B
+                      street: serangoon north avenue 4
+                      xcoord: 32714.002
+                      ycoord: 39399.7461
+                      address: 506B serangoon north avenue 4
+                      createddate: '2020-05-07'
+                      lastupdated: '2020-05-07'
                       location:
-                        lat: 1.37179535
-                        lon: 103.8469821
+                        lat: 1.37259145
+                        lon: 103.8756772
                       source: hdb
                 message: Successfully Processed
-                status: Success                              
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -228,15 +227,15 @@ components:
         results:
           type: object
           example: {<Json Object>}
-          description: Json Object of returned results 
+          description: Json Object of returned results
           properties:
             total:
               type: number
-              example: 986
+              example: 1
               description: Total number of records
             max_score:
               type: number
-              example: 17.995623
+              example: 13.663734
               description: The highest score value
             hits:
               type: array
@@ -245,10 +244,6 @@ components:
               items:
                 type: object
                 properties:
-                  _index:
-                    type: string
-                    description: Index group of the document
-                    example: "sentient_demographics_hdb_index"
                   _type: 
                     type: string
                     description: Content type of the document
@@ -256,90 +251,87 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "K7scqWgBv3dNEHq2WvMo"
+                    example: "AM/G40/Y/552506"
                   _score: 
                     type: number
                     description: The document score for the search request
-                    example: 17.995623
+                    example: 13.663734
                   _source: 
                     type: object
                     example: {<Json Object>}
-                    description: Json Object of returned hits                    
+                    description: Json Object of returned hits
                     properties:
-                            postalcode: 
+                            branch_office: 
                               type: string
-                              description: Postal code of a block
-                              example: "560720"
-                            gender: 
+                              description: Branch Office
+                              example: AM
+                            car_park_group: 
                               type: string
-                              description: Gender details, values are male/female
-                              example: "male"
-                            age_group: 
+                              description: Car Park Group
+                              example: "G40"
+                            vehicle_type: 
                               type: string
-                              description: Range of age groups
-                              example: "50 to 59"
-                            age_group_id:
-                              type: number
                               description: |+
-                                Age group ID represents a certain age range&#58;
-                                1 (<10 years)
-                                2 (10-19 years)
-                                3 (20-29 years)
-                                4 (30-39 years)
-                                5 (40-49 years)
-                                6 (50-59 years)
-                                7 (60-69 years)
-                                8 (>70 years)
-                              example: 6
-                            residents:
+                                Vehicle Type&#58;
+                                
+                                Y - Motorcycle
+                                H - Commercial Vehicle (>1800kg)
+                                C - Car
+                                S - Season (Car)
+                              example: "Y"
+                            car_park_availability: 
                               type: number
-                              description: Number of residents
-                              example: 54
-                            block:
-                              type: string
-                              description: Address block
-                              example: "34"
-                            street:
-                              type: string
-                              description: Street Address or building name
-                              example: "upper cross street"
+                              description: Car Park Availability
+                              example: 15
+                            postalcode: 
+                              type: array
+                              description: Postal code
+                              example: "552506"
+                            block: 
+                              type: array
+                              description: Block
+                              example: "506B"
+                            street: 
+                              type: array
+                              description: street
+                              example: "serangoon north avenue 4"                              
                             xcoord:
                               type: string
                               description: SVY21 X coordinates
-                              example: 29520.58
+                              example: 32714.002
                             ycoord:
                               type: string
                               description: SVY21 Y coordinates
-                              example: 39311.68
+                              example: 39399.7461
                             address:
                               type: string
-                              description: Building full address
-                              example: "34 upper cross street"
-                            createddate:
+                              description: address
+                              example: 506B serangoon north avenue 4
+                            source:
                               type: string
-                              description: Record first release date on sentient
-                              example: "2020-04-23"
-                            lastupdated:
-                              type: string
-                              description: Record last updated date on sentient
-                              example: "2020-04-23"
+                              description: Dataset source
+                              example: hdb
                             location:
                               type: object
                               description: WGS84 coordinates lat/long
-                              example: {"lat":1.37179535,"lon":103.8469821}                                  
+                              example: {"lat":1.37259145,"lon":103.8756772}
                               properties:
                                   lat: 
                                     type: string
                                     description: WGS84 latitude
-                                    example: 1.37179535
+                                    example: 1.37259145
                                   lon:
                                     type: string
                                     description: WGS84 longitude
-                                    example: 103.8469821
-                            source: 
+                                    example: 103.8756772
+                            createddate:
                               type: string
-                              description: Dataset source
-                              example: "hdb"
+                              description: Record first release date on sentient
+                              example: "2019-10-17"
+                            lastupdated:
+                              type: string
+                              description: Record last updated date on sentient
+                              example: "2019-10-17"
         message:
           type: string
           example: Successfully Processed
@@ -372,6 +364,15 @@ components:
         message:
           type: string
           example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -419,19 +420,10 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure 
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
-        status:
-          type: string
           example: Failure
     versions:
       type: object
-      properties:
+      properties: 
         v1.0.0:
          type: array
          items:
@@ -445,7 +437,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - May 15,2020
-              description: Initial version release               
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey

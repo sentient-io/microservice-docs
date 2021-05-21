@@ -480,6 +480,13 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - May 21,2021
+              description: optimized release
         v0.2.0:
          type: array
          items:
