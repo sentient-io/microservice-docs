@@ -82,7 +82,7 @@ info:
        
   version: '1.0.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - May 21, 2021"
