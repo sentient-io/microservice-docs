@@ -27,7 +27,7 @@ info:
         > {"must_not":[{"match":{"trade":"shop"}}]}
       * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       
-        > {"should":[{"match":{"postalcode":"650633"}}]}
+        > {"should":[{"match":{"postalcode":650633}}]}
       * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
         
         > {"filter":[{"match":{"trade":"retail"}}]}
@@ -44,9 +44,9 @@ info:
       * **match_phrase_prefix** - Search within a full text field with prefix
         > {"match_phrase_prefix":{"street":"bishan street"}}
       * **term** - Returns results that contain an exact term in a provided field
-        > {"term":{"postalcode":"560720"}}
+        > {"term":{"postalcode":560720}}
       * **terms** - Returns results that contain one or more exact terms in a provided field
-        > {"terms":{"postalcode":["560720","560721"]}}
+        > {"terms":{"postalcode":[560720,560721]}}
         
       * **range** - Returns results that contain terms within a stipulated range
       
@@ -64,7 +64,7 @@ info:
       > {
       > "must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],
       > "filter":[{"match":{"trade":"shop"}}],
-      > "should":[{"match":{"postalcode":"650633"}}],
+      > "should":[{"match":{"postalcode":650633}}],
       > "must_not":[{"match":{"trade":"betting"}}]
       > }
       **Sample Queries Based on Use Cases**
@@ -130,7 +130,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],"filter":[{"match":{"trade":"shop"}}],"should":[{"match":{"postalcode":"650633"}}],"must_not":[{"match":{"trade":"betting"}}]}
+              {"must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],"filter":[{"match":{"trade":"shop"}}],"should":[{"match":{"postalcode":650633}}],"must_not":[{"match":{"trade":"betting"}}]}
       responses:
         '200':
           description: Ok
@@ -143,18 +143,18 @@ paths:
                   total: 3735
                   max_score: 17.995623
                   hits:
-                  - _index: sentient_directory_hdb_index
+                  - _index: sentient_hdb_directory_index
                     _type: dir_doc
                     _id: K7scqWgBv3dNEHq2WvMo
                     _score: 17.995623
                     _source:
                       id: '201902011250341437360'
-                      postalcode: '560720'
+                      postalcode: 560720
                       unit: '4102'
                       level: '01'
                       source: hdb
                       name: Ang Mo Kio Polyclinic
-                      phonenumber: '63553000'
+                      phonenumber: 63553000
                       email: ''
                       operatinghours: mon - fri  8am - 4.30pm  sat  8am - 12.30pm
                       trade: shop/retail
@@ -276,9 +276,9 @@ components:
                               description: Unique Id
                               example: "201902011250341437360"
                             postalcode: 
-                              type: string
+                              type: number
                               description: Postal code of a block
-                              example: "560720"
+                              example: 560720
                             unit: 
                               type: string
                               description: Unit number
