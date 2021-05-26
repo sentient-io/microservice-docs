@@ -138,7 +138,7 @@ paths:
                   total: 1
                   max_score: 12.08503
                   hits:
-                  - _index: sentient_directory_building_index
+                  - _index: sentient_building_directory_index
                     _type: dir_doc
                     _id: uLxcqWgBv3dNEHq2Dznn
                     _score: 12.08503
