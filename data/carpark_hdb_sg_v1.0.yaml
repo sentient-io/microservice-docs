@@ -146,7 +146,7 @@ paths:
                   total: 1
                   max_score: 7.510164
                   hits:
-                  - _index: sentient_carpark_hdb_index
+                  - _index: sentient_hdb_carpark_index
                     _type: dir_doc
                     _id: BE37
                     _score: 7.510164
