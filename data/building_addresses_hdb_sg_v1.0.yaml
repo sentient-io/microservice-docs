@@ -48,9 +48,9 @@ info:
     * **match_phrase_prefix** - Search within a full text field with prefix
       > {"match_phrase_prefix":{"street":"ang mo kio"}}
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"postalcode":550151}}
+      > {"term":{"street":"serangoon"}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"postalcode":[550151,550152]}}
+      > {"terms":{"street":["serangoon","ang mo kio"]}}
     * **range** - Returns results that contain terms within a stipulated range
         > {"range":{"postalcode":{"lte":650347}}}
         > {"range":{"postalcode":{"gte":650347}}}
