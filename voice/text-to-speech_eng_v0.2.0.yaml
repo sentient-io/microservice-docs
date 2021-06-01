@@ -31,9 +31,8 @@ paths:
                 results: 
                   sampling_rate: 22050
                   wav_base64: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
-
-                message: Successfully Processed
-                status: Success
+                  message: Successfully Processed
+                  status: Success
         '401':
           description: Unauthorized
           content:
