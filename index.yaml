@@ -45,11 +45,8 @@ voice:
   text-to-speech_eng:
     title: Text-To-Speech ENG
     versions:
+      0.2.0: 'text-to-speech_eng_v0.2.0.yaml'
       0.1.0: 'text-to-speech_eng.yaml'
-  text-to-speech_eng_new:
-    title: Text-To-Speech ENG New
-    versions:
-      0.1.0: 'text-to-speech_eng_new.yaml'
   text-to-speech_chi:
     title: Text-To-Speech CHI
     versions:
