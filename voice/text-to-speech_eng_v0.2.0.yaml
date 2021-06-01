@@ -16,7 +16,7 @@ tags:
 - name: "v0.2.0"
   description: "Published Date - May 12, 2021"
 paths:
-  /microservices/voice/tts/v1/getpredictions:
+  /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
         - v0.2.0
