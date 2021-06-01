@@ -8,18 +8,18 @@ info:
         User can adjust the pitch and tempo of the the synthesised speech. 
 
         The input text should not exceed **2000 characters**. 
-  version: 0.2.0
+  version: 1.0.0
   x-subscribelink: text-to-speech_eng_new
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
-- name: "v0.2.0"
+- name: "v1.0.0"
   description: "Published Date - May 12, 2021"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
-        - v0.2.0
+        - v1.0.0
       responses:
         '200':
           description: success response
@@ -207,13 +207,13 @@ components:
     versions:
       type: object
       properties:
-        v0.2.0:
+        v1.0.0:
           type: array
           items:
             oneOf:
               - type: string
-                example: 'Published Date - May 12,2021'
-                description: New model generic introduced
+                example: 'Published Date - June 4,2021'
+                description: New model release - female_singaporean
         v0.1.0:
           type: array
           items:
