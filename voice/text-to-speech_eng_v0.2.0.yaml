@@ -198,13 +198,20 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v0.2.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - May 12,2021'
+                description: New model generic introduced
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
-                example: Published Date - May 12, 2021
+                example: 'Published Date - Sep 28,2018'
                 description: Initial version release    
     input:
       type: object
