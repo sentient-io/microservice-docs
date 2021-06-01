@@ -319,13 +319,20 @@ components:
     versions:
       type: object
       properties:
+        v0.2.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - May 12,2021'
+                description: New model generic introduced
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Sep 28,2018'
-                description: Initial version release
+                description: Initial version release         
     input:
       type: object
       required:
