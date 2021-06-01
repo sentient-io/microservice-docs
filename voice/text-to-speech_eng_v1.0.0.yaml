@@ -257,7 +257,8 @@ components:
           x-name: tempo_scale
           type: float
           default: False
-          example: "1.0"
+          example: |+
+            1.0
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1.0. 
             1.0 means default speed, 0.5 is half speed, 2 is twice the speed
