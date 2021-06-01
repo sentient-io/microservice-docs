@@ -253,7 +253,7 @@ components:
           type: number
           format: float
           default: False
-          example: 1.0
+          example: 0.1
           description: |+
             The pitch factor for the synthesized voice. It ranges between 0.5 and 1.5 and default is 1.0.
             1.0 means default pitch, 0.5 means half pitch, 2 means twice the pitch
