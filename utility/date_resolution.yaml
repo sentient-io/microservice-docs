@@ -226,7 +226,7 @@ components:
           type: string
           default: true
           example: next monday
-          description: Date related string are : today,tomorrow,yesterday,next day,next weekdays,next weekends,next (x)day (for eg: next monday),last (x)day	(for eg: next tuesday),last x days (for eg: last 5 days),first weekday of the month,first weekend of the month,last weekend of the month,last weekday of the month,every x hours for x occurrence (for eg: every 1 hour for 10 occurrence)	
+          description: Date related string are : today,tomorrow,yesterday,next day,next weekdays,next weekends,next (x)day (for eg: next monday),last (x)day (for eg: next tuesday),last x days (for eg: last 5 days),first weekday of the month,first weekend of the month,last weekend of the month,last weekday of the month,every x hours for x occurrence (for eg: every 1 hour for 10 occurrence)	
   securitySchemes:
     APIAuthorizer:
       type: apiKey
