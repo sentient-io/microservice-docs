@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: Text-To-Speech ENG New
+  title: Text-To-Speech ENG
   description: |+
         This Voice microservice converts English text into natural-sounding English speech in a female voice. 
 
