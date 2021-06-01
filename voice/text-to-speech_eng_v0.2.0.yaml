@@ -228,13 +228,13 @@ components:
           example: I want a credit card
           description: |+
             Input text to be synthesised 
-        language:
-          x-name: language
+        model:
+          x-name: model
           type: string
           default: True
-          example: en
+          example: female_generic
           description: |+
-            Language parameter, en for English 
+            model parameter, female_generic and female_singaporean
         pitch_scale:
           x-name: pitch_scale
           type: float
