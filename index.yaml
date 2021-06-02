@@ -176,7 +176,7 @@ nlp:
             synchronoused:
                 versions:
                     0.1.1: 'text_summarisation.yaml'
-computer vision:
+computer_vision:
     object_detection:
         title: Object Detection
         apis:
@@ -447,7 +447,7 @@ data:
             synchronoused:
                 versions:
                     0.1.0: 'trajectory_clustering.yaml'
-data alliance:
+data_alliance:
     download_dataset_api:
         title: Download Dataset API
         apis:
