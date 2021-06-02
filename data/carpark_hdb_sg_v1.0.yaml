@@ -133,7 +133,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"must":[{"match":{"mc":0}}],"filter":[{"match":{"street":"bishan"}}],"should":[{"match_phrase":{"street":"ang mo kio"}}],"must_not":[{"match":{"postalcode":570251}}]}
+            {"must":[{"match":{"mc":0}}],"filter":[{"match":{"street":"BISHAN STREET 22"}}],"should":[{"match_phrase":{"street":"BISHAN"}}],"must_not":[{"match":{"postalcode":456454}}]}
       responses:
         '200':
           description: Ok
