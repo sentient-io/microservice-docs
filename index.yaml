@@ -451,7 +451,6 @@ data alliance:
     download_dataset_api:
         title: Download Dataset API
         apis:
-            urlkey: download_dataset_api
             synchronoused:
                 versions:
                     0.1.0: 'download_dataset.yaml'
