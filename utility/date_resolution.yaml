@@ -229,7 +229,7 @@ components:
           description: |+
             Date related string are : 
             
-            - today                                                                     - It will return today date
+            - today - It will return today's date
             - tomorrow  
             - yesterday
             - next day
