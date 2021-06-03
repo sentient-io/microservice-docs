@@ -229,23 +229,23 @@ components:
           description: |+
             Date related string are : 
             
-            - today - It will return today's date
-            - tomorrow  
-            - yesterday
-            - next day
-            - next weekdays
-            - next weekends
-            - next (x)day (for eg: next monday)
-            - last (x)day (for eg: last tuesday)
-            - next x days (for eg: next 5 days)
-            - last x days (for eg: last 5 days)
-            - first weekday of the month
-            - first weekend of the month
-            - last weekend of the month
-            - last weekday of the month
-            - every x hours for x occurrence (for eg: every 1 hour for 10 occurrence)
-            - X days from today (for eg: 10 days from today)
-            - next month from today
+            - today - It will return today date
+            - tomorrow  - It will return tomorrow date 
+            - yesterday - It will return yesterday date
+            - next day  - It will return tomorrow date
+            - next weekdays - It will return next 5 weekdays date in the list
+            - next weekends - It will return next weekends(saturday and sunday) date in the list
+            - next (x)day - It will return next weekday date (for eg: next monday)
+            - last (x)day - It will return last weekday date (for eg: last tuesday)
+            - next x days - It will return next x days date (for eg: next 5 days)
+            - last x days - It will return last x days date (for eg: last 5 days)
+            - first weekday of the month  - It will return first weekday of the month date
+            - first weekend of the month  - It will return first weekend of the month (saturday and sunday) date
+            - last weekend of the month - It will return last weekend of the month (saturday and sunday) date
+            - last weekday of the month - It will return last weekday of the month date
+            - every x hours for x occurrence  - It will return x hours for x occurence  (for eg: every 1 hour for 10 occurrence, every 15 minutes for 10 occurrence)
+            - X days from today - It will return x days from today date (for eg: 10 days from today)
+            - next month from today - It will return next month from today date
   securitySchemes:
     APIAuthorizer:
       type: apiKey
