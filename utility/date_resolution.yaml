@@ -236,7 +236,7 @@ components:
             - next weekdays
             - next weekends
             - next (x)day (for eg: next monday)
-            - last (x)day (for eg: next tuesday)
+            - last (x)day (for eg: last tuesday)
             - last x days (for eg: last 5 days)
             - first weekday of the month
             - first weekend of the month
