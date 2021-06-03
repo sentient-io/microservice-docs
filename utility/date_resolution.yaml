@@ -229,14 +229,15 @@ components:
           description: |+
             Date related string are : 
             
-            - today
-            - tomorrow
+            - today                                                                     - It will return today date
+            - tomorrow  
             - yesterday
             - next day
             - next weekdays
             - next weekends
             - next (x)day (for eg: next monday)
             - last (x)day (for eg: last tuesday)
+            - next x days (for eg: next 5 days)
             - last x days (for eg: last 5 days)
             - first weekday of the month
             - first weekend of the month
@@ -244,6 +245,7 @@ components:
             - last weekday of the month
             - every x hours for x occurrence (for eg: every 1 hour for 10 occurrence)
             - X days from today (for eg: 10 days from today)
+            - next month from today
   securitySchemes:
     APIAuthorizer:
       type: apiKey
