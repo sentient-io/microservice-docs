@@ -26,11 +26,11 @@ paths:
                 message: Successfully Processed
                 results:
                   date:
-                  - '2021-6-7'
-                  - '2021-6-8'
-                  - '2021-6-9'
-                  - '2021-6-10'
-                  - '2021-6-11'
+                  - '2021-06-07'
+                  - '2021-06-08'
+                  - '2021-06-09'
+                  - '2021-06-10'
+                  - '2021-06-11'
                 status: Success
         '401':
           description: Unauthorized
@@ -110,20 +110,20 @@ components:
                 properties:
                   date:
                    type: array
-                   example: ["2021-6-7","2021-6-8","2021-6-9","2021-6-10","2021-6-11"]
+                   example: ["2021-06-07","2021-06-08","2021-06-09","2021-06-10","2021-06-11"]
                    description: Generated Date based on input.
                    items:
                     oneOf:
                       - type: string
-                        example: 2021-6-7
+                        example: 2021-06-07
                       - type: string
-                        example: 2021-6-8
+                        example: 2021-06-08
                       - type: string
-                        example: 2021-6-9
+                        example: 2021-06-09
                       - type: string
-                        example: 2021-6-10
+                        example: 2021-06-10
                       - type: string
-                        example: 2021-6-11
+                        example: 2021-06-11
               status:
                 type: string
                 example: Success
