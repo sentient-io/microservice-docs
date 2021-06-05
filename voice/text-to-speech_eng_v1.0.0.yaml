@@ -240,7 +240,7 @@ components:
           x-name: model
           type: string
           default: True
-          example: female_generic
+          example: female_singaporean
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             
@@ -251,7 +251,7 @@ components:
           type: number
           format: float
           default: False
-          example: 1.0
+          example: 0.5
           description: |+
             The pitch factor for the synthesized voice. It ranges between 0.5 and 1.5 and default is 1.0.
             1.0 means default pitch, 0.5 means half pitch, 2 means twice the pitch
@@ -261,7 +261,7 @@ components:
           type: number
           format: float
           default: False
-          example: 1.0
+          example: 0.5
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1.0. 
             1.0 means default speed, 0.5 is half speed, 2 is twice the speed
