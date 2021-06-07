@@ -9,7 +9,7 @@ info:
 
         The input text should not exceed **2000 characters**.
   version: 1.0.0
-  x-subscribelink: text-to-speech_eng_new
+  x-subscribelink: text-to-speech_eng
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
