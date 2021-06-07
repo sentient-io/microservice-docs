@@ -14,7 +14,7 @@ servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Jun 4, 2021"
+  description: "Published Date - Jun 7, 2021"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
@@ -212,7 +212,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Jun 4,2021'
+                example: 'Published Date - Jun 7,2021'
                 description: New model release - female_singaporean
         v0.1.0:
           type: array
@@ -248,7 +248,7 @@ components:
             2. female_singaporean
         pitch_scale:
           x-name: pitch_scale
-          type: number
+          type: float
           format: float
           default: False
           example: 0.5
@@ -258,7 +258,7 @@ components:
             **used only for the female_singaporean model
         tempo_scale:
           x-name: tempo_scale
-          type: number
+          type: float
           format: float
           default: False
           example: 0.5
