@@ -25,7 +25,7 @@ info:
       > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
     
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      > {"must_not":[{"match":{"postalcode":"570251"}}]}
+      > {"must_not":[{"match":{"postalcode":570251}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
@@ -48,9 +48,9 @@ info:
     * **match_phrase_prefix** - Search within a full text field with prefix
       > {"match_phrase_prefix":{"street":"serangoon central"}}
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"postalcode":"650634"}}
+      > {"term":{"postalcode":650634}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"postalcode":["650634","650633"]}}
+      > {"terms":{"postalcode":[650634,650633]}}
     * **range** - Returns results that contain terms within a stipulated range
       > {"range":{"4room_sold":{"gte":50}}}
       > {"range":{"4room_sold":{"lte":50}}}
@@ -67,8 +67,8 @@ info:
      > {
      >  "must":[{"match_phrase":{"street":"serangoon+central"}}],
      >  "filter":[{"range":{"year_completed":{"gte":1}}}],
-     >  "should":[{"match":{"postalcode":"650633"}}],
-     >  "must_not":[{"match":{"postalcode":"650634"}}]
+     >  "should":[{"match":{"postalcode":650633}}],
+     >  "must_not":[{"match":{"postalcode":650634}}]
      > }
      
      
@@ -82,7 +82,7 @@ info:
        
   version: '1.0.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - May 21, 2021"
@@ -129,7 +129,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"range":{"year_completed":{"gte":1}}}],"should":[{"match":{"postalcode":"650633"}}],"must_not":[{"match":{"postalcode":"650634"}}]}
+            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"range":{"year_completed":{"gte":1}}}],"should":[{"match":{"postalcode":650633}}],"must_not":[{"match":{"postalcode":650634}}]}
       responses:
         '200':
           description: Ok
@@ -142,12 +142,12 @@ paths:
                   total: 12150
                   max_score: 1
                   hits:
-                  - _index: sentient_buildinginfo_hdb_index
+                  - _index: sentient_hdb_buildinginfo_index
                     _type: dir_doc
                     _id: '750405'
                     _score: 1
                     _source:
-                      postalcode: '750405'
+                      postalcode: 750405
                       year_completed: 1999
                       total_dwelling_units: 112
                       1room_sold: 0
@@ -278,9 +278,9 @@ components:
                     description: Json Object of returned hits                      
                     properties:
                       postalcode:
-                        type: string
+                        type: number
                         description: Postal code
-                        example: '750405'
+                        example: 750405
                       year_completed:
                         type: number
                         description: Completed year of the Building

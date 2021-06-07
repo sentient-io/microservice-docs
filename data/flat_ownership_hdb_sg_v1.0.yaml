@@ -22,7 +22,7 @@ info:
       > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
     
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      > {"must_not":[{"match":{"postalcode":"570251"}}]}
+      > {"must_not":[{"match":{"postalcode":570251}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
@@ -44,10 +44,10 @@ info:
       > {"match_phrase_prefix":{"street":"serangoon central"}}
     * **term** - Returns results that contain an exact term in a provided field
     
-      > {"term":{"postalcode":"560720"}}
+      > {"term":{"postalcode":560720}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
     
-      > {"terms":{"postalcode":["560720","560721"]}}
+      > {"terms":{"postalcode":[560720,560721]}}
       
     * **range** - Returns results that contain terms within a stipulated range
     
@@ -65,7 +65,7 @@ info:
     
      > {
      >  "must":[{"match_phrase":{"street":"serangoon+central"}}],
-     >  "filter":[{"match":{"postalcode":"550209"}}],
+     >  "filter":[{"match":{"postalcode":550209}}],
      >  "should":[{"range":{"no_of_units":{"gte":10}}}],
      >  "must_not":[{"match":{"len_of_ownership_id":"5"}}]
      > }
@@ -78,7 +78,7 @@ info:
        > filterdata = {"filter":[{"match":{"street":"ang mo kio"}},{"match":{"len_of_ownership_id":"1"}}]}
   version: '1.0.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - May 21, 2021"
@@ -125,7 +125,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"match":{"postalcode":"550209"}}],"should":[{"range":{"no_of_units":{"gte":10}}}],"must_not":[{"match":{"len_of_ownership_id":"5"}}]}
+            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"match":{"postalcode":550209}}],"should":[{"range":{"no_of_units":{"gte":10}}}],"must_not":[{"match":{"len_of_ownership_id":"5"}}]}
       responses:
         '200':
           description: Ok
@@ -138,12 +138,12 @@ paths:
                   total: 986
                   max_score: 17.995623
                   hits:
-                  - _index: sentient_durationofownership_hdb_index
+                  - _index: sentient_hdb_durationofownership_index
                     _type: dir_doc
                     _id: 050533/40<T<=50
                     _score: 1
                     _source:
-                      postalcode: '560720'
+                      postalcode: 560720
                       len_of_ownership: 40 < t <= 50
                       len_of_ownership_id: '5'
                       no_of_units: '29'
@@ -244,7 +244,7 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "sentient_durationofownership_hdb_index"
+                    example: "sentient_hdb_durationofownership_index"
                   _type: 
                     type: string
                     description: Content type of the document
@@ -263,9 +263,9 @@ components:
                     description: Json Object of returned hits                    
                     properties:
                       postalcode: 
-                        type: string
+                        type: number
                         description: Postal code of a block
-                        example: "560720"
+                        example: 560720
                       len_of_ownership: 
                         type: string
                         description: Range of length

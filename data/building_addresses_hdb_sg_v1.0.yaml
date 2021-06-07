@@ -48,9 +48,9 @@ info:
     * **match_phrase_prefix** - Search within a full text field with prefix
       > {"match_phrase_prefix":{"street":"ang mo kio"}}
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"postalcode":"550151"}}
+      > {"term":{"postalcode":550151}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"postalcode":["550151","550152"]}}
+      > {"terms":{"postalcode":[550151,550152]}}
     * **range** - Returns results that contain terms within a stipulated range
         > {"range":{"postalcode":{"lte":650347}}}
         > {"range":{"postalcode":{"gte":650347}}}
@@ -78,7 +78,7 @@ info:
        
   version: '1.0.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - May 21, 2021"
@@ -125,7 +125,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"range":{"block":{"gte":3}}}],"should":[{"range":{"block":{"lte":200}}}],"filter":[{"match_phrase":{"street":"serangoon road"}}],"must_not":[{"match":{"postalcode":"218152"}}]}
+              {"must":[{"range":{"block":{"gte":100}}}],"should":[{"range":{"block":{"lte":500}}}],"filter":[{"match_phrase":{"street":"serangoon central"}}],"must_not":[{"match":{"postalcode":343534}}]}
       responses:
         '200':
           description: Ok
@@ -138,13 +138,13 @@ paths:
                   total: 1
                   max_score: 12.08503
                   hits:
-                  - _index: sentient_directory_building_index
+                  - _index: sentient_building_directory_index
                     _type: dir_doc
                     _id: uLxcqWgBv3dNEHq2Dznn
                     _score: 12.08503
                     _source:
                       buildingname: nex
-                      postalcode: '556083'
+                      postalcode: 556083
                       block: '23'
                       street: serangoon central
                       location:
@@ -265,9 +265,9 @@ components:
                             description: Street Name of Building
                             example: "serangoon central"
                           postalcode:
-                            type: string
+                            type: number
                             description: Postal code
-                            example: "556083"       
+                            example: 556083      
                           block: 
                             type: string
                             description: Block Number

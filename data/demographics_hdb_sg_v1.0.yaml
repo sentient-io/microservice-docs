@@ -22,7 +22,7 @@ info:
       > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
     
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      > {"must_not":[{"match":{"postalcode":"570251"}}]}
+      > {"must_not":[{"match":{"postalcode":570251}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
@@ -43,9 +43,9 @@ info:
     * **match_phrase_prefix** - Search within a full text field with prefix
       > {"match_phrase_prefix":{"street":"serangoon central"}}
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"postalcode":"560720"}}
+      > {"term":{"postalcode":560720}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"postalcode":["560720","560721"]}}
+      > {"terms":{"postalcode":[560720,560721]}}
       
     * **range** - Returns results that contain terms within a stipulated range
     
@@ -74,13 +74,13 @@ info:
       
       > {"filter":[{"match":{"street":"tampines street 41"}},{"match":{"block":"423"}},{"terms":{"age_group_id":[6,7,8]}}]}
       
-    2. **Search for the number of female residents between age 50 to 59 staying in the postal code from 050034 to 050532.**
+    2. **Search for the number of female residents between age 50 to 59 staying in the postal code from 560720 to 560721.**
       Using a filterdata only&#58;
       
-      > {"filter":[{"terms":{"postalcode":["050034","050532"]}},{"match":{"gender":"female"}},{"terms":{"age_group_id":[6]}}]}
+      > {"filter":[{"terms":{"postalcode":[560720,560721]}},{"match":{"gender":"female"}},{"terms":{"age_group_id":[6]}}]}
   version: '1.0.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - May 21, 2021"
@@ -140,12 +140,12 @@ paths:
                   total: 986
                   max_score: 17.995623
                   hits:
-                  - _index: sentient_demographics_hdb_index
+                  - _index: sentient_hdb_demographics_index
                     _type: dir_doc
                     _id: K7scqWgBv3dNEHq2WvMo
                     _score: 17.995623
                     _source:
-                      postalcode: '560720'
+                      postalcode: 560720
                       gender: 'male'
                       age_group: '50 to 59'
                       age_group_id: 6
@@ -266,9 +266,9 @@ components:
                     description: Json Object of returned hits                    
                     properties:
                             postalcode: 
-                              type: string
+                              type: number
                               description: Postal code of a block
-                              example: "560720"
+                              example: 560720
                             gender: 
                               type: string
                               description: Gender details, values are male/female
