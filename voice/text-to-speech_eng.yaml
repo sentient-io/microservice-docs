@@ -324,7 +324,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - June 4,2021'
+                example: 'Published Date - June 7,2021'
                 description: New model release - female_singaporean
         v0.1.0:
           type: array
