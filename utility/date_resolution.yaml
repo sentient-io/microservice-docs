@@ -1,0 +1,261 @@
+openapi: 3.0.1
+info:
+  title: Date Resolution
+  description: |+
+    This Utility microservice generate a date based on the input string.
+  version: '0.1.0'
+  x-subscribelink: date_resolution
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "0.1.0"
+  description: "Published Date - Jun 7, 2021"
+paths:
+  /microservices/utility/dateresolution/v0/getresults:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                message: Successfully Processed
+                results:
+                  date:
+                  - '2021-06-07'
+                  - '2021-06-08'
+                  - '2021-06-09'
+                  - '2021-06-10'
+                  - '2021-06-11'
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+              message:
+                type: string
+                example: Successfully Processed
+                description: Response message
+              results:
+                type: object
+                example: {<Json Object>}
+                description: Json Object of returned results
+                properties:
+                  date:
+                   type: array
+                   example: ["2021-06-07","2021-06-08","2021-06-09","2021-06-10","2021-06-11"]
+                   description: Generated Date in the format YYYY-MM-DD based on input.
+                   items:
+                    oneOf:
+                      - type: string
+                        example: 2021-06-07
+                      - type: string
+                        example: 2021-06-08
+                      - type: string
+                        example: 2021-06-09
+                      - type: string
+                        example: 2021-06-10
+                      - type: string
+                        example: 2021-06-11
+              status:
+                type: string
+                example: Success
+                description: |+ 
+                  The status of the API call. 
+                  - Success - If Successfully processed with result
+                  - Failure - If text not match with predifined functions and date parser then empty result failure message with 'No result matches try with different phase'
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:      
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 7, 2021
+              description: Initial version release
+    input:
+      type: object
+      properties:
+        text:
+          type: string
+          default: true
+          example: next monday
+          description: |+
+            Date related string are : 
+            
+            - today - It will return today date
+            - tomorrow  - It will return tomorrow date 
+            - yesterday - It will return yesterday date
+            - next day  - It will return tomorrow date
+            - next weekdays - It will return next 5 weekdays date in the list
+            - next weekends - It will return next weekends(saturday and sunday) date in the list
+            - next (x)day - It will return next weekday date (for eg: next monday)
+            - last (x)day - It will return last weekday date (for eg: last tuesday)
+            - next x days - It will return next x days date (for eg: next 5 days)
+            - last x days - It will return last x days date (for eg: last 5 days)
+            - first weekday of the month  - It will return first weekday of the month date
+            - first weekend of the month  - It will return first weekend of the month (saturday and sunday) date
+            - last weekend of the month - It will return last weekend of the month (saturday and sunday) date
+            - last weekday of the month - It will return last weekday of the month date
+            - every x hours for x occurrence  - It will return x hours for x occurence  (for eg: every 1 hour for 10 occurrence, every 15 minutes for 10 occurrence)
+            - X days from today - It will return x days from today date (for eg: 10 days from today)
+            - next month from today - It will return next month from today date
+            - same time next week - It will return next week date with this time from today
+            - same day next week  - It will return next week date from today
+            - this time tomorrow  - It will return tomorrow date and time
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
