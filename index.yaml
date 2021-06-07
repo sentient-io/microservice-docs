@@ -120,7 +120,7 @@ nlp:
   text_summarisation:
     title: Text Summarisation
     versions:
-      0.1.1: 'text_summarisation.yaml'
+      0.2.1: 'text_summarisation.yaml'
 computer vision:
   object_detection:
     title: Object Detection
