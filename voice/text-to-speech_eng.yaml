@@ -19,7 +19,7 @@ info:
   version: '0.1.0'
   x-subscribelink: text-to-speech_eng
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
   - name: v0.1.0
     description: 'Published Date - Sep 28, 2018'
