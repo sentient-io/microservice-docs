@@ -9,7 +9,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "0.1.0"
-  description: "Published Date - Jun 1, 2021"
+  description: "Published Date - Jun 7, 2021"
 paths:
   /microservices/utility/dateresolution/v0/getresults:
     post:
@@ -220,7 +220,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 1, 2021
+              example: Published Date - Jun 7, 2021
               description: Initial version release
     input:
       type: object
