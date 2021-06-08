@@ -252,6 +252,7 @@ components:
             - same time next week - It will return next week date with this time from today
             - same day next week  - It will return next week date from today
             - this time tomorrow  - It will return tomorrow date and time
+            - (x)day after next   - It will return 2 weeks after date (for eg: tuesday after next)
   securitySchemes:
     APIAuthorizer:
       type: apiKey
