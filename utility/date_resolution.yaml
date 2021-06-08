@@ -246,12 +246,12 @@ components:
             - first weekend of the month  - It will return first weekend of the month (saturday and sunday) date
             - last weekend of the month - It will return last weekend of the month (saturday and sunday) date
             - last weekday of the month - It will return last weekday of the month date
-            - every x hours for x occurrence  - It will return x hours for x occurence  (for eg: every 1 hour for 10 occurrence, every 15 minutes for 10 occurrence)
+            - every x hours for x occurrence  - It will return x hours for x occurence with UTC time zone  (for eg: every 1 hour for 10 occurrence, every 15 minutes for 10 occurrence)
             - X days from today - It will return x days from today date (for eg: 10 days from today)
             - next month from today - It will return next month from today date
-            - same time next week - It will return next week date with this time from today
+            - same time next week - It will return next week date with this time from today with UTC time zone
             - same day next week  - It will return next week date from today
-            - this time tomorrow  - It will return tomorrow date and time
+            - this time tomorrow  - It will return tomorrow date and time with UTC time zone
             - (x)day after next   - It will return 2 weeks after date (for eg: tuesday after next)
   securitySchemes:
     APIAuthorizer:
