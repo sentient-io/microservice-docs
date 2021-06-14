@@ -116,15 +116,17 @@ components:
             lat:
               description: Latitude
               example: 1.310163061
-              type: float
+              type: number
+              format: float
             lon:
               description: Longitude
               example: 103.7870838
-              type: float
+              type: number
+              format: float
             postalcode:
               description: Postal Code
               example: 270018
-              type: integer
+              type: number
             block:
               description: HDB Block 
               example: '18'
@@ -132,27 +134,33 @@ components:
             chas_score:
               description: Score denoting the accessibility of the input postalcode area with respect to chas
               example: 29.5454545455
-              type: float
+              type: number
+              format: float
             gym_score:
               description: Score denoting the accessibility of the input postalcode area with respect to gym
               example: 5.1282051282
-              type: float
+              type: number
+              format: float
             hawker_score:
               description: Score denoting the accessibility of the input postalcode area with respect to hawker centres
               example: 33.3333333333
-              type: float
+              type: number
+              format: float
             mrt_score:
               description: Score denoting the accessibility of the input postalcode area with respect to mrt
               example: 22.2222222222
-              type: float
+              type: number
+              format: float
             overall_amenity_score:
               description: Overall amenity score
               example: 29.1585729086
-              type: float
+              type: number
+              format: float
             preschool_score:
               description: Score denoting the accessibility of the input postalcode area with respect to pre schools
               example: 22.2222222222
-              type: float
+              type: number
+              format: float
             street_name:
               description: Score denoting the accessibility of the input postalcode area with respect to streets
               example: GHIM MOH ROAD
@@ -160,7 +168,8 @@ components:
             supermarket_score:
               description: Score denoting the accessibility of the input postalcode area with respect to supermarkets
               example: 62.5
-              type: float
+              type: number
+              format: float
             town:
               description: Score denoting the accessibility of the input postalcode area with respect to towns
               example: QUEENSTOWN
