@@ -146,7 +146,7 @@ components:
             type: object
             properties:
               code:
-                type: number
+                type: integer
                 example: 1030
                 description: Weather condition unique code.
               icon:
@@ -158,27 +158,27 @@ components:
                 example: mist
                 description: Weather condition text.
            feelslike_c:
-            type: number
+            type: float
             example: 25.7
             description: Feels like temperature in celsius
            feelslike_f:
-            type: number
+            type: float
             example: 78.3
             description: Feels like temperature in fahrenheit     
            gust_kph:
-            type: number
+            type: float
             example: 7.9
             description: Wind gust in kilometer per hour       
            gust_mph:
-            type: number
+            type: float
             example: 4.9
             description: Wind gust in miles per hour     
            humidity:
-            type: number
+            type: integer
             example: 83
             description: Humidity as percentage    
            is_day:
-            type: number
+            type: integer
             example: 1
             description: 1 = Yes 0 = No
                         Whether to show day condition icon or night icon     
@@ -187,47 +187,47 @@ components:
             example: 2021-02-25 08:30
             description: Local time when the real time data was updated.
            last_updated_epoch:
-            type: number
+            type: integer
             example: 21614222011
             description: Local time when the real time data was updated in unix time.
            precip_in:
-            type: number
+            type: float
             example: 0.0
             description: Precipitation amount in inches           
            precip_mm:
-            type: number
+            type: float
             example: 0.0
             description: Precipitation amount in millimeters
            pressure_in:
-            type: number
+            type: float
             example: 30.4
             description: Pressure in inches
            pressure_mb:
-            type: number
+            type: float
             example: 1013.0
             description: Pressure in millibars      
            temp_c:
-            type: number
+            type: float
             example: 24.0
             description: Temperature in celsius                  
            temp_f:
-            type: number
+            type: float
             example: 75.2
             description: Temperature in fahrenheit    
            uv:
-            type: number
+            type: float
             example: 1.0
             description: UV Index   
            vis_km:
-            type: number
+            type: float
             example: 1.5
             description: Average visibility in kilometer              
            vis_miles:
-            type: number
+            type: float
             example: 0.0
             description: Average visibility in miles               
            wind_degree:
-            type: number
+            type: integer
             example: 320
             description: Wind direction in degrees
            wind_dir:
@@ -235,11 +235,11 @@ components:
             example: "NW"
             description: Wind direction as 16 point compass. e.g.- NSW           
            wind_kph:
-            type: number
+            type: float
             example: 6.1
             description: Wind speed in kilometer per hour               
            wind_mph:
-            type: number
+            type: float
             example: 3.8
             description: Wind speed in miles per hour   
            location:
@@ -250,7 +250,7 @@ components:
                 example: India
                 description: Name of country   
               lat:
-                type: number
+                type: float
                 example: 13.08
                 description: Latitude in decimal degree   
               localtime:
@@ -258,11 +258,11 @@ components:
                 example: 2021-02-25 8:31
                 description: Latitude in decimal degree   
               localtime_epoch:
-                type: number
+                type: integer
                 example: 1614222076
                 description: Time as epoch 
               lon:
-                type: number
+                type: float
                 example: 80.28
                 description: Longitude in decimal degree
               name:
