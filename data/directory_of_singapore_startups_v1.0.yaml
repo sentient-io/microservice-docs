@@ -94,16 +94,14 @@ paths:
         - in: query
           name: offset
           schema:
-            type: number
-            format: integer
+            type: integer
           description: The offset of the record list ie the starting index
           example: "0"
           default: false
         - in: query
           name: limit
           schema:
-            type: number
-            format: integer
+            type: integer
           description: The max records to return for the request. Default - 10, Max - 10000
           example: "10"
           default: false
@@ -247,11 +245,11 @@ components:
           description: Json Object of returned results
           properties: 
             total:
-              type: number
+              type: integer
               example: 986
               description: Total number of records
             max_score:
-              type: number
+              type: integer
               example: 1
               description: The highest score value
             hits:
