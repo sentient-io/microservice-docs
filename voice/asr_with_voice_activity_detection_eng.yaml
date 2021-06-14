@@ -110,7 +110,7 @@ components:
           example: 1
           description: Running sequence number starts from 1.
         start:
-          type: number
+          type: float
           example: 0.64
           description: Start time of utterance
         text:
@@ -235,7 +235,7 @@ components:
             Currently supported formats: .wav
         vad_threshold:
           x-name: vad_threshold
-          type: number
+          type: float
           format: float
           default: true
           example: 0.4
