@@ -1433,7 +1433,7 @@ components:
       type: object
       properties:
         total_items:
-          type: number
+          type: integer
           example: 1
           description: Number of subjects being enquired relating to the Run
           default: false
