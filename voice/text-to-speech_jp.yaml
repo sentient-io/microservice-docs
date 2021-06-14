@@ -109,7 +109,7 @@ components:
             sampling_rate:
               description: Sample rate of the output audio
               example: 22050
-              type: number
+              type: integer
             wav_base64:
               description: Base64 string of the generated audio from input text
               example: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
@@ -222,7 +222,7 @@ components:
             Input text to be synthesised 
         pitch_scale:
           x-name: pitch_scale
-          type: number
+          type: float
           format: float
           default: False
           example: 1
@@ -231,7 +231,7 @@ components:
             1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
         tempo_scale:
           x-name: tempo_scale
-          type: number
+          type: float
           format: float
           default: False
           example: 1
