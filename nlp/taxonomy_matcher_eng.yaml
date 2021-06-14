@@ -228,7 +228,7 @@ components:
             Supported formats: ASCII only
         threshold:
           x-name: threshold
-          type: number
+          type: integer
           default: true
           example: 1
           description: |+
