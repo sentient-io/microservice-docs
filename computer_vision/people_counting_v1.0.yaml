@@ -111,13 +111,11 @@ components:
               example: 11
               description: Number of people detected in video
             likelihood of overestimation:
-              type: number
-              format: float
+              type: float
               example: 0.76
               description:  How likely would there be ID spikes causing counter to increase People
             likelihood of underestimation:
-              type: number
-              format: float
+              type: float
               example: 0.39
               description:  How likely the model might miss out detecting people in the video
             people:
