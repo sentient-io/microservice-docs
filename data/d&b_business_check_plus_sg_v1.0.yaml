@@ -968,7 +968,7 @@ components:
                       description: Description
                       example: "Employee Size"
                     AMOUNT:
-                      type: number
+                      type: integer
                       description: Number of employee
                       example: 300
                 LIST_BIZ_BRANCH :
@@ -2289,51 +2289,51 @@ components:
                             description: Internal database value
                             example: N/A
                           Rcjan :
-                            type: number
+                            type: integer
                             description: Count for January
                             example: 1
                           Rcfeb :
-                            type: number
+                            type: integer
                             description: Count for February
                             example: 1
                           Rcmar :
-                            type: number
+                            type: integer
                             description: Count for March
                             example: 1
                           Rcapr :
-                            type: number
+                            type: integer
                             description: Count for April
                             example: 1
                           Rcmay :
-                            type: number
+                            type: integer
                             description: Count for May
                             example: 1
                           Rcjun :
-                            type: number
+                            type: integer
                             description: Count for June
                             example: 1
                           Rcjul :
-                            type: number
+                            type: integer
                             description: Count for July
                             example: 1
                           Rcaug :
-                            type: number
+                            type: integer
                             description: Count for August
                             example: 1
                           Rcsep :
-                            type: number
+                            type: integer
                             description: Count for September
                             example: 1
                           Rcoct :
-                            type: number
+                            type: integer
                             description: Count for October
                             example: 1
                           Rcnov :
-                            type: number
+                            type: integer
                             description: Count for November
                             example: 1
                           Rcdec :
-                            type: number
+                            type: integer
                             description: Count for December
                             example: 1
                           Rcid :
@@ -2354,7 +2354,7 @@ components:
                               2. Biz Check Plus: 0002
                             example: 0001
                           Rcsecflag :
-                            type: number
+                            type: integer
                             description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
                             example: 1
                           LastUpdateDate :
@@ -2446,7 +2446,7 @@ components:
       type: object
       properties:
         total_items:
-          type: number
+          type: integer
           example: 1
           description: Number of subjects being enquired relating to the Run
           default: false
