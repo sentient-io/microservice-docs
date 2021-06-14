@@ -222,7 +222,8 @@ components:
             Input text to be synthesised 
         pitch_scale:
           x-name: pitch_scale
-          type: float
+          type: number
+          format: float
           default: False
           example: 1
           description: |+
@@ -230,7 +231,8 @@ components:
             1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
         tempo_scale:
           x-name: tempo_scale
-          type: float
+          type: number
+          format: float
           default: False
           example: 1
           description: |+
