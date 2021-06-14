@@ -262,14 +262,14 @@
                         Timestamp when the location is recorded. In Date.toJSON() format. E.g. 2012-04-23T18:25:43.511Z
                     x:
                       x-name: x
-                      type: number
+                      type: integer
                       default: false
                       example: 888
                       description: |+
                         2D Location coordinates in X,Y
                     y:
                       x-name: "y"
-                      type: number
+                      type: integer
                       default: false
                       example: 2463
                       description: |+
