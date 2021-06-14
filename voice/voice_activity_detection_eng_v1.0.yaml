@@ -118,16 +118,16 @@ components:
                         - type: object 
                           properties:
                             end:
-                              type: number
+                              type: float
                               format: float
                               example: 23.72
                               description: End time of utterance, in seconds. Offset from the start of stream.
                             seqNum:
-                              type: number
+                              type: integer
                               example: 1
                               description: Running sequence. Starts from 1.
                             start:
-                              type: number
+                              type: float
                               format: float
                               example: 0.64
                               description: Start time of utterance, in seconds. Offset from the start of stream.
@@ -234,7 +234,7 @@ components:
             Required. Input audio file in base64 format. 
         threshold:
           x-name: threshold
-          type: number
+          type: float
           format: float
           default: false
           example: 0.2
