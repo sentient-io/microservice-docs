@@ -257,10 +257,12 @@ components:
           type: string
           example: date-only
           description: |+
-            Optional. Output format will be date-only, with-day and custom using strftime.
-            
-            
-            custom using strftime are:
+            Optional. Output format will be date-only, with-day and custom.
+            - default - It will display the date with date, time and timezone. for eg: 2021-06-14 00:00:00 UTC
+            - date-only - It will display only the date with YYYY-MM-DD format - for eg: 2021-06-14
+            - with-day - It will display the date with day - for eg: Monday, 2021-06-14 00:00:00 UTC
+            - custom - It will display based on the user input from the custom format list - for eg: %A, %d. %B %Y %I:%M%p
+            custom date format list are:
             - %a - Weekday as locale’s abbreviated name - for eg: Mon
             - %A - Weekday as locale’s full name - for eg: Monday
             - %w - Weekday as a decimal number, where 0 is Sunday and 6 is Saturday - for eg: 1
