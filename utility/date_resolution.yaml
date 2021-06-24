@@ -3,18 +3,18 @@ info:
   title: Date Resolution
   description: |+
     This Utility microservice generate a date based on the input string.
-  version: '0.1.0'
+  version: '0.2.0'
   x-subscribelink: date_resolution
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "0.1.0"
+- name: "0.2.0"
   description: "Published Date - Jun 7, 2021"
 paths:
   /microservices/utility/dateresolution/v0/getresults:
     post:
       tags:
-        - v0.1.0
+        - v0.2.0
       responses:
         '200':
           description: Ok
@@ -221,7 +221,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jun 24, 2021
-              description: Output date format update
+              description: Additional output date format options
         v0.1.0:
          type: array
          items:
