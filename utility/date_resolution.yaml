@@ -225,11 +225,6 @@ components:
     input:
       type: object
       properties:
-        output_format:
-          type: string
-          default: true
-          example: date-only
-          description: Optional
         text:
           type: string
           default: true
@@ -258,6 +253,10 @@ components:
             - same day next week  - It will return next week date from today
             - this time tomorrow  - It will return tomorrow date and time with UTC time zone
             - (x)day after next   - It will return 2 weeks after date (for eg: tuesday after next)
+        output_format:
+          type: string
+          example: date-only
+          description: Optional. Output format will be date-only, with-day and custom using strftime(https://strftime.org/)
   securitySchemes:
     APIAuthorizer:
       type: apiKey
