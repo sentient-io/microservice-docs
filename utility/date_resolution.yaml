@@ -225,6 +225,11 @@ components:
     input:
       type: object
       properties:
+        output_format:
+          type: string
+          default: true
+          example: date-only
+          description: Optional
         text:
           type: string
           default: true
