@@ -255,6 +255,7 @@ components:
             - (x)day after next   - It will return 2 weeks after date (for eg: tuesday after next)
         output_format:
           type: string
+          example: date-only
           description: |+
             Optional. Output format will be date-only, with-day and custom using strftime.
             
