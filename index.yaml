@@ -264,7 +264,7 @@ data:
   directory_of_singapore_startups:
     title: Directory of Singapore Startups
     versions:
-      1.0.o: 'directory_of_singapore_startups_v1.0.yaml'
+      1.0.0: 'directory_of_singapore_startups_v1.0.yaml'
       0.1.0: 'directory_of_singapore_startups.yaml'
   fitness_stations_and_playgrounds_hdb_sg:
     title: HDB Fitness Stations and Playgrounds (SG)
