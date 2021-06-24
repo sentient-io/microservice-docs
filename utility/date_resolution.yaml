@@ -256,7 +256,11 @@ components:
         output_format:
           type: string
           example: date-only
-          description: Optional. Output format will be date-only, with-day and custom using strftime(https://strftime.org/). Default is date-only.
+          description: |+
+            Optional. Output format will be date-only, with-day and custom using strftime.
+            
+            custom using strftime are:
+            - %a - Weekday as locale’s abbreviated name - for eg: Mon
   securitySchemes:
     APIAuthorizer:
       type: apiKey
