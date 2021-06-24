@@ -266,9 +266,9 @@ components:
           description: |+
             Optional. The output date format. This is the default format 2021-06-14 00:00:00 UTC. Other options are:
             
-            - date-only - It will display only the date with YYYY-MM-DD format. Return as "2021-06-14"
-            - with-day - It will display the date with day. Return as "Monday, 2021-06-14 00:00:00 UTC"
-            - custom format can be send using the following format list. For eg input: "%A, %d. %B %Y %I:%M%p", return as "Monday, 28. June 2021 12:00AM"
+            - date-only - Output value as date only. For eg: "2021-06-14"
+            - with-day - Output value as date with day. For eg: "Monday, 2021-06-14 00:00:00 UTC"
+            - custom user format can be set using the following format list. For eg input: "%A, %d. %B %Y %I:%M%p", return as "Monday, 28. June 2021 12:00AM"
                 custom date format list are:
                 - %a - Weekday as locale’s abbreviated name - for eg: Mon
                 - %A - Weekday as locale’s full name - for eg: Monday
