@@ -260,6 +260,9 @@ components:
             - same day next week  - It will return next week date from today
             - this time tomorrow  - It will return tomorrow date and time with UTC time zone
             - (x)day after next   - It will return 2 weeks after date (for eg: tuesday after next)
+            - (x)day - It will return current week date
+            - this (x)day - It will return current week date
+            - current (x)day - It will return current week date
         output_format:
           type: string
           example: date-only
