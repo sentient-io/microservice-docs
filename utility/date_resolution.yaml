@@ -220,7 +220,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 24, 2021
+              example: Published Date - Jun 30, 2021
               description: Additional output date format options
         v0.1.0:
          type: array
