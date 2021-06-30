@@ -18,7 +18,7 @@ paths:
         - in: query
           name: user_id
           schema:
-            type: string
+            type: integer
           description: User Id
           example: 1334
           default: false
@@ -216,7 +216,7 @@ components:
                 type: object
                 properties:                      
                     id:
-                      type: string
+                      type: integer
                       description: Index group of the document
                       example: "sentient_directory_building_index"
                     value: 
@@ -231,33 +231,33 @@ components:
                 type: object
                 properties:                      
                     id:
-                      type: string
+                      type: integer
                       description: Index group of the document
-                      example: "sentient_directory_building_index"
+                      example: 1287
                     value: 
                       type: string
-                      description: Content type of the document
-                      example: "dir_doc"
+                      description: group detail
+                      example: "Admin"
           id:
-            type: string
-            example: Successfully Processed
-            description: The detail description on the status
+            type: integer
+            example: 1269
+            description: user id
           last_active:
             type: string
-            example: Successfully Processed
-            description: The detail description on the status
+            example: ""
+            description: last active
           referral_code:
             type: string
-            example: Successfully Processed
-            description: The detail description on the status
+            example: "4968868231"
+            description: referral code
           user_api_key:
             type: string
-            example: Successfully Processed
-            description: The detail description on the status
+            example: "99C61DF0B6..."
+            description: user api key
           user_name:
             type: string
-            example: Successfully Processed
-            description: The detail description on the status
+            example: "abcd@ymail.com"
+            description: user name
         status:
           type: string
           example: Success
