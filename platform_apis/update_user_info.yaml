@@ -122,7 +122,6 @@ components:
         user_signin:
           x-name: group_id
           type: string
-          default: True
           example: ""
           description: |+
             Input text to be synthesised
@@ -143,7 +142,6 @@ components:
         user_groups:
           x-name: group_id
           type: string
-          default: True
           example: []
           description: |+
             Input text to be synthesised
