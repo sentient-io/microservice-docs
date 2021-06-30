@@ -5123,15 +5123,15 @@ components:
                   example: "08 jan 2021 / 19:47"
                 description: 
                   type: string
-                  description: User created date
+                  description: User details
                   example: "contact person as "
                 email: 
                   type: string
-                  description: Id of the user
+                  description: email of the user
                   example: "asd@gmail.com"
                 id: 
-                  type: string
-                  description: User last activity
+                  type: integer
+                  description: id
                   example: "1265"
                 name: 
                   type: string
@@ -5139,7 +5139,7 @@ components:
                   example: "a"
                 status: 
                   type: string
-                  description: User name
+                  description: status
                   example: "Deleted"
                 user_name: 
                   type: string
