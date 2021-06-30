@@ -1,0 +1,290 @@
+openapi: 3.0.1
+info:
+  title: User Info
+  description: Get user info
+  x-subscribelink: user_info
+  version: '1.0.0'
+servers:
+  - url: 'https://dev-microserviceapi-org.sentient.io'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
+paths:
+   /org/getuserinfo:
+    get:
+      tags:
+        - v1.0.0
+      parameters:
+        - in: query
+          name: user_id
+          schema:
+            type: string
+          description: User Id
+          example: 1334
+          default: false
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: successfully processed
+                results:
+                  direct_function: []
+                  group_function:
+                    - id: 238
+                      value: Get deleted user list
+                    - id: 153
+                      value: Remove Function From Group
+                    - id: 152
+                      value: Add Functions To Group
+                    - id: 156
+                      value: View Org Details
+                    - id: 140
+                      value: Add & Edit Role
+                    - id: 145
+                      value: Add Functions To Role
+                    - id: 147
+                      value: Add & Edit Group
+                    - id: 147
+                      value: Add & Edit Group
+                    - id: 156
+                      value: View Org Details
+                    - id: 237
+                      value: Activate Users
+                    - id: 195
+                      value: Org Update Child Tag
+                    - id: 147
+                      value: Add & Edit Group
+                    - id: 140
+                      value: Add & Edit Role
+                    - id: 195
+                      value: Org Update Child Tag
+                    - id: 224
+                      value: Create & Update Child Tag
+                    - id: 225
+                      value: Create & Update Parent Tag
+                    - id: 220
+                      value: Delete Parent Tag
+                    - id: 155
+                      value: Update Org
+                    - id: 156
+                      value: View Org Details
+                    - id: 132
+                      value: User List
+                    - id: 135
+                      value: Reset Password
+                    - id: 263
+                      value: Subscription
+                    - id: 136
+                      value: Delete User
+                    - id: 139
+                      value: Role List
+                    - id: 146
+                      value: Group List
+                    - id: 152
+                      value: Add Functions To Group
+                    - id: 138
+                      value: Add Function To User
+                    - id: 147
+                      value: Add & Edit Group
+                    - id: 134
+                      value: View User Details
+                    - id: 237
+                      value: Activate Users
+                    - id: 238
+                      value: Get deleted user list
+                    - id: 143
+                      value: Add Role To User
+                    - id: 153
+                      value: Remove Function From Group
+                    - id: 150
+                      value: Add Group To User
+                    - id: 142
+                      value: Delete Role
+                    - id: 148
+                      value: View Group Details
+                    - id: 140
+                      value: Add & Edit Role
+                    - id: 151
+                      value: Remove Group From User
+                    - id: 137
+                      value: Remove Function From User
+                    - id: 192
+                      value: Remove Function From Role
+                    - id: 154
+                      value: Org List
+                    - id: 312
+                      value: Org Available Functions
+                    - id: 586
+                      value: Invoice download
+                    - id: 587
+                      value: Invoice list
+                    - id: 588
+                      value: Ledger download
+                    - id: 592
+                      value: Credit or expiry credit list
+                    - id: 593
+                      value: Transaction PDF download
+                    - id: 594
+                      value: Api metering  graph
+                    - id: 595
+                      value: Topup Request List
+                    - id: 589
+                      value: Topup access
+                    - id: 290
+                      value: Market Place Screen
+                    - id: 295
+                      value: Market Place
+                    - id: 321
+                      value: Available Contracts
+                    - id: 293
+                      value: Add Contract
+                    - id: 292
+                      value: My Contract Screen
+                    - id: 294
+                      value: Update Contract
+                    - id: 296
+                      value: Contract List
+                    - id: 300
+                      value: Contract History
+                    - id: 156
+                      value: View Org Details
+                    - id: 263
+                      value: Subscription
+                    - id: 132
+                      value: User List
+                    - id: 135
+                      value: Reset Password
+                    - id: 637
+                      value: Root User Screen
+                    - id: 642
+                      value: Credit Management Screen
+                    - id: 641
+                      value: Invoice Screen
+                    - id: 640
+                      value: Account Transactions Screen
+                    - id: 639
+                      value: Usage Statements Screen
+                    - id: 638
+                      value: API Metering Screen
+                    - id: 644
+                      value: Address
+                  groups:
+                    - id: 1384
+                      value: AI & Data (Individual)
+                    - id: 1385
+                      value: Data Alliance Basic Access
+                  id: '1334'
+                  last_active: ''
+                  referral_code: '4535140056'
+                  role_function: []
+                  roles: []
+                  user_api_key: 97EB2B396C81481187E2
+                  user_name: dev1809v1@sen.io
+                status: success
+
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results 
+          properties:                
+            group_function:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:                      
+                    id:
+                      type: string
+                      description: Index group of the document
+                      example: "sentient_directory_building_index"
+                    value: 
+                      type: string
+                      description: Content type of the document
+                      example: "dir_doc"
+            groups:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:                      
+                    id:
+                      type: string
+                      description: Index group of the document
+                      example: "sentient_directory_building_index"
+                    value: 
+                      type: string
+                      description: Content type of the document
+                      example: "dir_doc"
+          id:
+            type: string
+            example: Successfully Processed
+            description: The detail description on the status
+          last_active:
+            type: string
+            example: Successfully Processed
+            description: The detail description on the status
+          referral_code:
+            type: string
+            example: Successfully Processed
+            description: The detail description on the status
+          user_api_key:
+            type: string
+            example: Successfully Processed
+            description: The detail description on the status
+          user_name:
+            type: string
+            example: Successfully Processed
+            description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Nov 25,2019
+              description: Initial version release          
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
