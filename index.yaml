@@ -356,6 +356,11 @@ platform apis:
     urlkey: refresh_api_key
     versions:
       0.1.0: 'refresh_api_key.yaml'
+  update_user_info:
+    title: Update user info
+    urlkey: update_user_info
+    versions:
+      0.1.0: 'update_user_info.yaml'
   org_group_list:
     title: Org Group List
     urlkey: org_group_list
