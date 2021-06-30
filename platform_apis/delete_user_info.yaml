@@ -18,7 +18,7 @@ paths:
         - in: query
           name: user_id
           schema:
-            type: string
+            type: integer
           description: user_id
           example: 1326
           default: false
