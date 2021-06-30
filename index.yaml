@@ -331,6 +331,11 @@ platform apis:
     urlkey: user_info
     versions:
       0.1.0: 'user_info.yaml'
+  deleted_org_list:
+    title: Deleted Org List
+    urlkey: deleted_org_list
+    versions:
+      0.1.0: 'deleted_org_list.yaml'
   delete_user_info:
     title: Delete user info
     urlkey: delete_user_info
