@@ -18,7 +18,7 @@ paths:
         - in: query
           name: org_id
           schema:
-            type: string
+            type: integer
           description: Organization Id
           example: 1120
       responses:
@@ -82,7 +82,7 @@ components:
                     type: object
                     properties:                      
                         id:
-                          type: string
+                          type: integer
                           description: Id of the user
                           example: "1491"
                         value:
