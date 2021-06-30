@@ -166,7 +166,7 @@ components:
           x-name: user_ids
           type: string
           default: True
-          example: 1326
+          example: [1326]
           description: |+
             Input text to be synthesised 
         
