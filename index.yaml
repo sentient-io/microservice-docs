@@ -326,4 +326,9 @@ platform apis:
     urlkey: user_list
     versions:
       0.1.0: 'user_list.yaml'
+  user_info:
+    title: User Info
+    urlkey: user_info
+    versions:
+      0.1.0: 'user_info.yaml'
    
