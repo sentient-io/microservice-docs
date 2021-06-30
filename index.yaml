@@ -351,6 +351,11 @@ platform apis:
     urlkey: delete_user_info
     versions:
       0.1.0: 'delete_user_info.yaml'
+  refresh_api_key:
+    title: Refresh api key
+    urlkey: refresh_api_key
+    versions:
+      0.1.0: 'refresh_api_key.yaml'
   org_group_list:
     title: Org Group List
     urlkey: org_group_list
