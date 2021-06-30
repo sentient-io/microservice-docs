@@ -351,5 +351,10 @@ platform apis:
     urlkey: delete_user_info
     versions:
       0.1.0: 'delete_user_info.yaml'
+  org_group_list:
+    title: Org Group List
+    urlkey: org_group_list
+    versions:
+      0.1.0: 'org_group_list.yaml'
       
    
