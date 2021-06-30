@@ -356,5 +356,10 @@ platform apis:
     urlkey: org_group_list
     versions:
       0.1.0: 'org_group_list.yaml'
+  group_info:
+    title: Group Info
+    urlkey: group_info
+    versions:
+      0.1.0: 'group_info.yaml'
       
    
