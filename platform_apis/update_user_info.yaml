@@ -93,81 +93,81 @@ components:
       properties:
         id:
           x-name: user_id
-          type: string
+          type: integer
           default: True
           example: 0
           description: |+
             Input text to be synthesised 
         org_id:
-          x-name: group_id
-          type: string
+          x-name: org_id
+          type: integer
           default: True
           example: 1636
           description: |+
             Input text to be synthesised
         user_name:
-          x-name: group_id
+          x-name: user_name
           type: string
           default: True
           example: test@gmail.com
           description: |+
             Input text to be synthesised
         user_password:
-          x-name: group_id
+          x-name: user_password
           type: string
           default: True
           example: xxxxxx
           description: |+
             Input text to be synthesised
         user_signin:
-          x-name: group_id
+          x-name: user_signin
           type: string
           example: ""
           description: |+
             Input text to be synthesised
         email_address:
-          x-name: group_id
+          x-name: email_address
           type: string
           default: True
           example: test
           description: |+
             Input text to be synthesised
         send_email:
-          x-name: group_id
+          x-name: send_email
           type: string
           default: True
           example: yes
           description: |+
             Input text to be synthesised
         user_groups:
-          x-name: group_id
+          x-name: user_groups
           type: string
           example: []
           description: |+
             Input text to be synthesised
         date_updated:
-          x-name: group_id
+          x-name: date_updated
           type: string
           default: True
           example: 22/6/2021 @ 20:25:2
           description: |+
             Input text to be synthesised
         date_created:
-          x-name: group_id
+          x-name: date_created
           type: string
           default: True
           example: 22/6/2021 @ 20:25:2
           description: |+
             Input text to be synthesised
         updated_by:
-          x-name: group_id
+          x-name: updated_by
           type: string
           default: True
           example: 2
           description: |+
             Input text to be synthesised
         root_user:
-          x-name: group_id
+          x-name: root_user
           type: string
           default: True
           example: no
