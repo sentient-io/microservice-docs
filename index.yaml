@@ -321,7 +321,7 @@ data alliance:
     versions:
       0.1.0: 'download_dataset.yaml'
 platform-apis:
-  get_user_list:
+  user_list:
     title: User List
     urlkey: user_list
     versions:
