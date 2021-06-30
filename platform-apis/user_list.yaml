@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
   title: User List
+  description: Get user list
   x-subscribelink: user_list
   version: '1.0.0'
 servers:
