@@ -61,7 +61,7 @@ components:
             type: object
             properties:                      
                 id:
-                  type: string
+                  type: integer
                   description: Activated user id
                   example: "1326"
                 username: 
@@ -164,7 +164,7 @@ components:
       properties:
         user_ids:
           x-name: user_ids
-          type: string
+          type: integer
           default: True
           example: [1326]
           description: |+
