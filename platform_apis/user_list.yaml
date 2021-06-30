@@ -20,8 +20,7 @@ paths:
           schema:
             type: string
           description: Organization Id
-          example: 141
-          default: false
+          example: 1120
       responses:
         '200':
           description: Ok
