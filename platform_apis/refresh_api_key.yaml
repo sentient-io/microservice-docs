@@ -58,7 +58,7 @@ components:
           properties: 
             id:
               description: id
-              example: "2196"
+              example: 2196
               type: integer
             new_api_key:
               description: New api key
@@ -160,13 +160,13 @@ components:
       properties:
         user_id:
           x-name: user_id
-          type: string
+          type: integer
           default: True
           example: 2196
           description: User id
         updated_by:
           x-name: group_id
-          type: string
+          type: integer
           default: True
           example: 2
           description: Updated by
