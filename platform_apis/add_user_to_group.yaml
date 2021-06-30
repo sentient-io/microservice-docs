@@ -1,0 +1,87 @@
+openapi: 3.0.1
+info:
+  title: Add user to group
+  description: Add user to group
+  x-subscribelink: add_user_to_group
+  version: '1.0.0'
+servers:
+  - url: 'https://dev-microserviceapi-org.sentient.io'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
+paths:
+   /org/addusertogroup:
+    get:
+      tags:
+        - v1.0.0
+      parameters:
+        - in: query
+          name: user_id
+          schema:
+            type: string
+          description: User Id
+          example: 1120
+        - in: query
+          name: group_id
+          schema:
+            type: string
+          description: Group Id
+          example: 7
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: successfully processed
+                status: success
+
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: successfully processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: success
+          description: The status of the API call Success/Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Nov 25,2019
+              description: Initial version release          
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
