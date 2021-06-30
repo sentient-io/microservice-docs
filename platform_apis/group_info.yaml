@@ -18,7 +18,7 @@ paths:
         - in: query
           name: group_id
           schema:
-            type: string
+            type: integer
           description: Group Id
           example: 253
       responses:
@@ -120,7 +120,7 @@ components:
                 type: object
                 properties:                      
                     id:
-                      type: string
+                      type: integer
                       description: Index group of the document
                       example: "4574"
                     value: 
@@ -132,7 +132,7 @@ components:
               example: "TEST M3 Consumer Group"
               description: The detail description on the status
             id:
-              type: string
+              type: integer
               example: "253"
               description: The detail description on the status
             users:
@@ -143,7 +143,7 @@ components:
                 type: object
                 properties:                      
                     id:
-                      type: string
+                      type: integer
                       description: Index group of the document
                       example: "337"
                     value: 
