@@ -18,13 +18,13 @@ paths:
         - in: query
           name: user_id
           schema:
-            type: string
+            type: integer
           description: User Id
           example: 1120
         - in: query
           name: group_id
           schema:
-            type: string
+            type: integer
           description: Group Id
           example: 7
       responses:
