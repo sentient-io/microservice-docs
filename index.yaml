@@ -320,7 +320,7 @@ data alliance:
     urlkey: download_dataset_api
     versions:
       0.1.0: 'download_dataset.yaml'
-platform apis:
+Platform Apis:
   user:
     user_list:
       title: User List
