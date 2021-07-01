@@ -326,7 +326,7 @@ platform apis:
       title: User List
       urlkey: user_list
       versions:
-        0.1.0: 'user_list.yaml'
+        0.1.0: 'user/user_list.yaml'
   user_list:
     title: User List
     urlkey: user_list
