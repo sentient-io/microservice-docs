@@ -343,27 +343,27 @@ platform apis:
     versions:
       0.1.0: 'deleted_org_list.yaml'
   activate_user:
-    title: Activate user
+    title: Activate User
     urlkey: activate_user
     versions:
       0.1.0: 'activate_user.yaml'
   add_user_to_group:
-    title: Add user to group
+    title: Add User to Group
     urlkey: add_user_to_group
     versions:
       0.1.0: 'add_user_to_group.yaml'
   delete_user_info:
-    title: Delete user info
+    title: Delete User
     urlkey: delete_user_info
     versions:
       0.1.0: 'delete_user_info.yaml'
   refresh_api_key:
-    title: Refresh api key
+    title: Refresh API Key
     urlkey: refresh_api_key
     versions:
       0.1.0: 'refresh_api_key.yaml'
   update_user_info:
-    title: Update user info
+    title: Update User
     urlkey: update_user_info
     versions:
       0.1.0: 'update_user_info.yaml'
