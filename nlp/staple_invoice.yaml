@@ -5,7 +5,7 @@ info:
     Scan the Invoice document from file and explore the data by catagorywise. 
     Supported formats are : pdf, jpg, png, docx, doc
   version: '1.0.0'
-  x-subscribelink: staple_receipt
+  x-subscribelink: staple_invoice
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
