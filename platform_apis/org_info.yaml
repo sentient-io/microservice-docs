@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Org Info
-  description: Get org info
+  description: Get organization information
   x-subscribelink: org_info
   version: '1.0.0'
 servers:
@@ -71,35 +71,35 @@ components:
             api_key:
               type: string
               example: 41CAD6194....
-              description: API Key
+              description: Organization API Key
             client_id:
               type: integer
               example: 399B4944....
-              description: client id
+              description: Organization client id
             config_id:
               type: string
               example: null
-              description: config id
+              description: Organization config id
             ctype:
               type: string
               example: NO
-              description: ctype
+              description: Organization ctype
             date_created:
               type: string
               example: 01 oct 2020 / 21:03
-              description: date created
+              description: Organization created date
             date_updated:
               type: string
               example: 01 oct 2020 / 21:03
-              description: date updated
+              description: Organization date updated
             description:
               type: string
               example: contact person sritest
-              description: description
+              description: Organization description
             email:
               type: string
               example: sritest2@test.com
-              description: email
+              description: Organization email
             id:
               type: integer
               example: 1121
@@ -107,23 +107,23 @@ components:
             name:
               type: string
               example: sritest2@test.com
-              description: name
+              description: Organization name
             org_type:
               type: string
               example: child
-              description: org type
+              description: Organization type
             public_key:
               type: string
               example: ""
-              description: public key
+              description: Organization public key
             user_api_key:
               type: string
               example: OaYpCkgRDn1DBbh....
-              description: user api key
+              description: Organization user api key
             user_name:
               type: string
               example: admin
-              description: user name
+              description: Organization user name
         status:
           type: string
           example: Success
