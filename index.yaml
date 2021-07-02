@@ -329,12 +329,11 @@ data alliance:
     versions:
       0.1.0: 'download_dataset.yaml'
 Platform APIs:
-  user:
-    user_list:
-      title: User List
-      urlkey: user_list
-      versions:
-        0.1.0: 'user/user_list.yaml'
+  org_info:
+    title: Org Info
+    urlkey: org_info
+    versions:
+      0.1.0: 'org_info.yaml'
   user_list:
     title: User List
     urlkey: user_list
