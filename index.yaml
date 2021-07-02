@@ -329,8 +329,8 @@ data alliance:
     versions:
       0.1.0: 'download_dataset.yaml'
 Platform APIs:
-  View_Org_Info:
-    title: Org Info
+  org_info:
+    title: View Org Info
     urlkey: org_info
     versions:
       0.1.0: 'org_info.yaml'
