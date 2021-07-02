@@ -83,7 +83,7 @@ components:
                     properties:                      
                         id:
                           type: integer
-                          description: Id of the user
+                          description: Group Id of the user
                           example: "1491"
                         value:
                           type: string
