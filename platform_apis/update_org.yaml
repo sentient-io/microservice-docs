@@ -91,20 +91,26 @@ components:
       type: object
       required:
       
-        - user_id
-        - updated_by
+        - org_id
+        - email
       properties:
+        org_id:
+          x-name: org_id
+          type: string
+          default: True
+          example: 829
+          description: Organization Id
         email:
           x-name: email
           type: string
           default: True
           example: test@gmail.com
-          description: User id
+          description: Organization email
         description:
           x-name: description
           type: string
           example: "testing description"
-          description: Updated by
+          description: Organization description
   securitySchemes:
     APIAuthorizer:
       type: apiKey
