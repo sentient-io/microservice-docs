@@ -334,6 +334,11 @@ Platform APIs:
     urlkey: org_info
     versions:
       0.1.0: 'org_info.yaml'
+  update_org:
+    title: Edit Org Info
+    urlkey: update_org
+    versions:
+      0.1.0: 'update_org.yaml'
   user_list:
     title: User List
     urlkey: user_list
