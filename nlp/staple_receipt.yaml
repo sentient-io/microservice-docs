@@ -12,7 +12,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Jul 31, 2021"
 paths:
-  /microservices/nlp/scanreceipt/v1/getresults:
+  /microservices/nlp/scanreceipt/v0/getresults:
     post:
       tags:
         - v1.0.0
