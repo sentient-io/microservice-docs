@@ -218,11 +218,11 @@ components:
                     id:
                       type: integer
                       description: Index group of the document
-                      example: "sentient_directory_building_index"
+                      example: 238
                     value: 
                       type: string
                       description: Content type of the document
-                      example: "dir_doc"
+                      example: "Get deleted user list"
             groups:
               type: array
               example: [{<JSON result Object}]
@@ -232,32 +232,32 @@ components:
                 properties:                      
                     id:
                       type: integer
-                      description: Index group of the document
-                      example: 1287
+                      description: AI & Data (Individual)
+                      example: 1384
                     value: 
                       type: string
                       description: group detail
                       example: "Admin"
-          id:
-            type: integer
-            example: 1269
-            description: user id
-          last_active:
-            type: string
-            example: ""
-            description: last active
-          referral_code:
-            type: string
-            example: "4968868231"
-            description: referral code
-          user_api_key:
-            type: string
-            example: "99C61DF0B6..."
-            description: user api key
-          user_name:
-            type: string
-            example: "abcd@ymail.com"
-            description: user name
+            id:
+              type: integer
+              example: 1269
+              description: user id
+            last_active:
+              type: string
+              example: ""
+              description: last active
+            referral_code:
+              type: string
+              example: "49688.."
+              description: referral code
+            user_api_key:
+              type: string
+              example: "99C61DF0B6..."
+              description: user api key
+            user_name:
+              type: string
+              example: "abcd@ymail.com"
+              description: user name
         status:
           type: string
           example: Success
