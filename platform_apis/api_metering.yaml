@@ -1,0 +1,290 @@
+openapi: 3.0.1
+info:
+  title: API metering  graph
+  description: API metering  graph
+  version: v0.1.0
+  x-subscribelink: api_metering
+servers:
+  - url: 'https://dev-microserviceapi-org.sentient.io' 
+tags:
+- name: "v0.1.0"
+  description: "Published Date - May 12, 2021"
+paths:
+  /apimetering:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                activity: 'YES'
+                avg_calls_and_time:
+                  avg_response_time: 3012.5098039215686
+                  total_error_count: 21.568627450980394
+                  total_function_count: 11
+                  total_successfull_calls: 51
+                message: Successfully Processed
+                microservice_indicators:
+                  active_microservices: 17
+                  error_rate: 6.976744186046512
+                  total_calls: 172
+                microservice_performance:
+                  - count: 68
+                    endpoint: https://api.sentient.io/DaaS/dev/ihidata
+                    errorrate: 0
+                    functioncode: IHIDATA
+                    functionname: LiDAR Trajectory Data
+                  - count: 27
+                    endpoint: >-
+                      http://dev-apis.sentient.io/extauth/microservices/utility/wikipedia/v0.1/getresult1.0/getresults
+                    errorrate: 3.7037037037037033
+                    functioncode: WIKIPEDIA
+                    functionname: Wikipedia
+                microservice_usage_by_daterange:
+                  - - '2021-01-27'
+                    - 3
+                    - 0
+                  - - '2021-01-28'
+                    - 4
+                    - 0
+                  - - '2021-02-01'
+                    - 3
+                    - 0
+                  - - '2021-02-02'
+                    - 4
+                    - 0
+                performance_per_microservice:
+                  - api_result:
+                      - message: ''
+                        unsuccesscount: 1
+                    total_unsuccess_call: 1
+                status: Success
+                usage_per_microservice:
+                  - - '2021-01-27'
+                    - 2
+                    - 0
+                  - - '2021-01-28'
+                    - 2
+                    - 0
+                  - - '2021-02-02'
+                    - 4
+                    - 0
+                  - - '2021-02-04'
+                    - 1
+                    - 0
+                userlist:
+                  - user_id: 4
+                    user_name: root_01
+                  - user_id: 5
+                    user_name: '22222'
+
+        '500':
+          description: Internal Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        activity:
+          type: string
+          example: YES
+          description: Activity details
+        avg_calls_and_time:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties: 
+            avg_response_time:
+              description: User Id
+              example: 3012.5098039215686
+              type: integer
+            total_error_count:
+              description: User new api key
+              example: 21.568627450980394
+              type: integer
+            total_function_count:
+              description: User new api key
+              example: 11
+              type: integer
+            total_successfull_calls:
+              description: User new api key
+              example: 51
+              type: integer
+        message:
+          type: string
+          example: Successfully Processed
+          description: Activity details
+        microservice_indicators:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties: 
+            active_microservices:
+              description: User Id
+              example: 17
+              type: integer
+            error_rate:
+              description: User new api key
+              example: 6.976744186046512
+              type: integer
+            total_calls:
+              description: User new api key
+              example: 172
+              type: integer
+        microservice_performance:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of Json result object
+          items:
+            type: object
+            properties:                      
+                count:
+                  type: string
+                  description: User created by
+                  example: 68
+                endpoint:
+                  type: string
+                  description: User created by
+                  example: https://api.sentient.io/DaaS/dev/ihidata
+                errorrate:
+                  type: string
+                  description: User created by
+                  example: 0.0
+                functioncode:
+                  type: string
+                  description: User created by
+                  example: IHIDATA
+                functionname:
+                  type: string
+                  description: User created by
+                  example: LiDAR Trajectory Data
+        microservice_usage_by_daterange:
+          type: array
+          example: ["2021-01-27",3,0]
+          description: The list of Json result object
+          items:
+            type: object
+        performance_per_microservice:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of Json result object
+          items:
+            type: object
+            properties:                      
+                api_result:
+                  type: array
+                  description: User created by
+                  items:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        description: User created by
+                        example: ""
+                      unsuccesscount:
+                        type: string
+                        description: User created by
+                        example: 1
+                total_unsuccess_call:
+                  type: string
+                  example: 1
+                  description: The status of the API call success/failure
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+        usage_per_microservice:
+          type: array
+          example: ["2021-01-27",2,0]
+          description: The list of Json result object
+          items:
+            type: object
+        userlist:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of Json result object
+          items:
+            type: object
+            properties:                      
+                user_id:
+                  type: string
+                  description: User created by
+                  example: 4
+                user_name:
+                  type: string
+                  description: User created by
+                  example: root_01
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - May 12, 2021
+                description: Initial version release    
+    input:
+      type: object
+      required:
+        - user_id
+        - updated_by
+      properties:
+        from_date:
+          x-name: from_date
+          type: integer
+          default: True
+          example: 2021-01-01
+          description: User id
+        to_date:
+          x-name: to_date
+          type: integer
+          default: True
+          example: 2021-02-24
+          description: User updated by
+        org_id:
+          x-name: to_date
+          type: integer
+          default: True
+          example: 1
+          description: User updated by
+        each_function_details:
+          x-name: to_date
+          type: integer
+          default: True
+          example: WIKIPEDIA
+          description: User updated by
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
