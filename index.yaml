@@ -374,8 +374,13 @@ Platform APIs:
     urlkey: refresh_api_key
     versions:
       0.1.0: 'refresh_api_key.yaml'
+  add_user:
+    title: Add User
+    urlkey: add_user
+    versions:
+      0.1.0: 'add_user.yaml'
   update_user_info:
-    title: Update User
+    title: Edit User
     urlkey: update_user_info
     versions:
       0.1.0: 'update_user_info.yaml'
