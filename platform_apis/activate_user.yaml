@@ -154,21 +154,18 @@ components:
             oneOf:
               - type: string
                 example: Published Date - May 12, 2021
-                description: Initial version release    
+                description: Initial version release
     input:
       type: object
       required:
-      
         - user_ids
-      
       properties:
         user_ids:
           x-name: user_ids
           type: integer
           default: True
           example: [1326]
-          description: |+
-            Input text to be synthesised 
+          description: User Id 
         
   securitySchemes:
     APIAuthorizer:
