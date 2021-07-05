@@ -345,7 +345,7 @@ Platform APIs:
     versions:
       0.1.0: 'user_list.yaml'
   user_info:
-    title: User Info
+    title: View User Details
     urlkey: user_info
     versions:
       0.1.0: 'user_info.yaml'
@@ -355,12 +355,12 @@ Platform APIs:
     versions:
       0.1.0: 'deleted_org_list.yaml'
   activate_user:
-    title: Activate User
+    title: Activate Users
     urlkey: activate_user
     versions:
       0.1.0: 'activate_user.yaml'
   add_user_to_group:
-    title: Add User to Group
+    title: Add Group To User
     urlkey: add_user_to_group
     versions:
       0.1.0: 'add_user_to_group.yaml'
@@ -385,12 +385,12 @@ Platform APIs:
     versions:
       0.1.0: 'update_user_info.yaml'
   org_group_list:
-    title: Org Group List
+    title: Group List
     urlkey: org_group_list
     versions:
       0.1.0: 'org_group_list.yaml'
   group_info:
-    title: Group Info
+    title: View Group Details
     urlkey: group_info
     versions:
       0.1.0: 'group_info.yaml'
