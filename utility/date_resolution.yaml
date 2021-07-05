@@ -244,7 +244,7 @@ components:
             - yesterday - It will return yesterday date
             - next day  - It will return tomorrow date
             - next weekdays - It will return next 5 weekdays date in the list
-            - next weekends - It will return next weekends(saturday and sunday) date in the list
+            - next weekend - It will return next weekends(saturday and sunday) date in the list
             - next (x)day - It will return next weekday date (for eg: next monday)
             - last (x)day - It will return last weekday date (for eg: last tuesday)
             - next x days - It will return next x days date (for eg: next 5 days)
@@ -255,6 +255,7 @@ components:
             - last weekday of the month - It will return last weekday of the month date
             - every x hours for x occurrence  - It will return x hours for x occurence with UTC time zone  (for eg: every 1 hour for 10 occurrence, every 15 minutes for 10 occurrence)
             - X days from today - It will return x days from today date (for eg: 10 days from today)
+            - X days later - It will return x days from today date (for eg: 10 days from today)
             - next month from today - It will return next month from today date
             - same time next week - It will return next week date with this time from today with UTC time zone
             - same day next week  - It will return next week date from today
