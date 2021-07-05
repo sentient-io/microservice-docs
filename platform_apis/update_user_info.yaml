@@ -87,92 +87,73 @@ components:
     input:
       type: object
       required:
-      
         - user_id
-      
       properties:
         id:
           x-name: user_id
           type: integer
           default: True
           example: 0
-          description: |+
-            Input text to be synthesised 
+          description: User Id
         org_id:
           x-name: org_id
           type: integer
           default: True
           example: 1636
-          description: |+
-            Input text to be synthesised
+          description: Organization Id
         user_name:
           x-name: user_name
           type: string
           default: True
           example: test@gmail.com
-          description: |+
-            Input text to be synthesised
+          description: User name
         user_password:
           x-name: user_password
           type: string
           default: True
           example: xxxxxx
-          description: |+
-            Input text to be synthesised
-        user_signin:
-          x-name: user_signin
-          type: string
-          example: ""
-          description: |+
-            Input text to be synthesised
+          description: User password
         email_address:
           x-name: email_address
           type: string
           default: True
           example: test
-          description: |+
-            Input text to be synthesised
+          description: User email address
         send_email:
           x-name: send_email
           type: string
           default: True
           example: yes
-          description: |+
-            Input text to be synthesised
+          description: User email send option
         user_groups:
           x-name: user_groups
           type: string
           example: []
-          description: |+
-            Input text to be synthesised
+          description: User groups
         date_updated:
           x-name: date_updated
           type: string
           default: True
           example: 22/6/2021 @ 20:25:2
-          description: |+
-            Input text to be synthesised
+          description: User updated date
         date_created:
           x-name: date_created
           type: string
           default: True
           example: 22/6/2021 @ 20:25:2
-          description: |+
-            Input text to be synthesised
+          description: User created date
         updated_by:
           x-name: updated_by
           type: string
           default: True
           example: 2
-          description: |+
-            Input text to be synthesised
+          description: User updated by
         root_user:
           x-name: root_user
           type: string
           default: True
           example: no
-          description: |+
-            Input text to be synthesised
+          description: Root user
   securitySchemes:
     APIAuthorizer:
       type: apiKey
