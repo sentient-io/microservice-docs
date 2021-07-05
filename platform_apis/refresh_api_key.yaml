@@ -57,87 +57,23 @@ components:
           example: { "<Json": "Object>" }
           properties: 
             id:
-              description: id
+              description: User Id
               example: 2196
               type: integer
             new_api_key:
-              description: New api key
+              description: User new api key
               example: "AA6A108150A04..."
               type: string
         status:
           type: string
           example: Success
           description: The status of the API call success/failure
-        
-    unauthorized:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Missing Authentication Token
-        status:
-          type: string
-          example: Failure
-    forbidden:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Access Denied Unauthorized User
-        status:
-          type: string
-          example: Failure
-    paymentrequired:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Insufficient Credits Kindly Top Up
-        status:
-          type: string
-          example: Failure
-    notfound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Request URL
-        status:
-          type: string
-          example: Failure
     servererror:
       type: object
       properties:
         message:
           type: string
           example: Internal Server error
-        status:
-          type: string
-          example: Failure
-    gatewaytimeout:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Request Timeout
-        status:
-          type: string
-          example: Failure
-    inputfieldmissing:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Input Field Missing
-        status:
-          type: string
-          example: Failure
-    inputlimitexceeded:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Input Limit Exceeded
         status:
           type: string
           example: Failure
@@ -154,7 +90,6 @@ components:
     input:
       type: object
       required:
-      
         - user_id
         - updated_by
       properties:
@@ -169,7 +104,7 @@ components:
           type: integer
           default: True
           example: 2
-          description: Updated by
+          description: User updated by
   securitySchemes:
     APIAuthorizer:
       type: apiKey
