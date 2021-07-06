@@ -1,11 +1,11 @@
 openapi: 3.0.1
 info:
   title: Subscribed Microservices
-  description: Subscribed Microservices
+  description: This microservice is used to view the subscribed microservices details.
   version: v0.1.0
   x-subscribelink: subscribed_microservices
 servers:
-  - url: 'https://dev-microserviceapi-org.sentient.io' 
+  - url: 'https://dev-microserviceapi-catalog.sentient.io/' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - May 12, 2021"
@@ -61,11 +61,11 @@ components:
       properties:
         status:
           type: string
-          example: success
+          example: Success
           description: Activity details
         message:
           type: string
-          example: successfully processed
+          example: Successfully Processed
           description: Activity details
         microservice_performance:
           type: array
@@ -86,7 +86,7 @@ components:
                 spend:
                   type: integer
                   format: float
-                  description: Microservice spend
+                  description: Microservice amount spend
                   example: 0.0
                 class:
                   type: string
@@ -117,38 +117,26 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - May 12, 2021
+                example: Published Date - Jun 09, 2021
                 description: Initial version release    
     input:
       type: object
-      required:
-        - user_id
-        - updated_by
       properties:
         from_date:
           x-name: from_date
           type: integer
-          default: True
           example: 2021-01-01
-          description: User id
+          description: From Date will be in YYYY-MM-DD format.
         to_date:
           x-name: to_date
           type: integer
-          default: True
           example: 2021-02-24
-          description: User updated by
-        org_id:
-          x-name: to_date
-          type: integer
-          default: True
-          example: 1
-          description: User updated by
-        each_function_details:
-          x-name: to_date
-          type: integer
-          default: True
-          example: WIKIPEDIA
-          description: User updated by
+          description: To Date will be in YYYY-MM-DD format.
+        lang:
+          x-name: lang
+          type: string
+          example: EN
+          description: Default lang value is EN.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
