@@ -1,26 +1,19 @@
 openapi: 3.0.1
 info:
   title: User List
-  description: Get user list
+  description: This microservice is used to view the user details.
   x-subscribelink: user_list
-  version: '1.0.0'
+  version: '0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.1.0"
   description: "Published Date - May 21, 2021"
 paths:
    /org/getuserlist:
     get:
       tags:
         - v1.0.0
-      parameters:
-        - in: query
-          name: org_id
-          schema:
-            type: integer
-          description: Organization Id
-          example: 1120
       responses:
         '200':
           description: Ok
@@ -29,20 +22,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: successfully processed
+                message: Successfully Processed
+                status: Success
                 results:
                   - created_by: admin
-                    date_created: 01 oct 2020 / 20:45
+                    date_created: 22 jun 2021 / 20:12
                     groups:
-                      - id: 1485
+                      - id: 2374
                         value: AI & Data (Individual)
-                      - id: 1486
-                        value: Data Alliance Basic Access
-                    id: 1522
-                    last_activity: ''
+                    user_id: 2194
+                    last_activity: 22 jun 2021 / 12:21
                     root_user: 'yes'
-                    user_name: sritest1@gmail.com
-                status: success
+                    user_name: mohansenti@gmail.com
         '500':
           description: Internal Server Error
           content:
@@ -60,6 +51,10 @@ components:
           type: string
           example: Successfully Processed
           description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
         results:
           type: array
           example: [{<JSON result Object}]
@@ -69,11 +64,11 @@ components:
             properties:                      
                 created_by:
                   type: string
-                  description: User created by
+                  description: User created by user details
                   example: "admin"
                 date_created: 
                   type: string
-                  description: User created date
+                  description: User created date in the format DD MM YY / HH:MM
                   example: "06 oct 2020 / 11:37"
                 groups: 
                   type: array
@@ -87,28 +82,27 @@ components:
                           example: "1491"
                         value:
                           type: string
-                          description: Name of the user
+                          description: Group name of the user
                           example: "AI & Data (Individual)"
-                id: 
+                user_id: 
                   type: string
-                  description: Id of the user
+                  description: User id of the user
                   example: "1527"
                 last_activity: 
                   type: string
-                  description: User last activity
+                  description: Last login activity of the user
                   example: "06 oct 2020 / 11:37"
                 root_user: 
                   type: string
-                  description: Root user
+                  description: |+
+                    Root user yes - Super admin for the user
+                    Root user no  - only the user
                   example: "yes"
                 user_name: 
                   type: string
-                  description: User name
+                  description: User name of the user
                   example: "dev061020_v1@sent.io"
-        status:
-          type: string
-          example: Success
-          description: The status of the API call Success/Failure
+        
     servererror:
       type: object
       properties:
@@ -121,12 +115,12 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
+              example: Published Date - Jul 09,2021
               description: Initial version release          
   securitySchemes:
     APIAuthorizer:
