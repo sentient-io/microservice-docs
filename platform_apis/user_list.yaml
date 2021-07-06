@@ -25,15 +25,16 @@ paths:
                 message: Successfully Processed
                 status: Success
                 results:
-                  - created_by: admin
-                    date_created: 22 jun 2021 / 20:12
+                  - user_id: 2194
                     groups:
                       - id: 2374
                         value: AI & Data (Individual)
-                    user_id: 2194
                     last_activity: 22 jun 2021 / 12:21
-                    root_user: 'yes'
                     user_name: mohansenti@gmail.com
+                    created_by: admin
+                    date_created: 22 jun 2021 / 20:12
+                    root_user: 'yes'
+                    
         '500':
           description: Internal Server Error
           content:
@@ -61,15 +62,11 @@ components:
           description: The list of Json result object
           items:
             type: object
-            properties:                      
-                created_by:
+            properties: 
+                user_id: 
                   type: string
-                  description: User created by user details
-                  example: "admin"
-                date_created: 
-                  type: string
-                  description: User created date in the format DD MM YY / HH:MM
-                  example: "06 oct 2020 / 11:37"
+                  description: User id of the user
+                  example: "1527"
                 groups: 
                   type: array
                   example: [{<JSON ressnult Object}]
@@ -84,13 +81,21 @@ components:
                           type: string
                           description: Group name of the user
                           example: "AI & Data (Individual)"
-                user_id: 
-                  type: string
-                  description: User id of the user
-                  example: "1527"
                 last_activity: 
                   type: string
                   description: Last login activity of the user
+                  example: "06 oct 2020 / 11:37"
+                user_name: 
+                  type: string
+                  description: User name of the user
+                  example: "dev061020_v1@sent.io"
+                created_by:
+                  type: string
+                  description: User created by user details
+                  example: "admin"
+                date_created: 
+                  type: string
+                  description: User created date in the format DD MM YY / HH:MM
                   example: "06 oct 2020 / 11:37"
                 root_user: 
                   type: string
@@ -98,11 +103,6 @@ components:
                     Root user yes - Super admin for the user
                     Root user no  - only the user
                   example: "yes"
-                user_name: 
-                  type: string
-                  description: User name of the user
-                  example: "dev061020_v1@sent.io"
-        
     servererror:
       type: object
       properties:
