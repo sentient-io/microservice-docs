@@ -1,16 +1,16 @@
 openapi: 3.0.1
 info:
   title: Add user
-  description: Add new user
+  description: This microservice is used to create a new user
   version: v0.1.0
   x-subscribelink: add_user
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 12, 2021"
+  description: "Published Date - Jul 09, 2021"
 paths:
-  /org/updateuserinfo:
+  /org/adduser:
     post:
       tags:
         - v0.1.0
@@ -51,15 +51,6 @@ components:
           type: string
           example: Successfully Processed
           description: Detail description on the API status
-        results:
-          type: object
-          description: The result of the API call.
-          example: { "<Json": "Object>" }
-          properties: 
-            id:
-              description: Sample rate of the output audio
-              example: 2196
-              type: integer
         status:
           type: string
           example: Success
@@ -73,7 +64,6 @@ components:
         status:
           type: string
           example: Failure
-    
     versions:
       type: object
       properties: 
@@ -82,78 +72,44 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - May 12, 2021
-                description: Initial version release    
+                example: Published Date - Jul 09, 2021
+                description: Initial version release
     input:
       type: object
       required:
-        - user_id
+        - user_name
+        - user_password
       properties:
-        id:
-          x-name: user_id
-          type: integer
-          default: True
-          example: 0
-          description: User Id
-        org_id:
-          x-name: org_id
-          type: integer
-          default: True
-          example: 1636
-          description: Organization Id
         user_name:
           x-name: user_name
           type: string
           default: True
           example: test@gmail.com
-          description: User name
+          description: User name of the user
         user_password:
           x-name: user_password
           type: string
           default: True
           example: xxxxxx
-          description: User password
+          description: User password of the user
         email_address:
           x-name: email_address
           type: string
-          default: True
-          example: test
-          description: User email address
+          example: test@gmail.com
+          description: User email address of the user
         send_email:
           x-name: send_email
           type: string
-          default: True
           example: yes
-          description: User email send option
+          description: |+
+            User email send option
+            - yes - Email send to the user
+            - no  - Email no send to the user
         user_groups:
           x-name: user_groups
           type: string
           example: []
-          description: User groups
-        date_updated:
-          x-name: date_updated
-          type: string
-          default: True
-          example: 22/6/2021 @ 20:25:2
-          description: User updated date
-        date_created:
-          x-name: date_created
-          type: string
-          default: True
-          example: 22/6/2021 @ 20:25:2
-          description: User created date
-        updated_by:
-          x-name: updated_by
-          type: string
-          default: True
-          example: 2
-          description: User updated by
-        root_user:
-          x-name: root_user
-          type: string
-          default: True
-          example: no
-          description: Root user
+          description: User groups list of the user
   securitySchemes:
     APIAuthorizer:
       type: apiKey
