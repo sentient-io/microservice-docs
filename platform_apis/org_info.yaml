@@ -59,7 +59,7 @@ components:
           description: Json Object of returned results 
           properties:
             org_id:
-              type: string
+              type: integer
               example: 829
               description: Organization Id
             name:
@@ -91,7 +91,7 @@ components:
               example: XXDDXXC
               description: Organization API Key
             client_id:
-              type: integer
+              type: string
               example: CC22C1F1
               description: Organization client Id
             public_key:
