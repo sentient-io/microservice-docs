@@ -1,19 +1,19 @@
 openapi: 3.0.1
 info:
   title: Group Info
-  description: Get group info
+  description: This microservice is used to view the group info.
   x-subscribelink: group_info
-  version: '1.0.0'
+  version: '0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - May 21, 2021"
+- name: "v0.1.0"
+  description: "Published Date - Jul 09, 2021"
 paths:
    /org/getgroupinfo:
     get:
       tags:
-        - v1.0.0
+        - v0.1.0
       parameters:
         - in: query
           name: group_id
@@ -29,51 +29,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: ''
                 result:
+                  group_id: 2374
+                  group_name: AI & Data (Individual)
+                  group_description: Predefined group
+                  date_created: 22 jun 2021 / 20:12
+                  date_updated: 22 jun 2021 / 20:12
                   created_by: ''
-                  date_created: 10 jul 2019 / 08:48
-                  date_updated: 10 jul 2019 / 08:48
-                  group_description: Default Consumer Group
                   group_function:
-                    - id: 4574
-                      value: Market Place Screen
-                    - id: 4575
-                      value: My Contract Screen
-                    - id: 4576
-                      value: Add Contract
-                    - id: 4577
-                      value: Update Contract
-                    - id: 4578
-                      value: Market Place
-                    - id: 4579
-                      value: Contract List
-                    - id: 4580
-                      value: Contract History
-                    - id: 4581
-                      value: Transactions screen
-                  group_name: TEST M3 Consumer Group
-                  id: 253
+                    - function_id: 64255
+                      value: Get deleted user list
+                    - function_id: 64256
+                      value: Remove Function From Group
                   users:
-                    - id: 337
-                      value: root210
-                    - id: 337
-                      value: root210
-                    - id: 337
-                      value: root210
-                    - id: 337
-                      value: root210
-                    - id: 337
-                      value: root210
-                    - id: 337
-                      value: root210
-                    - id: 337
-                      value: root210
-                    - id: 337
-                      value: root210
-                status: success
-
-
+                    - user_id: 2194
+                      value: mohansenti@gmail.com
+                    - user_id: 2194
+                      value: mohansenti@gmail.com
+                message: Successfully Processed
+                status: Success
         '500':
           description: Internal Server Error
           content:
@@ -87,31 +61,35 @@ components:
     success:
       type: object
       properties:
-        message:
-          type: string
-          example: Successfully Processed
-          description: The detail description on the status
         results:
           type: object
           example: {<Json Object>}
           description: Json Object of returned results 
-          properties:      
+          properties:  
+            group_id:
+              type: integer
+              example: "2374"
+              description: Group id of the group
+            group_name:
+              type: string
+              example: AI & Data (Individual)
+              description: Group name of the group
+            group_description:
+              type: string
+              example: Predefined group
+              description: Group description of the group
+            date_created:
+              type: string
+              example: "22 jun 2021 / 20:12"
+              description: Group created date and time
+            date_updated:
+              type: string
+              example: "22 jun 2021 / 20:12"
+              description: Group details updated date and time
             created_by:
               type: string
               example: ""
-              description: The detail description on the status
-            date_created:
-              type: string
-              example: "10 jul 2019 / 08:48"
-              description: The detail description on the status
-            date_updated:
-              type: string
-              example: "10 jul 2019 / 08:48"
-              description: The detail description on the status
-            group_description:
-              type: string
-              example: "Default Consumer Group"
-              description: The detail description on the status
+              description: Group created by user
             group_function:
               type: array
               example: [{<JSON result Object}]
@@ -119,22 +97,14 @@ components:
               items:
                 type: object
                 properties:                      
-                    id:
+                    function_id:
                       type: integer
-                      description: Index group of the document
-                      example: "4574"
+                      description: Group function id of the group
+                      example: "64255"
                     value: 
                       type: string
-                      description: Content type of the document
-                      example: "Market Place Screen"
-            group_name:
-              type: string
-              example: "TEST M3 Consumer Group"
-              description: The detail description on the status
-            id:
-              type: integer
-              example: "253"
-              description: The detail description on the status
+                      description: Group function name of the group
+                      example: "Get deleted user list"
             users:
               type: array
               example: [{<JSON result Object}]
@@ -142,17 +112,21 @@ components:
               items:
                 type: object
                 properties:                      
-                    id:
+                    user_id:
                       type: integer
-                      description: Index group of the document
-                      example: "337"
+                      description: User id of the group
+                      example: "2194"
                     value: 
                       type: string
-                      description: Content type of the document
-                      example: "root210"
+                      description: User name of the group
+                      example: "mohansenti@gmail.com"
+         message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
         status:
           type: string
-          example: success
+          example: Success
           description: The status of the API call Success/Failure
     servererror:
       type: object
@@ -166,12 +140,12 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
+              example: Published Date - Jul 09,2021
               description: Initial version release          
   securitySchemes:
     APIAuthorizer:
