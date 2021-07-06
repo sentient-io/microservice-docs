@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Refresh api key
-  description: Refresh api key
+  description: This mocroservice is used to refresh the user api key.
   version: v0.1.0
   x-subscribelink: refresh_api_key
 servers:
@@ -22,10 +22,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: Successfully processed
+                message: Successfully Processed
                 results:
-                  id: 2196
-                  new_api_key: AA6A108150A04...
+                  user_id: 2196
+                  new_api_key: 5D8BA2F849F9...
                 status: Success
         '500':
           description: Internal Server error
@@ -33,7 +33,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
-        
       security:
         - APIAuthorizer: []
       requestBody:
@@ -56,8 +55,8 @@ components:
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties: 
-            id:
-              description: User Id
+            user_id:
+              description: User Id of the user
               example: 2196
               type: integer
             new_api_key:
@@ -85,26 +84,16 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - May 12, 2021
+                example: Published Date - Jul 09, 2021
                 description: Initial version release    
     input:
       type: object
-      required:
-        - user_id
-        - updated_by
       properties:
         user_id:
           x-name: user_id
           type: integer
-          default: True
           example: 2196
-          description: User id
-        updated_by:
-          x-name: group_id
-          type: integer
-          default: True
-          example: 2
-          description: User updated by
+          description: User id of the user
   securitySchemes:
     APIAuthorizer:
       type: apiKey
