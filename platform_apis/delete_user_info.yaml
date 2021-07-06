@@ -1,25 +1,25 @@
 openapi: 3.0.1
 info:
   title: Delete User Info
-  description: Get delete user info
+  description: This microservice is used to delete the user info.
   x-subscribelink: delete_user_info
-  version: '1.0.0'
+  version: '0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.1.0"
   description: "Published Date - May 21, 2021"
 paths:
    /org/deleteuser:
     get:
       tags:
-        - v1.0.0
+        - v0.1.0
       parameters:
         - in: query
           name: user_id
           schema:
             type: integer
-          description: user_id
+          description: User id of the user
           example: 1326
           default: false
       responses:
@@ -51,7 +51,7 @@ components:
           description: The detail description on the status
         status:
           type: string
-          example: success
+          example: Success
           description: The status of the API call Success/Failure
     servererror:
       type: object
@@ -65,12 +65,12 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
+              example: Published Date - Jul 09,2021
               description: Initial version release          
   securitySchemes:
     APIAuthorizer:
