@@ -1,26 +1,19 @@
 openapi: 3.0.1
 info:
   title: Org Info
-  description: Get organization information
+  description: This microservice is used to get the organization details.
   x-subscribelink: org_info
-  version: '1.0.0'
+  version: '0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.1.0"
   description: "Published Date - May 21, 2021"
 paths:
    /org/getorginfo:
     get:
       tags:
-        - v1.0.0
-      parameters:
-        - in: query
-          name: org_id
-          schema:
-            type: integer
-          description: Organization Id
-          example: 1120
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -29,23 +22,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: ''
                 result:
-                  api_key: 41CAD619434F430882E8
-                  client_id: 399B4944
-                  config_id: null
-                  ctype: 'NO'
-                  date_created: 01 oct 2020 / 21:03
-                  date_updated: 01 oct 2020 / 21:03
-                  description: 'contact person sritest '
-                  email: sritest2@test.com
-                  id: 1121
-                  name: sritest2@test.com
-                  org_type: child
-                  public_key: ''
-                  user_api_key: OaYpCkgRDn1DBbh4HGO4m4fKaX4RrX82tqepCb3d
+                  org_id: 829
+                  name: sridevitest01@sentient.io
+                  email: sridevitest01@sentient.io
+                  description: 'contact person testorg05081 '
+                  date_created: 05 aug 2020 / 16:53
+                  date_updated: 05 aug 2020 / 16:53
                   user_name: admin
-                status: success
+                  api_key: 5B64B2B3EE364313AABA
+                  client_id: CC22C1F1
+                  public_key: ''
+                  ctype: 'NO'
+                message: ''
+                status: Success
         '500':
           description: Internal Server Error
           content:
@@ -68,62 +58,53 @@ components:
           example: {<Json Object>}
           description: Json Object of returned results 
           properties:
-            api_key:
+            org_id:
               type: string
-              example: 41CAD6194....
+              example: 829
+              description: Organization Id
+            name:
+              type: string
+              example: sridevitest01@sentient.io
+              description: Organization name
+            email:
+              type: string
+              example: sridevitest01@sentient.io
+              description: Organization email
+            description:
+              type: string
+              example: contact person testorg05081
+              description: Organization description
+            date_created:
+              type: string
+              example: 05 aug 2020 / 16:53
+              description: Organization created date in the format DD MM YYYY / HH:MM
+            date_updated:
+              type: string
+              example: 05 aug 2020 / 16:53
+              description: Organization date updated in the format DD MM YYYY / HH:MM
+            created_by:
+              type: string
+              example: admin
+              description: Organization created by admin
+            org_api_key:
+              type: string
+              example: XXDDXXC
               description: Organization API Key
             client_id:
               type: integer
-              example: 399B4944....
-              description: Organization client id
-            config_id:
+              example: CC22C1F1
+              description: Organization client Id
+            public_key:
               type: string
-              example: null
-              description: Organization config id
+              example: sritest2@test.com
+              description: Organization public key
             ctype:
               type: string
               example: NO
-              description: Organization ctype
-            date_created:
-              type: string
-              example: 01 oct 2020 / 21:03
-              description: Organization created date
-            date_updated:
-              type: string
-              example: 01 oct 2020 / 21:03
-              description: Organization date updated
-            description:
-              type: string
-              example: contact person sritest
-              description: Organization description
-            email:
-              type: string
-              example: sritest2@test.com
-              description: Organization email
-            id:
-              type: integer
-              example: 1121
-              description: id
-            name:
-              type: string
-              example: sritest2@test.com
-              description: Organization name
-            org_type:
-              type: string
-              example: child
-              description: Organization type
-            public_key:
-              type: string
-              example: ""
-              description: Organization public key
-            user_api_key:
-              type: string
-              example: OaYpCkgRDn1DBbh....
-              description: Organization user api key
-            user_name:
-              type: string
-              example: admin
-              description: Organization user name
+              description: |+
+                Organization account type. 
+                - YES - Corporate account 
+                - NO - Individual account
         status:
           type: string
           example: Success
@@ -140,12 +121,12 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
+              example: Published Date - Jul 09,2021
               description: Initial version release          
   securitySchemes:
     APIAuthorizer:
