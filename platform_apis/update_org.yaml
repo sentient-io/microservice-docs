@@ -3,7 +3,7 @@ info:
   title: Update Org
   description: Update org info
   version: v0.1.0
-  x-subscribelink: update_org
+  x-subscribelink: This microservice is used to edit and update the organization details.
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io' 
 tags:
@@ -85,25 +85,20 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - May 12, 2021
+                example: Published Date - Jul 09, 2021
                 description: Initial version release    
     input:
       type: object
       required:
-      
-        - org_id
-        - email
       properties:
         org_id:
           x-name: org_id
           type: string
-          default: True
           example: 829
           description: Organization Id
         email:
           x-name: email
           type: string
-          default: True
           example: test@gmail.com
           description: Organization email
         description:
