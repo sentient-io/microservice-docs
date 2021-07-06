@@ -1,14 +1,14 @@
 openapi: 3.0.1
 info:
   title: Activate User
-  description: Activate user
+  description: This microservice is used to activate the deleted users.
   version: v0.1.0
   x-subscribelink: activate_user
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 12, 2021"
+  description: "Published Date - Jul 09, 2021"
 paths:
   /org/activateusers:
     post:
@@ -53,21 +53,6 @@ components:
           type: string
           example: Successfully Processed
           description: Detail description on the API status
-        results:
-          type: array
-          example: [{<JSON result Object}]
-          description: The list of Json result object
-          items:
-            type: object
-            properties:                      
-                id:
-                  type: integer
-                  description: Activated user id
-                  example: "1326"
-                username: 
-                  type: string
-                  description: Activated user name
-                  example: "CreateDev1@sentient.com"
         status:
           type: string
           example: Success
@@ -153,7 +138,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - May 12, 2021
+                example: Published Date - Jul 09, 2021
                 description: Initial version release
     input:
       type: object
@@ -164,8 +149,8 @@ components:
           x-name: user_ids
           type: integer
           default: True
-          example: [1326]
-          description: User Id 
+          example: [1326,1545]
+          description: Multiple user ids of the user. Invalid user id will be igonred in the array list.
         
   securitySchemes:
     APIAuthorizer:
