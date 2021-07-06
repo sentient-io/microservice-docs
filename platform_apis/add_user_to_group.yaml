@@ -1,19 +1,22 @@
 openapi: 3.0.1
 info:
   title: Add user to group
-  description: Add user to group
+  description: This microservice is used to add users to group.
   x-subscribelink: add_user_to_group
-  version: '1.0.0'
+  version: '0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.1.0"
   description: "Published Date - May 21, 2021"
 paths:
    /org/addusertogroup:
     get:
       tags:
-        - v1.0.0
+        - v0.1.0
+      required:
+        - user_id
+        - group_id
       parameters:
         - in: query
           name: user_id
@@ -35,8 +38,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: successfully processed
-                status: success
+                message: Successfully Processed
+                status: Success
 
         '500':
           description: Internal Server Error
@@ -53,11 +56,11 @@ components:
       properties:
         message:
           type: string
-          example: successfully processed
+          example: Successfully Processed
           description: The detail description on the status
         status:
           type: string
-          example: success
+          example: Success
           description: The status of the API call Success/Failure
     servererror:
       type: object
