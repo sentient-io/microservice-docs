@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Org Group List
+  title: Group List
   description: This microservice is used to vire the org group list.
   x-subscribelink: org_group_list
   version: '0.1.0'
