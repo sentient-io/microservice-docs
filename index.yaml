@@ -349,11 +349,6 @@ Platform APIs:
     urlkey: user_info
     versions:
       0.1.0: 'user_info.yaml'
-  deleted_org_list:
-    title: Deleted Org List
-    urlkey: deleted_org_list
-    versions:
-      0.1.0: 'deleted_org_list.yaml'
   activate_user:
     title: Activate Users
     urlkey: activate_user
