@@ -394,5 +394,15 @@ Platform APIs:
     urlkey: group_info
     versions:
       0.1.0: 'group_info.yaml'
+  subscribed_microservices:
+    title: Subscribed Microservices
+    urlkey: subscribed_microservices
+    versions:
+      0.1.0: 'subscribed_microservices.yaml'
+  api_metering:
+    title: API metering  graph
+    urlkey: api_metering
+    versions:
+      0.1.0: 'api_metering.yaml'
       
    
