@@ -19,9 +19,9 @@ paths:
           name: user_id
           schema:
             type: integer
+          required: true
           description: User id of the user
           example: 1326
-          default: false
       responses:
         '200':
           description: Ok
