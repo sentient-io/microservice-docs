@@ -82,7 +82,12 @@ paths:
                     user_name: root_01
                   - user_id: 5
                     user_name: '22222'
-
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server error
           content:
@@ -232,6 +237,15 @@ components:
                   type: string
                   description: Username of the user
                   example: root_01
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
       properties:
