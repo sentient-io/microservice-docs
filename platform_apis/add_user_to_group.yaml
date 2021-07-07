@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Add user to group
+  title: Add Group To User
   description: This microservice is used to add users to group.
   x-subscribelink: add_user_to_group
   version: '0.1.0'
