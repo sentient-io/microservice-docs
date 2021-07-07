@@ -253,33 +253,30 @@ components:
                 description: Initial version release    
     input:
       type: object
-      required:
-        - user_id
-        - updated_by
       properties:
         from_date:
           x-name: from_date
-          type: integer
+          type: string
           default: True
-          example: 2021-01-01
-          description: User id
+          example: "2021-01-01"
+          description: Details from date
         to_date:
           x-name: to_date
-          type: integer
+          type: string
           default: True
-          example: 2021-02-24
+          example: "2021-02-24"
           description: User updated by
         org_id:
-          x-name: to_date
+          x-name: org_id
           type: integer
           default: True
           example: 1
           description: User updated by
-        each_function_details:
-          x-name: to_date
+        user_id:
+          x-name: user_id
           type: integer
           default: True
-          example: WIKIPEDIA
+          example: 2
           description: User updated by
   securitySchemes:
     APIAuthorizer:
