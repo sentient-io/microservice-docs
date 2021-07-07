@@ -40,6 +40,12 @@ paths:
                   - - '2021-02-02'
                     - 4
                     - 0
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server error
           content:
