@@ -27,6 +27,12 @@ paths:
                   id: 2196
                   new_api_key: AA6A108150A04...
                 status: Success
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server error
           content:
@@ -68,6 +74,15 @@ components:
           type: string
           example: Success
           description: The status of the API call success/failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
       properties:
