@@ -20,16 +20,16 @@ paths:
       parameters:
         - in: query
           name: user_id
-          default: True
           schema:
             type: integer
+          required: true
           description: User Id
           example: 1120
         - in: query
           name: group_id
-          default: True
           schema:
             type: integer
+          required: true
           description: Group Id
           example: 7
       responses:
