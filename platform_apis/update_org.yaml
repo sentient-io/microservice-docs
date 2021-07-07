@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
-  title: Update Org
-  description: Update org info
+  title: Edit Org Info
+  description: This microservice is used to edit and update the organization details.
   version: v0.1.0
-  x-subscribelink: This microservice is used to edit and update the organization details.
+  x-subscribelink: edit_org_info
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io' 
 tags:
