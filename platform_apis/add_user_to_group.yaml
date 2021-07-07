@@ -24,7 +24,7 @@ paths:
             type: integer
           required: true
           description: User Id
-          example: 1120
+          example: 1120 test
         - in: query
           name: group_id
           schema:
