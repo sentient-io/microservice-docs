@@ -99,6 +99,15 @@ components:
           description: The list of Json result object
           items:
             type: object
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
       properties:
