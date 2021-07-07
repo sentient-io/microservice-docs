@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Update user info
+  title: Edit User
   description: This microservice is used to edit and update the user details.
   version: v0.1.0
   x-subscribelink: update_user_info
