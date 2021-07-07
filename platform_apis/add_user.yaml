@@ -92,11 +92,6 @@ components:
           default: True
           example: xxxxxx
           description: User password of the user
-        email_address:
-          x-name: email_address
-          type: string
-          example: test@gmail.com
-          description: User email address of the user
         send_email:
           x-name: send_email
           type: string
@@ -104,7 +99,7 @@ components:
           description: |+
             User email send option
             - yes - Email send to the user
-            - no  - Email no send to the user
+            - no  - Email will not send to user
         user_groups:
           x-name: user_groups
           type: string
