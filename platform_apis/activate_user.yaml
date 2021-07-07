@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Activate User
+  title: Activate Users
   description: This microservice is used to activate the deleted users.
   version: v0.1.0
   x-subscribelink: activate_user
