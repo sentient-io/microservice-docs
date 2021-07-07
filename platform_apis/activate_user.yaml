@@ -29,6 +29,12 @@ paths:
                   - id: 1545
                     username: devd0610v1@senti.io
                 status: success 
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server error
           content:
@@ -57,40 +63,12 @@ components:
           type: string
           example: Success
           description: The status of the API call success/failure
-        
-    unauthorized:
+    invalidinput:
       type: object
       properties:
         message:
           type: string
-          example: Missing Authentication Token
-        status:
-          type: string
-          example: Failure
-    forbidden:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Access Denied Unauthorized User
-        status:
-          type: string
-          example: Failure
-    paymentrequired:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Insufficient Credits Kindly Top Up
-        status:
-          type: string
-          example: Failure
-    notfound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Request URL
+          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -100,33 +78,6 @@ components:
         message:
           type: string
           example: Internal Server error
-        status:
-          type: string
-          example: Failure
-    gatewaytimeout:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Request Timeout
-        status:
-          type: string
-          example: Failure
-    inputfieldmissing:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Input Field Missing
-        status:
-          type: string
-          example: Failure
-    inputlimitexceeded:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Input Limit Exceeded
         status:
           type: string
           example: Failure
