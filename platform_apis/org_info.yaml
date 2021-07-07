@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Org Info
+  title: View Org Info
   description: This microservice is used to view the organization details.
   x-subscribelink: org_info
   version: '0.1.0'
