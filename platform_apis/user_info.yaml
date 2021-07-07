@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: User Info
+  title: View User Details
   description: This microservice is used to view the user info
   x-subscribelink: user_info
   version: '0.1.0'
