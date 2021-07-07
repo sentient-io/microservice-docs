@@ -384,16 +384,17 @@ Platform APIs:
     urlkey: update_user_info
     versions:
       0.1.0: 'update_user_info.yaml'
-  org_group_list:
-    title: Group List
-    urlkey: org_group_list
-    versions:
-      0.1.0: 'org_group_list.yaml'
   group_info:
     title: View Group Details
     urlkey: group_info
     versions:
       0.1.0: 'group_info.yaml'
+  org_group_list:
+    title: Group List
+    urlkey: org_group_list
+    versions:
+      0.1.0: 'org_group_list.yaml'
+  
   subscribed_microservices:
     title: Subscribed Microservices
     urlkey: subscribed_microservices
