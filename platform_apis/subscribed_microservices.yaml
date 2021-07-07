@@ -124,13 +124,13 @@ components:
       properties:
         from_date:
           x-name: from_date
-          type: integer
-          example: 2021-01-01
+          type: string
+          example: "2021-01-01"
           description: From Date will be in YYYY-MM-DD format.
         to_date:
           x-name: to_date
-          type: integer
-          example: 2021-02-24
+          type: string
+          example: "2021-02-24"
           description: To Date will be in YYYY-MM-DD format.
         lang:
           x-name: lang
