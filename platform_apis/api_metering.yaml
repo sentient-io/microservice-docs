@@ -5,7 +5,7 @@ info:
   version: v0.1.0
   x-subscribelink: api_metering
 servers:
-  - url: 'https://dev-microserviceapi-org.sentient.io' 
+  - url: 'https://dev-microserviceapi-catalog.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - May 12, 2021"
@@ -107,17 +107,17 @@ components:
           type: string
           example: YES
           description: Activity details
-        avg_calls_and_time:
+        summary:
           type: object
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties: 
             avg_response_time:
-              description: User Id
+              description: Average response time of the api calls
               example: 3012.5098039215686
               type: integer
             total_error_count:
-              description: User new api key
+              description: Total error count of the api calls
               example: 21.568627450980394
               type: integer
             total_function_count:
@@ -125,28 +125,28 @@ components:
               example: 11
               type: integer
             total_successfull_calls:
-              description: User new api key
+              description: Total success calls of the api
               example: 51
               type: integer
         message:
           type: string
           example: Successfully Processed
-          description: Activity details
+          description: The status message of the API call.
         microservice_indicators:
           type: object
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties: 
             active_microservices:
-              description: User Id
+              description: Active microservice on the specific Organisation
               example: 17
               type: integer
             error_rate:
-              description: User new api key
+              description: Error rate of the api
               example: 6.976744186046512
               type: integer
             total_calls:
-              description: User new api key
+              description: Total microservice calls
               example: 172
               type: integer
         microservice_performance:
@@ -158,55 +158,55 @@ components:
             properties:                      
                 count:
                   type: string
-                  description: User created by
+                  description: Microservice count
                   example: 68
                 endpoint:
                   type: string
-                  description: User created by
+                  description: Microservice endpoint
                   example: https://api.sentient.io/DaaS/dev/ihidata
                 errorrate:
-                  type: string
+                  type: Microservice error rate
                   description: User created by
                   example: 0.0
                 functioncode:
                   type: string
-                  description: User created by
+                  description: Microservice function code
                   example: IHIDATA
                 functionname:
                   type: string
-                  description: User created by
+                  description: Microservice function name
                   example: LiDAR Trajectory Data
         microservice_usage_by_daterange:
           type: array
           example: ["2021-01-27",3,0]
-          description: The list of Json result object
+          description: The list of array result object
           items:
             type: object
         performance_per_microservice:
           type: array
           example: [{<JSON result Object}]
-          description: The list of Json result object
+          description: The list of array Json result object
           items:
             type: object
             properties:                      
                 api_result:
                   type: array
-                  description: User created by
+                  description: The list of Json result object
                   items:
                     type: object
                     properties:
                       message:
                         type: string
-                        description: User created by
+                        description: Stauts of the api result
                         example: ""
                       unsuccesscount:
                         type: string
-                        description: User created by
+                        description: Unsuccess count of the api
                         example: 1
                 total_unsuccess_call:
                   type: string
                   example: 1
-                  description: The status of the API call success/failure
+                  description: Total unsuccess count of the api
         status:
           type: string
           example: Success
@@ -226,11 +226,11 @@ components:
             properties:                      
                 user_id:
                   type: string
-                  description: User created by
+                  description: User id of the user
                   example: 4
                 user_name:
                   type: string
-                  description: User created by
+                  description: Username of the user
                   example: root_01
     servererror:
       type: object
