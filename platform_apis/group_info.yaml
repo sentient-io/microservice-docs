@@ -1,3 +1,4 @@
+
 openapi: 3.0.1
 info:
   title: Group Info
@@ -120,7 +121,7 @@ components:
                       type: string
                       description: User name of the group
                       example: "mohansenti@gmail.com"
-         message:
+        message:
           type: string
           example: Successfully Processed
           description: The detail description on the status
