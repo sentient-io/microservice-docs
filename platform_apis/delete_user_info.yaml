@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Delete User Info
+  title: Delete User
   description: This microservice is used to delete the user info.
   x-subscribelink: delete_user_info
   version: '0.1.0'
