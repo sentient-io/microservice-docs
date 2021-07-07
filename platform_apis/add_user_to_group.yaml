@@ -42,7 +42,12 @@ paths:
               example:
                 message: Successfully Processed
                 status: Success
-
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
@@ -64,6 +69,15 @@ components:
           type: string
           example: Success
           description: The status of the API call Success/Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
       properties:
