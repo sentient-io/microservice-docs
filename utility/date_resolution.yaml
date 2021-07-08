@@ -3,18 +3,18 @@ info:
   title: Date Resolution
   description: |+
     This Utility microservice generate a date based on the input string.
-  version: '0.1.0'
+  version: 'v0.2.0'
   x-subscribelink: date_resolution
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "0.1.0"
-  description: "Published Date - Jun 7, 2021"
+- name: "v0.2.0"
+  description: "Published Date - Jul 8, 2021"
 paths:
   /microservices/utility/dateresolution/v0/getresults:
     post:
       tags:
-        - v0.1.0
+        - v0.2.0
       responses:
         '200':
           description: Ok
@@ -214,7 +214,14 @@ components:
           example: Failure
     versions:
       type: object
-      properties:      
+      properties:
+        v0.2.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 08, 2021
+              description: Additional output date format options
         v0.1.0:
          type: array
          items:
@@ -237,7 +244,9 @@ components:
             - yesterday - It will return yesterday date
             - next day  - It will return tomorrow date
             - next weekdays - It will return next 5 weekdays date in the list
-            - next weekends - It will return next weekends(saturday and sunday) date in the list
+            - next weekend - It will return next weekends(saturday and sunday) date in the list
+            - last weekend - It will return previous weekends(saturday and sunday) date in the list
+            - this weekend - It will return current weekends(saturday and sunday) date in the list
             - next (x)day - It will return next weekday date (for eg: next monday)
             - last (x)day - It will return last weekday date (for eg: last tuesday)
             - next x days - It will return next x days date (for eg: next 5 days)
@@ -248,11 +257,56 @@ components:
             - last weekday of the month - It will return last weekday of the month date
             - every x hours for x occurrence  - It will return x hours for x occurence with UTC time zone  (for eg: every 1 hour for 10 occurrence, every 15 minutes for 10 occurrence)
             - X days from today - It will return x days from today date (for eg: 10 days from today)
+            - X days later - It will return x days from today date (for eg: 10 days from today)
             - next month from today - It will return next month from today date
             - same time next week - It will return next week date with this time from today with UTC time zone
             - same day next week  - It will return next week date from today
             - this time tomorrow  - It will return tomorrow date and time with UTC time zone
             - (x)day after next   - It will return 2 weeks after date (for eg: tuesday after next)
+            - (x)day - It will return current week date
+            - this (x)day - It will return current week date
+            - current (x)day - It will return current week date
+        output_format:
+          type: string
+          example: date-only
+          description: |+
+            Optional. The output date format. This is the default format 2021-06-14 00:00:00 UTC. Other options are:
+            
+            - date-only - Output value as date only. For eg: "2021-06-14"
+            - with-day - Output value as date with day. For eg: "Monday, 2021-06-14 00:00:00 UTC"
+            - custom user format can be set using the following format list. For eg input: "%A, %d. %B %Y %I:%M%p", return as "Monday, 28. June 2021 12:00AM"
+                custom date format list are:
+                - %a - Weekday as locale’s abbreviated name - for eg: Mon
+                - %A - Weekday as locale’s full name - for eg: Monday
+                - %w - Weekday as a decimal number, where 0 is Sunday and 6 is Saturday - for eg: 1
+                - %d - Day of the month as a zero-padded decimal number - for eg: 30
+                - %-d - Day of the month as a decimal number - for eg: 30
+                - %b - Month as locale’s abbreviated name - for eg: Sep
+                - %B - Month as locale’s full name - for eg: September
+                - %m - Month as a zero-padded decimal number - for eg: 09
+                - %-m - Month as a decimal number - for eg: 9
+                - %y - Year without century as a zero-padded decimal number - for eg: 13
+                - %Y - Year with century as a decimal number - 2021
+                - %H - Hour (24-hour clock) as a zero-padded decimal number - for eg: 07
+                - %-H - Hour (24-hour clock) as a decimal number - for eg: 7
+                - %I - Hour (12-hour clock) as a zero-padded decimal number - for eg: 07
+                - %p - Locale’s equivalent of either AM or PM - for eg: AM
+                - %M - Minute as a zero-padded decimal number - foe eg: 06
+                - %-M - Minute as a decimal number - for eg: 6
+                - %S - Second as a zero-padded decimal number - for eg: 05
+                - %-S - Second as a decimal number - for eg: 5
+                - %f - Microsecond as a decimal number, zero-padded on the left - for eg: 000000
+                - %z - UTC offset in the form +HHMM or -HHMM - for eg: HHMM
+                - %Z - Time zone name - for eg: UTC
+                - %j - Day of the year as a zero-padded decimal number - for eg: 273
+                - %-j - Day of the year as a decimal number - for eg: 273
+                - %U - Week number of the year (Sunday as the first day of the week) as a zero padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0 - for eg: 39
+                - %W - Week number of the year (Monday as the first day of the week) as a decimal number. All days in a new year preceding the first Monday are considered to be in week 0 - for eg: 39
+                - %c - Locale’s appropriate date and time representation - for eg: Mon Sep 30 07:06:05 2021
+                - %x - Locale’s appropriate date representation - for eg: 09/30/21
+                - %X - Locale’s appropriate time representation - for eg: 07:06:05
+                - %% - A literal '%' character - for eg: %
+
   securitySchemes:
     APIAuthorizer:
       type: apiKey
