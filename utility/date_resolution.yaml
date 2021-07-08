@@ -245,6 +245,8 @@ components:
             - next day  - It will return tomorrow date
             - next weekdays - It will return next 5 weekdays date in the list
             - next weekend - It will return next weekends(saturday and sunday) date in the list
+            - last weekend - It will return previous weekends(saturday and sunday) date in the list
+            - this weekend - It will return current weekends(saturday and sunday) date in the list
             - next (x)day - It will return next weekday date (for eg: next monday)
             - last (x)day - It will return last weekday date (for eg: last tuesday)
             - next x days - It will return next x days date (for eg: next 5 days)
