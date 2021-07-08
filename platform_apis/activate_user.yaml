@@ -25,9 +25,9 @@ paths:
                 message: successfully processed
                 results:
                   - id: 1326
-                    username: CreateDev1@sentient.com
+                    username: example@sentient.io
                   - id: 1545
-                    username: devd0610v1@senti.io
+                    username: example2@sentient.io
                 status: success 
         '415':
           description: Invalid Input
