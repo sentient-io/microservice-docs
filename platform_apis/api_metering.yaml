@@ -273,25 +273,25 @@ components:
           type: string
           default: True
           example: "2021-01-01"
-          description: Details from date
+          description: Api metering graph details from date in the format YYYY-DD-MM
         to_date:
           x-name: to_date
           type: string
           default: True
           example: "2021-02-24"
-          description: User updated by
+          description: Api metering graph details to date in the format YYYY-DD-MM
         org_id:
           x-name: org_id
           type: integer
           default: True
           example: 1
-          description: User updated by
+          description: Org id to view the api metering graph details 
         user_id:
           x-name: user_id
           type: integer
           default: True
           example: 2
-          description: User updated by
+          description: User id to view the api metering graph details 
   securitySchemes:
     APIAuthorizer:
       type: apiKey
