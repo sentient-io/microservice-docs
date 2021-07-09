@@ -99,7 +99,7 @@ components:
           type: string
           default: True
           example: test@gmail.com
-          description: User name of the user
+          description: User email of the user should be in the proper email format test@gmail.com.
         user_password:
           x-name: user_password
           type: string
@@ -109,9 +109,9 @@ components:
         send_email:
           x-name: send_email
           type: string
-          example: yes
+          example: no
           description: |+
-            User email send option
+            Default value is no. User email send option
             - yes - Email send to the user
             - no  - Email will not send to user
         user_groups:
