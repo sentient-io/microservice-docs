@@ -22,24 +22,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                activity: 'YES'
                 message: Successfully Processed
-                performance_per_microservice:
-                  - api_result:
-                      - message: ''
-                        unsuccesscount: 1
-                    total_unsuccess_call: 1
+                results:
+                  - activity: 'YES'
+                    error_detail:
+                      - api_result:
+                          - auth_message: Invalid Request URL
+                            unsuccess_call: 1
+                        total_unsuccess_call: 1
+                    error_usage:
+                      - - '2021-01-27'
+                        - 2
+                        - 0
+                      - - '2021-01-28'
+                        - 2
+                        - 0
                 status: Success
-                usage_per_microservice:
-                  - - '2021-01-27'
-                    - 2
-                    - 0
-                  - - '2021-01-28'
-                    - 2
-                    - 0
-                  - - '2021-02-02'
-                    - 4
-                    - 0
         '415':
           description: Invalid Input
           content:
@@ -66,45 +64,55 @@ components:
     success:
       type: object
       properties:
-        activity:
+        message:
           type: string
-          example: YES
-          description: Activity details
-        performance_per_microservice:
+          example: Successfully Processed
+          description: The detailed status if the api call
+        results:
           type: array
           example: [{<JSON result Object}]
           description: The list of array Json result object
           items:
             type: object
-            properties:                      
-                api_result:
+            properties:
+                activity:
+                  type: string
+                  example: YES
+                  description: Activity details
+                error_detail:
                   type: array
                   description: The list of Json result object
                   items:
                     type: object
                     properties:
-                      message:
+                      api_result:
+                        type: array
+                        description: The list of Json result object
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                              description: Stauts of the api result
+                              example: ""
+                            unsuccesscount:
+                              type: string
+                              description: Unsuccess count of the api
+                              example: 1
+                      total_unsuccess_call:
                         type: string
-                        description: Stauts of the api result
-                        example: ""
-                      unsuccesscount:
-                        type: string
-                        description: Unsuccess count of the api
                         example: 1
-                total_unsuccess_call:
-                  type: string
-                  example: 1
-                  description: Total unsuccess count of the api
+                        description: Total unsuccess count of the api
+                error_usage:
+                  type: array
+                  example: ["2021-01-27",2,0]
+                  description: Array of date in the format YYYY-MM-DD, Authorised Calls, Unsuccessful Calls
+                  items:
+                    type: object
         status:
           type: string
           example: Success
           description: The status of the API call success/failure
-        usage_per_microservice:
-          type: array
-          example: ["2021-01-27",2,0]
-          description: The list of Json result object
-          items:
-            type: object
     invalidinput:
       type: object
       properties:
