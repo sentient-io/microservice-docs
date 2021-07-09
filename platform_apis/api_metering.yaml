@@ -109,7 +109,8 @@ components:
                           example: https://api.sentient.io/DaaS/dev/ihidata
                           description: Endpoint of the microservice
                         error_rate:
-                          type: string
+                          type: integer
+                          format: float
                           example: 0.0
                           description: Microserive error rate
                         function_code:
@@ -121,7 +122,7 @@ components:
                           example: LiDAR Trajectory Data
                           description: Microserive function name
                         total_calls:
-                          type: string
+                          type: integer
                           example: 68
                           description: Microserive total calls count
                 microservice_usage_by_daterange:
@@ -139,12 +140,14 @@ components:
                       description: Average response time of the api calls
                       example: 3012.5098039215686
                       type: integer
+                      format: float
                     total_error_count:
                       description: Total error count of the api calls
                       example: 21.568627450980394
                       type: integer
+                      format: float
                     total_function_count:
-                      description: User new api key
+                      description: Total function count
                       example: 11
                       type: integer
                     total_successfull_calls:
@@ -159,7 +162,7 @@ components:
                     type: object
                     properties:                      
                         user_id:
-                          type: string
+                          type: integer
                           description: User id of the user
                           example: 4
                         user_name:
