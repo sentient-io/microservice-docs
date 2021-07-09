@@ -121,14 +121,19 @@ components:
                 description: Initial version release    
     input:
       type: object
+      required:
+        - from_date
+        - to_date
       properties:
         from_date:
           x-name: from_date
+          default: True
           type: string
           example: "2021-01-01"
           description: From Date will be in YYYY-MM-DD format.
         to_date:
           x-name: to_date
+          default: True
           type: string
           example: "2021-02-24"
           description: To Date will be in YYYY-MM-DD format.
