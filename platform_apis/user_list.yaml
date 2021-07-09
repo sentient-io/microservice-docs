@@ -68,19 +68,17 @@ components:
                   description: User id of the user
                   example: "1527"
                 groups: 
-                  type: array
-                  example: [{<JSON ressnult Object}]
-                  items:
-                    type: object
-                    properties:                      
-                        id:
-                          type: integer
-                          description: Group Id of the user
-                          example: "1491"
-                        value:
-                          type: string
-                          description: Group name of the user
-                          example: "AI & Data (Individual)"
+                  type: object
+                  example: {<JSON ressnult Object}
+                  properties:                      
+                    id:
+                      type: integer
+                      description: Group Id of the user
+                      example: "1491"
+                    value:
+                      type: string
+                      description: Group name of the user
+                      example: "AI & Data (Individual)"
                 last_activity: 
                   type: string
                   description: Last login activity of the user
@@ -91,7 +89,7 @@ components:
                   example: "dev061020_v1@sent.io"
                 created_by:
                   type: string
-                  description: User created by user details
+                  description: Created by User name
                   example: "admin"
                 date_created: 
                   type: string
@@ -100,8 +98,8 @@ components:
                 root_user: 
                   type: string
                   description: |+
-                    Root user yes - Super admin for the user
-                    Root user no  - only the user
+                    Root user yes - Super admin of the org
+                    Root user no  - User of the org
                   example: "yes"
     servererror:
       type: object
