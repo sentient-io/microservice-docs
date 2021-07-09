@@ -105,7 +105,8 @@ components:
           type: string
           default: True
           example: xxxxxx
-          description: User password of the user
+          description: |+
+            User password of the user must contain at least 8 characters and mixture of alphanumeric characters with at least one or more special characters, numbers, upper and lower case
   securitySchemes:
     APIAuthorizer:
       type: apiKey
