@@ -67,7 +67,7 @@ components:
           type: string
           example: Successfully Processed
           description: Activity details
-        microservice_performance:
+        results:
           type: array
           example: [{<JSON result Object}]
           description: The list of Json result object
@@ -95,7 +95,7 @@ components:
                 doc_url:
                   type: string
                   description: Microservice document url
-                  example: ""
+                  example: "https://docs.sentient.io/#/utility/date_resolution"
                 endpoint:
                   type: string
                   description: Microservice endpoint
