@@ -30,8 +30,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: successfully deleted
-                status: success
+                message: Successfully Deleted
+                status: Success
         '415':
           description: Invalid Input
           content:
@@ -53,7 +53,7 @@ components:
       properties:
         message:
           type: string
-          example: successfully deleted
+          example: Successfully Deleted
           description: The detail description on the status
         status:
           type: string
