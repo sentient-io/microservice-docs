@@ -23,9 +23,8 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: successfully processed
-                results:
-                  id: 2196
                 status: success
+                user_id: 111
         '415':
           description: Invalid Input
           content:
@@ -60,6 +59,10 @@ components:
           type: string
           example: Success
           description: The status of the API call success/failure
+        user_id:
+          type: string
+          example: 111
+          description: User id of the user
     invalidinput:
       type: object
       properties:
