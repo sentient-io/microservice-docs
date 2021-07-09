@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: API metering  graph
+  title: API metering
   description: This microservice is used to view the API metering  graph.
   version: v0.1.0
   x-subscribelink: api_metering
