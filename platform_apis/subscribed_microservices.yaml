@@ -29,7 +29,7 @@ paths:
                     calls: 57
                     spend: 0
                     class: Utility
-                    doc_url: ''
+                    doc_url: 'https://docs.sentient.io/#/utility/date_resolution'
                     endpoint: >-
                       https://dev-apis.sentient.io/microservices/utility/dateresolution/v0/getresults
                   - microservice: Date Resolution
@@ -39,6 +39,12 @@ paths:
                     doc_url: ''
                     endpoint: >-
                       https://dev-apis.sentient.io/microservices/utility/dateresolution/v0/getresults
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server error
           content:
@@ -100,6 +106,15 @@ components:
                   type: string
                   description: Microservice endpoint
                   example: https://dev-apis.sentient.io/microservices/utility/dateresolution/v0/getresults
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
       properties:
