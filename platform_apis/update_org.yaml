@@ -23,9 +23,6 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: Successfully processed
-                results:
-                  id: 2196
-                  new_api_key: AA6A108150A04...
                 status: Success
         '415':
           description: Invalid Input
@@ -57,19 +54,6 @@ components:
           type: string
           example: Successfully Processed
           description: Detail description on the API status
-        results:
-          type: object
-          description: The result of the API call.
-          example: { "<Json": "Object>" }
-          properties: 
-            id:
-              description: id
-              example: 2196
-              type: integer
-            new_api_key:
-              description: New api key
-              example: "AA6A108150A04..."
-              type: string
         status:
           type: string
           example: Success
@@ -104,7 +88,6 @@ components:
                 description: Initial version release    
     input:
       type: object
-      required:
       properties:
         org_id:
           x-name: org_id
