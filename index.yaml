@@ -396,12 +396,12 @@ Platform APIs:
     versions:
       0.1.0: 'subscribed_microservices.yaml'
   api_metering:
-    title: API metering  graph
+    title: API metering
     urlkey: api_metering
     versions:
       0.1.0: 'api_metering.yaml'
   api_metering_microservice:
-    title: API metering  graph by microservice
+    title: API metering by microservice
     urlkey: api_metering_microservice
     versions:
       0.1.0: 'api_metering_microservice.yaml'
