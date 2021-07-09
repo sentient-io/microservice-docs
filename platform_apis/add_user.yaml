@@ -120,9 +120,11 @@ components:
             - no  - Email will not send to user
         user_groups:
           x-name: user_groups
-          type: string
-          example: []
+          type: array
+          example: [7,5]
           description: User groups list of the user
+          items:
+            type: object
   securitySchemes:
     APIAuthorizer:
       type: apiKey
