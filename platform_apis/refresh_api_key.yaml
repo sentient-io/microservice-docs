@@ -93,7 +93,7 @@ components:
           x-name: user_id
           type: integer
           example: 2196
-          description: User id of the user
+          description: Default it will be based on api key user details
   securitySchemes:
     APIAuthorizer:
       type: apiKey
