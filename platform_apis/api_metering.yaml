@@ -127,7 +127,7 @@ components:
                 microservice_usage_by_daterange:
                   type: array
                   example: ["2021-01-27",3,0]
-                  description: Array format of date, Authorised Calls, Unsuccessful Calls
+                  description: Array of date in the format YYYY-MM-DD, Authorised Calls, Unsuccessful Calls
                   items:
                     type: object
                 summary:
