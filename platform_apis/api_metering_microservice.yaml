@@ -151,11 +151,6 @@ components:
           default: True
           example: "2021-02-24"
           description: Api metering graph details to date in the format YYYY-DD-MM
-        org_id:
-          x-name: org_id
-          type: integer
-          example: 1
-          description: Org id to view the api metering graph details
         user_id:
           x-name: user_id
           type: integer
