@@ -30,7 +30,7 @@ paths:
                       - id: 2374
                         value: AI & Data (Individual)
                     last_activity: 22 jun 2021 / 12:21
-                    user_name: mohansenti@gmail.com
+                    user_name: example@example.io
                     created_by: admin
                     date_created: 22 jun 2021 / 20:12
                     root_user: 'yes'
@@ -91,7 +91,7 @@ components:
                 user_name: 
                   type: string
                   description: User name of the user
-                  example: "dev061020_v1@sent.io"
+                  example: "example@example.io"
                 created_by:
                   type: string
                   description: Created by User name
