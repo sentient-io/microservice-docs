@@ -115,8 +115,8 @@ components:
           x-name: user_name
           type: string
           default: True
-          example: test@gmail.com
-          description: User email of the user should be in the proper email format test@gmail.com.
+          example: example@example.com
+          description: User email of the user should be in the proper email format example@example.com.
         user_password:
           x-name: user_password
           type: string
