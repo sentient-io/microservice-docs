@@ -24,8 +24,8 @@ paths:
               example:
                 result:
                   org_id: 829
-                  name: sridevitest01@sentient.io
-                  email: sridevitest01@sentient.io
+                  name: example@example.io
+                  email: example@example.io
                   description: 'contact person testorg05081 '
                   date_created: 05 aug 2020 / 16:53
                   date_updated: 05 aug 2020 / 16:53
