@@ -27,6 +27,12 @@ paths:
                   user_id: 2196
                   new_api_key: 5D8BA2F849F9...
                 status: Success
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
         '500':
           description: Internal Server error
           content:
@@ -85,7 +91,15 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Jul 09, 2021
-                description: Initial version release    
+                description: Initial version release  
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
     input:
       type: object
       properties:
