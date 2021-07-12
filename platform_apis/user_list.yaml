@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: User List
-  description: This microservice is used to view the user details.
+  description: This API allows an orgonization admin to access user list inforamtion and data.
   x-subscribelink: user_list
   version: '0.1.0'
 servers:
