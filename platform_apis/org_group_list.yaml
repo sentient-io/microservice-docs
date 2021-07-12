@@ -31,6 +31,12 @@ paths:
                     group_id: 2374
                     users_cnt: 1
                 status: Success
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
         '500':
           description: Internal Server Error
           content:
@@ -83,6 +89,14 @@ components:
           type: string
           example: Success
           description: The status of the API call Success/Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
     servererror:
       type: object
       properties:
