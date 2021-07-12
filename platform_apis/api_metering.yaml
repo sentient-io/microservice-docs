@@ -55,7 +55,12 @@ paths:
                       - user_id: 5
                         user_name: '22222'
                 status: Success
-
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
         '415':
           description: Invalid Input
           content:
