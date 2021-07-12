@@ -32,7 +32,7 @@ paths:
               example:
                 results:
                   user_id: '2194'
-                  user_name: mohansenti@gmail.com
+                  user_name: example@example.io
                   last_active: 22 jun 2021 / 13:43
                   user_api_key: C92FE433074E498081C2
                   groups:
@@ -81,7 +81,7 @@ components:
               description: User id of the user
             user_name:
               type: string
-              example: "mohansenti@gmail.com"
+              example: "example@example.io"
               description: User name of the user
             last_active:
               type: string
