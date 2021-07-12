@@ -111,7 +111,7 @@ components:
         email:
           x-name: email
           type: string
-          example: test@gmail.com
+          example: example@example.com
           description: Organization email
         description:
           x-name: description
