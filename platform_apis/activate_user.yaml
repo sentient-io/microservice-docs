@@ -25,9 +25,9 @@ paths:
                 message: successfully processed
                 results:
                   - id: 1326
-                    username: example@sentient.io
+                    username: example@example.com
                   - id: 1545
-                    username: example2@sentient.io
+                    username: example2@example.com
                 status: success 
         '403':
           description: Forbidden
