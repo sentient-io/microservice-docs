@@ -263,7 +263,6 @@ data:
     title: HDB Fitness Stations and Playgrounds (SG)
     versions:
       1.0.0: 'fitness_stations_and_playgrounds_hdb_sg_v1.0.yaml'
-      0.1.0: 'fitness_stations_and_playgrounds_hdb_sg.yaml'
   amenities_lamp_posts_hdb_sg:
     title: HDB Lamp Posts Locations (SG)
     versions:
