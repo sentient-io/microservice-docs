@@ -106,7 +106,6 @@ nlp:
     title: Named-Entity Recognition JP
     versions:
       1.0.0: 'named-entity_recognition_jp_v1.0.yaml'
-      0.1.0: 'named-entity_recognition_jp.yaml'
   named-entity_recognition_thai:
     title: Named Entity Recognition THAI
     versions:
