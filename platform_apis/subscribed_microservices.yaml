@@ -39,6 +39,12 @@ paths:
                     doc_url: ''
                     endpoint: >-
                       https://dev-apis.sentient.io/microservices/utility/dateresolution/v0/getresults
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
         '415':
           description: Invalid Input
           content:
@@ -106,6 +112,14 @@ components:
                   type: string
                   description: Microservice endpoint
                   example: https://dev-apis.sentient.io/microservices/utility/dateresolution/v0/getresults
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
     invalidinput:
       type: object
       properties:
