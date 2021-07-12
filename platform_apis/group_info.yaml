@@ -133,7 +133,7 @@ components:
                     value: 
                       type: string
                       description: User name of the group
-                      example: "mohansenti@gmail.com"
+                      example: "example@example.com"
         message:
           type: string
           example: Successfully Processed
