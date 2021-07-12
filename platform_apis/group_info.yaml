@@ -2,7 +2,7 @@
 openapi: 3.0.1
 info:
   title: Group Info
-  description: This microservice is used to view the group info.
+  description: This API provides collection of API Metering graphs that lets you as an admion read and create group data on behalf group memebers. By using this API, a group admin can grant access to group content and allow to publish content to the group on behalf of the admin.
   x-subscribelink: group_info
   version: '0.1.0'
 servers:
