@@ -5133,7 +5133,7 @@ components:
                 email: 
                   type: string
                   description: email of the user
-                  example: "asd@gmail.com"
+                  example: "example@example.com"
                 id: 
                   type: integer
                   description: id
