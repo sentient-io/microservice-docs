@@ -184,7 +184,6 @@ utility:
     title: Wikipedia Retrieval
     versions:
       1.0.0: 'wikipedia_retrieval_v1.0.yaml'
-      0.1.0: 'wikipedia_retrieval.yaml'
   json-csv_convertor:
     title: JSON-CSV Convertor
     versions:
