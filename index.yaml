@@ -32,7 +32,6 @@ voice:
     title: Automatic Speech Recognition CHI
     versions:
       1.0.0: 'automatic_speech_recognition_chi_v1.0.yaml'
-      0.1.1: 'automatic_speech_recognition_chi.yaml'
   online_automatic_speech_recognition_eng:
     title: Online Automatic Speech Recognition ENG
     versions:
