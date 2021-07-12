@@ -38,6 +38,12 @@ paths:
                         - 2
                         - 0
                 status: Success
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
         '415':
           description: Invalid Input
           content:
@@ -113,6 +119,14 @@ components:
           type: string
           example: Success
           description: The status of the API call success/failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
     invalidinput:
       type: object
       properties:
