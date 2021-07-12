@@ -24,7 +24,12 @@ paths:
               example:
                 message: Successfully Processed
                 status: Success
-
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
         '415':
           description: Invalid Input
           content:
@@ -77,7 +82,14 @@ components:
         status:
           type: string
           example: Failure
-    
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
     versions:
       type: object
       properties: 
