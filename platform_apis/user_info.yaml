@@ -51,6 +51,12 @@ paths:
                   referral_code: '5571014473'
                 message: Successfully Processed
                 status: Success
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
         '500':
           description: Internal Server Error
           content:
@@ -151,6 +157,14 @@ components:
         status:
           type: string
           example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
     versions:
       type: object
       properties:
