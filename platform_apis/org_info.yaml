@@ -102,7 +102,7 @@ components:
               description: Organization client Id
             public_key:
               type: string
-              example: sritest2@test.com
+              example: example@example.io
               description: Organization public key
             ctype:
               type: string
