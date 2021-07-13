@@ -108,7 +108,7 @@ components:
                     example: { "<Json": "Object>" }
                     description: The details scan document data
                     properties:
-                      docSize:
+                      docsize:
                         type: array
                         example: [[1990,1490]]
                         description: An array contain the size info of tempalte
@@ -134,11 +134,11 @@ components:
                         type: string
                         example: receipt
                         description: Type of document
-                      invoiceNumber:
+                      invoicenumber:
                         type: string
                         example: INV-4412
                         description: Invoice number
-                      tableDetected:
+                      tabledetected:
                         type: boolean
                         example: True
                         description: True if table detected 
