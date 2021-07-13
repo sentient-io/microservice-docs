@@ -22,13 +22,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: successfully processed
-                results:
-                  - id: 1326
-                    username: example@example.com
-                  - id: 1545
-                    username: example2@example.com
-                status: success 
+                message: Successfully Processed
+                status: Success 
         '403':
           description: Forbidden
           content:
