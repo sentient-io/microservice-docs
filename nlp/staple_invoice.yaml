@@ -90,7 +90,7 @@ components:
             example: { "<Json": "Object>" }
             description: The result of the API call
             properties:
-              scanDocuments: 
+              scandocuments: 
                 type: object
                 example: { "<Json": "Object>" }
                 description: The details of documents
@@ -150,7 +150,7 @@ components:
                         type: object
                         example: { "<Json": "Object>" }
                         description: Sub-Total
-                      taxTotal:
+                      taxtotal:
                         type: object
                         example: { "<Json": "Object>" }
                         description: Tax Total 
@@ -166,7 +166,7 @@ components:
                         type: object
                         example: { "<Json": "Object>" }
                         description: Billing to Address  
-                      Email:
+                      email:
                         type: object
                         example: { "<Json": "Object>" }
                         description: Email 
