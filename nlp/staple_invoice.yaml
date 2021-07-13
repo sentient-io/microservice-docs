@@ -132,7 +132,7 @@ components:
                         description: Supplier name
                       type:
                         type: string
-                        example: receipt
+                        example: invoice
                         description: Type of document
                       invoicenumber:
                         type: string
