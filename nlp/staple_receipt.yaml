@@ -1440,10 +1440,106 @@ components:
             example: { "<Json": "Object>" }
             description: The result of the API call
             properties:
-              scanDocuments: 
+              scandocuments: 
                 type: object
                 example: { "<Json": "Object>" }
                 description: The details of documents
+                properties:
+                  docId:
+                    type: number
+                    example: 102581
+                    description: Document ID
+                  status:
+                    type: string
+                    example: COMPLETED
+                    description: Status of staple API
+                  data:
+                    type: object
+                    example: { "<Json": "Object>" }
+                    description: The details scan document data
+                    properties:
+                      docsize:
+                        type: array
+                        example: [[1990,1490]]
+                        description: An array contain the size info of tempalte
+                        items:
+                          oneOf:
+                            - type: number
+                              example: 1990
+                            - type: number
+                              example: 1490  
+                      num_pages:
+                        type: number
+                        example: 1
+                        description: Total pages
+                      customer:
+                        type: string
+                        example: XYZ Buyer
+                        description: Customer name
+                      supplier:
+                        type: string
+                        example: ABC Supplier
+                        description: Supplier name                        
+                      type:
+                        type: string
+                        example: receipt
+                        description: Type of document     
+                      tabledetected:
+                        type: boolean
+                        example: True
+                        description: True if table detected 
+                      total:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: Invoice Total amount     
+                      subtotal:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: Sub-Total
+                      taxtotal:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: Tax Total 
+                      servicecharge:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: ServiceCharge     
+                      currency:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: Currency  
+                      billingdddress:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: Billing to Address  
+                      email:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: Email 
+                      url:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: URL 
+                      uennumber:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: UENNumber
+                      gstnumber:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: GSTNumber     
+                      senderaddress:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: SenderAddress     
+                      otherdate:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: OtherDate   
+                      lineitems_standardheader:
+                        type: object
+                        example: { "<Json": "Object>" }
+                        description: LineItems_standardHeader                          
           message:
             type: string
             example: Successfully Processed
