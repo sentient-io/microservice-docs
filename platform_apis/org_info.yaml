@@ -30,8 +30,8 @@ paths:
                   date_created: 05 aug 2020 / 16:53
                   date_updated: 05 aug 2020 / 16:53
                   user_name: admin
-                  api_key: 5B64B2B3EE364313AABA
-                  client_id: CC22C1F1
+                  api_key: 5B64B2B...
+                  client_id: CC22..
                   public_key: ''
                   ctype: 'NO'
                 message: ''
@@ -70,11 +70,11 @@ components:
               description: Organization Id
             name:
               type: string
-              example: sridevitest01@sentient.io
+              example: example@example.io
               description: Organization name
             email:
               type: string
-              example: sridevitest01@sentient.io
+              example: example@example.io
               description: Organization email
             description:
               type: string
@@ -102,7 +102,7 @@ components:
               description: Organization client Id
             public_key:
               type: string
-              example: example@example.io
+              example: XXDDXXC
               description: Organization public key
             ctype:
               type: string
