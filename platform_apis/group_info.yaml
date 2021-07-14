@@ -22,7 +22,7 @@ paths:
             type: integer
           required: true
           description: Group Id
-          example: 253
+          example: "253"
       responses:
         '200':
           description: Ok
