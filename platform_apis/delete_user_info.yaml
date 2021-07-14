@@ -21,7 +21,7 @@ paths:
             type: integer
           required: true
           description: User id of the user
-          example: 1326
+          example: "1326"
       responses:
         '200':
           description: Ok
