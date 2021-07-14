@@ -27,6 +27,12 @@ paths:
                   user_id: 2196
                   new_api_key: 5D8BA2F849F9...
                 status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
         '403':
           description: Forbidden
           content:
@@ -73,6 +79,15 @@ components:
           type: string
           example: Success
           description: The status of the API call success/failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
       properties:
