@@ -34,6 +34,12 @@ paths:
                     created_by: admin
                     date_created: 22 jun 2021 / 20:12
                     root_user: 'yes'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
         '403':
           description: Forbidden
           content:
@@ -106,6 +112,15 @@ components:
                     Root user yes - Super admin of the org
                     Root user no  - User of the org
                   example: "yes"
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
       properties:
