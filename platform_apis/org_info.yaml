@@ -26,7 +26,7 @@ paths:
                   org_id: 829
                   name: example@example.io
                   email: example@example.io
-                  description: 'contact person testorg05081 '
+                  description: 'example description'
                   date_created: 05 aug 2020 / 16:53
                   date_updated: 05 aug 2020 / 16:53
                   user_name: admin
@@ -84,7 +84,7 @@ components:
               description: Organization email
             description:
               type: string
-              example: contact person testorg05081
+              example: example description
               description: Organization description
             date_created:
               type: string
@@ -100,15 +100,15 @@ components:
               description: Organization created by admin
             org_api_key:
               type: string
-              example: XXDDXXC
+              example: 5B64B2B...
               description: Organization API Key
             client_id:
               type: string
-              example: CC22C1F1
+              example: CC22C..
               description: Organization client Id
             public_key:
               type: string
-              example: XXDDXXC
+              example: MIGfMA0GCSq...
               description: Organization public key
             ctype:
               type: string
