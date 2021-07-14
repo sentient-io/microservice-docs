@@ -25,6 +25,12 @@ paths:
                 message: successfully processed
                 status: success
                 user_id: 111
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
         '403':
           description: Forbidden
           content:
@@ -84,6 +90,15 @@ components:
         message:
           type: string
           example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
         status:
           type: string
           example: Failure
