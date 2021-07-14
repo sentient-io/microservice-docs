@@ -20,7 +20,7 @@ paths:
           schema:
             type: integer
           description: Default it will be based on api key user details
-          example: 1334
+          example: "1334"
           default: false
       responses:
         '200':
