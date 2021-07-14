@@ -24,14 +24,14 @@ paths:
             type: integer
           required: true
           description: User Id
-          example: 1121
+          example: "1121"
         - in: query
           name: group_id
           schema:
             type: integer
           required: true
           description: Group Id
-          example: 7
+          example: "7"
       responses:
         '200':
           description: Ok
