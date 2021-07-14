@@ -38,6 +38,12 @@ paths:
                         - 2
                         - 0
                 status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
         '403':
           description: Forbidden
           content:
@@ -127,6 +133,15 @@ components:
           example: Access Denied Unauthorized User
         status:
           type: string
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
     invalidinput:
       type: object
       properties:
