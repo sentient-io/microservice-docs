@@ -32,6 +32,12 @@ paths:
               example:
                 message: Successfully Deleted
                 status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
         '403':
           description: Forbidden
           content:
@@ -71,6 +77,15 @@ components:
         message:
           type: string
           example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
         status:
           type: string
           example: Failure
