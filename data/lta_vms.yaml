@@ -27,10 +27,10 @@ paths:
                 message: Successfully Processed
                 status: Success
                 results:
-                - EquipmentID: AVMS_01_00501
-                  Latitude: 1.3290499998616139
-                  Longitude: 103.87474391991731
-                  Message: ROAD|WORKS ON|BENDEMEER
+                - equipmentID: AVMS_01_00501
+                  latitude: 1.3290499998616139
+                  longitude: 103.87474391991731
+                  message: ROAD|WORKS ON|BENDEMEER
         '401':
           description: Unauthorized
           content:
@@ -107,19 +107,19 @@ components:
           items:
             type: object
             properties:
-              EquipmentID:
+              equipmentID:
                 type: string
                 example: AVMS_01_00501
                 description: EMAS equipment ID
-              Latitude:
+              latitude:
                 type: string
                 example: 1.3290499998616139
                 description: Latitude map coordinates of electronic signboard.
-              Longitude:
+              longitude:
                 type: string
                 example: 103.87474391991731
                 description: Longitude map coordinates of electronic signboard.
-              Message:
+              message:
                 type: string
                 example: ROAD|WORKS ON|BENDEMEER
                 description: VEH BREAKDOWN SH,AFTU.THOMSON          
