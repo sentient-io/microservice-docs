@@ -299,6 +299,10 @@ data:
     title: Trajectory Clustering
     versions:
       0.1.0: 'trajectory_clustering.yaml'
+  lta_faulty_traffic_lights:
+    title: LTA Faulty Traffic Lights
+    versions:
+      0.1.0: 'lta_faulty_traffic_lights.yaml'      
 data alliance:
   download_dataset_api:
     title: Download Dataset API
