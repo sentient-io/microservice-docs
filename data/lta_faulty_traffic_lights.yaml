@@ -6,7 +6,7 @@ info:
     Returns alerts of traffic lights that are currently faulty, or currently undergoing scheduled maintenance. Updated every 2 minutes or whenever there are updates.
   version: '0.1.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
