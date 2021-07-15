@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: LTA Faulty Traffic Lights
-  x-subscribelink: lta_faulty_traffic_lights
+  x-subscribelink: ltafaultytrafficlights
   description: |+
     Returns alerts of traffic lights that are currently faulty, or currently undergoing scheduled maintenance. Updated every 2 minutes or whenever there are updates.
   version: '0.1.0'
@@ -103,6 +103,8 @@ components:
           description: The status of the API call Success/Failure      
         results:
           type: array
+          example: {<Json Object>}
+          description: Json Object of returned results 
           items:
             type: object
             properties:
