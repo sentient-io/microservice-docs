@@ -11,7 +11,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
 paths:
-   /DaaS/dev/lta/Traffic-Imagesv2:
+   /microservices/data/ltatrafficimagesv2/v0/getdata:
     get:
       tags:
         - v0.1.0
