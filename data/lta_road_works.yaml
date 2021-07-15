@@ -26,12 +26,12 @@ paths:
                 message: Successfully Processed
                 status: Success
                 results:
-                - eventID: RMAPP-201512-0217
-                  startDate: 2021-2-14
-                  endDate: 2021-3-31
-                  svcDept: SP POWERGRID LTD - REGIONAL
+                - eventid: RMAPP-201512-0217
+                  startdate: 2021-2-14
+                  enddate: 2021-3-31
+                  svcdept: SP POWERGRID LTD - REGIONAL
                             NETWORK CENTRAL
-                  roadName: ADAM DRIVE
+                  roadname: ADAM DRIVE
                   other: For details, please call 67273085
         '401':
           description: Unauthorized
@@ -109,29 +109,29 @@ components:
           items:
             type: object
             properties:
-              eventID:
+              eventid:
                 type: string
                 example: RMAPP-201512-0217
                 description: ID for this road work
-              startDate:
+              startdate:
                 type: string
                 example: 2021-2-14
                 description: Start date for the works
                                   performed for this road work
                                   (in YYYY-MM-DD format)
-              endDate:
+              enddate:
                 type: string
                 example: 2021-3-31
                 description: End date for works performed
                               for this road work
                               (in YYYY-MM-DD format)
-              svcDept:
+              svcdept:
                 type: string
                 example: SP POWERGRID LTD - REGIONAL
                           NETWORK CENTRAL
                 description: Department or company
                                 performing this road work
-              roadName:
+              roadname:
                 type: string
                 example: ADAM DRIVE
                 description: Name of road where work is
