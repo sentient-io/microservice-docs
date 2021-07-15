@@ -27,10 +27,10 @@ paths:
                 message: Successfully Processed
                 status: Success
                 results:
-                - Type: Roadwork
-                  Latitude: 1.3765155261589948
-                  Longitude: 103.72976844706339
-                  Message: "(25/2)13:13 Roadworks on Boon Lay Way (towards City) after Jalan Boon Lay. Avoid right lane."
+                - type: Roadwork
+                  latitude: 1.3765155261589948
+                  longitude: 103.72976844706339
+                  message: "(25/2)13:13 Roadworks on Boon Lay Way (towards City) after Jalan Boon Lay. Avoid right lane."
         '401':
           description: Unauthorized
           content:
@@ -107,7 +107,7 @@ components:
           items:
             type: object
             properties:
-              Type:
+              type:
                 type: string
                 example: GL703034136
                 description: |+
@@ -122,15 +122,15 @@ components:
                           • Misc.
                           • Diversion
                           • Unattended Vehicle                
-              Latitude:
+              latitude:
                 type: string
                 example: 1.3415018509600185
                 description: Latitude map coordinates for the start point of this road incident
-              Longitude:
+              longitude:
                 type: string
                 example: 103.71215415465709
                 description: Longitude map coordinates for the start point of this incident
-              Message:
+              message:
                 type: string
                 example: (25/2)13:13 Roadworks on Boon Lay Way (towards City) after Jalan Boon Lay. Avoid right lane.
                 description: Description message for this incident   
