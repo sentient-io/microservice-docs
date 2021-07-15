@@ -75,6 +75,10 @@ components:
           type: string
           example: 111
           description: User id of the user
+        user_apikey:
+          type: string
+          example: B62F6F537F064AACB78C
+          description: Apikey of the user
     invalidinput:
       type: object
       properties:
