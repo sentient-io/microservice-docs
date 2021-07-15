@@ -406,10 +406,10 @@ Platform APIs:
     versions:
       0.1.0: 'api_metering.yaml'
   api_metering_microservice:
-    title: API metering by microservice
-    urlkey: api_metering_microservice
+    title: API metering error details
+    urlkey: api_metering_error_details
     versions:
-      0.1.0: 'api_metering_microservice.yaml'
+      0.1.0: 'api_metering_error_details.yaml'
      
       
    
