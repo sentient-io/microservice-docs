@@ -3,8 +3,7 @@ info:
   title: LTA Traffic Speed Bands
   x-subscribelink: lta_traffic_speed_bands
   description: |+
-        Returns current traffic speeds on expressways and arterial roads,
-        expressed in speed bands. Updates every 5 minutes.
+        Returns current traffic speeds on expressways and arterial roads,expressed in speed bands. Updates every 5 minutes.
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
