@@ -1,0 +1,256 @@
+openapi: 3.0.1
+info:
+  title: LTA Traffic Speed Bands
+  x-subscribelink: lta_traffic_speed_bands
+  description: |+
+        Returns current traffic speeds on expressways and arterial roads,
+        expressed in speed bands. Updates every 5 minutes.
+  version: '0.1.0'
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jul 30, 2021"
+paths:
+   /microservices/data/ltatrafficspeedbandsv2/v0/getdata:
+    get:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                status: Success
+                results:
+                - linkid: 103000000
+                  location: 1.3170142376560023 103.85298052044503 1.3166840028663076 103.85259882242372
+                  maximumspeed: 29
+                  minimumspeed: 20
+                  roadcategory: E
+                  roadname: KENT ROAD
+                  speedband: 3
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'    
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure      
+        results:
+          type: array
+          example: {<Json Object>}
+          description: Json Object of returned results 
+          items:
+            type: object
+            properties:
+              linkid:
+                type: string
+                example: 103000000
+                description: Unique ID for this stretch of road
+              location:
+                type: string
+                example: "1.3170142376560023 103.85298052044503 1.3166840028663076 103.85259882242372"
+                description: Latitude and Longitude map
+                              coordinates for start and end points
+                              for this stretch of road
+              maximumspeed:
+                type: string
+                example: "29"
+                description: Maximum speed in km/h
+              minimumspeed:
+                type: string
+                example: "20"
+                description: Minimum speed in km/h
+              roadcategory:
+                type: string
+                example: "E"
+                description:  |+
+                              * A – Expressways
+                              * B – Major Arterial Roads
+                              * C – Arterial Roads
+                              * D – Minor Arterial Roads
+                              * E – Small Roads
+                              * F – Slip Roads
+                              * G – No category info available  
+              roadname:
+                type: string
+                example: "KENT ROAD"
+                description: Road Name
+              speedband:
+                type: number
+                example: 3
+                description:  |+
+                              Speed Bands Information. Total: 8
+                              * 1 – indicates speed range from 0 < 9
+                              * 2 – indicates speed range from 10 < 19
+                              * 3 – indicates speed range from 20 < 29
+                              * 4 – indicates speed range from 30 < 39
+                              * 5 – indicates speed range from 40 < 49
+                              * 6 – indicates speed range from 50 < 59
+                              * 7 – indicates speed range from 60 < 69
+                              * 8 – speed range from 70 or more               
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 30, 2021
+              description: Initial version release
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
