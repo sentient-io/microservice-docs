@@ -26,7 +26,7 @@ paths:
                 message: Successfully Processed
                 status: Success
                 results:
-                - cameraID: 1001
+                - cameraid: 1001
                   latitude: 1.3290499998616139
                   longitude: 103.87474391991731
                   imageLink: https://dm-traffic-camera-itsc.s3.amazonaws.com/2021-02-25/15-27/1001_1523_20210225152731_1c29e4.jpg?x-amz-security-token=IQoJb3JpZ2luX2VjEA8aDmFwLXNvdXRoZWFzdC0xIkYwRAIgB9vybH4h7daI43qfBeZMS%2FSX6av1yjSu73Q0kqbTD4ICIDTHpUSoXG7OU3EOtK0z0F6NGxf1c0xQwrULNgEbaiFhKqMDCCgQAhoMMzQwNjQ1MzgxMzA0IgyLggWjvfs4g1sMc4UqgAOZXEmpoGYRlnDs9tu6COLECjNNgalDexWPvFpq1a3A9dDM%2Bp6mRAQxxuja%2Bcob2Ox1fPgE%2Bhf24arud9Xr11cNNybleHqCWnBGsjhOo6JNP2gOraux84cXhEjGarHp4%2FvwXGVFQbmF%2B1J9QQlCa2D4LW%2Ffr8hnBsNGKVMe7k7MoS1QfKePl500wUYvhDJEZqPej54BGt%2BlPGorwFBQ%2B10n8vyiwShBxd%2BHBQFxpbuf72fRS9VAYilkCyp8%2FeohmSVh%2BeJXVWvcS5rGiIKd%2FyTOK7nL91s08EiJ0uhwZNJdbu3XdZPFXPTI%2Ban%2BHSkurfa3%2B05mSo4aP%2FGm5NPxP9xzCphiu65ugpN%2BOYxUwwErT7oTPQjI1ZiUJOXvWGhSA5WpKEzVTNPx3aYDtjB8T7qDky8A%2BjsQyvKQARdxM9buz8H1pej8KDsnHr%2BAgupNy%2F9kNk9kBdxPnj67WaVot9WdIOHcj8knf4SVIZCy%2FMESBMVkXT%2BwRLJ8XJaSFR13sl4wvY3dgQY67AG3IH44KUVXKCnh36UJ5nCpEaT162Y6dleCP2Okragprp%2BhIMQHcb3spNoLRHVcq3Zj%2B53o2s4yF6%2FO6BUe1nSZ31X890J6Wao3yFwhrbyULbRAA8Ni3R%2ForYYK0l3213NtV%2FyaIp9o02EAyG7sWOhvsD7MbofMBI2GS%2FbrmEYHjdSTrMCkZje0zG6Q5L60rWgiRVBn5Sa2ogUYk0c%2F4ecnQ8taiVzEuoQsV5CTB5ou2pQVKP1fbefNyu1B18542VLLqJW8mHZ6eoYf%2FwGK7tqJaJf1sPRr2qZ0YbVtkQCo03ZYm0fetH3mXsCYWQ%3D%3D&AWSAccessKeyId=ASIAU6UAMAS4GTPW2LXI&Expires=1614238351&Signature=6xg03%2FpXKMJDVKyXV7X%2FjeLhVb8%3D
@@ -106,7 +106,7 @@ components:
           items:
             type: object
             properties:
-              cameraID:
+              cameraid:
                 type: string
                 example: 1001
                 description: A unique ID for this camera
