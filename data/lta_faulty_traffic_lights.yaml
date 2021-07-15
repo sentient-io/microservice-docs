@@ -26,12 +26,12 @@ paths:
                 message: Successfully Processed
                 status: Success
                 results:
-                - AlarmID: GL703034136
-                  NodeID: 703034136
-                  Type: 13
-                  StartDate: 2014-04-12 01:58:00.0
-                  EndDate: 2014-04-13 01:58:00.0
-                  Message: (23/1)8:58 Flashing Yellow at Bedok North Interchange/Bedok North Street 1 Junc
+                - alarmID: GL703034136
+                  nodeID: 703034136
+                  type: 13
+                  startDate: 2014-04-12 01:58:00.0
+                  endDate: 2014-04-13 01:58:00.0
+                  message: (23/1)8:58 Flashing Yellow at Bedok North Interchange/Bedok North Street 1 Junc
         '401':
           description: Unauthorized
           content:
@@ -108,32 +108,32 @@ components:
           items:
             type: object
             properties:
-              AlarmID:
+              alarmid:
                 type: string
                 example: GL703034136
                 description: Technical alarm ID
-              NodeID:
+              nodeid:
                 type: string
                 example: 703034136
                 description: A unique code to represent each
                     unique traffic light node
-              Type:
+              type:
                 type: number
                 example: 13
                 description: Type of the technical alarm
                               • 4 (Blackout)
                               • 13 (Flashing Yellow)
-              StartDate:
+              startdate:
                 type: string
                 example: 2014-04-12 01:58:00.0
                 description: YYYY-MM-DD HH:MM:SS.ms 
-              EndDate:
+              enddate:
                 type: string
                 example: 2014-04-13 01:58:00.0
                 description: YYYY-MM-DD HH:MM:SS.ms
                         (empty field if this is not a
                         scheduled maintenance)                
-              Message:
+              message:
                 type: string
                 example: (23/1)8:58 Flashing Yellow at
                             Bedok North Interchange/Bedok
