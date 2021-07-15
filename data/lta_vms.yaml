@@ -27,7 +27,7 @@ paths:
                 message: Successfully Processed
                 status: Success
                 results:
-                - equipmentID: AVMS_01_00501
+                - equipmentid: AVMS_01_00501
                   latitude: 1.3290499998616139
                   longitude: 103.87474391991731
                   message: ROAD|WORKS ON|BENDEMEER
@@ -107,7 +107,7 @@ components:
           items:
             type: object
             properties:
-              equipmentID:
+              equipmentid:
                 type: string
                 example: AVMS_01_00501
                 description: EMAS equipment ID
