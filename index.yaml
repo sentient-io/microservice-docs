@@ -303,6 +303,10 @@ data:
     title: LTA Faulty Traffic Lights
     versions:
       0.1.0: 'lta_faulty_traffic_lights.yaml'      
+  lta_road_works:
+    title: LTA Road Works
+    versions:
+      0.1.0: 'lta_road_works.yaml'      
 data alliance:
   download_dataset_api:
     title: Download Dataset API
