@@ -2,9 +2,8 @@ openapi: 3.0.1
 info:
   title: LTA Carpark Availability
   x-subscribelink: lta_car_park_availability
-  description: 
-          Returns no. of available lots for HDB, LTA and URA carpark data.
-          The LTA carpark data consist of major shopping malls and developments within
+  description: |+
+          Returns no. of available lots for HDB, LTA and URA carpark data. The LTA carpark data consist of major shopping malls and developments within
           Orchard, Marina, HarbourFront, Jurong Lake District.  Updates every 1 minute.
   version: '0.1.0'
 servers:
