@@ -26,13 +26,13 @@ paths:
                 message: Successfully Processed
                 status: Success
                 results:
-                - EventID: RMAPP-201512-0217
-                  StartDate: 2021-2-14
-                  EndDate: 2021-3-31
-                  SvcDept: SP POWERGRID LTD - REGIONAL
+                - eventID: RMAPP-201512-0217
+                  startDate: 2021-2-14
+                  endDate: 2021-3-31
+                  svcDept: SP POWERGRID LTD - REGIONAL
                             NETWORK CENTRAL
-                  RoadName: ADAM DRIVE
-                  Other: For details, please call 67273085
+                  roadName: ADAM DRIVE
+                  other: For details, please call 67273085
         '401':
           description: Unauthorized
           content:
@@ -109,34 +109,34 @@ components:
           items:
             type: object
             properties:
-              EventID:
+              eventID:
                 type: string
                 example: RMAPP-201512-0217
                 description: ID for this road work
-              StartDate:
+              startDate:
                 type: string
                 example: 2021-2-14
                 description: Start date for the works
                                   performed for this road work
                                   (in YYYY-MM-DD format)
-              EndDate:
+              endDate:
                 type: string
                 example: 2021-3-31
                 description: End date for works performed
                               for this road work
                               (in YYYY-MM-DD format)
-              SvcDept:
+              svcDept:
                 type: string
                 example: SP POWERGRID LTD - REGIONAL
                           NETWORK CENTRAL
                 description: Department or company
                                 performing this road work
-              RoadName:
+              roadName:
                 type: string
                 example: ADAM DRIVE
                 description: Name of road where work is
                             being performed.              
-              Other:
+              other:
                 type: string
                 example: For details, please call 67273085
                 description: Additional information or messages.            
