@@ -122,11 +122,12 @@ components:
       properties:
         user_ids:
           x-name: user_ids
-          type: integer
+          type: array
           default: True
           example: [1326,1545]
           description: Multiple user ids of the user. Invalid user id will be igonred in the array list.
-        
+          items:
+            type: object
   securitySchemes:
     APIAuthorizer:
       type: apiKey
