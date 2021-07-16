@@ -94,19 +94,21 @@ components:
                 error_detail:
                   type: array
                   description: The list of Json result object
+                  example: [{"<JSON":"result Object"}]
                   items:
                     type: object
                     properties:
                       api_result:
                         type: array
                         description: The list of Json result object
+                        example: [{"<JSON":"result Object"}]
                         items:
                           type: object
                           properties:
                             message:
                               type: string
                               description: Stauts of the api result
-                              example: ""
+                              example: "Invalid Request URL"
                             unsuccesscount:
                               type: string
                               description: Unsuccess count of the api
