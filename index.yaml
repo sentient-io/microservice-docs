@@ -405,7 +405,7 @@ Platform APIs:
     urlkey: api_metering
     versions:
       0.1.0: 'api_metering.yaml'
-  api_metering_microservice:
+  api_metering_error_details:
     title: API metering error details
     urlkey: api_metering_error_details
     versions:
