@@ -108,7 +108,7 @@ components:
               description: Group details updated date and time
             created_by:
               type: string
-              example: ""
+              example: "2"
               description: Group created by user
             group_function:
               type: array
