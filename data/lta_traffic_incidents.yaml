@@ -109,7 +109,7 @@ components:
             properties:
               type:
                 type: string
-                example: GL703034136
+                example: Road Works
                 description: |+
                           Incident Types - 
                           • Accident
