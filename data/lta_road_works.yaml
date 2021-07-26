@@ -345,7 +345,9 @@ components:
           example: 25
           description: No of records
         filter:
-          type: 
+          type: array
+          example: [{"match" :{"road_name":"arthur"}}]
+          description: filter query         
   securitySchemes:
     APIAuthorizer:
       type: apiKey
