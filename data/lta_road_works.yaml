@@ -21,7 +21,7 @@ info:
     * **range** - Returns results that contain terms within a stipulated range
       > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
       > {"range":{"lastupdated":{"lte":"now/d"}}}
-      > {"range":{"lastupdated":{"gte":"now-1d/d","lte:"now/d"}}}
+      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"road_name"}}
       
