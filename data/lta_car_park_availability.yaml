@@ -114,7 +114,7 @@ paths:
                         lat: '1.26421'
                         lon: '103.82263'
                       lottype: C
-                      source: http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2
+                      source: lta
                     _type: dir_doc
                   max_score: 0
                   total: 5
