@@ -7,28 +7,10 @@ info:
   x-additionalinfo : |+
     Suggested Use Cases:
     
-    **Refining queries in the filterdata field using filter types and match types**
-    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
-  
-    **Filter Types:**
-    A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
+    **Refining queries in the filter field using match types**
     
-    * **must** - All of the stated conditions must match. Equivalent to an AND operator.
-      > {"must":[{"match":{"road_name":"arthur"}}]}
-    * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      > {"must_not":[{"match":{"road_name":"arthur"}}]}
-    
-    * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
-      > {"should":[{"match_phrase":{"road_name":"arthur"}}]}
-    
-    * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
-      > {"filter":[{"match" :{"road_name":"arthur"}}]}
-      
-    For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
-    
-    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
     **Match Types:**
-    A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    A match type is a match operator. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
       > {"match":{"road_name":"arthur"}}
@@ -37,26 +19,17 @@ info:
     * **match_phrase_prefix** - Search within a full text field with prefix
       > {"match_phrase_prefix":{"road_name":"arthur"}}
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"road_name":"arthur"}}
+      > {"term":{"event_id":"RMAPP-201512-0217"}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"road_name":"arthur"}}
+      > {"terms":{"event_id":["RMAPP-201512-0217","RMINRM-202012-2140"]}}
     * **range** - Returns results that contain terms within a stipulated range
-      > 
-      > 
-      > 
+      > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
+      > {"range":{"lastupdated":{"lte":"now/d"}}}
+      > {"range":{"lastupdated":{"gte":"now-1d/d","lte:"now/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"road_name":"arthur"}}
+      > {"exists":{"field":"road_name"}}
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
-    
-    **Forming sophisticated queries using combinations of filter types (in JSON)**
-    Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
-    
-    > {
-    > "must":[{"match":{"road_name":"arthur"}}],
-    > "filter":[{"match":{"road_name":"arthur"}}],
-    > "should":[{"match_phrase":{"road_name":"arthur"}}],
-    > "must_not":[{"match":{"road_name":"arthur"}}]
-    > }
+
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -357,11 +330,14 @@ components:
           default: false
           example: [{"match" :{"road_name":"arthur"}}]
           description: |+
-            Refine the search further on any of the possible through the 4 filter types &#58;
-            * must
-            * must_not
-            * should
-            * filter
+            Its a list of filters to refine the search further. Each filter consists of a match type, the field and the value. The possible 3 match types are&#58;
+            * match
+            * match_phrase
+            * match_phrase_prefix
+            * term
+            * terms
+            * range
+            * exists
 
   securitySchemes:
     APIAuthorizer:
