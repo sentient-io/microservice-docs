@@ -4,6 +4,80 @@ info:
   x-subscribelink: lta_car_park_availability
   description: |+
           Returns no. of available lots for HDB, LTA and URA carpark data. The LTA carpark data consist of major shopping malls and developments within Orchard, Marina, HarbourFront, Jurong Lake District.  Updates every 1 minute.
+  x-additionalinfo : |+
+    Suggested Use Cases:
+    
+    **Refining queries in the filterdata field using filter types and match types**
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+  
+    **Filter Types:**
+    A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
+    
+    * **must** - All of the stated conditions must match. Equivalent to an AND operator.
+      > {"must":[{"match":{"area":"Harbfront"}}]}
+    * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
+      > {"must_not":[{"match":{"area":"Harbfront"}}]}
+    
+    * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
+      > {"should":[{"match_phrase":{"area":"Harbfront"}}]}
+    
+    * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
+      > {"filter":[{"match":{"area":"Harbfront"}}]}
+      
+    For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
+    
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    **Match Types:**
+    A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+      > {"match":{"area":"Harbfront"}}
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"area":"Harbfront"}}
+    * **match_phrase_prefix** - Search within a full text field with prefix
+      > {"match_phrase_prefix":{"area":"Harbfront"}}
+    * **term** - Returns results that contain an exact term in a provided field
+      > {"term":{"area":"Harbfront"}}
+    * **terms** - Returns results that contain one or more exact terms in a provided field
+      > {"terms":{"cpk_no":["ak19","be33"]}}
+    * **range** - Returns results that contain terms within a stipulated range
+      > {"range":{"availablelots":{"gte":100}}}
+      > {"range":{"availablelots":{"lte":500}}}
+      > {"range":{"availablelots":{"gte":100,"lte":500}}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{ "field": "availablelots"}}
+    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+    
+    **Forming sophisticated queries using combinations of filter types (in JSON)**
+    Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
+    
+    > {
+    > "must":[{"match":{"area":"Harbfront"}}],
+    > "filter":[{"match":{"area":"Harbfront"}}],
+    > "should":[{"match_phrase":{"area":"Harbfront"}}],
+    > "must_not":[{"development":"VivoCity P3"}]
+    > }
+    **Sample Queries Based on Use Cases**
+    1. **Search for all carparks around 414 Bedok North Road**
+       Using a querystring only&#58;
+      
+       > querystring = "414 bedok north road"
+    2. **Search for all carparks within a 1KM radius from Tampines Mall**
+       Using a filterdata only&#58;
+       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
+      
+    3. **Search for all carparks around Tampines with motorcycle parking**
+       Using both querystring + filterdata&#58;
+       
+       > querystring = tampines
+       > filterdata = {"filter":[ {"range":{"availablelots":{"gte":1}}} ]}
+      
+    4. **Search for all lorry parking lots for Bishan Street 22**
+    
+       Using both querystring + filterdata&#58;
+      
+       > querystring = "Harbfront"
+       > filterdata = {"filter":[ {"range":{"availablelots":{"gte":1}}} ]}
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -11,8 +85,8 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
 paths:
-   /microservices/data/ltacarparkavailabilityv2/v0/getdata:
-    get:
+   /microservices/data/ltacarparkavailabilityv2/v1/getdata:
+    post:
       tags:
         - v0.1.0
       responses:
@@ -24,15 +98,27 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: Successfully Processed
-                status: Success
                 results:
-                - agency: LTA
-                  area: Marina
-                  availablelots: 965
-                  carparkid: '1'
-                  development: Suntec City
-                  location: 1.29375 103.85718
-                  lottype: C
+                  hits:
+                  - _id: 16CLTA
+                    _index: lta_carpark_availability
+                    _score: 0
+                    _source:
+                      agency: LTA
+                      area: Harbfront
+                      availablelots: 900
+                      carparkid: '16'
+                      development: VivoCity P3
+                      lastupdated: '2021-07-26T07:48:53.138Z'
+                      location:
+                        lat: '1.26421'
+                        lon: '103.82263'
+                      lottype: C
+                      source: http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2
+                    _type: dir_doc
+                  max_score: 0
+                  total: 5
+                status: Successs
         '401':
           description: Unauthorized
           content:
@@ -68,7 +154,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'    
+                $ref: '#/components/schemas/inputlimitexceeded'
         '415':
           description: Unsupported Media Type
           content:
@@ -89,6 +175,12 @@ paths:
                 $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -101,57 +193,99 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure      
+          description: The status of the API call Success/Failure             
         results:
-          type: array
+          type: object
           example: {<Json Object>}
-          description: Json Object of returned results 
-          items:
-            type: object
-            properties:
-              agency:
-                type: string
-                example: "LTA"
-                description: |+
-                            Agencies:
-                            • HDB
-                            • LTA
-                            • URA                
-              area:
-                type: string
-                example: Marina
-                description: |+
-                            Area of development / building:
-                            • Orchard
-                            • Marina
-                            • Harbfront
-                            • JurongLakeDistrict                
-              availablelots:
-                type: number
-                example: 965
-                description: Number of lots available at point of data retrieval.
-              carparkid:
-                type: string
-                example: 1
-                description: A unique code for this carpark  
-              development:
-                type: string
-                example: Suntec City
-                description: Major landmark or address where
-                              carpark is located
-              location:
-                type: string
-                example: "1.29375 103.85718"
-                description: Latitude and Longitude map
-                              coordinates.
-              lottype:
-                type: string
-                example: C
-                description: |+
-                            Type of lots:
-                            • C (for Cars)
-                            • H (for Heavy Vehicles)
-                            • Y (for Motorcycles)                
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "lta_carpark_availability"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "16CLTA"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      agency:
+                        type: string
+                        example: "LTA"
+                        description: |+
+                                    Agencies:
+                                    • HDB
+                                    • LTA
+                                    • URA                
+                      area:
+                        type: string
+                        example: Marina
+                        description: |+
+                                    Area of development / building:
+                                    • Orchard
+                                    • Marina
+                                    • Harbfront
+                                    • JurongLakeDistrict                
+                      availablelots:
+                        type: number
+                        example: 965
+                        description: Number of lots available at point of data retrieval.
+                      carparkid:
+                        type: string
+                        example: 1
+                        description: A unique code for this carpark  
+                      development:
+                        type: string
+                        example: Suntec City
+                        description: Major landmark or address where
+                                      carpark is located
+                      location:
+                        type: string
+                        example: "1.29375 103.85718"
+                        description: Latitude and Longitude map
+                                      coordinates.
+                      lottype:
+                        type: string
+                        example: C
+                        description: |+
+                                    Type of lots:
+                                    • C (for Cars)
+                                    • H (for Heavy Vehicles)
+                                    • Y (for Motorcycles)       
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"           
+                      source: 
+                        type: string
+                        description: Dataset source
+                        example: http://datamall2.mytransport.sg/ltaodataservice/RoadWorks   
     unauthorized:
       type: object
       properties:
@@ -176,6 +310,15 @@ components:
         message:
           type: string
           example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -224,15 +367,6 @@ components:
         status:
           type: string
           example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
-        status:
-          type: string
-          example: Failure
     versions:
       type: object
       properties: 
@@ -243,10 +377,34 @@ components:
             - type: string
               example: Published Date - Jul 30, 2021
               description: Initial version release
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 10, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index 
+        filter:
+          type: string
+          default: false
+          example: [{"match" :{"area":"Harbfront"}}]
+          description: |+
+            Refine the search further on any of the possible through the 4 filter types &#58;
+            * must
+            * must_not
+            * should
+            * filter
+
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
-      description: Authentication is done using the x-api-key in the request header.
+      description: Authentication is done using the x-api-key in the request header
