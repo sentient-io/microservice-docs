@@ -214,8 +214,17 @@ components:
                         description: Major landmark or address where
                                       carpark is located
                       location:
-                        type: string
-                        example: "1.29375 103.85718"
+                        type: object
+                        properties:
+                          lat:
+                            type: string
+                            example: 1.31384231654635
+                            description: Latitude value.                            
+                          lon:
+                            type: string
+                            example: 103.845603032574
+                            description: Longitude value.
+                        example: {<Json Object>}
                         description: Latitude and Longitude map
                                       coordinates.
                       lottype:
