@@ -180,7 +180,7 @@ components:
                     example: {<Json Object>}
                     description: Json Object of returned hits
                     properties:
-                      equipmentid:
+                      equipment_id:
                         type: string
                         example: AVMS_01_00501
                         description: EMAS equipment ID
