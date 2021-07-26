@@ -344,9 +344,24 @@ components:
       properties:
         limit:
           type: number
-          default: True
-          example: 10
-          description: limit
+          default: false
+          example: 25
+          description: The max records to return for the request. Default - 10, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index 
+        filter:
+          type: string
+          default: false
+          example: [{"match" :{"road_name":"arthur"}}]
+          description: |+
+            Refine the search further on any of the possible through the 4 filter types &#58;
+            * must
+            * must_not
+            * should
+            * filter
 
   securitySchemes:
     APIAuthorizer:
