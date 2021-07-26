@@ -5,6 +5,28 @@ info:
   description: |+
       Returns traffic advisories (via variable message services) concerning current traffic conditions that are displayed on 
       EMAS signboards along expressways and arterial roads.2 minutes – whenever there are updates
+  x-additionalinfo : |+
+    **Match Types:**
+    A match type is a match operator. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+      > {"match":{"message":"HEAVY VEHICLES"}}
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"message":"HEAVY VEHICLES"}}
+    * **match_phrase_prefix** - Search within a full text field with prefix
+      > {"match_phrase_prefix":{"message":"HEAVY VEHICLES"}}
+    * **term** - Returns results that contain an exact term in a provided field
+      > {"term":{"equipment_id":"VMS_0011"}}
+    * **terms** - Returns results that contain one or more exact terms in a provided field
+      > {"terms":{"equipment_id":["VMS_0011","VMS_0001"]}}
+    * **range** - Returns results that contain terms within a stipulated range
+      > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
+      > {"range":{"lastupdated":{"lte":"now/d"}}}
+      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"message"}}
+      
+    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -12,8 +34,8 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
 paths:
-   /microservices/data/ltavms/v0/getdata:
-    get:
+  /microservices/data/ltavms/v0/getdata:
+    post:
       tags:
         - v0.1.0
       responses:
@@ -25,12 +47,23 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: Successfully Processed
-                status: Success
                 results:
-                - equipmentid: AVMS_01_00501
-                  latitude: 1.3290499998616139
-                  longitude: 103.87474391991731
-                  message: ROAD|WORKS ON|BENDEMEER
+                  hits:
+                  - _id: avms0007
+                    _index: lta_vms
+                    _score: 0
+                    _source:
+                      equipment_id: AVMS_0007
+                      lastupdated: '2021-07-26T07:40:15.445Z'
+                      location:
+                        lat: 1.3170678577154424
+                        lon: 103.8747404794093
+                      message: DO NOT STOP,VEHICLE,IN TUNNEL
+                      source: lta
+                    _type: dir_doc
+                  max_score: 0
+                  total: 35
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -66,7 +99,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'    
+                $ref: '#/components/schemas/inputlimitexceeded'
         '415':
           description: Unsupported Media Type
           content:
@@ -87,6 +120,12 @@ paths:
                 $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -99,30 +138,78 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure      
+          description: The status of the API call Success/Failure             
         results:
-          type: array
+          type: object
           example: {<Json Object>}
-          description: Json Object of returned results 
-          items:
-            type: object
-            properties:
-              equipmentid:
-                type: string
-                example: AVMS_01_00501
-                description: EMAS equipment ID
-              latitude:
-                type: string
-                example: 1.3290499998616139
-                description: Latitude map coordinates of electronic signboard.
-              longitude:
-                type: string
-                example: 103.87474391991731
-                description: Longitude map coordinates of electronic signboard.
-              message:
-                type: string
-                example: ROAD|WORKS ON|BENDEMEER
-                description: VEH BREAKDOWN SH,AFTU.THOMSON          
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "lta_traffic_images"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "1709"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      equipmentid:
+                        type: string
+                        example: AVMS_01_00501
+                        description: EMAS equipment ID
+                      message:
+                        type: string
+                        example: ROAD|WORKS ON|BENDEMEER
+                        description: VEH BREAKDOWN SH,AFTU.THOMSON                
+                      location:
+                        type: object
+                        properties:
+                          lat:
+                            type: string
+                            example: 1.31384231654635
+                            description: Latitude map coordinates of electronic signboard.
+                          lon:
+                            type: string
+                            example: 103.845603032574
+                            description: Longitude map coordinates of electronic signboard.
+                        example: {<Json Object>}
+                        description: Latitude and Longitude map
+                                      coordinates.    
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"           
+                      source: 
+                        type: string
+                        description: Dataset source
+                        example: lta
     unauthorized:
       type: object
       properties:
@@ -147,6 +234,15 @@ components:
         message:
           type: string
           example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -195,15 +291,6 @@ components:
         status:
           type: string
           example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
-        status:
-          type: string
-          example: Failure
     versions:
       type: object
       properties: 
@@ -214,10 +301,38 @@ components:
             - type: string
               example: Published Date - Jul 30, 2021
               description: Initial version release
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 10, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index 
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match" :{"message":"HEAVY VEHICLES"}}]
+          description: |+
+            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * match_phrase
+            * match_phrase_prefix
+            * term
+            * terms
+            * range
+            * exists
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
-      description: Authentication is done using the x-api-key in the request header.
+      description: Authentication is done using the x-api-key in the request header
