@@ -314,7 +314,11 @@ data:
   lta_traffic_incidents:
     title: LTA Traffic Incidents
     versions:
-      0.1.0: 'lta_traffic_incidents.yaml'         
+      0.1.0: 'lta_traffic_incidents.yaml'    
+  lta_traffic_speed_bands:
+    title: LTA Traffic Speed Bands
+    versions:
+      0.1.0: 'lta_traffic_speed_bands.yaml'       
 data alliance:
   download_dataset_api:
     title: Download Dataset API
