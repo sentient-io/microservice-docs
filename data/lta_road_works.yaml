@@ -34,7 +34,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
 paths:
-   /microservices/data/ltaroadworks/v1/getdata:
+   /microservices/data/ltaroadworks/v0/getdata:
     post:
       tags:
         - v0.1.0
