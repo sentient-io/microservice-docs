@@ -4,6 +4,28 @@ info:
   x-subscribelink: lta_traffic_images
   description: |+
     Returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 1 to 5 minutes or whenever there are updates.
+  x-additionalinfo : |+
+    **Match Types:**
+    A match type is a match operator. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+      > {"match":{"camera_id":"1709"}}
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"camera_id":"1709"}}
+    * **match_phrase_prefix** - Search within a full text field with prefix
+      > {"match_phrase_prefix":{"camera_id":"1709"}}
+    * **term** - Returns results that contain an exact term in a provided field
+      > {"term":{"camera_id":"1709"}}
+    * **terms** - Returns results that contain one or more exact terms in a provided field
+      > {"terms":{"camera_id":["1709","3796"]}}
+    * **range** - Returns results that contain terms within a stipulated range
+      > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
+      > {"range":{"lastupdated":{"lte":"now/d"}}}
+      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"image_link"}}
+      
+    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -12,7 +34,7 @@ tags:
   description: "Published Date - Jul 30, 2021"
 paths:
    /microservices/data/ltatrafficimagesv2/v0/getdata:
-    get:
+    post:
       tags:
         - v0.1.0
       responses:
@@ -24,12 +46,23 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: Successfully Processed
-                status: Success
                 results:
-                - cameraid: 1001
-                  latitude: 1.3290499998616139
-                  longitude: 103.87474391991731
-                  imageLink: https://dm-traffic-camera-itsc.s3.amazonaws.com/2021-02-25/15-27/1001_1523_20210225152731_1c29e4.jpg?x-amz-security-token=IQoJb3JpZ2luX2VjEA8aDmFwLXNvdXRoZWFzdC0xIkYwRAIgB9vybH4h7daI43qfBeZMS%2FSX6av1yjSu73Q0kqbTD4ICIDTHpUSoXG7OU3EOtK0z0F6NGxf1c0xQwrULNgEbaiFhKqMDCCgQAhoMMzQwNjQ1MzgxMzA0IgyLggWjvfs4g1sMc4UqgAOZXEmpoGYRlnDs9tu6COLECjNNgalDexWPvFpq1a3A9dDM%2Bp6mRAQxxuja%2Bcob2Ox1fPgE%2Bhf24arud9Xr11cNNybleHqCWnBGsjhOo6JNP2gOraux84cXhEjGarHp4%2FvwXGVFQbmF%2B1J9QQlCa2D4LW%2Ffr8hnBsNGKVMe7k7MoS1QfKePl500wUYvhDJEZqPej54BGt%2BlPGorwFBQ%2B10n8vyiwShBxd%2BHBQFxpbuf72fRS9VAYilkCyp8%2FeohmSVh%2BeJXVWvcS5rGiIKd%2FyTOK7nL91s08EiJ0uhwZNJdbu3XdZPFXPTI%2Ban%2BHSkurfa3%2B05mSo4aP%2FGm5NPxP9xzCphiu65ugpN%2BOYxUwwErT7oTPQjI1ZiUJOXvWGhSA5WpKEzVTNPx3aYDtjB8T7qDky8A%2BjsQyvKQARdxM9buz8H1pej8KDsnHr%2BAgupNy%2F9kNk9kBdxPnj67WaVot9WdIOHcj8knf4SVIZCy%2FMESBMVkXT%2BwRLJ8XJaSFR13sl4wvY3dgQY67AG3IH44KUVXKCnh36UJ5nCpEaT162Y6dleCP2Okragprp%2BhIMQHcb3spNoLRHVcq3Zj%2B53o2s4yF6%2FO6BUe1nSZ31X890J6Wao3yFwhrbyULbRAA8Ni3R%2ForYYK0l3213NtV%2FyaIp9o02EAyG7sWOhvsD7MbofMBI2GS%2FbrmEYHjdSTrMCkZje0zG6Q5L60rWgiRVBn5Sa2ogUYk0c%2F4ecnQ8taiVzEuoQsV5CTB5ou2pQVKP1fbefNyu1B18542VLLqJW8mHZ6eoYf%2FwGK7tqJaJf1sPRr2qZ0YbVtkQCo03ZYm0fetH3mXsCYWQ%3D%3D&AWSAccessKeyId=ASIAU6UAMAS4GTPW2LXI&Expires=1614238351&Signature=6xg03%2FpXKMJDVKyXV7X%2FjeLhVb8%3D
+                  hits:
+                  - _id: '1709'
+                    _index: lta_traffic_images
+                    _score: 0
+                    _source:
+                      camera_id: '1709'
+                      image_link: https://dm-traffic-camera-itsc.s3.amazonaws.com/2021-07-26/16-15/1709_1613_20210726161555_d03687.jpg?x-amz-security-token=IQoJb3JpZ2luX2VjEDgaDmFwLXNvdXRoZWFzdC0xIkYwRAIgLQYZqCULeEfZlCJpy6Ulnh1rNqpmKzVVSicdgMZFHT4CIEd2BMeZ5sik9CqeH95YYXK44YDCdIoxeWjxcN6oHO4uKukDCEEQAhoMMzQwNjQ1MzgxMzA0Igy%2FTdv7loQnJF7pHpEqxgP3VBG2rR0NHAZ6c3fApJLv3JH%2F75HyfbjwFcTFRMm%2BH5DxxO6RIPrf9cGtffPaU4YEnw3pHhfdEDWk28a5ob1CwgfS%2BLo%2BD641LjpOSO%2BealAXN95Ufjoqw8hCjMu67HWgl4hd%2BLQ1TCD1l696Szs%2FU3hoK166jL5XLe7vXnMTuK4QQv4Dmt%2BsLLr7MCELu0mOIIgMw7D2%2BO2uo%2B6DcNGbjFHgJQGfT9tmhOayjxD5SrInO5zWbfggm0WemyPydschPwqaP1NQHXjFvhHZkRXyMACDtcvaxx8Ww1xoRZHl3IunY7qOt0OIZbHf4f0MJetJksp%2FslSdfEe8F23sBlPXAzmi%2B9ZSBEBkehn0amLxOlByauULZsNcZLJWDnwyNaG3RCg%2BnUMocbxGfzsHTKxnkpM9ZyMvfJWhQb1lE1JhllHdHo0x1nbwKJTm2%2BdTTeZbNNgts2wRqeoU6rrdkk0%2F5EVmMA5lvSTUbzASuRJMA80uGVWMtxahbKhXiaYd%2BCrR6PT%2F%2BFiga4Lh4oQY%2F9R378WKqnZdpL9VJLRJx7lvl%2Fsu2RYwaub2ftzY%2BYLaEtqunq6pZMcoOuFjfdlMGe%2Bg3e3nsuWjMO7L%2BYcGOqYBetsfxhZWWTGRpQBa3wsjhQKvx%2BJOAbVkkNRrRYRjKIaxXHEcG6UB6Nql81WXfJECsAydX%2Fv0lEcJkdg%2BmRF8%2ByP%2BmTqfDBtoIPkQonScadjbqU41%2FYuaPK8QBLUIhELu6OmKWZvQOu6Ilawquc5WebFyGqQawc1CWjUg5CsqZGPQosH2CsbZK%2F%2BsdsbEaobcFAP4UUuVsPRvZoSioBOYu9gNJupauA%3D%3D&AWSAccessKeyId=ASIAU6UAMAS4BEHZ2IOK&Expires=1627287655&Signature=x4iftkMHqB2sVB6Nz0hUUdmFTck%3D
+                      lastupdated: '2021-07-26T08:19:02.109Z'
+                      location:
+                        lat: 1.31384231654635
+                        lon: 103.845603032574
+                      source: lta
+                    _type: dir_doc
+                  max_score: 0
+                  total: 86
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -65,7 +98,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'    
+                $ref: '#/components/schemas/inputlimitexceeded'
         '415':
           description: Unsupported Media Type
           content:
@@ -86,6 +119,12 @@ paths:
                 $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -98,32 +137,80 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure      
+          description: The status of the API call Success/Failure             
         results:
-          type: array
+          type: object
           example: {<Json Object>}
-          description: Json Object of returned results 
-          items:
-            type: object
-            properties:
-              cameraid:
-                type: string
-                example: 1001
-                description: A unique ID for this camera
-              latitude:
-                type: string
-                example: 1.3290499998616139
-                description: Latitude map coordinates
-              longitude:
-                type: number
-                example: 103.87474391991731
-                description: Longitude map coordinates
-              imageLink:
-                type: string
-                example: 'https://dm-traffic-camera-itsc.s3.amazonaws.com/2021-02-25/15-27/1001_1523_20210225152731_1c29e4.jpg?x-amz-security-token=IQoJb3JpZ2luX2VjEA8aDmFwLXNvdXRoZWFzdC0xIkYwRAIgB9vybH4h7daI43qfBeZMS%2FSX6av1yjSu73Q0kqbTD4ICIDTHpUSoXG7OU3EOtK0z0F6NGxf1c0xQwrULNgEbaiFhKqMDCCgQAhoMMzQwNjQ1MzgxMzA0IgyLggWjvfs4g1sMc4UqgAOZXEmpoGYRlnDs9tu6COLECjNNgalDexWPvFpq1a3A9dDM%2Bp6mRAQxxuja%2Bcob2Ox1fPgE%2Bhf24arud9Xr11cNNybleHqCWnBGsjhOo6JNP2gOraux84cXhEjGarHp4%2FvwXGVFQbmF%2B1J9QQlCa2D4LW%2Ffr8hnBsNGKVMe7k7MoS1QfKePl500wUYvhDJEZqPej54BGt%2BlPGorwFBQ%2B10n8vyiwShBxd%2BHBQFxpbuf72fRS9VAYilkCyp8%2FeohmSVh%2BeJXVWvcS5rGiIKd%2FyTOK7nL91s08EiJ0uhwZNJdbu3XdZPFXPTI%2Ban%2BHSkurfa3%2B05mSo4aP%2FGm5NPxP9xzCphiu65ugpN%2BOYxUwwErT7oTPQjI1ZiUJOXvWGhSA5WpKEzVTNPx3aYDtjB8T7qDky8A%2BjsQyvKQARdxM9buz8H1pej8KDsnHr%2BAgupNy%2F9kNk9kBdxPnj67WaVot9WdIOHcj8knf4SVIZCy%2FMESBMVkXT%2BwRLJ8XJaSFR13sl4wvY3dgQY67AG3IH44KUVXKCnh36UJ5nCpEaT162Y6dleCP2Okragprp%2BhIMQHcb3spNoLRHVcq3Zj%2B53o2s4yF6%2FO6BUe1nSZ31X890J6Wao3yFwhrbyULbRAA8Ni3R%2ForYYK0l3213NtV%2FyaIp9o02EAyG7sWOhvsD7MbofMBI2GS%2FbrmEYHjdSTrMCkZje0zG6Q5L60rWgiRVBn5Sa2ogUYk0c%2F4ecnQ8taiVzEuoQsV5CTB5ou2pQVKP1fbefNyu1B18542VLLqJW8mHZ6eoYf%2FwGK7tqJaJf1sPRr2qZ0YbVtkQCo03ZYm0fetH3mXsCYWQ%3D%3D&AWSAccessKeyId=ASIAU6UAMAS4GTPW2LXI&Expires=1614238351&Signature=6xg03%2FpXKMJDVKyXV7X%2FjeLhVb8%3D'
-                description: |+
-                            • Link for downloading this image.
-                            • Link will expire after 5 minutes     
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "lta_traffic_images"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "1709"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      cameraid:
+                        type: string
+                        example: 1709
+                        description: A unique ID for this camera
+                      imageLink:
+                        type: string
+                        example: 'https://dm-traffic-camera-itsc.s3.amazonaws.com/2021-02-25/15-27/1001_1523_20210225152731_1c29e4.jpg?x-amz-security-token=IQoJb3JpZ2luX2VjEA8aDmFwLXNvdXRoZWFzdC0xIkYwRAIgB9vybH4h7daI43qfBeZMS%2FSX6av1yjSu73Q0kqbTD4ICIDTHpUSoXG7OU3EOtK0z0F6NGxf1c0xQwrULNgEbaiFhKqMDCCgQAhoMMzQwNjQ1MzgxMzA0IgyLggWjvfs4g1sMc4UqgAOZXEmpoGYRlnDs9tu6COLECjNNgalDexWPvFpq1a3A9dDM%2Bp6mRAQxxuja%2Bcob2Ox1fPgE%2Bhf24arud9Xr11cNNybleHqCWnBGsjhOo6JNP2gOraux84cXhEjGarHp4%2FvwXGVFQbmF%2B1J9QQlCa2D4LW%2Ffr8hnBsNGKVMe7k7MoS1QfKePl500wUYvhDJEZqPej54BGt%2BlPGorwFBQ%2B10n8vyiwShBxd%2BHBQFxpbuf72fRS9VAYilkCyp8%2FeohmSVh%2BeJXVWvcS5rGiIKd%2FyTOK7nL91s08EiJ0uhwZNJdbu3XdZPFXPTI%2Ban%2BHSkurfa3%2B05mSo4aP%2FGm5NPxP9xzCphiu65ugpN%2BOYxUwwErT7oTPQjI1ZiUJOXvWGhSA5WpKEzVTNPx3aYDtjB8T7qDky8A%2BjsQyvKQARdxM9buz8H1pej8KDsnHr%2BAgupNy%2F9kNk9kBdxPnj67WaVot9WdIOHcj8knf4SVIZCy%2FMESBMVkXT%2BwRLJ8XJaSFR13sl4wvY3dgQY67AG3IH44KUVXKCnh36UJ5nCpEaT162Y6dleCP2Okragprp%2BhIMQHcb3spNoLRHVcq3Zj%2B53o2s4yF6%2FO6BUe1nSZ31X890J6Wao3yFwhrbyULbRAA8Ni3R%2ForYYK0l3213NtV%2FyaIp9o02EAyG7sWOhvsD7MbofMBI2GS%2FbrmEYHjdSTrMCkZje0zG6Q5L60rWgiRVBn5Sa2ogUYk0c%2F4ecnQ8taiVzEuoQsV5CTB5ou2pQVKP1fbefNyu1B18542VLLqJW8mHZ6eoYf%2FwGK7tqJaJf1sPRr2qZ0YbVtkQCo03ZYm0fetH3mXsCYWQ%3D%3D&AWSAccessKeyId=ASIAU6UAMAS4GTPW2LXI&Expires=1614238351&Signature=6xg03%2FpXKMJDVKyXV7X%2FjeLhVb8%3D'
+                        description: |+
+                                    • Link for downloading this image.
+                                    • Link will expire after 5 minutes  
+                      location:
+                        type: object
+                        properties:
+                          lat:
+                            type: string
+                            example: 1.31384231654635
+                            description: Latitude value.                            
+                          lon:
+                            type: string
+                            example: 103.845603032574
+                            description: Longitude value.
+                        example: {<Json Object>}
+                        description: Latitude and Longitude map
+                                      coordinates.
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"           
+                      source: 
+                        type: string
+                        description: Dataset source
+                        example: lta
     unauthorized:
       type: object
       properties:
@@ -148,6 +235,15 @@ components:
         message:
           type: string
           example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -196,15 +292,6 @@ components:
         status:
           type: string
           example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
-        status:
-          type: string
-          example: Failure
     versions:
       type: object
       properties: 
@@ -215,10 +302,38 @@ components:
             - type: string
               example: Published Date - Jul 30, 2021
               description: Initial version release
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 10, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index 
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match" :{"camera_id":"1709"}}]
+          description: |+
+            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * match_phrase
+            * match_phrase_prefix
+            * term
+            * terms
+            * range
+            * exists
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
-      description: Authentication is done using the x-api-key in the request header.
+      description: Authentication is done using the x-api-key in the request header
