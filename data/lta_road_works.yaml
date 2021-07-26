@@ -330,7 +330,7 @@ components:
           default: false
           example: [{"match" :{"road_name":"arthur"}}]
           description: |+
-            Its a list of filters to refine the search further. Each filter consists of a match type, the field and the value. The possible 3 match types are&#58;
+            Its a list of filters to refine the search further. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
             * match_phrase
             * match_phrase_prefix
