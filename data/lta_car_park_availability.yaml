@@ -285,7 +285,7 @@ components:
                       source: 
                         type: string
                         description: Dataset source
-                        example: http://datamall2.mytransport.sg/ltaodataservice/RoadWorks   
+                        example: http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2
     unauthorized:
       type: object
       properties:
