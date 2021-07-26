@@ -247,7 +247,7 @@ components:
                       source: 
                         type: string
                         description: Dataset source
-                        example: http://datamall2.mytransport.sg/ltaodataservice/RoadWorks   
+                        example: lta
     unauthorized:
       type: object
       properties:
