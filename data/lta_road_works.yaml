@@ -5,10 +5,6 @@ info:
   description: |+
     Returns all road works being / to be carried out. Updated every 24 hours or whenever there are updates.
   x-additionalinfo : |+
-    Suggested Use Cases:
-    
-    **Refining queries in the filter field using match types**
-    
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
     
@@ -28,6 +24,7 @@ info:
       > {"range":{"lastupdated":{"gte":"now-1d/d","lte:"now/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"road_name"}}
+      
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
 
   version: '0.1.0'
@@ -324,13 +321,13 @@ components:
           type: number
           default: false
           example: 0
-          description: The offset of the record list ie the starting index 
+          description: The offset of the record list ie the starting index . Default - 0
         filter:
           type: string
           default: false
           example: [{"match" :{"road_name":"arthur"}}]
           description: |+
-            Its a list of filters to refine the search further. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
             * match_phrase
             * match_phrase_prefix
