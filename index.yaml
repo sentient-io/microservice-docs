@@ -298,31 +298,11 @@ data:
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
-      0.1.0: 'trajectory_clustering.yaml'
-  lta_faulty_traffic_lights:
-    title: LTA Faulty Traffic Lights
-    versions:
-      0.1.0: 'lta_faulty_traffic_lights.yaml'      
+      0.1.0: 'trajectory_clustering.yaml' 
   lta_road_works:
     title: LTA Road Works
     versions:
-      0.1.0: 'lta_road_works.yaml'
-  lta_traffic_images:
-    title: LTA Traffic Images
-    versions:
-      0.1.0: 'lta_traffic_images.yaml'  
-  lta_traffic_incidents:
-    title: LTA Traffic Incidents
-    versions:
-      0.1.0: 'lta_traffic_incidents.yaml'   
-  lta_vms:
-    title: LTA VMS
-    versions:
-      0.1.0: 'lta_vms.yaml'       
-  lta_traffic_speed_bands:
-    title: LTA Traffic Speed Bands
-    versions:
-      0.1.0: 'lta_traffic_speed_bands.yaml'  
+      0.1.0: 'lta_road_works.yaml' 
   lta_car_park_availability:
     title: LTA Carpark Availability
     versions:
