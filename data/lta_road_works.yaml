@@ -323,9 +323,11 @@ components:
           example: 0
           description: The offset of the record list ie the starting index . Default - 0
         filter:
-          type: string
+          type: array
           default: false
-          example: [{"match" :{"road_name":"arthur"}}]
+          items:
+              type: object
+          example: [{"match" :{"area":"Harbfront"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
