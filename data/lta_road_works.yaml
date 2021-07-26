@@ -344,8 +344,8 @@ components:
       properties:
         limit:
           type: number
-          default: false
-          example: 25
+          default: True
+          example: 10
           description: limit
 
   securitySchemes:
