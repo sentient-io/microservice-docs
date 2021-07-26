@@ -4,6 +4,61 @@ info:
   x-subscribelink: lta_road_works
   description: |+
     Returns all road works being / to be carried out. Updated every 24 hours or whenever there are updates.
+
+  x-additionalinfo : |+
+    Suggested Use Cases:
+    
+    **Refining queries in the filterdata field using filter types and match types**
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+  
+    **Filter Types:**
+    A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
+    
+    * **must** - All of the stated conditions must match. Equivalent to an AND operator.
+      > {"must":[{"match":{"road_name":"arthur"}}]}
+    * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
+      > {"must_not":[{"match":{"road_name":"arthur"}}]}
+    
+    * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
+      > {"should":[{"match_phrase":{"road_name":"arthur"}}]}
+    
+    * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
+      > {"filter":[{"match" :{"road_name":"arthur"}}]}
+      
+    For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
+    
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    **Match Types:**
+    A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+      > {"match":{"road_name":"arthur"}}
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"road_name":"arthur"}}
+    * **match_phrase_prefix** - Search within a full text field with prefix
+      > {"match_phrase_prefix":{"road_name":"arthur"}}
+    * **term** - Returns results that contain an exact term in a provided field
+      > {"term":{"road_name":"arthur"}}
+    * **terms** - Returns results that contain one or more exact terms in a provided field
+      > {"terms":{"road_name":"arthur"}}
+    * **range** - Returns results that contain terms within a stipulated range
+      > 
+      > 
+      > 
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"road_name":"arthur"}}
+    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+    
+    **Forming sophisticated queries using combinations of filter types (in JSON)**
+    Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
+    
+    > {
+    > "must":[{"match":{"road_name":"arthur"}}],
+    > "filter":[{"match":{"road_name":"arthur"}}],
+    > "should":[{"match_phrase":{"road_name":"arthur"}}],
+    > "must_not":[{"match":{"road_name":"arthur"}}]
+    > }
+
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -11,8 +66,8 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
 paths:
-   /microservices/data/ltaroadworks/v0/getdata:
-    get:
+   /microservices/data/ltaroadworks/v1/getdata:
+    post:
       tags:
         - v0.1.0
       responses:
@@ -24,15 +79,22 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: Successfully Processed
-                status: Success
+                total: 1
                 results:
-                - eventid: RMAPP-201512-0217
-                  startdate: 2021-2-14
-                  enddate: 2021-3-31
-                  svcdept: SP POWERGRID LTD - REGIONAL
-                            NETWORK CENTRAL
-                  roadname: ADAM DRIVE
-                  other: For details, please call 67273085
+                - _id: rminrm2020122140arthurroad
+                  _index: lta_road_works
+                  _score: 0
+                  _source:
+                    end_date: '2021-12-29'
+                    event_id: RMINRM-202012-2140
+                    lastupdated: '2021-07-26T04:24:16.409Z'
+                    other: For details
+                    road_name: ARTHUR ROAD
+                    source: http://datamall2.mytransport.sg/ltaodataservice/RoadWorks
+                    start_date: '2020-12-30'
+                    svcdept: SINGTEL - ACCESS NETWORK ENGINEERING DIVISION
+                  _type: dir_doc
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -101,45 +163,87 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure      
+          description: The status of the API call Success/Failure             
         results:
-          type: array
+          type: object
           example: {<Json Object>}
-          description: Json Object of returned results 
-          items:
-            type: object
-            properties:
-              eventid:
-                type: string
-                example: RMAPP-201512-0217
-                description: ID for this road work
-              startdate:
-                type: string
-                example: 2021-2-14
-                description: Start date for the works
-                                  performed for this road work
-                                  (in YYYY-MM-DD format)
-              enddate:
-                type: string
-                example: 2021-3-31
-                description: End date for works performed
-                              for this road work
-                              (in YYYY-MM-DD format)
-              svcdept:
-                type: string
-                example: SP POWERGRID LTD - REGIONAL
-                          NETWORK CENTRAL
-                description: Department or company
-                                performing this road work
-              roadname:
-                type: string
-                example: ADAM DRIVE
-                description: Name of road where work is
-                            being performed.              
-              other:
-                type: string
-                example: For details, please call 67273085
-                description: Additional information or messages.            
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            max_score:
+              type: float
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "lta_road_works"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "K7scqWgBv3dNEHq2WvMo"
+                  _score: 
+                    type: float
+                    description: The document score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      event_id:
+                        type: string
+                        example: RMAPP-201512-0217
+                        description: ID for this road work
+                      start_date:
+                        type: string
+                        example: 2021-2-14
+                        description: Start date for the works
+                                          performed for this road work
+                                          (in YYYY-MM-DD format)
+                      end_date:
+                        type: string
+                        example: 2021-3-31
+                        description: End date for works performed
+                                      for this road work
+                                      (in YYYY-MM-DD format)
+                      svcdept:
+                        type: string
+                        example: SP POWERGRID LTD - REGIONAL
+                                  NETWORK CENTRAL
+                        description: Department or company
+                                        performing this road work
+                      road_name:
+                        type: string
+                        example: ADAM DRIVE
+                        description: Name of road where work is
+                                    being performed.              
+                      other:
+                        type: string
+                        example: For details, please call 67273085
+                        description: Additional information or messages.    
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"           
+                      source: 
+                        type: string
+                        description: Dataset source
+                        example: http://datamall2.mytransport.sg/ltaodataservice/RoadWorks                      
     unauthorized:
       type: object
       properties:
@@ -231,6 +335,17 @@ components:
             - type: string
               example: Published Date - Jul 30, 2021
               description: Initial version release
+    input:
+      type: object
+      required:
+        - city
+      properties:
+        limit:
+          type: number
+          example: 25
+          description: No of records
+        filter:
+          type: 
   securitySchemes:
     APIAuthorizer:
       type: apiKey
