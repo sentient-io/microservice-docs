@@ -4,7 +4,6 @@ info:
   x-subscribelink: lta_road_works
   description: |+
     Returns all road works being / to be carried out. Updated every 24 hours or whenever there are updates.
-
   x-additionalinfo : |+
     Suggested Use Cases:
     
@@ -58,7 +57,6 @@ info:
     > "should":[{"match_phrase":{"road_name":"arthur"}}],
     > "must_not":[{"match":{"road_name":"arthur"}}]
     > }
-
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -130,7 +128,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'    
+                $ref: '#/components/schemas/inputlimitexceeded'
         '415':
           description: Unsupported Media Type
           content:
@@ -151,6 +149,12 @@ paths:
                 $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -174,7 +178,7 @@ components:
               example: 1
               description: Total number of records
             max_score:
-              type: float
+              type: number
               example: 0
               description: The highest score value
             hits:
@@ -195,9 +199,9 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "K7scqWgBv3dNEHq2WvMo"
+                    example: "rminrm2021061572arthurroad"
                   _score: 
-                    type: float
+                    type: number
                     description: The document score for the search request
                     example: 0
                   _source: 
@@ -243,7 +247,7 @@ components:
                       source: 
                         type: string
                         description: Dataset source
-                        example: http://datamall2.mytransport.sg/ltaodataservice/RoadWorks                      
+                        example: http://datamall2.mytransport.sg/ltaodataservice/RoadWorks   
     unauthorized:
       type: object
       properties:
@@ -268,6 +272,15 @@ components:
         message:
           type: string
           example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -316,15 +329,6 @@ components:
         status:
           type: string
           example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
-        status:
-          type: string
-          example: Failure
     versions:
       type: object
       properties: 
@@ -337,21 +341,17 @@ components:
               description: Initial version release
     input:
       type: object
-      required:
-        - city
       properties:
         limit:
           type: number
+          default: false
           example: 25
-          description: No of records
-        filter:
-          type: array
-          example: [{"match" :{"road_name":"arthur"}}]
-          description: filter query         
+          description: limit
+
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
-      description: Authentication is done using the x-api-key in the request header.
+      description: Authentication is done using the x-api-key in the request header
