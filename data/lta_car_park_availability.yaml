@@ -14,8 +14,8 @@ info:
       > {"range":{"availablelots":{"gte":10}}}
       > {"range":{"availablelots":{"lte":100}}}
       > {"range":{"availablelots":{"gte":10,"lte":100}}}
-    * **geo_distance** - Returns results that contain terms within a stipulated range
-      > {"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}
+    * **geo_distance** - Returns the geo search based on the distance and location lat/long
+      > {"geo_distance": {"distance": "1km","location": "1.29375,103.85718"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"area"}}
       
@@ -345,7 +345,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"match" :{"area":"Marina"}}]
+          example: [{"match":{"agency":"LTA"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
