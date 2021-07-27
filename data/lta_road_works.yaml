@@ -12,8 +12,8 @@ info:
       > {"match":{"road_name":"arthur"}}
     * **range** - Returns results that contain terms within a stipulated range
       > {"range":{"end_date":{"gte":"now/d"}}}
-      > {"range":{"end_date":{"lte":"now+30d/d"}}}
-      > {"range":{"end_date":{"gte":"now/d","lte":"now+30d/d"}}}
+      > {"range":{"end_date":{"lte":"now+100d/d"}}}
+      > {"range":{"end_date":{"gte":"now/d","lte":"now+100d/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"road_name"}}
 
