@@ -13,7 +13,7 @@ info:
     * **range** - Returns results that contain terms within a stipulated range
       > {"range":{"availablelots":{"gte":10}}}
       > {"range":{"availablelots":{"lte":100}}}
-      > {"range":{"availablelots":{"gte":"10,"lte":100}}}
+      > {"range":{"availablelots":{"gte":10,"lte":100}}}
     * **geo_distance** - Returns results that contain terms within a stipulated range
       > {"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}
     * **exists** - Returns results that contain any indexed value for a field
