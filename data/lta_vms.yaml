@@ -11,14 +11,6 @@ info:
     
     * **match** - Search within a full text field for a single word
       > {"match":{"message":"HEAVY VEHICLES"}}
-    * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"message":"HEAVY VEHICLES"}}
-    * **match_phrase_prefix** - Search within a full text field with prefix
-      > {"match_phrase_prefix":{"message":"HEAVY VEHICLES"}}
-    * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"equipment_id":"VMS_0011"}}
-    * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"equipment_id":["VMS_0011","VMS_0001"]}}
     * **range** - Returns results that contain terms within a stipulated range
       > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
       > {"range":{"lastupdated":{"lte":"now/d"}}}
@@ -28,7 +20,6 @@ info:
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"message"}}
       
-    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -325,10 +316,6 @@ components:
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
-            * match_phrase
-            * match_phrase_prefix
-            * term
-            * terms
             * range
             * geo_distance
             * exists
