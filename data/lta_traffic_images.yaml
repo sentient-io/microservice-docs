@@ -10,14 +10,6 @@ info:
     
     * **match** - Search within a full text field for a single word
       > {"match":{"camera_id":"1709"}}
-    * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"camera_id":"1709"}}
-    * **match_phrase_prefix** - Search within a full text field with prefix
-      > {"match_phrase_prefix":{"camera_id":"1709"}}
-    * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"camera_id":"1709"}}
-    * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"camera_id":["1709","3796"]}}
     * **range** - Returns results that contain terms within a stipulated range
       > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
       > {"range":{"lastupdated":{"lte":"now/d"}}}
@@ -326,10 +318,6 @@ components:
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
-            * match_phrase
-            * match_phrase_prefix
-            * term
-            * terms
             * range
             * geo_distance
             * exists
