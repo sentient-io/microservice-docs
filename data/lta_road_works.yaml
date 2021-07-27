@@ -10,22 +10,12 @@ info:
     
     * **match** - Search within a full text field for a single word
       > {"match":{"road_name":"arthur"}}
-    * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"road_name":"arthur"}}
-    * **match_phrase_prefix** - Search within a full text field with prefix
-      > {"match_phrase_prefix":{"road_name":"arthur"}}
-    * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"event_id":"RMAPP-201512-0217"}}
-    * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"event_id":["RMAPP-201512-0217","RMINRM-202012-2140"]}}
     * **range** - Returns results that contain terms within a stipulated range
-      > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
-      > {"range":{"lastupdated":{"lte":"now/d"}}}
-      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
+      > {"range":{"start_date":{"gte":"now-1d/d"}}}
+      > {"range":{"start_date":{"lte":"now/d"}}}
+      > {"range":{"start_date":{"gte":"now-1d/d","lte":"now/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"road_name"}}
-      
-    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
 
   version: '0.1.0'
 servers:
@@ -331,10 +321,6 @@ components:
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
-            * match_phrase
-            * match_phrase_prefix
-            * term
-            * terms
             * range
             * exists
 
