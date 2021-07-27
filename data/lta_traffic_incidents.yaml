@@ -11,20 +11,12 @@ info:
     
     * **match** - Search within a full text field for a single word
       > {"match":{"type":"Roadwork"}}
-    * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"type":"Roadwork"}}
-    * **match_phrase_prefix** - Search within a full text field with prefix
-      > {"match_phrase_prefix":{"type":"Accident"}}
-    * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"type":"Roadwork"}}
-    * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"type":["Roadwork","Accident"]}}
     * **range** - Returns results that contain terms within a stipulated range
       > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
       > {"range":{"lastupdated":{"lte":"now/d"}}}
       > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
     * **geo_distance** - Returns results that contain terms within a stipulated range
-      > {"geo_distance": {"distance": "1km","location": "1.3265,103.9730"}}
+      > {"geo_distance": {"distance": "1km","location": "1.3044,103.8232"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"message"}}
       
@@ -337,10 +329,6 @@ components:
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
-            * match_phrase
-            * match_phrase_prefix
-            * term
-            * terms
             * range
             * geo_distance
             * exists
