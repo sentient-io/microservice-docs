@@ -331,6 +331,7 @@ components:
             * term
             * terms
             * range
+            * geo_distance
             * exists
   securitySchemes:
     APIAuthorizer:
