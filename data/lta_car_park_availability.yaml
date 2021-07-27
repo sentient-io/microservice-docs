@@ -10,24 +10,15 @@ info:
     
     * **match** - Search within a full text field for a single word
       > {"match":{"agency":"LTA"}}
-    * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"agency":"LTA"}}
-    * **match_phrase_prefix** - Search within a full text field with prefix
-      > {"match_phrase_prefix":{"agency":"LTA"}}
-    * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"carparkid":"1"}}
-    * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"carparkid":["1","4"]}}
     * **range** - Returns results that contain terms within a stipulated range
-      > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
-      > {"range":{"lastupdated":{"lte":"now/d"}}}
-      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
+      > {"range":{"availablelots":{"gte":10}}}
+      > {"range":{"availablelots":{"lte":100}}}
+      > {"range":{"availablelots":{"gte":"10,"lte":100}}}
     * **geo_distance** - Returns results that contain terms within a stipulated range
       > {"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"area"}}
       
-    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -358,10 +349,6 @@ components:
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
-            * match_phrase
-            * match_phrase_prefix
-            * term
-            * terms
             * range
             * geo_distance
             * exists
