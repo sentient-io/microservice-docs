@@ -322,7 +322,11 @@ data:
   lta_vms:
     title: LTA VMS
     versions:
-      0.1.0: 'lta_vms.yaml'        
+      0.1.0: 'lta_vms.yaml'      
+  lta_faulty_traffic_lights:
+    title: LTA Faulty Traffic Lights
+    versions:
+      0.1.0: 'lta_faulty_traffic_lights.yaml'          
 data alliance:
   download_dataset_api:
     title: Download Dataset API
