@@ -23,7 +23,7 @@ info:
       > {"range":{"lastupdated":{"lte":"now/d"}}}
       > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
     * **geo_distance** - Returns results that contain terms within a stipulated range
-      > {"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}
+      > {"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"area"}}
       
