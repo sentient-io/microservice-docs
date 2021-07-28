@@ -3,7 +3,7 @@ info:
   title: LTA Traffic Images
   x-subscribelink: lta_traffic_images
   description: |+
-    Returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 1 to 5 minutes or whenever there are updates.
+    Returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 5 minutes.
   x-additionalinfo : |+
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
