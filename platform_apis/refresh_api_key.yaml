@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Refresh API Key
-  description: This mocroservice is used to refresh the User API Key.
+  description: This mocroservice is used to refresh user's API Key.
   version: v0.1.0
   x-subscribelink: refresh_api_key
 servers:
