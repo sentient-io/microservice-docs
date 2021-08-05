@@ -334,6 +334,7 @@ components:
           description: The receipt document
         handwritten:
           type: string
+          example:  'false'
           description: Sholud be true of false. Default is false  
   securitySchemes:
     APIAuthorizer:
