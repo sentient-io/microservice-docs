@@ -114,15 +114,7 @@ nlp:
   text_summarisation:
     title: Text Summarisation
     versions:
-      0.1.2: 'text_summarisation.yaml'
-  staple_invoice:
-    title: Staple Invoice
-    versions:
-      0.1.0: 'staple_invoice.yaml'
-  staple_receipt:
-    title: Staple Receipt
-    versions:
-      0.1.0: 'staple_receipt.yaml'       
+      0.1.2: 'text_summarisation.yaml'      
 computer vision:
   object_detection:
     title: Object Detection
@@ -152,6 +144,14 @@ computer vision:
     title: Demographics Classification
     versions:
       0.1.0: 'demographics_classification.yaml'
+  staple_invoice:
+    title: Staple Invoice
+    versions:
+      0.1.0: 'staple_invoice.yaml'
+  staple_receipt:
+    title: Staple Receipt
+    versions:
+      0.1.0: 'staple_receipt.yaml'       
 utility:
   video-to-audio_convertor:
     title: Video-To-Audio Convertor
