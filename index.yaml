@@ -297,3 +297,80 @@ data alliance:
     urlkey: download_dataset_api
     versions:
       0.1.0: 'download_dataset.yaml'
+Platform APIs:
+  org_info:
+    title: View Organizational Info
+    urlkey: org_info
+    versions:
+      0.1.0: 'org_info.yaml'
+  update_org:
+    title: Edit Organizational Info
+    urlkey: update_org
+    versions:
+      0.1.0: 'update_org.yaml'
+  user_list:
+    title: User List
+    urlkey: user_list
+    versions:
+      0.1.0: 'user_list.yaml'
+  user_info:
+    title: View User Details
+    urlkey: user_info
+    versions:
+      0.1.0: 'user_info.yaml'
+  activate_user:
+    title: Activate Users
+    urlkey: activate_user
+    versions:
+      0.1.0: 'activate_user.yaml'
+  add_user_to_group:
+    title: Add Group To User
+    urlkey: add_user_to_group
+    versions:
+      0.1.0: 'add_user_to_group.yaml'
+  delete_user_info:
+    title: Delete User
+    urlkey: delete_user_info
+    versions:
+      0.1.0: 'delete_user_info.yaml'
+  refresh_api_key:
+    title: Refresh API Key
+    urlkey: refresh_api_key
+    versions:
+      0.1.0: 'refresh_api_key.yaml'
+  add_user:
+    title: Add User
+    urlkey: add_user
+    versions:
+      0.1.0: 'add_user.yaml'
+  update_user_info:
+    title: Edit User
+    urlkey: update_user_info
+    versions:
+      0.1.0: 'update_user_info.yaml'
+  group_info:
+    title: View Group Details
+    urlkey: group_info
+    versions:
+      0.1.0: 'group_info.yaml'
+  org_group_list:
+    title: Group List
+    urlkey: org_group_list
+    versions:
+      0.1.0: 'org_group_list.yaml'
+  
+  subscribed_microservices:
+    title: Subscribed Microservices
+    urlkey: subscribed_microservices
+    versions:
+      0.1.0: 'subscribed_microservices.yaml'
+  api_metering:
+    title: API Metering
+    urlkey: api_metering
+    versions:
+      0.1.0: 'api_metering.yaml'
+  api_metering_error_details:
+    title: API Metering Error Details
+    urlkey: api_metering_error_details
+    versions:
+      0.1.0: 'api_metering_error_details.yaml'
