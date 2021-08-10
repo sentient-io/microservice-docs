@@ -266,7 +266,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jul 30, 2021
+              example: Published Date - Aug 30, 2021
               description: Initial version release
     input:
       type: object
