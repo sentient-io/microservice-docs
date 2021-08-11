@@ -1,16 +1,16 @@
 openapi: 3.0.1
 info:
-  title: Staple Receipt
+  title: Scan Receipt
   description: |+
     Scan the Receipt document from file and explore the data by catagorywise. 
     Supported formats are : pdf, jpg, png, docx, doc
   version: '1.0.0'
-  x-subscribelink: staple_receipt
+  x-subscribelink: scan_receipt
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Jul 31, 2021"
+  description: "Published Date - Aug 12, 2021"
 paths:
   /microservices/cv/scanreceipt/v0/getresults:
     post:
@@ -1628,7 +1628,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jul 31, 2021
+              example: Published Date - Aug 12, 2021
               description: Initial version release
     input:
       type: object
