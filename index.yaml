@@ -114,7 +114,7 @@ nlp:
   text_summarisation:
     title: Text Summarisation
     versions:
-      0.1.2: 'text_summarisation.yaml'     
+      0.2.2: 'text_summarisation.yaml'     
   sentiment_analysis:
     title: Sentiment Analysis and Sarcasm Detection
     versions:
