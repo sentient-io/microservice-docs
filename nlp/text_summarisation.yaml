@@ -4,21 +4,21 @@
     description: |+
       This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words. 
 
-      The input text should be mimium 100 words and not exceeding 512 words. 
+      The input text should be mimium 100 words. 
 
-      For longer text, we would suggest breaking them up into smaller chunks (each lesser than 512 words) and making multiple calls to this microservice for more effective summarisation.
-    version: '0.1.2'
+      For longer text, we would suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective summarisation.
+    version: '0.2.2'
     x-subscribelink: text_summarisation
   servers:
     - url: 'https://apis.sentient.io'
   tags:
-  - name: "v0.1.2"
-    description: "Published Date - Jun 07, 2021"
+  - name: "v0.2.2"
+    description: "Published Date - Aug 02, 2021"
   paths:
     /microservices/nlp/textsummarisation/v0/getpredictions:
       post:
         tags:
-          - v0.1.2
+          - v0.2.2
         responses:
           '200':
             description: Ok
@@ -100,7 +100,7 @@
             description: Json Object of returned results
             properties:   
               score:
-                type: number
+                type: integer
                 example: 2.2100781633414535
                 description: Confidence score
               text:
@@ -201,6 +201,13 @@
       versions:
         type: object
         properties: 
+          v0.2.2:
+            type: array
+            items:
+             oneOf:
+               - type: string
+                 example: Published Date - Aug 02, 2021
+                 description: Model Upgrade
           v0.1.2:
             type: array
             items:
