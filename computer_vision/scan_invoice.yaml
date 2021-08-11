@@ -2,8 +2,7 @@ openapi: 3.0.1
 info:
   title: Scan Invoice
   description: |+
-    Scan the Invoice document from file and explore the data by catagorywise. 
-    Supported formats are : pdf, jpg, png, docx, doc
+      The API will return a JSON containing all data the could be extracted, along with details of where that information was on the page, confidence values, and a new tagged image of the original Invoice document. This API is optimized for computer generated PDFs, which will have the best performance. However, pdf scans, png, jpeg, tiff, jfif, and docx are also supported.
   version: '1.0.0'
   x-subscribelink: scan_invoice
 servers:
