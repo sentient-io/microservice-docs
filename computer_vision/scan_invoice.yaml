@@ -1,16 +1,16 @@
 openapi: 3.0.1
 info:
-  title: Staple Invoice
+  title: Scan Invoice
   description: |+
     Scan the Invoice document from file and explore the data by catagorywise. 
     Supported formats are : pdf, jpg, png, docx, doc
   version: '1.0.0'
-  x-subscribelink: staple_invoice
+  x-subscribelink: scan_invoice
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Jul 31, 2021"
+  description: "Published Date - Aug 12, 2021"
 paths:
   /microservices/cv/scaninvoice/v0/getresults:
     post:
