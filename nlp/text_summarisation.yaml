@@ -10,7 +10,7 @@
     version: '0.2.2'
     x-subscribelink: text_summarisation
   servers:
-    - url: 'https://dev-apis.sentient.io'
+    - url: 'https://apis.sentient.io'
   tags:
   - name: "v0.2.2"
     description: "Published Date - Aug 02, 2021"
