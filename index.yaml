@@ -148,14 +148,14 @@ computer vision:
     title: Demographics Classification
     versions:
       0.1.0: 'demographics_classification.yaml'
-  staple_invoice:
-    title: Staple Invoice
+  scan_invoice:
+    title: Scan Invoice
     versions:
-      0.1.0: 'staple_invoice.yaml'
-  staple_receipt:
-    title: Staple Receipt
+      0.1.0: 'scan_invoice.yaml'
+  scan_receipt:
+    title: Scan Receipt
     versions:
-      0.1.0: 'staple_receipt.yaml'       
+      0.1.0: 'scan_receipt.yaml'       
 utility:
   video-to-audio_convertor:
     title: Video-To-Audio Convertor
