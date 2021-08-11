@@ -148,14 +148,14 @@ computer vision:
     title: Demographics Classification
     versions:
       0.1.0: 'demographics_classification.yaml'
-  scan_invoice:
-    title: Scan Invoice
+  invoice_scanner:
+    title: Invoice Scanner
     versions:
-      0.1.0: 'scan_invoice.yaml'
-  scan_receipt:
-    title: Scan Receipt
+      0.1.0: 'invoice_scanner.yaml'
+  receipt_scanner:
+    title: Receipt Scanner
     versions:
-      0.1.0: 'scan_receipt.yaml'       
+      0.1.0: 'receipt_scanner.yaml'       
 utility:
   video-to-audio_convertor:
     title: Video-To-Audio Convertor
