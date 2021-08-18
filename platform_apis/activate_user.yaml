@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Activate Users
-  description: This API provides operations to manage users in your organization. Create a user without a password and recovery question/answer. When the user is activated, an email is sent to the user with an activation token that can be used to complete the activation process. This is the default flow for new user registration using the admistrator user dashboard.
+  description: This API activates a user that is specified by the Admin. Only active users can access specified restricted features and content set by the Admin.
   version: v0.1.0
   x-subscribelink: 
 servers:
