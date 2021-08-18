@@ -229,19 +229,22 @@ components:
           description: |+
             The audio sampling rate, in Hz. Valid values: 16000 and 8000. Default value: 16000.
         punctuation_Prediction:
-          type: boolean
+          type: string
+          format: boolean
           default: false
           example: False
           description: |+
             Specifies whether to add punctuation marks during post-processing. Valid values: True and False. Default value: False.
         inversetext_Normalization:
-          type: boolean
+          type: string
+          format: boolean
           default: false
           example: False
           description: |+
             Specifies whether to enable inverse text normalization (ITN) during post-processing. Valid values: True and False. Default value: False.
         voice_Detection:
-          type: boolean
+          type: string
+          format: boolean
           default: false
           example: False
           description: |+
