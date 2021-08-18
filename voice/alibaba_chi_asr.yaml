@@ -32,7 +32,6 @@ paths:
                 message: Successfully Processed
                 results:
                   output: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不要
-                  task_id: 5c6471e24d9d4af3b4632fd967be16ee
                 status: Success
         '401':
           description: Unauthorized
@@ -110,10 +109,6 @@ components:
                 type: string
                 example: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不要
                 description: The speech recognition result.
-              task_id:
-                type: string
-                example: 5c6471e24d9d4af3b4632fd967be16ee
-                description: The 32-bit task ID. Record this value for troubleshooting.
           status:
             type: string
             example: Success
