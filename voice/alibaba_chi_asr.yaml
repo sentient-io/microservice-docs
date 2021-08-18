@@ -1,0 +1,265 @@
+openapi: 3.0.1
+info:
+  title: Alibaba Chinese ASR
+  description: |+
+    This microservice takes in the input audio file  and supports recognizing short speech that lasts within 1 minute.
+    The server returns the recognition result in JSON format in a response.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+      - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.
+      - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
+      - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.
+  version: '0.1.0'
+  x-subscribelink: automatic_speech_recognition_chi
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Aug 18, 2021"
+paths:
+  /microservices/voice/alibabachiasr/v0/getpredictions:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  output: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不要
+                  task_id: 5c6471e24d9d4af3b4632fd967be16ee
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+          results:
+            type: object
+            description: output object 
+            example: {"<Json":"Object>"}
+            properties:
+              output:
+                type: string
+                example: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不要
+                description: The speech recognition result.
+              task_id:
+                type: string
+                example: 5c6471e24d9d4af3b4632fd967be16ee
+                description: The 32-bit task ID. Record this value for troubleshooting.
+          status:
+            type: string
+            example: Success
+            description: The status of the API call success/failure
+          message:
+            type: string
+            example: Successfully Processed
+            description: Status Message 
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    input:
+      type: object
+      required:
+        - filePath 
+      properties:
+        filePath:
+          type: string
+          format: binary
+          default: true
+          example:  sample.mp4
+          description: The audio file object.
+          
+          # Supported formats are : cc
+        audio_Format:
+          type: string
+          default: false
+          example: pcm
+          description: |+
+            The audio coding format. Valid values: pcm, opus. Default value: pcm.
+        sample_Rate:
+          type: number
+          default: false
+          example: 16000
+          description: |+
+            The audio sampling rate, in Hz. Valid values: 16000 and 8000. Default value: 16000.
+        punctuation_Prediction:
+          type: boolean
+          default: false
+          example: False
+          description: |+
+            Specifies whether to add punctuation marks during post-processing. Valid values: True and False. Default value: False.
+        inversetext_Normalization:
+          type: boolean
+          default: false
+          example: False
+          description: |+
+            Specifies whether to enable inverse text normalization (ITN) during post-processing. Valid values: True and False. Default value: False.
+        voice_Detection:
+          type: boolean
+          default: false
+          example: False
+          description: |+
+            Specifies whether to enable voice detection. Valid values: True and False. Default value: False. Note: If voice detection is enabled, the server detects whether the uploaded audio file includes any silent fragment. If the server detects any silent fragment, it removes the silent fragment and the subsequent content without recognizing them. The recognition result varies depending on the model.                   
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Aug 18, 2021
+              description: Initial version release
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
