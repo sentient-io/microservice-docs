@@ -334,7 +334,11 @@ data:
   lta_faulty_traffic_lights:
     title: LTA Faulty Traffic Lights
     versions:
-      0.1.0: 'lta_faulty_traffic_lights.yaml'          
+      0.1.0: 'lta_faulty_traffic_lights.yaml' 
+  realtime_weather:
+    title: Realtime Weather
+    versions:
+      0.1.0: 'realtime_weather.yaml'         
 data alliance:
   download_dataset_api:
     title: Download Dataset API
