@@ -65,7 +65,11 @@ voice:
   alibaba_chi_asr:
     title: Alibaba Chinese ASR
     versions:
-      0.1.0: 'alibaba_chi_asr.yaml'      
+      0.1.0: 'alibaba_chi_asr.yaml' 
+  neural_speaker_diarization:
+    title: Neural Speaker Diarization
+    versions:
+      0.1.0: 'neural_speaker_diarization.yaml'      
 nlp:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
