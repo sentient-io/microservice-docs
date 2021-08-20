@@ -130,7 +130,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match_phrase":{"name":"Kumon"}}],"filter":[{"match":{"trade":"commercial school"}}],"should":[{"match":{"postalcode":560529}}],"must_not":[{"match":{"trade":"betting"}}]}
+              {"must":[{"match_phrase":{"name":"school"}}],"filter":[{"match":{"trade":"schools & centres"}}],"should":[{"match":{"postalcode":530202}}],"must_not":[{"match":{"trade":"betting"}}]}
       responses:
         '200':
           description: Ok
