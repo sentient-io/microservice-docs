@@ -342,7 +342,11 @@ data:
   realtime_weather:
     title: Realtime Weather
     versions:
-      0.1.0: 'realtime_weather.yaml'         
+      0.1.0: 'realtime_weather.yaml' 
+  lidar_trajectory_data:
+    title: LiDAR Trajectory Data
+    versions:
+      0.1.0: 'lidar_trajectory_data.yaml'      
 data alliance:
   download_dataset_api:
     title: Download Dataset API
