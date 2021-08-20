@@ -145,20 +145,19 @@ paths:
                   hits:
                   - _index: sentient_hdb_directory_index
                     _type: dir_doc
-                    _id: K7scqWgBv3dNEHq2WvMo
-                    _score: 17.995623
+                    _id: pet_specialist
+                    _score: 1.0
                     _source:
-                      id: '201902011250341437360'
                       postalcode: 560720
                       unit: '4102'
                       level: '01'
                       source: hdb
-                      name: Ang Mo Kio Polyclinic
+                      name: pet_specialist
                       phonenumber: 63553000
                       email: ''
                       operatinghours: mon - fri  8am - 4.30pm  sat  8am - 12.30pm
-                      trade: shop/retail
-                      createddate: '2019-02-01'
+                      trade: pets
+                      lastupdated: '2019-02-01'
                       type: shop
                       block: '720'
                       street: ang mo kio avenue 6
@@ -241,7 +240,7 @@ components:
               description: Total number of records
             max_score:
               type: float
-              example: 17.995623
+              example: 1.0
               description: The highest score value
             hits:
               type: array
@@ -261,11 +260,11 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "K7scqWgBv3dNEHq2WvMo"
+                    example: "pet_specialist"
                   _score: 
                     type: float
                     description: The document score for the search request
-                    example: 17.995623
+                    example: 1.0
                   _source: 
                     type: object
                     example: {<Json Object>}
@@ -274,7 +273,7 @@ components:
                             id: 
                               type: string
                               description: Unique Id
-                              example: "201902011250341437360"
+                              example: "pet_specialist"
                             postalcode: 
                               type: integer
                               description: Postal code of a block
@@ -294,7 +293,7 @@ components:
                             name: 
                               type: string
                               description: Business name
-                              example: "Ang Mo Kio Polyclinic"
+                              example: "Pets"
                             phonenumber:
                               type: string
                               description: Contact number
@@ -346,7 +345,7 @@ components:
                                 sports and recreation building
                                 others
                               example: "shop/retail"
-                            createddate:
+                            lastupdated:
                               type: string
                               description: Record created date
                               example: "2019-02-01"
