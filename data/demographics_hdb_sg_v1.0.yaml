@@ -80,7 +80,7 @@ info:
       > {"filter":[{"terms":{"postalcode":[560720,560721]}},{"match":{"gender":"female"}},{"terms":{"age_group_id":[6]}}]}
   version: '1.0.0'
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - May 21, 2021"
