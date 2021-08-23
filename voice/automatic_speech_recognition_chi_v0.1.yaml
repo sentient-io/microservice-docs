@@ -1,38 +1,42 @@
-
 openapi: 3.0.1
 info:
-  title: Text-To-Speech ENG
+  title: Automatic Speech Recognition CHI
   description: |+
-        This Voice microservice converts English text into natural-sounding English speech in a female voice. 
+    This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text. This microservice works best when the audio file consists of mostly speech with no long pauses in between.
+    The length of your audio should be **up to 20 seconds**.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+      - Extraction of text from Mandarin speech from audio files.
 
-        User can adjust the pitch and tempo of the the synthesised speech. Both are optional and used only for the female_singaporean model.
+      - Extraction of text from Mandarin speech from videos.
 
-        The input text should not exceed **2000 characters**.
-  version: 1.0.0
-  x-subscribelink: text-to-speech_eng
+      - Improve customer service - empower a customer service system by adding IVR (interactive voice response) and agent conversations to call centers. Perform analytics on conversation data to gain more insights into the calls and customers.
+
+      - Enable voice control services - e.g. implement voice commands such as “turn the volume up,” and voice search such as saying “what is the temperature in Paris?”
+
+      - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.
+  version: '0.1.1'
+  x-subscribelink: automatic_speech_recognition_chi
 servers:
-  - url: 'https://dev-apis.sentient.io' 
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Jun 7, 2021"
+- name: "v0.1.1"
+  description: "Published Date - Sep 28, 2018"
 paths:
-  /microservices/voice/ttseng/v1/getpredictions:
+  /microservices/voice/asrsch/v0.1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v0.1.1
       responses:
         '200':
-          description: success response
+          description: Ok
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                results: 
-                  sampling_rate: 22050
-                  wav_base64: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
-                  message: Successfully Processed
-                  status: Success
+                message: "各位同学朋友老师教授大家好我叫墓园"
+                status: success 
         '401':
           description: Unauthorized
           content:
@@ -74,9 +78,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/invalidinput'       
+                $ref: '#/components/schemas/invalidinput'
         '500':
-          description: Internal Server error
+          description: Internal Server Error
           content:
             application/json:
               schema:
@@ -100,44 +104,20 @@ components:
     success:
       type: object
       properties:
-        results:
-          type: object
-          description: The result of the API call.
-          example: { "<Json": "Object>" }
-          properties: 
-            sampling_rate:
-              description: Sample rate of the output audio
-              example: 22050
-              type: integer
-            wav_base64:
-              description: Base64 string of the generated audio from input text
-              example: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
-              type: string
-
-        message:
-          type: string
-          example: Successfully Processed
-          description: Detail description on the API status
-        status:
-          type: string
-          example: Success
-          description: The status of the API call success/failure
-        
+              message:
+                type: string
+                example: 各位同学朋友老师教授大家好我叫墓园
+                description: Converted Text
+              status:
+                type: string
+                example: success
+                description: The status of the API call success/failure
     unauthorized:
       type: object
       properties:
         message:
           type: string
           example: Missing Authentication Token
-        status:
-          type: string
-          example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -173,7 +153,7 @@ components:
       properties:
         message:
           type: string
-          example: Internal Server error
+          example: Internal Server Error
         status:
           type: string
           example: Failure
@@ -204,70 +184,63 @@ components:
         status:
           type: string
           example: Failure
-    versions:
+    invalidinput:
       type: object
       properties:
-        v1.0.0:
-          type: array
-          items:
-            oneOf:
-              - type: string
-                example: 'Published Date - Jun 7,2021'
-                description: New model release - female_singaporean
-        v0.1.0:
-          type: array
-          items:
-            oneOf:
-              - type: string
-                example: 'Published Date - Sep 28,2018'
-                description: Initial version release    
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     input:
       type: object
       required:
-      
-        - text
-        - model
-      
+        - audio 
       properties:
-        text:
-          x-name: text
+        audio:
+          x-name: audio
           type: string
-          default: True
-          example: I want a credit card
+          default: true
+          example: data:audio/wav;base64,UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input text to be synthesised 
-        model:
-          x-name: model
-          type: string
-          default: True
-          example: female_singaporean
-          description: |+
-            Model selection. For best performance, select the model which best matches the use-case&#58;
+            Input audio file in base64 format. 
             
-            1. female_generic
-            2. female_singaporean
-        pitch_scale:
-          x-name: pitch_scale
-          type: float
-          format: float
-          default: False
+            Input file needs to be prefixed by the data type and encoding.
+            
+            Data:audio/wav;base64,<wav in base64 string>
+        language:
+          x-name: language
+          type: string
+          default: true
           example: 1
           description: |+
-            The pitch factor for the synthesized voice. It ranges between 0.5 and 1.5 and default is 1.
-            1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
-            **used only for the female_singaporean model
-        tempo_scale:
-          x-name: tempo_scale
-          type: float
-          format: float
-          default: False
-          example: 1
-          description: |+
-            The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1. 
-            1 means default speed, 0.5 is half speed, 2 is twice the speed
-            **used only for the female_singaporean model
-        
-        
+            Language setting&#58;
+              1 Mandarin
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 07, 2021
+              description: Standardizing Input and Output Updated.
+        v0.1.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 28, 2018
+              description: Patch update on bug fixes
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 21, 2018
+              description: Initial version release
   securitySchemes:
     APIAuthorizer:
       type: apiKey

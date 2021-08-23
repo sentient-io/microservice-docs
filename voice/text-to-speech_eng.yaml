@@ -1,44 +1,38 @@
+
 openapi: 3.0.1
 info:
   title: Text-To-Speech ENG
-  description: |
-    "This Voice microservice converts English text into speech in a female voice.
+  description: |+
+        This Voice microservice converts English text into natural-sounding English speech in a female voice. 
 
-    The Text-to-Speech AI generated synthesized voice speaks with Singapore English accent.
-    
-    Do ensure that your text is within **2000 characters**.
-  x-additionalinfo: |+
-    Suggested Use Cases:
-    - Transcribes spoken English words, sentences or phrases into written forms
+        User can adjust the pitch and tempo of the the synthesised speech. Both are optional and used only for the female_singaporean model.
 
-    - Voice bots in contact centers - deliver a better voice experience for customer service by dynamically generating speech, instead of playing static, pre-recorded audio. Engage with synthesized voices that give callers a sense of familiarity and personalization.
-
-    - Voice generation in devices - enable natural communications with users by empowering your devices to speak humanlike voices. Build an end-to-end voice user interface together with Speech-to-Text and improve user experience with easy and engaging interactions.
-
-    - Accessible EPGs (Electronic Program Guides) - implement text-to-speech functionality in EPGs to provide a better user experience to customers and meet accessibility requirements for services and applications.
-  version: '0.1.0'
+        The input text should not exceed **2000 characters**.
+  version: 1.0.0
   x-subscribelink: text-to-speech_eng
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io' 
 tags:
-  - name: v0.1.0
-    description: 'Published Date - Sep 28, 2018'
+- name: "v1.0.0"
+  description: "Published Date - Jun 7, 2021"
 paths:
-  /microservices/voice/ttseng/v0.1/getpredictions:
+  /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
       responses:
         '200':
-          description: Ok
+          description: success response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                audioContent: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
-                message: Successfully Processed
-                status: Success
+                results: 
+                  sampling_rate: 22050
+                  wav_base64: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
+                  message: Successfully Processed
+                  status: Success
         '401':
           description: Unauthorized
           content:
@@ -80,9 +74,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/invalidinput'
+                $ref: '#/components/schemas/invalidinput'       
         '500':
-          description: Internal Server Error
+          description: Internal Server error
           content:
             application/json:
               schema:
@@ -101,140 +95,34 @@ paths:
             schema:
               $ref: '#/components/schemas/input'
         required: true
-      x-codeSamples:
-        - lang: Python + Python3
-          source: |-
-            import http.client
-
-            conn = http.client.HTTPSConnection("apis.sentient.io")
-
-            payload = "{\"text\":\"Testing microservice\"}"
-
-            headers = {
-                'content-type': "application/json",
-                'x-api-key': "REPLACE_KEY_VALUE"
-                }
-
-            conn.request("POST", "/microservices/voice/ttseng/v0.1/getpredictions", payload, headers)
-
-            res = conn.getresponse()
-            data = res.read()
-
-            print(data.decode("utf-8"))
-        - lang: Csharp + Restsharp
-          source: |-
-            var client = new RestClient("https://apis.sentient.io/microservices/voice/ttseng/v0.1/getpredictions");
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("content-type", "application/json");
-            request.AddHeader("x-api-key", "REPLACE_KEY_VALUE");
-            request.AddParameter("application/json", "{\"text\":\"Testing microservice\"}", ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-        - lang: Go + Native
-          source: "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n\t\"net/http\"\n\t\"io/ioutil\"\n)\n\nfunc main() {\n\n\turl := \"https://apis.sentient.io/microservices/voice/ttseng/v0.1/getpredictions\"\n\n\tpayload := strings.NewReader(\"{\\\"text\\\":\\\"Testing microservice\\\"}\")\n\n\treq, _ := http.NewRequest(\"POST\", url, payload)\n\n\treq.Header.Add(\"content-type\", \"application/json\")\n\treq.Header.Add(\"x-api-key\", \"REPLACE_KEY_VALUE\")\n\n\tres, _ := http.DefaultClient.Do(req)\n\n\tdefer res.Body.Close()\n\tbody, _ := ioutil.ReadAll(res.Body)\n\n\tfmt.Println(res)\n\tfmt.Println(string(body))\n\n}"
-        - lang: Java + Unirest
-          source: |-
-            HttpResponse<String> response = Unirest.post("https://apis.sentient.io/microservices/voice/ttseng/v0.1/getpredictions")
-              .header("content-type", "application/json")
-              .header("x-api-key", "REPLACE_KEY_VALUE")
-              .body("{\"text\":\"Testing microservice\"}")
-              .asString();
-        - lang: Node + Native
-          source: |-
-            const http = require("https");
-
-            const options = {
-              "method": "POST",
-              "hostname": "apis.sentient.io",
-              "port": null,
-              "path": "/microservices/voice/ttseng/v0.1/getpredictions",
-              "headers": {
-                "content-type": "application/json",
-                "x-api-key": "REPLACE_KEY_VALUE"
-              }
-            };
-
-            const req = http.request(options, function (res) {
-              const chunks = [];
-
-              res.on("data", function (chunk) {
-                chunks.push(chunk);
-              });
-
-              res.on("end", function () {
-                const body = Buffer.concat(chunks);
-                console.log(body.toString());
-              });
-            });
-
-            req.write(JSON.stringify({text: 'Testing microservice'}));
-            req.end();
-        - lang: Php + Curl
-          source: |-
-            <?php
-
-            $curl = curl_init();
-
-            curl_setopt_array($curl, [
-              CURLOPT_URL => "https://apis.sentient.io/microservices/voice/ttseng/v0.1/getpredictions",
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => "",
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 30,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => "POST",
-              CURLOPT_POSTFIELDS => "{\"text\":\"Testing microservice\"}",
-              CURLOPT_HTTPHEADER => [
-                "content-type: application/json",
-                "x-api-key: REPLACE_KEY_VALUE"
-              ],
-            ]);
-
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-
-            curl_close($curl);
-
-            if ($err) {
-              echo "cURL Error #:" . $err;
-            } else {
-              echo $response;
-            }
-        - lang: Ruby + Native
-          source: |-
-            require 'uri'
-            require 'net/http'
-            require 'openssl'
-
-            url = URI("https://apis.sentient.io/microservices/voice/ttseng/v0.1/getpredictions")
-
-            http = Net::HTTP.new(url.host, url.port)
-            http.use_ssl = true
-            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-            request = Net::HTTP::Post.new(url)
-            request["content-type"] = 'application/json'
-            request["x-api-key"] = 'REPLACE_KEY_VALUE'
-            request.body = "{\"text\":\"Testing microservice\"}"
-
-            response = http.request(request)
-            puts response.read_body
 components:
   schemas:
     success:
       type: object
       properties:
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties: 
+            sampling_rate:
+              description: Sample rate of the output audio
+              example: 22050
+              type: integer
+            wav_base64:
+              description: Base64 string of the generated audio from input text
+              example: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
+              type: string
+
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the api status
+          description: Detail description on the API status
         status:
           type: string
           example: Success
           description: The status of the API call success/failure
-        audioContent:
-          type: string
-          example: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
-          description: Audio file converted to base64 encoded string.
+        
     unauthorized:
       type: object
       properties:
@@ -285,7 +173,7 @@ components:
       properties:
         message:
           type: string
-          example: Internal Server Error
+          example: Internal Server error
         status:
           type: string
           example: Failure
@@ -324,7 +212,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - June 7,2021'
+                example: 'Published Date - Jun 7,2021'
                 description: New model release - female_singaporean
         v0.1.0:
           type: array
@@ -332,19 +220,54 @@ components:
             oneOf:
               - type: string
                 example: 'Published Date - Sep 28,2018'
-                description: Initial version release         
+                description: Initial version release    
     input:
       type: object
       required:
+      
         - text
+        - model
+      
       properties:
         text:
           x-name: text
           type: string
-          default: true
-          example: Testing microservice
-          description: |
-            Input text
+          default: True
+          example: I want a credit card
+          description: |+
+            Input text to be synthesised 
+        model:
+          x-name: model
+          type: string
+          default: True
+          example: female_singaporean
+          description: |+
+            Model selection. For best performance, select the model which best matches the use-case&#58;
+            
+            1. female_generic
+            2. female_singaporean
+        pitch_scale:
+          x-name: pitch_scale
+          type: float
+          format: float
+          default: False
+          example: 1
+          description: |+
+            The pitch factor for the synthesized voice. It ranges between 0.5 and 1.5 and default is 1.
+            1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
+            **used only for the female_singaporean model
+        tempo_scale:
+          x-name: tempo_scale
+          type: float
+          format: float
+          default: False
+          example: 1
+          description: |+
+            The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1. 
+            1 means default speed, 0.5 is half speed, 2 is twice the speed
+            **used only for the female_singaporean model
+        
+        
   securitySchemes:
     APIAuthorizer:
       type: apiKey
