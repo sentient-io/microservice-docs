@@ -4,8 +4,6 @@ info:
   x-subscribelink: lidar_trajectory_data
   description: |+
    This microservice returns information on Ishikawajima-Harima Heavy Industries(IHI) Pointcloud Data which includes the 3DLR Location of Boon Lay Way-Yuan Ching Road, Singapore. The Data comprises all the vehicle detection and does not contain any pedestrian data. The IHI LiDAR programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with IHI to manage and facilitate the sharing of data for the LiDAR Programme.
-   
-   **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
       
   x-additionalinfo : |+
     **Match Types:**
@@ -24,7 +22,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Aug 20, 2021"
+  description: "Published Date - Aug 23, 2021"
 paths:
    /microservices/data/ihidata/v0/getdata:
     post:
@@ -399,7 +397,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Aug 20, 2021
+              example: Published Date - Aug 23, 2021
               description: Initial version release
     input:
       type: object
