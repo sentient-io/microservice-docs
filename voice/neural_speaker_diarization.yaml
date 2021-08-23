@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: neural_speaker_diarization
+  title: Neural Speaker Diarization
   description: |+
     Speaker diarization 
   version: v0.1.0
@@ -226,14 +226,14 @@ components:
         oracle_num_speakers:
           x-name: oracle_num_speakers
           type: number
-          default: False
+          default: True
           example: 2
           description: |+
-            Number of oracle speakers in the audio
+            Number of speakers in the audio, known in advance
         max_num_speakers:
           x-name: max_num_speakers
           type: number
-          default: False
+          default: True
           example: 2
           description: |+
             Maximum number of speakers in the audio
