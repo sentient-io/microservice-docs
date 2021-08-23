@@ -10,13 +10,15 @@ info:
     A match type is a match operator. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
-      > {"match":{"road_name":"arthur"}}
+      > {"match":{"originid":"0x145D"}}
     * **range** - Returns results that contain terms within a stipulated range
-      > {"range":{"end_date":{"gte":"now/d"}}}
-      > {"range":{"end_date":{"lte":"now+100d/d"}}}
-      > {"range":{"end_date":{"gte":"now/d","lte":"now+100d/d"}}}
+      > {"range":{"createddate":{"gte":"now-1d/d"}}}
+      > {"range":{"createddate":{"lte":"now/d"}}}
+      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
+    * **geo_distance** - Returns the geo search based on the distance and location lat/long
+      > {"geo_distance": {"distance": "1km","location": "1.3138,103.8456"}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"field":"road_name"}}
+      > {"exists":{"field":"dataclass"}}
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
