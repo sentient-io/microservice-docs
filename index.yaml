@@ -131,22 +131,22 @@ computer vision:
   object_detection:
     title: Object Detection
     versions:
-      1.0.0: 'object_detection_v1.0.yaml'
-      0.1.0: 'object_detection.yaml'
+      1.0.0: 'object_detection.yaml'
+      0.1.0: 'object_detection_v0.1.yaml'
   face_recognition:
     title: Face Recognition
     versions:
-      1.0.1: 'face_recognition_v1.0.yaml'
-      0.1.0: 'face_recognition_politicians_sg.yaml'
+      1.0.1: 'face_recognition.yaml'
+      0.1.0: 'face_recognition_v0.1.yaml'
   people_counting:
     title: People Counting
     versions:
-      1.0.0: 'people_counting_v1.0.yaml'
-      0.1.0: 'people_counting.yaml'
+      1.0.0: 'people_counting.yaml'
+      0.1.0: 'people_counting_v0.1.yaml'
   landmark_detection_sg:
     title: Landmark Detection (SG)
     versions:
-      1.0.0: 'landmark_detection_sg_v1.0.yaml'
+      1.0.0: 'landmark_detection_sg.yaml'
   landmark_detection_jp:
     title: Landmark Detection (JP)
     versions:

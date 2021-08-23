@@ -12,22 +12,20 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Industrial inspection - use Object Detection to automate the quality control process in manufacturing by enabling edge devices to identify defects.
-
     - Product search - build a product search app to find products of interest within images and visually search product catalogs.
-
     - Build an object detection app for the visually-impaired - help users identify daily objects that they may need aid in recognising
-  version: '0.1.0'
+  version: '1.1.0'
   x-subscribelink: object_detection
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - May 15, 2020"
+- name: "v1.1.0"
+  description: "Published Date - Jun 30, 2021"
 paths:
-  /microservices/cv/objectdetection/v0.1/getpredictions:
+  /microservices/cv/objectdetection/v1/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v1.1.0
       responses:
         '200':
           description: Ok
@@ -35,7 +33,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: {"Object 1": ["person : 100%",{"Bounding Box": {"Bot": 742,"Left": 19,"Right": 1019,"Top": 73}}],"Object 2": ["tie : 100%",{"Bounding Box": {"Bot": 783,"Left": 411,"Right": 595,"Top": 520}}]}
+              example: {"results":{"objects": [{"bounding box": {"bottom": 742,"left": 19,"right": 1019,"top": 73},"class": "person","confidence": 1,"object id": 0}]},"message": "Successfully Processed","status": "Success"}
 
         '401':
           description: Unauthorized
@@ -104,37 +102,60 @@ components:
     success:
       type: object
       properties: 
-        <Object_detected>:
-          type: array
-          example: ["person : 100%",{"Bounding Box": {"Bot": 742,"Left": 19,"Right": 1019,"Top": 73}}]
-          description: "Details of the detected object"
-          items:
-            properties:
-              person:
-                type: string
-                example: 100%
-                description: people
-              Bounding Box:
-                type: object
-                example: {"Bot": 742,"Left": 19,"Right": 1019,"Top": 73}
-                description: Bounding box of the image
-                properties:
-                  Bot: 
-                   type: integer
-                   example: 742
-                   description: Bottom coordinate of the box
-                  Left: 
-                   type: integer
-                   example: 19
-                   description: Left coordinate of the box
-                  Right: 
-                   type: integer
-                   example: 1019
-                   description: Right coordinate of the box
-                  Top: 
-                   type: integer
-                   example: 73   
-                   description: Top coordinate of the box                         
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties:
+            objects:
+              type: array
+              example: [{"bounding box": {"bottom": 742,"left": 19,"right": 1019,"top": 73},"class": "person","confidence": 1,"object id": 0}]
+              description: "Details of the detected object"
+              items:
+                oneOf:
+                  - type: object
+                    properties:
+                      bounding box:
+                        type: object
+                        example: {"bottom": 742,"left": 19,"right": 1019,"top": 73}
+                        description: Bounding box of the image
+                        properties:
+                          bottom: 
+                            type: integer
+                            example: 742
+                            description: Bottom coordinate of the box
+                          left: 
+                            type: integer
+                            example: 19
+                            description: Left coordinate of the box
+                          right: 
+                            type: integer
+                            example: 1019
+                            description: Right coordinate of the box
+                          top: 
+                            type: integer
+                            example: 73   
+                            description: Top coordinate of the box 
+                      class:
+                        type: string
+                        example: person
+                        description: Detected object  
+                      confidence:
+                        type: integer
+                        example: 1
+                        description: Confidence of the detected object. Higher confidence, more accurate the detected object.
+                      object id:
+                        type: integer
+                        example: 0
+                        description: Detected object id   
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure                     
     unauthorized:
       type: object
       properties:
@@ -220,6 +241,13 @@ components:
     versions:
       type: object
       properties: 
+        v1.1.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Jun 30, 2021
+              description: Model upgrade
         v1.0.0:
           type: array
           items:

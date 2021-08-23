@@ -10,18 +10,18 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Improve visitor experience and optimize operations in retail, leisure, and other sectors - build services to count visitor traffic in venues, measure detailed movements and interactions, and visualize that data to better understand what is happening in within a certain spaces. For example, one can optimize traffic, staff and marketing strategies to increase conversion rates and profits with actionable data. Businesses can use visitor count as a benchmark to figure out the conversion rate for a certain spot to see the real performance. Efficiently allocating the number of staff according to hourly visitor traffic will also create value in terms of revenue, profit and  efficiency.
-  version: '1.0.0'
+  version: '0.1.0'
   x-subscribelink: people_counting
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Jan 25, 2021"
+- name: "v0.1.0"
+  description: "Published Date - Jul 30, 2020"
 paths:
-  /microservices/cv/peoplecounting/v1/getpredictions:
+  /microservices/cv/peoplecounting/v0.1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
 
       responses:
         '200':
@@ -30,7 +30,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: {"results": {"counter": 11, "likelihood of overestimation": 0.76,"likelihood of underestimation": 0.39,"people": [{"assigning confidence": 1,"bounding boxes": {"frame": {"294": {"bottom": 420,"left": 249,"right": 417,"top": 207},"300": {"bottom": 420,"left": 249,"right": 417,"top": 207}}},"detection confidence": 0.76,"duration appeared": 0.20689655172413793,"first appearance": 10.137931034482758,"person id": "011"}]},"message": "Successfully Processed","status": "Success"}
+              example: {'counter': '11 people', 'likelihood of overestimation': '76.0%', 'likelihood of underestimation': '39.0%', 'people': [{'person id: 001': ['first appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}, {'person id: 002': ['first appearance: 3.34s', 'duration appeared: 7.03s', 'detection confidence: 73%', 'assigning confidence: 82.0%']}]}
+
         '401':
           description: Unauthorized
           content:
@@ -100,32 +101,28 @@ components:
   schemas:
     success:
       type: object
-      properties: 
-        results:
-          type: object
-          description: The result of the API call.
-          example: { "<Json": "Object>" }
-          properties:
-            counter:
-              type: integer
-              example: 11
-              description: Number of people detected in video
-            likelihood of overestimation:
-              type: float
-              example: 0.76
-              description:  How likely would there be ID spikes causing counter to increase People
-            likelihood of underestimation:
-              type: float
-              example: 0.39
-              description:  How likely the model might miss out detecting people in the video
-            people:
-              type: array
-              example: [{'person id': "001",'first appearance': 1.28, 'duration appeared': 7.66, 'detection confidence': 0.77, 'assigning confidence': 1,"bounding boxes": {"frame": {"294": {"bottom": 420,"left": 249,"right": 417,"top": 207},"300": {"bottom": 420,"left": 249,"right": 417,"top": 207}}}}]
-              description: Contains a list of individual Persons and their metadata.
-              items:
-                oneOf:
+      example: {'counter': '11 people', 'likelihood of overestimation': '76.0%', 'likelihood of underestimation': '39.0%', 'people': [{'person id: 001': ['first appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}, {'person id: 002': ['first appearance: 3.34s', 'duration appeared: 7.03s', 'detection confidence: 73%', 'assigning confidence: 82.0%']}]}
+      properties:
+          counter:
+            type: string
+            example: 11 people
+            description: Number of people detected in video
+          likelihood of overestimation:
+            type: string
+            example: 76.0%
+            description:  How likely would there be ID spikes causing counter to increase People
+          likelihood of underestimation:
+            type: string
+            example: 39.0%
+            description:  How likely the model might miss out detecting people in the video
+          people:
+            type: array
+            example: [{'person ID: 001': ['first appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}, {'person ID: 002': ['first appearance: 3.34s', 'duration appeared: 7.03s', 'detection confidence: 73%', 'assigning confidence: 82.0%']}]
+            description: Contains a list of individual Persons and their metadata.
+            items:
+              oneOf:
                 - type: object
-                  example: {'person id': "001",'first appearance': 1.28, 'duration appeared': 7.66, 'detection confidence': 0.77, 'assigning confidence': 1,"bounding boxes": {"frame": {"294": {"bottom": 420,"left": 249,"right": 417,"top": 207},"300": {"bottom": 420,"left": 249,"right": 417,"top": 207}}}}
+                  example: {'person ID: 001': ['first appearance: 1.28s', 'duration appeared: 7.66s', 'detection confidence: 77%', 'assigning confidence: 100%']}
     unauthorized:
       type: object
       properties:
@@ -244,7 +241,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input video file in base64 format.
+            Input video in base64 format.
             
             Supported formats: acm, anm, apc, au, avi, bfi, bmp_pipe, bmv, codec2, dsf, dss, dvd, fifo, genh, gif, gxf, hls, iff, ifv, ipod, jpeg_pipe, jv, m4v, mjpeg, mlp, mlv, mov, mp2, mp3, mp4, pbm_pipe, pmp, png_pipe, psd_pipe, psp, rawvideo, sdp, sds, sdx, tmv, uncodedframecrc, vcd, vidc, vmd, voc, vpk, wav, webm, wsd, wsvqa, wtv, xmv, xpm_pipe.
         
