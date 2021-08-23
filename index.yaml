@@ -36,27 +36,27 @@ voice:
     title: Online Automatic Speech Recognition ENG
     versions:
       0.1.1: 'online_automatic_speech_recognition_eng.yaml'
-  online_command_automatic_speech_recognition_eng:
+    :
     title: Online Command Automatic Speech Recognition ENG
     versions:
       0.1.0: 'online_command_automatic_speech_recognition_eng.yaml'
   text-to-speech_eng:
     title: Text-To-Speech ENG
     versions:
-      1.0.0: 'text-to-speech_eng.yaml'
+      1.0.0: 'text_to_speech_eng.yaml'
   text-to-speech_chi:
     title: Text-To-Speech CHI
     versions:
-      0.1.0: 'text-to-speech_chi.yaml'
+      0.1.0: 'text_to_speech_chi.yaml'
   text-to-speech_jp:
     title: Text-To-Speech JP
     versions:
-      0.1.0: 'text-to-speech_jp.yaml'
-  asr_with_voice_activity_detection_eng:
+      0.1.0: 'text_to_speech_jp.yaml'
+  automatic_speech_recognition_eng_sg:
     title: ASR with Voice Activity Detection ENG
     versions:
-      1.2.0: 'asr_with_voice_activity_detection_eng.yaml'
-      0.1.0: 'asr_with_voice_activity_detection_eng_v0.1.yaml'
+      1.2.0: 'automatic_speech_recognition_eng_sg.yaml'
+      0.1.0: 'automatic_speech_recognition_eng_sg_v0.1.yaml'
   voice_activity_detection_eng:
     title: Voice Activity Detection ENG
     versions:
@@ -74,12 +74,12 @@ nlp:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
     versions:
-      1.0.0: 'inverse_text_normalisation_eng_v1.0.yaml'
-      0.1.0: 'inverse_text_normalisation_eng.yaml'
+      1.0.0: 'inverse_text_normalisation_eng.yaml'
+      0.1.0: 'inverse_text_normalisation_eng_v0.1.yaml'
   named-entity_recognition_eng:
     title: Named-Entity Recognition ENG
     versions:
-      1.0.0: 'named-entity_recognition_eng_v1.0.yaml'
+      1.0.0: 'named-entity_recognition_eng.yaml'
   spacy_ner:
     title: spaCy NER
     versions:
@@ -87,7 +87,7 @@ nlp:
   page_profiler_eng:
     title: Page Profiler ENG
     versions:
-      2.1.1: 'page_profiler_eng_v2.1.yaml'
+      2.1.1: 'page_profiler_eng.yaml'
   page_profiler_jp:
     title: Page Profiler JP
     versions:
@@ -99,26 +99,26 @@ nlp:
   taxonomy_matcher_eng:
     title: Taxonomy Matcher ENG
     versions:
-      1.0.1: 'taxonomy_matcher_eng_v1.0.yaml'
-      0.1.0: 'taxonomy_matcher_eng.yaml'
+      1.0.1: 'taxonomy_matcher_eng.yaml'
+      0.1.0: 'taxonomy_matcher_eng_v0.1.yaml'
   word_sense_disambiguation_eng:
     title: Word Sense Disambiguation ENG
     versions:
-      1.0.0: 'word_sense_disambiguation_eng_v1.0.yaml'
-      0.1.0: 'word_sense_disambiguation_eng.yaml'
+      1.0.0: 'word_sense_disambiguation_eng.yaml'
+      0.1.0: 'word_sense_disambiguation_eng_v0.1.yaml'
   named-entity_recognition_jp:
     title: Named-Entity Recognition JP
     versions:
-      1.0.0: 'named-entity_recognition_jp_v1.0.yaml'
+      1.0.0: 'named-entity_recognition_jp.yaml'
   named-entity_recognition_thai:
     title: Named Entity Recognition THAI
     versions:
-      1.0.0: 'named-entity_recognition_thai_v1.0.yaml'
+      1.0.0: 'named-entity_recognition_thai.yaml'
   script_alignment:
     title: Script Alignment
     versions:
-      1.0.0: 'script_alignment_v1.0.yaml'
-      0.1.0: 'script_alignment.yaml'
+      1.0.0: 'script_alignment.yaml'
+      0.1.0: 'script_alignment_v0.1.yaml'
   text_summarisation:
     title: Text Summarisation
     versions:

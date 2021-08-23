@@ -1,27 +1,31 @@
 openapi: 3.0.1
 info:
-  title: Script Alignment
+  title: Taxonomy Matcher ENG
   description: |+
-    This NLP microservice aligns the input time-coded transcript with high-quality script. 
+    This NLP microservice matches the input word with the name of a leaf nodes in the predefined English taxonomy. The entire branch from the matched leaf node to the root of the corresponding taxonomy tree is returned.
     
-    The output is the time-coded high-quality script.
+    The full taxonomy consists of major categories (for e.g. retail, cars, etc.). Each category is stored as a separate taxonomy tree within the Taxonomy instance. Each node in a taxonomy tree is identified using a node_id. It has attributes: name (a human readable string), level (how far it is from the root node) and type (whether it is a root node, leaf node or body node).
+    
+    This microservice can help identify the types of concept that are frequently mentioned in an article.
     
     Do ensure that your text is within **5000 characters**.
-  version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Can be used to create time-coded high-quality script for services like radio broadcasting, television broadcasting and digital content creation.
-  x-subscribelink: script_alignment
+    - Categorise a particular word to pre-built taxonomy tree.
+
+    - This microservice can be used to manage taxonomies, such as a hierarchy of product categories used for an eCommerce site. The information in a taxonomy is meta-information about the categories used to classify a set of things. For an eCommerce site, the set of things are items in the product catalog. Users can use this meta-information to enhance search.
+  version: '0.1.0'
+  x-subscribelink: taxonomy_matcher_eng
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Oct 30, 2020"
+- name: "v0.1.0"
+  description: "Published Date - Jan 24, 2020"
 paths:
-  /microservices/nlp/scriptalignment/v1/getpredictions:
+  /microservices/nlp/taxonomy/v0.1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -29,12 +33,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: 
-                results:
-                  output:
-                    [{"end": 4,"seqNum": 1,"start": 1,"text": "Hello World"},{"end": 8.2,"seqNum": 2,"start": 4.92,"text": "This is a test"},{"end": 12.04,"seqNum": 3,"start": 8.88,"text": "This is another test"}]
-                message: Successfully Processed
-                status: Success
+              example:
+                bus:
+                - 
+                  - careers/job by industry/travel/bus
+                  - 1
+                - 
+                  - news/business news/travel/bus
+                  - 1
+                
         '401':
           description: Unauthorized
           content:
@@ -70,7 +77,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'  
+                $ref: '#/components/schemas/inputlimitexceeded' 
         '415':
           description: Unsupported Media Type
           content:
@@ -102,43 +109,10 @@ components:
     success:
       type: object
       properties:
-        results:
-          type: object
-          description: The result of the API call.
-          example: { "<Json": "Object>" }
-          properties:
-            output:
-              type: array
-              example: [{"end": 4,"seqNum": 1,"start": 1,"text": "Hello World"},{"end": 8.2,"seqNum": 2,"start": 4.92,"text": "This is a test"},{"end": 12.04,"seqNum": 3,"start": 8.88,"text": "This is another test"}]
-              description: The time-coded high-quality script
-              items:
-                oneOf:
-                  - type: object
-                    properties:
-                      end:
-                        type: string
-                        example: 4
-                        description: End time of word, in seconds. Offset from the start of stream.
-                      seqNum:
-                        type: integer
-                        example: 1
-                        description: Running sequence. Start from 1.
-                      start:
-                        type: string
-                        example: 1
-                        description: Start time of word, in seconds. Offset from the start of stream.
-                      text:
-                        type: string
-                        example: Hello World
-                        description: Content of the utterance.
-        message:
-          type: string
-          example: Successfully Processed
-          description: Detail description on the API status
-        status:
-          type: string
-          example: Success
-          description: The status of the API call success/failure  
+        <requested_object> :
+          type: array
+          example: [["news/sport/swimming/bike",1]]
+          description: List of taxonomy for the requested object name
     unauthorized:
       type: object
       properties:
@@ -175,6 +149,15 @@ components:
         status:
           type: string
           example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
       properties:
@@ -190,15 +173,6 @@ components:
         message:
           type: string
           example: Request Timeout
-        status:
-          type: string
-          example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -220,6 +194,7 @@ components:
         status:
           type: string
           example: Failure
+
     versions:
       type: object
       properties: 
@@ -235,64 +210,29 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Jun 05, 2020
+                example: Published Date - Jan 24, 2020
                 description: Initial version release
     input:
       type: object
       required:
-        - script
-        - transcript
+        - text
       properties:
-        script:
-          x-name: script
+        text:
+          x-name: text
           type: array
           default: true
-          example: ["Hello World, This is a test. This is another test."]
+          example: ["bus","cars","bike","train","buildings","Audi R8"]
           description: |+
-            An ordered array of text. Each element contains a line of the script. 
+            A list of object names to be classified. Up to a maximum of 20 search terms can be processed each time.
             
             Supported formats: ASCII only
-        transcript: 
-          x-name: transcript
-          type: array
+        threshold:
+          x-name: threshold
+          type: integer
           default: true
-          example: [{"seqNum":1,"start":1.0,"end":4.0,"text":"HELLO WORLD"}]
+          example: 1
           description: |+
-            An ordered array of utterance struct.
-          items:
-            oneOf:
-              - type: object
-                properties:
-                  seqNum:
-                    x-name: seqNum
-                    type: integer
-                    default: true
-                    example: 1
-                    description: |+
-                      Running sequence. Start from 1.
-                  start:
-                    x-name: start
-                    type: integer
-                    format: float
-                    default: true
-                    example: 1.0
-                    description: |+
-                      Start time of utterance, in seconds. Offset from the start of stream.
-                  end:
-                    x-name: end
-                    type: integer
-                    format: float
-                    default: true
-                    example: 4.0
-                    description: |+
-                      End time of utterance, in seconds. Offset from the end of stream.
-                  text:
-                    x-name: text
-                    type: string
-                    default: true
-                    example: HELLO WORLD
-                    description: |+
-                      Content of the utterance.         
+            The "threshold" specifies the level of similarity that the search term must match with terms in the taxonomy tree. Values range between 0.0 and 1.0 .It is optional. The default value is 1 (which means an exact match is required). Lowering the threshold will allow matches that are similar but not identical.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
