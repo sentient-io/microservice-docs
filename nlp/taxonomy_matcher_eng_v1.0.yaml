@@ -8,7 +8,6 @@ info:
     
     This microservice can help identify the types of concept that are frequently mentioned in an article.
     
-    Do ensure that your text is within **5000 characters**.
   version: '1.0.1'
   x-additionalinfo: |+
     Suggested Use Cases:
