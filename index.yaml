@@ -147,11 +147,11 @@ computer vision:
     title: Landmark Detection (SG)
     versions:
       1.0.0: 'landmark_detection_sg.yaml'
-  landmark_detection_jp:
+  landmark_recognition_jp:
     title: Landmark Detection (JP)
     versions:
-      1.0.0: 'landmark_detection_jp_v1.0.yaml'
-      0.1.0: 'landmark_detection_jp.yaml'
+      1.0.0: 'landmark_recognition_jp.yaml'
+      0.1.0: 'landmark_recognition_jp_v0.1.yaml'
   demographics_classification:
     title: Demographics Classification
     versions:
