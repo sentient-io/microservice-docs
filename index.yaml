@@ -119,10 +119,10 @@ nlp:
     versions:
       1.0.0: 'script_alignment.yaml'
       0.1.0: 'script_alignment_v0.1.yaml'
-  text_summarisation:
+  text_summarization:
     title: Text Summarisation
     versions:
-      0.2.0: 'text_summarisation.yaml'     
+      0.2.0: 'text_summarization.yaml'     
   sentiment_analysis:
     title: Sentiment Analysis and Sarcasm Detection
     versions:
