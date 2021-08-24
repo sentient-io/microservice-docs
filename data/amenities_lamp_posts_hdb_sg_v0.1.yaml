@@ -1,24 +1,22 @@
 openapi: 3.0.1
 info:
-  title: HDB Shelters Locations (SG)
-  x-subscribelink: amenities_shelters_hdb_sg
+  title: HDB Lamp Posts Locations (SG)
+  x-subscribelink: amenities_lamp_posts_hdb_sg
   description: |+
-   This Data microservice returns the indicative outline of shelters for all HDB Towns and Estates and only on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from SLA (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were extrapolated where possible and may not fully represent the actual shape of the actual object. Precinct Pavilions are not included in this microservice.
+   This Data microservice returns the indicative location of lamp posts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. 
    As this is a dataset download microservice, a successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Real estate services - can be used as a solution to extract information related to the types and number of shelters present for people buying or renting a HDB home.
-    - Property background checks - can be used as a background check service for retail shops owners looking to set up their shops in HDBs, as areas with shelters may induce the likelihood of more customers.
-    - Can also be used as a solution to improve user awareness and personalization - for example, a weather app can refer a user to the nearest HDB shelter in the case of a rainy day.
+    - Real estate services or social service solutions - can be used as a background check solution to extract information related to lampposts present in an area for people with certain preferences when buying or renting a HDB home. For example, the elderly may prefer HDB homes surrounded with more lampposts as they require more aid in terms of lighting when walking home.
     
-    Download the complete dataset using a pre-signed URL. It's a two steps process
-   
+    Download the complete dataset using a pre-signed URL. It's a two steps process  
+  
     **Step 1:**  Get the pre-signed URL 
     
     Replace the correct x-api-key, and API endpoint
     
-    > **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <\<API Endpoint>>**
+    > **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <API Endpoint>**
     
     **Step 2:**  Download file 
     
@@ -36,19 +34,20 @@ info:
     |  QUALITY |  Char | N/A	  | Captures whether the section of the feature was Fully Visible or Partially Visible.  |
     |  INC_CRC |  Varchar | 50	  | Sub Location Id  |
     |  FMEL_UPD_D |  Datetime | N/A	  | Area of the feature  |
-    |  Shape__Area |  Float | N/A	  | Area of the feature  |
-    |  Shape__Length |  Float | N/A	  | Length of the feature  |
-  version: '1.0.0'
+    |  x |  Float | N/A	  | ESRI x coordinate  |
+    |  y |  Float | N/A	  | ESRI y coordinate  |
+  version: '0.1.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://api.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Apr 15, 2021"
+- name: "v0.1.0"
+  description: "Published Date - Mar 24, 2020"
+
 paths:
-   /microservices/data/shelter/v1/getdata:
+   /DaaS/prod/hdb/amenities/gs/csv/lamppost/hdb:
     get:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -56,7 +55,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example:
+              example: 
                 results:
                   url: "<pre-signed URL>"
                 status: Success
@@ -222,7 +221,7 @@ components:
           example: Failure
     versions:
       type: object
-      properties:
+      properties: 
         v1.0.0:
          type: array
          items:

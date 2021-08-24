@@ -7,240 +7,99 @@ info:
     Suggested Use Cases:
     - Software solutions that require personal checks, e.g. in the appointment of Board Members, Directorship or C-suite level hiring, where the appointee’s background is paramount to the Company and its reputation.
     - Swift pre-employment screening solution - information provided by the microservice can be used to protect one's company's reputation from potential negative publicity by conducting background checks on individuals prior to hiring.
-  version: '1.0.0'
+  version: '0.1.0'
   x-subscribelink: d&b_basic_individual_search_sg
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://api.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Apr 15, 2021"
+- name: "v0.1.0"
+  description: "Published Date - Aug 15, 2019"
 paths:
-   /microservices/data/sbis/v1/getdata:
+   /dnb/prod/sbis:
     post:
       tags:
-        - v1
+        - v0.1.0
       summary: Adds a new user
       requestBody:
         content:
-          application/json:
+          application/xml:
             schema:
-              $ref: '#/components/schemas/input'
+              $ref: '#/components/schemas/REQUEST'
       responses:
         '200':
           description: Ok
           content:
-            application/json:
+            application/xml:
               schema:
                 $ref: '#/components/schemas/success'
-              example:
-                  REPORT:
-                    META_INFO:
-                      SERVICE: BIS
-                      SYSTEM_ID: DDP
-                      CREATION_DATE: 25/02/2009 17:31:44.678
-                      USER_ID: plcust102
-                    BASIC_INFO:
-                      PA_REG_NO:
-                        "@type": String
-                        "#text": '00091'
-                      ADDRESS1: 137, BEDOK RESERVOIR ROAD, 06 - 1451
-                      ADDRESS2: "-"
-                      ADDRESS3: 470137, SINGAPORE
-                    LIT_SEARCH_INFO:
-                      COMP_NAME: ENG YICK HOLDINGS PTE LTD
-                      REG_NO: 197803191K
-                      REPORT_TYPE: BIS
-                      REQ_DATE: 25/02/2009 17:31:44
-                      REQ_REG_NO: 197803191K
-                      REQ_NAME: LOY KOK TOON
-                      REQ_DATE_STR: 25/02/2009 15:04:14
-                    LIST_CURRENT_COMP:
-                      CURRENT_COMP:
-                        POSITION: OWNER
-                        APPOINTMENT_DATE: 01/09/1971
-                        COMP_NAME: BAN HOE LEONG COMPANY
-                        SEQ_NO: 03647300J
-                        SHARE_VALUE1: '15.00'
-                        COMP_STATUS: LIVE
-                        PROFIT_VALUE1: 2008 = -
-                        PROFIT_VALUE2: 2007 = -
-                        PROFIT_VALUE3: 2006 = -
-                        SHARE_VALUE: '150000'
-                        TEL: '62994842'
-                        FAX: '62992797'
-                        SIC: '5012'
-                        SIC_DESC: Automobiles and other Motor Vehicles
-                    LIST_PREVIOUS_COMP:
-                      PREVIOUS_COMP:
-                        POSITION: SHAREHOLDER
-                        APPOINTMENT_DATE: 30/06/1988
-                        COMP_NAME: ENG YICK INDUSTRIES PTE LTD
-                        SEQ_NO: 198101820Z
-                        SHARE_VALUE1: '100.00'
-                        COMP_STATUS: DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)
-                        CESSATION_DATE: 22/09/1992
-                        SHARE_VALUE: '390002'
-                        TEL: '62994842'
-                        FAX: '67467646'
-                        SIC: '2325'
-                        SIC_DESC: Menâ€TMs and Boysâ€TM Separate Trousers and Slacks
-                    LIST_BANKRUPTCY:
-                      BANKRUPTCY:
-                        SUBJECT_NAME: "-"
-                        COURT_CODE: CWU
-                        CASE_CODE: '381'
-                        CASE_YEAR: '2000'
-                        ACTION_DATE: 22/12/2000
-                        BANKRUPTCY_ACT: Petition for Winding Up
-                        HEARING_DATE: 26/03/2009
-                        CURRENCY1: "-"
-                        AMOUNT1: '334,616.00'
-                        CURRENCY2: "-"
-                        AMOUNT2: '0.00'
-                        CURRENCY3: "-"
-                        AMOUNT3: '0.00'
-                        BANKRUPTCY_TYPE: COMPANY WINDING UP PETITION
-                        LIST_PLAINTIFF:
-                          PLAINTIFF:
-                            PLA_NAME: B 2003 P1
-                            PLA_SOLICITOR: PATRICK KHOO ENG HOCK
-                            PLA_SOLICITOR_ID: "-"
-                            PLA_FILE_REF: RSP/292668/1
-                    LIST_LIT:
-                      LIT:
-                        SUBJECT_NAME: ENG YICK HOLDINGS PTE LTD
-                        SEQ_NO: '1'
-                        FORMATTED_ID: 197803191K
-                    LIST_LIT_DTL:
-                      LIT_DTL:
-                        NATURE_OF_CLAIM: CONTRACTS-WORK DONE & SERVICES RENDERED
-                        STATUS_DATE: 13/08/2001
-                        CASE_NO: MC 23631 / 2001
-                        FORMATTED_ID: 197803191K
-                        DOC_REMARKS: WRIT OF SUMMONS
-                        CURRENCY1: SIN
-                        CURRENCY2: "-"
-                        CURRENCY3: "-"
-                        CURRENCY4: "-"
-                        CURRENCY5: "-"
-                        CASE_STATUS: PENDING AS AT STATUS DATE
-                        AMOUNT1: '36,196.00'
-                        AMOUNT2: '0.00'
-                        AMOUNT3: '0.00'
-                        AMOUNT4: '0.00'
-                        AMOUNT5: '0.00'
-                        LIST_PLAINTIFF:
-                          PLAINTIFF:
-                          - PLA_NAME: ROTARY PILING PTE LTD
-                            LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
-                            WRITE_DATE: 13/08/2001
-                            PLA_SOLICITOR: HOO JOSEPH
-                            PLA_SOLICITOR_ID: ORS
-                            PLA_FILE_REF: CHH 6253 D27
-                            PLA_STATUS: "-"
-                            PLA_STATUS_DATE: "-"
-                            PLA_ID: S7250163B
-                          - PLA_NAME: ABC PTE LTD
-                            LAW_FIRM: JAMES & JOE
-                            WRITE_DATE: 13/08/2001
-                            PLA_SOLICITOR: KHOO JAMES
-                            PLA_SOLICITOR_ID: ORS
-                            PLA_FILE_REF: CHH 6253 X10
-                            PLA_STATUS: "-"
-                            PLA_STATUS_DATE: "-"
-                            PLA_ID: S7250163B
-                        LIST_DEFENDANT:
-                          DEFENDANT:
-                            DEF_SOLICITOR: "-"
-                            DEF_SOLICITOR_ID: N/A
-                            DEF_LAW_FIRM: "-"
-                            DEF_FILE_REF: "-"
-                    LIST_Ddrptcount:
-                      Ddrptcount:
-                      - Rcjan: '1'
-                        Rcfeb: '1'
-                        Rcmar: '1'
-                        Rcapr: '1'
-                        Rcmay: '1'
-                        Rcjun: '1'
-                        Rcjul: '1'
-                        Rcaug: '1'
-                        Rcsep: '1'
-                        Rcoct: '1'
-                        Rcnov: '1'
-                        Rcdec: '1'
-                        Rcyear: '2017'
-                        Rcsecflag: '1'
-                      - Rcjan: '0'
-                        Rcfeb: '0'
-                        Rcmar: '0'
-                        Rcapr: '0'
-                        Rcmay: '0'
-                        Rcjun: '0'
-                        Rcjul: '0'
-                        Rcaug: '0'
-                        Rcsep: '0'
-                        Rcoct: '0'
-                        Rcnov: '0'
-                        Rcdec: '0'
-                        Rcyear: '2016'
-                        Rcsecflag: '1'
-                      - Rcjan: '0'
-                        Rcfeb: '0'
-                        Rcmar: '0'
-                        Rcapr: '0'
-                        Rcmay: '0'
-                        Rcjun: '0'
-                        Rcjul: '0'
-                        Rcaug: '0'
-                        Rcsep: '0'
-                        Rcoct: '0'
-                        Rcnov: '0'
-                        Rcdec: '0'
-                        Rcyear: '2015'
-                        Rcsecflag: '1'
-                      - Rcjan: '0'
-                        Rcfeb: '0'
-                        Rcmar: '0'
-                        Rcapr: '0'
-                        Rcmay: '0'
-                        Rcjun: '0'
-                        Rcjul: '0'
-                        Rcaug: '0'
-                        Rcsep: '0'
-                        Rcoct: '0'
-                        Rcnov: '0'
-                        Rcdec: '0'
-                        Rcyear: '2017'
-                        Rcsecflag: '0'
-                      - Rcjan: '0'
-                        Rcfeb: '0'
-                        Rcmar: '0'
-                        Rcapr: '0'
-                        Rcmay: '0'
-                        Rcjun: '0'
-                        Rcjul: '0'
-                        Rcaug: '0'
-                        Rcsep: '0'
-                        Rcoct: '0'
-                        Rcnov: '0'
-                        Rcdec: '0'
-                        Rcyear: '2016'
-                        Rcsecflag: '0'
-                      - Rcjan: '0'
-                        Rcfeb: '0'
-                        Rcmar: '0'
-                        Rcapr: '0'
-                        Rcmay: '0'
-                        Rcjun: '0'
-                        Rcjul: '0'
-                        Rcaug: '0'
-                        Rcsep: '0'
-                        Rcoct: '0'
-                        Rcnov: '0'
-                        Rcdec: '0'
-                        Rcyear: '2015'
-                        Rcsecflag: '0'
+              example: |+
+                <REPORT> <META_INFO>
+                <SERVICE><![CDATA[BIS]]></SERVICE> <SYSTEM_ID><![CDATA[DDP]]></SYSTEM_ID> <CREATION_DATE>25/02/2009 17:31:44.678</CREATION_DATE> <USER_ID><![CDATA[plcust102]]></USER_ID>
+                </META_INFO> <BASIC_INFO>
+                <PA_REG_NO type="String"><![CDATA[00091]]></ PA_REG_NO>
+                <ADDRESS1><![CDATA[137, BEDOK RESERVOIR ROAD, 06 - 1451]]></ADDRESS1> <ADDRESS2><![CDATA[-]]></ADDRESS2>
+                <ADDRESS3><![CDATA[470137, SINGAPORE]]></ADDRESS3>
+                </BASIC_INFO> <LIT_SEARCH_INFO>
+                <COMP_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></COMP_NAME> <REG_NO><![CDATA[197803191K]]></REG_NO> <REPORT_TYPE><![CDATA[BIS]]></REPORT_TYPE> <REQ_DATE>25/02/2009 17:31:44</REQ_DATE> <REQ_REG_NO><![CDATA[197803191K]]></REQ_REG_NO> <REQ_NAME><![CDATA[LOY KOK TOON]]></REQ_NAME> <REQ_DATE_STR><![CDATA[25/02/2009 15:04:14]]></REQ_DATE_STR>
+                </LIT_SEARCH_INFO> <LIST_CURRENT_COMP>
+                <CURRENT_COMP>
+                <POSITION><![CDATA[OWNER]]></POSITION> <APPOINTMENT_DATE><![CDATA[01/09/1971]]></APPOINTMENT_DATE> <COMP_NAME><![CDATA[BAN HOE LEONG COMPANY]]></COMP_NAME> <SEQ_NO><![CDATA[03647300J]]></SEQ_NO> <SHARE_VALUE1><![CDATA[15.00]]></SHARE_VALUE1> <COMP_STATUS><![CDATA[LIVE]]></COMP_STATUS> <PROFIT_VALUE1><![CDATA[2008 = -]]></PROFIT_VALUE1> <PROFIT_VALUE2><![CDATA[2007 = -]]></PROFIT_VALUE2> <PROFIT_VALUE3><![CDATA[2006 = -]]></PROFIT_VALUE3> <SHARE_VALUE><![CDATA[150000]]></SHARE_VALUE> <TEL><![CDATA[62994842]]></TEL>
+                <FAX><![CDATA[62992797]]></FAX>
+                <SIC><![CDATA[5012]]></SIC>
+                <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
+                </CURRENT_COMP> </LIST_CURRENT_COMP> <LIST_PREVIOUS_COMP>
+                <PREVIOUS_COMP>
+                <POSITION><![CDATA[SHAREHOLDER]]></POSITION> <APPOINTMENT_DATE><![CDATA[30/06/1988]]></APPOINTMENT_DATE>
+                <COMP_NAME><![CDATA[ENG YICK INDUSTRIES PTE LTD]]></COMP_NAME> <SEQ_NO><![CDATA[198101820Z]]></SEQ_NO>
+                <SHARE_VALUE1><![CDATA[100.00]]></SHARE_VALUE1>
+                <COMP_STATUS><![CDATA[DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)]]></COMP_STATUS> <CESSATION_DATE><![CDATA[22/09/1992]]></CESSATION_DATE> <SHARE_VALUE><![CDATA[390002]]></SHARE_VALUE>
+                <TEL><![CDATA[62994842]]></TEL>
+                <FAX><![CDATA[67467646]]></FAX>
+                <SIC><![CDATA[2325]]></SIC>
+                <SIC_DESC><![CDATA[Menâ€TMs and Boysâ€TM Separate Trousers and Slacks]]></SIC_DESC>
+                </PREVIOUS_COMP> </LIST_PREVIOUS_COMP> <LIST_BANKRUPTCY>
+                <BANKRUPTCY>
+                <SUBJECT_NAME><![CDATA[-]]></SUBJECT_NAME> <COURT_CODE><![CDATA[CWU]]></COURT_CODE> <CASE_CODE><![CDATA[381]]></CASE_CODE> <CASE_YEAR><![CDATA[2000]]></CASE_YEAR> <ACTION_DATE><![CDATA[22/12/2000]]></ACTION_DATE> <BANKRUPTCY_ACT><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT> <HEARING_DATE><![CDATA[26/03/2009]]></HEARING_DATE> <CURRENCY1><![CDATA[-]]></CURRENCY1> <AMOUNT1><![CDATA[334,616.00]]></AMOUNT1> <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                <AMOUNT2><![CDATA[0.00]]></AMOUNT1>
+                <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                <BANKRUPTCY_TYPE><![CDATA[COMPANY WINDING UP PETITION]]></BANKRUPTCY_TYPE> <LIST_PLAINTIFF>
+                <PLAINTIFF>
+                <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME> <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID> <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                </PLAINTIFF> </LIST_PLAINTIFF>
+                </BANKRUPTCY> </LIST_BANKRUPTCY> <LIST_LIT>
+                <LIT>
+                <SUBJECT_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></SUBJECT_NAME> <SEQ_NO><![CDATA[1]]></SEQ_NO> <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID >
+                </LIT> </LIST_LIT>
+                <LIST_LIT_DTL> <LIT_DTL>
+                <NATURE_OF_CLAIM><![CDATA[CONTRACTS-WORK DONE & SERVICES RENDERED]]></NATURE_OF_CLAIM> <STATUS_DATE><![CDATA[13/08/2001]]></STATUS_DATE>
+                <CASE_NO><![CDATA[MC 23631 / 2001]]></CASE_NO> <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID>
+                <DOC_REMARKS><![CDATA[WRIT OF SUMMONS]]></DOC_REMARKS> <CURRENCY1><![CDATA[SIN]]></CURRENCY1> <CURRENCY2><![CDATA[-]]></CURRENCY2> <CURRENCY3><![CDATA[-]]></CURRENCY3> <CURRENCY4><![CDATA[-]]></CURRENCY4> <CURRENCY5><![CDATA[-]]></CURRENCY5> <CASE_STATUS><![CDATA[PENDING AS AT STATUS DATE]]></CASE_STATUS> <AMOUNT1><![CDATA[36,196.00]]></AMOUNT1> <AMOUNT2><![CDATA[0.00]]></AMOUNT2> <AMOUNT3><![CDATA[0.00]]></AMOUNT3> <AMOUNT4><![CDATA[0.00]]></AMOUNT4> <AMOUNT5><![CDATA[0.00]]></AMOUNT5>
+                <LIST_PLAINTIFF> <PLAINTIFF>
+                <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME> <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM> <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE> <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID> <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                <PLA_STATUS>-</PLA_STATUS> <PLA_STATUS_DATE>-</PLA_STATUS_DATE> <PLA_ID>S7250163B</PLA_ID>
+                </PLAINTIFF> <PLAINTIFF>
+                <PLA_NAME><![CDATA[ABC PTE LTD]]></PLA_NAME> <LAW_FIRM><![CDATA[JAMES & JOE]]></LAW_FIRM> <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE> <PLA_SOLICITOR><![CDATA[KHOO JAMES]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID> <PLA_FILE_REF><![CDATA[CHH 6253 X10]]></PLA_FILE_REF>
+                <PLA_STATUS>-</PLA_STATUS> <PLA_STATUS_DATE>-</PLA_STATUS_DATE> <PLA_ID>S7250163B</PLA_ID>
+                </PLAINTIFF> </LIST_PLAINTIFF> <LIST_DEFENDANT>
+                <DEFENDANT> <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR> <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID> <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM> <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                </DEFENDANT> </LIST_DEFENDANT>
+                </LIT_DTL> </LIST_LIT_DTL>
+                <LIST_Ddrptcount> <Ddrptcount>
+                <Rcjan>1</Rcjan> <Rcfeb>1</Rcfeb> <Rcmar>1</Rcmar> <Rcapr>1</Rcapr> <Rcmay>1</Rcmay> <Rcjun>1</Rcjun> <Rcjul>1</Rcjul> <Rcaug>1</Rcaug> <Rcsep>1</Rcsep> <Rcoct>1</Rcoct> <Rcnov>1</Rcnov> <Rcdec>1</Rcdec> <Rcyear>2017</Rcyear> <Rcsecflag>1</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov> <Rcdec>0</Rcdec> <Rcyear>2016</Rcyear> <Rcsecflag>1</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov> <Rcdec>0</Rcdec> <Rcyear>2015</Rcyear> <Rcsecflag>1</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov> <Rcdec>0</Rcdec> <Rcyear>2017</Rcyear> <Rcsecflag>0</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov> <Rcdec>0</Rcdec> <Rcyear>2016</Rcyear> <Rcsecflag>0</Rcsecflag>
+                </Ddrptcount> <Ddrptcount>
+                <Rcjan>0</Rcjan> <Rcfeb>0</Rcfeb> <Rcmar>0</Rcmar> <Rcapr>0</Rcapr> <Rcmay>0</Rcmay> <Rcjun>0</Rcjun> <Rcjul>0</Rcjul> <Rcaug>0</Rcaug> <Rcsep>0</Rcsep> <Rcoct>0</Rcoct> <Rcnov>0</Rcnov>
+                <Rcdec>0</Rcdec> <Rcyear>2015</Rcyear> <Rcsecflag>0</Rcsecflag>
+                </Ddrptcount> </LIST_Ddrptcount>
+                </REPORT>
         '401':
           description: Unauthorized
           content:
@@ -318,12 +177,13 @@ components:
               properties:
                 META_INFO:
                   type: object
-                  example:
-                      META_INFO:
-                        SERVICE: BIS
-                        SYSTEM_ID: DDP
-                        CREATION_DATE: 25/02/2009 17:31:44.678
-                        USER_ID: plcust102
+                  example:  |+
+                    <META_INFO>
+                    <SERVICE><![CDATA[BIS]]></SERVICE>
+                    <SYSTEM_ID><![CDATA[DDP]]></SYSTEM_ID>
+                    <CREATION_DATE>25/02/2009 17:31:44.678</CREATION_DATE>
+                    <USER_ID><![CDATA[plcust102]]></USER_ID>
+                    </META_INFO>
                   description:  |+
                     Meta Information details with following children&#58;
                     SERVICE
@@ -355,14 +215,13 @@ components:
                     ADDRESS1
                     ADDRESS2
                     ADDRESS3
-                  example:
-                      BASIC_INFO:
-                        PA_REG_NO:
-                          "@type": String
-                          "#text": '00091'
-                        ADDRESS1: 137, BEDOK RESERVOIR ROAD, 06 - 1451
-                        ADDRESS2: "-"
-                        ADDRESS3: 470137, SINGAPORE
+                  example: |+
+                    <BASIC_INFO>
+                    <PA_REG_NO type="String"><![CDATA[00091]]></ PA_REG_NO>
+                    <ADDRESS1><![CDATA[137, BEDOK RESERVOIR ROAD, 06 - 1451]]></ADDRESS1>
+                    <ADDRESS2><![CDATA[-]]></ADDRESS2>
+                    <ADDRESS3><![CDATA[470137, SINGAPORE]]></ADDRESS3>
+                    </BASIC_INFO>
                   properties:
                     PA_REG_NO:
                       type: string
@@ -382,15 +241,16 @@ components:
                       example: "470137, SINGAPORE"
                 LIT_SEARCH_INFO :
                   type: object
-                  example:
-                      LIT_SEARCH_INFO:
-                        COMP_NAME: ENG YICK HOLDINGS PTE LTD
-                        REG_NO: 197803191K
-                        REPORT_TYPE: BIS
-                        REQ_DATE: 25/02/2009 17:31:44
-                        REQ_REG_NO: 197803191K
-                        REQ_NAME: LOY KOK TOON
-                        REQ_DATE_STR: 25/02/2009 15:04:14
+                  example:  |+
+                    <LIT_SEARCH_INFO>
+                    <COMP_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></COMP_NAME>
+                    <REG_NO><![CDATA[197803191K]]></REG_NO>
+                    <REPORT_TYPE><![CDATA[BIS]]></REPORT_TYPE>
+                    <REQ_DATE>25/02/2009 17:31:44</REQ_DATE>
+                    <REQ_REG_NO><![CDATA[197803191K]]></REQ_REG_NO>
+                    <REQ_NAME><![CDATA[LOY KOK TOON]]></REQ_NAME>
+                    <REQ_DATE_STR><![CDATA[25/02/2009 15:04:14]]></REQ_DATE_STR>
+                    </LIT_SEARCH_INFO>
                   description: |+
                     Litigation search information with following children&#58;
                     COMP_NAME
@@ -434,23 +294,25 @@ components:
                   description:  |+
                     List of current companies with following children&#58;
                     [CURRENT_COMP]
-                  example:
-                      LIST_CURRENT_COMP:
-                        CURRENT_COMP:
-                          POSITION: OWNER
-                          APPOINTMENT_DATE: 01/09/1971
-                          COMP_NAME: BAN HOE LEONG COMPANY
-                          SEQ_NO: 03647300J
-                          SHARE_VALUE1: '15.00'
-                          COMP_STATUS: LIVE
-                          PROFIT_VALUE1: 2008 = -
-                          PROFIT_VALUE2: 2007 = -
-                          PROFIT_VALUE3: 2006 = -
-                          SHARE_VALUE: '150000'
-                          TEL: '62994842'
-                          FAX: '62992797'
-                          SIC: '5012'
-                          SIC_DESC: Automobiles and other Motor Vehicles
+                  example:  |+
+                    <LIST_CURRENT_COMP>
+                    <CURRENT_COMP>
+                    <POSITION><![CDATA[OWNER]]></POSITION>
+                    <APPOINTMENT_DATE><![CDATA[01/09/1971]]></APPOINTMENT_DATE>
+                    <COMP_NAME><![CDATA[BAN HOE LEONG COMPANY]]></COMP_NAME>
+                    <SEQ_NO><![CDATA[03647300J]]></SEQ_NO>
+                    <SHARE_VALUE1><![CDATA[15.00]]></SHARE_VALUE1>
+                    <COMP_STATUS><![CDATA[LIVE]]></COMP_STATUS>
+                    <PROFIT_VALUE1><![CDATA[2008 = -]]></PROFIT_VALUE1>
+                    <PROFIT_VALUE2><![CDATA[2007 = -]]></PROFIT_VALUE2>
+                    <PROFIT_VALUE3><![CDATA[2006 = -]]></PROFIT_VALUE3>
+                    <SHARE_VALUE><![CDATA[150000]]></SHARE_VALUE>
+                    <TEL><![CDATA[62994842]]></TEL>
+                    <FAX><![CDATA[62992797]]></FAX>
+                    <SIC><![CDATA[5012]]></SIC>
+                    <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
+                    </CURRENT_COMP>
+                    </LIST_CURRENT_COMP>
                   items:
                     properties:
                       CURRENT_COMP:
@@ -469,22 +331,23 @@ components:
                           FAX
                           SIC
                           SIC_DESC
-                        example:
-                            CURRENT_COMP:
-                              POSITION: OWNER
-                              APPOINTMENT_DATE: 01/09/1971
-                              COMP_NAME: BAN HOE LEONG COMPANY
-                              SEQ_NO: 03647300J
-                              SHARE_VALUE1: '15.00'
-                              COMP_STATUS: LIVE
-                              PROFIT_VALUE1: 2008 = -
-                              PROFIT_VALUE2: 2007 = -
-                              PROFIT_VALUE3: 2006 = -
-                              SHARE_VALUE: '150000'
-                              TEL: '62994842'
-                              FAX: '62992797'
-                              SIC: '5012'
-                              SIC_DESC: Automobiles and other Motor Vehicles
+                        example:  |+
+                          <CURRENT_COMP>
+                          <POSITION><![CDATA[OWNER]]></POSITION>
+                          <APPOINTMENT_DATE><![CDATA[01/09/1971]]></APPOINTMENT_DATE>
+                          <COMP_NAME><![CDATA[BAN HOE LEONG COMPANY]]></COMP_NAME>
+                          <SEQ_NO><![CDATA[03647300J]]></SEQ_NO>
+                          <SHARE_VALUE1><![CDATA[15.00]]></SHARE_VALUE1>
+                          <COMP_STATUS><![CDATA[LIVE]]></COMP_STATUS>
+                          <PROFIT_VALUE1><![CDATA[2008 = -]]></PROFIT_VALUE1>
+                          <PROFIT_VALUE2><![CDATA[2007 = -]]></PROFIT_VALUE2>
+                          <PROFIT_VALUE3><![CDATA[2006 = -]]></PROFIT_VALUE3>
+                          <SHARE_VALUE><![CDATA[150000]]></SHARE_VALUE>
+                          <TEL><![CDATA[62994842]]></TEL>
+                          <FAX><![CDATA[62992797]]></FAX>
+                          <SIC><![CDATA[5012]]></SIC>
+                          <SIC_DESC><![CDATA[Automobiles and other Motor Vehicles]]></SIC_DESC>
+                          </CURRENT_COMP>  
                         properties:
                           POSITION:
                             type: string
@@ -544,21 +407,23 @@ components:
                             example: "Automobiles and other Motor Vehicles"
                 LIST_PREVIOUS_COMP:
                   type: array
-                  example:
-                      LIST_PREVIOUS_COMP:
-                        PREVIOUS_COMP:
-                          POSITION: SHAREHOLDER
-                          APPOINTMENT_DATE: 30/06/1988
-                          COMP_NAME: ENG YICK INDUSTRIES PTE LTD
-                          SEQ_NO: 198101820Z
-                          SHARE_VALUE1: '100.00'
-                          COMP_STATUS: DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)
-                          CESSATION_DATE: 22/09/1992
-                          SHARE_VALUE: '390002'
-                          TEL: '62994842'
-                          FAX: '67467646'
-                          SIC: '2325'
-                          SIC_DESC: Menâ€™s and Boysâ€™ Separate Trousers and Slacks
+                  example:  |+
+                    <LIST_PREVIOUS_COMP>
+                    <PREVIOUS_COMP>
+                    <POSITION><![CDATA[SHAREHOLDER]]></POSITION>
+                    <APPOINTMENT_DATE><![CDATA[30/06/1988]]></APPOINTMENT_DATE>
+                    <COMP_NAME><![CDATA[ENG YICK INDUSTRIES PTE LTD]]></COMP_NAME>
+                    <SEQ_NO><![CDATA[198101820Z]]></SEQ_NO>
+                    <SHARE_VALUE1><![CDATA[100.00]]></SHARE_VALUE1>
+                    <COMP_STATUS><![CDATA[DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)]]></COMP_STATUS>
+                    <CESSATION_DATE><![CDATA[22/09/1992]]></CESSATION_DATE>
+                    <SHARE_VALUE><![CDATA[390002]]></SHARE_VALUE>
+                    <TEL><![CDATA[62994842]]></TEL>
+                    <FAX><![CDATA[67467646]]></FAX>
+                    <SIC><![CDATA[2325]]></SIC>
+                    <SIC_DESC><![CDATA[Menâ€™s and Boysâ€™ Separate Trousers and Slacks]]></SIC_DESC>
+                    </PREVIOUS_COMP>
+                    </LIST_PREVIOUS_COMP>
                   description:  |+
                     List of previous companies with following children&#58;
                     [PREVIOUS_COMP]
@@ -580,20 +445,21 @@ components:
                           FAX
                           SIC
                           SIC_DESC
-                        example:
-                            PREVIOUS_COMP:
-                              POSITION: SHAREHOLDER
-                              APPOINTMENT_DATE: 30/06/1988
-                              COMP_NAME: ENG YICK INDUSTRIES PTE LTD
-                              SEQ_NO: 198101820Z
-                              SHARE_VALUE1: '100.00'
-                              COMP_STATUS: DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)
-                              CESSATION_DATE: 22/09/1992
-                              SHARE_VALUE: '390002'
-                              TEL: '62994842'
-                              FAX: '67467646'
-                              SIC: '2325'
-                              SIC_DESC: Menâ€™s and Boysâ€™ Separate Trousers and Slacks
+                        example:  |+
+                          <PREVIOUS_COMP>
+                          <POSITION><![CDATA[SHAREHOLDER]]></POSITION>
+                          <APPOINTMENT_DATE><![CDATA[30/06/1988]]></APPOINTMENT_DATE>
+                          <COMP_NAME><![CDATA[ENG YICK INDUSTRIES PTE LTD]]></COMP_NAME>
+                          <SEQ_NO><![CDATA[198101820Z]]></SEQ_NO>
+                          <SHARE_VALUE1><![CDATA[100.00]]></SHARE_VALUE1>
+                          <COMP_STATUS><![CDATA[DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)]]></COMP_STATUS>
+                          <CESSATION_DATE><![CDATA[22/09/1992]]></CESSATION_DATE>
+                          <SHARE_VALUE><![CDATA[390002]]></SHARE_VALUE>
+                          <TEL><![CDATA[62994842]]></TEL>
+                          <FAX><![CDATA[67467646]]></FAX>
+                          <SIC><![CDATA[2325]]></SIC>
+                          <SIC_DESC><![CDATA[Menâ€™s and Boysâ€™ Separate Trousers and Slacks]]></SIC_DESC>
+                          </PREVIOUS_COMP> 
                         properties:
                           POSITION :
                             type: string
@@ -648,29 +514,33 @@ components:
                   description:  |+
                     Bankruptcy/ Winding up with following children&#58;
                     [BANKRUPTCY]
-                  example:
-                      LIST_BANKRUPTCY:
-                        BANKRUPTCY:
-                          SUBJECT_NAME: "-"
-                          COURT_CODE: CWU
-                          CASE_CODE: '381'
-                          CASE_YEAR: '2000'
-                          ACTION_DATE: 22/12/2000
-                          BANKRUPTCY_ACT: Petition for Winding Up
-                          HEARING_DATE: 26/03/2009
-                          CURRENCY1: "-"
-                          AMOUNT1: '334,616.00'
-                          CURRENCY2: "-"
-                          AMOUNT2: '0.00'
-                          CURRENCY3: "-"
-                          AMOUNT3: '0.00'
-                          BANKRUPTCY_TYPE: COMPANY WINDING UP PETITION
-                          LIST_PLAINTIFF:
-                            PLAINTIFF:
-                              PLA_NAME: B 2003 P1
-                              PLA_SOLICITOR: PATRICK KHOO ENG HOCK
-                              PLA_SOLICITOR_ID: "-"
-                              PLA_FILE_REF: RSP/292668/1
+                  example:  |+
+                    <LIST_BANKRUPTCY>
+                    <BANKRUPTCY>
+                    <SUBJECT_NAME><![CDATA[-]]></SUBJECT_NAME>
+                    <COURT_CODE><![CDATA[CWU]]></COURT_CODE>
+                    <CASE_CODE><![CDATA[381]]></CASE_CODE>
+                    <CASE_YEAR><![CDATA[2000]]></CASE_YEAR>
+                    <ACTION_DATE><![CDATA[22/12/2000]]></ACTION_DATE>
+                    <BANKRUPTCY_ACT><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT>
+                    <HEARING_DATE><![CDATA[26/03/2009]]></HEARING_DATE>
+                    <CURRENCY1><![CDATA[-]]></CURRENCY1>
+                    <AMOUNT1><![CDATA[334,616.00]]></AMOUNT1>
+                    <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                    <AMOUNT2><![CDATA[0.00]]></AMOUNT1>
+                    <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                    <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                    <BANKRUPTCY_TYPE><![CDATA[COMPANY WINDING UP PETITION]]></BANKRUPTCY_TYPE>
+                    <LIST_PLAINTIFF>
+                    <PLAINTIFF>
+                    <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                    <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                    <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                    <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                    </PLAINTIFF>
+                    </LIST_PLAINTIFF>
+                    </BANKRUPTCY>
+                    </LIST_BANKRUPTCY>
                   items:
                     properties:
                       BANKRUPTCY :
@@ -692,28 +562,31 @@ components:
                           AMOUNT3
                           BANKRUPTCY_TYPE
                           [LIST_PLAINTIFF]
-                        example:
-                            BANKRUPTCY:
-                              SUBJECT_NAME: "-"
-                              COURT_CODE: CWU
-                              CASE_CODE: '381'
-                              CASE_YEAR: '2000'
-                              ACTION_DATE: 22/12/2000
-                              BANKRUPTCY_ACT: Petition for Winding Up
-                              HEARING_DATE: 26/03/2009
-                              CURRENCY1: "-"
-                              AMOUNT1: '334,616.00'
-                              CURRENCY2: "-"
-                              AMOUNT2: '0.00'
-                              CURRENCY3: "-"
-                              AMOUNT3: '0.00'
-                              BANKRUPTCY_TYPE: COMPANY WINDING UP PETITION
-                              LIST_PLAINTIFF:
-                                PLAINTIFF:
-                                  PLA_NAME: B 2003 P1
-                                  PLA_SOLICITOR: PATRICK KHOO ENG HOCK
-                                  PLA_SOLICITOR_ID: "-"
-                                  PLA_FILE_REF: RSP/292668/1
+                        example:  |+
+                          <BANKRUPTCY>
+                          <SUBJECT_NAME><![CDATA[-]]></SUBJECT_NAME>
+                          <COURT_CODE><![CDATA[CWU]]></COURT_CODE>
+                          <CASE_CODE><![CDATA[381]]></CASE_CODE>
+                          <CASE_YEAR><![CDATA[2000]]></CASE_YEAR>
+                          <ACTION_DATE><![CDATA[22/12/2000]]></ACTION_DATE>
+                          <BANKRUPTCY_ACT><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT>
+                          <HEARING_DATE><![CDATA[26/03/2009]]></HEARING_DATE>
+                          <CURRENCY1><![CDATA[-]]></CURRENCY1>
+                          <AMOUNT1><![CDATA[334,616.00]]></AMOUNT1>
+                          <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                          <AMOUNT2><![CDATA[0.00]]></AMOUNT1>
+                          <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                          <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                          <BANKRUPTCY_TYPE><![CDATA[COMPANY WINDING UP PETITION]]></BANKRUPTCY_TYPE>
+                          <LIST_PLAINTIFF>
+                          <PLAINTIFF>
+                          <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                          <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                          <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                          <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                          </PLAINTIFF>
+                          </LIST_PLAINTIFF>
+                          </BANKRUPTCY> 
                         properties:
                           SUBJECT_NAME :
                             type: string
@@ -776,13 +649,15 @@ components:
                    description:  |+
                       List of Plaintiff with following children&#58;
                       [PLAINTIFF]
-                   example:
-                      LIST_PLAINTIFF:
-                        PLAINTIFF:
-                          PLA_NAME: B 2003 P1
-                          PLA_SOLICITOR: PATRICK KHOO ENG HOCK
-                          PLA_SOLICITOR_ID: "-"
-                          PLA_FILE_REF: RSP/292668/1
+                   example:  |+
+                      <LIST_PLAINTIFF>
+                      <PLAINTIFF>
+                      <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                      <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                      <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                      <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                      </PLAINTIFF>
+                      </LIST_PLAINTIFF>
                    items:
                       properties:
                         PLAINTIFF:
@@ -793,12 +668,13 @@ components:
                             PLA_SOLICITOR
                             PLA_SOLICITOR_ID
                             PLA_FILE_REF
-                          example:
-                              PLAINTIFF:
-                                PLA_NAME: B 2003 P1
-                                PLA_SOLICITOR: PATRICK KHOO ENG HOCK
-                                PLA_SOLICITOR_ID: "-"
-                                PLA_FILE_REF: RSP/292668/1
+                          example:  |+
+                            <PLAINTIFF>
+                            <PLA_NAME><![CDATA[B 2003 P1]]></PLA_NAME>
+                            <PLA_SOLICITOR><![CDATA[PATRICK KHOO ENG HOCK]]></PLA_SOLICITOR>
+                            <PLA_SOLICITOR_ID><![CDATA[-]]></PLA_SOLICITOR_ID>
+                            <PLA_FILE_REF><![CDATA[RSP/292668/1]]></PLA_FILE_REF>
+                            </PLAINTIFF>
                           properties:
                             PLA_NAME:
                               type: string
@@ -821,12 +697,14 @@ components:
                   description:  |+
                     List of litigation with following children&#58;
                     [LIT]
-                  example:
-                      LIST_LIT:
-                        LIT:
-                          SUBJECT_NAME: ENG YICK HOLDINGS PTE LTD
-                          SEQ_NO: '1'
-                          FORMATTED_ID: 197803191K
+                  example:  |+
+                    <LIST_LIT>
+                    <LIT>
+                    <SUBJECT_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></SUBJECT_NAME>
+                    <SEQ_NO><![CDATA[1]]></SEQ_NO>
+                    <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID >
+                    </LIT>
+                    </LIST_LIT>
                   items:
                     properties:
                       LIT:
@@ -837,11 +715,12 @@ components:
                           SEQ_NO
                           FORMATTED_ID
                           [LIST_LIT_DTL]
-                        example:
-                            LIT:
-                              SUBJECT_NAME: ENG YICK HOLDINGS PTE LTD
-                              SEQ_NO: '1'
-                              FORMATTED_ID: 197803191K
+                        example:  |+
+                          <LIT>
+                          <SUBJECT_NAME><![CDATA[ENG YICK HOLDINGS PTE LTD]]></SUBJECT_NAME>
+                          <SEQ_NO><![CDATA[1]]></SEQ_NO>
+                          <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID >
+                          </LIT>
                         properties:                      
                           SUBJECT_NAME:
                             type: string
@@ -860,51 +739,59 @@ components:
                   description:  |+
                     List of litigation detail with following children&#58;
                     [LIT_DTL]
-                  example: 
-                      LIST_LIT_DTL:
-                        LIT_DTL:
-                          NATURE_OF_CLAIM: CONTRACTS-WORK DONE & SERVICES RENDERED
-                          STATUS_DATE: 13/08/2001
-                          CASE_NO: MC 23631 / 2001
-                          FORMATTED_ID: 197803191K
-                          DOC_REMARKS: WRIT OF SUMMONS
-                          CURRENCY1: SIN
-                          CURRENCY2: "-"
-                          CURRENCY3: "-"
-                          CURRENCY4: "-"
-                          CURRENCY5: "-"
-                          CASE_STATUS: PENDING AS AT STATUS DATE
-                          AMOUNT1: '36,196.00'
-                          AMOUNT2: '0.00'
-                          AMOUNT3: '0.00'
-                          AMOUNT4: '0.00'
-                          AMOUNT5: '0.00'
-                          LIST_PLAINTIFF:
-                            PLAINTIFF:
-                            - PLA_NAME: ROTARY PILING PTE LTD
-                              LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
-                              WRITE_DATE: 13/08/2001
-                              PLA_SOLICITOR: HOO JOSEPH
-                              PLA_SOLICITOR_ID: ORS
-                              PLA_FILE_REF: CHH 6253 D27
-                              PLA_STATUS: "-"
-                              PLA_STATUS_DATE: "-"
-                              PLA_ID: S7250163B
-                            - PLA_NAME: ABC PTE LTD
-                              LAW_FIRM: JAMES & JOE
-                              WRITE_DATE: 13/08/2001
-                              PLA_SOLICITOR: KHOO JAMES
-                              PLA_SOLICITOR_ID: ORS
-                              PLA_FILE_REF: CHH 6253 X10
-                              PLA_STATUS: "-"
-                              PLA_STATUS_DATE: "-"
-                              PLA_ID: S7250163B
-                          LIST_DEFENDANT:
-                            DEFENDANT:
-                              DEF_SOLICITOR: "-"
-                              DEF_SOLICITOR_ID: N/A
-                              DEF_LAW_FIRM: "-"
-                              DEF_FILE_REF: "-"
+                  example:  |+
+                    <LIST_LIT_DTL>
+                    <LIT_DTL>
+                    <NATURE_OF_CLAIM><![CDATA[CONTRACTS-WORK DONE & SERVICES RENDERED]]></NATURE_OF_CLAIM>
+                    <STATUS_DATE><![CDATA[13/08/2001]]></STATUS_DATE>
+                    <CASE_NO><![CDATA[MC 23631 / 2001]]></CASE_NO>
+                    <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID>
+                    <DOC_REMARKS><![CDATA[WRIT OF SUMMONS]]></DOC_REMARKS>
+                    <CURRENCY1><![CDATA[SIN]]></CURRENCY1>
+                    <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                    <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                    <CURRENCY4><![CDATA[-]]></CURRENCY4>
+                    <CURRENCY5><![CDATA[-]]></CURRENCY5>
+                    <CASE_STATUS><![CDATA[PENDING AS AT STATUS DATE]]></CASE_STATUS>
+                    <AMOUNT1><![CDATA[36,196.00]]></AMOUNT1>
+                    <AMOUNT2><![CDATA[0.00]]></AMOUNT2>
+                    <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                    <AMOUNT4><![CDATA[0.00]]></AMOUNT4>
+                    <AMOUNT5><![CDATA[0.00]]></AMOUNT5>
+                    <LIST_PLAINTIFF>
+                    <PLAINTIFF>
+                    <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME>
+                    <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM>
+                    <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                    <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR>
+                    <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                    <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                    <PLA_STATUS>-</PLA_STATUS>
+                    <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                    <PLA_ID>S7250163B</PLA_ID>
+                    </PLAINTIFF>
+                    <PLAINTIFF>
+                    <PLA_NAME><![CDATA[ABC PTE LTD]]></PLA_NAME>
+                    <LAW_FIRM><![CDATA[JAMES & JOE]]></LAW_FIRM>
+                    <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                    <PLA_SOLICITOR><![CDATA[KHOO JAMES]]></PLA_SOLICITOR>
+                    <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                    <PLA_FILE_REF><![CDATA[CHH 6253 X10]]></PLA_FILE_REF>
+                    <PLA_STATUS>-</PLA_STATUS>
+                    <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                    <PLA_ID>S7250163B</PLA_ID>
+                    </PLAINTIFF>
+                    </LIST_PLAINTIFF>
+                    <LIST_DEFENDANT>
+                    <DEFENDANT>
+                    <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR>
+                    <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID>
+                    <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM>
+                    <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                    </DEFENDANT>
+                    </LIST_DEFENDANT>
+                    </LIT_DTL>
+                    </LIST_LIT_DTL>
                   items:
                     properties:
                       LIT_DTL:
@@ -929,50 +816,57 @@ components:
                           AMOUNT5
                           [LIST_PLAINTIFF]
                           [LIST_DEFENDANT]
-                        example: 
-                            LIT_DTL:
-                              NATURE_OF_CLAIM: CONTRACTS-WORK DONE & SERVICES RENDERED
-                              STATUS_DATE: 13/08/2001
-                              CASE_NO: MC 23631 / 2001
-                              FORMATTED_ID: 197803191K
-                              DOC_REMARKS: WRIT OF SUMMONS
-                              CURRENCY1: SIN
-                              CURRENCY2: "-"
-                              CURRENCY3: "-"
-                              CURRENCY4: "-"
-                              CURRENCY5: "-"
-                              CASE_STATUS: PENDING AS AT STATUS DATE
-                              AMOUNT1: '36,196.00'
-                              AMOUNT2: '0.00'
-                              AMOUNT3: '0.00'
-                              AMOUNT4: '0.00'
-                              AMOUNT5: '0.00'
-                              LIST_PLAINTIFF:
-                                PLAINTIFF:
-                                - PLA_NAME: ROTARY PILING PTE LTD
-                                  LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
-                                  WRITE_DATE: 13/08/2001
-                                  PLA_SOLICITOR: HOO JOSEPH
-                                  PLA_SOLICITOR_ID: ORS
-                                  PLA_FILE_REF: CHH 6253 D27
-                                  PLA_STATUS: "-"
-                                  PLA_STATUS_DATE: "-"
-                                  PLA_ID: S7250163B
-                                - PLA_NAME: ABC PTE LTD
-                                  LAW_FIRM: JAMES & JOE
-                                  WRITE_DATE: 13/08/2001
-                                  PLA_SOLICITOR: KHOO JAMES
-                                  PLA_SOLICITOR_ID: ORS
-                                  PLA_FILE_REF: CHH 6253 X10
-                                  PLA_STATUS: "-"
-                                  PLA_STATUS_DATE: "-"
-                                  PLA_ID: S7250163B
-                              LIST_DEFENDANT:
-                                DEFENDANT:
-                                  DEF_SOLICITOR: "-"
-                                  DEF_SOLICITOR_ID: N/A
-                                  DEF_LAW_FIRM: "-"
-                                  DEF_FILE_REF: "-"
+                        example:  |+
+                          <LIT_DTL>
+                          <NATURE_OF_CLAIM><![CDATA[CONTRACTS-WORK DONE & SERVICES RENDERED]]></NATURE_OF_CLAIM>
+                          <STATUS_DATE><![CDATA[13/08/2001]]></STATUS_DATE>
+                          <CASE_NO><![CDATA[MC 23631 / 2001]]></CASE_NO>
+                          <FORMATTED_ID><![CDATA[197803191K]]></FORMATTED_ID>
+                          <DOC_REMARKS><![CDATA[WRIT OF SUMMONS]]></DOC_REMARKS>
+                          <CURRENCY1><![CDATA[SIN]]></CURRENCY1>
+                          <CURRENCY2><![CDATA[-]]></CURRENCY2>
+                          <CURRENCY3><![CDATA[-]]></CURRENCY3>
+                          <CURRENCY4><![CDATA[-]]></CURRENCY4>
+                          <CURRENCY5><![CDATA[-]]></CURRENCY5>
+                          <CASE_STATUS><![CDATA[PENDING AS AT STATUS DATE]]></CASE_STATUS>
+                          <AMOUNT1><![CDATA[36,196.00]]></AMOUNT1>
+                          <AMOUNT2><![CDATA[0.00]]></AMOUNT2>
+                          <AMOUNT3><![CDATA[0.00]]></AMOUNT3>
+                          <AMOUNT4><![CDATA[0.00]]></AMOUNT4>
+                          <AMOUNT5><![CDATA[0.00]]></AMOUNT5>
+                          <LIST_PLAINTIFF>
+                          <PLAINTIFF>
+                          <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME>
+                          <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM>
+                          <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                          <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR>
+                          <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                          <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                          <PLA_STATUS>-</PLA_STATUS>
+                          <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                          <PLA_ID>S7250163B</PLA_ID>
+                          </PLAINTIFF>
+                          <PLAINTIFF>
+                          <PLA_NAME><![CDATA[ABC PTE LTD]]></PLA_NAME>
+                          <LAW_FIRM><![CDATA[JAMES & JOE]]></LAW_FIRM>
+                          <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                          <PLA_SOLICITOR><![CDATA[KHOO JAMES]]></PLA_SOLICITOR>
+                          <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                          <PLA_FILE_REF><![CDATA[CHH 6253 X10]]></PLA_FILE_REF>
+                          <PLA_STATUS>-</PLA_STATUS>
+                          <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                          <PLA_ID>S7250163B</PLA_ID>
+                          </PLAINTIFF>
+                          </LIST_PLAINTIFF>
+                          <LIST_DEFENDANT>
+                          <DEFENDANT>
+                          <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR>
+                          <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID>
+                          <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM>
+                          <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                          </DEFENDANT>
+                          </LIST_DEFENDANT>
+                          </LIT_DTL>
                         properties:                      
                           NATURE_OF_CLAIM:
                             type: string
@@ -1043,18 +937,20 @@ components:
                             description:  |+
                               List of plaintiff with following children&#58;
                               [PLAINTIFF]
-                            example: 
-                                LIST_PLAINTIFF:
-                                  PLAINTIFF:
-                                    PLA_NAME: ROTARY PILING PTE LTD
-                                    LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
-                                    WRITE_DATE: 13/08/2001
-                                    PLA_SOLICITOR: HOO JOSEPH
-                                    PLA_SOLICITOR_ID: ORS
-                                    PLA_FILE_REF: CHH 6253 D27
-                                    PLA_STATUS: "-"
-                                    PLA_STATUS_DATE: "-"
-                                    PLA_ID: S7250163B
+                            example:  |+
+                              <LIST_PLAINTIFF>
+                              <PLAINTIFF>
+                              <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME>
+                              <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM>
+                              <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                              <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR>
+                              <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                              <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                              <PLA_STATUS>-</PLA_STATUS>
+                              <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                              <PLA_ID>S7250163B</PLA_ID>
+                              </PLAINTIFF>
+                              </LIST_PLAINTIFF>
                             items:
                               properties:
                                 PLAINTIFF:
@@ -1070,17 +966,18 @@ components:
                                     PLA_STATUS
                                     PLA_STATUS_DATE
                                     PLA_ID
-                                  example:
-                                      PLAINTIFF:
-                                        PLA_NAME: ROTARY PILING PTE LTD
-                                        LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
-                                        WRITE_DATE: 13/08/2001
-                                        PLA_SOLICITOR: HOO JOSEPH
-                                        PLA_SOLICITOR_ID: ORS
-                                        PLA_FILE_REF: CHH 6253 D27
-                                        PLA_STATUS: "-"
-                                        PLA_STATUS_DATE: "-"
-                                        PLA_ID: S7250163B
+                                  example:  |+
+                                    <PLAINTIFF>
+                                    <PLA_NAME><![CDATA[ROTARY PILING PTE LTD]]></PLA_NAME>
+                                    <LAW_FIRM><![CDATA[JOSEPH HOO MORRIS & KUMAR]]></LAW_FIRM>
+                                    <WRITE_DATE><![CDATA[13/08/2001]]></WRITE_DATE>
+                                    <PLA_SOLICITOR><![CDATA[HOO JOSEPH]]></PLA_SOLICITOR>
+                                    <PLA_SOLICITOR_ID><![CDATA[ORS]]></PLA_SOLICITOR_ID>
+                                    <PLA_FILE_REF><![CDATA[CHH 6253 D27]]></PLA_FILE_REF>
+                                    <PLA_STATUS>-</PLA_STATUS>
+                                    <PLA_STATUS_DATE>-</PLA_STATUS_DATE>
+                                    <PLA_ID>S7250163B</PLA_ID>
+                                    </PLAINTIFF>
                                   properties:
                                     PLA_NAME:
                                       type: string
@@ -1123,13 +1020,15 @@ components:
                             description:  |+
                               List of defendant with following children&#58;
                               [DEFENDANT]
-                            example: 
-                                LIST_DEFENDANT:
-                                  DEFENDANT:
-                                    DEF_SOLICITOR: "-"
-                                    DEF_SOLICITOR_ID: N/A
-                                    DEF_LAW_FIRM: "-"
-                                    DEF_FILE_REF: "-"
+                            example:  |+
+                              <LIST_DEFENDANT>
+                              <DEFENDANT>
+                              <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR>
+                              <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID>
+                              <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM>
+                              <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                              </DEFENDANT>
+                              </LIST_DEFENDANT>
                             items:
                               properties:
                                 DEFENDANT:
@@ -1140,12 +1039,13 @@ components:
                                     DEF_SOLICITOR_ID
                                     DEF_LAW_FIRM
                                     DEF_FILE_REF
-                                  example: 
-                                      DEFENDANT:
-                                        DEF_SOLICITOR: "-"
-                                        DEF_SOLICITOR_ID: N/A
-                                        DEF_LAW_FIRM: "-"
-                                        DEF_FILE_REF: "-"
+                                  example:   |+
+                                    <DEFENDANT>
+                                    <DEF_SOLICITOR><![CDATA[-]]></DEF_SOLICITOR>
+                                    <DEF_SOLICITOR_ID><![CDATA[N/A]]></DEF_SOLICITOR_ID>
+                                    <DEF_LAW_FIRM><![CDATA[-]]></DEF_LAW_FIRM>
+                                    <DEF_FILE_REF><![CDATA[-]]></DEF_FILE_REF>
+                                    </DEFENDANT>
                                   properties:
                                     DEF_SOLICITOR:
                                       type: string
@@ -1168,23 +1068,25 @@ components:
                   description:  |+
                     List of Search By Financial Sectors and Search By Non-Financial Sectors with following children&#58;
                     [Ddrptcount]
-                  example: 
-                      LIST_Ddrptcount:
-                        Ddrptcount:
-                          Rcjan: '1'
-                          Rcfeb: '1'
-                          Rcmar: '1'
-                          Rcapr: '1'
-                          Rcmay: '1'
-                          Rcjun: '1'
-                          Rcjul: '1'
-                          Rcaug: '1'
-                          Rcsep: '1'
-                          Rcoct: '1'
-                          Rcnov: '1'
-                          Rcdec: '1'
-                          Rcyear: '2017'
-                          Rcsecflag: '1'
+                  example:  |+
+                    <LIST_Ddrptcount>
+                    <Ddrptcount>
+                    <Rcjan>1</Rcjan>
+                    <Rcfeb>1</Rcfeb>
+                    <Rcmar>1</Rcmar>
+                    <Rcapr>1</Rcapr>
+                    <Rcmay>1</Rcmay>
+                    <Rcjun>1</Rcjun>
+                    <Rcjul>1</Rcjul>
+                    <Rcaug>1</Rcaug>
+                    <Rcsep>1</Rcsep>
+                    <Rcoct>1</Rcoct>
+                    <Rcnov>1</Rcnov>
+                    <Rcdec>1</Rcdec>
+                    <Rcyear>2017</Rcyear>
+                    <Rcsecflag>1</Rcsecflag>
+                    </Ddrptcount>
+                    <LIST_Ddrptcount>
                   items:
                     properties:
                       Ddrptcount:
@@ -1205,22 +1107,23 @@ components:
                           Rcdec
                           Rcyear
                           Rcsecflag
-                        example: 
-                            Ddrptcount:
-                              Rcjan: '1'
-                              Rcfeb: '1'
-                              Rcmar: '1'
-                              Rcapr: '1'
-                              Rcmay: '1'
-                              Rcjun: '1'
-                              Rcjul: '1'
-                              Rcaug: '1'
-                              Rcsep: '1'
-                              Rcoct: '1'
-                              Rcnov: '1'
-                              Rcdec: '1'
-                              Rcyear: '2017'
-                              Rcsecflag: '1'
+                        example:  |+
+                          <Ddrptcount>
+                          <Rcjan>1</Rcjan>
+                          <Rcfeb>1</Rcfeb>
+                          <Rcmar>1</Rcmar>
+                          <Rcapr>1</Rcapr>
+                          <Rcmay>1</Rcmay>
+                          <Rcjun>1</Rcjun>
+                          <Rcjul>1</Rcjul>
+                          <Rcaug>1</Rcaug>
+                          <Rcsep>1</Rcsep>
+                          <Rcoct>1</Rcoct>
+                          <Rcnov>1</Rcnov>
+                          <Rcdec>1</Rcdec>
+                          <Rcyear>2017</Rcyear>
+                          <Rcsecflag>1</Rcsecflag>
+                          </Ddrptcount>
                         properties:                      
                           Rcjan:
                             type: integer
@@ -1359,24 +1262,31 @@ components:
         status:
           type: string
           example: Failure
-    input:
+    REQUEST:
       type: object
       properties:
-        total_items:
+        TOT_ITEMS:
           type: integer
           example: 1
           description: Number of subjects being enquired relating to the Run
           default: false
-        subject_idno:
-          type: string
-          example: 199707714C
-          description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
+        ENQUIRY:
+          type: object
+          example: |+
+            <ENQUIRY><SUBJECT_IDNO>197601887E</SUBJECT_IDNO><SUBJECT_NAME>TRANSTAR TRAVEL PTE LTD</SUBJECT_NAME></ENQUIRY>
+          description: Contains information of each request details
           default: true
-        subject_name:
-          type: string
-          example: GPS INDUSTRIES PTE LTD
-          description: Subjects Name as captured in DDP
-          default: false
+          properties:
+            SUBJECT_IDNO:
+              type: string
+              example: 199707714C
+              description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
+              default: true
+            SUBJECT_NAME:
+              type: string
+              example: GPS INDUSTRIES PTE LTD
+              description: Subjects Name as captured in DDP
+              default: false
     versions:
       type: object
       properties: 

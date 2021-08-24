@@ -35,17 +35,17 @@ info:
     |  INC_CRC |  Varchar | 50	  | Sub Location Id  |
     |  FMEL_UPD_D |  Datetime | N/A	  | Area of the feature  |
     |  Shape__Length |  Float | N/A	  | Length of the feature  |
-  version: '0.1.0'
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Mar 24, 2020"
+- name: "v1.0.0"
+  description: "Published Date - Apr 15, 2021"
 paths:
-   /DaaS/prod/hdb/amenities/gs/csv/hardcourt/hdb:
+   /microservices/data/hardcourt/v1/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       responses:
         '200':
           description: Ok

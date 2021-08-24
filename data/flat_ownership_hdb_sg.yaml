@@ -9,7 +9,7 @@ info:
        
   x-additionalinfo : |+
     Suggested Use Cases:
-    - Real estate services - for example, this microservice can be used for services that are related to HDB ownership transfer (i.e. when one transfer, include, withdraw and/or substitute owners for a flat), such as when drafting up related legal documents.
+    - Real estate services - for example, this microservice can be used for services that are related to HDB ownership transfer (i.e. when one transfer, include, withdraw and/or substitute owners for a flat), such as when drafting up related legal documents.
     
     **Refining queries in the filterdata field using filter types and match types**
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
@@ -22,7 +22,7 @@ info:
       > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
     
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      > {"must_not":[{"match":{"postalcode":"570251"}}]}
+      > {"must_not":[{"match":{"postalcode":570251}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
@@ -37,23 +37,17 @@ info:
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
-
       > {"match":{"street":"serangoon"}}
-
     * **match_phrase** - Search within a full text field
-
       > {"match_phrase":{"street":"serangoon central"}}
-
     * **match_phrase_prefix** - Search within a full text field with prefix
-
       > {"match_phrase_prefix":{"street":"serangoon central"}}
-
     * **term** - Returns results that contain an exact term in a provided field
     
-      > {"term":{"postalcode":"560720"}}
+      > {"term":{"postalcode":560720}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
     
-      > {"terms":{"postalcode":["560720","560721"]}}
+      > {"terms":{"postalcode":[560720,560721]}}
       
     * **range** - Returns results that contain terms within a stipulated range
     
@@ -64,7 +58,6 @@ info:
     * **exists** - Returns results that contain any indexed value for a field
     
       > {"exists":{ "field": "postalcode"}}
-
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
@@ -72,11 +65,10 @@ info:
     
      > {
      >  "must":[{"match_phrase":{"street":"serangoon+central"}}],
-     >  "filter":[{"match":{"postalcode":"550209"}}],
+     >  "filter":[{"match":{"postalcode":550209}}],
      >  "should":[{"range":{"no_of_units":{"gte":10}}}],
      >  "must_not":[{"match":{"len_of_ownership_id":"5"}}]
      > }
-
     **Sample Queries Based on Use Cases**
     
     1. **Search for all blocks with duration of ownership equal to or exceeding 10 years in Ang Mo Kio.**
@@ -84,18 +76,17 @@ info:
        Using a filterdata only&#58;
       
        > filterdata = {"filter":[{"match":{"street":"ang mo kio"}},{"match":{"len_of_ownership_id":"1"}}]}
-
-  version: '0.1.0'
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - May 15, 2020"
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
 paths:
-   /DaaS/prod/hdb/ownership:
+   /microservices/data/ownership/v1/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
@@ -134,7 +125,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"match":{"postalcode":"550209"}}],"should":[{"range":{"no_of_units":{"gte":10}}}],"must_not":[{"match":{"len_of_ownership_id":"5"}}]}
+            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"match":{"postalcode":550209}}],"should":[{"range":{"no_of_units":{"gte":10}}}],"must_not":[{"match":{"len_of_ownership_id":"5"}}]}
       responses:
         '200':
           description: Ok
@@ -147,12 +138,12 @@ paths:
                   total: 986
                   max_score: 17.995623
                   hits:
-                  - _index: sentient_durationofownership_hdb_index
+                  - _index: sentient_hdb_durationofownership_index
                     _type: dir_doc
                     _id: 050533/40<T<=50
                     _score: 1
                     _source:
-                      postalcode: '560720'
+                      postalcode: 560720
                       len_of_ownership: 40 < t <= 50
                       len_of_ownership_id: '5'
                       no_of_units: '29'
@@ -253,7 +244,7 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "sentient_durationofownership_hdb_index"
+                    example: "sentient_hdb_durationofownership_index"
                   _type: 
                     type: string
                     description: Content type of the document
@@ -272,9 +263,9 @@ components:
                     description: Json Object of returned hits                    
                     properties:
                       postalcode: 
-                        type: string
+                        type: integer
                         description: Postal code of a block
-                        example: "560720"
+                        example: 560720
                       len_of_ownership: 
                         type: string
                         description: Range of length
@@ -453,4 +444,3 @@ components:
       in: header
       x-amazon-apigateway-authtype: custom
       description: Authentication is done using the x-api-key in the request header.
-  

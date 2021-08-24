@@ -4,110 +4,75 @@ info:
   x-subscribelink: carpark_hdb_sg
   description: |+
     This Data microservice retrieves the Singapore Housing Development Board's carpark information within Singapore HDB estates and includes the location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.
-
     The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
-
     **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
   
   x-additionalinfo : |+
     Suggested Use Cases:
     - Geo-targeting app with map feature, property development planning resource, or planning for vehicle-sharing app. 
-
     - Real estate services - can be used as a background check solution to extract information related to the types and number of carparks present in an area for people with certain preferences when buying or renting a HDB home. 
-
     - Can also be integrated into apps related to maps or parking for more detailed carpark information within Singapore HDB estates
     
     **Refining queries in the filterdata field using filter types and match types**
-
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
   
     **Filter Types:**
-
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
     * **must** - All of the stated conditions must match. Equivalent to an AND operator.
-
       > {"must":[{"match":{"mc":0}}]}
-
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-
-      > {"must_not":[{"match":{"postalcode":"570251"}}]}
+      > {"must_not":[{"match":{"postalcode":570251}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
-
       > {"should":[{"match_phrase":{"street":"ang mo kio"}}]}
     
     * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
-
       > {"filter":[{"match":{"street":"bishan"}}]}
       
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
     Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
-
     **Match Types:**
-
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
-
       > {"match":{"street":"bishan"}}
-
     * **match_phrase** - Search within a full text field
-
       > {"match_phrase":{"street":"bishan street 24"}}
-
     * **match_phrase_prefix** - Search within a full text field with prefix
-
       > {"match_phrase_prefix":{"street":"bishan street 24"}}
-
     * **term** - Returns results that contain an exact term in a provided field
-
       > {"term":{"cpk_no":"ak19"}}
-
     * **terms** - Returns results that contain one or more exact terms in a provided field
-
       > {"terms":{"cpk_no":["ak19","be33"]}}
-
     * **range** - Returns results that contain terms within a stipulated range
-
       > {"range":{"car":{"gte":100}}}
       > {"range":{"car":{"lte":500}}}
       > {"range":{"car":{"gte":100,"lte":500}}}
-
     * **exists** - Returns results that contain any indexed value for a field
-
       > {"exists":{ "field": "postalcode"}}
-
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
-
     Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
     
     > {
     > "must":[{"match":{"mc":0}}],
     > "filter":[{"match":{"street":"bishan"}}],
     > "should":[{"match_phrase":{"street":"ang mo kio"}}],
-    > "must_not":[{"match":{"postalcode":"570251"}}]
+    > "must_not":[{"match":{"postalcode":570251}}]
     > }
-
     **Sample Queries Based on Use Cases**
-
     1. **Search for all carparks around 414 Bedok North Road**
-
        Using a querystring only&#58;
       
        > querystring = "414 bedok north road"
-
     2. **Search for all carparks within a 1KM radius from Tampines Mall**
-
        Using a filterdata only&#58;
-
        > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
       
     3. **Search for all carparks around Tampines with motorcycle parking**
-
        Using both querystring + filterdata&#58;
        
        > querystring = tampines
@@ -119,18 +84,17 @@ info:
       
        > querystring = "bishan street 22"
        > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
-
-  version: '0.2.0'
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.2.0"
-  description: "Published Date - Sep 15, 2020"
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
 paths:
-   /DaaS/prod/hdb/carpark:
+   /microservices/data/carpark/v1/getdata:
     get:
       tags:
-        - v0.2.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
@@ -163,15 +127,13 @@ paths:
             type: string  
           description: |+
             Refine the search further on any of the possible through the 4 filter types &#58;
-
             * must
             * must_not
             * should
             * filter
-
           default: false
           example: |+
-            {"must":[{"match":{"mc":0}}],"filter":[{"match":{"street":"bishan"}}],"should":[{"match_phrase":{"street":"ang mo kio"}}],"must_not":[{"match":{"postalcode":"570251"}}]}
+            {"must":[{"match":{"mc":0}}],"filter":[{"match":{"street":"BISHAN STREET 22"}}],"should":[{"match_phrase":{"street":"BISHAN"}}],"must_not":[{"match":{"postalcode":456454}}]}
       responses:
         '200':
           description: Ok
@@ -184,7 +146,7 @@ paths:
                   total: 1
                   max_score: 7.510164
                   hits:
-                  - _index: sentient_carpark_hdb_index
+                  - _index: sentient_hdb_carpark_index
                     _type: dir_doc
                     _id: BE37
                     _score: 7.510164
@@ -205,16 +167,16 @@ paths:
                         lat: 1.3580079412271227
                         lon: 103.84442083770412
                       postalcode:
-                      - '570278'
-                      - '570279'
-                      - '570280'
-                      - '570281'
-                      - '570282'
-                      - '570283'
-                      - '570284'
-                      - '570285'
-                      - '570286'
-                      - '570287'
+                      - 570278
+                      - 570279
+                      - 570280
+                      - 570281
+                      - 570282
+                      - 570283
+                      - 570284
+                      - 570285
+                      - 570286
+                      - 570287
                 message: Successfully Processed
                 status: Success
         '401':
@@ -342,11 +304,11 @@ components:
                             postalcode: 
                               type: array
                               description: List of postal code
-                              example: ["570253", "570254"]
+                              example: [570253, 570254]
                               items:
-                                type: string
+                                type: integer
                                 description: postal code
-                                example: "570253"
+                                example: 570253
                             xcoord:
                               type: string
                               description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
@@ -486,7 +448,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - May 21,2021
-              description: optimized release
+              description: Optimized release
         v0.2.0:
          type: array
          items:

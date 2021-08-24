@@ -1,92 +1,101 @@
 openapi: 3.0.1
 info:
-  title: HDB Block Coordinates (SG)
-  x-subscribelink: building_addresses_hdb_sg
+  title: HDB Flat Ownership Duration (SG)
+  x-subscribelink: flat_ownership_hdb_sg
   description: |+
-   This Data microservice retrieves information on the Singapore Housing Development Board building blocks in Singapore that includes addresses, postal code, latitude and longitude coordinates. Updated monthly
-   The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
+   This Data microservice returns information on flat ownership within Housing Development Board of Singapore (HDB) estates and includes the location address, postal code, length of ownership and their quantity in units.The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme."
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
   x-additionalinfo : |+
     Suggested Use Cases:
-    - Information from this microservice can be used to build a geo-targeting app with precise map features. 
+    - Real estate services - for example, this microservice can be used for services that are related to HDB ownership transfer (i.e. when one transfer, include, withdraw and/or substitute owners for a flat), such as when drafting up related legal documents.
     
     **Refining queries in the filterdata field using filter types and match types**
-    
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
   
     **Filter Types:**
-    
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
     * **must** - All of the stated conditions must match. Equivalent to an AND operator.
     
-      > {"must":[{"range":{"block":{"gte":100}}}]}
+      > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
     
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      > {"must_not":[{"match":{"street":"avenue 3"}}]}
+      > {"must_not":[{"match":{"postalcode":"570251"}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
-      > {"should":[{"range":{"block":{"lte":200}}}]}
+      > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
     
     * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
-      > {"filter":[{"match_phrase":{"street":"ang mo kio"}}]}
+      > {"filter":[{"match":{"street":"serangoon"}}]}
       
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
     Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
-    
     **Match Types:**
-    
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
+
       > {"match":{"street":"serangoon"}}
+
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"street":"ang mo kio street"}}
+
+      > {"match_phrase":{"street":"serangoon central"}}
+
     * **match_phrase_prefix** - Search within a full text field with prefix
-      > {"match_phrase_prefix":{"street":"ang mo kio"}}
+
+      > {"match_phrase_prefix":{"street":"serangoon central"}}
+
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"postalcode":550151}}
+    
+      > {"term":{"postalcode":"560720"}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"postalcode":[550151,550152]}}
+    
+      > {"terms":{"postalcode":["560720","560721"]}}
+      
     * **range** - Returns results that contain terms within a stipulated range
-        > {"range":{"postalcode":{"lte":650347}}}
-        > {"range":{"postalcode":{"gte":650347}}}
-        > {"range":{"postalcode":{"gte":650347,"lte":760415}}}
+    
+      > {"range":{"no_of_units":{"gte":10}}}
+      > {"range":{"no_of_units":{"lte":50}}}
+      > {"range":{"no_of_units":{"gte":10,"lte":50}}}
       
     * **exists** - Returns results that contain any indexed value for a field
+    
       > {"exists":{ "field": "postalcode"}}
+
     For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
     
     **Forming sophisticated queries using combinations of filter types (in JSON)**
-    
     Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
     
      > {
-     > "must":[{"range":{"block":{"gte":100}}}],
-     > "should":[{"range":{"block":{"lte":200}}}],
-     > "filter":[{"match_phrase":{"street":"ang mo kio"}}],
-     > "must_not":[{"match":{"street":"avenue 3"}}]
+     >  "must":[{"match_phrase":{"street":"serangoon+central"}}],
+     >  "filter":[{"match":{"postalcode":"550209"}}],
+     >  "should":[{"range":{"no_of_units":{"gte":10}}}],
+     >  "must_not":[{"match":{"len_of_ownership_id":"5"}}]
      > }
+
     **Sample Queries Based on Use Cases**
-    1. **Search the latitude and longitude coordinates for 442 Pasir Ris Drive 6**
+    
+    1. **Search for all blocks with duration of ownership equal to or exceeding 10 years in Ang Mo Kio.**
     
        Using a filterdata only&#58;
-       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.368960,103.957980"}}]}
-       
-  version: '1.0.0'
+      
+       > filterdata = {"filter":[{"match":{"street":"ang mo kio"}},{"match":{"len_of_ownership_id":"1"}}]}
+
+  version: '0.1.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://api.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - May 21, 2021"
+- name: "v0.1.0"
+  description: "Published Date - May 15, 2020"
 paths:
-   /microservices/data/directories_searchbranch/v1/getdata:
+   /DaaS/prod/hdb/ownership:
     get:
       tags:
-        - v1.0.0
+        - v0.1.0
       parameters:
         - in: query
           name: querystring
@@ -95,7 +104,7 @@ paths:
           description: |+ 
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
-            If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            If this field is set to null, by default the microservice will return all units (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
           example: "serangoon"
           default: false
@@ -125,7 +134,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"range":{"block":{"gte":100}}}],"should":[{"range":{"block":{"lte":500}}}],"filter":[{"match_phrase":{"street":"serangoon central"}}],"must_not":[{"match":{"postalcode":343534}}]}
+            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"match":{"postalcode":"550209"}}],"should":[{"range":{"no_of_units":{"gte":10}}}],"must_not":[{"match":{"len_of_ownership_id":"5"}}]}
       responses:
         '200':
           description: Ok
@@ -135,23 +144,29 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  total: 1
-                  max_score: 12.08503
+                  total: 986
+                  max_score: 17.995623
                   hits:
-                  - _index: sentient_building_directory_index
+                  - _index: sentient_durationofownership_hdb_index
                     _type: dir_doc
-                    _id: uLxcqWgBv3dNEHq2Dznn
-                    _score: 12.08503
+                    _id: 050533/40<T<=50
+                    _score: 1
                     _source:
-                      buildingname: nex
-                      postalcode: 556083
-                      block: '23'
-                      street: serangoon central
+                      postalcode: '560720'
+                      len_of_ownership: 40 < t <= 50
+                      len_of_ownership_id: '5'
+                      no_of_units: '29'
+                      block: '533'
+                      street: upper cross street
+                      xcoord: 29520.58
+                      ycoord: 39311.68
+                      address: 533 upper cross street
+                      createddate: '2020-04-23'
+                      lastupdated: '2020-04-23'
                       location:
-                        lat: 1.350748
-                        lon: 103.872798
-                      source: starhub
-                      createddate: '2019-02-01'
+                        lat: 1.37179535
+                        lon: 103.8469821
+                      source: hdb
                 message: Successfully Processed
                 status: Success
         '401':
@@ -219,80 +234,112 @@ components:
           type: object
           example: {<Json Object>}
           description: Json Object of returned results 
-          properties:                
-            total: 
+          properties:
+            total:
               type: integer
-              example: 1
+              example: 986
               description: Total number of records
             max_score:
               type: float
               example: 17.995623
-              description: The highest score value                   
+              description: The highest score value
             hits:
               type: array
               example: [{<JSON result Object}]
               description: The list of Json result object
               items:
                 type: object
-                properties:                      
-                    _index:
-                      type: string
-                      description: Index group of the document
-                      example: "sentient_directory_building_index"
-                    _type: 
-                      type: string
-                      description: Content type of the document
-                      example: "dir_doc"
-                    _id: 
-                      type: string
-                      description: Document ID
-                      example: "uLxcqWgBv3dNEHq2Dznn"                    
-                    _score: 
-                      type: float
-                      description: The document score for the search request
-                      example: 12.08503                    
-                    _source:
-                      type: object
-                      example: {<Json Object>}
-                      description: Json Object of returned hits
-                      properties: 
-                          buildingname:
-                            type: string
-                            description: Building Name
-                            example: "nex"
-                          street:
-                            type: string
-                            description: Street Name of Building
-                            example: "serangoon central"
-                          postalcode:
-                            type: integer
-                            description: Postal code
-                            example: 556083      
-                          block: 
-                            type: string
-                            description: Block Number
-                            example: "23"
-                          location:
-                            type: object
-                            description: WGS84 coordinates lat/long
-                            example: {"lat":1.350748,"lon":103.872798}
-                            properties:
-                                lat: 
-                                  type: string
-                                  description: WGS84 latitude
-                                  example: 1.350748
-                                lon:
-                                  type: string
-                                  description: WGS84 longitude
-                                  example: 103.872798                        
-                          source: 
-                            type: string
-                            description: Dataset source
-                            example: "hdb"
-                          createddate:
-                            type: string
-                            description: Record first released date on Sentient.io
-                            example: "2019-02-01"                      
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "sentient_durationofownership_hdb_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "050533/40<T<=50"
+                  _score: 
+                    type: integer
+                    description: The document score for the search request
+                    example: 1
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits                    
+                    properties:
+                      postalcode: 
+                        type: string
+                        description: Postal code of a block
+                        example: "560720"
+                      len_of_ownership: 
+                        type: string
+                        description: Range of length
+                        example: "40 < t <= 50"
+                      len_of_ownership_id: 
+                        type: integer
+                        description: |+
+                          Length Types
+                          1 (t <= 10)
+                          2 (10 < t <= 20) 
+                          3 (20 < t <= 30)
+                          4 (30 < t <= 40)
+                          5 (40 < t <= 50)
+                          6 (t  > 50)
+                   
+                        example: "5"
+                      no_of_units:
+                        type: integer
+                        description: Ownership units
+                        example: "29"
+                      block:
+                        type: string
+                        description: Address block
+                        example: "533"
+                      street:
+                        type: string
+                        description: Street Address or building name
+                        example: "upper cross street"
+                      xcoord:
+                        type: string
+                        description: SVY21 X coordinates
+                        example: 29520.58
+                      ycoord:
+                        type: string
+                        description: SVY21 Y coordinates
+                        example: 39311.68
+                      address:
+                        type: string
+                        description: Building full address
+                        example: "533 upper cross street"
+                      createddate:
+                        type: string
+                        description: Record first release date on sentient
+                        example: "2020-04-23"
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2020-04-23"
+                      location:
+                        type: object
+                        description: WGS84 coordinates lat/long
+                        example: {"lat":1.37179535,"lon":103.8469821}                        
+                        properties:
+                            lat: 
+                              type: string
+                              description: WGS84 latitude
+                              example: 1.37179535
+                            lon:
+                              type: string
+                              description: WGS84 longitude
+                              example: 103.8469821
+                      source: 
+                          type: string
+                          description: Dataset source
+                          example: hdb
         message:
           type: string
           example: Successfully Processed
@@ -372,7 +419,7 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure
+          example: Failure  
     invalidinput:
       type: object
       properties:
@@ -384,21 +431,21 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
         v1.0.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - May 21, 2021
+              example: Published Date - May 21,2021
               description: Optimized release
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
-              description: Initial version release          
+              example: Published Date - May 15,2020
+              description: Initial version release               
   securitySchemes:
     APIAuthorizer:
       type: apiKey
@@ -406,3 +453,4 @@ components:
       in: header
       x-amazon-apigateway-authtype: custom
       description: Authentication is done using the x-api-key in the request header.
+  

@@ -6,224 +6,573 @@ info:
     Suggested Use Cases:
     - Software solutions targeted at corporate finance and legal domains, e.g. in cases of mergers, joint ventures or partnerships.
     - Aside from being able to protect your business via litigation checks to safeguard against reputational risk by avoiding companies potentially involved in financial crimes, the information from this microservice can serve as a quick solution for analysts or lawyers in a company whom are looking to draft documents related to cooperate finance or legal domains with one quick search.
-  version: '0.1.0'
+  version: '1.0.0'
   x-subscribelink: d&b_business_check_plus_sg
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Aug 15, 2019"
+- name: "v1.0.0"
+  description: "Published Date - Apr 15, 2021"
 paths:
-   /dnb/prod/sbcp:
+   /microservices/data/sbcp/v1/getdata:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
       summary: Adds a new user
       requestBody:
         content:
-          application/xml:
+          application/json:
             schema:
-              $ref: '#/components/schemas/REQUEST'
+              $ref: '#/components/schemas/input'
       responses:
         '200':
           description: Ok
           content:
-            application/xml:
+            application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: |+
-                <REPORT> <META_INFO>
-                <SERVICE type="String"><![CDATA[BCP]]></SERVICE>
-                <SYSTEM_ID type="String"><![CDATA[DDP]]></SYSTEM_ID>
-                <CREATION_DATE type="Date"><![CDATA[Wed Apr 08 11:37:51 MYT 2009]]></CREATION_DATE> <USER_ID type="String"><![CDATA[]]></USER_ID>
-                <CLASS type="String"><![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]></CLASS>
-                </META_INFO>
-                <REGISTRY_DETAIL className="com.technodex.ddp.report.bean.CommercialBizRegistryBean">
-                <RENEWAL_DATE type="String"><![CDATA[23/12/2008]]></RENEWAL_DATE>
-                <ADDRESS1 type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 - 01]]></ADDRESS1>
-                <ADDRESS2 type="String"><![CDATA[KEPPEL BAY TOWER]]></ADDRESS2>
-                <ADDRESS3 type="String"><![CDATA[098632]]></ADDRESS3>
-                <ADDRESS4 type="String"><![CDATA[SINGAPORE]]></ADDRESS4>
-                <COMP_TYPE_CODE type="String"><![CDATA[CP]]></COMP_TYPE_CODE>
-                <REG_DATE type="String"><![CDATA[14/10/1974]]></REG_DATE>
-                <REG_ACTIVITY1 type="String"><![CDATA[OTHER INVESTMENT HOLDING COMPANIES]]></REG_ACTIVITY1> <REG_ACTIVITY2 type="String"><![CDATA[SHIP MANAGEMENT SERVICES]]></REG_ACTIVITY2>
-                <ACC_DATE type="String"><![CDATA[31/12/2007]]></ACC_DATE>
-                <STATUS_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></STATUS_EFFECT_DATE> <NAME_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></NAME_EFFECT_DATE>
-                <EXPIRY_DATE type="String"><![CDATA[25/10/2009]]></EXPIRY_DATE>
-                <COMP_TYPE type="String"><![CDATA[LIMITED PRIVATE COMPANY]]></COMP_TYPE> <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE>
-                <COMP_STATUS type="String"><![CDATA[Live Company]]></COMP_STATUS>
-                <REG_ACTIVITY_DESC1 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC1>
-                <REG_ACTIVITY_DESC2 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC2>
-                <AUDITOR type="String"><![CDATA[-]]></AUDITOR>
-                <AUDITOR_APPMT_DATE type="String"><![CDATA[13/06/1990]]></AUDITOR_APPMT_DATE> <LAST_AR_DATE type="String"><![CDATA[30/06/2008]]></LAST_AR_DATE>
-                <LAST_AGM_DATE type="String"><![CDATA[11/06/2008]]></LAST_AGM_DATE>
-                <COUNTRY_INCORP type="String"><![CDATA[SINGAPORE]]></COUNTRY_INCORP>
-                </REGISTRY_DETAIL>
-                <REQ_SEARCH_INFO className="com.technodex.ddp.report.bean.LitigationSearchInfoBean">
-                <COMP_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></COMP_NAME> <REG_NO type="String"><![CDATA[197401835M]]></REG_NO>
-                <REQ_DATE type="Date"><![CDATA[2009-04-08 11:36:03.611]]></REQ_DATE>
-                <REQ_REG_NO type="String"><![CDATA[197401835M]]></REQ_REG_NO>
-                <REQ_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></REQ_NAME>
-                <REQ_DATE_STR type="String"><![CDATA[08/04/2009 11:36:03]]></REQ_DATE_STR> </REQ_SEARCH_INFO>
-                <EMPLOYEE_SIZE>
-                <ELEMENTS><![CDATA[Employee Size]]></ELEMENTS>
-                <AMOUNT>300</AMOUNT>
-                </EMPLOYEE_SIZE>
-                <LIST_BIZ_BRANCH className="com.technodex.ddp.report.bean.CommercialBizBranchBean">
-                <BIZ_BRANCH>
-                <ADDR_BUILDING type="String"><![CDATA[-]]></ADDR_BUILDING>
-                <ADDR_POSTCODE type="String"><![CDATA[289848]]></ADDR_POSTCODE> <ADDR_ADDRESS1 type="String"><![CDATA[251A ARCADIA ROAD , - - -]]></ADDR_ADDRESS1>
-                </BIZ_BRANCH>
-                </LIST_BIZ_BRANCH>
-                <LIST_REG_CHARGES className="com.technodex.ddp.report.bean.CommercialBizChgRegBean">
-                <REG_CHARGES>
-                <CHARGE_NO type="String"><![CDATA[8205117]]></CHARGE_NO>
-                <CHARGE_DATE type="String"><![CDATA[26/11/1982]]></CHARGE_DATE>
-                <CHARGEE_COMP type="String"><![CDATA[UNITED OVERSEAS BANK LIMITED]]></CHARGEE_COMP> <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
-                <AMT_SECURED type="String"><![CDATA[1000.00]]></AMT_SECURED>
-                <STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION>
-                </REG_CHARGES> <REG_CHARGES>
-                <CHARGE_NO type="String"><![CDATA[8000976]]></CHARGE_NO> <CHARGE_DATE type="String"><![CDATA[21/04/1980]]></CHARGE_DATE>
-                <CHARGEE_COMP type="String"><![CDATA[THE DEVELOPMENT BANK OF SINGAPORE LIMITED]]></CHARGEE_COMP>
-                <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
-                <AMT_SECURED type="String"><![CDATA[All Monies]]></AMT_SECURED>
-                <STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION> </REG_CHARGES>
-                </LIST_REG_CHARGES> <LIST_LIQUIDATOR>
-                <LIQUIDATOR>
-                <LIQ_NAME>ABUTHAHIR ABDUL GAFOOR</LIQ_NAME> <LIQ_ID>S1676216D</LIQ_ID>
-                <LIQ_POSITION>Liquidator</LIQ_POSITION>
-                <LIQ_COMP>EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.</LIQ_COMP> <LIQ_ADDRESS1>1 RAFFLES PLACE</LIQ_ADDRESS1> <LIQ_ADDRESS2>#20-01</LIQ_ADDRESS2>
-                <LIQ_ADDRESS3>OUB CENTRE</LIQ_ADDRESS3> <LIQ_ADDRESS4>SINGAPORE 048616</LIQ_ADDRESS4> <LIQ_APPOINTMENT_DATE>30/03/2009</LIQ_APPOINTMENT_DATE>
-                </LIQUIDATOR> <LIQUIDATOR>
-                <LIQ_NAME>ANGELA ANG</LIQ_NAME>
-                <LIQ_ID>S1633336D</LIQ_ID>
-                <LIQ_POSITION>Liquidator</LIQ_POSITION>
-                <LIQ_COMP>KING FINANCIAL ADVISORY SERVICES</LIQ_COMP> <LIQ_ADDRESS1>LEVEL 17 MLC CENTRE 19029</LIQ_ADDRESS1> <LIQ_ADDRESS2>MARTIN PLACE SYDNEY NSW 2000 AUSTRALIA</LIQ_ADDRESS2> <LIQ_APPOINTMENT_DATE>18/02/2009</LIQ_APPOINTMENT_DATE>
-                </LIQUIDATOR>
-                </LIST_LIQUIDATOR>
-                <LIST_WINDING_UP className="com.technodex.ddp.report.bean.CommercialBizWindingupBean">
-                <WINDING_UP>
-                <CASE_CODE type="String"><![CDATA[40000]]></CASE_CODE>
-                <CASE_YEAR type="String"><![CDATA[1999]]></CASE_YEAR>
-                <PLAINTIFF type="String"><![CDATA[-]]></PLAINTIFF>
-                <PLA_SOLICITOR_ID type="String"><![CDATA[-]]></PLA_SOLICITOR_ID>
-                <PLA_FILE_REF type="String"><![CDATA[-]]></PLA_FILE_REF>
-                <COURT_CODE type="String"><![CDATA[CWU]]></COURT_CODE>
-                <CASE_TYPE type="String"><![CDATA[COMPANY WINDING UP PETITION]]></CASE_TYPE> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
-                <AMOUNT1 type="String"><![CDATA[41,424.52]]></AMOUNT1>
-                <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
-                <AMOUNT2 type="String"><![CDATA[0.00]]></AMOUNT2>
-                <CURRENCY3 type="String"><![CDATA[-]]></CURRENCY3>
-                <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
-                <BANKRUPTCY_ACT type="String"><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT> <HEARING_DATE type="String"><![CDATA[15/12/2007]]></HEARING_DATE>
-                <ACTION_DATE type="String"><![CDATA[11/05/2007]]></ACTION_DATE>
-                <SUBJECT_NAME type="String"><![CDATA[PROACTIVE BUILDERS]]></SUBJECT_NAME> <PLA_SOLICITOR type="String"><![CDATA[-]]></PLA_SOLICITOR>
-                <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
-                </WINDING_UP>
-                </LIST_WINDING_UP>
-                <LIST_LITIGATION className="com.technodex.ddp.report.bean.CommercialBizLitigationBean">
-                <LITIGATION>
-                <SUBJECT_NAME type="String"><![CDATA[SOON SOON SEAFOOD]]></SUBJECT_NAME>
-                <NATURE_OF_CLAIM type="String"><![CDATA[CONTRACT 3]]></NATURE_OF_CLAIM>
-                <STATUS_DATE type="String"><![CDATA[01/05/2008]]></STATUS_DATE>
-                <CASE_NO type="String"><![CDATA[MC 40001 / 1999]]></CASE_NO>
-                <DOC_REMARKS type="String"><![CDATA[NOTICE OF DISCONTINUANCE/WITHDRAWAL 3]]></DOC_REMARKS> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
-                <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
-                <CURRENCY3 type="String"><![CDATA[USD]]></CURRENCY3>
-                <CURRENCY4 type="String"><![CDATA[-]]></CURRENCY4>
-                <CURRENCY5 type="String"><![CDATA[-]]></CURRENCY5>
-                <DEF_SOLICITOR type="String"><![CDATA[SOL2]]></DEF_SOLICITOR>
-                <DEF_SOLICITOR_ID type="String"><![CDATA[20000000]]></DEF_SOLICITOR_ID>
-                <DEF_LAW_FIRM type="String"><![CDATA[NAME2]]></DEF_LAW_FIRM>
-                <DEF_FILE_REF type="String"><![CDATA[FILE2]]></DEF_FILE_REF>
-                <DATE_OF_WRIT type="String"><![CDATA[01/01/2008]]></DATE_OF_WRIT>
-                <STATUS type="String"><![CDATA[CONCLUDED 3]]></STATUS>
-                <AMOUNT1 type="String"><![CDATA[100.00]]></AMOUNT1>
-                <AMOUNT2 type="String"><![CDATA[200.00]]></AMOUNT2>
-                <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
-                <AMOUNT4 type="String"><![CDATA[400.00]]></AMOUNT4>
-                <AMOUNT5 type="String"><![CDATA[0.00]]></AMOUNT5>
-                <PLAINTIFF type="String"><![CDATA[MC 40001]]></PLAINTIFF>
-                <PLA_SOLICITOR type="String"><![CDATA[SOL2]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID type="String"><![CDATA[20000000]]></PLA_SOLICITOR_ID> <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
-                <PLA_FILE_REF type="String"><![CDATA[FILE2]]></PLA_FILE_REF>
-                <PLA_ID type="String"><![CDATA[S0739038F]]></PLA_ID>
-                <PLA_STATUS type="String"><![CDATA[SETTLED - BEFORE SET DOWN]]></PLA_STATUS> <PLA_STATUS_DATE type="String"><![CDATA[17/10/2016]]></PLA_STATUS_DATE>
-                </LITIGATION>
-                </LIST_LITIGATION>
-                <LIST_SHARE_INTEREST_COMP className="com.technodex.ddp.report.bean.CommercialShareInterestBean">
-                <SHARE_INTEREST_COMP>
-                <COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> <SHARE_OWNED_UNIT type="String"><![CDATA[500000]]></SHARE_OWNED_UNIT> <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT> <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
-                </SHARE_INTEREST_COMP> <SHARE_INTEREST_COMP>
-                <COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> <SHARE_OWNED_UNIT type="String"><![CDATA[436]]></SHARE_OWNED_UNIT> <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT> <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
-                </SHARE_INTEREST_COMP>
-                </LIST_SHARE_INTEREST_COMP>
-                <LIST_NAME_CHANGE className="com.technodex.ddp.report.bean.CommercialBizChgCmpBean">
-                <NAME_CHANGE>
-                <PREV_NAME type="String"><![CDATA[HUA XI EATING HOUSE]]></PREV_NAME> <EFFECT_DATE type="String"><![CDATA[25/10/1997 00:00:00]]></EFFECT_DATE>
-                </NAME_CHANGE> <NAME_CHANGE>
-                <PREV_NAME type="String"><![CDATA[SOON-SOON FISH-HEAD CURRY]]></PREV_NAME>
-                <EFFECT_DATE type="String"><![CDATA[10/06/1991 00:00:00]]></EFFECT_DATE> </NAME_CHANGE>
-                </LIST_NAME_CHANGE>
-                <LIST_SHAREHOLDER className="com.technodex.ddp.report.bean.CommercialShareHoldersBean">
-                <SHAREHOLDER>
-                <ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632,
-                SINGAPORE]]></ADDRESS>
-                <COMP_ID type="String"><![CDATA[198200406H]]></COMP_ID>
-                <NO_OF_SHARE type="String"><![CDATA[657]]></NO_OF_SHARE>
-                <CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY> <SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
-                <SHARE_TYPE type="String"><![CDATA[Preference]]></SHARE_TYPE>
-                <SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL COMMUNICATIONS PTE
-                LTD]]></SHAREHOLDER_NAME>
-                <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE> <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
-                <NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
-                </SHAREHOLDER> <SHAREHOLDER>
-                <ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632, SINGAPORE]]></ADDRESS>
-                <COMP_ID type="String"><![CDATA[196500115G]]></COMP_ID>
-                <NO_OF_SHARE type="String"><![CDATA[100,000]]></NO_OF_SHARE>
-                <CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY>
-                <SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
-                <SHARE_TYPE type="String"><![CDATA[Ordinary ]]></SHARE_TYPE>
-                <SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL TELECOMMUNICATIONS & TRANSPORTATION
-                LTD]]></SHAREHOLDER_NAME>
-                <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE> <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
-                <NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
-                </SHAREHOLDER>
-                </LIST_SHAREHOLDER>
-                <LIST_CAPITAL className="com.technodex.ddp.report.bean.CommercialBizCapitalBean">
-                <CAPITAL>
-                <CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY> <CAPITAL_TYPE type="String"><![CDATA[Ordinary]]></CAPITAL_TYPE> <CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY> <CAPITAL_AMT type="String"><![CDATA[100,000.00]]></CAPITAL_AMT> <NO_OF_SHARES type="String"><![CDATA[100,000]]></NO_OF_SHARES>
-                </CAPITAL> <CAPITAL>
-                <CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY> <CAPITAL_TYPE type="String"><![CDATA[Preference]]></CAPITAL_TYPE>
-                <CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY> <CAPITAL_AMT type="String"><![CDATA[14,600,511.00]]></CAPITAL_AMT>
-                <NO_OF_SHARES type="String"><![CDATA[657]]></NO_OF_SHARES>
-                </CAPITAL>
-                </LIST_CAPITAL>
-                <LIST_OFFICER_OWNER className="com.technodex.ddp.report.bean.CommercialBizOfficeOwerBean">
-                <OFFICER_OWNER>
-                <ADDRESS type="String"><![CDATA[50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742,
-                SINGAPORE]]></ADDRESS>
-                <IDENTITY_ID type="String"><![CDATA[S1674174D]]></IDENTITY_ID>
-                <POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
-                <ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
-                <CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE> <OFFICER_NAME type="String"><![CDATA[NGIAM SHARE CHING]]></OFFICER_NAME> <CHANGE_ADDR_DATE type="String"><![CDATA[25/10/2008]]></CHANGE_ADDR_DATE> <APPMT_DATE type="String"><![CDATA[30/09/2008]]></APPMT_DATE>
-                <NATIONALITY type="String"><![CDATA[SINGAPORE CITIZEN]]></NATIONALITY>
-                </OFFICER_OWNER> <OFFICER_OWNER>
-                <ADDRESS type="String"><![CDATA[52 HUME AVENUE, 05 - 10 ; SUMMERHILL; 596230, SINGAPORE]]></ADDRESS>
-                <IDENTITY_ID type="String"><![CDATA[S2504825C]]></IDENTITY_ID>
-                <PA_REG_NO type="String"><![CDATA[00091]]></ PA_REG_NO>
-                <POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
-                <ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
-                <CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE> <OFFICER_NAME type="String"><![CDATA[HENRY GOH]]></OFFICER_NAME> <CHANGE_ADDR_DATE type="String"><![CDATA[30/10/2003]]></CHANGE_ADDR_DATE> <APPMT_DATE type="String"><![CDATA[07/03/2006]]></APPMT_DATE>
-                <NATIONALITY type="String"><![CDATA[SINGAPORE P.R.]]></NATIONALITY> </OFFICER_OWNER>
-                </LIST_OFFICER_OWNER> <LIST_SALES_REVENUE_AMOUNT>
-                <SALES_REVENUE_AMOUNT>
-                <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2008]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>30000.00</AMOUNT>
-                </SALES_REVENUE_AMOUNT> <SALES_REVENUE_AMOUNT>
-                <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2007]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>28000.00</AMOUNT>
-                </SALES_REVENUE_AMOUNT> <SALES_REVENUE_AMOUNT>
-                <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2006]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>27,000.00</AMOUNT>
-                </SALES_REVENUE_AMOUNT> </LIST_SALES_REVENUE_AMOUNT>
-                </REPORT>
+              example:
+                  REPORT:
+                    META_INFO:
+                      SERVICE:
+                        "@type": String
+                        "#text": BCP
+                      SYSTEM_ID:
+                        "@type": String
+                        "#text": DDP
+                      CREATION_DATE:
+                        "@type": Date
+                        "#text": Wed Apr 08 11:37:51 MYT 2009
+                      USER_ID:
+                        "@type": String
+                      CLASS:
+                        "@type": String
+                        "#text": class com.technodex.ddp.xmlbean.MetaBean
+                    REGISTRY_DETAIL:
+                      "@className": com.technodex.ddp.report.bean.CommercialBizRegistryBean
+                      RENEWAL_DATE:
+                        "@type": String
+                        "#text": 23/12/2008
+                      ADDRESS1:
+                        "@type": String
+                        "#text": 1 HARBOURFRONT AVENUE , 18 - 01
+                      ADDRESS2:
+                        "@type": String
+                        "#text": KEPPEL BAY TOWER
+                      ADDRESS3:
+                        "@type": String
+                        "#text": '098632'
+                      ADDRESS4:
+                        "@type": String
+                        "#text": SINGAPORE
+                      COMP_TYPE_CODE:
+                        "@type": String
+                        "#text": CP
+                      REG_DATE:
+                        "@type": String
+                        "#text": 14/10/1974
+                      REG_ACTIVITY1:
+                        "@type": String
+                        "#text": OTHER INVESTMENT HOLDING COMPANIES
+                      REG_ACTIVITY2:
+                        "@type": String
+                        "#text": SHIP MANAGEMENT SERVICES
+                      ACC_DATE:
+                        "@type": String
+                        "#text": 31/12/2007
+                      STATUS_EFFECT_DATE:
+                        "@type": String
+                        "#text": 14/10/1974
+                      NAME_EFFECT_DATE:
+                        "@type": String
+                        "#text": 14/10/1974
+                      EXPIRY_DATE:
+                        "@type": String
+                        "#text": 25/10/2009
+                      COMP_TYPE:
+                        "@type": String
+                        "#text": LIMITED PRIVATE COMPANY
+                      CHANGE_ADDR_DATE:
+                        "@type": String
+                        "#text": '09/05/2003'
+                      COMP_STATUS:
+                        "@type": String
+                        "#text": Live Company
+                      REG_ACTIVITY_DESC1:
+                        "@type": String
+                        "#text": "-"
+                      REG_ACTIVITY_DESC2:
+                        "@type": String
+                        "#text": "-"
+                      AUDITOR:
+                        "@type": String
+                        "#text": "-"
+                      AUDITOR_APPMT_DATE:
+                        "@type": String
+                        "#text": 13/06/1990
+                      LAST_AR_DATE:
+                        "@type": String
+                        "#text": 30/06/2008
+                      LAST_AGM_DATE:
+                        "@type": String
+                        "#text": 11/06/2008
+                      COUNTRY_INCORP:
+                        "@type": String
+                        "#text": SINGAPORE
+                    REQ_SEARCH_INFO:
+                      "@className": com.technodex.ddp.report.bean.LitigationSearchInfoBean
+                      COMP_NAME:
+                        "@type": String
+                        "#text": KAPAL MANAGEMENT (PRIVATE) LIMITED
+                      REG_NO:
+                        "@type": String
+                        "#text": 197401835M
+                      REQ_DATE:
+                        "@type": Date
+                        "#text": '2009-04-08 11:36:03.611'
+                      REQ_REG_NO:
+                        "@type": String
+                        "#text": 197401835M
+                      REQ_NAME:
+                        "@type": String
+                        "#text": KAPAL MANAGEMENT (PRIVATE) LIMITED
+                      REQ_DATE_STR:
+                        "@type": String
+                        "#text": '08/04/2009 11:36:03'
+                    EMPLOYEE_SIZE:
+                      ELEMENTS: Employee Size
+                      AMOUNT: '300'
+                    LIST_BIZ_BRANCH:
+                      "@className": com.technodex.ddp.report.bean.CommercialBizBranchBean
+                      BIZ_BRANCH:
+                        ADDR_BUILDING:
+                          "@type": String
+                          "#text": "-"
+                        ADDR_POSTCODE:
+                          "@type": String
+                          "#text": '289848'
+                        ADDR_ADDRESS1:
+                          "@type": String
+                          "#text": 251A ARCADIA ROAD , - - -
+                    LIST_REG_CHARGES:
+                      "@className": com.technodex.ddp.report.bean.CommercialBizChgRegBean
+                      REG_CHARGES:
+                      - CHARGE_NO:
+                          "@type": String
+                          "#text": '8205117'
+                        CHARGE_DATE:
+                          "@type": String
+                          "#text": 26/11/1982
+                        CHARGEE_COMP:
+                          "@type": String
+                          "#text": UNITED OVERSEAS BANK LIMITED
+                        CURRENCY:
+                          "@type": String
+                          "#text": "-"
+                        AMT_SECURED:
+                          "@type": String
+                          "#text": '1000.00'
+                        STATUS_SATISFACTION:
+                          "@type": String
+                          "#text": "-"
+                      - CHARGE_NO:
+                          "@type": String
+                          "#text": '8000976'
+                        CHARGE_DATE:
+                          "@type": String
+                          "#text": 21/04/1980
+                        CHARGEE_COMP:
+                          "@type": String
+                          "#text": THE DEVELOPMENT BANK OF SINGAPORE LIMITED
+                        CURRENCY:
+                          "@type": String
+                          "#text": "-"
+                        AMT_SECURED:
+                          "@type": String
+                          "#text": All Monies
+                        STATUS_SATISFACTION:
+                          "@type": String
+                          "#text": "-"
+                    LIST_LIQUIDATOR:
+                      LIQUIDATOR:
+                      - LIQ_NAME: ABUTHAHIR ABDUL GAFOOR
+                        LIQ_ID: S1676216D
+                        LIQ_POSITION: Liquidator
+                        LIQ_COMP: EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.
+                        LIQ_ADDRESS1: 1 RAFFLES PLACE
+                        LIQ_ADDRESS2: "#20-01"
+                        LIQ_ADDRESS3: OUB CENTRE
+                        LIQ_ADDRESS4: SINGAPORE 048616
+                        LIQ_APPOINTMENT_DATE: 30/03/2009
+                      - LIQ_NAME: ANGELA ANG
+                        LIQ_ID: S1633336D
+                        LIQ_POSITION: Liquidator
+                        LIQ_COMP: KING FINANCIAL ADVISORY SERVICES
+                        LIQ_ADDRESS1: LEVEL 17 MLC CENTRE 19029
+                        LIQ_ADDRESS2: MARTIN PLACE SYDNEY NSW 2000 AUSTRALIA
+                        LIQ_APPOINTMENT_DATE: 18/02/2009
+                    LIST_WINDING_UP:
+                      "@className": com.technodex.ddp.report.bean.CommercialBizWindingupBean
+                      WINDING_UP:
+                        CASE_CODE:
+                          "@type": String
+                          "#text": '40000'
+                        CASE_YEAR:
+                          "@type": String
+                          "#text": '1999'
+                        PLAINTIFF:
+                          "@type": String
+                          "#text": "-"
+                        PLA_SOLICITOR_ID:
+                          "@type": String
+                          "#text": "-"
+                        PLA_FILE_REF:
+                          "@type": String
+                          "#text": "-"
+                        COURT_CODE:
+                          "@type": String
+                          "#text": CWU
+                        CASE_TYPE:
+                          "@type": String
+                          "#text": COMPANY WINDING UP PETITION
+                        CURRENCY1:
+                          "@type": String
+                          "#text": SGD
+                        AMOUNT1:
+                          "@type": String
+                          "#text": '41,424.52'
+                        CURRENCY2:
+                          "@type": String
+                          "#text": MYR
+                        AMOUNT2:
+                          "@type": String
+                          "#text": '0.00'
+                        CURRENCY3:
+                          "@type": String
+                          "#text": "-"
+                        AMOUNT3:
+                          "@type": String
+                          "#text": '0.00'
+                        BANKRUPTCY_ACT:
+                          "@type": String
+                          "#text": Petition for Winding Up
+                        HEARING_DATE:
+                          "@type": String
+                          "#text": 15/12/2007
+                        ACTION_DATE:
+                          "@type": String
+                          "#text": 11/05/2007
+                        SUBJECT_NAME:
+                          "@type": String
+                          "#text": PROACTIVE BUILDERS
+                        PLA_SOLICITOR:
+                          "@type": String
+                          "#text": "-"
+                        PLA_LAW_FIRM:
+                          "@type": String
+                          "#text": NAME2
+                    LIST_LITIGATION:
+                      "@className": com.technodex.ddp.report.bean.CommercialBizLitigationBean
+                      LITIGATION:
+                        SUBJECT_NAME:
+                          "@type": String
+                          "#text": SOON SOON SEAFOOD
+                        NATURE_OF_CLAIM:
+                          "@type": String
+                          "#text": CONTRACT 3
+                        STATUS_DATE:
+                          "@type": String
+                          "#text": 01/05/2008
+                        CASE_NO:
+                          "@type": String
+                          "#text": MC 40001 / 1999
+                        DOC_REMARKS:
+                          "@type": String
+                          "#text": NOTICE OF DISCONTINUANCE/WITHDRAWAL 3
+                        CURRENCY1:
+                          "@type": String
+                          "#text": SGD
+                        CURRENCY2:
+                          "@type": String
+                          "#text": MYR
+                        CURRENCY3:
+                          "@type": String
+                          "#text": USD
+                        CURRENCY4:
+                          "@type": String
+                          "#text": "-"
+                        CURRENCY5:
+                          "@type": String
+                          "#text": "-"
+                        DEF_SOLICITOR:
+                          "@type": String
+                          "#text": SOL2
+                        DEF_SOLICITOR_ID:
+                          "@type": String
+                          "#text": '20000000'
+                        DEF_LAW_FIRM:
+                          "@type": String
+                          "#text": NAME2
+                        DEF_FILE_REF:
+                          "@type": String
+                          "#text": FILE2
+                        DATE_OF_WRIT:
+                          "@type": String
+                          "#text": 01/01/2008
+                        STATUS:
+                          "@type": String
+                          "#text": CONCLUDED 3
+                        AMOUNT1:
+                          "@type": String
+                          "#text": '100.00'
+                        AMOUNT2:
+                          "@type": String
+                          "#text": '200.00'
+                        AMOUNT3:
+                          "@type": String
+                          "#text": '0.00'
+                        AMOUNT4:
+                          "@type": String
+                          "#text": '400.00'
+                        AMOUNT5:
+                          "@type": String
+                          "#text": '0.00'
+                        PLAINTIFF:
+                          "@type": String
+                          "#text": MC 40001
+                        PLA_SOLICITOR:
+                          "@type": String
+                          "#text": SOL2
+                        PLA_SOLICITOR_ID:
+                          "@type": String
+                          "#text": '20000000'
+                        PLA_LAW_FIRM:
+                          "@type": String
+                          "#text": NAME2
+                        PLA_FILE_REF:
+                          "@type": String
+                          "#text": FILE2
+                        PLA_ID:
+                          "@type": String
+                          "#text": S0739038F
+                        PLA_STATUS:
+                          "@type": String
+                          "#text": SETTLED - BEFORE SET DOWN
+                        PLA_STATUS_DATE:
+                          "@type": String
+                          "#text": 17/10/2016
+                    LIST_SHARE_INTEREST_COMP:
+                      "@className": com.technodex.ddp.report.bean.CommercialShareInterestBean
+                      SHARE_INTEREST_COMP:
+                      - COMP_NAME:
+                          "@type": String
+                          "#text": ORCHID (HOLDINGS) PTE. LTD.
+                        SHARE_OWNED_UNIT:
+                          "@type": String
+                          "#text": '500000'
+                        SHARE_OWNED_PERCENT:
+                          "@type": String
+                          "#text": '100.00'
+                        STATUS:
+                          "@type": String
+                          "#text": DISSOLVED - MEMBERS' VOLUNTARY WINDING UP
+                      - COMP_NAME:
+                          "@type": String
+                          "#text": ORCHID (HOLDINGS) PTE. LTD.
+                        SHARE_OWNED_UNIT:
+                          "@type": String
+                          "#text": '436'
+                        SHARE_OWNED_PERCENT:
+                          "@type": String
+                          "#text": '100.00'
+                        STATUS:
+                          "@type": String
+                          "#text": DISSOLVED - MEMBERS' VOLUNTARY WINDING UP
+                    LIST_NAME_CHANGE:
+                      "@className": com.technodex.ddp.report.bean.CommercialBizChgCmpBean
+                      NAME_CHANGE:
+                      - PREV_NAME:
+                          "@type": String
+                          "#text": HUA XI EATING HOUSE
+                        EFFECT_DATE:
+                          "@type": String
+                          "#text": 25/10/1997 00:00:00
+                      - PREV_NAME:
+                          "@type": String
+                          "#text": SOON-SOON FISH-HEAD CURRY
+                        EFFECT_DATE:
+                          "@type": String
+                          "#text": 10/06/1991 00:00:00
+                    LIST_SHAREHOLDER:
+                      "@className": com.technodex.ddp.report.bean.CommercialShareHoldersBean
+                      SHAREHOLDER:
+                      - ADDRESS:
+                          "@type": String
+                          "#text": 1 HARBOURFRONT AVENUE , 18 - 01; KEPPEL BAY TOWER; 098632,SINGAPORE
+                        COMP_ID:
+                          "@type": String
+                          "#text": 198200406H
+                        NO_OF_SHARE:
+                          "@type": String
+                          "#text": '657'
+                        CURRENCY:
+                          "@type": String
+                          "#text": UNITED STATES OF AMERICA, DOLLARS
+                        SHAREHOLDER_TYPE:
+                          "@type": String
+                          "#text": '2'
+                        SHARE_TYPE:
+                          "@type": String
+                          "#text": Preference
+                        SHAREHOLDER_NAME:
+                          "@type": String
+                          "#text": KEPPEL COMMUNICATIONS PTE LTD
+                        CHANGE_ADDR_DATE:
+                          "@type": String
+                          "#text": '09/05/2003'
+                        ADDR_TYPE:
+                          "@type": String
+                          "#text": "-"
+                        NATIONALITY:
+                          "@type": String
+                          "#text": SINGAPORE
+                      - ADDRESS:
+                          "@type": String
+                          "#text": 1 HARBOURFRONT AVENUE , 18 - 01; KEPPEL BAY TOWER; 098632, SINGAPORE
+                        COMP_ID:
+                          "@type": String
+                          "#text": 196500115G
+                        NO_OF_SHARE:
+                          "@type": String
+                          "#text": '100,000'
+                        CURRENCY:
+                          "@type": String
+                          "#text": SINGAPORE, DOLLARS
+                        SHAREHOLDER_TYPE:
+                          "@type": String
+                          "#text": '2'
+                        SHARE_TYPE:
+                          "@type": String
+                          "#text": Ordinary
+                        SHAREHOLDER_NAME:
+                          "@type": String
+                          "#text": KEPPEL TELECOMMUNICATIONS & TRANSPORTATION LTD
+                        CHANGE_ADDR_DATE:
+                          "@type": String
+                          "#text": '09/05/2003'
+                        ADDR_TYPE:
+                          "@type": String
+                          "#text": "-"
+                        NATIONALITY:
+                          "@type": String
+                          "#text": SINGAPORE
+                    LIST_CAPITAL:
+                      "@className": com.technodex.ddp.report.bean.CommercialBizCapitalBean
+                      CAPITAL:
+                      - CAPITAL_CATEGORY:
+                          "@type": String
+                          "#text": Issued
+                        CAPITAL_TYPE:
+                          "@type": String
+                          "#text": Ordinary
+                        CURRENCY:
+                          "@type": String
+                          "#text": SINGAPORE, DOLLARS
+                        CAPITAL_AMT:
+                          "@type": String
+                          "#text": '100,000.00'
+                        NO_OF_SHARES:
+                          "@type": String
+                          "#text": '100,000'
+                      - CAPITAL_CATEGORY:
+                          "@type": String
+                          "#text": Issued
+                        CAPITAL_TYPE:
+                          "@type": String
+                          "#text": Preference
+                        CURRENCY:
+                          "@type": String
+                          "#text": UNITED STATES OF AMERICA, DOLLARS
+                        CAPITAL_AMT:
+                          "@type": String
+                          "#text": '14,600,511.00'
+                        NO_OF_SHARES:
+                          "@type": String
+                          "#text": '657'
+                    LIST_OFFICER_OWNER:
+                      "@className": com.technodex.ddp.report.bean.CommercialBizOfficeOwerBean
+                      OFFICER_OWNER:
+                      - ADDRESS:
+                          "@type": String
+                          "#text": 50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742,SINGAPORE
+                        IDENTITY_ID:
+                          "@type": String
+                          "#text": S1674174D
+                        POSITION:
+                          "@type": String
+                          "#text": DIRECTOR
+                        ADDR_TYPE:
+                          "@type": String
+                          "#text": S
+                        CESSATION_DATE:
+                          "@type": String
+                          "#text": "-"
+                        OFFICER_NAME:
+                          "@type": String
+                          "#text": NGIAM SHARE CHING
+                        CHANGE_ADDR_DATE:
+                          "@type": String
+                          "#text": 25/10/2008
+                        APPMT_DATE:
+                          "@type": String
+                          "#text": 30/09/2008
+                        NATIONALITY:
+                          "@type": String
+                          "#text": SINGAPORE CITIZEN
+                      - ADDRESS:
+                          "@type": String
+                          "#text": 52 HUME AVENUE, 05 - 10 ; SUMMERHILL; 596230, SINGAPORE
+                        IDENTITY_ID:
+                          "@type": String
+                          "#text": S2504825C
+                        PA_REG_NO:
+                          "@type": String
+                          "#text": '00091'
+                        POSITION:
+                          "@type": String
+                          "#text": DIRECTOR
+                        ADDR_TYPE:
+                          "@type": String
+                          "#text": S
+                        CESSATION_DATE:
+                          "@type": String
+                          "#text": "-"
+                        OFFICER_NAME:
+                          "@type": String
+                          "#text": HENRY GOH
+                        CHANGE_ADDR_DATE:
+                          "@type": String
+                          "#text": 30/10/2003
+                        APPMT_DATE:
+                          "@type": String
+                          "#text": 07/03/2006
+                        NATIONALITY:
+                          "@type": String
+                          "#text": SINGAPORE P.R.
+                    LIST_SALES_REVENUE_AMOUNT:
+                      SALES_REVENUE_AMOUNT:
+                      - ELEMENTS: Sales Revenue Amount
+                        YEAR: '2008'
+                        CURRENCY: SGD
+                        AMOUNT: '30000.00'
+                      - ELEMENTS: Sales Revenue Amount
+                        YEAR: '2007'
+                        CURRENCY: SGD
+                        AMOUNT: '28000.00'
+                      - ELEMENTS: Sales Revenue Amount
+                        YEAR: '2006'
+                        CURRENCY: SGD
+                        AMOUNT: '27,000.00'
         '401':
           description: Unauthorized
           content:
@@ -308,13 +657,22 @@ components:
               properties:
                 META_INFO:
                   type: object
-                  example: |+
-                    <META_INFO>
-                    <SERVICE type="String"><![CDATA[BCP]]></SERVICE>
-                    <SYSTEM_ID type="String"><![CDATA[DDP]]></SYSTEM_ID>
-                    <CREATION_DATE type="Date"><![CDATA[Wed Apr 08 11:37:51 MYT 2009]]></CREATION_DATE> <USER_ID type="String"><![CDATA[]]></USER_ID>
-                    <CLASS type="String"><![CDATA[class com.technodex.ddp.xmlbean.MetaBean]]></CLASS>
-                    </META_INFO>
+                  example: 
+                      META_INFO:
+                        SERVICE:
+                          "@type": String
+                          "#text": BCP
+                        SYSTEM_ID:
+                          "@type": String
+                          "#text": DDP
+                        CREATION_DATE:
+                          "@type": Date
+                          "#text": Wed Apr 08 11:37:51 MYT 2009
+                        USER_ID:
+                          "@type": String
+                        CLASS:
+                          "@type": String
+                          "#text": class com.technodex.ddp.xmlbean.MetaBean
                   description: |+
                     Meta Information details with following children&#58;
                     SERVICE
@@ -345,28 +703,78 @@ components:
                       example: N/A
                 REGISTRY_DETAIL :
                   type: object
-                  example: |+
-                    <REGISTRY_DETAIL className="com.technodex.ddp.report.bean.CommercialBizRegistryBean">
-                    <RENEWAL_DATE type="String"><![CDATA[23/12/2008]]></RENEWAL_DATE>
-                    <ADDRESS1 type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 - 01]]></ADDRESS1>
-                    <ADDRESS2 type="String"><![CDATA[KEPPEL BAY TOWER]]></ADDRESS2>
-                    <ADDRESS3 type="String"><![CDATA[098632]]></ADDRESS3>
-                    <ADDRESS4 type="String"><![CDATA[SINGAPORE]]></ADDRESS4>
-                    <COMP_TYPE_CODE type="String"><![CDATA[CP]]></COMP_TYPE_CODE>
-                    <REG_DATE type="String"><![CDATA[14/10/1974]]></REG_DATE>
-                    <REG_ACTIVITY1 type="String"><![CDATA[OTHER INVESTMENT HOLDING COMPANIES]]></REG_ACTIVITY1> <REG_ACTIVITY2 type="String"><![CDATA[SHIP MANAGEMENT SERVICES]]></REG_ACTIVITY2>
-                    <ACC_DATE type="String"><![CDATA[31/12/2007]]></ACC_DATE>
-                    <STATUS_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></STATUS_EFFECT_DATE> <NAME_EFFECT_DATE type="String"><![CDATA[14/10/1974]]></NAME_EFFECT_DATE>
-                    <EXPIRY_DATE type="String"><![CDATA[25/10/2009]]></EXPIRY_DATE>
-                    <COMP_TYPE type="String"><![CDATA[LIMITED PRIVATE COMPANY]]></COMP_TYPE> <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE>
-                    <COMP_STATUS type="String"><![CDATA[Live Company]]></COMP_STATUS>
-                    <REG_ACTIVITY_DESC1 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC1>
-                    <REG_ACTIVITY_DESC2 type="String"><![CDATA[-]]></REG_ACTIVITY_DESC2>
-                    <AUDITOR type="String"><![CDATA[-]]></AUDITOR>
-                    <AUDITOR_APPMT_DATE type="String"><![CDATA[13/06/1990]]></AUDITOR_APPMT_DATE> <LAST_AR_DATE type="String"><![CDATA[30/06/2008]]></LAST_AR_DATE>
-                    <LAST_AGM_DATE type="String"><![CDATA[11/06/2008]]></LAST_AGM_DATE>
-                    <COUNTRY_INCORP type="String"><![CDATA[SINGAPORE]]></COUNTRY_INCORP>
-                    </REGISTRY_DETAIL>
+                  example: 
+                      REGISTRY_DETAIL:
+                        "@className": com.technodex.ddp.report.bean.CommercialBizRegistryBean
+                        RENEWAL_DATE:
+                          "@type": String
+                          "#text": 23/12/2008
+                        ADDRESS1:
+                          "@type": String
+                          "#text": 1 HARBOURFRONT AVENUE , 18 - 01
+                        ADDRESS2:
+                          "@type": String
+                          "#text": KEPPEL BAY TOWER
+                        ADDRESS3:
+                          "@type": String
+                          "#text": '098632'
+                        ADDRESS4:
+                          "@type": String
+                          "#text": SINGAPORE
+                        COMP_TYPE_CODE:
+                          "@type": String
+                          "#text": CP
+                        REG_DATE:
+                          "@type": String
+                          "#text": 14/10/1974
+                        REG_ACTIVITY1:
+                          "@type": String
+                          "#text": OTHER INVESTMENT HOLDING COMPANIES
+                        REG_ACTIVITY2:
+                          "@type": String
+                          "#text": SHIP MANAGEMENT SERVICES
+                        ACC_DATE:
+                          "@type": String
+                          "#text": 31/12/2007
+                        STATUS_EFFECT_DATE:
+                          "@type": String
+                          "#text": 14/10/1974
+                        NAME_EFFECT_DATE:
+                          "@type": String
+                          "#text": 14/10/1974
+                        EXPIRY_DATE:
+                          "@type": String
+                          "#text": 25/10/2009
+                        COMP_TYPE:
+                          "@type": String
+                          "#text": LIMITED PRIVATE COMPANY
+                        CHANGE_ADDR_DATE:
+                          "@type": String
+                          "#text": '09/05/2003'
+                        COMP_STATUS:
+                          "@type": String
+                          "#text": Live Company
+                        REG_ACTIVITY_DESC1:
+                          "@type": String
+                          "#text": "-"
+                        REG_ACTIVITY_DESC2:
+                          "@type": String
+                          "#text": "-"
+                        AUDITOR:
+                          "@type": String
+                          "#text": "-"
+                        AUDITOR_APPMT_DATE:
+                          "@type": String
+                          "#text": 13/06/1990
+                        LAST_AR_DATE:
+                          "@type": String
+                          "#text": 30/06/2008
+                        LAST_AGM_DATE:
+                          "@type": String
+                          "#text": 11/06/2008
+                        COUNTRY_INCORP:
+                          "@type": String
+                          "#text": SINGAPORE
                   description: |+
                     Registry Details with following children&#58;
                     RENEWAL_DATE
@@ -490,13 +898,27 @@ components:
                       example: "SINGAPORE"
                 REQ_SEARCH_INFO :
                   type: object
-                  example: |+
-                    <REQ_SEARCH_INFO className="com.technodex.ddp.report.bean.LitigationSearchInfoBean">
-                    <COMP_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></COMP_NAME> <REG_NO type="String"><![CDATA[197401835M]]></REG_NO>
-                    <REQ_DATE type="Date"><![CDATA[2009-04-08 11:36:03.611]]></REQ_DATE>
-                    <REQ_REG_NO type="String"><![CDATA[197401835M]]></REQ_REG_NO>
-                    <REQ_NAME type="String"><![CDATA[KAPAL MANAGEMENT (PRIVATE) LIMITED]]></REQ_NAME>
-                    <REQ_DATE_STR type="String"><![CDATA[08/04/2009 11:36:03]]></REQ_DATE_STR> </REQ_SEARCH_INFO>
+                  example: 
+                      REQ_SEARCH_INFO:
+                        "@className": com.technodex.ddp.report.bean.LitigationSearchInfoBean
+                        COMP_NAME:
+                          "@type": String
+                          "#text": KAPAL MANAGEMENT (PRIVATE) LIMITED
+                        REG_NO:
+                          "@type": String
+                          "#text": 197401835M
+                        REQ_DATE:
+                          "@type": Date
+                          "#text": '2009-04-08 11:36:03.611'
+                        REQ_REG_NO:
+                          "@type": String
+                          "#text": 197401835M
+                        REQ_NAME:
+                          "@type": String
+                          "#text": KAPAL MANAGEMENT (PRIVATE) LIMITED
+                        REQ_DATE_STR:
+                          "@type": String
+                          "#text": '08/04/2009 11:36:03'
                   description: |+
                     Request criteria & search record with following children&#58;
                     COMP_NAME
@@ -536,11 +958,10 @@ components:
                     Employee Size details with following children&#58;
                     ELEMENTS
                     AMOUNT
-                  example: |+
-                    <EMPLOYEE_SIZE>
-                    <ELEMENTS><![CDATA[Employee Size]]></ELEMENTS>
-                    <AMOUNT>300</AMOUNT>
-                    </EMPLOYEE_SIZE>
+                  example: 
+                      EMPLOYEE_SIZE:
+                        ELEMENTS: Employee Size
+                        AMOUNT: '300'
                   properties:
                     ELEMENTS:
                       type: string
@@ -555,13 +976,19 @@ components:
                   description: |+
                     List of Business Branches with following children&#58;
                     [BIZ_BRANCH]
-                  example: |+
-                    <LIST_BIZ_BRANCH className="com.technodex.ddp.report.bean.CommercialBizBranchBean">
-                    <BIZ_BRANCH>
-                    <ADDR_BUILDING type="String"><![CDATA[-]]></ADDR_BUILDING>
-                    <ADDR_POSTCODE type="String"><![CDATA[289848]]></ADDR_POSTCODE> <ADDR_ADDRESS1 type="String"><![CDATA[251A ARCADIA ROAD , - - -]]></ADDR_ADDRESS1>
-                    </BIZ_BRANCH>
-                    </LIST_BIZ_BRANCH>
+                  example: 
+                      LIST_BIZ_BRANCH:
+                        "@className": com.technodex.ddp.report.bean.CommercialBizBranchBean
+                        BIZ_BRANCH:
+                          ADDR_BUILDING:
+                            "@type": String
+                            "#text": "-"
+                          ADDR_POSTCODE:
+                            "@type": String
+                            "#text": '289848'
+                          ADDR_ADDRESS1:
+                            "@type": String
+                            "#text": 251A ARCADIA ROAD , - - -
                   items:
                     properties:
                       BIZ_BRANCH :
@@ -571,12 +998,17 @@ components:
                           ADDR_BUILDING
                           ADDR_POSTCODE
                           ADDR_ADDRESS1
-                        example: |+
-                          <BIZ_BRANCH>
-                          <ADDR_BUILDING type="String"><![CDATA[-]]></ADDR_BUILDING>
-                          <ADDR_POSTCODE type="String"><![CDATA[289848]]></ADDR_POSTCODE> 
-                          <ADDR_ADDRESS1 type="String"><![CDATA[251A ARCADIA ROAD , - - -]]></ADDR_ADDRESS1>
-                          </BIZ_BRANCH>
+                        example: 
+                            BIZ_BRANCH:
+                              ADDR_BUILDING:
+                                "@type": String
+                                "#text": "-"
+                              ADDR_POSTCODE:
+                                "@type": String
+                                "#text": '289848'
+                              ADDR_ADDRESS1:
+                                "@type": String
+                                "#text": 251A ARCADIA ROAD , - - -
                         properties:
                           ADDR_BUILDING:
                             type: string
@@ -595,16 +1027,28 @@ components:
                   description: |+
                     List of Registered Charges with following children&#58;
                     [REG_CHARGES]
-                  example: |+
-                    <LIST_REG_CHARGES className="com.technodex.ddp.report.bean.CommercialBizChgRegBean">
-                    <REG_CHARGES>
-                    <CHARGE_NO type="String"><![CDATA[8205117]]></CHARGE_NO>
-                    <CHARGE_DATE type="String"><![CDATA[26/11/1982]]></CHARGE_DATE>
-                    <CHARGEE_COMP type="String"><![CDATA[UNITED OVERSEAS BANK LIMITED]]></CHARGEE_COMP> <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
-                    <AMT_SECURED type="String"><![CDATA[1000.00]]></AMT_SECURED>
-                    <STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION>
-                    </REG_CHARGES>
-                    </LIST_REG_CHARGES>
+                  example: 
+                      LIST_REG_CHARGES:
+                        "@className": com.technodex.ddp.report.bean.CommercialBizChgRegBean
+                        REG_CHARGES:
+                          CHARGE_NO:
+                            "@type": String
+                            "#text": '8205117'
+                          CHARGE_DATE:
+                            "@type": String
+                            "#text": 26/11/1982
+                          CHARGEE_COMP:
+                            "@type": String
+                            "#text": UNITED OVERSEAS BANK LIMITED
+                          CURRENCY:
+                            "@type": String
+                            "#text": "-"
+                          AMT_SECURED:
+                            "@type": String
+                            "#text": '1000.00'
+                          STATUS_SATISFACTION:
+                            "@type": String
+                            "#text": "-"
                   items:
                     properties:
                       REG_CHARGES :
@@ -617,15 +1061,26 @@ components:
                           CURRENCY
                           AMT_SECURED
                           STATUS_SATISFACTION
-                        example: |+
-                          <REG_CHARGES>
-                          <CHARGE_NO type="String"><![CDATA[8205117]]></CHARGE_NO>
-                          <CHARGE_DATE type="String"><![CDATA[26/11/1982]]></CHARGE_DATE>
-                          <CHARGEE_COMP type="String"><![CDATA[UNITED OVERSEAS BANK LIMITED]]></CHARGEE_COMP>
-                          <CURRENCY type="String"><![CDATA[-]]></CURRENCY>
-                          <AMT_SECURED type="String"><![CDATA[1000.00]]></AMT_SECURED>
-                          <STATUS_SATISFACTION type="String"><![CDATA[-]]></STATUS_SATISFACTION>
-                          </REG_CHARGES>
+                        example:
+                            REG_CHARGES:
+                              CHARGE_NO:
+                                "@type": String
+                                "#text": '8205117'
+                              CHARGE_DATE:
+                                "@type": String
+                                "#text": 26/11/1982
+                              CHARGEE_COMP:
+                                "@type": String
+                                "#text": UNITED OVERSEAS BANK LIMITED
+                              CURRENCY:
+                                "@type": String
+                                "#text": "-"
+                              AMT_SECURED:
+                                "@type": String
+                                "#text": '1000.00'
+                              STATUS_SATISFACTION:
+                                "@type": String
+                                "#text": "-"
                         properties:
                           CHARGE_NO :
                             type: string
@@ -656,15 +1111,18 @@ components:
                   description: |+
                     List of Liquidator / Receiver / Judicial Manager with following children&#58;
                     [LIQUIDATOR]
-                  example: |+
-                    <LIST_LIQUIDATOR>
-                    <LIQUIDATOR>
-                    <LIQ_NAME>ABUTHAHIR ABDUL GAFOOR</LIQ_NAME> <LIQ_ID>S1676216D</LIQ_ID>
-                    <LIQ_POSITION>Liquidator</LIQ_POSITION>
-                    <LIQ_COMP>EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.</LIQ_COMP> <LIQ_ADDRESS1>1 RAFFLES PLACE</LIQ_ADDRESS1> <LIQ_ADDRESS2>#20-01</LIQ_ADDRESS2>
-                    <LIQ_ADDRESS3>OUB CENTRE</LIQ_ADDRESS3> <LIQ_ADDRESS4>SINGAPORE 048616</LIQ_ADDRESS4> <LIQ_APPOINTMENT_DATE>30/03/2009</LIQ_APPOINTMENT_DATE>
-                    </LIQUIDATOR>
-                    </LIST_LIQUIDATOR>
+                  example: 
+                      LIST_LIQUIDATOR:
+                        LIQUIDATOR:
+                          LIQ_NAME: ABUTHAHIR ABDUL GAFOOR
+                          LIQ_ID: S1676216D
+                          LIQ_POSITION: Liquidator
+                          LIQ_COMP: EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.
+                          LIQ_ADDRESS1: 1 RAFFLES PLACE
+                          LIQ_ADDRESS2: "#20-01"
+                          LIQ_ADDRESS3: OUB CENTRE
+                          LIQ_ADDRESS4: SINGAPORE 048616
+                          LIQ_APPOINTMENT_DATE: 30/03/2009
                   items:
                     properties:
                       LIQUIDATOR :
@@ -680,18 +1138,17 @@ components:
                           LIQ_ADDRESS3
                           LIQ_ADDRESS4
                           LIQ_APPOINTMENT_DATE
-                        example: |+
-                          <LIQUIDATOR>
-                          <LIQ_NAME>ABUTHAHIR ABDUL GAFOOR</LIQ_NAME>
-                          <LIQ_ID>S1676216D</LIQ_ID>
-                          <LIQ_POSITION>Liquidator</LIQ_POSITION>
-                          <LIQ_COMP>EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.</LIQ_COMP>
-                          <LIQ_ADDRESS1>1 RAFFLES PLACE</LIQ_ADDRESS1>
-                          <LIQ_ADDRESS2>#20-01</LIQ_ADDRESS2>
-                          <LIQ_ADDRESS3>OUB CENTRE</LIQ_ADDRESS3>
-                          <LIQ_ADDRESS4>SINGAPORE 048616</LIQ_ADDRESS4>
-                          <LIQ_APPOINTMENT_DATE>30/03/2009</LIQ_APPOINTMENT_DATE>
-                          </LIQUIDATOR>
+                        example: 
+                            LIQUIDATOR:
+                              LIQ_NAME: ABUTHAHIR ABDUL GAFOOR
+                              LIQ_ID: S1676216D
+                              LIQ_POSITION: Liquidator
+                              LIQ_COMP: EL TICI FINANCIAL ADVISORY SERVICES PTE. LTD.
+                              LIQ_ADDRESS1: 1 RAFFLES PLACE
+                              LIQ_ADDRESS2: "#20-01"
+                              LIQ_ADDRESS3: OUB CENTRE
+                              LIQ_ADDRESS4: SINGAPORE 048616
+                              LIQ_APPOINTMENT_DATE: 30/03/2009
                         properties:
                           LIQ_POSITION:
                             type: string
@@ -734,27 +1191,67 @@ components:
                   description: |+
                     List of Winding Up with following children&#58;
                     [WINDING_UP]
-                  example: |+
-                    <LIST_WINDING_UP className="com.technodex.ddp.report.bean.CommercialBizWindingupBean">
-                    <WINDING_UP>
-                    <CASE_CODE type="String"><![CDATA[40000]]></CASE_CODE>
-                    <CASE_YEAR type="String"><![CDATA[1999]]></CASE_YEAR>
-                    <PLAINTIFF type="String"><![CDATA[-]]></PLAINTIFF>
-                    <PLA_SOLICITOR_ID type="String"><![CDATA[-]]></PLA_SOLICITOR_ID>
-                    <PLA_FILE_REF type="String"><![CDATA[-]]></PLA_FILE_REF>
-                    <COURT_CODE type="String"><![CDATA[CWU]]></COURT_CODE>
-                    <CASE_TYPE type="String"><![CDATA[COMPANY WINDING UP PETITION]]></CASE_TYPE> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
-                    <AMOUNT1 type="String"><![CDATA[41,424.52]]></AMOUNT1>
-                    <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
-                    <AMOUNT2 type="String"><![CDATA[0.00]]></AMOUNT2>
-                    <CURRENCY3 type="String"><![CDATA[-]]></CURRENCY3>
-                    <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
-                    <BANKRUPTCY_ACT type="String"><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT> <HEARING_DATE type="String"><![CDATA[15/12/2007]]></HEARING_DATE>
-                    <ACTION_DATE type="String"><![CDATA[11/05/2007]]></ACTION_DATE>
-                    <SUBJECT_NAME type="String"><![CDATA[PROACTIVE BUILDERS]]></SUBJECT_NAME> <PLA_SOLICITOR type="String"><![CDATA[-]]></PLA_SOLICITOR>
-                    <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
-                    </WINDING_UP>
-                    </LIST_WINDING_UP>
+                  example: 
+                      LIST_WINDING_UP:
+                        "@className": com.technodex.ddp.report.bean.CommercialBizWindingupBean
+                        WINDING_UP:
+                          CASE_CODE:
+                            "@type": String
+                            "#text": '40000'
+                          CASE_YEAR:
+                            "@type": String
+                            "#text": '1999'
+                          PLAINTIFF:
+                            "@type": String
+                            "#text": "-"
+                          PLA_SOLICITOR_ID:
+                            "@type": String
+                            "#text": "-"
+                          PLA_FILE_REF:
+                            "@type": String
+                            "#text": "-"
+                          COURT_CODE:
+                            "@type": String
+                            "#text": CWU
+                          CASE_TYPE:
+                            "@type": String
+                            "#text": COMPANY WINDING UP PETITION
+                          CURRENCY1:
+                            "@type": String
+                            "#text": SGD
+                          AMOUNT1:
+                            "@type": String
+                            "#text": '41,424.52'
+                          CURRENCY2:
+                            "@type": String
+                            "#text": MYR
+                          AMOUNT2:
+                            "@type": String
+                            "#text": '0.00'
+                          CURRENCY3:
+                            "@type": String
+                            "#text": "-"
+                          AMOUNT3:
+                            "@type": String
+                            "#text": '0.00'
+                          BANKRUPTCY_ACT:
+                            "@type": String
+                            "#text": Petition for Winding Up
+                          HEARING_DATE:
+                            "@type": String
+                            "#text": 15/12/2007
+                          ACTION_DATE:
+                            "@type": String
+                            "#text": 11/05/2007
+                          SUBJECT_NAME:
+                            "@type": String
+                            "#text": PROACTIVE BUILDERS
+                          PLA_SOLICITOR:
+                            "@type": String
+                            "#text": "-"
+                          PLA_LAW_FIRM:
+                            "@type": String
+                            "#text": NAME2
                   items:
                     properties:
                       WINDING_UP :
@@ -780,26 +1277,65 @@ components:
                           BANKRUPTCY_ACT
                           HEARING_DATE
                           PLA_SOLICITOR
-                        example: |+
-                          <WINDING_UP>
-                          <CASE_CODE type="String"><![CDATA[40000]]></CASE_CODE>
-                          <CASE_YEAR type="String"><![CDATA[1999]]></CASE_YEAR>
-                          <PLAINTIFF type="String"><![CDATA[-]]></PLAINTIFF>
-                          <PLA_SOLICITOR_ID type="String"><![CDATA[-]]></PLA_SOLICITOR_ID>
-                          <PLA_FILE_REF type="String"><![CDATA[-]]></PLA_FILE_REF>
-                          <COURT_CODE type="String"><![CDATA[CWU]]></COURT_CODE>
-                          <CASE_TYPE type="String"><![CDATA[COMPANY WINDING UP PETITION]]></CASE_TYPE>
-                          <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
-                          <AMOUNT1 type="String"><![CDATA[41,424.52]]></AMOUNT1>
-                          <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
-                          <AMOUNT2 type="String"><![CDATA[0.00]]></AMOUNT2>
-                          <CURRENCY3 type="String"><![CDATA[-]]></CURRENCY3>
-                          <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
-                          <BANKRUPTCY_ACT type="String"><![CDATA[Petition for Winding Up]]></BANKRUPTCY_ACT> <HEARING_DATE type="String"><![CDATA[15/12/2007]]></HEARING_DATE>
-                          <ACTION_DATE type="String"><![CDATA[11/05/2007]]></ACTION_DATE>
-                          <SUBJECT_NAME type="String"><![CDATA[PROACTIVE BUILDERS]]></SUBJECT_NAME> <PLA_SOLICITOR type="String"><![CDATA[-]]></PLA_SOLICITOR>
-                          <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
-                          </WINDING_UP>
+                        example: 
+                            WINDING_UP:
+                              CASE_CODE:
+                                "@type": String
+                                "#text": '40000'
+                              CASE_YEAR:
+                                "@type": String
+                                "#text": '1999'
+                              PLAINTIFF:
+                                "@type": String
+                                "#text": "-"
+                              PLA_SOLICITOR_ID:
+                                "@type": String
+                                "#text": "-"
+                              PLA_FILE_REF:
+                                "@type": String
+                                "#text": "-"
+                              COURT_CODE:
+                                "@type": String
+                                "#text": CWU
+                              CASE_TYPE:
+                                "@type": String
+                                "#text": COMPANY WINDING UP PETITION
+                              CURRENCY1:
+                                "@type": String
+                                "#text": SGD
+                              AMOUNT1:
+                                "@type": String
+                                "#text": '41,424.52'
+                              CURRENCY2:
+                                "@type": String
+                                "#text": MYR
+                              AMOUNT2:
+                                "@type": String
+                                "#text": '0.00'
+                              CURRENCY3:
+                                "@type": String
+                                "#text": "-"
+                              AMOUNT3:
+                                "@type": String
+                                "#text": '0.00'
+                              BANKRUPTCY_ACT:
+                                "@type": String
+                                "#text": Petition for Winding Up
+                              HEARING_DATE:
+                                "@type": String
+                                "#text": 15/12/2007
+                              ACTION_DATE:
+                                "@type": String
+                                "#text": 11/05/2007
+                              SUBJECT_NAME:
+                                "@type": String
+                                "#text": PROACTIVE BUILDERS
+                              PLA_SOLICITOR:
+                                "@type": String
+                                "#text": "-"
+                              PLA_LAW_FIRM:
+                                "@type": String
+                                "#text": NAME2
                         properties:
                           CASE_CODE :
                             type: string
@@ -882,36 +1418,97 @@ components:
                   description: |+
                     List of Winding Up with following children&#58;
                     [LITIGATION]
-                  example: |+
-                    <LIST_LITIGATION className="com.technodex.ddp.report.bean.CommercialBizLitigationBean">
-                    <LITIGATION>
-                    <SUBJECT_NAME type="String"><![CDATA[SOON SOON SEAFOOD]]></SUBJECT_NAME>
-                    <NATURE_OF_CLAIM type="String"><![CDATA[CONTRACT 3]]></NATURE_OF_CLAIM>
-                    <STATUS_DATE type="String"><![CDATA[01/05/2008]]></STATUS_DATE>
-                    <CASE_NO type="String"><![CDATA[MC 40001 / 1999]]></CASE_NO>
-                    <DOC_REMARKS type="String"><![CDATA[NOTICE OF DISCONTINUANCE/WITHDRAWAL 3]]></DOC_REMARKS> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
-                    <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
-                    <CURRENCY3 type="String"><![CDATA[USD]]></CURRENCY3>
-                    <CURRENCY4 type="String"><![CDATA[-]]></CURRENCY4>
-                    <CURRENCY5 type="String"><![CDATA[-]]></CURRENCY5>
-                    <DEF_SOLICITOR type="String"><![CDATA[SOL2]]></DEF_SOLICITOR>
-                    <DEF_SOLICITOR_ID type="String"><![CDATA[20000000]]></DEF_SOLICITOR_ID>
-                    <DEF_LAW_FIRM type="String"><![CDATA[NAME2]]></DEF_LAW_FIRM>
-                    <DEF_FILE_REF type="String"><![CDATA[FILE2]]></DEF_FILE_REF>
-                    <DATE_OF_WRIT type="String"><![CDATA[01/01/2008]]></DATE_OF_WRIT>
-                    <STATUS type="String"><![CDATA[CONCLUDED 3]]></STATUS>
-                    <AMOUNT1 type="String"><![CDATA[100.00]]></AMOUNT1>
-                    <AMOUNT2 type="String"><![CDATA[200.00]]></AMOUNT2>
-                    <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
-                    <AMOUNT4 type="String"><![CDATA[400.00]]></AMOUNT4>
-                    <AMOUNT5 type="String"><![CDATA[0.00]]></AMOUNT5>
-                    <PLAINTIFF type="String"><![CDATA[MC 40001]]></PLAINTIFF>
-                    <PLA_SOLICITOR type="String"><![CDATA[SOL2]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID type="String"><![CDATA[20000000]]></PLA_SOLICITOR_ID> <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
-                    <PLA_FILE_REF type="String"><![CDATA[FILE2]]></PLA_FILE_REF>
-                    <PLA_ID type="String"><![CDATA[S0739038F]]></PLA_ID>
-                    <PLA_STATUS type="String"><![CDATA[SETTLED - BEFORE SET DOWN]]></PLA_STATUS> <PLA_STATUS_DATE type="String"><![CDATA[17/10/2016]]></PLA_STATUS_DATE>
-                    </LITIGATION>
-                    </LIST_LITIGATION>
+                  example: 
+                      LIST_LITIGATION:
+                        "@className": com.technodex.ddp.report.bean.CommercialBizLitigationBean
+                        LITIGATION:
+                          SUBJECT_NAME:
+                            "@type": String
+                            "#text": SOON SOON SEAFOOD
+                          NATURE_OF_CLAIM:
+                            "@type": String
+                            "#text": CONTRACT 3
+                          STATUS_DATE:
+                            "@type": String
+                            "#text": 01/05/2008
+                          CASE_NO:
+                            "@type": String
+                            "#text": MC 40001 / 1999
+                          DOC_REMARKS:
+                            "@type": String
+                            "#text": NOTICE OF DISCONTINUANCE/WITHDRAWAL 3
+                          CURRENCY1:
+                            "@type": String
+                            "#text": SGD
+                          CURRENCY2:
+                            "@type": String
+                            "#text": MYR
+                          CURRENCY3:
+                            "@type": String
+                            "#text": USD
+                          CURRENCY4:
+                            "@type": String
+                            "#text": "-"
+                          CURRENCY5:
+                            "@type": String
+                            "#text": "-"
+                          DEF_SOLICITOR:
+                            "@type": String
+                            "#text": SOL2
+                          DEF_SOLICITOR_ID:
+                            "@type": String
+                            "#text": '20000000'
+                          DEF_LAW_FIRM:
+                            "@type": String
+                            "#text": NAME2
+                          DEF_FILE_REF:
+                            "@type": String
+                            "#text": FILE2
+                          DATE_OF_WRIT:
+                            "@type": String
+                            "#text": 01/01/2008
+                          STATUS:
+                            "@type": String
+                            "#text": CONCLUDED 3
+                          AMOUNT1:
+                            "@type": String
+                            "#text": '100.00'
+                          AMOUNT2:
+                            "@type": String
+                            "#text": '200.00'
+                          AMOUNT3:
+                            "@type": String
+                            "#text": '0.00'
+                          AMOUNT4:
+                            "@type": String
+                            "#text": '400.00'
+                          AMOUNT5:
+                            "@type": String
+                            "#text": '0.00'
+                          PLAINTIFF:
+                            "@type": String
+                            "#text": MC 40001
+                          PLA_SOLICITOR:
+                            "@type": String
+                            "#text": SOL2
+                          PLA_SOLICITOR_ID:
+                            "@type": String
+                            "#text": '20000000'
+                          PLA_LAW_FIRM:
+                            "@type": String
+                            "#text": NAME2
+                          PLA_FILE_REF:
+                            "@type": String
+                            "#text": FILE2
+                          PLA_ID:
+                            "@type": String
+                            "#text": S0739038F
+                          PLA_STATUS:
+                            "@type": String
+                            "#text": SETTLED - BEFORE SET DOWN
+                          PLA_STATUS_DATE:
+                            "@type": String
+                            "#text": 17/10/2016
                   items:
                     properties:
                       LITIGATION :
@@ -947,34 +1544,95 @@ components:
                           PLA_ID
                           PLA_STATUS
                           PLA_STATUS_DATE
-                        example: |+
-                          <LITIGATION>
-                          <SUBJECT_NAME type="String"><![CDATA[SOON SOON SEAFOOD]]></SUBJECT_NAME>
-                          <NATURE_OF_CLAIM type="String"><![CDATA[CONTRACT 3]]></NATURE_OF_CLAIM>
-                          <STATUS_DATE type="String"><![CDATA[01/05/2008]]></STATUS_DATE>
-                          <CASE_NO type="String"><![CDATA[MC 40001 / 1999]]></CASE_NO>
-                          <DOC_REMARKS type="String"><![CDATA[NOTICE OF DISCONTINUANCE/WITHDRAWAL 3]]></DOC_REMARKS> <CURRENCY1 type="String"><![CDATA[SGD]]></CURRENCY1>
-                          <CURRENCY2 type="String"><![CDATA[MYR]]></CURRENCY2>
-                          <CURRENCY3 type="String"><![CDATA[USD]]></CURRENCY3>
-                          <CURRENCY4 type="String"><![CDATA[-]]></CURRENCY4>
-                          <CURRENCY5 type="String"><![CDATA[-]]></CURRENCY5>
-                          <DEF_SOLICITOR type="String"><![CDATA[SOL2]]></DEF_SOLICITOR>
-                          <DEF_SOLICITOR_ID type="String"><![CDATA[20000000]]></DEF_SOLICITOR_ID>
-                          <DEF_LAW_FIRM type="String"><![CDATA[NAME2]]></DEF_LAW_FIRM>
-                          <DEF_FILE_REF type="String"><![CDATA[FILE2]]></DEF_FILE_REF>
-                          <DATE_OF_WRIT type="String"><![CDATA[01/01/2008]]></DATE_OF_WRIT>
-                          <STATUS type="String"><![CDATA[CONCLUDED 3]]></STATUS>
-                          <AMOUNT1 type="String"><![CDATA[100.00]]></AMOUNT1>
-                          <AMOUNT2 type="String"><![CDATA[200.00]]></AMOUNT2>
-                          <AMOUNT3 type="String"><![CDATA[0.00]]></AMOUNT3>
-                          <AMOUNT4 type="String"><![CDATA[400.00]]></AMOUNT4>
-                          <AMOUNT5 type="String"><![CDATA[0.00]]></AMOUNT5>
-                          <PLAINTIFF type="String"><![CDATA[MC 40001]]></PLAINTIFF>
-                          <PLA_SOLICITOR type="String"><![CDATA[SOL2]]></PLA_SOLICITOR> <PLA_SOLICITOR_ID type="String"><![CDATA[20000000]]></PLA_SOLICITOR_ID> <PLA_LAW_FIRM type="String"><![CDATA[NAME2]]></PLA_LAW_FIRM>
-                          <PLA_FILE_REF type="String"><![CDATA[FILE2]]></PLA_FILE_REF>
-                          <PLA_ID type="String"><![CDATA[S0739038F]]></PLA_ID>
-                          <PLA_STATUS type="String"><![CDATA[SETTLED - BEFORE SET DOWN]]></PLA_STATUS> <PLA_STATUS_DATE type="String"><![CDATA[17/10/2016]]></PLA_STATUS_DATE>
-                          </LITIGATION>
+                        example: 
+                            LITIGATION:
+                              SUBJECT_NAME:
+                                "@type": String
+                                "#text": SOON SOON SEAFOOD
+                              NATURE_OF_CLAIM:
+                                "@type": String
+                                "#text": CONTRACT 3
+                              STATUS_DATE:
+                                "@type": String
+                                "#text": 01/05/2008
+                              CASE_NO:
+                                "@type": String
+                                "#text": MC 40001 / 1999
+                              DOC_REMARKS:
+                                "@type": String
+                                "#text": NOTICE OF DISCONTINUANCE/WITHDRAWAL 3
+                              CURRENCY1:
+                                "@type": String
+                                "#text": SGD
+                              CURRENCY2:
+                                "@type": String
+                                "#text": MYR
+                              CURRENCY3:
+                                "@type": String
+                                "#text": USD
+                              CURRENCY4:
+                                "@type": String
+                                "#text": "-"
+                              CURRENCY5:
+                                "@type": String
+                                "#text": "-"
+                              DEF_SOLICITOR:
+                                "@type": String
+                                "#text": SOL2
+                              DEF_SOLICITOR_ID:
+                                "@type": String
+                                "#text": '20000000'
+                              DEF_LAW_FIRM:
+                                "@type": String
+                                "#text": NAME2
+                              DEF_FILE_REF:
+                                "@type": String
+                                "#text": FILE2
+                              DATE_OF_WRIT:
+                                "@type": String
+                                "#text": 01/01/2008
+                              STATUS:
+                                "@type": String
+                                "#text": CONCLUDED 3
+                              AMOUNT1:
+                                "@type": String
+                                "#text": '100.00'
+                              AMOUNT2:
+                                "@type": String
+                                "#text": '200.00'
+                              AMOUNT3:
+                                "@type": String
+                                "#text": '0.00'
+                              AMOUNT4:
+                                "@type": String
+                                "#text": '400.00'
+                              AMOUNT5:
+                                "@type": String
+                                "#text": '0.00'
+                              PLAINTIFF:
+                                "@type": String
+                                "#text": MC 40001
+                              PLA_SOLICITOR:
+                                "@type": String
+                                "#text": SOL2
+                              PLA_SOLICITOR_ID:
+                                "@type": String
+                                "#text": '20000000'
+                              PLA_LAW_FIRM:
+                                "@type": String
+                                "#text": NAME2
+                              PLA_FILE_REF:
+                                "@type": String
+                                "#text": FILE2
+                              PLA_ID:
+                                "@type": String
+                                "#text": S0739038F
+                              PLA_STATUS:
+                                "@type": String
+                                "#text": SETTLED - BEFORE SET DOWN
+                              PLA_STATUS_DATE:
+                                "@type": String
+                                "#text": 17/10/2016
                         properties:
                           SUBJECT_NAME :
                             type: string
@@ -1097,15 +1755,22 @@ components:
                   description: |+
                     List of Share Interest In Companies with following children&#58;
                     [SHARE_INTEREST_COMP]
-                  example: |+
-                    <LIST_SHARE_INTEREST_COMP className="com.technodex.ddp.report.bean.CommercialShareInterestBean">
-                    <SHARE_INTEREST_COMP>
-                    <COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> 
-                    <SHARE_OWNED_UNIT type="String"><![CDATA[500000]]></SHARE_OWNED_UNIT> 
-                    <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT>
-                    <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
-                    </SHARE_INTEREST_COMP>
-                    </LIST_SHARE_INTEREST_COMP>
+                  example: 
+                      LIST_SHARE_INTEREST_COMP:
+                        "@className": com.technodex.ddp.report.bean.CommercialShareInterestBean
+                        SHARE_INTEREST_COMP:
+                          COMP_NAME:
+                            "@type": String
+                            "#text": ORCHID (HOLDINGS) PTE. LTD.
+                          SHARE_OWNED_UNIT:
+                            "@type": String
+                            "#text": '500000'
+                          SHARE_OWNED_PERCENT:
+                            "@type": String
+                            "#text": '100.00'
+                          STATUS:
+                            "@type": String
+                            "#text": DISSOLVED - MEMBERS' VOLUNTARY WINDING UP
                   items:
                     properties:
                       SHARE_INTEREST_COMP :
@@ -1116,13 +1781,20 @@ components:
                           SHARE_OWNED_UNIT
                           SHARE_OWNED_PERCENT
                           STATUS
-                        example: |+
-                          <SHARE_INTEREST_COMP>
-                          <COMP_NAME type="String"><![CDATA[ORCHID (HOLDINGS) PTE. LTD.]]></COMP_NAME> 
-                          <SHARE_OWNED_UNIT type="String"><![CDATA[500000]]></SHARE_OWNED_UNIT> 
-                          <SHARE_OWNED_PERCENT type="String"><![CDATA[100.00]]></SHARE_OWNED_PERCENT>
-                          <STATUS type="String"><![CDATA[DISSOLVED - MEMBERS' VOLUNTARY WINDING UP]]></STATUS>
-                          </SHARE_INTEREST_COMP>
+                        example: 
+                            SHARE_INTEREST_COMP:
+                              COMP_NAME:
+                                "@type": String
+                                "#text": ORCHID (HOLDINGS) PTE. LTD.
+                              SHARE_OWNED_UNIT:
+                                "@type": String
+                                "#text": '500000'
+                              SHARE_OWNED_PERCENT:
+                                "@type": String
+                                "#text": '100.00'
+                              STATUS:
+                                "@type": String
+                                "#text": DISSOLVED - MEMBERS' VOLUNTARY WINDING UP
                         properties:
                           COMP_NAME :
                             type: string
@@ -1145,13 +1817,16 @@ components:
                   description: |+
                     List of Change of Company/Business Name(s) with following children&#58;
                     [NAME_CHANGE]
-                  example: |+
-                    <LIST_NAME_CHANGE className="com.technodex.ddp.report.bean.CommercialBizChgCmpBean">
-                    <NAME_CHANGE>
-                    <PREV_NAME type="String"><![CDATA[HUA XI EATING HOUSE]]></PREV_NAME>
-                    <EFFECT_DATE type="String"><![CDATA[25/10/1997 00:00:00]]></EFFECT_DATE>
-                    </NAME_CHANGE>
-                    </LIST_NAME_CHANGE>
+                  example: 
+                      LIST_NAME_CHANGE:
+                        "@className": com.technodex.ddp.report.bean.CommercialBizChgCmpBean
+                        NAME_CHANGE:
+                          PREV_NAME:
+                            "@type": String
+                            "#text": HUA XI EATING HOUSE
+                          EFFECT_DATE:
+                            "@type": String
+                            "#text": 25/10/1997 00:00:00
                   items:
                     properties:
                       NAME_CHANGE :
@@ -1160,11 +1835,14 @@ components:
                           Change of Company/Business Name(s) with following children&#58;
                           PREV_NAME
                           EFFECT_DATE
-                        example: |+
-                          <NAME_CHANGE>
-                          <PREV_NAME type="String"><![CDATA[HUA XI EATING HOUSE]]></PREV_NAME>
-                          <EFFECT_DATE type="String"><![CDATA[25/10/1997 00:00:00]]></EFFECT_DATE>
-                          </NAME_CHANGE>
+                        example: 
+                            NAME_CHANGE:
+                              PREV_NAME:
+                                "@type": String
+                                "#text": HUA XI EATING HOUSE
+                              EFFECT_DATE:
+                                "@type": String
+                                "#text": 25/10/1997 00:00:00
                         properties:
                           PREV_NAME :
                             type: string
@@ -1179,21 +1857,44 @@ components:
                   description: |+
                     List of Shareholders with following children&#58;
                     [SHAREHOLDER]
-                  example: |+
-                    <LIST_SHAREHOLDER className="com.technodex.ddp.report.bean.CommercialShareHoldersBean">
-                    <SHAREHOLDER>
-                    <ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632,
-                    SINGAPORE]]></ADDRESS>
-                    <COMP_ID type="String"><![CDATA[198200406H]]></COMP_ID>
-                    <NO_OF_SHARE type="String"><![CDATA[657]]></NO_OF_SHARE>
-                    <CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY> <SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
-                    <SHARE_TYPE type="String"><![CDATA[Preference]]></SHARE_TYPE>
-                    <SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL COMMUNICATIONS PTE
-                    LTD]]></SHAREHOLDER_NAME>
-                    <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE> <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
-                    <NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
-                    </SHAREHOLDER>
-                    </LIST_SHAREHOLDER>
+                  example: 
+                      LIST_SHAREHOLDER:
+                        "@className": com.technodex.ddp.report.bean.CommercialShareHoldersBean
+                        SHAREHOLDER:
+                          ADDRESS:
+                            "@type": String
+                            "#text": |-
+                              1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632,
+                                                  SINGAPORE
+                          COMP_ID:
+                            "@type": String
+                            "#text": 198200406H
+                          NO_OF_SHARE:
+                            "@type": String
+                            "#text": '657'
+                          CURRENCY:
+                            "@type": String
+                            "#text": UNITED STATES OF AMERICA, DOLLARS
+                          SHAREHOLDER_TYPE:
+                            "@type": String
+                            "#text": '2'
+                          SHARE_TYPE:
+                            "@type": String
+                            "#text": Preference
+                          SHAREHOLDER_NAME:
+                            "@type": String
+                            "#text": |-
+                              KEPPEL COMMUNICATIONS PTE
+                                                  LTD
+                          CHANGE_ADDR_DATE:
+                            "@type": String
+                            "#text": '09/05/2003'
+                          ADDR_TYPE:
+                            "@type": String
+                            "#text": "-"
+                          NATIONALITY:
+                            "@type": String
+                            "#text": SINGAPORE
                   items:
                     properties:
                       SHAREHOLDER :
@@ -1210,19 +1911,42 @@ components:
                           CHANGE_ADDR_DATE
                           ADDR_TYPE
                           NATIONALITY
-                        example: |+
-                          <SHAREHOLDER>
-                          <ADDRESS type="String"><![CDATA[1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632, SINGAPORE]]></ADDRESS>
-                          <COMP_ID type="String"><![CDATA[198200406H]]></COMP_ID>
-                          <NO_OF_SHARE type="String"><![CDATA[657]]></NO_OF_SHARE>
-                          <CURRENCY type="String"><![CDATA[UNITED STATES OF AMERICA, DOLLARS]]></CURRENCY>
-                          <SHAREHOLDER_TYPE type="String"><![CDATA[2]]></SHAREHOLDER_TYPE>
-                          <SHARE_TYPE type="String"><![CDATA[Preference]]></SHARE_TYPE>
-                          <SHAREHOLDER_NAME type="String"><![CDATA[KEPPEL COMMUNICATIONS PTE LTD]]></SHAREHOLDER_NAME>
-                          <CHANGE_ADDR_DATE type="String"><![CDATA[09/05/2003]]></CHANGE_ADDR_DATE>
-                          <ADDR_TYPE type="String"><![CDATA[-]]></ADDR_TYPE>
-                          <NATIONALITY type="String"><![CDATA[SINGAPORE]]></NATIONALITY>
-                          </SHAREHOLDER>
+                        example: 
+                            SHAREHOLDER:
+                              ADDRESS:
+                                "@type": String
+                                "#text": |-
+                                  1 HARBOURFRONT AVENUE , 18 – 01; KEPPEL BAY TOWER; 098632,
+                                                      SINGAPORE
+                              COMP_ID:
+                                "@type": String
+                                "#text": 198200406H
+                              NO_OF_SHARE:
+                                "@type": String
+                                "#text": '657'
+                              CURRENCY:
+                                "@type": String
+                                "#text": UNITED STATES OF AMERICA, DOLLARS
+                              SHAREHOLDER_TYPE:
+                                "@type": String
+                                "#text": '2'
+                              SHARE_TYPE:
+                                "@type": String
+                                "#text": Preference
+                              SHAREHOLDER_NAME:
+                                "@type": String
+                                "#text": |-
+                                  KEPPEL COMMUNICATIONS PTE
+                                                      LTD
+                              CHANGE_ADDR_DATE:
+                                "@type": String
+                                "#text": '09/05/2003'
+                              ADDR_TYPE:
+                                "@type": String
+                                "#text": "-"
+                              NATIONALITY:
+                                "@type": String
+                                "#text": SINGAPORE
                         properties:
                           ADDRESS :
                             type: string
@@ -1279,16 +2003,25 @@ components:
                   description: |+
                     List of Capital details with following children&#58;
                     [CAPITAL]
-                  example: |+
-                    <LIST_CAPITAL className="com.technodex.ddp.report.bean.CommercialBizCapitalBean">
-                    <CAPITAL>
-                    <CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY>
-                    <CAPITAL_TYPE type="String"><![CDATA[Ordinary]]></CAPITAL_TYPE> 
-                    <CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY> 
-                    <CAPITAL_AMT type="String"><![CDATA[100,000.00]]></CAPITAL_AMT> 
-                    <NO_OF_SHARES type="String"><![CDATA[100,000]]></NO_OF_SHARES>
-                    </CAPITAL>
-                    </LIST_CAPITAL>
+                  example: 
+                      LIST_CAPITAL:
+                        "@className": com.technodex.ddp.report.bean.CommercialBizCapitalBean
+                        CAPITAL:
+                          CAPITAL_CATEGORY:
+                            "@type": String
+                            "#text": Issued
+                          CAPITAL_TYPE:
+                            "@type": String
+                            "#text": Ordinary
+                          CURRENCY:
+                            "@type": String
+                            "#text": SINGAPORE, DOLLARS
+                          CAPITAL_AMT:
+                            "@type": String
+                            "#text": '100,000.00'
+                          NO_OF_SHARES:
+                            "@type": String
+                            "#text": '100,000'
                   items:
                     properties:
                       CAPITAL :
@@ -1300,14 +2033,23 @@ components:
                           CURRENCY
                           CAPITAL_AMT
                           NO_OF_SHARES
-                        example: |+
-                          <CAPITAL>
-                          <CAPITAL_CATEGORY type="String"><![CDATA[Issued]]></CAPITAL_CATEGORY>
-                          <CAPITAL_TYPE type="String"><![CDATA[Ordinary]]></CAPITAL_TYPE> 
-                          <CURRENCY type="String"><![CDATA[SINGAPORE, DOLLARS]]></CURRENCY> 
-                          <CAPITAL_AMT type="String"><![CDATA[100,000.00]]></CAPITAL_AMT> 
-                          <NO_OF_SHARES type="String"><![CDATA[100,000]]></NO_OF_SHARES>
-                          </CAPITAL>
+                        example: 
+                            CAPITAL:
+                              CAPITAL_CATEGORY:
+                                "@type": String
+                                "#text": Issued
+                              CAPITAL_TYPE:
+                                "@type": String
+                                "#text": Ordinary
+                              CURRENCY:
+                                "@type": String
+                                "#text": SINGAPORE, DOLLARS
+                              CAPITAL_AMT:
+                                "@type": String
+                                "#text": '100,000.00'
+                              NO_OF_SHARES:
+                                "@type": String
+                                "#text": '100,000'
                         properties:
                           CAPITAL_CATEGORY :
                             type: string
@@ -1334,18 +2076,39 @@ components:
                   description: |+
                     List of Officer(s) / Owner(s) with following children&#58;
                     [OFFICER_OWNER]
-                  example: |+
-                    <LIST_OFFICER_OWNER className="com.technodex.ddp.report.bean.CommercialBizOfficeOwerBean">
-                    <OFFICER_OWNER>
-                    <ADDRESS type="String"><![CDATA[50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742,
-                    SINGAPORE]]></ADDRESS>
-                    <IDENTITY_ID type="String"><![CDATA[S1674174D]]></IDENTITY_ID>
-                    <POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
-                    <ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
-                    <CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE> <OFFICER_NAME type="String"><![CDATA[NGIAM SHARE CHING]]></OFFICER_NAME> <CHANGE_ADDR_DATE type="String"><![CDATA[25/10/2008]]></CHANGE_ADDR_DATE> <APPMT_DATE type="String"><![CDATA[30/09/2008]]></APPMT_DATE>
-                    <NATIONALITY type="String"><![CDATA[SINGAPORE CITIZEN]]></NATIONALITY>
-                    </OFFICER_OWNER>  
-                    </LIST_OFFICER_OWNER>
+                  example: 
+                      LIST_OFFICER_OWNER:
+                        "@className": com.technodex.ddp.report.bean.CommercialBizOfficeOwerBean
+                        OFFICER_OWNER:
+                          ADDRESS:
+                            "@type": String
+                            "#text": |-
+                              50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742,
+                                                  SINGAPORE
+                          IDENTITY_ID:
+                            "@type": String
+                            "#text": S1674174D
+                          POSITION:
+                            "@type": String
+                            "#text": DIRECTOR
+                          ADDR_TYPE:
+                            "@type": String
+                            "#text": S
+                          CESSATION_DATE:
+                            "@type": String
+                            "#text": "-"
+                          OFFICER_NAME:
+                            "@type": String
+                            "#text": NGIAM SHARE CHING
+                          CHANGE_ADDR_DATE:
+                            "@type": String
+                            "#text": 25/10/2008
+                          APPMT_DATE:
+                            "@type": String
+                            "#text": 30/09/2008
+                          NATIONALITY:
+                            "@type": String
+                            "#text": SINGAPORE CITIZEN
                   items:
                     properties:
                       OFFICER_OWNER :
@@ -1362,18 +2125,37 @@ components:
                           CHANGE_ADDR_DATE
                           APPMT_DATE
                           NATIONALITY
-                        example: |+
-                          <OFFICER_OWNER>
-                          <ADDRESS type="String"><![CDATA[50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742, SINGAPORE]]></ADDRESS>
-                          <IDENTITY_ID type="String"><![CDATA[S1674174D]]></IDENTITY_ID>
-                          <POSITION type="String"><![CDATA[DIRECTOR]]></POSITION>
-                          <ADDR_TYPE type="String"><![CDATA[S]]></ADDR_TYPE>
-                          <CESSATION_DATE type="String"><![CDATA[-]]></CESSATION_DATE>
-                          <OFFICER_NAME type="String"><![CDATA[NGIAM SHARE CHING]]></OFFICER_NAME> 
-                          <CHANGE_ADDR_DATE type="String"><![CDATA[25/10/2008]]></CHANGE_ADDR_DATE> 
-                          <APPMT_DATE type="String"><![CDATA[30/09/2008]]></APPMT_DATE>
-                          <NATIONALITY type="String"><![CDATA[SINGAPORE CITIZEN]]></NATIONALITY>
-                          </OFFICER_OWNER>  
+                        example: 
+                            OFFICER_OWNER:
+                              ADDRESS:
+                                "@type": String
+                                "#text": |-
+                                  50A TOH TUCK ROAD, 04 - 08 ; SIGNATURE PARK; 596742,
+                                                      SINGAPORE
+                              IDENTITY_ID:
+                                "@type": String
+                                "#text": S1674174D
+                              POSITION:
+                                "@type": String
+                                "#text": DIRECTOR
+                              ADDR_TYPE:
+                                "@type": String
+                                "#text": S
+                              CESSATION_DATE:
+                                "@type": String
+                                "#text": "-"
+                              OFFICER_NAME:
+                                "@type": String
+                                "#text": NGIAM SHARE CHING
+                              CHANGE_ADDR_DATE:
+                                "@type": String
+                                "#text": 25/10/2008
+                              APPMT_DATE:
+                                "@type": String
+                                "#text": 30/09/2008
+                              NATIONALITY:
+                                "@type": String
+                                "#text": SINGAPORE CITIZEN
                         properties:
                           ADDRESS :
                             type: string
@@ -1424,12 +2206,13 @@ components:
                   description: |+
                     List of Sales Revenue Amount with following children&#58;
                     [SALES_REVENUE_AMOUNT]
-                  example: |+
-                    <LIST_SALES_REVENUE_AMOUNT>
-                    <SALES_REVENUE_AMOUNT>
-                    <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> <YEAR><![CDATA[2008]]></YEAR> <CURRENCY><![CDATA[SGD]]></CURRENCY> <AMOUNT>30000.00</AMOUNT>
-                    </SALES_REVENUE_AMOUNT>
-                    </LIST_SALES_REVENUE_AMOUNT>
+                  example: 
+                      LIST_SALES_REVENUE_AMOUNT:
+                        SALES_REVENUE_AMOUNT:
+                          ELEMENTS: Sales Revenue Amount
+                          YEAR: '2008'
+                          CURRENCY: SGD
+                          AMOUNT: '30000.00'
                   items:
                     properties:
                       SALES_REVENUE_AMOUNT :
@@ -1440,13 +2223,12 @@ components:
                           YEAR
                           CURRENCY
                           AMOUNT
-                        example: |+
-                          <SALES_REVENUE_AMOUNT>
-                          <ELEMENTS><![CDATA[Sales Revenue Amount]]></ELEMENTS> 
-                          <YEAR><![CDATA[2008]]></YEAR> 
-                          <CURRENCY><![CDATA[SGD]]></CURRENCY>
-                          <AMOUNT>30000.00</AMOUNT>
-                          </SALES_REVENUE_AMOUNT>
+                        example: 
+                            SALES_REVENUE_AMOUNT:
+                              ELEMENTS: Sales Revenue Amount
+                              YEAR: '2008'
+                              CURRENCY: SGD
+                              AMOUNT: '30000.00'
                         properties:
                           ELEMENTS :
                             type: string
@@ -1660,31 +2442,24 @@ components:
         status:
           type: string
           example: Failure
-    REQUEST:
+    input:
       type: object
       properties:
-        TOT_ITEMS:
+        total_items:
           type: integer
           example: 1
           description: Number of subjects being enquired relating to the Run
           default: false
-        ENQUIRY:
-          type: object
-          example: |+
-            <ENQUIRY><SUBJECT_IDNO>197601887E</SUBJECT_IDNO><SUBJECT_NAME>TRANSTAR TRAVEL PTE LTD</SUBJECT_NAME></ENQUIRY>
-          description: Contains information of each request details
+        subject_idno:
+          type: string
+          example: 199707714C
+          description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
           default: true
-          properties:
-            SUBJECT_IDNO:
-              type: string
-              example: 199707714C
-              description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
-              default: true
-            SUBJECT_NAME:
-              type: string
-              example: GPS INDUSTRIES PTE LTD
-              description: Subjects Name as captured in DDP
-              default: false
+        subject_name:
+          type: string
+          example: GPS INDUSTRIES PTE LTD
+          description: Subjects Name as captured in DDP
+          default: false
     versions:
       type: object
       properties: 

@@ -4,7 +4,6 @@ info:
   x-subscribelink: commercial_directories_hdb_sg
   description: |+
    This Data microservice retrieves the list of all retail shops within Singapore HDBs and allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates type of business. The resultant dataset offers useful information like the shop operating hours and contact number. Updated weekly. 
-
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
@@ -21,50 +20,33 @@ info:
       **Filter Types:**
       
       A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
-
       * **must** - All of the stated conditions must match. Equivalent to an AND operator.
-
         > {"must":[{"match_phrase":{"name":"ang mo kio"}}]}
-
       * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
       
         > {"must_not":[{"match":{"trade":"shop"}}]}
-
       * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       
-        > {"should":[{"match":{"postalcode":"650633"}}]}
-
+        > {"should":[{"match":{"postalcode":650633}}]}
       * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
         
         > {"filter":[{"match":{"trade":"retail"}}]}
-
       For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
-
       Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
       
       **Match Types:**
       
       A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
-
       * **match** - Search within a full text field for a single word
-
         > {"match":{"street":"bishan"}}
-
       * **match_phrase** - Search within a full text field
-
         > {"match_phrase":{ "street":bishan street 24"}}
-
       * **match_phrase_prefix** - Search within a full text field with prefix
-
         > {"match_phrase_prefix":{"street":"bishan street"}}
-
       * **term** - Returns results that contain an exact term in a provided field
-
-        > {"term":{"postalcode":"560720"}}
-
+        > {"term":{"postalcode":560720}}
       * **terms** - Returns results that contain one or more exact terms in a provided field
-
-        > {"terms":{"postalcode":["560720","560721"]}}
+        > {"terms":{"postalcode":[560720,560721]}}
         
       * **range** - Returns results that contain terms within a stipulated range
       
@@ -77,49 +59,39 @@ info:
         > {"exists":{ "field": "postalcode"}}
   
       For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
-
       **Forming sophisticated queries using combinations of filter types (in JSON)**
-
       Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
-
       > {
       > "must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],
       > "filter":[{"match":{"trade":"shop"}}],
-      > "should":[{"match":{"postalcode":"650633"}}],
+      > "should":[{"match":{"postalcode":650633}}],
       > "must_not":[{"match":{"trade":"betting"}}]
       > }
-
       **Sample Queries Based on Use Cases**
     
       1. **Search for all commercial directories around ang mo kio street 21**
-
          Using a querystring only&#58;
-
          > querystring = "ang mo kio street 21"
-
       2. **Search for all commercial directories within a 1KM radius from Tampines Mall**
-
          Using a filterdata only&#58;
-
          > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
          
       3. **Search for all cake shop shops at Blk 122, Bukit Merah Lane 1**
-
          Using a filterdata only&#58;
          
          > filterdata = {"filter":[{"match_phrase": {"trade":"cake shop"}},{"match": {"block":"122"}},{"match_phrase": {"street":"bukit merah lane 1"}}]}
   
-  version: '0.1.0'
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Dec 26, 2018"
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
 paths:
-   /DaaS/prod/directories/hdb/searchdir:
+   /microservices/data/hdb_searchdir/v1/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
@@ -130,7 +102,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all retail shops (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "retail"
+          example: "school"
           default: false
         - in: query
           name: offset
@@ -158,8 +130,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],"filter":[{"match":{"trade":"shop"}}],"should":[{"match":{"postalcode":"650633"}}],"must_not":[{"match":{"trade":"betting"}}]}
-
+              {"must":[{"match_phrase":{"name":"school"}}],"filter":[{"match":{"trade":"schools & centres"}}],"should":[{"match":{"postalcode":530202}}],"must_not":[{"match":{"trade":"betting"}}]}
       responses:
         '200':
           description: Ok
@@ -172,22 +143,21 @@ paths:
                   total: 3735
                   max_score: 17.995623
                   hits:
-                  - _index: sentient_directory_hdb_index
+                  - _index: sentient_hdb_directory_index
                     _type: dir_doc
-                    _id: K7scqWgBv3dNEHq2WvMo
-                    _score: 17.995623
+                    _id: pet_specialist
+                    _score: 1.0
                     _source:
-                      id: '201902011250341437360'
-                      postalcode: '560720'
+                      postalcode: 560720
                       unit: '4102'
                       level: '01'
                       source: hdb
-                      name: Ang Mo Kio Polyclinic
-                      phonenumber: '63553000'
+                      name: pet_specialist
+                      phonenumber: 63553000
                       email: ''
                       operatinghours: mon - fri  8am - 4.30pm  sat  8am - 12.30pm
-                      trade: shop/retail
-                      createddate: '2019-02-01'
+                      trade: pets
+                      lastupdated: '2019-02-01'
                       type: shop
                       block: '720'
                       street: ang mo kio avenue 6
@@ -270,7 +240,7 @@ components:
               description: Total number of records
             max_score:
               type: float
-              example: 17.995623
+              example: 1.0
               description: The highest score value
             hits:
               type: array
@@ -290,11 +260,11 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "K7scqWgBv3dNEHq2WvMo"
+                    example: "pet_specialist"
                   _score: 
-                    type: integer
+                    type: float
                     description: The document score for the search request
-                    example: 17.995623
+                    example: 1.0
                   _source: 
                     type: object
                     example: {<Json Object>}
@@ -303,11 +273,11 @@ components:
                             id: 
                               type: string
                               description: Unique Id
-                              example: "201902011250341437360"
+                              example: "pet_specialist"
                             postalcode: 
-                              type: string
+                              type: integer
                               description: Postal code of a block
-                              example: "560720"
+                              example: 560720
                             unit: 
                               type: string
                               description: Unit number
@@ -323,7 +293,7 @@ components:
                             name: 
                               type: string
                               description: Business name
-                              example: "Ang Mo Kio Polyclinic"
+                              example: "Pets"
                             phonenumber:
                               type: string
                               description: Contact number
@@ -375,7 +345,7 @@ components:
                                 sports and recreation building
                                 others
                               example: "shop/retail"
-                            createddate:
+                            lastupdated:
                               type: string
                               description: Record created date
                               example: "2019-02-01"
@@ -503,7 +473,7 @@ components:
           example: Failure
     versions:
       type: object
-      properties:
+      properties: 
         v1.0.0:
          type: array
          items:

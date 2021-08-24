@@ -6,38 +6,29 @@ info:
     This Data microservice retrieves the list of all Singapore startup companies found on the internet through web scraping. Updated quarterly.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Build solutions related to startups in Singapore. For example, investors interested in industry analysis can use this microservice to identify the trends and patterns in Singapore's startup scene.
+    - Build solutions related to startups in Singapore. For example, investors interested in industry analysis can use this microservice to identify the trends and patterns in Singapore's startup scene.
     
     **Refining queries in the filterdata field using filter types and match types**
-
     The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
   
     **Filter Types:**
-
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
     * **must** - All of the stated conditions must match. Equivalent to an AND operator.
-
       > {"must":[{"match":{"name":"technology"}}]}
-
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-
       > {"must_not":[{"match":{"yearestablished.e27":"2016"}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
-
       > {"should":[{"match":{"status.e27":"active"}}]}
     
     * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
-
       > {"filter":[{"exists":{"field":"company.e27"}}]}
       
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
     Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
-
     **Match Types:**
-
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
     * **match** - Search within a full text field for a single word
@@ -46,7 +37,7 @@ info:
     
     * **match_phrase** - Search within a full text field
     
-     > {"match_phrase":{"name":"nextwave partners"}}
+      > {"match_phrase":{"name":"nextwave partners"}}
     
     * **match_phrase_prefix** - Search within a full text field with prefix
     
@@ -71,23 +62,23 @@ info:
       > {"exists":{"field":"company.e27"}}
     
     **Sample filterdata JSON:**
-    > {
-    > "must":[{"match":{"name":"technology"}}],
-    > "filter":[{"exists":{"field":"company.e27"}}],
-    > "should":[{"match":{"status.e27":"active"}}],
-    > "must_not":[{"match":{"yearestablished.e27":"2016"}}]
-    > }
-  version: '0.1.0'
+      > {
+      > "must":[{"match":{"name":"technology"}}],
+      > "filter":[{"exists":{"field":"company.e27"}}],
+      > "should":[{"match":{"status.e27":"active"}}],
+      > "must_not":[{"match":{"yearestablished.e27":"2016"}}]
+      > }
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Dec 26, 2018"
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
 paths:
-   /DaaS/prod/directories/searchdir:
+   /microservices/data/directories_searchdir/v1/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
