@@ -207,7 +207,7 @@ components:
           type: string
           format: binary
           default: true
-          example:  sample.mp4
+          example:  sample.wav
           description: The audio file object.
           
           # Supported formats are : cc
