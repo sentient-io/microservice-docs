@@ -83,7 +83,7 @@ nlp:
   spacy_ner:
     title: spaCy NER
     versions:
-      0.1.0: 'spacy_named-entity_recognition_eng.yaml'
+      0.1.0: 'spacy_ner.yaml'
   page_profiler_eng:
     title: Page Profiler ENG
     versions:
