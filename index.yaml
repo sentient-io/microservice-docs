@@ -165,10 +165,10 @@ computer vision:
     versions:
       0.1.0: 'receipt_scanner.yaml'       
 utility:
-  video-to-audio_convertor:
+  video_to_audio_converter:
     title: Video-To-Audio Convertor
     versions:
-      0.1.0: 'video-to-audio_convertor.yaml'
+      0.1.0: 'video_to_audio_converter.yaml'
   web_scraper:
     title: Web Scraper
     versions:
@@ -176,7 +176,7 @@ utility:
   document_convertor_eng:
     title: Document Convertor ENG
     versions:
-      1.0.0: 'document_convertor_eng.yaml'
+      1.0.0: 'document_conversion_eng.yaml'
   pdf_extractor:
     title: PDF Extractor
     versions:
@@ -192,19 +192,19 @@ utility:
   decryption_using_pki_key:
     title: Decryption using PKI Key
     versions:
-      0.1.0: 'decryption_using_pki_key.yaml'
-  wikipedia_retrieval:
+      0.1.0: 'decryption_for_pki_key.yaml'
+  wikipedia:
     title: Wikipedia Retrieval
     versions:
-      1.0.0: 'wikipedia_retrieval.yaml'
+      1.0.0: 'wikipedia.yaml'
   json-csv_convertor:
     title: JSON-CSV Convertor
     versions:
       1.0.0: 'json-csv_convertor.yaml'
-  csv-json_convertor:
+  csv_to_json_converter:
     title: CSV-JSON Convertor
     versions:
-      1.0.0: 'csv-json_convertor.yaml'
+      1.0.0: 'csv_to_json_converter.yaml'
   audio_format_convertor:
     title: Audio Format Convertor
     versions:
@@ -212,7 +212,7 @@ utility:
   video-to-image_convertor:
     title: Video-to-Image Convertor
     versions:
-      0.1.0: 'video-to-image_convertor.yaml'
+      0.1.0: 'video-to-image.yaml'
   newspaper_article_scraper:
     title: Newspaper Article Scraper
     versions:
@@ -221,10 +221,10 @@ utility:
     title: URLs Retrieval
     versions:
       0.2.1: 'urls_retrieval.yaml'
-  base64_encoder:
+  base64_file_encode:
     title: Base64 Encoder
     versions:
-      0.1.0: 'base64-encoder.yaml'
+      0.1.0: 'base64_file_encode.yaml'
   base64_file_decode:
     title: Base64 Decoder
     versions:
