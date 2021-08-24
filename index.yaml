@@ -143,10 +143,10 @@ computer vision:
     versions:
       1.0.0: 'people_counting.yaml'
       0.1.0: 'people_counting_v0.1.yaml'
-  landmark_detection_sg:
+  landmark_recognition_sg:
     title: Landmark Detection (SG)
     versions:
-      1.0.0: 'landmark_detection_sg.yaml'
+      1.0.0: 'landmark_recognition_sg.yaml'
   landmark_recognition_jp:
     title: Landmark Detection (JP)
     versions:
