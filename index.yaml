@@ -225,10 +225,10 @@ utility:
     title: Base64 Encoder
     versions:
       0.1.0: 'base64-encoder.yaml'
-  base64_decoder:
+  base64_file_decode:
     title: Base64 Decoder
     versions:
-      0.1.0: 'base64-decoder.yaml'    
+      0.1.0: 'base64_file_decode.yaml'    
   get_ip:
     title: Get IP
     versions:
