@@ -201,7 +201,7 @@ components:
     input:
       type: object
       required:
-        - filePath 
+        - filePath
       properties:
         filePath:
           type: string
