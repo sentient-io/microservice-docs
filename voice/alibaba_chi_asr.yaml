@@ -207,7 +207,6 @@ components:
           type: string
           format: binary
           default: true
-          example: sample.wav
           description: Audio File Object
           
           # Supported formats are : cc
