@@ -450,6 +450,16 @@ Platform APIs:
     urlkey: unsubscription
     versions:
       0.1.0: 'unsubscription.yaml'
+  add_user_to_function:
+    title: Add User To Function
+    urlkey: add_user_to_function
+    versions:
+      0.1.0: 'add_user_to_function.yaml'
+  remove_user_from_function:
+    title: Remove User From Function
+    urlkey: remove_user_from_function
+    versions:
+      0.1.0: 'remove_user_from_function.yaml'
 
       
    
