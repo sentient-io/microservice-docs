@@ -2,36 +2,36 @@ openapi: 3.0.1
 info:
   title: Add Function To Group
   description: This API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
-  x-subscribelink: add_user_to_group
+  x-subscribelink: add_function_to_group
   version: '0.1.0'
 servers:
-  - url: 'https://dev-microserviceapi-org.sentient.io'
+  - url: 'http://localhost:5050'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 21, 2021"
+  description: "Published Date - Sep 6, 2021"
 paths:
-   /org/addusertogroup:
+   /org/v0/addfunctiontogroup:
     get:
       tags:
         - v0.1.0
       required:
-        - user_id
+        - function_id
         - group_id
       parameters:
         - in: query
-          name: user_id
+          name: function_id
           schema:
             type: integer
           required: true
-          description: User Id
-          example: "1121"
+          description: Function Id
+          example: "237"
         - in: query
           name: group_id
           schema:
             type: integer
           required: true
           description: Group Id
-          example: "7"
+          example: "2451"
       responses:
         '200':
           description: Ok
@@ -124,7 +124,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
+              example: Published Date - Sep 6,2021
               description: Initial version release          
   securitySchemes:
     APIAuthorizer:
