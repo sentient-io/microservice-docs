@@ -480,3 +480,8 @@ Platform APIs:
     urlkey: get_org_assign_functions
     versions:
       0.1.0: 'get_org_assign_functions.yaml'
+  microservices_list:
+    title: Microservices List
+    urlkey: microservices_list
+    versions:
+      0.1.0: 'microservices_list.yaml'
