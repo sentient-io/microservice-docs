@@ -460,6 +460,10 @@ Platform APIs:
     urlkey: remove_user_from_function
     versions:
       0.1.0: 'remove_user_from_function.yaml'
-
+  delete_group:
+    title: Delete Group
+    urlkey: delete_group
+    versions:
+      0.1.0: 'delete_group.yaml'
       
    
