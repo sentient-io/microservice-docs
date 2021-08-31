@@ -435,5 +435,10 @@ Platform APIs:
     urlkey: add_function_to_group
     versions:
       0.1.0: 'add_function_to_group.yaml'
+  remove_function_from_group:
+    title: Remove Function From Group
+    urlkey: remove_function_from_group
+    versions:
+      0.1.0: 'remove_function_from_group.yaml'
       
    
