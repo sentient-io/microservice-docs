@@ -485,3 +485,8 @@ Platform APIs:
     urlkey: microservices_list
     versions:
       0.1.0: 'microservices_list.yaml'
+  update_password:
+    title: Update Password
+    urlkey: update_password
+    versions:
+      0.1.0: 'update_password.yaml'
