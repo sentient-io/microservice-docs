@@ -226,17 +226,17 @@ components:
         oracle_num_speakers:
           x-name: oracle_num_speakers
           type: number
-          default: True
+          default: False
           example: 2
           description: |+
-            Number of speakers in the audio, known in advance
+            Number of speakers in the audio, known in advance by the user.
         max_num_speakers:
           x-name: max_num_speakers
           type: number
-          default: True
+          default: False
           example: 2
           description: |+
-            Maximum number of speakers in the audio
+            Maximum number of speakers in the audio. Default value is 20
         
         
   securitySchemes:
