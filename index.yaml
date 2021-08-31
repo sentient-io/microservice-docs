@@ -440,5 +440,16 @@ Platform APIs:
     urlkey: remove_function_from_group
     versions:
       0.1.0: 'remove_function_from_group.yaml'
+  subscription:
+    title: Subscription
+    urlkey: subscription
+    versions:
+      0.1.0: 'subscription.yaml'
+  unsubscription:
+    title: Unsubscription
+    urlkey: unsubscription
+    versions:
+      0.1.0: 'unsubscription.yaml'
+
       
    
