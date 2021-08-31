@@ -5,7 +5,8 @@ info:
   description: |+
     Speaker diarization is a microservice to label audio recordings with classes that correspond to speaker identity, or in short, a task to identify "who spoke when".
 
-    This microservice partitionins an input audio stream into homogeneous segments according to the speaker identity
+    This microservice partitions an input audio stream into homogeneous segments according to the speaker identity
+    
   version: v0.1.0
   x-additionalinfo: |+
     TO FILL MANUALLY
