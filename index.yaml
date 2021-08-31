@@ -474,4 +474,9 @@ Platform APIs:
     title: Get Function List
     urlkey: get_function_list
     versions:
-      0.1.0: 'get_function_list.yaml'   
+      0.1.0: 'get_function_list.yaml' 
+  get_org_assign_functions:
+    title: Get Org Assign Functions
+    urlkey: get_org_assign_functions
+    versions:
+      0.1.0: 'get_org_assign_functions.yaml'
