@@ -10,7 +10,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 09, 2021"
 paths:
-  /org/adduser:
+  /org/v0/adduser:
     post:
       tags:
         - v0.1.0
