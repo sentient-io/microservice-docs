@@ -10,7 +10,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - May 21, 2021"
 paths:
-   /org/deleteuser:
+   /org/v0/deleteuser:
     get:
       tags:
         - v0.1.0
