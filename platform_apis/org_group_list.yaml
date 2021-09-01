@@ -10,7 +10,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 09, 2021"
 paths:
-   /org/getorggrouplist:
+   /org/v0/getorggrouplist:
     get:
       tags:
         - v0.1.0
