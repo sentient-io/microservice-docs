@@ -723,20 +723,22 @@ components:
           type: string
           example: Successfully Processed
           description: The detailed status if the api call
-        results:
-          type: array
-          example: [{<JSON result Object}]
-          description: The list of array Json result object
-          items:
-            type: object
+        ALL:
+          type: object
+          example: {<JSON result Object}
+          description: Json result object
+          data:
+            type: array
+            example: [{<JSON result Object}]
+            description: The list of array json result object
             properties:
-                activity:
+                dataschema:
                   type: string
-                  example: YES
-                  description: Activity details
-                error_detail:
-                  type: array
-                  description: The list of Json result object
+                  example: "[{'name': 'Report'}]"
+                  description: Data Schema
+                date_created:
+                  type: string
+                  description: Date created
                   example: [{"<JSON":"result Object"}]
                   items:
                     type: object
