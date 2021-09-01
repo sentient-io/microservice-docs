@@ -10,7 +10,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 09, 2021"
 paths:
-   /org/getuserinfo:
+   /org/v0/getuserinfo:
     get:
       tags:
         - v0.1.0
