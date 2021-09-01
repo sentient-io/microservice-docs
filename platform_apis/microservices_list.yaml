@@ -1,34 +1,19 @@
 openapi: 3.0.1
 info:
   title: Microservices List
-  description: This API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
+  description: This API provides detail insight into errors that may occur while performing an API call. This API shows the aspects including but limited to the number of invalid inputs, authentication failures, number of invalid requests, and API key errors for any given microservice within a specific period of time (i.e. monthly, yearly, etc.).
+  version: v0.1.0
   x-subscribelink: microservices_list
-  version: '0.1.0'
 servers:
-  - url: 'http://localhost:5020'
+  - url: 'http://localhost:5020' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 6, 2021"
 paths:
-   /v0/microserviceslist:
+  /v0/microserviceslist:
     post:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: lang
-          schema:
-            type: string
-          required: false
-          description: Language Code
-          example: "EN"
-        - in: query
-          name: order_type
-          schema:
-            type: string
-          required: false
-          description: Order Type
-          example: "A to Z"
       responses:
         '200':
           description: Ok
@@ -38,6 +23,20 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: Successfully Processed
+                results:
+                  - activity: 'YES'
+                    error_detail:
+                      - api_result:
+                          - auth_message: Invalid Request URL
+                            unsuccess_call: 1
+                        total_unsuccess_call: 1
+                    error_usage:
+                      - - '2021-01-27'
+                        - 2
+                        - 0
+                      - - '2021-01-28'
+                        - 2
+                        - 0
                 status: Success
         '401':
           description: Unauthorized
@@ -58,13 +57,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/invalidinput'
         '500':
-          description: Internal Server Error
+          description: Internal Server error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+        
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -73,11 +79,62 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: The detail description on the status
+          description: The detailed status if the api call
+        results:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of array Json result object
+          items:
+            type: object
+            properties:
+                activity:
+                  type: string
+                  example: YES
+                  description: Activity details
+                error_detail:
+                  type: array
+                  description: The list of Json result object
+                  example: [{"<JSON":"result Object"}]
+                  items:
+                    type: object
+                    properties:
+                      api_result:
+                        type: array
+                        description: The list of Json result object
+                        example: [{"<JSON":"result Object"}]
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                              description: Stauts of the api result
+                              example: "Invalid Request URL"
+                            unsuccesscount:
+                              type: string
+                              description: Unsuccess count of the api
+                              example: 1
+                      total_unsuccess_call:
+                        type: string
+                        example: 1
+                        description: Total unsuccess count of the api
+                error_usage:
+                  type: array
+                  example: ["2021-01-27",2,0]
+                  description: Array of date in the format YYYY-MM-DD, Authorised Calls, Unsuccessful Calls
+                  items:
+                    type: object
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure
+          description: The status of the API call success/failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
     unauthorized:
       type: object
       properties:
@@ -96,33 +153,45 @@ components:
         status:
           type: string
           example: Failure
-    forbidden:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Access Denied Unauthorized User
-        status:
-          type: string
     servererror:
       type: object
       properties:
         message:
           type: string
-          example: Internal Server Error
+          example: Internal Server error
         status:
           type: string
           example: Failure
     versions:
       type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Sep 6,2021
+                description: Initial version release    
+    input:
+      type: object
       properties:
-        v1.0.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Sep 6,2021
-              description: Initial version release          
+        owner_id:
+          x-name: owner_id
+          type: integer
+          default: False
+          example: 1
+          description: Owner Id
+        order_type:
+          x-name: order_type
+          type: string
+          default: False
+          example: "A to Z"
+          description: Order Type of Microservices like ascending, descending etc.,
+        lang:
+          x-name: lang
+          type: string
+          example: "EN"
+          description: Language code
   securitySchemes:
     APIAuthorizer:
       type: apiKey
