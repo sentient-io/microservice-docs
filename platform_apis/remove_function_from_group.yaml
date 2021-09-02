@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Remove Function From Group
-  description: This API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
+  description: This API provides operations to manage groups in your organization. This API helps to remove the function from the group.
   x-subscribelink: remove_function_from_group
   version: '0.1.0'
 servers:
