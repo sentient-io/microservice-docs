@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Add User To Function
-  description: This API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
+  description: This API provides operations to assign function to users in your organization.
   x-subscribelink: add_user_to_function
   version: '0.1.0'
 servers:
