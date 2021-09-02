@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Unsubscription
-  description: This API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
+  description: This API provides operations to unsubscribe function to the users in your organization.
   x-subscribelink: unsubscription
   version: '0.1.0'
 servers:
