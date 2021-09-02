@@ -50,7 +50,6 @@ paths:
                         into text.
                       description2: |-
                         This demo app transcribes Singapore-accented spoken English and Mandarin into text.
-
                         User can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices.
                       icon_url: https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg
                       id: 125
@@ -60,7 +59,6 @@ paths:
                       into Simplified Chinese text.
                     description2: |-
                       This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.
-
                       This microservice works best when the audio file consists of mostly speech with no long pauses in between.
                     discounts: []
                     function_type: FUN_ATOMISTIC
@@ -133,7 +131,6 @@ paths:
                         into text.
                       description2: |-
                         This demo app transcribes Singapore-accented spoken English and Mandarin into text.
-
                         User can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices.
                       icon_url: https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg
                       id: 125
@@ -143,7 +140,6 @@ paths:
                       into Simplified Chinese text.
                     description2: |-
                       This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.
-
                       This microservice works best when the audio file consists of mostly speech with no long pauses in between.
                     discounts: []
                     function_type: FUN_ATOMISTIC
@@ -659,7 +655,6 @@ paths:
                     description1: Converts Base64 encoded string to binary file.
                     description2: |-
                       This Utility microservice converts a Base64 encoded text string to a binary file.
-
                       For the reverse process (convert binary file to Base64 encoded text string), check out the Base64 File Encode microservice.
                     discounts: []
                     function_type: FUN_ATOMISTIC
@@ -823,7 +818,7 @@ components:
                   type: string
                   example: "alibaba_chi_asr"
                   description: Url code for microservice
-         CLASS_AI:
+        CLASS_AI:
           type: object
           example: {<JSON result Object}
           description: Json result object
@@ -923,7 +918,7 @@ components:
                   type: string
                   example: "alibaba_chi_asr"
                   description: Url code for microservice
-         CLASS_COMPUTER_VISION:
+        CLASS_COMPUTER_VISION:
           type: object
           example: {<JSON result Object}
           description: Json result object
@@ -1023,7 +1018,7 @@ components:
                   type: string
                   example: "demographics_classification"
                   description: Url code for microservice
-         CLASS_DATA:
+        CLASS_DATA:
           type: object
           example: {<JSON result Object}
           description: Json result object
@@ -1034,7 +1029,7 @@ components:
             properties:
                 dataschema:
                   type: string
-                  example: "[{"dataschema": "[{\"name\": \"REPORT\", \"type\": \"\", \"datalength\": \"\", \"isnull\": \"no\", \"description\": \"\"}, {\"name\": \"META_INFO\", \"type\": \"\", \"datalength\": \"\", \"isnull\": \"no\", \"description\": \"\"}, {\"name\": \"SERVICE\", \"type\": \"Varchar\", \"datalength\": \"\", \"isnull\": \"no\", \"description\": \"Report requested\"}]"
+                  example: '[{"dataschema": "[{\"name\": \"REPORT\", \"type\": \"\", \"datalength\": \"\", \"isnull\": \"no\", \"description\": \"\"}, {\"name\": \"META_INFO\", \"type\": \"\", \"datalength\": \"\", \"isnull\": \"no\", \"description\": \"\"}, {\"name\": \"SERVICE\", \"type\": \"Varchar\", \"datalength\": \"\", \"isnull\": \"no\", \"description\": \"Report requested\"}]'
                   description: Data Schema
                 date_created:
                   type: string
@@ -1123,7 +1118,7 @@ components:
                   type: string
                   example: "alibaba_chi_asr"
                   description: Url code for microservice
-         CLASS_INTERNALSALES:
+        CLASS_INTERNALSALES:
           type: object
           example: {<JSON result Object}
           description: Json result object
@@ -1223,7 +1218,7 @@ components:
                   type: string
                   example: "alibaba_chi_asr"
                   description: Url code for microservice         
-         CLASS_NLP:
+        CLASS_NLP:
           type: object
           example: {<JSON result Object}
           description: Json result object
@@ -1323,7 +1318,7 @@ components:
                   type: string
                   example: "alibaba_chi_asr"
                   description: Url code for microservice
-         CLASS_UTILITY:
+        CLASS_UTILITY:
           type: object
           example: {<JSON result Object}
           description: Json result object
