@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Subscription
-  description: This API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
+  description: This API provides operations to subscribe function to the users in your organization.
   x-subscribelink: subscription
   version: '0.1.0'
 servers:
