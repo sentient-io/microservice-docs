@@ -16,7 +16,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Jun 7, 2021"
 paths:
-  /microservices/voice/ttseng/ncstest/getpredictions:
+  /microservices/voice/ttseng/ncs/getpredictions:
     post:
       tags:
         - v1.0.0
