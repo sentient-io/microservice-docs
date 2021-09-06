@@ -243,29 +243,8 @@ components:
           example: female_singaporean
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
-            
-            1. female_generic
-            2. female_singaporean
-        pitch_scale:
-          x-name: pitch_scale
-          type: float
-          format: float
-          default: False
-          example: 1
-          description: |+
-            The pitch factor for the synthesized voice. It ranges between 0.5 and 1.5 and default is 1.
-            1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
-            **used only for the female_singaporean model
-        tempo_scale:
-          x-name: tempo_scale
-          type: float
-          format: float
-          default: False
-          example: 1
-          description: |+
-            The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1. 
-            1 means default speed, 0.5 is half speed, 2 is twice the speed
-            **used only for the female_singaporean model
+          
+            1. female_singaporean
         
         
   securitySchemes:
