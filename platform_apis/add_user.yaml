@@ -154,7 +154,7 @@ components:
         user_groups:
           x-name: user_groups
           type: array
-          example: [51,52,33]
+          example: []
           description: User groups list of the user
           items:
             type: object
