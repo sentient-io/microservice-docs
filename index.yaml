@@ -205,10 +205,10 @@ utility:
     title: CSV-JSON Convertor
     versions:
       1.0.0: 'csv_to_json_converter.yaml'
-  audio_format_convertor:
+  audio_processing_utility:
     title: Audio Format Convertor
     versions:
-      0.1.0: 'audio_format_convertor.yaml'
+      0.1.0: 'audio_processing_utility.yaml'
   video-to-image_convertor:
     title: Video-to-Image Convertor
     versions:
