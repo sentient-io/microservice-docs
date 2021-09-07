@@ -7,19 +7,19 @@ info:
 
         User can adjust the pitch and tempo of the the synthesised speech. Both are optional and used only for the female_singaporean model.
 
-        The input text should not exceed **2000 characters**.
-  version: 1.0.0
+        The input text should not exceed **3000 characters**.
+  version: 1.0.1
   x-subscribelink: text-to-speech_eng
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Jun 7, 2021"
+- name: "v1.0.1"
+  description: "Published Date - Sep 3, 2021"
 paths:
-  /microservices/voice/ttseng/ncstest/getpredictions:
+  /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.0.1
       responses:
         '200':
           description: success response
@@ -207,6 +207,13 @@ components:
     versions:
       type: object
       properties:
+        v1.0.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Sep 3,2021'
+                description: Support more input characters
         v1.0.0:
           type: array
           items:
