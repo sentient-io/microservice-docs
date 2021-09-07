@@ -3,8 +3,7 @@ info:
   title: Sentiment Analysis and Sarcasm Detection
   x-subscribelink: sentiment_analysis
   description: |+
-    Sentiment Analysis and Sarcasm Detection API provides results from a
-    collection of machine learning-based algorithms.
+    Sentiment Analysis and Sarcasm Detection API provides results from a collection of machine learning-based algorithms.
   version: '0.1.0'
 servers:
   - url: 'https://apis.sentient.io'
