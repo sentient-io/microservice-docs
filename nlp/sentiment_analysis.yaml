@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Sentiment Analysis and Sarcasm Detection
-  x-subscribelink: sentiment_analysis
+  x-subscribelink: sentiment_analysis_and_sarcasm_detection
   description: |+
     Sentiment Analysis and Sarcasm Detection API accepts text and returns a response containing the overall sacrasm of the input text as well as a the overall sentiment and confidence score for each sentiment label (positive, negative, and neutural). There are no limitation to the number of characters that you can input. However, for the best results, please input short text such as tweets, commonets, news, and headlines.
   version: '0.1.0'
