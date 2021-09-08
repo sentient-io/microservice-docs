@@ -8,18 +8,18 @@ info:
     - Access topics within Wikipedia with great specificity. Can be used for research/study-related solutions by using information from this microservice to compare articles, revisions and more.
 
     - Extract the most relevant content from Wikipedia’s categories to provide a text analysis service to ascertain what any text is in reference to.
-  version: '0.1.0'
+  version: '1.0.0'
   x-subscribelink: wikipedia_retrieval
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Apr 23, 2020"
+- name: "v1.0.0"
+  description: "Published Date - Jan 11, 2021"
 paths:
-  /microservices/utility/wikipedia/v0.1/getresults:
+  /microservices/utility/wikipedia/v1/getresults:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -48,6 +48,10 @@ paths:
                   summary: Singapore officially the Republic of Singapore, is a sovereign city-state
                     and island country located in maritime Southeast Asia. Singapore lies about one
                     degree of latitude (137 kilometres or 85 miles) north of the equator.
+                  thumbnail:
+                    height: 333
+                    source: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png
+                    width: 500
                   url: https://en.wikipedia.org/wiki/Singapore
                 message: Successfully Processed
                 status: Success
@@ -179,6 +183,23 @@ components:
               example: Singapore officially the Republic of Singapore, is a sovereign city-state and island country located in maritime Southeast Asia. 
                   Singapore lies about one degree of latitude (137 kilometres or 85 miles) north of the equator.
               description: A short summary of the Wikipedia article that was requested
+            thumbnail:
+              type: object
+              example: {"height":333,"source":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png", "width":500}
+              description: URL and dimensions of thumbnail image associated with page, if any.
+              properties:
+                height:
+                  type: string
+                  example: 333
+                  description: Height of the thumbnail image
+                source:
+                  type: string
+                  example: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png
+                  description: Source URL of the thumbnail image
+                width:
+                  type: string
+                  example: 500
+                  description: Width of the thumbnail image
             url: 
               type: string
               example: https://en.wikipedia.org/wiki/Singapore
@@ -292,26 +313,26 @@ components:
     input:
       type: object
       properties:
-        title:
+        keyword:
           type: string
           example: Singapore
           default: true
-          description: The search term, highest match to the title of the Wikipedia page.
+          description: The search term, highest match to the title of the Wikipedia page. Not Mandatory when pageid is given.
         pageid: 
           type: integer
-          default: true
+          default: false
           example: 27318
-          description: The Wikipedia id of the page requested.
+          description: The Wikipedia id of the page requested. Mandatory only when title is not given.
         language:
           type: string
           default: false
           example: en
-          description: Indicates the language in which the Wikipedia page is written. Default is English, for other languages give the input as ISO 639-1 language code. Please refer this link for language code https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes.
-        filter_key:
+          description: Indicates the language in which the Wikipedia page is written. Default is English, for other languages give the input as ISO 639-1 language code. Please refer this link for language code https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+        additional_fields:
           type: string
           default: false
           example: all
-          description: Indicates the filter criteria of the output result fields. The default return set includes pageid, url, and summary.“all” - returns all the fields. You can also filter by individual fields using the list value. Possible values are pageid, url, summary, content, links, and images
+          description: The default returns the pageid, url, summary and thumbnail, when given “all” - returns all the fields i.e pageid, url, summary, content, links, images and thumbnail.
   securitySchemes:
     APIAuthorizer:
       type: apiKey

@@ -10,18 +10,18 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be used for geo-targeting apps with map feature or property development planning resource apps. 
-  version: '0.1.0'
+  version: '1.0.0'
   x-subscribelink: landmark_detection_jp
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Jul 30, 2020"
+- name: "v1.0.0"
+  description: "Published Date - Mar 05, 2021"
 paths:
-  /microservices/cv/landmarkjp/v0.1/getpredictions:
+  /microservices/cv/landmarkjp/v1/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -30,8 +30,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                confidence: 100%
-                landmark: Gion
+                results:
+                  confidence: 100%
+                  landmark: Gion
+                message: Successfully Processed
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -102,16 +105,29 @@ components:
     success:
       type: object
       properties:
-        confidence:
-          x-name: confidence
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties:
+            confidence:
+              x-name: confidence
+              type: string
+              example: 100%
+              description: Confidence score of identification. Higher is more confidence.
+            landmark:
+              x-name: landmark
+              type: string
+              example: Gion
+              description: Name of the landmark
+        message:
           type: string
-          example: 100%
-          description: Confidence score of identification. Higher is more confidence.
-        landmark:
-          x-name: landmark
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
           type: string
-          example: Gion
-          description: Name of the landmark
+          example: Success
+          description: The status of the API call success/failure
             
         
     
@@ -235,7 +251,7 @@ components:
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Input image in base64 format.
+            Input image file in base64 format.
             
             Supported formats: blp, bmp, bufr, cur, dcx, dds, dib, eps, ps, fit, fits, flc, fli, fpx, ftc, ftu, gbr, gif, grib, h5, hd5, icns, ico, im, iim, jpeg, jp2, mic, mpeg, msp, pcd, pcx, pxr, png, ppm, psd, sgi, ras, tga, tiff, wmf, xbm, xpm.
         

@@ -23,7 +23,7 @@ info:
       > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
     
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      > {"must_not":[{"match":{"postalcode":"570251"}}]}
+      > {"must_not":[{"match":{"postalcode":570251}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
@@ -68,7 +68,7 @@ info:
      > "must":[{"match_phrase":{"street":"serangoon north avenue 4"}}],
      > "filter":[{"match":{"vehicle_type":"Y"}}],
      > "should":[{"match":{"car_park_group":"G18"}}],
-     > "must_not":[{"match":{"postalcode":"550409"}}]
+     > "must_not":[{"match":{"postalcode":550409}}]
      > }
     **Sample Queries Based on Use Cases**
     
@@ -78,17 +78,17 @@ info:
       
        > filterdata = {"filter":[{"match":{"street":"serangoon north avenue 4"}},{"match":{"block":"503"}},{"match":{"vehicle_type":"H"}}]}
        
-  version: '0.1.0'
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - May 15, 2020"
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
 paths:
-   /DaaS/prod/hdb/carparkavailability:
+   /microservices/data/carparkavailability/v1/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
@@ -127,7 +127,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}],"filter":[{"match":{"vehicle_type":"Y"}}],"should":[{"match":{"car_park_group":"G18"}}],"must_not":[{"match":{"postalcode":"550409"}}]}
+            {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}],"filter":[{"match":{"vehicle_type":"Y"}}],"should":[{"match":{"car_park_group":"G18"}}],"must_not":[{"match":{"postalcode":550409}}]}
       responses:
         '200':
           description: Ok
@@ -140,7 +140,7 @@ paths:
                   total: 1
                   max_score: 13.663734
                   hits:
-                  - _index: sentient_carparklotsavailble_hdb_index
+                  - _index: sentient_hdb_carparklotsavailble_index
                     _type: dir_doc
                     _id: AM/G40/Y/552506
                     _score: 13.663734
@@ -149,7 +149,7 @@ paths:
                       car_park_group: G40
                       vehicle_type: Y
                       car_park_availability: 15
-                      postalcode: '552506'
+                      postalcode: 552506
                       block: 506B
                       street: serangoon north avenue 4
                       xcoord: 32714.002
@@ -286,7 +286,7 @@ components:
                             postalcode: 
                               type: array
                               description: Postal code
-                              example: "552506"
+                              example: 552506
                             block: 
                               type: array
                               description: Block
@@ -423,7 +423,7 @@ components:
           example: Failure
     versions:
       type: object
-      properties:
+      properties: 
         v1.0.0:
          type: array
          items:

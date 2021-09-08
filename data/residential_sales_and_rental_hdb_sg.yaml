@@ -4,7 +4,6 @@ info:
   x-subscribelink: residential_sales_and_rental_hdb_sg
   description: |+
    This Data microservice retreives comprehensive details of each HDB block in Singapore including the number of units for each type of flats and whether they were sold or leased. Queries based on keywords and proximity to particular locations can be performed. Updated weekly.
-
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
@@ -26,7 +25,7 @@ info:
       > {"must":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
     
     * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
-      > {"must_not":[{"match":{"postalcode":"570251"}}]}
+      > {"must_not":[{"match":{"postalcode":570251}}]}
     
     * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       > {"should":[{"match_phrase":{"street":"serangoon north avenue 4"}}]}
@@ -49,19 +48,14 @@ info:
     * **match_phrase_prefix** - Search within a full text field with prefix
       > {"match_phrase_prefix":{"street":"serangoon central"}}
     * **term** - Returns results that contain an exact term in a provided field
-      > {"term":{"postalcode":"650634"}}
+      > {"term":{"postalcode":650634}}
     * **terms** - Returns results that contain one or more exact terms in a provided field
-      > {"terms":{"postalcode":["650634","650633"]}}
-
+      > {"terms":{"postalcode":[650634,650633]}}
     * **range** - Returns results that contain terms within a stipulated range
-
       > {"range":{"4room_sold":{"gte":50}}}
       > {"range":{"4room_sold":{"lte":50}}}
       > {"range":{"4room_sold":{"gte":50,"lte":70}}}
-
-
     * **exists** - Returns results that contain any indexed value for a field
-
       > {"exists":{ "field": "postalcode"}}
       
       For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
@@ -73,8 +67,8 @@ info:
      > {
      >  "must":[{"match_phrase":{"street":"serangoon+central"}}],
      >  "filter":[{"range":{"year_completed":{"gte":1}}}],
-     >  "should":[{"match":{"postalcode":"650633"}}],
-     >  "must_not":[{"match":{"postalcode":"650634"}}]
+     >  "should":[{"match":{"postalcode":650633}}],
+     >  "must_not":[{"match":{"postalcode":650634}}]
      > }
      
      
@@ -86,17 +80,17 @@ info:
        
        > filterdata = {"filter":[{"match_phrase": {"street":"bishan street 24"}},{"range": {"4room_sold":{"gte":1}}}]}
        
-  version: '0.1.0'
+  version: '1.0.0'
 servers:
-  - url: 'https://api.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Nov 25, 2019"
+- name: "v1.0.0"
+  description: "Published Date - May 21, 2021"
 paths:
-   /DaaS/prod/hdb/buildinginfo:
+   /microservices/data/buildinginfo/v1/getdata:
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: querystring
@@ -135,7 +129,7 @@ paths:
             * filter
           default: false
           example: |+
-            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"range":{"year_completed":{"gte":1}}}],"should":[{"match":{"postalcode":"650633"}}],"must_not":[{"match":{"postalcode":"650634"}}]}
+            {"must":[{"match_phrase":{"street":"serangoon+central"}}],"filter":[{"range":{"year_completed":{"gte":1}}}],"should":[{"match":{"postalcode":650633}}],"must_not":[{"match":{"postalcode":650634}}]}
       responses:
         '200':
           description: Ok
@@ -148,12 +142,12 @@ paths:
                   total: 12150
                   max_score: 1
                   hits:
-                  - _index: sentient_buildinginfo_hdb_index
+                  - _index: sentient_hdb_buildinginfo_index
                     _type: dir_doc
                     _id: '750405'
                     _score: 1
                     _source:
-                      postalcode: '750405'
+                      postalcode: 750405
                       year_completed: 1999
                       total_dwelling_units: 112
                       1room_sold: 0
@@ -284,9 +278,9 @@ components:
                     description: Json Object of returned hits                      
                     properties:
                       postalcode:
-                        type: string
+                        type: number
                         description: Postal code
-                        example: '750405'
+                        example: 750405
                       year_completed:
                         type: number
                         description: Completed year of the Building
@@ -479,7 +473,7 @@ components:
           example: Failure      
     versions:
       type: object
-      properties: 
+      properties:
         v1.0.0:
          type: array
          items:
