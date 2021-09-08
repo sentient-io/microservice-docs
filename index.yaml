@@ -75,7 +75,7 @@ nlp:
   spacy_ner:
     title: spaCy NER
     versions:
-      0.1.0: 'spacy_named-entity_recognition_eng.yaml'
+      0.1.0: 'spacy_ner.yaml'
   page_profiler_eng:
     title: Page Profiler ENG
     versions:
@@ -216,11 +216,11 @@ utility:
   base64_encoder:
     title: Base64 Encoder
     versions:
-      0.1.0: 'base64-encoder.yaml'
+      0.1.0: 'base64_encoder.yaml'
   base64_decoder:
     title: Base64 Decoder
     versions:
-      0.1.0: 'base64-decoder.yaml'
+      0.1.0: 'base64_decoder.yaml'
   get_ip:
     title: Get IP
     versions:
