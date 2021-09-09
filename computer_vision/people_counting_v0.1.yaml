@@ -216,6 +216,13 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.1:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Sep 09, 2021
+              description: Bug Fix - Frame Reading        
         v1.0.0:
           type: array
           items:
