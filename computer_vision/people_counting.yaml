@@ -10,18 +10,18 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Improve visitor experience and optimize operations in retail, leisure, and other sectors - build services to count visitor traffic in venues, measure detailed movements and interactions, and visualize that data to better understand what is happening in within a certain spaces. For example, one can optimize traffic, staff and marketing strategies to increase conversion rates and profits with actionable data. Businesses can use visitor count as a benchmark to figure out the conversion rate for a certain spot to see the real performance. Efficiently allocating the number of staff according to hourly visitor traffic will also create value in terms of revenue, profit and  efficiency.
-  version: '1.0.0'
+  version: '1.0.1'
   x-subscribelink: people_counting
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v1.0.1"
   description: "Published Date - Jan 25, 2021"
 paths:
   /microservices/cv/peoplecounting/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.0.1
 
       responses:
         '200':
