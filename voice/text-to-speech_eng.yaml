@@ -232,7 +232,7 @@ components:
           x-name: text
           type: string
           default: True
-          example: I want a credit card
+          example: I want a credit card.
           description: |+
             Input text to be synthesised 
         model:
