@@ -115,10 +115,10 @@ nlp:
     title: Text Summarisation
     versions:
       0.2.0: 'text_summarisation.yaml' 
-  sentiment_analysis:
+  sentiment_analysis_and_sarcasm_detection:
     title: Sentiment Analysis and Sarcasm Detection
     versions:
-      0.1.0: 'sentiment_analysis.yaml'        
+      0.1.0: 'sentiment_analysis_and_sarcasm_detection.yaml'        
 computer vision:
   object_detection:
     title: Object Detection
