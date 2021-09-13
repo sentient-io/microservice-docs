@@ -419,7 +419,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"match":{"seqno":43500}},{"geo_distance": {"distance": "1km","location": "1.344,103.722"}}]
+          example: [{"geo_distance": {"geo_distance":{"distance":"0.2km","location":"35.689,139.704"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
