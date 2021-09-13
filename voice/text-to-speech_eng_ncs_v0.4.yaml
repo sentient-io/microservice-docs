@@ -16,7 +16,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Jun 7, 2021"
 paths:
-  /predict/:
+  /predict:
     post:
       tags:
         - v1.0.0
