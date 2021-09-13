@@ -11,12 +11,12 @@ info:
   version: 1.0.0
   x-subscribelink: text-to-speech_eng
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'http://34.126.83.96:5000' 
 tags:
 - name: "v1.0.0"
   description: "Published Date - Jun 7, 2021"
 paths:
-  /microservices/voice/ttseng/ncstest/getpredictions:
+  /predict/:
     post:
       tags:
         - v1.0.0
@@ -266,6 +266,18 @@ components:
             The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1. 
             1 means default speed, 0.5 is half speed, 2 is twice the speed
             **used only for the female_singaporean model
+        return_type:
+          x-name: return_type
+          type: string
+          format: string
+          default: True
+          example: base64
+          description: |+
+            Specifies the return format of the audio. Supported options are&#58;
+            
+            1. base64
+            2. wav
+            3. streaming_wav
         
         
   securitySchemes:
