@@ -119,7 +119,7 @@ components:
             <order sequence number> :
               x-name: <order sequence number>
               type: string
-              example: { 0: Apple said, the project-financing fund was the 1 of its kind, real estate developers, often secure bonds for affordable housing development, but must service the debt during construction, until the houses are built and start to generate revenue, apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders.}
+              example: '{ 0: Apple said, the project-financing fund was the 1 of its kind, real estate developers, often secure bonds for affordable housing development, but must service the debt during construction, until the houses are built and start to generate revenue, apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders.}'
               description: Order sequence number 
         message:
           type: string
