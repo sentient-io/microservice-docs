@@ -230,19 +230,9 @@ components:
           x-name: text
           type: string
           default: True
-          example: I want a credit card
+          example: Arrange a meeting with... Linda Tan on 10:30 p.m. Next Wednesday.
           description: |+
             Input text to be synthesised 
-        model:
-          x-name: model
-          type: string
-          default: True
-          example: female_singaporean
-          description: |+
-            Model selection. For best performance, select the model which best matches the use-case&#58;
-            
-            1. female_generic
-            2. female_singaporean
         pitch_scale:
           x-name: pitch_scale
           type: integer
