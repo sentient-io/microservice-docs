@@ -52,6 +52,10 @@ voice:
     title: Text-To-Speech JP
     versions:
       0.1.0: 'text_to_speech_jp.yaml'
+  text-to-speech_eng_ncs:
+    title: Text-To-Speech ENG NCS
+    versions:
+      0.1.0: 'text-to-speech_eng_ncs.yaml'
   automatic_speech_recognition_eng_sg:
     title: ASR with Voice Activity Detection ENG
     versions:
