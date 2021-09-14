@@ -7,7 +7,7 @@ info:
     Do ensure that your text is within **5000 characters**.
   version: '0.1.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 08, 2021"
