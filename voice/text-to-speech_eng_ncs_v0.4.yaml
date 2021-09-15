@@ -11,12 +11,12 @@ info:
   version: 1.0.0
   x-subscribelink: text-to-speech_eng
 servers:
-  - url: 'http://tts.sentient.io:5000' 
+  - url: 'https://apis.sentient.io' 
 tags:
 - name: "v1.0.0"
   description: "Published Date - Jun 7, 2021"
 paths:
-  /predict:
+  /microservices/voice/ttseng/ncsv1/getpredictions:
     post:
       tags:
         - v1.0.0
