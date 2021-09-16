@@ -232,7 +232,7 @@ components:
         normalize:
           type: string
           default: false
-          example: yes or no
+          example: no
           description: A boolean value that indicates whether to normalize the audio or not. Values must be either “yes” or “no”
         trim_start_time:
           type: string
