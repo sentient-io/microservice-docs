@@ -56,7 +56,7 @@ voice:
     title: Text-To-Speech ENG NCS
     versions:
       0.1.0: 'text-to-speech_eng_ncs.yaml'
-  automatic_speech_recognition_eng_sg:
+  asr_with_voice_activity_detection_eng:
     title: ASR with Voice Activity Detection ENG
     versions:
       1.2.0: 'asr_with_voice_activity_detection_eng.yaml'
