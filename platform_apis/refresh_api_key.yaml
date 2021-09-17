@@ -10,7 +10,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - May 12, 2021"
 paths:
-  /org/refreshapikey:
+  /org/v0/refreshapikey:
     post:
       tags:
         - v0.1.0
