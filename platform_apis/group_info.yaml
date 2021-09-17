@@ -11,7 +11,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 09, 2021"
 paths:
-   /org/getgroupinfo:
+   /org/v0/getgroupinfo:
     get:
       tags:
         - v0.1.0
