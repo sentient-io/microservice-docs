@@ -386,3 +386,63 @@ Platform APIs:
     urlkey: api_metering_error_details
     versions:
       0.1.0: 'api_metering_error_details.yaml'
+  add_function_to_group:
+    title: Add Function To Group
+    urlkey: add_function_to_group
+    versions:
+      0.1.0: 'add_function_to_group.yaml'
+  remove_function_from_group:
+    title: Remove Function From Group
+    urlkey: remove_function_from_group
+    versions:
+      0.1.0: 'remove_function_from_group.yaml'
+  subscription:
+    title: Subscription
+    urlkey: subscription
+    versions:
+      0.1.0: 'subscription.yaml'
+  unsubscription:
+    title: Unsubscription
+    urlkey: unsubscription
+    versions:
+      0.1.0: 'unsubscription.yaml'
+  add_user_to_function:
+    title: Add User To Function
+    urlkey: add_user_to_function
+    versions:
+      0.1.0: 'add_user_to_function.yaml'
+  remove_user_from_function:
+    title: Remove User From Function
+    urlkey: remove_user_from_function
+    versions:
+      0.1.0: 'remove_user_from_function.yaml'
+  delete_group:
+    title: Delete Group
+    urlkey: delete_group
+    versions:
+      0.1.0: 'delete_group.yaml'
+  get_deleted_user_list:
+    title: Get Deleted User List
+    urlkey: get_deleted_user_list
+    versions:
+      0.1.0: 'get_deleted_user_list.yaml'
+  get_function_list:
+    title: Get Function List
+    urlkey: get_function_list
+    versions:
+      0.1.0: 'get_function_list.yaml' 
+  get_org_assign_functions:
+    title: Get Org Assign Functions
+    urlkey: get_org_assign_functions
+    versions:
+      0.1.0: 'get_org_assign_functions.yaml'
+  microservices_list:
+    title: Microservices List
+    urlkey: microservices_list
+    versions:
+      0.1.0: 'microservices_list.yaml'
+  update_password:
+    title: Update Password
+    urlkey: update_password
+    versions:
+      0.1.0: 'update_password.yaml'
