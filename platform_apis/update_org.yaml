@@ -10,7 +10,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - May 12, 2021"
 paths:
-  /org/editorg:
+  /org/v0/editorg:
     post:
       tags:
         - v0.1.0
