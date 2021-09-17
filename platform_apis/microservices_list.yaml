@@ -1,0 +1,1491 @@
+openapi: 3.0.1
+info:
+  title: Microservices List
+  description: This API provides microservices list based on class type. It can categorize the microservice listing from ascending, descending, newest, oldest and provider type based.
+  version: v0.1.0
+  x-subscribelink: microservices_list
+servers:
+  - url: 'https://dev-microserviceapi-catalog.sentient.io' 
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Sep 6, 2021"
+paths:
+  /v0/microserviceslist:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                ALL:
+                  data:
+                  - dataschema: "[]"
+                    date_created: 17 aug 2021 / 15:11
+                    date_updated: 26 aug 2021 / 19:18
+                    demo_apps: []
+                    description1: Alibaba Chinese ASR
+                    description2: Alibaba Chinese ASR
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 756
+                    keywords: ''
+                    method:
+                    name: Alibaba Chinese ASR
+                    source: SRC_SENT
+                    tags: []
+                    url: alibaba_chi_asr
+                  - dataschema: "[]"
+                    date_created: 01 oct 2019 / 18:13
+                    date_updated: 12 jul 2021 / 22:03
+                    demo_apps:
+                    - demolink: https://dev-demos.sentient.io/transcribe-speech
+                      description: Transcribe both Singapore-accented spoken English and Mandarin
+                        into text.
+                      description2: |-
+                        This demo app transcribes Singapore-accented spoken English and Mandarin into text.
+                        User can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices.
+                      icon_url: https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg
+                      id: 125
+                      name: Transcribe Speech
+                      url: transcribe_speech
+                    description1: Transcribes input audio file containing Mandarin speech content
+                      into Simplified Chinese text.
+                    description2: |-
+                      This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.
+                      This microservice works best when the audio file consists of mostly speech with no long pauses in between.
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 380
+                    keywords: ''
+                    method:
+                    name: Automatic Speech Recognition CHI
+                    source: SRC_SENT
+                    tags: []
+                    url: automatic_speech_recognition_chi
+                  - description1: Microservice that identify hypernym of a target word in a given
+                      sentence
+                    description2: This microservice takes in a text and a target word and tries to
+                      identify the target word's hypernym. If spacy pos tagger identify the target
+                      word in the text is a noun, the target word will be presented to wordnet. The
+                      wordnet result consists of a list of similar words. Each word consists of definition
+                      and hypernym. The microservice will return the potential hypernym, definition,
+                      and score
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 550
+                    keywords: ''
+                    method:
+                    name: Word Sense Disambiguation ENG
+                    source: SRC_SENT
+                    tags: []
+                    url: word_sense_disambiguation_eng
+                  - dataschema: "[]"
+                    date_created: 19 aug 2021 / 13:18
+                    date_updated: 19 aug 2021 / 13:18
+                    demo_apps: []
+                    description1: tyi
+                    description2: yi
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 762
+                    keywords: ''
+                    method:
+                    name: yt
+                    source: SRC_SENT
+                    tags: []
+                    url: i
+                CLASS_AI:
+                  data:
+                  - dataschema: "[]"
+                    date_created: 17 aug 2021 / 15:11
+                    date_updated: 26 aug 2021 / 19:18
+                    demo_apps: []
+                    description1: Alibaba Chinese ASR
+                    description2: Alibaba Chinese ASR
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 756
+                    keywords: ''
+                    method:
+                    name: Alibaba Chinese ASR
+                    source: SRC_SENT
+                    tags: []
+                    url: alibaba_chi_asr
+                  - dataschema: "[]"
+                    date_created: 01 oct 2019 / 18:13
+                    date_updated: 12 jul 2021 / 22:03
+                    demo_apps:
+                    - demolink: https://dev-demos.sentient.io/transcribe-speech
+                      description: Transcribe both Singapore-accented spoken English and Mandarin
+                        into text.
+                      description2: |-
+                        This demo app transcribes Singapore-accented spoken English and Mandarin into text.
+                        User can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices.
+                      icon_url: https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg
+                      id: 125
+                      name: Transcribe Speech
+                      url: transcribe_speech
+                    description1: Transcribes input audio file containing Mandarin speech content
+                      into Simplified Chinese text.
+                    description2: |-
+                      This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.
+                      This microservice works best when the audio file consists of mostly speech with no long pauses in between.
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 380
+                    keywords: ''
+                    method:
+                    name: Automatic Speech Recognition CHI
+                    source: SRC_SENT
+                    tags: []
+                    url: automatic_speech_recognition_chi
+                  names:
+                  - date_created: 17 aug 2021 / 15:11
+                    id: 756
+                    name: Alibaba Chinese ASR
+                    url: alibaba_chi_asr
+                  - date_created: 01 oct 2019 / 18:13
+                    id: 380
+                    name: Automatic Speech Recognition CHI
+                    url: automatic_speech_recognition_chi
+                CLASS_COMPUTER_VISION:
+                  data:
+                  - dataschema: "[]"
+                    date_created: 18 nov 2020 / 16:41
+                    date_updated: 30 dec 2020 / 18:44
+                    demo_apps:
+                    - demolink: dev-demos.sentient.io/predict-demographics
+                      description: Predict demographics of people within images based on faces detected
+                      description2: This demo app detects faces from an input image and predicts the
+                        demographics of each face (age, gender and race), with corresponding bounding
+                        boxes.
+                      icon_url: ''
+                      id: 137
+                      name: Predict Demographics
+                      url: predict_demographics
+                    description1: 'This Computer Vision microservice detects for faces from an input
+                      image and predicts the demographics of each face (age, gender and race). The
+                      image is given as an input encoded using base64. The microservice will a face
+                      detector and subsequently models to predict age, gender and race. The results
+                      will then be returned back to the user as a JSON output together with bounding
+                      box coordinates for each face.Races include: Asian, Indian, White, Black, Middle
+                      Eastern and Latino Hispanic'
+                    description2: "This Computer Vision microservice identifies faces within an input
+                      image and predicts the demographics of each face (age, gender and race). \n\nThe
+                      results will then be returned back to the user as a JSON output together with
+                      bounding box coordinates for each face. "
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 634
+                    keywords: ''
+                    method:
+                    name: Demographics Classification
+                    source: SRC_SENT
+                    tags: []
+                    url: demographics_classification
+                  - dataschema: "[]"
+                    date_created: 02 jul 2020 / 11:37
+                    date_updated: 04 mar 2021 / 12:43
+                    demo_apps: []
+                    description1: Recognises faces of Singaporean and Japanese public figures from
+                      input image files.
+                    description2: "This Computer Vision microservice recognises faces of Singaporean
+                      and Japanese public figures (e.g. athletes, business leaders, celebrities, politicians,
+                      TV personalities, etc). \n\nThis microservice returns the identity of the person,
+                      the bounding box in image coordinates, and the confidence of the prediction.
+                      Users can further filter \n\nHelp us grow this microservice! [Let us know](https://www.sentient.io/contact)
+                      which other public figures you would like us this microservice to also recognise
+                      (e.g. a new country or a new category). We will expand the capability of this
+                      microservices based on user feedback and demand."
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 604
+                    keywords: ''
+                    method:
+                    name: Face Recognition
+                    source: SRC_SENT
+                    tags: []
+                    url: face_recognition
+                  names:
+                  - date_created: 18 nov 2020 / 16:41
+                    id: 634
+                    name: Demographics Classification
+                    url: demographics_classification
+                  - date_created: 02 jul 2020 / 11:37
+                    id: 604
+                    name: Face Recognition
+                    url: face_recognition
+                CLASS_DATA:
+                  data:
+                  - dataschema: '[{"name": "REPORT", "type": "", "datalength": "", "isnull": "no",
+                      "description": "", "$$hashKey": "object:4555"}, {"name": "META_INFO", "type":
+                      "", "datalength": "", "isnull": "no", "description": "", "$$hashKey": "object:4556"},
+                      {"name": "SERVICE", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Report requested", "$$hashKey": "object:4557"}, {"name": "SYSTEM_ID", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "System ID", "$$hashKey":
+                      "object:4558"}, {"name": "CREATION_DATE", "type": "Datetime", "datalength":
+                      "", "isnull": "no", "description": "Report request date", "$$hashKey": "object:4559"},
+                      {"name": "USER_ID", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Valid user id in DDP system", "$$hashKey": "object:4560"}, {"name": "CLASS",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Class location
+                      for metabean. It is for\n\n(For internal use)", "$$hashKey": "object:4561"},
+                      {"name": "REQ_SEARCH_INFO", "type": "", "datalength": "", "isnull": "no", "description":
+                      "Request criteria & search record", "$$hashKey": "object:4562"}, {"name": "COMP_NAME",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Company
+                      Name", "$$hashKey": "object:4563"}, {"name": "REG_NO", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Subject\u2019s ID Number (individual) or\n\nRegistration
+                      Number (company/business)", "$$hashKey": "object:4564"}, {"name": "REQ_DATE",
+                      "type": "Date", "datalength": "", "isnull": "no", "description": "Report Requested
+                      Date", "$$hashKey": "object:4565"}, {"name": "REQ_REG_NO", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Request Registration Number",
+                      "$$hashKey": "object:4566"}, {"name": "REQ_NAME", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Request Name", "$$hashKey": "object:4567"},
+                      {"name": "REQ_DATE_STR", "type": "Varchar", "datalength": "", "isnull": "no",
+                      "description": "Request Date String", "$$hashKey": "object:4568"}, {"name":
+                      "REGISTRY_DETAIL", "type": "", "datalength": "", "isnull": "no", "description":
+                      "Registry Details", "$$hashKey": "object:4569"}, {"name": "RENEWAL_DATE", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "Renewal Date",
+                      "$$hashKey": "object:4570"}, {"name": "ADDRESS1", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Address1", "$$hashKey": "object:4571"},
+                      {"name": "ADDRESS2", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Address2", "$$hashKey": "object:4572"}, {"name": "ADDRESS3", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Address3", "$$hashKey": "object:4573"},
+                      {"name": "ADDRESS4", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Address4", "$$hashKey": "object:4574"}, {"name": "COMP_TYPE_CODE", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "Report Code", "$$hashKey":
+                      "object:4575"}, {"name": "REG_DATE", "type": "Varchar", "datalength": "", "isnull":
+                      "no", "description": "Registration Date", "$$hashKey": "object:4576"}, {"name":
+                      "REG_ACTIVITY1", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Registered Activities 1", "$$hashKey": "object:4577"}, {"name": "REG_ACTIVITY2",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Registered
+                      Activities 2", "$$hashKey": "object:4578"}, {"name": "ACC_DATE", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Account Date", "$$hashKey":
+                      "object:4579"}, {"name": "STATUS_EFFECT_DATE", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Status Effective Date", "$$hashKey": "object:4580"},
+                      {"name": "NAME_EFFECT_DATE", "type": "Varchar", "datalength": "", "isnull":
+                      "no", "description": "Name Effective Date", "$$hashKey": "object:4581"}, {"name":
+                      "EXPIRY_DATE", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Expiry Date", "$$hashKey": "object:4582"}, {"name": "COMP_TYPE", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Company Type", "$$hashKey":
+                      "object:4583"}, {"name": "CHANGE_ADDR_DATE", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Change Address Date", "$$hashKey": "object:4584"},
+                      {"name": "COMP_STATUS", "type": "Varchar", "datalength": "", "isnull": "no",
+                      "description": "Company Status", "$$hashKey": "object:4585"}, {"name": "REG_ACTIVITY_DESC1",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Registered
+                      Activities Description", "$$hashKey": "object:4586"}, {"name": "REG_ACTIVITY_DESC2",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Registered
+                      Activities Description", "$$hashKey": "object:4587"}, {"name": "AUDITOR", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "Auditor Name",
+                      "$$hashKey": "object:4588"}, {"name": "AUDITOR_APPMT_DATE", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Auditor Appointment Date",
+                      "$$hashKey": "object:4589"}, {"name": "LAST_AR_DATE", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Date of Last AR", "$$hashKey": "object:4590"},
+                      {"name": "LAST_AGM_DATE", "type": "Varchar", "datalength": "", "isnull": "no",
+                      "description": "Date of Last AGM", "$$hashKey": "object:4591"}, {"name": "COUNTRY_INCORP",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Country
+                      Incorporated", "$$hashKey": "object:4592"}, {"name": "EMPLOYEE_SIZE", "type":
+                      "", "datalength": "", "isnull": "no", "description": "Employee Size Details",
+                      "$$hashKey": "object:4593"}, {"name": "ELEMENTS", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Description", "$$hashKey": "object:4594"},
+                      {"name": "AMOUNT", "type": "Integer", "datalength": "", "isnull": "no", "description":
+                      "Number of employee", "$$hashKey": "object:4595"}, {"name": "LIST_BIZ_BRANCH",
+                      "type": "", "datalength": "", "isnull": "no", "description": "List of Business\n\nBranches",
+                      "$$hashKey": "object:4596"}, {"name": "BIZ_BRANCH", "type": "", "datalength":
+                      "", "isnull": "no", "description": "", "$$hashKey": "object:4597"}, {"name":
+                      "ADDR_BUILDING", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Building Name", "$$hashKey": "object:4598"}, {"name": "ADDR_POSTCODE", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "Postcode", "$$hashKey":
+                      "object:4599"}, {"name": "ADDR_ADDRESS1", "type": "Varchar", "datalength": "",
+                      "isnull": "no", "description": "Address", "$$hashKey": "object:4600"}, {"name":
+                      "LIST_REG_CHARGES", "type": "", "datalength": "", "isnull": "no", "description":
+                      "List of Registered\n\nCharges", "$$hashKey": "object:4601"}, {"name": "REG_CHARGES",
+                      "type": "", "datalength": "", "isnull": "no", "description": "Registered Charges
+                      Details", "$$hashKey": "object:4602"}, {"name": "CHARGE_NO", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Charge No.", "$$hashKey":
+                      "object:4603"}, {"name": "CHARGE_DATE", "type": "Varchar", "datalength": "",
+                      "isnull": "no", "description": "Charge Date", "$$hashKey": "object:4604"}, {"name":
+                      "CHARGEE_COMP", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Charges Company", "$$hashKey": "object:4605"}, {"name": "CURRENCY", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "Currency", "$$hashKey":
+                      "object:4606"}, {"name": "AMT_SECURED", "type": "Varchar", "datalength": "",
+                      "isnull": "no", "description": "Amount Secured", "$$hashKey": "object:4607"},
+                      {"name": "STATUS_SATISFACTION", "type": "Varchar", "datalength": "", "isnull":
+                      "no", "description": "Status of Satisfaction", "$$hashKey": "object:4608"},
+                      {"name": "LIST_LIQUIDATOR", "type": "", "datalength": "", "isnull": "no", "description":
+                      "List of Liquidator / Receiver / Judicial\n\nManager", "$$hashKey": "object:4609"},
+                      {"name": "LIQUIDATOR", "type": "", "datalength": "", "isnull": "no", "description":
+                      "", "$$hashKey": "object:4610"}, {"name": "CAPITAL_TYPE", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Capital Type", "$$hashKey":
+                      "object:4611"}, {"name": "CAPITAL_AMT", "type": "Varchar", "datalength": "",
+                      "isnull": "yes", "description": "Capital Amount", "$$hashKey": "object:4612"},
+                      {"name": "NO_OF_SHARES", "type": "Varchar", "datalength": "", "isnull": "no",
+                      "description": "Nos. of Shares", "$$hashKey": "object:4613"}, {"name": "LIST_NAME_CHANGE",
+                      "type": "", "datalength": "", "isnull": "no", "description": "List of Change
+                      of Company/Business\n\nName(s)", "$$hashKey": "object:4614"}, {"name": "NAME_CHANGE",
+                      "type": "", "datalength": "", "isnull": "no", "description": "Change of\n\nCompany/Business
+                      Name(s)", "$$hashKey": "object:4615"}, {"name": "PREV_NAME", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Previous Name", "$$hashKey":
+                      "object:4616"}, {"name": "EFFECT_DATE", "type": "Varchar", "datalength": "",
+                      "isnull": "no", "description": "Effective Date", "$$hashKey": "object:4617"},
+                      {"name": "LIST_SALES_REVENUE_AMOUNT", "type": "", "datalength": "", "isnull":
+                      "no", "description": "List of Sales Revenue\n\nAmount", "$$hashKey": "object:4618"},
+                      {"name": "SALES_REVENUE_AMOUNT", "type": "", "datalength": "", "isnull": "no",
+                      "description": "Sales Revenue Amount Details", "$$hashKey": "object:4619"},
+                      {"name": "YEAR", "type": "Integer", "datalength": "", "isnull": "yes", "description":
+                      "Year", "$$hashKey": "object:4620"}, {"name": "LIST_Ddrptcount", "type": "Integer",
+                      "datalength": "", "isnull": "yes", "description": "List of Search By Financial
+                      Sectors and Search By Non-\n\nFinancial Sectors", "$$hashKey": "object:4621"},
+                      {"name": "Ddrptcount", "type": "", "datalength": "", "isnull": "no", "description":
+                      "6 XML tags (open then close) displays\n\n\n\nSearch By Financial Sectors (counts
+                      for 3 recent years)\n\n\n\nSearch By Non- Financial Sectors (counts for 3 recent
+                      years)", "$$hashKey": "object:4622"}, {"name": "Rcyear", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "To show the year", "$$hashKey":
+                      "object:4623"}, {"name": "RcFlag", "type": "Varchar", "datalength": "", "isnull":
+                      "no", "description": "Internal database value", "$$hashKey": "object:4624"},
+                      {"name": "Rcjan", "type": "Integer", "datalength": "", "isnull": "no", "description":
+                      "Count for January", "$$hashKey": "object:4625"}, {"name": "Rcfeb", "type":
+                      "Integer", "datalength": "", "isnull": "no", "description": "Count for February",
+                      "$$hashKey": "object:4626"}, {"name": "Rcmar", "type": "Integer", "datalength":
+                      "", "isnull": "no", "description": "Count for March", "$$hashKey": "object:4627"},
+                      {"name": "Rcapr", "type": "Integer", "datalength": "", "isnull": "no", "description":
+                      "Count for April", "$$hashKey": "object:4628"}, {"name": "Rcmay", "type": "Integer",
+                      "datalength": "", "isnull": "no", "description": "Count for May", "$$hashKey":
+                      "object:4629"}, {"name": "Rcjun", "type": "Integer", "datalength": "", "isnull":
+                      "no", "description": "Count for June", "$$hashKey": "object:4630"}, {"name":
+                      "Rcjul", "type": "Integer", "datalength": "", "isnull": "no", "description":
+                      "Count for July", "$$hashKey": "object:4631"}, {"name": "Rcaug", "type": "Integer",
+                      "datalength": "", "isnull": "no", "description": "Count for August", "$$hashKey":
+                      "object:4632"}, {"name": "Rcsep", "type": "Integer", "datalength": "", "isnull":
+                      "no", "description": "Count for September", "$$hashKey": "object:4633"}, {"name":
+                      "Rcoct", "type": "Integer", "datalength": "", "isnull": "no", "description":
+                      "Count for October", "$$hashKey": "object:4634"}, {"name": "Rcnov", "type":
+                      "Integer", "datalength": "", "isnull": "no", "description": "Count for November",
+                      "$$hashKey": "object:4635"}, {"name": "Rcdec", "type": "Integer", "datalength":
+                      "", "isnull": "no", "description": "Count for December", "$$hashKey": "object:4636"},
+                      {"name": "Rcid", "type": "Integer", "datalength": "", "isnull": "no", "description":
+                      "Internal database value", "$$hashKey": "object:4637"}, {"name": "Rcreg", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "Company Registration
+                      Number", "$$hashKey": "object:4638"}, {"name": "Rcrptyid", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Product Type", "$$hashKey":
+                      "object:4639"}, {"name": "Rcsecflag", "type": "Integer", "datalength": "", "isnull":
+                      "no", "description": "Differentiate Search By Financial Sectors and Search By
+                      Non- Financial Sectors", "$$hashKey": "object:4640"}, {"name": "LastUpdateDate",
+                      "type": "Timestamp", "datalength": "", "isnull": "no", "description": "Last
+                      update date", "$$hashKey": "object:4641"}, {"name": "BASIC_INFO", "type": "",
+                      "datalength": "", "isnull": "no", "description": "Basic information", "$$hashKey":
+                      "object:4642"}, {"name": "PA_REG_NO", "type": "Varchar", "datalength": "", "isnull":
+                      "no", "description": "Public Accountant Registration No.", "$$hashKey": "object:4643"},
+                      {"name": "LIT_SEARCH_INFO", "type": "", "datalength": "", "isnull": "no", "description":
+                      "Litigation search information", "$$hashKey": "object:4644"}, {"name": "REPORT_TYPE",
+                      "type": "Varchar", "datalength": "", "isnull": "yes", "description": "Report
+                      Type", "$$hashKey": "object:4645"}, {"name": "LIST_CURRENT_COMP", "type": "",
+                      "datalength": "", "isnull": "no", "description": "List of current companies",
+                      "$$hashKey": "object:4646"}, {"name": "CURRENT_COMP", "type": "", "datalength":
+                      "", "isnull": "no", "description": "Current companies detail", "$$hashKey":
+                      "object:4647"}, {"name": "POSITION", "type": "Varchar", "datalength": "", "isnull":
+                      "no", "description": "Position", "$$hashKey": "object:4648"}, {"name": "APPOINTMENT_DATE",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Appointment
+                      Date", "$$hashKey": "object:4649"}, {"name": "SEQ_NO", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Company Registration No.", "$$hashKey":
+                      "object:4650"}, {"name": "SHARE_VALUE1", "type": "Varchar", "datalength": "",
+                      "isnull": "no", "description": "% Share", "$$hashKey": "object:4651"}, {"name":
+                      "PROFIT_VALUE1", "type": "Varchar", "datalength": "", "isnull": "yes", "description":
+                      "Profit Making 1", "$$hashKey": "object:4652"}, {"name": "PROFIT_VALUE2", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "Profit Making 2",
+                      "$$hashKey": "object:4653"}, {"name": "PROFIT_VALUE3", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Profit Making 3", "$$hashKey": "object:4654"},
+                      {"name": "SHARE_VALUE", "type": "Varchar", "datalength": "", "isnull": "no",
+                      "description": "Number Of Shares", "$$hashKey": "object:4655"}, {"name": "TEL",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Telephone
+                      Number", "$$hashKey": "object:4656"}, {"name": "FAX", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Fax Number", "$$hashKey": "object:4657"},
+                      {"name": "SIC", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "SIC Code", "$$hashKey": "object:4658"}, {"name": "SIC_DESC", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "SIC Description", "$$hashKey":
+                      "object:4659"}, {"name": "LIST_PREVIOUS_COMP", "type": "", "datalength": "",
+                      "isnull": "no", "description": "List of previous companies", "$$hashKey": "object:4660"},
+                      {"name": "PREVIOUS_COMP", "type": "", "datalength": "", "isnull": "no", "description":
+                      "Previous companies detail", "$$hashKey": "object:4661"}, {"name": "CESSATION_DATE",
+                      "type": "Varchar", "datalength": "", "isnull": "yes", "description": "Cessation
+                      Date", "$$hashKey": "object:4662"}, {"name": "LIST_BANKRUPTCY", "type": "",
+                      "datalength": "", "isnull": "no", "description": "Bankruptcy/ Winding up", "$$hashKey":
+                      "object:4663"}, {"name": "BANKRUPTCY", "type": "", "datalength": "", "isnull":
+                      "no", "description": "Bankruptcy/Winding up detail", "$$hashKey": "object:4664"},
+                      {"name": "SUBJECT_NAME", "type": "Varchar", "datalength": "", "isnull": "no",
+                      "description": "Subject Name", "$$hashKey": "object:4665"}, {"name": "COURT_CODE",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Court Code",
+                      "$$hashKey": "object:4666"}, {"name": "CASE_CODE", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Case Code", "$$hashKey": "object:4667"},
+                      {"name": "CASE_YEAR", "type": "Integer", "datalength": "", "isnull": "no", "description":
+                      "Case Year", "$$hashKey": "object:4668"}, {"name": "ACTION_DATE", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Action Date", "$$hashKey":
+                      "object:4669"}, {"name": "BANKRUPTCY_ACT", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Act of Bankruptcy", "$$hashKey": "object:4670"},
+                      {"name": "HEARING_DATE", "type": "Varchar", "datalength": "", "isnull": "no",
+                      "description": "Hearing Date", "$$hashKey": "object:4671"}, {"name": "CURRENCY1",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Currency",
+                      "$$hashKey": "object:4672"}, {"name": "AMOUNT1", "type": "Varchar", "datalength":
+                      "", "isnull": "no", "description": "Amount", "$$hashKey": "object:4673"}, {"name":
+                      "CURRENCY2", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Currency", "$$hashKey": "object:4674"}, {"name": "AMOUNT2", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Amount", "$$hashKey": "object:4675"},
+                      {"name": "CURRENCY3", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Currency", "$$hashKey": "object:4676"}, {"name": "AMOUNT3", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Amount", "$$hashKey": "object:4677"},
+                      {"name": "BANKRUPTCY_TYPE", "type": "Varchar", "datalength": "", "isnull": "no",
+                      "description": "Bankruptcy Type", "$$hashKey": "object:4678"}, {"name": "LIST_PLAINTIFF",
+                      "type": "", "datalength": "", "isnull": "no", "description": "List of Plaintiff",
+                      "$$hashKey": "object:4679"}, {"name": "PLAINTIFF", "type": "", "datalength":
+                      "", "isnull": "no", "description": "Plaintiff detail", "$$hashKey": "object:4680"},
+                      {"name": "PLA_NAME", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Pla. Name", "$$hashKey": "object:4681"}, {"name": "PLA_SOLICITOR", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "Pla. Solicitor",
+                      "$$hashKey": "object:4682"}, {"name": "PLA_SOLICITOR_ID", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Pla. Solicitor ID", "$$hashKey":
+                      "object:4683"}, {"name": "PLA_FILE_REF", "type": "Varchar", "datalength": "",
+                      "isnull": "no", "description": "Pla. File Ref.", "$$hashKey": "object:4684"},
+                      {"name": "LIST_LIT", "type": "", "datalength": "", "isnull": "no", "description":
+                      "List of litigation", "$$hashKey": "object:4685"}, {"name": "LIT", "type": "",
+                      "datalength": "", "isnull": "no", "description": "Basic litigation info", "$$hashKey":
+                      "object:4686"}, {"name": "FORMATTED_ID", "type": "Varchar", "datalength": "",
+                      "isnull": "yes", "description": "Formatted ID", "$$hashKey": "object:4687"},
+                      {"name": "LIST_LIT_DTL", "type": "", "datalength": "", "isnull": "no", "description":
+                      "List of litigation detail", "$$hashKey": "object:4688"}, {"name": "LIT_DTL",
+                      "type": "", "datalength": "", "isnull": "no", "description": "Litigation detail",
+                      "$$hashKey": "object:4689"}, {"name": "NATURE_OF_CLAIM", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Nature of Claim", "$$hashKey":
+                      "object:4690"}, {"name": "STATUS_DATE", "type": "Varchar", "datalength": "",
+                      "isnull": "no", "description": "Status Date", "$$hashKey": "object:4691"}, {"name":
+                      "CASE_NO", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Case No.", "$$hashKey": "object:4692"}, {"name": "DOC_REMARKS", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Document Remark", "$$hashKey":
+                      "object:4693"}, {"name": "CURRENCY4", "type": "Varchar", "datalength": "", "isnull":
+                      "no", "description": "Currency 4", "$$hashKey": "object:4694"}, {"name": "CURRENCY5",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Currency
+                      5", "$$hashKey": "object:4695"}, {"name": "CASE_STATUS", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Status", "$$hashKey": "object:4696"},
+                      {"name": "AMOUNT4", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Amount 4", "$$hashKey": "object:4697"}, {"name": "AMOUNT5", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Amount 5", "$$hashKey": "object:4698"},
+                      {"name": "LAW_FIRM", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Pla. Law Firm", "$$hashKey": "object:4699"}, {"name": "WRITE_DATE", "type":
+                      "Varchar", "datalength": "", "isnull": "no", "description": "Write date", "$$hashKey":
+                      "object:4700"}, {"name": "PLA_STATUS", "type": "Varchar", "datalength": "",
+                      "isnull": "no", "description": "Plaintiff Status", "$$hashKey": "object:4701"},
+                      {"name": "PLA_STATUS_DATE", "type": "Varchar", "datalength": "", "isnull": "no",
+                      "description": "Plaintiff Status Date", "$$hashKey": "object:4702"}, {"name":
+                      "PLA_ID", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Plaintiff ID", "$$hashKey": "object:4703"}, {"name": "LIST_DEFENDANT", "type":
+                      "", "datalength": "", "isnull": "no", "description": "List of defendant", "$$hashKey":
+                      "object:4704"}, {"name": "DEFENDANT", "type": "", "datalength": "", "isnull":
+                      "no", "description": "Defendant detail", "$$hashKey": "object:4705"}, {"name":
+                      "DEF_SOLICITOR", "type": "Varchar", "datalength": "", "isnull": "no", "description":
+                      "Def. Solicitor", "$$hashKey": "object:4706"}, {"name": "DEF_SOLICITOR_ID",
+                      "type": "Varchar", "datalength": "", "isnull": "no", "description": "Def. Solicitor
+                      ID", "$$hashKey": "object:4707"}, {"name": "DEF_LAW_FIRM", "type": "Varchar",
+                      "datalength": "", "isnull": "no", "description": "Def. Law Firm", "$$hashKey":
+                      "object:4708"}, {"name": "DEF_FILE_REF", "type": "Varchar", "datalength": "",
+                      "isnull": "no", "description": "Def. File Ref.", "$$hashKey": "object:4709"}]'
+                    date_created: 23 jul 2019 / 03:21
+                    date_updated: 16 apr 2021 / 14:03
+                    demo_apps:
+                    - demolink: ''
+                      description: ownertestdemo1
+                      description2: ownertestdemo2
+                      icon_url: ''
+                      id: 142
+                      name: ownertestdemo1
+                      url: testdemo1
+                    description1: Provides information on the business interests of an individual
+                      within Singapore. Powered by Dun & Bradstreet SG (D&B). Updated daily.
+                    description2: This Data microservice provides information on the (Singapore-registered)
+                      business interests of an individual. It includes the individual’s actual name,
+                      residential address, business and shareholding in businesses, current & previous
+                      ownership, litigation against individual and businesses, bankruptcy record and
+                      count on the times this individual has been searched on. Updated daily.
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: https://sentient-prod.s3.amazonaws.com/functionicons/1600230174576IMG9094.JPG
+                    id: 318
+                    keywords: ''
+                    method: 'Primary sources : Accounting and Corporate Regulatory Authority (Singapore),
+                      Supreme Courts and State Courts of Singapore, Credit Bureau Singapore.'
+                    name: D&B Basic Individual Search (SG)
+                    source: SRC_DNB
+                    tags: []
+                    url: d&b_basic_individual_search_sg
+                  names:
+                  - date_created: 23 jul 2019 / 03:21
+                    id: 318
+                    name: D&B Basic Individual Search (SG)
+                    url: d&b_basic_individual_search_sg
+                  - date_created: 23 jul 2019 / 03:20
+                    id: 317
+                    name: D&B Brief Financial Information (SG)
+                    url: d&b_brief_financial_information_sg
+                CLASS_INTERNALSALES:
+                  data:
+                  - dataschema: "[]"
+                    date_created: 14 aug 2018 / 14:54
+                    date_updated: 26 oct 2019 / 11:21
+                    demo_apps: []
+                    description1: Delete the specified file
+                    description2: This APIs delete the specified file.
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 247
+                    keywords: ''
+                    method:
+                    name: Delete file
+                    source: SRC_SENT
+                    tags: []
+                    url: FC247
+                  - dataschema: "[]"
+                    date_created: 14 aug 2018 / 14:52
+                    date_updated: 26 oct 2019 / 11:26
+                    demo_apps: []
+                    description1: Download the specified file
+                    description2: This API returns a temporary URL that is valid for 1 hour. Use the
+                      url to retrieve the given document.
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 246
+                    keywords: ''
+                    method:
+                    name: Download File
+                    source: SRC_SENT
+                    tags: []
+                    url: FC246
+                  names:
+                  - date_created: 14 aug 2018 / 14:54
+                    id: 247
+                    name: Delete file
+                    url: FC247
+                  - date_created: 14 aug 2018 / 14:52
+                    id: 246
+                    name: Download File
+                    url: FC246
+                CLASS_NLP:
+                  data:
+                  - dataschema: "[]"
+                    date_created: 19 aug 2021 / 13:19
+                    date_updated: 24 aug 2021 / 16:24
+                    demo_apps: []
+                    description1: '23'
+                    description2: '32'
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 763
+                    keywords: ''
+                    method:
+                    name: fg
+                    source: SRC_SENT
+                    tags: []
+                    url: f
+                  - dataschema: "[]"
+                    date_created: 28 feb 2020 / 16:58
+                    date_updated: 23 dec 2020 / 00:17
+                    demo_apps: []
+                    description1: Microservice that does punctuation recovery for speech transcripts
+                      and convert abbreviation tokens from lower case to upper case.
+                    description2: |-
+                      This microservice takes in a text and tries to recover the missing punctuation such as full stop, comma, exclamation mark, and question mark.
+                      A list of abbreviations can be found in abbrevs.txt. If there is a match, the microservice will convert the abbreviation tokens from lower case to upper case.
+                      This microservice model is provided by IMDA.
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 559
+                    keywords: ''
+                    method:
+                    name: Inverse Text Normalisation ENG
+                    source: SRC_SENT
+                    tags: []
+                    url: inverse_text_normalisation_eng
+                  names:
+                  - date_created: 19 aug 2021 / 13:19
+                    id: 763
+                    name: fg
+                    url: f
+                  - date_created: 28 feb 2020 / 16:58
+                    id: 559
+                    name: Inverse Text Normalisation ENG
+                    url: inverse_text_normalisation_eng
+                CLASS_UTILITY:
+                  data:
+                  - dataschema: "[]"
+                    date_created: 16 mar 2020 / 12:17
+                    date_updated: 30 oct 2020 / 18:30
+                    demo_apps: []
+                    description1: This API is used to convert your audio like music(any format) to
+                      the WAV format.
+                    description2: This API is used to convert your audio like music(any format) to
+                      the WAV format.
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 563
+                    keywords: ''
+                    method:
+                    name: Audio Processing Utility
+                    source: SRC_SENT
+                    tags: []
+                    url: audio_processing_utility
+                  - dataschema: "[]"
+                    date_created: 15 oct 2020 / 18:31
+                    date_updated: 28 oct 2020 / 19:54
+                    demo_apps: []
+                    description1: Converts Base64 encoded string to binary file.
+                    description2: |-
+                      This Utility microservice converts a Base64 encoded text string to a binary file.
+                      For the reverse process (convert binary file to Base64 encoded text string), check out the Base64 File Encode microservice.
+                    discounts: []
+                    function_type: FUN_ATOMISTIC
+                    icon: ''
+                    id: 630
+                    keywords: ''
+                    method:
+                    name: Base64 Decoder
+                    source: SRC_SENT
+                    tags: []
+                    url: base64_file_decode
+                  names:
+                  - date_created: 16 mar 2020 / 12:17
+                    id: 563
+                    name: Audio Processing Utility
+                    url: audio_processing_utility
+                  - date_created: 15 oct 2020 / 18:31
+                    id: 630
+                    name: Base64 Decoder
+                    url: base64_file_decode
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detailed status if the api call
+        ALL:
+          type: object
+          example: {<JSON result Object}
+          description: Json result object
+          data:
+            type: array
+            example: [{<JSON result Object}]
+            description: The list of array json result object
+            properties:
+                dataschema:
+                  type: string
+                  example: "[{'name': 'Report'}]"
+                  description: Data Schema
+                date_created:
+                  type: string
+                  description: Created date
+                  example: "17 aug 2021 / 15:11"
+                date_updated:
+                  type: string
+                  description: Updated date
+                  example: "26 aug 2021 / 19:18"
+                demo_apps:
+                  type: array
+                  description: [{<JSON result Object}]
+                  properties:
+                      demolink:
+                        type: string
+                        example: "https://dev-demos.sentient.io/transcribe-speech"
+                        description: Demo apps link
+                      description:
+                        type: string
+                        example: "Transcribe both Singapore-accented spoken English and Mandarin into text."
+                        description: Demo apps description
+                      description2:
+                        type: string
+                        example: "This demo app transcribes Singapore-accented spoken English and Mandarin into text.\n\nUser can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices."
+                        description: Detailed description of demo apps
+                      icon_url:
+                        type: string
+                        example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                        description: Icon image url of demo apps
+                      id:
+                        type: integer
+                        example: 1
+                        description: Demo apps id
+                      name:
+                        type: string
+                        example: "Transcribe Speech"
+                        description: Name of demo apps
+                      url:
+                        type: string
+                        example: "transcribe_speech"
+                        description: url of demo apps
+                description1:
+                  type: string
+                  example: "Transcribes input audio file containing Mandarin speech content into Simplified Chinese text."
+                  description: Description of Microservice
+                description2:
+                  type: string
+                  example: "This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.\n\nThis microservice works best when the audio file consists of mostly speech with no long pauses in between."
+                  description: Detailed description of Microservice with richtext editor support
+                discounts:
+                  type: array
+                  description: [{<JSON result Object}]
+                function_type:
+                  type: string
+                  example: "FUN_ATOMISTIC"
+                  description: Microservice function type listing
+                icon:
+                  type: string
+                  example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                  description: Icon url of microservice
+                id:
+                  type: integer
+                  example: 729
+                  description: Microservice id
+                keywords:
+                  type: string
+                  example: "transcribe, text-parsing"
+                  description: Comma seperated value of microservice keywords
+                method:
+                  type: string
+                  example: "Primary sources : Accounting and Corporate Regulatory Authority (Singapore), Supreme Courts and State Courts of Singapore, Credit Bureau Singapore."
+                  description: Data collection methodology
+                name:
+                  type: string
+                  example: "Alibaba Chinese ASR"
+                  description: Name of microservice
+                source:
+                  type: string
+                  example: "SRC_SENT"
+                  description: Source code for data provider
+                tags:
+                  type: array
+                  example: ['chinese','ASR']
+                  description: Tags for microservice
+                url:
+                  type: string
+                  example: "alibaba_chi_asr"
+                  description: Url code for microservice
+        CLASS_AI:
+          type: object
+          example: {<JSON result Object}
+          description: Json result object
+          data:
+            type: array
+            example: [{<JSON result Object}]
+            description: The list of array json result object
+            properties:
+                dataschema:
+                  type: string
+                  example: "[{'name': 'Report'}]"
+                  description: Data Schema
+                date_created:
+                  type: string
+                  description: Created date
+                  example: "17 aug 2021 / 15:11"
+                date_updated:
+                  type: string
+                  description: Updated date
+                  example: "26 aug 2021 / 19:18"
+                demo_apps:
+                  type: array
+                  description: [{<JSON result Object}]
+                  properties:
+                      demolink:
+                        type: string
+                        example: "https://dev-demos.sentient.io/transcribe-speech"
+                        description: Demo apps link
+                      description:
+                        type: string
+                        example: "Transcribe both Singapore-accented spoken English and Mandarin into text."
+                        description: Demo apps description
+                      description2:
+                        type: string
+                        example: "This demo app transcribes Singapore-accented spoken English and Mandarin into text.\n\nUser can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices."
+                        description: Detailed description of demo apps
+                      icon_url:
+                        type: string
+                        example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                        description: Icon image url of demo apps
+                      id:
+                        type: integer
+                        example: 1
+                        description: Demo apps id
+                      name:
+                        type: string
+                        example: "Transcribe Speech"
+                        description: Name of demo apps
+                      url:
+                        type: string
+                        example: "transcribe_speech"
+                        description: url of demo apps
+                description1:
+                  type: string
+                  example: "Transcribes input audio file containing Mandarin speech content into Simplified Chinese text."
+                  description: Description of Microservice
+                description2:
+                  type: string
+                  example: "This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.\n\nThis microservice works best when the audio file consists of mostly speech with no long pauses in between."
+                  description: Detailed description of Microservice with richtext editor support
+                discounts:
+                  type: array
+                  description: [{<JSON result Object}]
+                function_type:
+                  type: string
+                  example: "FUN_ATOMISTIC"
+                  description: Microservice function type listing
+                icon:
+                  type: string
+                  example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                  description: Icon url of microservice
+                id:
+                  type: integer
+                  example: 729
+                  description: Microservice id
+                keywords:
+                  type: string
+                  example: "transcribe, text-parsing"
+                  description: Comma seperated value of microservice keywords
+                method:
+                  type: string
+                  example: "Primary sources : Accounting and Corporate Regulatory Authority (Singapore), Supreme Courts and State Courts of Singapore, Credit Bureau Singapore."
+                  description: Data collection methodology
+                name:
+                  type: string
+                  example: "Alibaba Chinese ASR"
+                  description: Name of microservice
+                source:
+                  type: string
+                  example: "SRC_SENT"
+                  description: Source code for data provider
+                tags:
+                  type: array
+                  example: ['chinese','ASR']
+                  description: Tags for microservice
+                url:
+                  type: string
+                  example: "alibaba_chi_asr"
+                  description: Url code for microservice
+        CLASS_COMPUTER_VISION:
+          type: object
+          example: {<JSON result Object}
+          description: Json result object
+          data:
+            type: array
+            example: [{<JSON result Object}]
+            description: The list of array json result object
+            properties:
+                dataschema:
+                  type: string
+                  example: "[{'name': 'Report'}]"
+                  description: Data Schema
+                date_created:
+                  type: string
+                  description: Created date
+                  example: "17 aug 2021 / 15:11"
+                date_updated:
+                  type: string
+                  description: Updated date
+                  example: "26 aug 2021 / 19:18"
+                demo_apps:
+                  type: array
+                  description: [{<JSON result Object}]
+                  properties:
+                      demolink:
+                        type: string
+                        example: "dev-demos.sentient.io/predict-demographics"
+                        description: Demo apps link
+                      description:
+                        type: string
+                        example: "Predict demographics of people within images based on faces detected"
+                        description: Demo apps description
+                      description2:
+                        type: string
+                        example: "This demo app detects faces from an input image and predicts the demographics of each face (age, gender and race), with corresponding bounding boxes."
+                        description: Detailed description of demo apps
+                      icon_url:
+                        type: string
+                        example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                        description: Icon image url of demo apps
+                      id:
+                        type: integer
+                        example: 1
+                        description: Demo apps id
+                      name:
+                        type: string
+                        example: "Predict Demographics"
+                        description: Name of demo apps
+                      url:
+                        type: string
+                        example: "predict_demographics"
+                        description: url of demo apps
+                description1:
+                  type: string
+                  example: "This Computer Vision microservice detects for faces from an input image and predicts the demographics of each face (age, gender and race). The image is given as an input encoded using base64. The microservice will a face detector and subsequently models to predict age, gender and race. The results will then be returned back to the user as a JSON output together with bounding box coordinates for each face.Races include: Asian, Indian, White, Black, Middle Eastern and Latino Hispanic"
+                  description: Description of Microservice
+                description2:
+                  type: string
+                  example: "This Computer Vision microservice identifies faces within an input image and predicts the demographics of each face (age, gender and race). \n\nThe results will then be returned back to the user as a JSON output together with bounding box coordinates for each face."
+                  description: Detailed description of Microservice with richtext editor support
+                discounts:
+                  type: array
+                  description: [{<JSON result Object}]
+                function_type:
+                  type: string
+                  example: "FUN_ATOMISTIC"
+                  description: Microservice function type listing
+                icon:
+                  type: string
+                  example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                  description: Icon url of microservice
+                id:
+                  type: integer
+                  example: 729
+                  description: Microservice id
+                keywords:
+                  type: string
+                  example: "transcribe, text-parsing"
+                  description: Comma seperated value of microservice keywords
+                method:
+                  type: string
+                  example: "Primary sources : Accounting and Corporate Regulatory Authority (Singapore), Supreme Courts and State Courts of Singapore, Credit Bureau Singapore."
+                  description: Data collection methodology
+                name:
+                  type: string
+                  example: "Demographics Classification"
+                  description: Name of microservice
+                source:
+                  type: string
+                  example: "SRC_SENT"
+                  description: Source code for data provider
+                tags:
+                  type: array
+                  example: ['chinese','ASR']
+                  description: Tags for microservice
+                url:
+                  type: string
+                  example: "demographics_classification"
+                  description: Url code for microservice
+        CLASS_DATA:
+          type: object
+          example: {<JSON result Object}
+          description: Json result object
+          data:
+            type: array
+            example: [{<JSON result Object}]
+            description: The list of array json result object
+            properties:
+                dataschema:
+                  type: string
+                  example: '[{"dataschema": "[{\"name\": \"REPORT\", \"type\": \"\", \"datalength\": \"\", \"isnull\": \"no\", \"description\": \"\"}, {\"name\": \"META_INFO\", \"type\": \"\", \"datalength\": \"\", \"isnull\": \"no\", \"description\": \"\"}, {\"name\": \"SERVICE\", \"type\": \"Varchar\", \"datalength\": \"\", \"isnull\": \"no\", \"description\": \"Report requested\"}]'
+                  description: Data Schema
+                date_created:
+                  type: string
+                  description: Created date
+                  example: "17 aug 2021 / 15:11"
+                date_updated:
+                  type: string
+                  description: Updated date
+                  example: "26 aug 2021 / 19:18"
+                demo_apps:
+                  type: array
+                  description: [{<JSON result Object}]
+                  properties:
+                      demolink:
+                        type: string
+                        example: "https://dev-demos.sentient.io/transcribe-speech"
+                        description: Demo apps link
+                      description:
+                        type: string
+                        example: "Transcribe both Singapore-accented spoken English and Mandarin into text."
+                        description: Demo apps description
+                      description2:
+                        type: string
+                        example: "This demo app transcribes Singapore-accented spoken English and Mandarin into text.\n\nUser can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices."
+                        description: Detailed description of demo apps
+                      icon_url:
+                        type: string
+                        example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                        description: Icon image url of demo apps
+                      id:
+                        type: integer
+                        example: 1
+                        description: Demo apps id
+                      name:
+                        type: string
+                        example: "Transcribe Speech"
+                        description: Name of demo apps
+                      url:
+                        type: string
+                        example: "transcribe_speech"
+                        description: url of demo apps
+                description1:
+                  type: string
+                  example: "Transcribes input audio file containing Mandarin speech content into Simplified Chinese text."
+                  description: Description of Microservice
+                description2:
+                  type: string
+                  example: "This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.\n\nThis microservice works best when the audio file consists of mostly speech with no long pauses in between."
+                  description: Detailed description of Microservice with richtext editor support
+                discounts:
+                  type: array
+                  description: [{<JSON result Object}]
+                function_type:
+                  type: string
+                  example: "FUN_ATOMISTIC"
+                  description: Microservice function type listing
+                icon:
+                  type: string
+                  example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                  description: Icon url of microservice
+                id:
+                  type: integer
+                  example: 729
+                  description: Microservice id
+                keywords:
+                  type: string
+                  example: "transcribe, text-parsing"
+                  description: Comma seperated value of microservice keywords
+                method:
+                  type: string
+                  example: "Primary sources : Accounting and Corporate Regulatory Authority (Singapore), Supreme Courts and State Courts of Singapore, Credit Bureau Singapore."
+                  description: Data collection methodology
+                name:
+                  type: string
+                  example: "Alibaba Chinese ASR"
+                  description: Name of microservice
+                source:
+                  type: string
+                  example: "SRC_SENT"
+                  description: Source code for data provider
+                tags:
+                  type: array
+                  example: ['chinese','ASR']
+                  description: Tags for microservice
+                url:
+                  type: string
+                  example: "alibaba_chi_asr"
+                  description: Url code for microservice
+        CLASS_INTERNALSALES:
+          type: object
+          example: {<JSON result Object}
+          description: Json result object
+          data:
+            type: array
+            example: [{<JSON result Object}]
+            description: The list of array json result object
+            properties:
+                dataschema:
+                  type: string
+                  example: "[{'name': 'Report'}]"
+                  description: Data Schema
+                date_created:
+                  type: string
+                  description: Created date
+                  example: "17 aug 2021 / 15:11"
+                date_updated:
+                  type: string
+                  description: Updated date
+                  example: "26 aug 2021 / 19:18"
+                demo_apps:
+                  type: array
+                  description: [{<JSON result Object}]
+                  properties:
+                      demolink:
+                        type: string
+                        example: "https://dev-demos.sentient.io/transcribe-speech"
+                        description: Demo apps link
+                      description:
+                        type: string
+                        example: "Transcribe both Singapore-accented spoken English and Mandarin into text."
+                        description: Demo apps description
+                      description2:
+                        type: string
+                        example: "This demo app transcribes Singapore-accented spoken English and Mandarin into text.\n\nUser can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices."
+                        description: Detailed description of demo apps
+                      icon_url:
+                        type: string
+                        example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                        description: Icon image url of demo apps
+                      id:
+                        type: integer
+                        example: 1
+                        description: Demo apps id
+                      name:
+                        type: string
+                        example: "Transcribe Speech"
+                        description: Name of demo apps
+                      url:
+                        type: string
+                        example: "transcribe_speech"
+                        description: url of demo apps
+                description1:
+                  type: string
+                  example: "Transcribes input audio file containing Mandarin speech content into Simplified Chinese text."
+                  description: Description of Microservice
+                description2:
+                  type: string
+                  example: "This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.\n\nThis microservice works best when the audio file consists of mostly speech with no long pauses in between."
+                  description: Detailed description of Microservice with richtext editor support
+                discounts:
+                  type: array
+                  description: [{<JSON result Object}]
+                function_type:
+                  type: string
+                  example: "FUN_ATOMISTIC"
+                  description: Microservice function type listing
+                icon:
+                  type: string
+                  example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                  description: Icon url of microservice
+                id:
+                  type: integer
+                  example: 729
+                  description: Microservice id
+                keywords:
+                  type: string
+                  example: "transcribe, text-parsing"
+                  description: Comma seperated value of microservice keywords
+                method:
+                  type: string
+                  example: "Primary sources : Accounting and Corporate Regulatory Authority (Singapore), Supreme Courts and State Courts of Singapore, Credit Bureau Singapore."
+                  description: Data collection methodology
+                name:
+                  type: string
+                  example: "Alibaba Chinese ASR"
+                  description: Name of microservice
+                source:
+                  type: string
+                  example: "SRC_SENT"
+                  description: Source code for data provider
+                tags:
+                  type: array
+                  example: ['chinese','ASR']
+                  description: Tags for microservice
+                url:
+                  type: string
+                  example: "alibaba_chi_asr"
+                  description: Url code for microservice         
+        CLASS_NLP:
+          type: object
+          example: {<JSON result Object}
+          description: Json result object
+          data:
+            type: array
+            example: [{<JSON result Object}]
+            description: The list of array json result object
+            properties:
+                dataschema:
+                  type: string
+                  example: "[{'name': 'Report'}]"
+                  description: Data Schema
+                date_created:
+                  type: string
+                  description: Created date
+                  example: "17 aug 2021 / 15:11"
+                date_updated:
+                  type: string
+                  description: Updated date
+                  example: "26 aug 2021 / 19:18"
+                demo_apps:
+                  type: array
+                  description: [{<JSON result Object}]
+                  properties:
+                      demolink:
+                        type: string
+                        example: "https://dev-demos.sentient.io/transcribe-speech"
+                        description: Demo apps link
+                      description:
+                        type: string
+                        example: "Transcribe both Singapore-accented spoken English and Mandarin into text."
+                        description: Demo apps description
+                      description2:
+                        type: string
+                        example: "This demo app transcribes Singapore-accented spoken English and Mandarin into text.\n\nUser can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices."
+                        description: Detailed description of demo apps
+                      icon_url:
+                        type: string
+                        example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                        description: Icon image url of demo apps
+                      id:
+                        type: integer
+                        example: 1
+                        description: Demo apps id
+                      name:
+                        type: string
+                        example: "Transcribe Speech"
+                        description: Name of demo apps
+                      url:
+                        type: string
+                        example: "transcribe_speech"
+                        description: url of demo apps
+                description1:
+                  type: string
+                  example: "Transcribes input audio file containing Mandarin speech content into Simplified Chinese text."
+                  description: Description of Microservice
+                description2:
+                  type: string
+                  example: "This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.\n\nThis microservice works best when the audio file consists of mostly speech with no long pauses in between."
+                  description: Detailed description of Microservice with richtext editor support
+                discounts:
+                  type: array
+                  description: [{<JSON result Object}]
+                function_type:
+                  type: string
+                  example: "FUN_ATOMISTIC"
+                  description: Microservice function type listing
+                icon:
+                  type: string
+                  example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                  description: Icon url of microservice
+                id:
+                  type: integer
+                  example: 729
+                  description: Microservice id
+                keywords:
+                  type: string
+                  example: "transcribe, text-parsing"
+                  description: Comma seperated value of microservice keywords
+                method:
+                  type: string
+                  example: "Primary sources : Accounting and Corporate Regulatory Authority (Singapore), Supreme Courts and State Courts of Singapore, Credit Bureau Singapore."
+                  description: Data collection methodology
+                name:
+                  type: string
+                  example: "Alibaba Chinese ASR"
+                  description: Name of microservice
+                source:
+                  type: string
+                  example: "SRC_SENT"
+                  description: Source code for data provider
+                tags:
+                  type: array
+                  example: ['chinese','ASR']
+                  description: Tags for microservice
+                url:
+                  type: string
+                  example: "alibaba_chi_asr"
+                  description: Url code for microservice
+        CLASS_UTILITY:
+          type: object
+          example: {<JSON result Object}
+          description: Json result object
+          data:
+            type: array
+            example: [{<JSON result Object}]
+            description: The list of array json result object
+            properties:
+                dataschema:
+                  type: string
+                  example: "[{'name': 'Report'}]"
+                  description: Data Schema
+                date_created:
+                  type: string
+                  description: Created date
+                  example: "17 aug 2021 / 15:11"
+                date_updated:
+                  type: string
+                  description: Updated date
+                  example: "26 aug 2021 / 19:18"
+                demo_apps:
+                  type: array
+                  description: [{<JSON result Object}]
+                  properties:
+                      demolink:
+                        type: string
+                        example: "https://dev-demos.sentient.io/transcribe-speech"
+                        description: Demo apps link
+                      description:
+                        type: string
+                        example: "Transcribe both Singapore-accented spoken English and Mandarin into text."
+                        description: Demo apps description
+                      description2:
+                        type: string
+                        example: "This demo app transcribes Singapore-accented spoken English and Mandarin into text.\n\nUser can choose between transcribing speech to text in English or Mandarin, each powered by separate microservices."
+                        description: Detailed description of demo apps
+                      icon_url:
+                        type: string
+                        example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                        description: Icon image url of demo apps
+                      id:
+                        type: integer
+                        example: 1
+                        description: Demo apps id
+                      name:
+                        type: string
+                        example: "Transcribe Speech"
+                        description: Name of demo apps
+                      url:
+                        type: string
+                        example: "transcribe_speech"
+                        description: url of demo apps
+                description1:
+                  type: string
+                  example: "Transcribes input audio file containing Mandarin speech content into Simplified Chinese text."
+                  description: Description of Microservice
+                description2:
+                  type: string
+                  example: "This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text.\n\nThis microservice works best when the audio file consists of mostly speech with no long pauses in between."
+                  description: Detailed description of Microservice with richtext editor support
+                discounts:
+                  type: array
+                  description: [{<JSON result Object}]
+                function_type:
+                  type: string
+                  example: "FUN_ATOMISTIC"
+                  description: Microservice function type listing
+                icon:
+                  type: string
+                  example: "https://sentient-prod.s3.amazonaws.com/functionmicroicon/1598248701110icontranscribespeech.svg"
+                  description: Icon url of microservice
+                id:
+                  type: integer
+                  example: 729
+                  description: Microservice id
+                keywords:
+                  type: string
+                  example: "transcribe, text-parsing"
+                  description: Comma seperated value of microservice keywords
+                method:
+                  type: string
+                  example: "Primary sources : Accounting and Corporate Regulatory Authority (Singapore), Supreme Courts and State Courts of Singapore, Credit Bureau Singapore."
+                  description: Data collection methodology
+                name:
+                  type: string
+                  example: "Alibaba Chinese ASR"
+                  description: Name of microservice
+                source:
+                  type: string
+                  example: "SRC_SENT"
+                  description: Source code for data provider
+                tags:
+                  type: array
+                  example: ['chinese','ASR']
+                  description: Tags for microservice
+                url:
+                  type: string
+                  example: "alibaba_chi_asr"
+                  description: Url code for microservice
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Sep 6,2021
+                description: Initial version release    
+    input:
+      type: object
+      properties:
+        order_type:
+          x-name: order_type
+          type: string
+          default: False
+          example: "A to Z"
+          description: Order Type of Microservices like ascending, descending etc.,
+        lang:
+          x-name: lang
+          type: string
+          default: False
+          example: "EN"
+          description: Language code
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
