@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Unsubscription
+  title: Unsubscribe From Microservice
   description: This API provides operations to unsubscribe function to the users in your organization.
   x-subscribelink: unsubscription
   version: '0.1.0'
