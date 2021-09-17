@@ -10,7 +10,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - May 12, 2021"
 paths:
-  /subscribedmicroservices:
+  /v0/subscribedmicroservices:
     post:
       tags:
         - v0.1.0
