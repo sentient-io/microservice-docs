@@ -35,7 +35,7 @@ voice:
   online_automatic_speech_recognition_eng:
     title: Online Automatic Speech Recognition ENG
     versions:
-      0.1.1: 'online_automatic_speech_recognition_eng.yaml'
+      0.1.1: 'onlineasr_yaml.yaml'
   online_command_automatic_speech_recognition_eng:
     title: Online Command Automatic Speech Recognition ENG
     versions:
