@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Get Deleted User List
+  title: List Deleted Users
   description: This API provides operations to retrieve the deleted users inside in your organization.
   x-subscribelink: get_deleted_user_list
   version: '0.1.0'
