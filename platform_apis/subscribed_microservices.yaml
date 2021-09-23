@@ -185,7 +185,7 @@ components:
           x-name: lang
           type: string
           example: EN
-          description: Default lang value is EN.
+          description: Default lang value is EN. Other supported lang are JA for Japanese.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
