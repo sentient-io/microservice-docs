@@ -440,7 +440,7 @@ Platform APIs:
     versions:
       0.1.0: 'add_function_to_group.yaml'
   remove_function_from_group:
-    title: Remove Function From Group
+    title: Remove Group From Function
     urlkey: remove_function_from_group
     versions:
       0.1.0: 'remove_function_from_group.yaml'
@@ -475,12 +475,12 @@ Platform APIs:
     versions:
       0.1.0: 'get_deleted_user_list.yaml'
   get_function_list:
-    title: Get Function List
+    title: List Functions
     urlkey: get_function_list
     versions:
       0.1.0: 'get_function_list.yaml' 
   get_org_assign_functions:
-    title: Get Org Assign Functions
+    title: Assign Functions
     urlkey: get_org_assign_functions
     versions:
       0.1.0: 'get_org_assign_functions.yaml'
