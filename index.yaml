@@ -470,7 +470,7 @@ Platform APIs:
     versions:
       0.1.0: 'delete_group.yaml'
   get_deleted_user_list:
-    title: Get Deleted User List
+    title: List Deleted Users
     urlkey: get_deleted_user_list
     versions:
       0.1.0: 'get_deleted_user_list.yaml'
