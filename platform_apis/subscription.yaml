@@ -25,6 +25,13 @@ paths:
           required: true
           description: Function Id
           example: "214"
+        - in: query
+          name: function_code
+          schema:
+            type: string
+          required: false
+          description: Function Code
+          example: "WEBSCRAPING"
       responses:
         '200':
           description: Ok
