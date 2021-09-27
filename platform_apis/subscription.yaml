@@ -22,8 +22,8 @@ paths:
           schema:
             type: string
           required: true
-          description: Function Id or Function Code
-          example: "214" or "WEBSCRAPING"
+          description: Function Id
+          example: "214"
         - in: query
           name: function_code
           schema:
