@@ -22,6 +22,10 @@ paths:
           name: function_id
           schema:
             type: string
+            enum: 
+              - function_id
+              - function_code
+            default: function_id
           required: true
           description: Function Id
           example: "214"
