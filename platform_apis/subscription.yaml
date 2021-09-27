@@ -16,6 +16,7 @@ paths:
         - v0.1.0
       required:
         - function_id
+        - fuction_code
       parameters:
         - in: query
           name: function_id
@@ -28,7 +29,7 @@ paths:
           name: function_code
           schema:
             type: string
-          required: false
+          required: true
           description: Function Code
           example: "WEBSCRAPING"
       responses:
