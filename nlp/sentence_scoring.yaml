@@ -7,7 +7,7 @@ info:
   version: v0.1.0
   x-additionalinfo: |+
     TO FILL MANUALLY
-  x-subscribelink: TO FILL MANUALLY
+  x-subscribelink: sentence_scoring
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
