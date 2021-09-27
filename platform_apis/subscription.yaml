@@ -25,6 +25,11 @@ paths:
           required: true
           description: Function Id
           example: "214"
+          "default": "function_id",
+          "enum": [
+                    "function_code",
+                    "function_id"
+                  ],
         - in: query
           name: function_code
           schema:
