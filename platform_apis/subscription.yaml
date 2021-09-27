@@ -20,12 +20,10 @@ paths:
       parameters:
         - in: query
           name: key
-          default: "function_id",
-          enum:
-            - function_code
-            - function_id
           schema:
             type: string
+            enum: ["function_code", "function_id"]
+            default: "function_id"
           required: true
           description: Function Id or Function Code
           example: "214" or "WEBSCRAPING"
