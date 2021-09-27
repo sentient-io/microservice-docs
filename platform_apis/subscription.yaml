@@ -22,8 +22,8 @@ paths:
           name: key
           default: "function_id",
           enum:
-            - "function_code",
-            - "function_id"
+            - function_code
+            - function_id
           schema:
             type: string
           required: true
