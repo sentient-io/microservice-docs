@@ -111,7 +111,7 @@ components:
           example: { "<Json": "Object>" }
           properties: 
             result:
-              description: Array of words and probabilities
+              description: Array of dictionaries, each dictionary containing a word from the input text and its probability
               example:
                 conf: 0.1
                 word: how
