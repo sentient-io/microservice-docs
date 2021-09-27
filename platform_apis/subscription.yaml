@@ -21,9 +21,9 @@ paths:
         - in: query
           name: key
           schema:
-            type: string
-            enum: ["function_code", "function_id"]
-            default: "function_id"
+            type: int
+            enum: [0,1]
+            default: 0
           required: true
           description: Function Id or Function Code
           example: "214" or "WEBSCRAPING"
