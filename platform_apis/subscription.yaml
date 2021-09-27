@@ -15,8 +15,7 @@ paths:
       tags:
         - v0.1.0
       required:
-        - function_id
-        - function_code
+        - key
       parameters:
         - in: query
           name: key
