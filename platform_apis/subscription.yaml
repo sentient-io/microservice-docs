@@ -22,10 +22,9 @@ paths:
           name: key
           schema:
             type: string
-            default: function_id
           required: true
           description: Keys of either Function Id or Function Code
-          example: "function_id" or "function_code"
+          example: "function_id or function_code"
         - in: query
           name: value
           schema:
