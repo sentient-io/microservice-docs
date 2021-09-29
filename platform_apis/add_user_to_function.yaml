@@ -30,7 +30,7 @@ paths:
           schema:
             type: integer
           required: true
-          description: User Id. Refer to User List API to get the function id (results.user_id) details.
+          description: User Id. Refer to User List API to get the user id (results.user_id) details.
           example: "2365"
       responses:
         '200':
