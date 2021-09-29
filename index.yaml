@@ -426,11 +426,11 @@ Platform APIs:
     urlkey: get_deleted_user_list
     versions:
       0.1.0: 'get_deleted_user_list.yaml'
-  get_function_list:
-    title: Get Function List
-    urlkey: get_function_list
-    versions:
-      0.1.0: 'get_function_list.yaml' 
+#   get_function_list:
+#     title: Get Function List
+#     urlkey: get_function_list
+#     versions:
+#       0.1.0: 'get_function_list.yaml' 
   get_org_assign_functions:
     title: Get Org Assign Functions
     urlkey: get_org_assign_functions
