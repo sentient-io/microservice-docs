@@ -15,11 +15,11 @@ paths:
       tags:
         - v0.1.0
       required:
-        - function_id
-        - fuction_code
+        - key
+        - value
       parameters:
         - in: query
-          name: function_id
+          name: key
           schema:
             type: string
             enum: 
@@ -27,15 +27,15 @@ paths:
               - function_code
             default: function_id
           required: true
-          description: Function Id
-          example: "214"
+          description: Keys of either Function Id or Function Code
+          example: "function_id" or "function_code"
         - in: query
-          name: function_code
+          name: value
           schema:
             type: string
           required: true
-          description: Function Code
-          example: "WEBSCRAPING"
+          description: Value of Funtion Id or Function Code
+          example: "217" or "WEBSCRAPING"
       responses:
         '200':
           description: Ok
