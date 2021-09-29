@@ -22,9 +22,6 @@ paths:
           name: key
           schema:
             type: string
-            enum: 
-              - function_id
-              - function_code
             default: function_id
           required: true
           description: Keys of either Function Id or Function Code
