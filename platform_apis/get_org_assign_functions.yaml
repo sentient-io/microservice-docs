@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Get Org Assign Functions
+  title: Assign Functions
   description: This API provides operations to get functions inside their organization.
   x-subscribelink: get_org_assign_functions
   version: '0.1.0'
