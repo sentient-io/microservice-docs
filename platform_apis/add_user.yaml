@@ -155,7 +155,7 @@ components:
           x-name: user_groups
           type: array
           example: []
-          description: User groups list of the user
+          description: User groups list of the user. Refer to View User Details API to get the group id(results.groups.id) details.
           items:
             type: object
   securitySchemes:
