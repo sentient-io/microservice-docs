@@ -31,7 +31,7 @@ paths:
             type: string
           required: true
           description: Value of Funtion Id or Function Code
-          example: "217" or "WEBSCRAPING"
+          example: "217 or WEBSCRAPING"
       responses:
         '200':
           description: Ok
