@@ -26,7 +26,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 30, 2021"
 paths:
-   /microservices/data/ihidata/v0/getdata:
+   /microservices/data/sgmrtlrt/v0/getdata:
     post:
       tags:
         - v0.1.0
