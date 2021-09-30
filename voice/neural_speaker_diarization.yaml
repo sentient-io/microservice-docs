@@ -226,14 +226,14 @@ components:
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
             Base64 string of the input audio
-        oracle_num_speakers:
+        exact_speaker_count:
           x-name: exact_speaker_count
           type: number
           default: False
           example: 2
           description: |+
             Number of speakers in the audio, known in advance by the user.
-        max_num_speakers:
+        max_speaker_count:
           x-name: max_speaker_count
           type: number
           default: False
