@@ -19,7 +19,7 @@ paths:
           name: user_id
           schema:
             type: integer
-          description: Default it will be based on api key user details
+          description: Default it will be based on api key user details. For User Id, Refer to User List API to get the user id (results.user_id) details.
           example: "1334"
           default: false
       responses:
