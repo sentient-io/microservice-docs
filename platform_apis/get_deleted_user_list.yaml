@@ -20,7 +20,7 @@ paths:
           schema:
             type: integer
           required: false
-          description: Org Id
+          description: Org Id. Refer to View Organizational Info API to get the org id (result.org_id) details.
           example: "309"
       responses:
         '200':
