@@ -3,7 +3,7 @@ openapi: 3.0.1
 info:
   title: Sentence Scoring
   description: |+
-    To compute the probability of each word in the string
+    To compute the probability of each word in a sentence and generate suggested words. The input is a single sentence 
   version: v0.1.0
   x-subscribelink: sentence_scoring
 servers:
@@ -26,11 +26,20 @@ paths:
               example:
                 results: 
                   result:
-                  - conf: 0.1
+                  - conf: 0.012762350961565971
+                    top_k:
+                      where: 0.7936621904373169
+                      who: 0.14036813378334045
                     word: how
-                  - conf: 0.1
+                  - conf: 0.024699058383703232
+                    top_k:
+                      can: 0.10830813646316528
+                      could: 0.7056182026863098
                     word: are
-                  - conf: 0.1
+                  - conf: 0.0003625013923738152
+                    top_k:
+                      .: 0.029543984681367874
+                      '?': 0.9645142555236816
                     word: you
                   text: how are you
 
@@ -124,6 +133,10 @@ components:
                         description: The word in the input text
                         example: how
                         type: string
+                      top_k:
+                        description: The dictionary of suggested words
+                        example: {"where": 0.7936621904373169,"who": 0.14036813378334045}
+                        type: object
                     type: object
               type: array
             text:
@@ -227,7 +240,7 @@ components:
       required:
       
         - text
-      
+        - top_k
       properties:
         text:
           x-name: text
@@ -236,6 +249,14 @@ components:
           example: how are you
           description: |+
             Input text
+        
+        top_k:
+          x-name: top_k
+          type: number
+          default: True
+          example: 2
+          description: |+
+            Number of suggested words to be provided by the model.
         
         
   securitySchemes:
