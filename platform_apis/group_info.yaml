@@ -21,7 +21,7 @@ paths:
           schema:
             type: integer
           required: true
-          description: Group Id
+          description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
           example: "253"
       responses:
         '200':
