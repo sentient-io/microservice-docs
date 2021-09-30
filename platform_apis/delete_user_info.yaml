@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Delete User
-  description: This API provides operations to manage users in your organization. Delete a user and transfer ownership of entities such as alerts, shceduled policies, and workflows from deleted user to another active user or an active user workflow. The user can be deleted by using the admistrator user dashboard.
+  description: This API provides operations to manage users in your organization. Delete a user and transfer ownership of entities such as alerts, scheduled policies, and workflows from deleted user to another active user or an active user workflow. The user can be deleted by using the admistrator user dashboard.
   x-subscribelink: delete_user_info
   version: '0.1.0'
 servers:
@@ -20,7 +20,7 @@ paths:
           schema:
             type: integer
           required: true
-          description: User id of the user
+          description: User id of the user. Refer to User List API to get the user id (results.user_id) details.
           example: "1326"
       responses:
         '200':
