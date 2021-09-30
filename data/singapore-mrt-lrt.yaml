@@ -1,0 +1,355 @@
+openapi: 3.0.1
+info:
+  title: Singapore-MRT-LRT-Data
+  x-subscribelink: singapore-mrt-lrt
+  description: |+
+   Latitude and longitude of train (MRT/LRT) stations in Singapore (as at Dec 2020)
+      
+  x-additionalinfo : |+
+    **Match Types:**
+    A match type is a match operator. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+      > {"match":{"stn_name":"NEWTON MRT STATION"}}
+    * **range** - Returns results that contain terms within a stipulated range
+      > {"range":{"createddate":{"gte":"now-1d/d"}}}
+      > {"range":{"createddate":{"lte":"now/d"}}}
+      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
+    * **geo_distance** - Returns the geo search based on the distance and location lat/long
+      > {"geo_distance": {"distance": "1km","location": "1.3138,103.8456"}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"stn_no":"BP11"}}
+  version: '0.1.0'
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Sep 30, 2021"
+paths:
+   /microservices/data/ihidata/v0/getdata:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                total: 1
+                results:
+                  _id: BP02
+                  _index: sentient_sg_mrt_lrt
+                  _score: null
+                  _source:
+                    color: OTHERS
+                    id: 66
+                    lastupdated: '2021-09-29T20:25:54.044Z'
+                    latitude: 1.3802982869999998
+                    line_name: Bukit Panjang LRT
+                    location:
+                      lat: 1.3802982869999998
+                      lon: 103.7453173
+                    longitude: 103.7453173
+                    stn_name: SOUTH VIEW LRT STATION
+                    stn_no: BP02
+                    x: 18203.7243
+                    'y': 40252.0686
+                  _type: dir_doc
+                  sort:
+                    - 1632947154044
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure             
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "index_ihi_pointcloud"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "64406c95#64291"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 1.0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits                    
+                    properties:
+                            color:
+                              type: string
+                              description: Track line color
+                              example: "OTHERS"
+                            id:
+                              type: string
+                              description: Row Identification
+                              example: 66
+                            lastupdated:
+                              type: string
+                              description: Record last updated date on sentient
+                              example: "2021-03-04T03:29:14.930Z"
+                            latitude:
+                              type: number
+                              description: Latitude map coordinates for station
+                              example: 1.3802982869999998
+                            longitude:
+                              type: number
+                              description: Longitude map coordinates for station
+                              example: 103.7453173                              
+                            location:
+                              type: object
+                              description: Latitude and Longitude map coordinates.
+                              example: {"lat":1.3802982869999998,"lon":103.7453173}
+                              properties:
+                                  lat: 
+                                    type: string
+                                    description: Latitude map coordinates for station
+                                    example: "1.3802982869999998"
+                                  lon:
+                                    type: string
+                                    description: Longitude map coordinates for station
+                                    example: "103.7453173"
+                            line_name:
+                              type: string
+                              description: Track Line Name
+                              example: Bukit Panjang LRT                                   
+                            stn_name:
+                              type: string
+                              description: Track Line Name
+                              example: SOUTH VIEW LRT STATION
+                            stn_no:
+                              type: string
+                              description: Station Number
+                              example: "BP02"
+                            x:
+                              type: number
+                              description: X coordinates
+                              example: 18203.7243
+                            y:
+                              type: number
+                              description: Y coordinates
+                              example: 40252.0686
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 30, 2021
+              description: Initial version release
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 10, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index . Default - 0
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match":{"stn_name":"NEWTON MRT STATION"}},{"range": {"lastupdated": {"lte":"now/d"}}}]
+          description: |+
+            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * range
+            * geo_distance
+            * exists
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
