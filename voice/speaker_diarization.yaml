@@ -10,7 +10,7 @@ info:
     The input audio must be at 16Khz or resampled.
 
   version: v0.1.0
-  x-subscribelink: neural_speaker_diarization
+  x-subscribelink: speaker_diarization
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
