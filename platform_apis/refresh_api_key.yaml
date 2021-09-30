@@ -122,7 +122,7 @@ components:
           x-name: user_id
           type: integer
           example: 2196
-          description: Default it will be based on api key user details
+          description: Default it will be based on api key user details. For User Id, Refer to User List API to get the user id (results.user_id) details.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
