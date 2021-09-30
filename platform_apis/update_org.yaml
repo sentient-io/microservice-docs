@@ -122,7 +122,7 @@ components:
           x-name: org_id
           type: string
           example: 829
-          description: Organization Id
+          description: Organization Id to update the details. Refer to View Organizational Info API to get the org id (result.org_id) details.
         email:
           x-name: email
           type: string
