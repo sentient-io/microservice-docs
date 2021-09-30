@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: Neural Speaker Diarization
+  title: Speaker Diarization
   description: |+
     Speaker diarization is a microservice to label audio recordings with classes that correspond to speaker identity, or in short, a task to identify "who spoke when".
 
@@ -10,14 +10,12 @@ info:
     The input audio must be at 16Khz or resampled.
 
   version: v0.1.0
-  x-additionalinfo: |+
-    TO FILL MANUALLY
-  x-subscribelink: TO FILL MANUALLY
+  x-subscribelink: neural_speaker_diarization
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Sept 05, 2021"
+  description: "Published Date - Oct 05, 2021"
 paths:
   /microservices/voice/nsd/v0/getpredictions:
     post:
@@ -212,7 +210,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Sept 05, 2021
+                example: Published Date - Oct 05, 2021
                 description: Initial version release     
     input:
       type: object
@@ -229,14 +227,14 @@ components:
           description: |+
             Base64 string of the input audio
         oracle_num_speakers:
-          x-name: oracle_num_speakers
+          x-name: exact_speaker_count
           type: number
           default: False
           example: 2
           description: |+
             Number of speakers in the audio, known in advance by the user.
         max_num_speakers:
-          x-name: max_num_speakers
+          x-name: max_speaker_count
           type: number
           default: False
           example: 2
