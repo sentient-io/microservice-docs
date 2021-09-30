@@ -126,7 +126,7 @@ components:
           type: integer
           default: True
           example: 2196
-          description: User Id of the user
+          description: User Id. Refer to User List API to get the user id (results.user_id) details.
         user_password:
           x-name: user_password
           type: string
