@@ -208,7 +208,7 @@ components:
           type: string
           default: True
           example: "583 or WIKIPEDIA"
-          description: Values of function id or function code required to view the api metering graph details.
+          description: Values of function id or function code required to view the api metering graph details. To get Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
