@@ -220,6 +220,15 @@ components:
     versions:
       type: object
       properties: 
+      type: object
+      properties: 
+        v1.1.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Oct 06, 2021
+              description: Model upgrade
         v1.0.0:
           type: array
           items:
