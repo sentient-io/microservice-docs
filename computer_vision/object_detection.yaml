@@ -17,12 +17,12 @@ info:
   version: '1.1.0'
   x-subscribelink: object_detection
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.1.0"
-  description: "Published Date - Jun 30, 2021"
+  description: "Published Date - Oct 06, 2021"
 paths:
-  /microservices/cv/objectdetection/v1/getpredictions:
+  /microservices/cv/objectdetection/v1.1/getpredictions:
     post:
       tags:
         - v1.1.0
@@ -246,7 +246,7 @@ components:
           items:
             oneOf:
             - type: string
-              example: Published Date - Jun 30, 2021
+              example: Published Date - Oct 06, 2021
               description: Model upgrade
         v1.0.0:
           type: array
