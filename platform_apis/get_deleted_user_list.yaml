@@ -14,14 +14,6 @@ paths:
     get:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: org_id
-          schema:
-            type: integer
-          required: false
-          description: Org Id. Refer to View Organizational Info API to get the org id (result.org_id) details.
-          example: "309"
       responses:
         '200':
           description: Ok
