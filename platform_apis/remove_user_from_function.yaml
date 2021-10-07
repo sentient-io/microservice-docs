@@ -26,10 +26,6 @@ paths:
           example: "66934"
       responses:
         '200':
-
-          example: "1575"
-      responses:
-        '200':
           description: Ok
           content:
             application/json:
