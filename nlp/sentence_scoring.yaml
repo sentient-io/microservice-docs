@@ -249,7 +249,7 @@ components:
           description: |+
             Input text
         
-        top_k:
+        suggestions:
           x-name: suggestions
           type: number
           default: False
