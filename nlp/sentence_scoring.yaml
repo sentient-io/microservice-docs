@@ -1,16 +1,16 @@
 
 openapi: 3.0.1
 info:
-  title: Sentence Scoring
+  title: Word scoring & Suggestions
   description: |+
-    To compute the probability of each word in a sentence and generate suggested words. The input is a single sentence 
+    To compute the probability of each word in a sentence and generate suggested words. The input is a single sentence. 
   version: v0.1.0
   x-subscribelink: sentence_scoring
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Oct 05, 2021"
+  description: "Published Date - Oct 08, 2021"
 paths:
   /microservices/nlp/sentencescoring/v0/getpredictions:
     post:
@@ -27,17 +27,17 @@ paths:
                 results: 
                   result:
                   - conf: 0.012762350961565971
-                    top_k:
+                    suggestions:
                       where: 0.7936621904373169
                       who: 0.14036813378334045
                     word: how
                   - conf: 0.024699058383703232
-                    top_k:
+                    suggestions:
                       can: 0.10830813646316528
                       could: 0.7056182026863098
                     word: are
                   - conf: 0.0003625013923738152
-                    top_k:
+                    suggestions:
                       .: 0.029543984681367874
                       '?': 0.9645142555236816
                     word: you
@@ -133,7 +133,7 @@ components:
                         description: The word in the input text
                         example: how
                         type: string
-                      top_k:
+                      suggestions:
                         description: The dictionary of suggested words
                         example: {"where": 0.7936621904373169,"who": 0.14036813378334045}
                         type: object
@@ -233,14 +233,13 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Oct 05, 2021
+                example: Published Date - Oct 08, 2021
                 description: Initial version release     
     input:
       type: object
       required:
       
         - text
-        - top_k
       properties:
         text:
           x-name: text
@@ -251,12 +250,12 @@ components:
             Input text
         
         top_k:
-          x-name: top_k
+          x-name: suggestions
           type: number
-          default: True
+          default: False
           example: 2
           description: |+
-            Number of suggested words to be provided by the model.
+            Number of suggested words to be provided by the model.Default value is 2
         
         
   securitySchemes:
