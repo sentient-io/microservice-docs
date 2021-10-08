@@ -19,9 +19,10 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.29375,103.85718"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"area"}}
+      
     **Aggregations Types:**
     A aggregations types is a metrics operator that supported to calculate records. It will support with all match type operators.
-    {"limit":10,"offset":0,"aggregation":true,"filter":[{"match":{"agency":"LTA"}}]}
+      > {"limit":10,"offset":0,"aggregation":false,"filter":[{"match":{"agency":"LTA"}}]}
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
