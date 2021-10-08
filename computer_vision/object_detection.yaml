@@ -14,18 +14,18 @@ info:
     - Industrial inspection - use Object Detection to automate the quality control process in manufacturing by enabling edge devices to identify defects.
     - Product search - build a product search app to find products of interest within images and visually search product catalogs.
     - Build an object detection app for the visually-impaired - help users identify daily objects that they may need aid in recognising
-  version: '1.0.0'
+  version: '1.1.0'
   x-subscribelink: object_detection
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v1.1.0"
   description: "Published Date - Oct 08, 2021"
 paths:
   /microservices/cv/objectdetection/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.1.0
       responses:
         '200':
           description: Ok
@@ -121,19 +121,19 @@ components:
                         description: Bounding box of the image
                         properties:
                           bottom: 
-                            type: number
+                            type: integer
                             example: 742
                             description: Bottom coordinate of the box
                           left: 
-                            type: number
+                            type: integer
                             example: 19
                             description: Left coordinate of the box
                           right: 
-                            type: number
+                            type: integer
                             example: 1019
                             description: Right coordinate of the box
                           top: 
-                            type: number
+                            type: integer
                             example: 73   
                             description: Top coordinate of the box 
                       class:
@@ -141,11 +141,11 @@ components:
                         example: person
                         description: Detected object  
                       confidence:
-                        type: number
+                        type: integer
                         example: 1
                         description: Confidence of the detected object. Higher confidence, more accurate the detected object.
                       object id:
-                        type: number
+                        type: integer
                         example: 0
                         description: Detected object id   
         message:
@@ -247,7 +247,7 @@ components:
             oneOf:
             - type: string
               example: Published Date - Oct 08, 2021
-              description: Model upgrade      
+              description: Model upgrade
         v1.0.0:
           type: array
           items:
