@@ -124,7 +124,7 @@ nlp:
       1.0.0: 'script_alignment.yaml'
       0.1.0: 'script_alignment_v0.1.yaml'
   sentence_scoring:
-    title: Sentence Scoring
+    title: Word scoring & Suggestions
     versions:
       0.1.0: 'sentence_scoring.yaml'
   text_summarization:
