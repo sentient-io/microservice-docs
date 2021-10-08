@@ -19,7 +19,6 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.29375,103.85718"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"area"}}
-
     **Aggregations Types:**
     A aggregations types is a metrics operator that supported to calculate records. It will support with all match type operators.
     {"limit":10,"offset":0,"aggregation":true,"filter":[{"match":{"agency":"LTA"}}]}
@@ -345,7 +344,7 @@ components:
           example: 0
           description: The offset of the record list ie the starting index 
         aggregation:
-          type: bool
+          type: boolean
           default: false
           example: false
           description: Metric aggregations that calculate metrics for record list           
@@ -362,7 +361,6 @@ components:
             * range
             * geo_distance
             * exists
-
   securitySchemes:
     APIAuthorizer:
       type: apiKey
