@@ -247,7 +247,7 @@ components:
           example: female_singaporean
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
-            
+            The default model is female_singaporean
             1. female_generic
             2. female_singaporean
         pitch_scale:
