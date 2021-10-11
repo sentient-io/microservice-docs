@@ -413,8 +413,8 @@ components:
           description: The offset of the record list ie the starting index 
         aggregation:
           type: boolean
-          default: false
-          example: false
+          default: true
+          example: true
           description: It returns the hourly aggregation of no of car park availability.           
         filter:
           type: array
