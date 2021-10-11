@@ -12,7 +12,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Oct 08, 2021"
 paths:
-  /microservices/nlp/sentencescoring/v0/getpredictions:
+  /microservices/nlp/word_scoring/v0/getpredictions:
     post:
       tags:
         - v0.1.0
