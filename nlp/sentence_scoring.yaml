@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: Word scoring & Suggestions
+  title: Word scoring and Suggestions
   description: |+
     To compute the probability of each word in a sentence and generate suggested words. The input is a single sentence. 
   version: v0.1.0
