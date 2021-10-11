@@ -58,7 +58,7 @@ paths:
                             sum: 167732                
                   hits:
                   - _id: 16CLTA
-                    _index: lta_carpark_availability
+                    _index: lta_carpark_availability_historical
                     _score: 0
                     _source:
                       agency: LTA
@@ -230,7 +230,7 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "lta_carpark_availability"
+                    example: "lta_carpark_availability_historical"
                   _type: 
                     type: string
                     description: Content type of the document
