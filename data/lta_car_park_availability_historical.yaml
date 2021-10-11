@@ -19,6 +19,8 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.29375,103.85718"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"area"}}
+      
+      
     **Aggregations Queries:**
       > {"limit":10,"offset":0,"aggregation":false,"filter":[{"match_phrase":{"agency":"LTA"}}]}
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"agency":"LTA"}}]}      
