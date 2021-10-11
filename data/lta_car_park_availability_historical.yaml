@@ -416,7 +416,7 @@ components:
           type: boolean
           default: false
           example: true
-          description: It returns the hourly aggregation of car park availability in following metrics sum, average, min, max and count.          
+          description: It returns the hourly aggregation of car park availability in following metrics sum, average, min, max and count. Input should be true/false, default is false.       
         filter:
           type: array
           default: false
