@@ -21,8 +21,7 @@ info:
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"message"}}
 
-    **Aggregations Queries:**
-      > {"limit":10,"offset":0,"aggregation":false,"filter":[{"match_phrase":{"type":"Roadwork"}}]}
+    **Aggregations Request Data:**
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"type":"Roadwork"}}]}
   version: '0.1.0'
 servers:
