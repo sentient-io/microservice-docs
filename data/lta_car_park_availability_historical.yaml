@@ -22,7 +22,6 @@ info:
       
       
     **Aggregations Queries:**
-      > {"limit":10,"offset":0,"aggregation":false,"filter":[{"match_phrase":{"agency":"LTA"}}]}
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"agency":"LTA"}}]}      
   version: '0.1.0'
 servers:
