@@ -340,12 +340,7 @@ components:
           type: number
           default: false
           example: 0
-          description: The offset of the record list ie the starting index 
-        aggregation:
-          type: boolean
-          default: false
-          example: false
-          description: Metric aggregations that calculate metrics for record list           
+          description: The offset of the record list ie the starting index          
         filter:
           type: array
           default: false
