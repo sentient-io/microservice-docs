@@ -326,7 +326,11 @@ data:
   lta_car_park_availability:
     title: LTA Carpark Availability
     versions:
-      0.1.0: 'lta_car_park_availability.yaml'     
+      0.1.0: 'lta_car_park_availability.yaml'
+  lta_car_park_availability_historical:
+    title: LTA Carpark Availability Historical
+    versions:
+      0.1.0: 'lta_car_park_availability_historical.yaml'      
   lta_traffic_images:
     title: LTA Traffic Images
     versions:
