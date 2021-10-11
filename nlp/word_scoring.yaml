@@ -1,11 +1,11 @@
 
 openapi: 3.0.1
 info:
-  title: Word scoring and Suggestions
+  title: Word Scoring and Suggestions
   description: |+
     To compute the probability of each word in a sentence and generate suggested words. The input is a single sentence. 
   version: v0.1.0
-  x-subscribelink: sentence_scoring
+  x-subscribelink: word_scoring
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
