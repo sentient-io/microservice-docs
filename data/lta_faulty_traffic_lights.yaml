@@ -16,7 +16,7 @@ info:
       > {"range":{"lastupdated":{"lte":"now/d"}}}
       > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"field":"image_link"}}
+      > {"exists":{"field":"alarmid"}}
       
   version: '0.1.0'
 servers:
