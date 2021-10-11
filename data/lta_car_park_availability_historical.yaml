@@ -415,7 +415,7 @@ components:
           type: boolean
           default: false
           example: false
-          description: Metric aggregations that calculate metrics for record list           
+          description: It returns the hourly aggregation of no of car park availability.           
         filter:
           type: array
           default: false
