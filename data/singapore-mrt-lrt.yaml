@@ -19,7 +19,7 @@ info:
     * **geo_distance** - Returns the geo search based on the distance and location lat/long
       > {"geo_distance": {"distance": "1km","location": "1.3138,103.8456"}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"stn_no":"BP11"}}
+      > {"exists":{"field":"stn_name"}}
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
