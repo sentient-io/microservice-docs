@@ -21,9 +21,9 @@ info:
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"message"}}
 
-    **Aggregations Types:**
-    A aggregations types is a metrics operator that supported to calculate records. It will support with all match type operators.
+    **Aggregations Queries:**
       > {"limit":10,"offset":0,"aggregation":false,"filter":[{"match":{"agency":"LTA"}}]}
+      > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match":{"agency":"LTA"}}]}
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -45,6 +45,12 @@ paths:
               example:
                 message: Successfully Processed
                 results:
+                  aggregations:
+                    hourly_aggs:
+                      buckets:
+                        - doc_count: 2
+                          key: 1633932000000
+                          key_as_string: 2021-10-11 06                
                   hits:
                   - _id: '2671616'
                     _index: lta_traffic_incidents
@@ -150,6 +156,37 @@ components:
               type: number
               example: 0
               description: The highest score value
+            aggregations:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of aggregation Json result object
+              items:
+                type: object
+                properties:        
+                  hourly_aggs: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      buckets:
+                        type: array
+                        example: [{<JSON result Object}]
+                        description: The list of Json result object
+                        items:  
+                          type: object
+                          properties:
+                            doc_count:
+                              type: number
+                              description: Docs Count
+                              example: 2
+                            key:
+                              type: number
+                              description: key id
+                              example: 1633932000000
+                            key_as_string:
+                              type: string
+                              description: Date of query result
+                              example: 2021-10-11 06                              
             hits:
               type: array
               example: [{<JSON result Object}]
@@ -327,7 +364,7 @@ components:
           type: boolean
           default: false
           example: false
-          description: Metric aggregations that calculate metrics for record list           
+          description: It returns the hourly aggregation of no of incidents.         
         filter:
           type: array
           default: false
