@@ -181,7 +181,7 @@ components:
                               example: 2
                             key:
                               type: number
-                              description: key id
+                              description: Key id
                               example: 1633932000000
                             key_as_string:
                               type: string
