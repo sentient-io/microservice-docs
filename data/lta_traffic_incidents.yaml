@@ -22,8 +22,8 @@ info:
       > {"exists":{"field":"message"}}
 
     **Aggregations Queries:**
-      > {"limit":10,"offset":0,"aggregation":false,"filter":[{"match":{"agency":"LTA"}}]}
-      > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match":{"agency":"LTA"}}]}
+      > {"limit":10,"offset":0,"aggregation":false,"filter":[{"match_phrase":{"type":"Roadwork"}}]}
+      > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"type":"Roadwork"}}]}
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
