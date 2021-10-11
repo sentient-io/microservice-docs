@@ -364,7 +364,7 @@ components:
           type: boolean
           default: false
           example: false
-          description: It returns the hourly aggregation of no of incidents. Input should be true/false         
+          description: It returns the hourly aggregation of no of incidents. Input should be true/false, default is false.
         filter:
           type: array
           default: false
