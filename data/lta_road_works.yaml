@@ -307,7 +307,7 @@ components:
           type: number
           default: false
           example: 10
-          description: The max records to return for the request. Max - 10000
+          description: The max records to return for the request. Default - 0, Max - 10000
         offset:
           type: number
           default: false
