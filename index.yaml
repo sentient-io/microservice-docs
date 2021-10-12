@@ -123,10 +123,10 @@ nlp:
     versions:
       1.0.0: 'script_alignment.yaml'
       0.1.0: 'script_alignment_v0.1.yaml'
-  word_scoring:
+  word_scoring_and_suggestions:
     title: Word Scoring and Suggestions
     versions:
-      0.1.0: 'word_scoring.yaml'
+      0.1.0: 'word_scoring_and_suggestions.yaml'
   text_summarization:
     title: Text Summarisation
     versions:
