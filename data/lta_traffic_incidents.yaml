@@ -59,8 +59,8 @@ paths:
                       location:
                         lat: 1.304494270104473
                         lon: 103.82327651224641
-                      message: "(26/7)16:16 Roadworks on Grange Road (towards Cuscaden Road) after
-                        Tanglin Road. Avoid left lane."
+                      message: "(12/10)12:15 Roadworks on Commonwealth Avenue (towards City) after Commonwealth Drive. Avoid left lane."
+                      messagedate: "2021-10-12T12:15:00.000Z"
                       source: lta
                       type: Roadwork
                     _type: dir_doc
@@ -196,7 +196,7 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "lta_traffic_images"
+                    example: "lta_traffic_incidents"
                   _type: 
                     type: string
                     description: Content type of the document
@@ -231,8 +231,12 @@ components:
                                   • Unattended Vehicle                
                       message:
                         type: string
-                        example: (25/2)13:13 Roadworks on Boon Lay Way (towards City) after Jalan Boon Lay. Avoid right lane.
+                        example: (12/10)12:15 Roadworks on Commonwealth Avenue (towards City) after Commonwealth Drive. Avoid left lane."
                         description: Description message for this incident   
+                      messagedate:
+                        type: string
+                        example: 2021-10-12T12:15:00.000Z
+                        description: Date separated from message info.                        
                       location:
                         type: object
                         properties:
