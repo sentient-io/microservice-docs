@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Add User To Function
-  description: This API provides operations to assign function to users in your organization.
+  description: This is an organization function and this API provides operations to assign function to users in your organization.
   x-subscribelink: add_user_to_function
   version: '0.1.0'
 servers:
@@ -23,14 +23,14 @@ paths:
           schema:
             type: integer
           required: true
-          description: Function Id
+          description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
           example: "237"
         - in: query
           name: user_id
           schema:
             type: integer
           required: true
-          description: User Id
+          description: User Id. Refer to User List API to get the user id (results.user_id) details.
           example: "2365"
       responses:
         '200':
