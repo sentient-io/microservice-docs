@@ -22,8 +22,8 @@ paths:
           schema:
             type: integer
           required: true
-          description: User Function Id
-          example: "1575"
+          description: User Function Id. Initially to get User Id. Refer to User List API to get the user id(results.user_id) details. To get user_function_id, Refer to View User Details API to get the id from (results.direct_function.id) details for any particular function.
+          example: "66934"
       responses:
         '200':
           description: Ok
