@@ -325,7 +325,7 @@ components:
             oneOf:
               - type: string
                 example: 'Published Date - Oct 13,2021'
-                description: Support more input characters. Imporove model release.
+                description: Support more input characters. Improve model release.
         v1.0.0:
           type: array
           items:
