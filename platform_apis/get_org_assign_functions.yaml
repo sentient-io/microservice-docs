@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Get Org Assign Functions
+  title: Assigned Functions
   description: This API provides operations to get functions inside their organization.
   x-subscribelink: get_org_assign_functions
   version: '0.1.0'
@@ -14,14 +14,6 @@ paths:
     get:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: org_id
-          schema:
-            type: integer
-          required: false
-          description: Org Id
-          example: "309"
       responses:
         '200':
           description: Ok
