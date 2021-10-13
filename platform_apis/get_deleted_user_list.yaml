@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: Get Deleted User List
-  description: This API provides operations to retrieve the deleted users inside in your organization.
+  title: List Deleted Users
+  description: This API provides operations to retrieve the list of all deleted users inside in your organization.
   x-subscribelink: get_deleted_user_list
   version: '0.1.0'
 servers:
@@ -14,14 +14,6 @@ paths:
     get:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: org_id
-          schema:
-            type: integer
-          required: false
-          description: Org Id
-          example: "309"
       responses:
         '200':
           description: Ok
