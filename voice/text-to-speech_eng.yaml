@@ -11,9 +11,9 @@ servers:
   - url: 'https://apis.sentient.io' 
 tags:
 - name: "v1.0.1"
-  description: "Published Date - Sep 3, 2021"
+  description: "Published Date - Oct 13, 2021"
 paths:
-  /microservices/voice/ttseng/v1dev/getpredictions:
+  /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
         - v1.0.1
@@ -209,8 +209,8 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Sep 3,2021'
-                description: Support more input characters
+                example: 'Published Date - Oct 13,2021'
+                description: Support more input characters. Imporove model release.
         v1.0.0:
           type: array
           items:
