@@ -22,7 +22,7 @@ paths:
           schema:
             type: integer
           required: true
-          description: Function Group Id
+          description: Function Group Id. Initially to get Group Id. Refer to Group List API to get the group id(results.group_id) details. To get function_group_id, Refer to View Group Details API to get the id from (result.group_function.id) details for any particular function.
           example: "66934"
       responses:
         '200':
