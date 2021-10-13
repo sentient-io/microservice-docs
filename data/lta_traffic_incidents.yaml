@@ -25,10 +25,10 @@ info:
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"type":"Roadwork"}}]}
   version: '0.1.0'
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Jul 30, 2021"
+  description: "Published Date - Oct 13, 2021"
 paths:
    /microservices/data/ltatrafficincidents/v0/getdata:
     post:
@@ -348,7 +348,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jul 30, 2021
+              example: Published Date - Oct 13, 2021
               description: Initial version release
     input:
       type: object
