@@ -1,8 +1,7 @@
-
 openapi: 3.0.1
 info:
-  title: Group Info
-  description: This API provides collection of API Metering graphs that lets you as an admin read and create group data on behalf group memebers. By using this API, a group admin can grant access to group content and allow to publish content to the group on behalf of the admin.
+  title: View Group Details
+  description: This is an organization function and this API allow the user to view the group details of their Organization. By using this API, a group admin can get the required group details to assign a group or remove a function to/from the user. 
   x-subscribelink: group_info
   version: '0.1.0'
 servers:
@@ -21,7 +20,7 @@ paths:
           schema:
             type: integer
           required: true
-          description: Group Id
+          description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
           example: "253"
       responses:
         '200':
