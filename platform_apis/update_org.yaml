@@ -118,11 +118,6 @@ components:
     input:
       type: object
       properties:
-        org_id:
-          x-name: org_id
-          type: string
-          example: 829
-          description: Organization Id
         email:
           x-name: email
           type: string
