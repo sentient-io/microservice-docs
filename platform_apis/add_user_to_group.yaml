@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Add Group To User
-  description: This API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
+  description: This is an organization account function and this API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
   x-subscribelink: add_user_to_group
   version: '0.1.0'
 servers:
@@ -23,14 +23,14 @@ paths:
           schema:
             type: integer
           required: true
-          description: User Id
+          description: User Id. Refer to User List API to get the user id (results.user_id) details.
           example: "1121"
         - in: query
           name: group_id
           schema:
             type: integer
           required: true
-          description: Group Id
+          description: Group Id. Refer to Group List to get the group id(results.group_id) details.
           example: "7"
       responses:
         '200':
