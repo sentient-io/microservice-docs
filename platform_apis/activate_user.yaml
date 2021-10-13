@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Activate Users
-  description: This API provides operations to manage users in your organization. Create a user without a password and recovery question/answer. When the user is activated, an email is sent to the user with an activation token that can be used to complete the activation process. This is the default flow for new user registration using the admistrator user dashboard.
+  description: This is an organization function and this API is used to activate a user from the deleted user list. Only active users can access specified restricted features and content set by the Admin.
   version: v0.1.0
   x-subscribelink: 
 servers:
@@ -125,7 +125,7 @@ components:
           type: array
           default: True
           example: [1326,1545]
-          description: Multiple user ids of the user. Invalid user id will be igonred in the array list.
+          description: Multiple user ids of the user. Invalid user id will be ignored in the array list. Refer to List Deleted Users API to get the user id (results.user_id) details.
           items:
             type: object
   securitySchemes:
