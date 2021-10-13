@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: API Metering Error Details
-  description: This API provides detail graphs that show usage metrics that helps you as an organization to: 1. Track and understand your usage of Sentient APIs; 2. Monitor perforamnce of your applications and Sentient APIs; 3. Discover problems that may be happening between your application and Sentient APIs. By using this API you can dramatically speed up resolution time while troubleshooting problems or are in in need of technical support from Sentient. The metrics provided through this API include request counts, total latencies, error rates, request sizes, and response rates. You can view API metrics graphs in administrator user dashboard.
+  description: This API provides detail insight into errors that may occur while performing an API call. This API shows the aspects including but limited to the number of invalid inputs, authentication failures, number of invalid requests, and API key errors for any given microservice within a specific period of time (i.e. monthly, yearly, etc.).
   version: v0.1.0
   x-subscribelink: api_metering_error_details
 servers:
@@ -177,6 +177,8 @@ components:
       required:
         - from_date
         - to_date
+        - key
+        - value
       properties:
         from_date:
           x-name: from_date
@@ -194,12 +196,19 @@ components:
           x-name: user_id
           type: integer
           example: 2
-          description: User id to view the api metering graph details
-        function_code:
-          x-name: function_code
+          description: User id to view the api metering graph details. Refer to User List API to get the user id (results.user_id) details.
+        key:
+          x-name: key
           type: string
-          example: WIKIPEDIA
-          description: Microservice function code to view the api metering graph details
+          default: True
+          example: "function_id or function_code"
+          description: Microservice function id or function code keys required to view the api metering graph details of any microservice.
+        value:
+          x-name: value
+          type: string
+          default: True
+          example: "583 or WIKIPEDIA"
+          description: Values of function id or function code required to view the api metering graph details. To get Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
