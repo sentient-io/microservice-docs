@@ -15,16 +15,23 @@ paths:
       tags:
         - v0.1.0
       required:
-        - function_id
-        - function_code
+        - key
+        - value
       parameters:
         - in: query
-          name: function_id
+          name: key
           schema:
-            type: integer
+            type: string
           required: true
-          description: Function Id
-          example: "214"
+          description: Keys of either Function Id or Function Code.
+          example: "function_id or function_code"
+        - in: query
+          name: value
+          schema:
+            type: string
+          required: true
+          description: Value of Funtion Id or Function Code. To get Function Id, Refer to Assign Functions API to get the function id (result.function_id) details.
+          example: "217 or WEBSCRAPING"
       responses:
         '200':
           description: Ok
