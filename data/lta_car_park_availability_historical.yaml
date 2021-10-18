@@ -408,12 +408,7 @@ components:
           type: number
           default: false
           example: 0
-          description: The offset of the record list ie the starting index 
-        aggregation:
-          type: boolean
-          default: false
-          example: true
-          description: It returns the hourly aggregation of car park availability in following metrics sum, average, min, max and count. Input should be true/false, default is false.       
+          description: The offset of the record list ie the starting index       
         filter:
           type: array
           default: false
