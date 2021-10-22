@@ -1,10 +1,9 @@
 openapi: 3.0.1
 info:
-  title: Singapore-MRT-LRT-Data
-  x-subscribelink: singapore-mrt-lrt
+  title: Train Stations (SG)
+  x-subscribelink: train_stations_sg
   description: |+
-   Latitude and longitude of train (MRT/LRT) stations in Singapore (as at Dec 2020)
-      
+   This data microservice returns search results for all train stations in Singapore, including the Mass Rapid Transit (MRT) and Light Rail Transit (LRT) stations as of Dec 2020. Returned results includes details such as location, station ID and track line name.
   x-additionalinfo : |+
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
