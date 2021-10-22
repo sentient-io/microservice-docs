@@ -359,10 +359,10 @@ data:
     title: LiDAR Trajectory Data
     versions:
       0.1.0: 'lidar_trajectory_data.yaml'     
-  singapore-mrt-lrt:
-    title: Singapore-MRT-LRT-Data
+  train_stations_sg:
+    title: Train Stations (SG)
     versions:
-      0.1.0: 'singapore-mrt-lrt.yaml'      
+      0.1.0: 'train_stations_sg.yaml'      
 data alliance:
   download_dataset_api:
     title: Download Dataset API
