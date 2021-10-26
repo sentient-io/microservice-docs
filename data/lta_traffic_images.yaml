@@ -51,7 +51,7 @@ paths:
                     _score: 0
                     _source:
                       camera_id: '1709'
-                      image_link: https://storage.googleapis.com/lta_data/trafficimages/1709_20210827_003855.jpg?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20210826%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20210826T164859Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=2d1aae6bbf3df8d929658ebf4787307475b53187dc2b0e6b325917aaf17ba02b043ab5ee8174f9acb6687130bd790a2ed1b4b56475cb17ae2621c88ecd59602002d67b6890ef84571878937b6554b230879526b2be1dd5a4a7bc84493f1b6f7436cc76090fd3b4fa5e73c09c12534ac9c5c9bd93d5bf13c9ee85487f701d5fd5195a88fd81c65d81065bdacef70823862b177e60c7c0c63c16ad36431af1b917c10abb72e4f1bfe024bd5f78c4ebe0fb6a5d8103156441dcb75bf0d0fad759074dddbc12e84363fb900d4dd21778f69c1867c86474a99e948dd794e822887034034af37ceb71c984b6b1c75a44f2793ebc2897c1f6114223119b32b92e3609ff
+                      image_link: gs://lta_data/trafficimages/1501_20211022_194451.jpg
                       lastupdated: '2021-07-26T08:19:02.109Z'
                       location:
                         lat: 1.31384231654635
@@ -183,7 +183,7 @@ components:
                         description: A unique ID for this camera
                       imageLink:
                         type: string
-                        example: 'https://storage.googleapis.com/lta_data/trafficimages/1709_20210827_003855.jpg?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20210826%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20210826T164859Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=2d1aae6bbf3df8d929658ebf4787307475b53187dc2b0e6b325917aaf17ba02b043ab5ee8174f9acb6687130bd790a2ed1b4b56475cb17ae2621c88ecd59602002d67b6890ef84571878937b6554b230879526b2be1dd5a4a7bc84493f1b6f7436cc76090fd3b4fa5e73c09c12534ac9c5c9bd93d5bf13c9ee85487f701d5fd5195a88fd81c65d81065bdacef70823862b177e60c7c0c63c16ad36431af1b917c10abb72e4f1bfe024bd5f78c4ebe0fb6a5d8103156441dcb75bf0d0fad759074dddbc12e84363fb900d4dd21778f69c1867c86474a99e948dd794e822887034034af37ceb71c984b6b1c75a44f2793ebc2897c1f6114223119b32b92e3609ff'
+                        example: 'gs://lta_data/trafficimages/1501_20211022_194451.jpg'
                         description: |+
                                     • Link for downloading this image.
                       location:
