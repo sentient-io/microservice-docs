@@ -342,7 +342,11 @@ data:
   lta_traffic_speed_bands:
     title: LTA Traffic Speed Bands
     versions:
-      0.1.0: 'lta_traffic_speed_bands.yaml'      
+      0.1.0: 'lta_traffic_speed_bands.yaml'   
+  lta_traffic_speed_bands_historical:
+    title: LTA Traffic Speed Bands Historical
+    versions:
+      0.1.0: 'lta_traffic_speed_bands_historical.yaml'       
   lta_vms:
     title: LTA VMS
     versions:
