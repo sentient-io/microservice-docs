@@ -196,10 +196,10 @@ components:
                               type: string
                               description: Date of query result
                               example: 2021-10-26 18
-                            lot_stats: 
+                            speedband_stats: 
                               type: object
                               example: {<Json Object>}
-                              description: Lot avail status
+                              description: Speed band status
                               properties:                            
                                 avg: 
                                   type: float
