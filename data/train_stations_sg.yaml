@@ -19,7 +19,7 @@ info:
       > {"exists":{"field":"stn_name"}}
   version: '0.1.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Oct 13, 2021"
@@ -186,15 +186,7 @@ components:
                             lastupdated:
                               type: string
                               description: Record last updated date on sentient
-                              example: "2021-03-04T03:29:14.930Z"
-                            latitude:
-                              type: number
-                              description: Latitude map coordinates for station
-                              example: 1.3802982869999998
-                            longitude:
-                              type: number
-                              description: Longitude map coordinates for station
-                              example: 103.7453173                              
+                              example: "2021-03-04T03:29:14.930Z"                          
                             location:
                               type: object
                               description: Latitude and Longitude map coordinates.
@@ -212,11 +204,11 @@ components:
                               type: string
                               description: Track Line Name
                               example: Bukit Panjang LRT                                   
-                            stn_name:
+                            station_name:
                               type: string
                               description: Track Line Name
                               example: SOUTH VIEW LRT STATION
-                            stn_no:
+                            station_id:
                               type: string
                               description: Station Number
                               example: "BP02"
