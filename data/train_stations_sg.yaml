@@ -19,7 +19,7 @@ info:
       > {"exists":{"field":"station_name"}}
   version: '0.1.0'
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Oct 13, 2021"
