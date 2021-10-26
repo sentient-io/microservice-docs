@@ -8,15 +8,15 @@ info:
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"stn_name":"NEWTON MRT STATION"}}    
+      > {"match_phrase":{"station_name":"NEWTON MRT STATION"}}    
     * **match** - Search within a full text field for a single word
-      > {"match":{"stn_name":"NEWTON"}}
+      > {"match":{"station_name":"NEWTON"}}
     * **range** - Returns results that contain terms within a stipulated range
       > {"range":{"lastupdated":{"lte":"now/d"}}}
     * **geo_distance** - Returns the geo search based on the distance and location lat/long
       > {"geo_distance": {"distance": "1km","location": "1.3138,103.8456"}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"field":"stn_name"}}
+      > {"exists":{"field":"station_name"}}
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -52,8 +52,8 @@ paths:
                       lat: 1.3802982869999998
                       lon: 103.7453173
                     longitude: 103.7453173
-                    stn_name: SOUTH VIEW LRT STATION
-                    stn_no: BP02
+                    station_name: SOUTH VIEW LRT STATION
+                    station_id: BP02
                     x: 18203.7243
                     'y': 40252.0686
                   _type: dir_doc
@@ -329,7 +329,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"match_phrase":{"stn_name":"NEWTON MRT STATION"}}]
+          example: [{"match_phrase":{"station_name":"NEWTON MRT STATION"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
