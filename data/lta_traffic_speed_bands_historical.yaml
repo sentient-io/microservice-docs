@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: LTA Traffic Speed Bands
+  title: LTA Traffic Speed Bands Historical
   x-subscribelink: lta_traffic_speed_bands_historical
   description: |+
         Returns historical no of current traffic speeds on expressways and arterial roads,expressed in speed bands. Updates every 5 minutes.
