@@ -307,6 +307,10 @@ data:
     title: Trajectory Clustering
     versions:
       0.1.0: 'trajectory_clustering.yaml'      
+  train_stations_sg:
+    title: Train Stations (SG)
+    versions:
+      0.1.0: 'train_stations_sg.yaml'      
 data alliance:
   download_dataset_api:
     title: Download Dataset API
