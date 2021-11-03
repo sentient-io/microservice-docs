@@ -3,7 +3,7 @@ info:
   title: Directory of Singapore Startups
   x-subscribelink: directory_of_singapore_startups
   description: |+
-    This Data microservice retrieves the list of all Singapore startup companies found on the internet through web scraping. Updated quarterly.
+    This Data microservice retrieves a list of all Singapore startup companies found on the internet through web scraping. Updated quarterly.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Build solutions related to startups in Singapore. For example, investors interested in industry analysis can use this microservice to identify the trends and patterns in Singapore's startup scene.
