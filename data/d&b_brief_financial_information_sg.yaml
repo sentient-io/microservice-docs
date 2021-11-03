@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: D&B Brief Financial Information (SG)
-  description:  This Data microservice provides the annual financial information of Singapore-registered businesses, inclusive of annual profit and loss and financial ratios. Updated daily.
+  description:  This Data microservice provides an annual financial information of Singapore-registered businesses which includes profit and loss and financial ratios. Updated daily.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Software solutions with functions for personal credit checks, e.g. for parties who have a vested interest (e.g. banks, investors) in the company’s performance and to evaluate the company’s gearing and acid ratios.
