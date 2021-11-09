@@ -151,6 +151,10 @@ computer vision:
     versions:
       1.0.1: 'people_counting.yaml'
       0.1.0: 'people_counting_v0.1.yaml'
+  person_reid:
+    title: Person Reidentification
+    versions:
+      0.1.0: 'person_reid.yaml'
   landmark_recognition_sg:
     title: Landmark Detection (SG)
     versions:
