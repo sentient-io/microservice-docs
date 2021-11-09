@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: Speaker Diarization
+  title: Neural Speaker Diarization
   description: |+
     Speaker diarization is a microservice to label audio recordings with classes that correspond to speaker identity, or in short, a task to identify "who spoke when".
 
