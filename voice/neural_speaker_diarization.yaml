@@ -10,12 +10,12 @@ info:
     The input audio must be at 16Khz or resampled.
 
   version: v0.1.0
-  x-subscribelink: speaker_diarization
+  x-subscribelink: neural_speaker_diarization
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Oct 05, 2021"
+  description: "Published Date - Oct 09, 2021"
 paths:
   /microservices/voice/nsd/v0/getpredictions:
     post:
@@ -210,7 +210,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Oct 05, 2021
+                example: Published Date - Oct 09, 2021
                 description: Initial version release     
     input:
       type: object
