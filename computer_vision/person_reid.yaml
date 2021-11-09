@@ -1,9 +1,9 @@
 
 openapi: 3.0.1
 info:
-  title: Perosn Reidentification
+  title: Person Reidentification
   description: |+
-    something
+    This microservice is used to identify the similarity between the identity present in the two images and return a confidence score.
   version: v0.1.0
   x-subscribelink: person_reid
 servers:
