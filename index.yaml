@@ -62,6 +62,10 @@ voice:
     versions:
       1.0.0: 'voice_activity_detection_eng.yaml'
       0.1.0: 'voice_activity_detection_eng_v0.1.yaml'
+  neural_speaker_diarization:
+    title: Neural Speaker Diarization
+    versions:
+      0.1.0: 'neural_speaker_diarization.yaml'      
 nlp:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
