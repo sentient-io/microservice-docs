@@ -212,14 +212,14 @@ components:
           default: True
           example: iVBORw0KGgoAAAANSUhEUgAAAMIAAA..
           description: |+
-            Cropped Image of the 1st Person.
+            Cropped Image of the 1st Person in base64 format.
         image2_base64:
           x-name: image2_base64
           type: string
           default: True
           example: UiVBORw0KGgoAAAANSUhEUgAAAMIAAA...
           description: |+
-            Cropped Image of the 2nd Person.
+            Cropped Image of the 2nd Person in base64 format.
         
         
   securitySchemes:
