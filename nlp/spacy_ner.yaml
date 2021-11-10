@@ -31,7 +31,122 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: {"message": "Successfully Processed","results": {"fac": ["Changi Airport","the first Airport"],"gpe": ["Changi","Singapore"],"loc": ["Marina Bay","Asia"],"org": ["WSSS","BOC Aviation","Jetstar Asia Airways","Changi Airport Group","FAA","Skytrax","ICAO","the World's Best Airport"],"quantity": ["5.0 sq mi","approximately 20 km"]},"status": "Success"}
+              example: {"message": "Successfully Processed","results": {
+        "fac": [
+            [
+                "Changi Airport",
+                1,
+                3
+            ],
+            [
+                "Changi Airport",
+                7,
+                9
+            ],
+            [
+                "the first Airport",
+                71,
+                74
+            ]
+        ],
+        "gpe": [
+            [
+                "Singapore",
+                0,
+                1
+            ],
+            [
+                "Singapore",
+                31,
+                32
+            ],
+            [
+                "Changi",
+                109,
+                110
+            ],
+            [
+                "Singapore",
+                116,
+                117
+            ],
+            [
+                "Singapore",
+                129,
+                130
+            ],
+            [
+                "Singapore",
+                162,
+                163
+            ]
+        ],
+        "loc": [
+            [
+                "Asia",
+                42,
+                43
+            ],
+            [
+                "Marina Bay",
+                126,
+                128
+            ]
+        ],
+        "org": [
+            [
+                "ICAO",
+                14,
+                15
+            ],
+            [
+                "WSSS",
+                16,
+                17
+            ],
+            [
+                "FAA",
+                18,
+                19
+            ],
+            [
+                "the World's Best Airport",
+                63,
+                68
+            ],
+            [
+                "Skytrax",
+                69,
+                70
+            ],
+            [
+                "Changi Airport Group",
+                152,
+                155
+            ],
+            [
+                "Jetstar Asia Airways",
+                173,
+                176
+            ],
+            [
+                "BOC Aviation",
+                177,
+                179
+            ]
+        ],
+        "quantity": [
+            [
+                "approximately 20 km",
+                118,
+                121
+            ],
+            [
+                "5.0 sq mi",
+                141,
+                144
+            ]
+        ]},"status": "Success"}
         '401':
           description: Unauthorized
           content:
