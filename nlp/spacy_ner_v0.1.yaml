@@ -4,7 +4,7 @@ info:
   description: |+
       This NLP microservice locates and classifies the named-entities classes from input unstructured English text, based on the spaCy model. 
 
-      The named-entity classes extracted include persons, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals along with entity start and end positions in the text. 
+      The named-entity classes extracted include persons, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals. 
 
       This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
       
@@ -12,18 +12,18 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning -e.g. tokenization, Parts-of-Speech (PoS) Tagging, Text Classification and Named Entity Recognition.
-  version: '2.0.0'
+  version: '0.1.0'
   x-subscribelink: spacy_ner
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Nov 09, 2021"
+- name: "v0.1.0"
+  description: "Published Date - Sep 30, 2020"
 paths:
-  /microservices/nlp/spacyner/v2/getpredictions:
+  /microservices/nlp/spacyner/v1/getpredictions:
     post:
       tags:
-        - v2.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -107,175 +107,92 @@ components:
             person:
               x-name: person
               type: array
-              example: [[DONALD TRUMP,1,3],[Mike Pompeo,4,6]]
+              example: [DONALD TRUMP,Mike Pompeo]
               description: People, including fictional.
             norp:
               x-name: norp
               type: array
-              example: [[Chinese,1,2],[Singaporean,4,5],[Malay,6,7]]
+              example: [Chinese,Singaporean,Malay]
               description: Nationalities or religious or political groups.
             fac:
               x-name: fac
               type: array
-              example: [[Changi Airport,1,3], ["Changi Airport",7, 9],["the first Airport",71,74]]
+              example: [Changi Airport, the first Airport]
               description: Buildings, airports, highways, bridges, etc.
             org:
               x-name: org
               type: array
-              example: [
-            [
-                "ICAO",
-                14,
-                15
-            ],
-            [
-                "WSSS",
-                16,
-                17
-            ],
-            [
-                "FAA",
-                18,
-                19
-            ],
-            [
-                "the World's Best Airport",
-                63,
-                68
-            ],
-            [
-                "Skytrax",
-                69,
-                70
-            ],
-            [
-                "Changi Airport Group",
-                152,
-                155
-            ],
-            [
-                "Jetstar Asia Airways",
-                173,
-                176
-            ],
-            [
-                "BOC Aviation",
-                177,
-                179
-            ]
-        ]
+              example: [WSSS,BOC Aviation]
               description: Companies, agencies, institutions, etc.
             gpe:
               x-name: gpe
               type: array
-              example: [
-            [
-                "Singapore",
-                0,
-                1
-            ],
-            [
-                "Singapore",
-                31,
-                32
-            ],
-            [
-                "Changi",
-                109,
-                110
-            ],
-            [
-                "Singapore",
-                116,
-                117
-            ],
-            [
-                "Singapore",
-                129,
-                130
-            ],
-            [
-                "Singapore",
-                162,
-                163
-            ]
-        ]
+              example: [Changi,Singapore]
               description: Countries, cities, states.
             loc:
               x-name: loc
               type: array
-              example: [
-            [
-                "Asia",
-                42,
-                43
-            ],
-            [
-                "Marina Bay",
-                126,
-                128
-            ]
-        ]
+              example: [Marina Bay, Asia]
               description: Non-GPE locations, mountain ranges, bodies of water.
             product:
               x-name: product
               type: array
-              example: [[Formula 1, 5,7],[Motorrad,8,9]]
+              example: [Formula 1,Motorrad]
               description: Objects, vehicles, foods, etc. (Not services.)
             event:
               x-name: event
               type: array
-              example: [[the Second World War,1,5]]
+              example: [the Second World War]
               description: Named hurricanes, battles, wars, sports events, etc.
             work_of_art:
               x-name: work_of_art
               type: array
-              example: [[Wizardry,1,2]]
+              example: [Wizardry]
               description: Titles of books, songs, etc.
             law:
               x-name: law
               type: array
-              example: [[the Penal Code,1,4],[the Internal Security Act,5,9],[the Constitution of the Republic of Singapore,9,16],[the Evidence Act,16,19],[the Societies Act,19,22]]
+              example: [the Penal Code,the Internal Security Act,the Constitution of the Republic of Singapore",the Evidence Act,the Societies Act]
               description: Named documents made into laws.
             language:
               x-name: language
               type: array
-              example: [[English,1,2]]
+              example: [English]
               description: Any named language.
             date:
               x-name: date
               type: array
-              example: [[Tuesday,1,2]]
+              example: [Tuesday]
               description: Absolute or relative dates or periods.
             time:
               x-name: time
               type: array
-              example: [[twenty-four hours,1,5]]
+              example: [twenty-four hours]
               description: Times smaller than a day.
             percent:
               x-name: percent
               type: array
-              example: [[91%,1,2],[25%,2,3],[61%,4,5]]
+              example: [91%,25%,61%]
               description: Percentage, including ”%“.
             money:
               x-name: money
               type: array
-              example: [[up to $1000,1,4]]
+              example: [up to $1000]
               description: Monetary values, including unit.
             quantity:
               x-name: quantity
               type: array
-              example: [[about one degree,85 miles,137 kilometres,1,8]]
+              example: [about one degree,85 miles,137 kilometres]
               description: 	Measurements, as of weight or distance.
             ordinal:
               x-name: ordinal
               type: array
-              example: [[ninth,1,2],[seventh,3,4],[second,5,6]]
+              example: [ninth,seventh,second]
               description: “first”, “second”, etc.
             cardinal:
               x-name: cardinal
               type: array
-              example: [[four,1,2]]
+              example: [four]
               description: Numerals that do not fall under another type.
         message:
           x-name: message
@@ -372,13 +289,6 @@ components:
     versions:
       type: object
       properties: 
-        v2.0.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Nov 09, 2021
-              description: Output Format Change  
         v0.1.0:
          type: array
          items:
