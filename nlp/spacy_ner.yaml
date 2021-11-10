@@ -1,17 +1,17 @@
 openapi: 3.0.1
 info:
-  title: Inverse Text Normalisation ENG
+  title: spaCy NER
   description: |+
-    This NLP microservice recovers the missing punctuations such as full stop, comma, exclamation mark, and question mark from the input text.
-    
-    It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case.
-    
-    Do ensure that your text is within **5000 characters**.
-  version: '1.0.0'
+      This NLP microservice locates and classifies the named-entities classes from input unstructured English text, based on the spaCy model. 
+      The named-entity classes extracted include persons, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals along with entity start and end positions in the text. 
+      This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+      
+      Do ensure that your text is **within 5000 characters**.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Can be integrated into services or apps that offer digital writing assistance to make writing clear and effective.
-  x-subscribelink: inverse_text_normalisation_eng
+    - Can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning -e.g. tokenization, Parts-of-Speech (PoS) Tagging, Text Classification and Named Entity Recognition.
+  version: '2.0.0'
+  x-subscribelink: spacy_ner
 servers:
   - url: 'https://apis.sentient.io'
 tags:
