@@ -13,15 +13,15 @@ info:
   version: '2.0.0'
   x-subscribelink: spacy_ner
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Oct 30, 2020"
+- name: "v2.0.0"
+  description: "Published Date - Nov 09, 2021"
 paths:
-  /microservices/nlp/inversenorm/v1/getpredictions:
+  /microservices/nlp/spacyner/v2/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v2.0.0
       responses:
         '200':
           description: Ok
@@ -29,21 +29,122 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example:
-                results:
-                  '0': |+
-                      Apple said, the project-financing fund was the 1 of its kind, real estate developers,
-                      often secure bonds for affordable housing development, but must service the debt
-                      during construction, until the houses are built and start to generate revenue, apple
-                      and state officials hope to provide bridge financing during construction at rates
-                      below those from commercial lenders.
-                  '1': |+
-                    The $2000000000 in funding will be deployable across NTU while the remaining
-                    5500000000 will go toward efforts specific to apple's home region in northern california,
-                    where fast-growing tech companies have drawn protests from residents who blame them
-                    for rising, housing costs.
-                message: Successfully Processed
-                status: Success
+              example: {"message": "Successfully Processed","results": {
+        "fac": [
+            [
+                "Changi Airport",
+                1,
+                3
+            ],
+            [
+                "Changi Airport",
+                7,
+                9
+            ],
+            [
+                "the first Airport",
+                71,
+                74
+            ]
+        ],
+        "gpe": [
+            [
+                "Singapore",
+                0,
+                1
+            ],
+            [
+                "Singapore",
+                31,
+                32
+            ],
+            [
+                "Changi",
+                109,
+                110
+            ],
+            [
+                "Singapore",
+                116,
+                117
+            ],
+            [
+                "Singapore",
+                129,
+                130
+            ],
+            [
+                "Singapore",
+                162,
+                163
+            ]
+        ],
+        "loc": [
+            [
+                "Asia",
+                42,
+                43
+            ],
+            [
+                "Marina Bay",
+                126,
+                128
+            ]
+        ],
+        "org": [
+            [
+                "ICAO",
+                14,
+                15
+            ],
+            [
+                "WSSS",
+                16,
+                17
+            ],
+            [
+                "FAA",
+                18,
+                19
+            ],
+            [
+                "the World's Best Airport",
+                63,
+                68
+            ],
+            [
+                "Skytrax",
+                69,
+                70
+            ],
+            [
+                "Changi Airport Group",
+                152,
+                155
+            ],
+            [
+                "Jetstar Asia Airways",
+                173,
+                176
+            ],
+            [
+                "BOC Aviation",
+                177,
+                179
+            ]
+        ],
+        "quantity": [
+            [
+                "approximately 20 km",
+                118,
+                121
+            ],
+            [
+                "5.0 sq mi",
+                141,
+                144
+            ]
+        ]},"status": "Success"}
         '401':
           description: Unauthorized
           content:
@@ -79,7 +180,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'   
+                $ref: '#/components/schemas/inputlimitexceeded'  
         '415':
           description: Unsupported Media Type
           content:
@@ -110,25 +211,205 @@ components:
   schemas:
     success:
       type: object
-      properties:
+      properties: 
         results:
           type: object
-          description: The result of the API call.
           example: { "<Json": "Object>" }
+          description: Json Object of returned results
           properties:
-            <order sequence number> :
-              x-name: <order sequence number>
-              type: string
-              example: '{ 0: Apple said, the project-financing fund was the 1 of its kind, real estate developers, often secure bonds for affordable housing development, but must service the debt during construction, until the houses are built and start to generate revenue, apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders.}'
-              description: Order sequence number 
+            person:
+              x-name: person
+              type: array
+              example: ["news/sport/swimming/bike"]
+              description: People, including fictional.
+            norp:
+              x-name: norp
+              type: array
+              example: [[Chinese,1,2],[Singaporean,4,5],[Malay,6,7]]
+              description: Nationalities or religious or political groups.
+            fac:
+              x-name: fac
+              type: array
+              example: [[Changi Airport,1,3], ["Changi Airport",7, 9],["the first Airport",71,74]]
+              description: Buildings, airports, highways, bridges, etc.
+            org:
+              x-name: org
+              type: array
+              example: [
+            [
+                "ICAO",
+                14,
+                15
+            ],
+            [
+                "WSSS",
+                16,
+                17
+            ],
+            [
+                "FAA",
+                18,
+                19
+            ],
+            [
+                "the World's Best Airport",
+                63,
+                68
+            ],
+            [
+                "Skytrax",
+                69,
+                70
+            ],
+            [
+                "Changi Airport Group",
+                152,
+                155
+            ],
+            [
+                "Jetstar Asia Airways",
+                173,
+                176
+            ],
+            [
+                "BOC Aviation",
+                177,
+                179
+            ]
+        ]
+              description: Companies, agencies, institutions, etc.
+            gpe:
+              x-name: gpe
+              type: array
+              example: [
+            [
+                "Singapore",
+                0,
+                1
+            ],
+            [
+                "Singapore",
+                31,
+                32
+            ],
+            [
+                "Changi",
+                109,
+                110
+            ],
+            [
+                "Singapore",
+                116,
+                117
+            ],
+            [
+                "Singapore",
+                129,
+                130
+            ],
+            [
+                "Singapore",
+                162,
+                163
+            ]
+        ]
+              description: Countries, cities, states.
+            loc:
+              x-name: loc
+              type: array
+              example: [
+            [
+                "Asia",
+                42,
+                43
+            ],
+            [
+                "Marina Bay",
+                126,
+                128
+            ]
+        ]
+              description: Non-GPE locations, mountain ranges, bodies of water.
+            product:
+              x-name: product
+              type: array
+              example: [[Formula 1, 5,7],[Motorrad,8,9]]
+              description: Objects, vehicles, foods, etc. (Not services.)
+            event:
+              x-name: event
+              type: array
+              example: [[the Second World War,1,5]]
+              description: Named hurricanes, battles, wars, sports events, etc.
+            work_of_art:
+              x-name: work_of_art
+              type: array
+              example: [[Wizardry,1,2]]
+              description: Titles of books, songs, etc.
+            law:
+              x-name: law
+              type: array
+              example: [[the Penal Code,1,4],[the Internal Security Act,5,9],[the Constitution of the Republic of Singapore,9,16],[the Evidence Act,16,19],[the Societies Act,19,22]]
+              description: Named documents made into laws.
+            language:
+              x-name: language
+              type: array
+              example: [[English,1,2]]
+              description: Any named language.
+            date:
+              x-name: date
+              type: array
+              example: [[Tuesday,1,2]]
+              description: Absolute or relative dates or periods.
+            time:
+              x-name: time
+              type: array
+              example: [[twenty-four hours,1,5]]
+              description: Times smaller than a day.
+            percent:
+              x-name: percent
+              type: array
+              example: [[91%,1,2],[25%,2,3],[61%,4,5]]
+              description: Percentage, including ”%“.
+            money:
+              x-name: money
+              type: array
+              example: [[up to $1000,1,4]]
+              description: Monetary values, including unit.
+            quantity:
+              x-name: quantity
+              type: array
+              example: [[about one degree,85 miles,137 kilometres,1,8]]
+              description: 	Measurements, as of weight or distance.
+            ordinal:
+              x-name: ordinal
+              type: array
+              example: [[ninth,1,2],[seventh,3,4],[second,5,6]]
+              description: “first”, “second”, etc.
+            cardinal:
+              x-name: cardinal
+              type: array
+              example: [[four,1,2]]
+              description: Numerals that do not fall under another type.
         message:
+          x-name: message
           type: string
           example: Successfully Processed
           description: Detail description on the API status
+          
         status:
+          x-name: status
           type: string
           example: Success
           description: The status of the API call success/failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure      
     unauthorized:
       type: object
       properties:
@@ -200,33 +481,24 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure 
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
-        status:
-          type: string
-          example: Failure
+          example: Failure  
     versions:
       type: object
       properties: 
-        v1.0.0:
-          type: array
-          items:
-            oneOf:
-              - type: string
-                example: Published Date - Oct 30, 2020
-                description: Standardizing Output JSON
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Nov 09, 2021
+              description: Output Format Change  
         v0.1.0:
-          type: array
-          items:
-            oneOf:
-              - type: string
-                example: Published Date - Mar 24, 2020
-                description: Initial version release
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 30, 2020
+              description: Initial version release    
     input:
       type: object
       required:
@@ -236,7 +508,7 @@ components:
           x-name: text
           type: string
           default: true
-          example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
+          example: "Singapore Changi Airport, commonly known as Changi Airport (IATA: SIN, ICAO: WSSS, FAA LID: SIN), is a major civilian airport that serves Singapore, and is one of the largest transportation hubs in Asia. As one of the world's busiest airports by international passenger and cargo traffic, it is currently rated the World's Best Airport by Skytrax, the first Airport in the world to do so for eight consecutive years.[10][11] It has also been rated as the one of the world's cleanest airports and highly rated international transit airports.[12][13]The airport is located in Changi, at the eastern end of Singapore, approximately 20 km (12 mi)[14] from Marina Bay (Singapore's Downtown Core), on a 13-square-kilometre (5.0 sq mi) site. The airport is operated by Changi Airport Group and it is the home base of Singapore Airlines,[15] Singapore Airlines Cargo,[15] SilkAir,[15] Scoot, Jetstar Asia Airways and BOC Aviation."
           description: |+
             Input text
   securitySchemes:
