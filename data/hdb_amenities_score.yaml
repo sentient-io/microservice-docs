@@ -3,7 +3,7 @@ openapi: 3.0.1
 info:
   title: HDB Amenities Score
   description: |+
-    Given a Singapore postal code, fetch amenity scores for various amenity types 
+    This Data microservice returns amenity scores for various amenity types with an input of a Singapore postal code.  
   version: v0.1.0
   x-subscribelink: hdb_amenities_score
 servers:
