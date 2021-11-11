@@ -3,8 +3,8 @@ info:
   title: LTA Traffic Incidents
   x-subscribelink: lta_traffic_incidents
   description: |+
-    Returns incidents currently happening on the roads, such as Accidents, Vehicle Breakdowns, Road Blocks, Traffic Diversions etc. 
-    Updated every 2 minutes or whenever there are updates.
+    This Data microservice returns real time incidents on the roads, such as Accidents, Vehicle Breakdowns, Road Blocks, Traffic Diversions etc. Updates every 2 minutes or whenever there is new data.
+    This microservice contains information from LTA Datamall's Traffic Incidence dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
   x-additionalinfo : |+
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
