@@ -3,8 +3,8 @@ info:
   title: LTA Traffic Speed Bands
   x-subscribelink: lta_traffic_speed_bands
   description: |+
-        This Data microservice returns current traffic speeds on expressways and arterial roads,
-expressed in speed bands. Updates every 5 minutes. This microservice contains information from LTA Datamall's Traffic Speed Bands dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+        This Data microservice returns current traffic speeds on expressways and arterial roads,expressed in speed bands. Updates every 5 minutes. 
+        This microservice contains information from LTA Datamall's Traffic Speed Bands dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
   x-additionalinfo : |+
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
