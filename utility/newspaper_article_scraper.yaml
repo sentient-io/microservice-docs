@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Newspaper Article Scraper
   description: |+
-    This api allows to extracting & curating articles and delivers Instapaper style article extraction. 
+    This Utility microservice extracts  and curates articles and delivers Instapaper-style article extraction. 
     
-    Current supported languages: Arabic, Russian, Dutch, German, English, Spanish, French, Hebrew, Italian, Korean, Norwegian, Persian, Polish, Portuguese, Swedish, Hungarian, Finnish, Danish, Chinese, Indonesian, Vietnamese, Swahili, Turkish, Greek, Ukrainian. Supports automatic languages detection.
+    Current supported languages: Arabic, Russian, Dutch, German, English, Spanish, French, Hebrew, Italian, Korean, Norwegian, Persian, Polish, Portuguese, Swedish, Hungarian, Finnish, Danish, Chinese, Indonesian, Vietnamese, Swahili, Turkish, Greek, Ukrainian. Supports automatic language detection.
     
     Note that the URL has to be **spelt in full**, including "https://www."
   x-additionalinfo: |+

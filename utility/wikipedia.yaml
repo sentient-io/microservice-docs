@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Wikipedia Retrieval
   description: |+
-    It is an API that provides the user with a Wikipedia article based on the input keyword. Refer to this link for the full list of Wikipedias - <u>https://meta.wikimedia.org/wiki/List_of_Wikipedias</u>
+    This Utility microservice provides the user with a Wikipedia article based on the input keyword. Refer to this link for the full list of Wikipedias - <u>https://meta.wikimedia.org/wiki/List_of_Wikipedias</u>
   x-additionalinfo: |+
     Suggested Use Cases:
     - Access topics within Wikipedia with great specificity. Can be used for research/study-related solutions by using information from this microservice to compare articles, revisions and more.

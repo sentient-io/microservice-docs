@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: PDF Extractor
   description: |+
-    This Utility microservice extracts the text content of the input PDF document  with the options to extract specific pages.
+    This Utility microservice extracts the text content of the input PDF document  with the option to extract specific pages.
     
     It also extracts from password-protected PDFs, if the correct password is provided.
         
