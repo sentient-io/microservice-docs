@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Decryption using PKI Key
   description: |+
-    This Utiltiy microservice decrypts the input text using the input key string.
+    This Utility microservice decrypts the input text using the input key string.
     
-    This can be use with PKI Key Generator.
+    This can be used with the PKI Key Generator microservice.
     
     Do ensure that your text is **within 512 characters**.
   x-additionalinfo: |+

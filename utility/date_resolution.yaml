@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Date Resolution
   description: |+
-    This Utility microservice generate a date based on the input string.
+    This Utility microservice generates a date based on the input string.
   version: 'v0.2.0'
   x-subscribelink: date_resolution
 servers:

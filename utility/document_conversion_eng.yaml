@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Document Convertor ENG
   description: |+
-    This Utility microservice extracts the English text content of singular input Microsoft Word, HTML or PDF documents and outputs into plain text format.
+    This Utility microservice extracts the English text content of either an input of Microsoft Word, HTML or PDF document and outputs into a plain text format.
     
     The size of your document file should **not exceed 7 MB**.
   x-additionalinfo: |+
