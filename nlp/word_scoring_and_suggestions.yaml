@@ -3,7 +3,7 @@ openapi: 3.0.1
 info:
   title: Word Scoring and Suggestions
   description: |+
-    To compute the probability of each word in a sentence and generate suggested words. The input is a single sentence. 
+    This NLP microservice computes the probability of each word in a sentence and generates suggested words. The input is a single sentence. 
   version: v0.1.0
   x-subscribelink: word_scoring_and_suggestions
 servers:

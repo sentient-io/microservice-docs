@@ -3,11 +3,11 @@ openapi: 3.0.1
 info:
   title: Taxonomy Matcher ENG
   description: |+
-    This NLP microservice matches the input word with the name of a leaf nodes in the predefined English taxonomy. The entire branch from the matched leaf node to the root of the corresponding taxonomy tree is returned.
+    This NLP microservice matches the input word with the name of a leaf node in the predefined English taxonomy. The entire branch from the matched leaf node to the root of the corresponding taxonomy tree is returned.
     
     The full taxonomy consists of major categories (for e.g. retail, cars, etc.). Each category is stored as a separate taxonomy tree within the Taxonomy instance. Each node in a taxonomy tree is identified using a node_id. It has attributes: name (a human readable string), level (how far it is from the root node) and type (whether it is a root node, leaf node or body node).
     
-    This microservice can help identify the types of concept that are frequently mentioned in an article.
+    This microservice helps to identify the types of concept that are frequently mentioned in an article.
     
   version: '1.0.1'
   x-additionalinfo: |+
