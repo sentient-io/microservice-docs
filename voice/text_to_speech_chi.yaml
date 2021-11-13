@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Text-To-Speech CHI
   description: |+
-    This Voice microservice converts Mandarin text into speech in a female voice.
+    This Voice microservice converts Mandarin text to speech in a female voice.
     
-    The Text-to-Speech AI generated synthesized voice speaks with native Mandarin accent.
+    The Text-to-Speech AI generated synthesized voice speaks with a native Mandarin accent.
     
     Do ensure that your text is **within 750 characters**.
   x-additionalinfo: |+

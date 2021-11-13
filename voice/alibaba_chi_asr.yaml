@@ -2,8 +2,8 @@ openapi: 3.0.1
 info:
   title: Alibaba Chinese ASR
   description: |+
-    This microservice takes in the input audio file  and supports recognizing short speech that lasts within 1 minute.
-    The server returns the recognition result in JSON format in a response.
+    This Voice microservice takes in the input audio file  and supports recognizing a short speech that lasts within 1 minute.
+    The server returns the recognition result in a JSON format as a response.
   x-additionalinfo: |+
     Suggested Use Cases:
       - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.
