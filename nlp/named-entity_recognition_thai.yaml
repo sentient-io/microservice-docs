@@ -4,7 +4,7 @@ info:
   description: |+
     This NLP microservice locates and classifies the named-entities classes from input unstructured Thai text.
 
-    The named-entity classes extracted are persons, locations, organisations and miscellaneous.
+    The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
 
     This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
     
