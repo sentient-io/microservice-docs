@@ -4,7 +4,7 @@
     description: |+
       This NLP microservice retrieves web content in Thai from the input URL. From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output. 
       
-      The named-entity classes extracted are persons, locations, organisations and miscellaneous.
+      The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
       
       This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
     x-additionalinfo: |+
