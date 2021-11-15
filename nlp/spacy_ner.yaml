@@ -3,25 +3,26 @@ info:
   title: spaCy NER
   description: |+
       This NLP microservice locates and classifies the named-entities classes from input unstructured English text, based on the spaCy model. 
-      The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals along with entity start and end positions in the text. 
+      The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals. 
+      It can also return the start and end positions of the identified entities in the text by setting the optional parameter "entity_position".
       This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
       
       Do ensure that your text is **within 5000 characters**.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning -e.g. tokenization, Parts-of-Speech (PoS) Tagging, Text Classification and Named Entity Recognition.
-  version: '1.1.0'
+  version: '1.0.0'
   x-subscribelink: spacy_ner
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.1.0"
+- name: "v1.0.0"
   description: "Published Date - Nov 09, 2021"
 paths:
   /microservices/nlp/spacyner/v1/getpredictions:
     post:
       tags:
-        - v1.1.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -287,7 +288,7 @@ components:
     versions:
       type: object
       properties: 
-        v1.1.0:
+        v1.0.0:
          type: array
          items:
           oneOf:
