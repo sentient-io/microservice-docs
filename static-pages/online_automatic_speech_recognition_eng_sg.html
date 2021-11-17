@@ -1,0 +1,920 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+
+
+    <style>
+      .online-asr-wrapper{
+        padding: 32px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      h2{
+        font-size: 36px;
+        color: #3b4151;
+        margin: 0;
+      }
+
+      p{
+        color: #3b4151;
+        font-size: 14px;
+      }
+
+      .code{
+        color: #3b4151 !important;
+        background-color: rgba(9, 30, 66, 0.0) !important;
+      }
+
+      table, table td{
+        border-collapse: collapse;
+        table-layout: fixed;
+        font-size: 14px;
+        width: 100%;
+        margin: 24px 8px 8px 8px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(193, 199, 200);
+      }
+
+      table td{
+        padding: 16px;
+      }
+
+      table * {
+        box-sizing: border-box;
+      }
+
+      .api-discription{
+        margin: 32px 0 32px 0;
+      }
+
+      .code{
+        background-color: rgba(9, 30, 66, 0.08);
+      }
+
+      .swagger-ui{
+    max-width: 1000px;
+    width: 100% !important;
+    margin: 0 auto !important;
+    transition: all 0.2s ease;
+}
+
+.swagger-ui table tbody tr td:first-of-type, .swagger-ui table tbody tr td{
+  padding: 16px !important;
+}
+
+#swagger-ui{
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+      @media only screen and (max-width: 1540px){
+
+        #swagger-ui{
+        }
+
+        .swagger-ui-toggle{
+            margin-top: 72px;
+        }
+    }
+}
+
+    </style>
+</head>
+
+
+<body>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#header').load('../header.html');
+		});
+	</script>
+
+  <body>
+    <div id="header"></div>
+
+    <div class="online-asr-wrapper" id="swagger-ui">
+    <div style="background-color: rgb(255, 255, 255);">
+
+        <div class="api-discription">
+          <p>
+            This Voice microservice takes in an audio stream (.wav format) and transcribes English speech content within the stream into text.
+          </p>
+
+          <p>
+            After each utterance, the microservice returns the transcript, the start and end timestamp of each word, and the confidence of the prediction of each word. An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.
+          </p>
+
+          <p>
+            This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case: default, conversation, news or telephony.
+          </p>
+
+        </div>
+
+        <p><strong>Suggested use cases</strong></p>
+
+        <ul >
+          <li>
+            <p>Extraction of text from voice (both real-time as well as from sound files), especially with Singaporean accented English</p>
+          </li>
+          <li>
+            <p>Extraction of text from video, especially with Singaporean accented English</p>
+          </li>
+        </ul>
+
+        <p><strong>Websocket API</strong></p>
+        <p><span class="code" >[Websocket API. Events Sequence]</span></p>
+
+        <br>
+        <br>
+        <p><b>1.Establish connection (websocket)</b></p>
+        <p>Client connects to server with extra header field</p>
+
+
+        <table>
+          <colgroup>
+            <col style="width: 144px;">
+            <col style="width: 535px;">
+          </colgroup>
+          <tbody>
+            <tr>
+              <td colspan="1" data-colwidth="161" rowspan="1">
+                <p><strong>API Endpoint websocket</strong></p>
+              </td>
+              <td colspan="1" data-colwidth="599" rowspan="1">
+                <p><strong>wss://onlineasr.sentient.io</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" data-colwidth="161" rowspan="1">
+                <p>Authentication</p>
+              </td>
+              <td colspan="1" data-colwidth="599" rowspan="1">
+                <p>Authentication is done using the x-api-key in the connect header</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" data-colwidth="161" rowspan="1">
+                <p>Content-Type</p>
+              </td>
+              <td colspan="1" data-colwidth="599" rowspan="1">
+                <p>application/json</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="1" data-colwidth="161" rowspan="1">
+                <p>Output</p>
+              </td>
+              <td colspan="1" data-colwidth="599" rowspan="1">
+                <p>JSON</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Server returns HTTP Status Code: 100 if connected and authenticated successfully. If HTTP Status Code is not 100, please refer to Sentient Standard Errors for troubleshooting.</p>
+
+        <br><br><br>
+        <p><strong>2. Connected</strong></p>
+        <div class="fabric-editor-block-mark fabric-editor-indentation-mark" data-level="1">
+          <p>Client send json message below:&nbsp;<span class="code">[Input parameters]</span></p>
+
+          <table data-number-column="false">
+            <colgroup>
+              <col style="width: 139px;">
+              <col style="width: 104px;">
+              <col style="width: 433px;">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>Field</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p><strong>Type</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p><strong>Description</strong></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>x-api-key</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>String</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p><span class="code">“Your API KEY string”</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>action</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>String</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p><span class="code">“start”</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>model</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>String</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p>model name:<br>
+                  <span class="code">"en-SG"</span>
+				  &nbsp;<strong>OR</strong>&nbsp;
+				  <span class="code">"en-SG-conversation"</span>
+				  &nbsp;<strong>OR</strong>&nbsp;
+				  <span class="code">"en-SG-news"</span>
+				  &nbsp;<strong>OR</strong>&nbsp;
+				  <span class="code">"en-SG-telephony"</span>
+				  &nbsp;<strong>OR</strong>&nbsp;
+				  <span class="code">"generic_en_vosk"</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>sampling-rate</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>integer</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p><span class="code">“Optional. Sampling rate of the input wave file. 8000 or 16000 (Default).”</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>diarization</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>bool/dict</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p><span class="code">“Optional. If set to True or specified as dict, returns spkSeq at end of stream.
+                    spkSeq is ordered list of speaker ID for each utterance in stream.”</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>type</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>string</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p><span class="code">“Optional. "seminar" or "meeting" (Default).
+                    "seminar": More than 10 people.
+                    "meeting": 1 to 10 people.”</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>nspk</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>integer</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p><span class="code">“Optional. Number of speakers. Must be greater than 0.
+                    If unspecified, algorithm will estimate the number of speakers.”</span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><em>Sample input JSON</em></p>
+
+          <span style="font-size: 12px; background: rgb(244, 245, 247); color: rgb(23, 43, 77); border-radius: 3px; display: flex; line-height: 1.46; overflow-x: auto; white-space: pre;"><code class="code" style="font-size: 14px; line-height: 1.46; padding: 8px; color: rgb(137, 147, 164); background-color: rgb(235, 236, 240); flex-shrink: 0; text-align: right; user-select: none;"><span class="react-syntax-highlighter-line-number" style="opacity: 1;">1
+</span><span  style="opacity: 1;">2
+</span><span  style="opacity: 1;">3
+</span><span  style="opacity: 1;">4
+</span></code><code class="code" style="font-size: 12px; line-height: 1.66667; padding: 8px;">{
+  "x-api-key": "Replace this with your APIKey",
+  "action": "start",
+  "model": "en-SG",
+  "sampling-rate": 8000,
+  "diarization": {"type": "seminar", "nspk": 3}
+}</code></span>
+
+          <p>Server returns json:</p>
+              <table data-number-column="false">
+                <colgroup>
+                  <col style="width: 139px;">
+                  <col style="width: 104px;">
+                  <col style="width: 433px;">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p><strong>Field</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p><strong>Type</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p><strong>Description</strong></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p><strong>status</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>String</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>“listening”</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+          <p><em>Sample output JSON</em></p>
+
+          <span style="font-size: 12px; background: rgb(244, 245, 247); color: rgb(23, 43, 77); border-radius: 3px; display: flex; line-height: 1.66667; overflow-x: auto; white-space: pre;"><code class="code" style="font-size: 14px; line-height: 1.46; padding: 8px; color: rgb(137, 147, 164); background-color: rgb(235, 236, 240); flex-shrink: 0; text-align: right; user-select: none;"><span class="react-syntax-highlighter-line-number" style="opacity: 1;">1
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">2
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">3
+</span></code><code class="code" style="font-size: 12px; line-height: 1.66667; padding: 8px;">{
+  "status": "listening"
+}</code></span>
+
+          <br><br><br>
+          <p><strong>3. Message exchanges</strong></p>
+          <p>Client sends byte stream of audio:</p>
+          <ul class="ak-ul">
+            <li>
+              <p>Format: wav</p>
+            </li>
+            <li>
+              <p>Channel Type: mono</p>
+            </li>
+            <li>
+              <p>Sample Rate: 8kHz or 16 kHz</p>
+            </li>
+          </ul>
+          <p>Server returns 2 possible results, depending if the utterance is partial or complete:</p>
+          <ul>
+            <li>
+              <p >If utterance is partial, server returns:</p>
+            </li>
+          </ul>
+          <div class="pm-table-container" data-layout="default" style="width: inherit;">
+            <div class="pm-table-wrapper">
+              <table data-number-column="false">
+                <colgroup>
+                  <col style="width: 139px;">
+                  <col style="width: 104px;">
+                  <col style="width: 433px;">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p><strong>Field</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p><strong>Type</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p><strong>Description</strong></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p><strong>partial</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>String</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Partial results of the received audio stream</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p><em>Sample output JSON</em></p>
+
+          <span style="font-size: 12px; background: rgb(244, 245, 247); color: rgb(23, 43, 77); border-radius: 3px; display: flex; line-height: 1.66667; overflow-x: auto; white-space: pre;"><code class="code" style="font-size: 14px; line-height: 1.46; padding: 8px; color: rgb(137, 147, 164); background-color: rgb(235, 236, 240); flex-shrink: 0; text-align: right; user-select: none;"><span class="react-syntax-highlighter-line-number" style="opacity: 1;">1
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">2
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">3
+</span></code><code class="code" style="font-size: 12px; line-height: 1.66667; padding: 8px;">{
+  "partial": "HELLO WORLD THESE"
+}</code></span>
+
+          <ul>
+            <li>
+              <p>If utterance is complete, server returns:</p>
+            </li>
+          </ul>
+          <div class="pm-table-container" data-layout="default" style="width: inherit;">
+            <div class="pm-table-wrapper">
+              <table data-number-column="false">
+                <colgroup>
+                  <col style="width: 139px;">
+                  <col style="width: 104px;">
+                  <col style="width: 433px;">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p><strong>Field</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p><strong>Type</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p><strong>Description</strong></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p><strong>partial</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>String</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Predicted text for the utterance.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>result or result struct</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>array of structs</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Predicted words and meta-data of the utterance.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>word</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>string</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Predicted word.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>start</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>float</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Start time of word, in seconds. Offset from the start of stream.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>end</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>float</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>End time of word, in seconds. Offset from the start of stream.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>conf</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>float</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Confidence score, 0.0 to 1.0.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p><em>Sample output JSON</em></p>
+
+          <span style="font-size: 12px; background: rgb(244, 245, 247); color: rgb(23, 43, 77); border-radius: 3px; display: flex; line-height: 1.66667; overflow-x: auto; white-space: pre;"><code class="code" style="font-size: 14px; line-height: 1.46; padding: 8px; color: rgb(137, 147, 164); background-color: rgb(235, 236, 240); flex-shrink: 0; text-align: right; user-select: none;"><span class="react-syntax-highlighter-line-number" style="opacity: 1;">1
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">2
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">3
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">4
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">5
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">6
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">7
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">8
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">9
+</span></code><code class="code" style="font-size: 12px; line-height: 1.66667; padding: 8px;">{
+    "result": [{"word": "HELLO", "start": 3.42, "end": 3.63, "conf": 1},
+              {"word": "WORLD", "start": 3.63, "end": 4.02, "conf": 1},
+              {"word": "THIS", "start": 4.02, "end": 4.14, "conf": 1},
+              {"word": "IS", "start": 4.14, "end": 4.26, "conf": 0.9976},
+              {"word": "A", "start": 4.26, "end": 4.439, "conf": 0.838751},
+              {"word": "TEST", "start": 4.47, "end": 4.92, "conf": 0.96717}],
+   "text": "HELLO WORLD THIS IS A TEST"
+  }</code></span>
+
+          <br><br><br>
+          <p><strong>4. End of stream</strong></p>
+          <p>Client sends 0 byte message to indicate end of stream.</p>
+          <p>Server returns final (partial or complete) result in json.</p>
+          <div class="pm-table-container" data-layout="default" style="width: inherit;">
+            <div class="pm-table-wrapper">
+              <table data-number-column="false">
+                <colgroup>
+                  <col style="width: 139px;">
+                  <col style="width: 104px;">
+                  <col style="width: 433px;">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p><strong>Field</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p><strong>Type</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p><strong>Description</strong></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p><strong>text</strong></p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>String</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Predicted text for the utterance.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>spkSeq</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>list of integer</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Optional. Only available is diarization param is passed. Ordered list of speaker ID for utterances in stream</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>partial</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>string</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Only for partial result. Partial results of the received audio stream</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>result</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>array of dict</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Only for complete utterance. Predicted words and meta-data of the utterance.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>word</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>string</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Predicted word.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>start</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>float</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Start time of word, in seconds. Offset from the start of stream.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>end</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>float</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>End time of word, in seconds. Offset from the start of stream.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1" data-colwidth="140" rowspan="1">
+                      <p>conf</p>
+                    </td>
+                    <td colspan="1" data-colwidth="105" rowspan="1">
+                      <p>float</p>
+                    </td>
+                    <td colspan="1" data-colwidth="434" rowspan="1">
+                      <p>Confidence score, 0.0 to 1.0.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p><em>Sample output JSON</em></p>
+
+          <span style="font-size: 12px; background: rgb(244, 245, 247); color: rgb(23, 43, 77); border-radius: 3px; display: flex; line-height: 1.66667; overflow-x: auto; white-space: pre;"><code class="code" style="font-size: 14px; line-height: 1.46; padding: 8px; color: rgb(137, 147, 164); background-color: rgb(235, 236, 240); flex-shrink: 0; text-align: right; user-select: none;"><span class="react-syntax-highlighter-line-number" style="opacity: 1;">1
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">2
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">3
+</span></code><code class="code" style="font-size: 12px; line-height: 1.66667; padding: 8px;">{
+  "text": "GOOD JOB",
+  "spkSeq": [0, 2, 1, 1],
+  "result": [{"word": "GOOD", "start": 3.42, "end": 3.63, "conf": 1},
+            {"word": "JOB", "start": 3.63, "end": 4.02, "conf": 1}]
+}</code></span>
+          </ul>
+          <p>In the above example, there are 4 utterances in the entire stream.</p>
+          <ul>
+            <li>
+              <p >Utterance 0 is spoken by Speaker_0</p>
+            </li>
+            <li>
+              <p >Utterance 1 is spoken by Speaker_1</p>
+            </li>
+            <li>
+              <p >Utterance 2 is spoken by Speaker_1</p>
+            </li>
+            <li>
+              <p >Utterance 3 is spoken by Speaker_3</p>
+            </li>
+          </ul>
+          <p><strong>Sample Python client file</strong></p>
+
+
+<span style="font-size: 12px; background: rgb(244, 245, 247); color: rgb(23, 43, 77); border-radius: 3px; display: flex; line-height: 1.66667; overflow-x: auto; white-space: pre;"><code class="code" style="font-size: 14px; line-height: 1.46; padding: 8px; color: rgb(137, 147, 164); background-color: rgb(235, 236, 240); flex-shrink: 0; text-align: right; user-select: none;"><span class="react-syntax-highlighter-line-number" style="opacity: 1;">1
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">2
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">3
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">4
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">5
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">6
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">7
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">8
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">9
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">10
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">11
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">12
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">13
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">14
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">15
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">16
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">17
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">18
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">19
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">20
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">21
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">22
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">23
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">24
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">25
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">26
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">27
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">28
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">29
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">30
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">31
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">32
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">33
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">34
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">35
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">36
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">37
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">38
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">39
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">40
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">41
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">42
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">43
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">44
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">45
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">46
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">47
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">48
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">49
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">50
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">51
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">52
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">53
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">54
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">55
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">56
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">57
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">58
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">59
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">60
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">61
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">62
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">63
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">64
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">65
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">66
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">67
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">68
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">69
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">70
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">71
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">72
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">73
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">74
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">75
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">76
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">77
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">78
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">79
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">80
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">81
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">82
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">83
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">84
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">85
+</span></code><code class="code" style="font-size: 12px; line-height: 1.66667; padding: 8px;">#!/usr/bin/env python3
+
+          import asyncio
+          import websockets
+          import sys
+          import json
+          import time
+
+          import logging
+          import argparse
+
+          logging.basicConfig(level=logging.INFO, format='%(message)s')
+          logger = logging.getLogger(__file__)
+          logger.setLevel(logging.INFO)
+
+          parser = argparse.ArgumentParser(description='Simple ASR websocket client.')
+          parser.add_argument('uri', type=str, help='uri.')
+          parser.add_argument('apikey', type=str, help='apikey.')
+          parser.add_argument('model', type=str, help='model name.')
+          parser.add_argument('in_wav', type=str, help='16k wav file.')
+          parser.add_argument('-v', dest='verbose', action='store_true', help='Verbose mode')
+          parser.add_argument('-q', dest='quiet', action='store_true', help='Quiet mode')
+
+          async def remote_asr(uri, apikey, model, in_wav):
+
+            extra_headers = websockets.http.Headers()
+            extra_headers['x-api-key'] = apikey
+            try:
+              async with websockets.connect(uri, extra_headers=extra_headers) as websocket:
+                start = time.time()
+                json_req = json.dumps({'action': 'start', 'model': model})
+                await websocket.send(json_req)
+                data = await websocket.recv()
+                jsondata = json.loads(data)
+                logger.debug(jsondata)
+                if 'status' in jsondata and jsondata['status'] == 'listening':
+
+                  wf = open(in_wav, "rb")
+                  while True:
+                    data = wf.read(16000)
+                    if len(data) == 0:
+                      break
+
+                    await websocket.send(data)
+                    data = await websocket.recv()
+                    logger.debug(data)
+                    jsondata = json.loads(data)
+
+                    if logger.level == logging.INFO and 'partial' in jsondata:
+                      print("*", jsondata['partial'].rstrip('\n'), end='\r')
+
+                    if 'result' in jsondata:
+                      logger.info(jsondata['text'].rstrip('\n'))
+
+                  stopmessage = b''
+                  await websocket.send(stopmessage)
+
+                  data = await websocket.recv()
+                  jsondata = json.loads(data)
+                  logger.debug(jsondata)
+                  if 'result' in jsondata:
+                    logger.info("\n" + jsondata['text'].rstrip('\n'))
+                  end = time.time()
+                  logger.info("Total elapsed time: %2.2f sec" %(end - start))
+                else:
+                  logger.error(jsondata)
+            except websockets.exceptions.WebSocketException as e:
+              logger.error("error: {}".format(e))
+
+          if __name__ == '__main__':
+              kwargs = vars(parser.parse_args())
+              if kwargs['verbose']:
+                  logging.basicConfig(level=logging.DEBUG, format='%(levels): %(message)s')
+                  logger.setLevel(logging.DEBUG)
+              elif kwargs['quiet']:
+                  logging.basicConfig(level=logging.ERROR, format='%(levels): %(message)s')
+                  logger.setLevel(logging.ERROR)
+
+              uri = kwargs['uri']
+              apikey = kwargs['apikey']
+              model = kwargs['model']
+              in_wav = kwargs["in_wav"]
+
+          asyncio.get_event_loop().run_until_complete(remote_asr(uri, apikey, model, in_wav))
+
+          </code></span>
+
+
+          <p><strong>Response errors</strong></p>
+
+          <span style="font-size: 12px; background: rgb(244, 245, 247); color: rgb(23, 43, 77); border-radius: 3px; display: flex; line-height: 1.66667; overflow-x: auto; white-space: pre;"><code class="code" style="font-size: 14px; line-height: 1.46; padding: 8px; color: rgb(137, 147, 164); background-color: rgb(235, 236, 240); flex-shrink: 0; text-align: right; user-select: none;"><span class="react-syntax-highlighter-line-number" style="opacity: 1;">1
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">2
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">3
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">4
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">5
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">6
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">7
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">8
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">9
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">10
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">11
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">12
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">13
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">14
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">15
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">16
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">17
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">18
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">19
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">20
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">21
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">22
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">23
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">24
+</span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">25
+</span></code><code class="code" style="font-size: 12px; line-height: 1.66667; padding: 8px;">401 Unauthorized
+ {
+   "message":"Missing Authentication Token",
+   "status":"Failure"
+ }
+403 Forbidden
+ {
+   "message":"Access Denied Unauthorized User",
+   "status":"Failure"
+ }
+402 Payment Required
+ {
+   "message":"Insufficient Credits Kindly Top Up",
+   "status":"Failure"
+ }
+404 Not Found
+ {
+   "message":"Invalid Request URL",
+   "status":"Failure"
+ }
+500 Internal Server error
+ {
+   "message":"Internal Server Error",
+   "status":"Failure"
+ }</code></span>
+
+          <p>&nbsp;</p>
+
+        </div>
+
+
+        <script src="../swagger-ui-bundle.js"> </script>
+        <script src="../swagger-ui-standalone-preset.js"> </script>
+  </body>
+  </html>
+</body>
+</html>
