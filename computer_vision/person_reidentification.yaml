@@ -5,7 +5,7 @@ info:
   description: |+
     This microservice is used to identify the similarity between the identity present in the two images and return a confidence score.
   version: v0.1.0
-  x-subscribelink: person_reid
+  x-subscribelink: person_reidentification
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
