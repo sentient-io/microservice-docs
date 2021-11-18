@@ -8,7 +8,7 @@ The input text should be a minimum of 100 words and a maximum of 512 words.
 
 For longer text, we suggest breaking them up into smaller chunks (each less than 512 words) and making multiple calls to this microservice for more effective summarization.
     version: '0.2.0'
-    x-subscribelink: text_summarisation
+    x-subscribelink: text_summarization
   servers:
     - url: 'https://apis.sentient.io'
   tags:
