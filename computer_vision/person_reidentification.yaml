@@ -12,7 +12,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - November 09, 2021"
 paths:
-  /microservices/cv/personreid/v0/getpredictions:
+  /microservices/cv/personreidentification/v0/getpredictions:
     post:
       tags:
         - v0.1.0
