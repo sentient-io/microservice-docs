@@ -129,7 +129,7 @@ nlp:
     versions:
       0.1.0: 'word_scoring_and_suggestions.yaml'
   text_summarization:
-    title: Text Summarisation
+    title: Text Summarization
     versions:
       0.2.0: 'text_summarization.yaml'     
   sentiment_analysis_and_sarcasm_detection:
