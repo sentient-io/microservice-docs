@@ -27,7 +27,7 @@ info:
           **Input Example** - {"image_link": "gs://lta_data/trafficimages/1501_20211022_194451.jpg"}
   version: '0.1.0'
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
