@@ -458,3 +458,13 @@ Platform APIs:
     urlkey: update_password
     versions:
       0.1.0: 'update_password.yaml'
+  add_group:
+    title: Add Group
+    urlkey: add_group
+    versions:
+      0.1.0: 'add_group.yaml'
+  remove_group_from_user:
+    title: Remove Group From User
+    urlkey: remove_group_from_user
+    versions:
+      0.1.0: 'remove_group_from_user.yaml'
