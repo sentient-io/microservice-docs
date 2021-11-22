@@ -203,38 +203,38 @@ components:
       required:
         - filePath      
       properties:
-        filePath:
+        filepath:
           type: string
           format: binary
           default: true
           description: Audio File Object
           
           # Supported formats are : cc
-        audio_Format:
+        audio_encoding:
           type: string
           default: false
           example: pcm
           description: |+
             The audio coding format. Valid values: pcm, opus. Default value: pcm.
-        sample_Rate:
+        sample_rate:
           type: number
           default: false
           example: 16000
           description: |+
             The audio sampling rate, in Hz. Valid values: 16000 and 8000. Default value: 16000.
-        punctuation_Prediction:
+        punctuation_prediction:
           type: string
           default: false
           example: false
           description: |+
             Specifies whether to add punctuation marks during post-processing. Valid values: True and False. Default value: False.
-        inversetext_Normalization:
+        inverse_text_normalization:
           type: string
           default: false
           example: false
           description: |+
             Specifies whether to enable inverse text normalization (ITN) during post-processing. Valid values: True and False. Default value: False.
-        voice_Detection:
+        voice_detection:
           type: string
           default: false
           example: false
