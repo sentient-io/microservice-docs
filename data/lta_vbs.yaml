@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: LTA VBS
+  title: LTA Passenger Volume by Bus Stops
   x-subscribelink: lta_vbs
   description: |+
       Returns tap in and tap out passenger volume by weekdays and
