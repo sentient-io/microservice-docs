@@ -360,10 +360,10 @@ data:
     title: LTA Faulty Traffic Lights
     versions:
       0.1.0: 'lta_faulty_traffic_lights.yaml'
-  lta_vbs:
+  lta_pv_bus:
     title: LTA Passenger Volume by Bus Stops
     versions:
-      0.1.0: 'lta_vbs.yaml'       
+      0.1.0: 'lta_pv_bus.yaml'       
   realtime_weather:
     title: Realtime Weather
     versions:
