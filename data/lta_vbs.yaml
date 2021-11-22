@@ -27,7 +27,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Nov 22, 2021"
 paths:
-  /microservices/data/ltavbs/v0/getdata:
+  /microservices/data/ltapvbus/v0/getdata:
     post:
       tags:
         - v0.1.0
