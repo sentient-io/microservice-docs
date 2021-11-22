@@ -3,9 +3,53 @@ openapi: 3.0.1
 info:
   title: Person Reidentification
   description: |+
-    This Computer Vision microservice returns a similarity score (confidence) between two cropped images of people in the same scene. The images are captured across different camera views in a multi-camera system, or across different time in a single camera system.
+    This Computer Vision microservice returns a similarity score (confidence) between two cropped images of people in the same scene. The images are captured across different camera views in a multi-camera system, or across different time in a single camera system. The size of your image should not exceed 5MB.
   x-additionalinfo: |+
-    The algorithm is tested on varying conditions with single and multiple surveillance camera setups. However, external conditions like lighting, occlusions, and unexpected change of appearance (e.g. removal of jacket, hatwear) may result in lower confidence than expected. A threshold of 0.8 confidence has been experimentally tested as a good value for many scenarios for determining if the two input images are of the same person
+    The algorithm is tested on varying conditions with single and multiple surveillance camera setups. However, external conditions like lighting, occlusions, and unexpected change of appearance (e.g. removal of jacket, hatwear) may result in lower confidence than expected. A threshold of 0.8 confidence has been experimentally tested as a good value for many scenarios for determining if the two input images are of the same person.
+    Supported File Formats
+    - .blp
+    - .bmp
+    - .bufr
+    - .cur
+    - .dcx 
+    - .dds 
+    - .dib 
+    - .eps 
+    - .ps 
+    - .fit 
+    - .fits 
+    - .flc 
+    - .fli 
+    - .fpx 
+    - .ftc 
+    - .ftu 
+    - .gbr 
+    - .gif 
+    - .grib 
+    - .h5 
+    - .hd5 
+    - .icns 
+    - .ico 
+    - .im 
+    - .iim 
+    - .jpeg 
+    - .jp2 
+    - .mic 
+    - .mpeg 
+    - .msp 
+    - .pcd 
+    - .pcx 
+    - .pxr 
+    - .png 
+    - .ppm 
+    - .psd 
+    - .sgi
+    - .ras 
+    - .tga 
+    - .tiff 
+    - .wmf 
+    - .xbm
+    - .xpm
   version: v0.1.0
   x-subscribelink: person_reidentification
 servers:
