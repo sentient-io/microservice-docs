@@ -5,8 +5,8 @@ info:
     This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.
     
     An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.
-    The length of your audio should be **upto 60 seconds**.
-  version: '1.0.0'
+    The length of your audio should be **up to 60 seconds**.
+  version: '1.0.1'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Narrate a blurb or chunk of text in English
@@ -17,13 +17,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Dec 09, 2020"
+- name: "v1.0.1"
+  description: "Published Date - Nov 23, 2021"
 paths:
   /microservices/voice/vad/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.0.1
       responses:
         '200':
           description: Ok
@@ -118,16 +118,16 @@ components:
                         - type: object 
                           properties:
                             end:
-                              type: number
+                              type: float
                               format: float
                               example: 23.72
                               description: End time of utterance, in seconds. Offset from the start of stream.
                             seqNum:
-                              type: number
+                              type: integer
                               example: 1
                               description: Running sequence. Starts from 1.
                             start:
-                              type: number
+                              type: float
                               format: float
                               example: 0.64
                               description: Start time of utterance, in seconds. Offset from the start of stream.
@@ -234,7 +234,7 @@ components:
             Required. Input audio file in base64 format. 
         threshold:
           x-name: threshold
-          type: number
+          type: float
           format: float
           default: false
           example: 0.2
@@ -243,6 +243,13 @@ components:
     versions:
       type: object
       properties:
+        v1.0.1:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Nov 23, 2021
+              description: Bug fix
         v1.0.0:
           type: array
           items:
