@@ -244,6 +244,13 @@ components:
     versions:
       type: object
       properties:
+        v1.2.1:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Nov 09, 2021
+              description: Vad bug fix      
         v1.2.0:
           type: array
           items:
