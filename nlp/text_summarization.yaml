@@ -216,7 +216,7 @@
              oneOf:
                - type: string
                  example: Published Date - Aug 11, 2021
-                 details: Model Upgrade
+                 x-details: Model Upgrade
                  description: Latest version
           v0.1.2:
             type: array
@@ -224,7 +224,7 @@
              oneOf:
                - type: string
                  example: Published Date - Jun 07, 2021
-                 details: Deeper Postprocessing of Summarised text
+                 x-details: Deeper Postprocessing of Summarised text
                  description: Depreciating on Aug 10,2021
           v0.1.1:
             type: array
@@ -232,7 +232,7 @@
              oneOf:
                - type: string
                  example: Published Date - May 12, 2021
-                 details: Postprocessing of Summarised text
+                 x-details: Postprocessing of Summarised text
                  description: Depreciating on Jun 07,2021
           v0.1.0:
            type: array
@@ -240,7 +240,7 @@
             oneOf:
               - type: string
                 example: Published Date - Apr 07, 2021
-                details: Initial version release  
+                x-details: Initial version release  
                 description: Archived
       input:
         type: object
