@@ -15,7 +15,7 @@ info:
     - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.
   x-subscribelink: voice_activity_detection_eng
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date - Nov 09, 2021"
