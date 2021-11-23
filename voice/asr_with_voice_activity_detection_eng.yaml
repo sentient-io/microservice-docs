@@ -6,7 +6,7 @@ info:
     This microservice can be used on generic English or on specific use cases or accents. There's currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case
     
     The length of your audio should be **upto 60 seconds**.
-  version: '1.2.0'
+  version: '1.2.1'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands like “turn the volume up".
@@ -14,13 +14,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.2.0"
-  description: "Published Date - Apr 07, 2021"
+- name: "v1.2.1"
+  description: "Published Date - Nov 23, 2021"
 paths:
   /microservices/voice/vadasr/v1/getpredictions:
     post:
       tags:
-        - v1.2.0
+        - v1.2.1
       responses:
         '200':
           description: Ok
@@ -269,6 +269,13 @@ components:
     versions:
       type: object
       properties:
+        v1.2.1:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Nov 23, 2021
+              description: Vad bug fix
         v1.2.0:
           type: array
           items:
