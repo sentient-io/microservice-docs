@@ -12,7 +12,7 @@ info:
     - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands like “turn the volume up".
   x-subscribelink: asr_with_voice_activity_detection_eng
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.2.1"
   description: "Published Date - Nov 09, 2021"
