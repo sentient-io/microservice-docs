@@ -9,6 +9,15 @@
       For longer text, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective summarization.
     version: '0.2.0'
     x-subscribelink: text_summarization
+    x-apitype: small file
+    x-apitypedescription: |+
+      Fast | Single-Call | 20MB/Call
+    x-inputfilelimit: |+
+      Process up to xxx kb of data or chat per API call.
+    x-responsetime: |+
+      The response rate is slower than the small file API due to large data
+    x-billingmethod: |+
+      The API is billed by the amount of data transferred.
   servers:
     - url: 'https://apis.sentient.io'
   tags:
@@ -207,28 +216,32 @@
              oneOf:
                - type: string
                  example: Published Date - Aug 11, 2021
-                 description: Model Upgrade
+                 details: Model Upgrade
+                 description: Latest version
           v0.1.2:
             type: array
             items:
              oneOf:
                - type: string
                  example: Published Date - Jun 07, 2021
-                 description: Deeper Postprocessing of Summarised text
+                 details: Deeper Postprocessing of Summarised text
+                 description: Depreciating on Aug 10,2021
           v0.1.1:
             type: array
             items:
              oneOf:
                - type: string
                  example: Published Date - May 12, 2021
-                 description: Postprocessing of Summarised text          
+                 details: Postprocessing of Summarised text
+                 description: Depreciating on Jun 07,2021
           v0.1.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Apr 07, 2021
-                description: Initial version release    
+                details: Initial version release  
+                description: Archived
       input:
         type: object
         required:
