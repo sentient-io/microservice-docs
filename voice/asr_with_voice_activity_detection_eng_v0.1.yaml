@@ -202,7 +202,6 @@ components:
       type: object
       required:
         - wav_base64
-        - wav_url
       properties:
         model:
           x-name: model
@@ -215,13 +214,13 @@ components:
             1. news_parliament - 16 kHz, mono channel, .wav format. Trained on Singapore news and parliament corpus.
             2. nsc_parliament - 16 kHz, mono channel, .wav format. Trained on National Speech Corpus and parliament corpus.
             3. nscfull_8k - 8 kHz, mono channel, .wav format. Trained on National Speech Corpus. Trained on Full National Speech Corpus corpus.
-        wav_url/wav_base64:
-          x-name: wav_url/wav_base64
+        wav_base64:
+          x-name: wav_base64
           type: string
           default: true
           example: https://api.sentient.io/test2.wav or UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: |+
-            The public URL link to the wave file or Input audio wav file in base64 format. 
+            Input audio wav file in base64 format. 
             
             Mono channel, 8kHz / 16kHz sampling rate.
         file_type:
