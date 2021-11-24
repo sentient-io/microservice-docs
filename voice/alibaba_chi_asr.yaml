@@ -202,9 +202,7 @@ components:
           type: string
           example: Failure
     input:
-      type: object
-      required:
-        - filePath      
+      type: object      
       properties:
         filepath:
           type: string
