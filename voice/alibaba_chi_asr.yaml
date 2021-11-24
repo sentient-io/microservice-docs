@@ -94,6 +94,9 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/input'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/input'
         required: true
 components:
   schemas:
@@ -203,11 +206,11 @@ components:
       required:
         - filePath      
       properties:
-        #filepath:
-          #type: string
-          #format: binary
-          #default: true
-          #description: Audio File Object
+        filepath:
+          type: string
+          format: binary
+          default: true
+          description: Audio File Object
         wav_base64:
           x-name: wav_base64
           type: string
