@@ -207,12 +207,12 @@ components:
         filepath:
           type: string
           format: binary
-          default: true
+          default: false
           description: Audio File Object
         wav_base64:
           x-name: wav_base64
           type: string
-          default: false
+          default: true
           example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: |+
             Input audio wav file in base64 format.
