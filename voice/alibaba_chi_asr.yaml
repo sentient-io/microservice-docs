@@ -91,13 +91,13 @@ paths:
         - APIAuthorizer: []
       requestBody:
         content:
-          #application/json:
-            #schema:
-              #$ref: '#/components/schemas/input'
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/input'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/input'
-        required: true
+#         required: true
 components:
   schemas:
     success:
