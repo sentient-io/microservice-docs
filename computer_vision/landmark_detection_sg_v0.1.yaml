@@ -18,7 +18,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Mar 05, 2021"
 paths:
-  /microservices/cv/landmarksg/v1/getpredictions:
+  /microservices/cv/landmarksg/v0.1/getpredictions:
     post:
       tags:
         - v1.0.0
