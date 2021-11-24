@@ -211,13 +211,13 @@ components:
           format: binary
           default: true
           description: Audio File Object
-        wav_base64:
-          x-name: wav_base64
-          type: string
-          default: false
-          example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
-          description: |+
-            Input audio wav file in base64 format.           
+        #wav_base64:
+          #x-name: wav_base64
+          #type: string
+          #default: false
+          #example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+          #description: |+
+            #Input audio wav file in base64 format.           
           # Supported formats are : cc
         audio_encoding:
           type: string
