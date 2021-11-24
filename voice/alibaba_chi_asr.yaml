@@ -91,9 +91,9 @@ paths:
         - APIAuthorizer: []
       requestBody:
         content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/input'
+          #application/json:
+            #schema:
+              #$ref: '#/components/schemas/input'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/input'
@@ -214,7 +214,7 @@ components:
         wav_base64:
           x-name: wav_base64
           type: string
-          default: true
+          default: false
           example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: |+
             Input audio wav file in base64 format.           
