@@ -18,7 +18,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 30, 2019"
 paths:
-  /microservices/utility/rsa_encode/v0.1/getresults:
+  /microservices/utility/rsaencode/v0.1/getresults:
     post:
       tags:
         - v0.1.0
