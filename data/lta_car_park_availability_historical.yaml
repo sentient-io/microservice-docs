@@ -21,7 +21,11 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.29375,103.85718"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"area"}}
-           
+
+    **Aggregations Request Data:**
+      > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"agency":"LTA"}}]}
+    **Last Updated Data in Time Limit:**
+      > {"limit":10,"offset":0,"collapse":true,"filter":[{"range": {"lastupdated": {"gte": "2021-11-26T17:00:00","lte": "2021-11-26T18:00:00"}}}]}      
   version: '0.1.0'
 servers:
   - url: 'https://dev-apis.sentient.io'
@@ -411,6 +415,18 @@ components:
           default: false
           example: 0
           description: The offset of the record list ie the starting index       
+        aggregation:
+          type: boolean
+          default: false
+          example: false
+          description: It returns the hourly aggregation of no of incidents. Input should be true/false, default is false.
+        collapse:
+          type: boolean
+          default: false
+          example: false
+          description: |+
+              It returns the last updated data alone based on time. Input should be true/false, default is false. collapse key 
+              is not used for aggregation data. 
         filter:
           type: array
           default: false
