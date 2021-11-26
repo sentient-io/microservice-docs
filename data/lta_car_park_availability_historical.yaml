@@ -24,6 +24,7 @@ info:
 
     **Aggregations Request Data:**
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"agency":"LTA"}}]}
+      
     **Last Updated Data in Time Limit:**
       > {"limit":10,"offset":0,"collapse":true,"filter":[{"range": {"lastupdated": {"gte": "2021-11-26T17:00:00","lte": "2021-11-26T18:00:00"}}}]}      
   version: '0.1.0'
