@@ -13,7 +13,7 @@ info:
   version: '0.1.0'
   x-subscribelink: encryption_using_pki_key
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 30, 2019"
