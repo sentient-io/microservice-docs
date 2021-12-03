@@ -218,9 +218,11 @@ components:
       properties:
         input text:
           type: string
+          example: quelle sorte de parfum la cliente veut-elle
           description: Input text that has to be translated.
         target language:
           type: string
+          example: en
           description: The language in which the text has to translated
   securitySchemes:
     APIAuthorizer:
