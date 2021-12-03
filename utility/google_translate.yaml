@@ -112,12 +112,18 @@ components:
                 example: {<Json Object>}
                 description: Json Object of returned results
                 properties:
-                  input text:
+                  translated_text:
                    type: string
-                   description: Input text that has to be translated.
-                  target language:
+                   example: "Bonjour"
+                   description: Translated text from the given input text.
+                  detected_source_language:
                     type: string
-                    description: The language in which the text has to translated
+                    example: "en"
+                    description: The input text language was detected.
+                  input_text:
+                    type: string
+                    example: "Good Morning"
+                    description: The input text that has to be translated.
               status:
                 type: string
                 example: Success
@@ -218,11 +224,11 @@ components:
       properties:
         text:
           type: string
-          example: quelle sorte de parfum la cliente veut-elle
+          example: "Good Morning"
           description: Input text that has to be translated.
         target_lang:
           type: string
-          example: en
+          example: "fr"
           description: The language in which the text has to translated
   securitySchemes:
     APIAuthorizer:
