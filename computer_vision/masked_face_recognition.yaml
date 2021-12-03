@@ -4,7 +4,8 @@ info:
   title: Masked Face Recognition
   description: |+
     This microservice is used to recognise faces of identities behind a mask. The model has been trained on Singapore Politicians Data.
-    The size of your image file should **not exceed 10 MB**. Minimum file resolution should be 50X50.
+    The size of your image file should **not exceed 10 MB**. Minimum image resolution should be 50X50 pixels.
+    The model works well for frontal masked faces.
   version: v0.1.0
   x-additionalinfo: |+
     Supported File Formats
