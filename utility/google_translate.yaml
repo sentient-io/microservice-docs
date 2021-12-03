@@ -216,21 +216,12 @@ components:
     input:
       type: object
       properties:
-        url:
+        input text:
           type: string
-          default: true
-          example: https://www.sentient.io/ja/
-          description: url
-        depth:
-          type: integer
-          example: "2"
-          default: false
-          description: Default is 0.
-        numberofurls:
-          type: integer
-          example: "10"
-          default: false
-          description: Default value is 100.
+          description: Input text that has to be translated.
+        target language:
+          type: string
+          description: The language in which the text has to translated
   securitySchemes:
     APIAuthorizer:
       type: apiKey
