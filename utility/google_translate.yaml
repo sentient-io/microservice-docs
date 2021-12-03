@@ -216,11 +216,11 @@ components:
     input:
       type: object
       properties:
-        input text:
+        text:
           type: string
           example: quelle sorte de parfum la cliente veut-elle
           description: Input text that has to be translated.
-        target language:
+        target_lang:
           type: string
           example: en
           description: The language in which the text has to translated
