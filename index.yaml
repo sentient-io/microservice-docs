@@ -213,10 +213,10 @@ utility:
     title: Audio Format Convertor
     versions:
       0.1.0: 'audio_format_convertor.yaml'
-  video-to-image_convertor:
+  video_to_image_convertor:
     title: Video-to-Image Convertor
     versions:
-      0.1.0: 'video-to-image_convertor.yaml'
+      0.1.0: 'video_to_image_convertor.yaml'
   newspaper_article_scraper:
     title: Newspaper Article Scraper
     versions:
