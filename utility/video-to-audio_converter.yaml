@@ -9,7 +9,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - For building applications that extracts audio from videos in batches. Users can further pipe the audio into microservices involving ASR for further transciption.
-  x-subscribelink: video-to-audio_convertor
+  x-subscribelink: video-to-audio_converter
 servers:
   - url: 'https://apis.sentient.io'
 tags:
