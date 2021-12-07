@@ -5,7 +5,9 @@ info:
   description: |+
       Returns tap in and tap out passenger volume by weekdays and
       weekends for individual bus stop.
-      This microservice contains information from LTA Datamall's VBS dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+      This microservice contains information from LTA Datamall's VBS dataset which is made available under the terms of the 
+      [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+      By 15th of every month, the passenger volume for previous month data will be generated
   x-additionalinfo : |+
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
