@@ -201,14 +201,14 @@ utility:
     title: Wikipedia Retrieval
     versions:
       1.0.0: 'wikipedia_retrieval.yaml'
-  json_csv_convertor:
+  json-csv_convertorr:
     title: JSON-CSV Convertor
     versions:
-      1.0.0: 'json_csv_convertor.yaml'
-  csv_json_convertor:
+      1.0.0: 'json-csv_convertor.yaml'
+  csv-json_convertor:
     title: CSV-JSON Convertor
     versions:
-      1.0.0: 'csv_json_convertor.yaml'
+      1.0.0: 'csv-json_convertor.yaml'
   audio_format_convertor:
     title: Audio Format Convertor
     versions:
