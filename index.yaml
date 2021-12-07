@@ -182,10 +182,10 @@ computer vision:
     versions:
       0.1.0: 'receipt_scanner.yaml'       
 utility:
-  video_to_audio_converter:
+  video-to-audio_converter:
     title: Video-To-Audio Convertor
     versions:
-      0.1.0: 'video_to_audio_converter.yaml'
+      0.1.0: 'video-to-audio_converter.yaml'
   web_scraper:
     title: Web Scraper
     versions:
