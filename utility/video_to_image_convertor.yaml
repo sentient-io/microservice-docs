@@ -10,7 +10,7 @@ info:
     Suggested Use Cases:
     - Can be integrated into video editing software to create a quick preview of the footage the user is editing.
   version: '0.1.0'
-  x-subscribelink: video-to-image_convertor
+  x-subscribelink: video_to_image_convertor
 servers:
   - url: 'https://apis.sentient.io'
 tags:
