@@ -15,7 +15,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Dec 03, 2021"
 paths:
-  /microservices/nlp/googletranslate/v0/getresults:
+  /microservices/nlp/googletranslate/v0/getpredictions:
     post:
       tags:
         - v0.1.0
