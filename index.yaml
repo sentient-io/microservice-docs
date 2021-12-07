@@ -218,10 +218,10 @@ utility:
     title: JSON-CSV Convertor
     versions:
       1.0.0: 'json_csv_convertor.yaml'
-  csv_json_convertor:
+  csv-json_convertor:
     title: CSV-JSON Convertor
     versions:
-      1.0.0: 'csv_json_convertor.yaml'
+      1.0.0: 'csv-json_convertor.yaml'
   audio_processing_utility:
     title: Audio Format Convertor
     versions:
