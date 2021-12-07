@@ -229,7 +229,7 @@ components:
         target_lang:
           type: string
           example: "fr"
-          description: The language in which the text has to translated. Supported languages: 
+          description: The language in which the text has to translated. Supported languages: |
           \noindent
           * af - afrikaans
           * sq - albanian
