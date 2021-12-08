@@ -231,7 +231,7 @@ components:
         target_lang:
           type: string
           example: "fr"
-          description: 
+          description: |+
             The language in which the text has to translated. 
             Supported languages 
             * af - afrikaans
