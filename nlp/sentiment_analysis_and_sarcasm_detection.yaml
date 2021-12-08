@@ -3,7 +3,7 @@ info:
   title: Sentiment Analysis and Sarcasm Detection
   x-subscribelink: sentiment_analysis_and_sarcasm_detection
   description: |+
-    Sentiment Analysis and Sarcasm Detection API accepts text and returns a response containing the overall sacrasm of the input text as well as a the overall sentiment and confidence score for each sentiment label (positive, negative, and neutural). There are no limitation to the number of characters that you can input. However, for the best results, please input short text such as tweets, commonets, news, and headlines.
+    Sentiment Analysis and Sarcasm Detection API accepts text and returns a response containing the overall sarcasm of the input text as well as a the overall sentiment and confidence score for each sentiment label (positive, negative, and neutural). There are no limitation to the number of characters that you can input. However, for the best results, please input short text such as tweets, commonets, news, and headlines.
     Do ensure that your text is within **5000 characters**.
   version: '0.1.0'
 servers:
