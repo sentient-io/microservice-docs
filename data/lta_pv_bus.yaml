@@ -16,9 +16,7 @@ info:
     * **match** - Search within a full text field for a single word
       > {"match":{"day_type":"WEEKDAY"}}
     * **range** - Returns results that contain terms within a stipulated range
-      > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
-      > {"range":{"lastupdated":{"lte":"now/d"}}}
-      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
+      > {"range": {"year_month": {"gte": "2021-09", "lte": "2021-10"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"day_type"}}
       
