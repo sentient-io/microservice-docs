@@ -233,6 +233,7 @@ components:
         target_lang:
           type: string
           example: "fr"
+          default: true
           description: |+
             The language in which the text has to translated. 
             Supported languages are,
@@ -342,7 +343,6 @@ components:
             - zu - zulu
             - fil - Filipino
             - he - Hebrew
-          default: true
   securitySchemes:
     APIAuthorizer:
       type: apiKey
