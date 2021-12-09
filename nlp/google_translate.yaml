@@ -229,7 +229,7 @@ components:
           type: string
           example: "Good Morning"
           description: Input text that has to be translated (can be in any language). It supports 20MB input.
-          default: True
+          default: true
         target_lang:
           type: string
           example: "fr"
@@ -342,7 +342,7 @@ components:
             - zu - zulu
             - fil - Filipino
             - he - Hebrew
-            default: True
+            default: true
   securitySchemes:
     APIAuthorizer:
       type: apiKey
