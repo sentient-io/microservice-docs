@@ -342,7 +342,7 @@ components:
             - zu - zulu
             - fil - Filipino
             - he - Hebrew
-            default: true
+          default: true
   securitySchemes:
     APIAuthorizer:
       type: apiKey
