@@ -11,16 +11,16 @@ info:
 
     For longer text, we suggest breaking them up into smaller chunks and making
     multiple calls to this microservice for more effective summarization.
-  version: 0.2.0
+  version: '0.2.0'
   x-subscribelink: text_summarization
   x-apitype: Large file
-  x-apitypedescription: |
+  x-apitypedescription: |+
     Fast | Single-Call | 20MB/Call
-  x-inputfilelimit: |
+  x-inputfilelimit: |+
     Process up to xxx kb of data or chat per API call.
-  x-responsetime: |
+  x-responsetime: |+
     The response rate is slower than the small file API due to large data
-  x-billingmethod: |
+  x-billingmethod: |+
     The API is billed by the amount of data transferred.
 servers:
   - url: 'https://dev-apis.sentient.io'
