@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Text Summarization
-  description: >
+  description: |+
     This NLP microservice takes in any given input text blurb and generates a
     summary of up to a maximum of 168 words. 
 
