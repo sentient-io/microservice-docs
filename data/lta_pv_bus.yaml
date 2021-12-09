@@ -184,7 +184,9 @@ components:
                         example: 2021-11
                       day_type:
                         type: string
-                        description: Should be WEEKDAY/WEEKEND
+                        description: Should be 
+                          - WEEKDAY
+                          - WEEKENDS/HOLIDAY
                         example: WEEKDAY
                       lastupdated:
                         type: string
