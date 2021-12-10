@@ -28,8 +28,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example: 
-                message: Successfully Processed
-                results:
                   results:
                     translatedText: Bonjour
                     detectedSourceLanguage: en
