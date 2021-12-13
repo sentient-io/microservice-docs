@@ -6,7 +6,7 @@ info:
     
     This microservice performs well on Singaporean-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament and nscfull_8k.
     
-    The length of your audio should be **upto 60 seconds**.
+    The length of your audio should be **up to 60 seconds**.
   version: '0.1.0'
   x-additionalinfo: |+
     Suggested Use Cases:
