@@ -142,7 +142,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/getsuccess'
               example:
-                last_updated: '2021-07-06 12:50:30'
+                last_updated: 'July 06, 2021'
                 message: File Processing Successfully Started
                 request_cost: 0.086
                 status: Processing
@@ -209,7 +209,7 @@ components:
       properties:
         last_updated:
           type: string
-          example: 2021-07-06T12:50:30.000Z
+          example: July 06, 2021
           description: Last updated
         message:
           type: string
