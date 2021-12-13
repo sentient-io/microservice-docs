@@ -226,7 +226,7 @@ components:
         text:
           type: string
           example: "Good Morning"
-          description: Input text that has to be translated (can be in any language). It supports 10 MN maximum input.
+          description: Input text that has to be translated (can be in any language). It supports 10 MB maximum payload.
           default: true
         target_lang:
           type: string
