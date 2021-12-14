@@ -15,7 +15,7 @@ info:
   x-subscribelink: text_summarization
   x-apitype: Large file
   x-apitypedescription: |+
-    Fast | Single-Call | 20MB/Call
+    Asyncronous | Batch | 20GB/File
   x-inputfilelimit: |+
     Process up to xxx kb of data or chat per API call.
   x-responsetime: |+
