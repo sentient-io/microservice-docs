@@ -420,7 +420,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"range":{"lastupdated":{"lte":"now/d"}}},{"geo_distance":{"distance":"0.1km","location":"35.689,139.704"}}]
+          example: [{"range":{"timestamp":{"gte":"2021-02-05T14:48:04.279Z", "lte":"2021-02-05T14:48:06.279Z"}}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
