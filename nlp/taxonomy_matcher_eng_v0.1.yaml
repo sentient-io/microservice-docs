@@ -16,6 +16,15 @@ info:
     - This microservice can be used to manage taxonomies, such as a hierarchy of product categories used for an eCommerce site. The information in a taxonomy is meta-information about the categories used to classify a set of things. For an eCommerce site, the set of things are items in the product catalog. Users can use this meta-information to enhance search.
   version: '0.1.0'
   x-subscribelink: taxonomy_matcher_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
