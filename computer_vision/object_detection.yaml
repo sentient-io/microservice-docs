@@ -273,7 +273,7 @@ components:
             - type: string
               example: Published Date - May 15, 2020
               x-details: Initial version release
-              description: Depreciating on Jan 24, 2021
+              description: Archived
     input:
       type: object
       required:
