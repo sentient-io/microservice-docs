@@ -220,14 +220,16 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Standardizing Output JSON
+                x-details: Standardizing Output JSON
+                description: Latest Version
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Jun 05, 2020
-                description: Initial version release
+                x-detils: Initial version release
+                description: Archived
     input:
       type: object
       required:
