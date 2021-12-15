@@ -9,6 +9,15 @@
     x-additionalinfo: |+
       In the ideal case, each trajectory should be mapped exactly to one target object. Due to known limitations of the tracking algorithms, sometimes a single target can have multiple trajectories/tracks. In less common cases of errors, multiple targets are combined into one trajectory/track.
     x-subscribelink: trajectory_clustering
+    x-apitype: small file
+    x-apitypedescription: |+
+      Fast | Single-Call | 20MB/Call
+    x-inputfilelimit: |+
+      Process up to xxx kb of data or chat per API call.
+    x-responsetime: |+
+      The response rate is slower than the small file API due to large data
+    x-billingmethod: |+
+      The API is billed by the amount of data transferred.
   servers:
     - url: 'https://apis.sentient.io'
   tags:
