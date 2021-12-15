@@ -303,7 +303,8 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 30, 2021
-              description: Initial version release
+              x-details: Initial version release
+              description: Latest Version
     input:
       type: object
       properties:
