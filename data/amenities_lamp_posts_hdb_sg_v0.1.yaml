@@ -237,14 +237,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Apr 15, 2021
-              description: Optimized release
+              x-details: Optimized release
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Mar 24, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Depreciating on Apr 14, 2021
   securitySchemes:
     APIAuthorizer:
       type: apiKey
