@@ -211,7 +211,8 @@
             oneOf:
               - type: string
                 example: Published Date - Apr 07, 2021
-                description: Initial version release    
+                x-details: Initial version release    
+                description: Lastest Version
       input:
         type: object
         required:
