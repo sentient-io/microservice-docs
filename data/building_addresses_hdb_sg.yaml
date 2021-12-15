@@ -77,6 +77,15 @@ info:
        > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.368960,103.957980"}}]}
        
   version: '1.0.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
