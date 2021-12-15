@@ -258,21 +258,24 @@ components:
             oneOf:
             - type: string
               example: Published Date - Nov 09, 2021
-              description: Bug fix
+              x-details: Bug fix
+              description: Latest Version
         v1.0.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - Dec 09, 2020
-              description: Standardizing Output JSON 
+              x-details: Standardizing Output JSON 
+              description: Depreciating on Nov 08, 2021
         v0.1.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - Jul 03, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey
