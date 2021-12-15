@@ -7,6 +7,16 @@ info:
       The API will return a JSON containing all data that could be extracted, along with details of where that information was on the page, confidence values, and the coordinates containing the data field in the original document. This API is optimized for computer generated PDFs but also supports pdf scans, png, jpeg, tiff, jfif, and docx files.
   version: '0.1.0'
   x-subscribelink: invoice_scanner
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+
 servers:
   - url: 'https://apis.sentient.io'
 tags:
