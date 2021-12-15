@@ -230,14 +230,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 08, 2021
-              description: Additional output date format options
+              x-details: Additional output date format options
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jun 7, 2021
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
     input:
       type: object
       properties:
