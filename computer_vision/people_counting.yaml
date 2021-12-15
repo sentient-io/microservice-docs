@@ -234,21 +234,24 @@ components:
             oneOf:
             - type: string
               example: Published Date - Sep 09, 2021
-              description: Bug Fix - Frame Reading     
+              x-details: Bug Fix - Frame Reading
+              description: Latest Version
         v1.0.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - Jan 25, 2021
-              description: Standardizing Output JSON
+              x-details: Standardizing Output JSON
+              description: Depreciating on Sep 08, 2021
         v0.1.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - Jul 30, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Depreciating on Jan 24, 2021
     input:
       type: object
       required:
