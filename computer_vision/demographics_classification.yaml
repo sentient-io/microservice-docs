@@ -277,7 +277,7 @@ components:
               - type: string
                 example: Published Date - Dec 09, 2020
                 x-details: Initial version release
-                description: Latest update
+                description: Latest Version
     input:
       type: object
       required:
