@@ -14,6 +14,15 @@ info:
     - Can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning -e.g. tokenization, Parts-of-Speech (PoS) Tagging, Text Classification and Named Entity Recognition.
   version: '0.1.0'
   x-subscribelink: spacy_ner
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
