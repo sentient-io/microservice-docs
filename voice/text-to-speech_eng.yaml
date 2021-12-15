@@ -222,28 +222,32 @@ components:
             oneOf:
               - type: string
                 example: 'Published Date - Nov 09,2021'
-                description: Model improvement with improved enunciation of acronyms.
+                x-details: Model improvement with improved enunciation of acronyms.
+                description: Latest Version
         v1.0.1:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Oct 13,2021'
-                description: Support more input characters. Improve model release.
+                x-details: Support more input characters. Improve model release.
+                description: Depreciating on Nov 08, 2021
         v1.0.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Jun 7,2021'
-                description: New model release - female_singaporean
+                x-details: New model release - female_singaporean
+                description: Depreciating on Oct 12, 2021
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Sep 28,2018'
-                description: Initial version release    
+                x-details: Initial version release    
+                description: Archived
     input:
       type: object
       required:
