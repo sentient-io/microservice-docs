@@ -316,7 +316,7 @@ components:
             - type: string
               example: Published Date - Jul 03, 2020
               x-details: Initial version release
-              description: Depreciating on Dec 08, 2020
+              description: Archived
     input:
       type: object
       required:
