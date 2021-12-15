@@ -423,7 +423,7 @@ components:
             - type: string
               example: Published Date - Nov 25,2019
               x-details: Initial version release
-              description: Depreciating on May 20, 2021
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey
