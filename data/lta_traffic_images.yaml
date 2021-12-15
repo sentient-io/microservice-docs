@@ -32,6 +32,15 @@ info:
           **End Point** - https://dev-apis.sentient.io/microservices/data/ltapresignedurl/v0/getdata
           **Input Example** - {"image_link": "gs://lta_data/trafficimages/1501_20211022_194451.jpg"}
   version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
