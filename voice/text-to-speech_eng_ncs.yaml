@@ -219,14 +219,16 @@ components:
             oneOf:
               - type: string
                 example: 'Published Date - Jun 7,2021'
-                description: New model release - female_singaporean
+                x-details: New model release - female_singaporean
+                description: Latest Version
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Sep 28,2018'
-                description: Initial version release    
+                x-details: Initial version release    
+                description: Archived
     input:
       type: object
       required:
