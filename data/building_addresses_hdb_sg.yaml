@@ -301,7 +301,7 @@ components:
                           createddate:
                             type: string
                             description: Record first released date on Sentient.io
-                            example: "2019-02-01"                      
+                            example: "Feb 01, 2019"                      
         message:
           type: string
           example: Successfully Processed
