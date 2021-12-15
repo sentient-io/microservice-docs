@@ -2478,14 +2478,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Apr 15, 2021
-              description: Optimized and Standardized results in Json Format
+              x-details: Optimized and Standardized results in Json Format
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Aug 15, 2019
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey
