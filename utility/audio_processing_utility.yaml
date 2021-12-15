@@ -10,6 +10,15 @@ info:
     - Build services related to sound engineering or audio editing as WAV is the format of choice for video and audio editors. WAV files are lossless compared to the lossy MP3 file format, meaning that WAV audio is a high-quality uncompressed file that is excellent for studio recordings and audio mastering.
   version: '0.1.0'
   x-subscribelink: audio_format_convertor
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
