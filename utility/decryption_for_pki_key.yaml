@@ -12,6 +12,15 @@ info:
     - This microservice can be used to simplify the deployment, management, and security of one's enterprise PKI with a microservice that helps to automate time-consuming, risky, and error-prone infrastructure tasks, freeing users to focus on higher-value projects.
   version: '0.1.0'
   x-subscribelink: decryption_using_pki_key
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
