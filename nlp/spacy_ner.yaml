@@ -303,14 +303,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Nov 26, 2021
-              description: Optional input parameter introduced. Output Format Changed  
+              x-details: Optional input parameter introduced. Output Format Changed  
+              description: Latest Version
         v0.1.0:
          type: array"
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 30, 2020
-              description: Initial version release    
+              x-details: Initial version release    
+              desrciption: Archived
     input:
       type: object
       required:
