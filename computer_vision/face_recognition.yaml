@@ -298,14 +298,16 @@ components:
             oneOf:
             - type: string
               example: Published Date - Jan 11, 2021
-              description: Bug fix - Threshold value   
+              x-details: Bug fix - Threshold value
+              description: Latest Updated
         v1.0.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - Dec 09, 2020
-              description: Standardizing Output JSON and model update
+              x-details: Standardizing Output JSON and model update
+              description: Depreciating on Jan 10, 2021
 
         v0.1.0:
           type: array
@@ -313,7 +315,8 @@ components:
             oneOf:
             - type: string
               example: Published Date - Jul 03, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Depreciating on Dec 08, 2020
     input:
       type: object
       required:
