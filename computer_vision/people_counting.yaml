@@ -12,6 +12,15 @@ info:
     - Improve visitor experience and optimize operations in retail, leisure, and other sectors - build services to count visitor traffic in venues, measure detailed movements and interactions, and visualize that data to better understand what is happening in within a certain spaces. For example, one can optimize traffic, staff and marketing strategies to increase conversion rates and profits with actionable data. Businesses can use visitor count as a benchmark to figure out the conversion rate for a certain spot to see the real performance. Efficiently allocating the number of staff according to hourly visitor traffic will also create value in terms of revenue, profit and  efficiency.
   version: '1.0.1'
   x-subscribelink: people_counting
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
