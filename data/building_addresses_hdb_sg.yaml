@@ -160,7 +160,7 @@ paths:
                         lat: 1.350748
                         lon: 103.872798
                       source: starhub
-                      createddate: '2019-02-01'
+                      createddate: 'Feb 01, 2019'
                 message: Successfully Processed
                 status: Success
         '401':
