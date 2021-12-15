@@ -9,6 +9,15 @@ info:
     - This microservice can be used as a solution to help businesses better understand and connect with their customers, engage new prospects and increase revenue. For example, it can be used to improve visitor experience and optimize operations in retail, leisure, and other sectors by identifying the type of demogrpahic that frequents a certain place the most. It can also be used to create intelligent prospect lists that ensure one is always maximizing their marketing investment.
   version: v0.1.0
   x-subscribelink: demographics_classification
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
