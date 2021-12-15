@@ -9,6 +9,15 @@
       The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
     x-subscribelink: page_profiler_eng  
     version: '2.0'
+    x-apitype: small file
+    x-apitypedescription: |+
+      Fast | Single-Call | 20MB/Call
+    x-inputfilelimit: |+
+      Process up to xxx kb of data or chat per API call.
+    x-responsetime: |+
+      The response rate is slower than the small file API due to large data
+    x-billingmethod: |+
+      The API is billed by the amount of data transferred.
   servers:
     - url: 'https://apis.sentient.io'
   tags:
