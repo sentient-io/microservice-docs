@@ -228,21 +228,24 @@ components:
             oneOf:
               - type: string
                 example: Published Date - May 12, 2021
-                description: Error handling fixed
+                x-details: Error handling fixed
+                description: Latest Version
         v1.0.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Standardizing Output JSON
+                x-details: Standardizing Output JSON
+                description: Depreciating on May 11, 2021
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Jan 24, 2020
-                description: Initial version release
+                x-details: Initial version release
+                description: Archived
     input:
       type: object
       required:
