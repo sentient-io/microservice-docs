@@ -12,6 +12,15 @@ info:
     - It can also be used for finance-related domains such as vehicle leasing, loans, enterprise credit terms and so on. Updated daily.
   version: '1.0.0'
   x-subscribelink: d&b_business_check_sg
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
