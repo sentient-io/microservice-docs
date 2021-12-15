@@ -160,8 +160,8 @@ paths:
                         - 527
                         - 1251
                         - 513.5
-                        - Feb 11, 2019
-                        - Feb 11, 2019
+                        - 11/02/2019
+                        - 11/02/2019
                         page: 0
                       - box:
                         - 1055
@@ -200,8 +200,8 @@ paths:
                         - 623
                         - 1251.5
                         - 611.5
-                        - Feb 26, 2019
-                        - Feb 26, 2019
+                        - 26/02/2019
+                        - 26/02/2019
                         page: 0
                       - box:
                         - 130
@@ -600,8 +600,8 @@ paths:
                           - 515
                           - Receipt Date
                           - Receipt Date
-                          match: 'Feb 11, 2019'
-                          matchmulti: Feb 11, 2019
+                          match: '2019-11-02'
+                          matchmulti: 11/02/2019
                           page: 0
                           value:
                           - 1193
@@ -610,8 +610,8 @@ paths:
                           - 527
                           - 1251
                           - 513.5
-                          - Feb 11, 2019
-                          - Feb 11, 2019
+                          - 11/02/2019
+                          - 11/02/2019
                       InvoiceNumber:
                         UICategory: Basic Information
                         UIName: Invoice Number
@@ -720,8 +720,8 @@ paths:
                           - 611
                           - Due Date
                           - Due Date
-                          match: 'Feb 26, 2019'
-                          matchmulti: Feb 26, 2019
+                          match: '2019-02-26'
+                          matchmulti: 26/02/2019
                           page: 0
                           value:
                           - 1193
@@ -730,8 +730,8 @@ paths:
                           - 623
                           - 1251.5
                           - 611.5
-                          - Feb 26, 2019
-                          - Feb 26, 2019
+                          - 26/02/2019
+                          - 26/02/2019
                       SenderAddress:
                         UICategory: Vendor & Customer
                         UIName: Vendor Address
@@ -961,8 +961,8 @@ paths:
                         - 527
                         - 1251
                         - 513.5
-                        - Feb 11, 2019
-                        - Feb 11, 2019
+                        - 11/02/2019
+                        - 11/02/2019
                         page: 0
                       - box:
                         - 1055
@@ -1001,8 +1001,8 @@ paths:
                         - 623
                         - 1251.5
                         - 611.5
-                        - Feb 26, 2019
-                        - Feb 26, 2019
+                        - 26/02/2019
+                        - 26/02/2019
                         page: 0
                       - box:
                         - 130
