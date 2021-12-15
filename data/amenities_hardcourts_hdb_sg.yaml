@@ -244,7 +244,7 @@ components:
             - type: string
               example: Published Date - Mar 24, 2020
               x-details: Initial version release
-              description: Depreciating on Apr 14, 2021
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey
