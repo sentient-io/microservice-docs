@@ -218,28 +218,32 @@
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Partial URL support         
+                x-details: Partial URL support         
+                description: Latest Version
           v2.0.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Sep 30, 2020
-                description: Standardizing Output JSON           
+                x-details: Standardizing Output JSON           
+                description: Depreciating on Oct 29,2020
           v1.0.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - May 15, 2018
-                description: Swaping the NLP with Named-Entity Recognition ENG             
+                x-details: Swaping the NLP with Named-Entity Recognition ENG             
+                description: Depreciating on Sep 29, 2020
           v0.1.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Apr 16, 2018
-                description: Initial version release     
+                x-details: Initial version release     
+                description: Archived
       input:
         type: object
         required:
