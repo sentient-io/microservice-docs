@@ -306,21 +306,24 @@
             oneOf:
               - type: string
                 example: Published Date - Dec 09, 2020
-                description: Patch Update        
+                x-details: Patch Update        
+                description: Latest Version
           v1.0.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Partial URL support        
+                x-details: Partial URL support        
+                description: Depreciating on Dec 08,2020
           v0.1.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Sep 30, 2020
-                description: Initial version release    
+                x-details: Initial version release    
+                description: Archived
       input:
         type: object
         required:
