@@ -12,6 +12,15 @@ info:
     - Can be used in services related to the creation of a real-time web application that gathers data from several newspapers and shows a summary of the different topics that are being discussed in the news articles.
   version: '0.1.0'
   x-subscribelink: newspaper_article_scraper
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
