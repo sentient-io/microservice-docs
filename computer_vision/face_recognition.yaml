@@ -9,12 +9,15 @@ info:
     Help us grow this microservice! [Let us know](https://www.sentient.io/contact) which other public figures you would like this microservice to recognise (e.g. a new country or a new category). We will expand the capability of this microservices based on user feedback and demand.
     The size of your image file should **not exceed 10 MB**
   version: '1.0.1'
-  x-apitype: |+
-    Small File
+  x-apitype: small file
   x-apitypedescription: |+
-    - Process upto xxx kb of data or chart per API call.
-    - Response rate is FAST due to small data transfer per call made.
-    - The API is billed per each call.
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
   x-additionalinfo: |+
     **Full List of Filters**
     Users may choose to filter the output using any of these filters below. 
