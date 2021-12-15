@@ -12,6 +12,15 @@ info:
     - Can be used for solutions related to processing workflows that are document-heavy so that the user can focus on the more value-added decisions. Documents in a variety of formats can be taken in to return cleanly structured data. Examples included mortgage processing, procurement data etc.
   version: '1.0.0'
   x-subscribelink: document_convertor_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
