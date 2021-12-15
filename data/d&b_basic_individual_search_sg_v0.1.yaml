@@ -9,6 +9,15 @@ info:
     - Swift pre-employment screening solution - information provided by the microservice can be used to protect one's company's reputation from potential negative publicity by conducting background checks on individuals prior to hiring.
   version: '0.1.0'
   x-subscribelink: d&b_basic_individual_search_sg
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://api.sentient.io'
 tags:
