@@ -60,6 +60,15 @@ info:
     
     The results are returned in JSON format and allow for developers to rapidly retrieve website elements like tables, images, etc. from URL
   version: '1.1.1'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
