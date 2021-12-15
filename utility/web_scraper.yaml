@@ -294,28 +294,32 @@ components:
           oneOf:
             - type: string
               example: Published Date - Dec 04, 2020
-              description: Patch Update       
+              x-details: Patch Update       
+              description: Latest Version
         v1.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Oct 30, 2020
-              description: Partial URL support 
+              x-details: Partial URL support 
+              description: Depreciating on Dec 03, 2020
         v1.0.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jul 03, 2020
-              description: Improvised search filters using queryList, now you can even navigate down the html tree like get all p tag inside a div class "class":"class_name p"
+              x-details: Improvised search filters using queryList, now you can even navigate down the html tree like get all p tag inside a div class "class":"class_name p"
+              description: Depreciating on Oct 29, 2020
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jul 18, 2018
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
     input:
       type: object
       properties:
