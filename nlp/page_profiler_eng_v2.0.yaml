@@ -207,14 +207,16 @@
             oneOf:
               - type: string
                 example: Published Date - Sep 30, 2020
-                description: Updated version release             
+                x-details: Updated version release             
+                description: Latest Version
           v1.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Apr 11, 2018
-                description: Initial version release  
+                x-details: Initial version release  
+                description: Archived
       input:
         type: object
         required:
