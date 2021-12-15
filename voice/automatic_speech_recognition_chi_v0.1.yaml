@@ -235,21 +235,24 @@ components:
           oneOf:
             - type: string
               example: Published Date - Apr 07, 2021
-              description: Standardizing Input and Output Updated.
+              x-details: Standardizing Input and Output Updated.
+              description: Latest Version
         v0.1.1:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 28, 2018
-              description: Patch update on bug fixes
+              x-details: Patch update on bug fixes
+              description: Depreciating on Apr 06, 2021
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jun 21, 2018
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey
