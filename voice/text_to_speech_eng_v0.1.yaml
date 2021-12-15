@@ -18,6 +18,15 @@ info:
     - Accessible EPGs (Electronic Program Guides) - implement text-to-speech functionality in EPGs to provide a better user experience to customers and meet accessibility requirements for services and applications.
   version: '0.1.0'
   x-subscribelink: text-to-speech_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20MB/Call
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
