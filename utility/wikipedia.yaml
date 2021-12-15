@@ -311,14 +311,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jan 11, 2021
-              description: Patch Update, Optimization and thumbnail is added as an additional field 
+              x-details: Patch Update, Optimization and thumbnail is added as an additional field 
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Apr 23, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
     input:
       type: object
       properties:
