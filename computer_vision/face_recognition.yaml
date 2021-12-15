@@ -299,7 +299,7 @@ components:
             - type: string
               example: Published Date - Jan 11, 2021
               x-details: Bug fix - Threshold value
-              description: Latest Updated
+              description: Latest Version
         v1.0.0:
           type: array
           items:
