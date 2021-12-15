@@ -274,7 +274,8 @@ components:
             oneOf:
               - type: string
                 example: Published Date - May 12, 2021
-                description: Initial Release    
+                x-details: Initial Release    
+                description: Latest Version
     input:
       type: object
       required:
