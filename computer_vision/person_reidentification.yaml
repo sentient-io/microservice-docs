@@ -251,7 +251,8 @@ components:
             oneOf:
               - type: string
                 example: Published Date - November 26, 2021
-                description: Initial Version   
+                x-details: Initial Version
+                description: Latest Version
     input:
       type: object
       required:
