@@ -15,13 +15,15 @@ info:
   x-subscribelink: spacy_ner
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 20MB/Call
+    Fast | Single-Call | 5MB/Call
   x-inputfilelimit: |+
-    Process up to xxx kb of data or chat per API call.
+    Process up to 5000 kb of data or chat per API call.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
+  x-notes: |+
+    Size cannot exceed more than 5000 characters.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
