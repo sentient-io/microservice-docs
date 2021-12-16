@@ -131,7 +131,11 @@ nlp:
   text_summarization:
     title: Text Summarization
     versions:
-      0.2.0: 'text_summarization.yaml'     
+      0.2.0: 'text_summarization.yaml' 
+  text_summarization_larger_payload:
+    title: Text Summarization Larger Payload
+    versions:
+      0.2.0: 'text_summarization_larger_payload.yaml'        
   sentiment_analysis_and_sarcasm_detection:
     title: Sentiment Analysis and Sarcasm Detection
     versions:
