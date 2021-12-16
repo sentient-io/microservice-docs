@@ -38,9 +38,9 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                   results:
-                    translatedText: Bonjour
-                    detectedSourceLanguage: en
-                    input: Good Morning
+                    input_text: Good Morning
+                    detected_source_language: en
+                    translated_text: Bonjour
                   message: Successfully Processed
                   status: Success
         '401':
