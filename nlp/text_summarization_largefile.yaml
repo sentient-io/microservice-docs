@@ -23,7 +23,7 @@ info:
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
-    Size should not exceed more than 512 words.
+    Size cannot exceed more than 512 words.
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
