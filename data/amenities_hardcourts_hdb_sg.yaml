@@ -40,7 +40,9 @@ info:
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
   x-responsetime: |+
-    The response rate is slower than the small file API due to large data
+    The response rate is slower than the small file API due to large data.
+  x-inputfilelimit: |+
+    Process up to xxx kb of data or chat per API call.
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
