@@ -46,7 +46,7 @@ paths:
                 message: Successfully Processed
                 results:
                   fields:
-                    content-type: text/plain
+                    content-type: audio/mpeg
                     key: >-
                       309/495/lp-vadasr/input/113test_7c949f4a2cdd4cfc87de9a66cbe53eea.mp3
                     policy: >-
