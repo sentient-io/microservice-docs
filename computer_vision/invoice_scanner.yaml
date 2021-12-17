@@ -17,8 +17,7 @@ info:
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
-    File size should not exceed 10 MB.
-
+    Process up to 10MB of payload.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
