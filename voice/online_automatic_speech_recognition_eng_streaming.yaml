@@ -178,4 +178,3 @@ components:
                 format: float
                 description: Confidence score, 0.0 to 1.0.
                 example: 1
-    
