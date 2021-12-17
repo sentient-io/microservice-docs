@@ -27,6 +27,8 @@ tags:
     description: 'Published Date - Aug 11, 2021'
 paths:
   /async/microservices/nlp/textsummarisation/v0/getuploadurl:
+    description: |+
+      Upload your file to start processing
     post:
       tags:
         - v0.2.0
