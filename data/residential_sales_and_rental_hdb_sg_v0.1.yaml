@@ -96,6 +96,8 @@ info:
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
+  x-notes: |+
+    Process up to 10,000 records.
 servers:
   - url: 'https://api.sentient.io'
 tags:
