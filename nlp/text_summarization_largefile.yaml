@@ -208,11 +208,11 @@ components:
       properties:
         last_updated:
           type: string
-          example: July 06, 2021
+          example: Dec 17, 2021
           description: Last updated
         message:
           type: string
-          example: File Processing Successfully Started
+          example: Successfully Processed
           description: Detail description on the API status
         request_cost:
           type: string
@@ -220,7 +220,7 @@ components:
           description: Detail description on the API status
         status:
           type: string
-          example: Processing
+          example: Success
           description: Detail description on the API status
     success:
       type: object
