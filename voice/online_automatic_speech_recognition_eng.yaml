@@ -17,7 +17,7 @@ info:
   x-notes: |+
     Payload cannot exceed 10 MB.
   servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'wss://onlineasr.sentient.io'
 # tags must include in to the documentation, to read the description text for published date
 tags:
 - name: "v0.1.1"
@@ -28,7 +28,7 @@ html: |+
      </iframe>
      </div>
 paths:
-  /microservices/voice/vadasr/v1/getpredictions:
+  /:
     post:
       tags:
         - v0.1.1
