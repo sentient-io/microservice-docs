@@ -16,7 +16,7 @@ info:
     The API is billed by the amount of data transferred.
   x-notes: |+
     Payload cannot exceed 10 MB.
-  servers:
+servers:
   - url: 'wss://onlineasr.sentient.io'
 # tags must include in to the documentation, to read the description text for published date
 tags:
