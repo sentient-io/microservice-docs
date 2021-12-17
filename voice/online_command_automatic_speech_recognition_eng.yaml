@@ -11,6 +11,8 @@ info:
     The API is billed by the amount of data transferred.
   x-notes: |+
     Payload cannot exceed 10 MB.
+  servers:
+  - url: 'https://apis.sentient.io'
 # tags must include in to the documentation, to read the description text for published date
 tags:
 - name: "v0.1.0"
@@ -18,3 +20,21 @@ tags:
 html: |+
      <iframe src="https://docs.sentient.io/static/online_command_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
      </iframe>
+paths:
+  /microservices/voice/vadasr/v1/getpredictions:
+    post:
+      tags:
+        - v0.1.0
+components:
+  schemas:
+    versions:
+      type: object
+      properties:
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Aug 31, 2020
+              x-details: Initial version release
+              description: Latest Version
