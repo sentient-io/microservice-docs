@@ -14,9 +14,9 @@ info:
     Suggested Use Cases:
     - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands like “turn the volume up".
   x-subscribelink: asr_with_voice_activity_detection_eng
-  x-apitype: small file
+  x-apitype: large file
   x-apitypedescription: |+
-    Fast | Single-Call | 60sec/Call
+    Asyncronous | Batch | 10GB/File
   x-inputfilelimit: |+
     Process up to 10000 kb of data or chat per API call.
   x-responsetime: |+
