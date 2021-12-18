@@ -22,7 +22,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 28, 2018"
 paths:
-  /microservices/voice/ttssch/v0.1/getpredictions:
+  /microservices/voice/ttssch/v0/getpredictions:
     post:
       tags:
         - v0.1.0

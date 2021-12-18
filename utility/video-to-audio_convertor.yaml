@@ -16,7 +16,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Mar 06, 2020"
 paths:
-  /microservices/utility/videotoaudio/v0.1/getresults:
+  /microservices/utility/videotoaudio/v0/getresults:
     post:
       tags:
         - v0.1.0

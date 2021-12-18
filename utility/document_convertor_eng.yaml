@@ -18,7 +18,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Jul 30, 2020"
 paths:
-  /microservices/utility/docconversion/v1.0/getresults:
+  /microservices/utility/docconversion/v1/getresults:
     post:
       tags:
         - v1.0.0

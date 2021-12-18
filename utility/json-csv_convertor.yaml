@@ -14,7 +14,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - May 15, 2020"
 paths:
-  /microservices/utility/jsontocsv/v1.0/getresults:
+  /microservices/utility/jsontocsv/v1/getresults:
     post:
       tags:
         - v1.0.0

@@ -17,7 +17,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 07, 2020"  
 paths:
-  /microservices/utility/videotoimage/v0.1/getresults:
+  /microservices/utility/videotoimage/v0/getresults:
     post:
       tags:
         - v0.1.0

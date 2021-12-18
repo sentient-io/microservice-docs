@@ -16,7 +16,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - May 15, 2020"
 paths:
-  /microservices/utility/csvtojson/v1.0/getresults:
+  /microservices/utility/csvtojson/v1/getresults:
     post:
       tags:
         - v1.0.0

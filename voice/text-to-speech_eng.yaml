@@ -1,22 +1,24 @@
-
 openapi: 3.0.1
 info:
   title: Text-To-Speech ENG
   description: |+
-        This Voice microservice converts English text into natural-sounding English speech in a female voice.User can adjust the pitch and tempo of the the synthesised speech. Both are optional and used only for the female_singaporean model.
-        The input text should not exceed **3000 characters**.
-  version: 1.1.1
+        This Voice microservice converts English text into natural-sounding English speech in a female voice. 
+
+        User can adjust the pitch and tempo of the the synthesised speech. Both are optional and used only for the female_singaporean model.
+
+        The input text should not exceed **2000 characters**.
+  version: 1.0.0
   x-subscribelink: text-to-speech_eng
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
-- name: "v1.1.1"
-  description: "Published Date - Nov 09, 2021"
+- name: "v1.0.0"
+  description: "Published Date - Jun 7, 2021"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
-        - v1.1.1
+        - v1.0.0
       responses:
         '200':
           description: success response
@@ -103,8 +105,8 @@ components:
           example: { "<Json": "Object>" }
           properties: 
             sampling_rate:
-              description: Sample rate of the output audio. Should come only for female_generic
-              example: 16000
+              description: Sample rate of the output audio
+              example: 22050
               type: integer
             wav_base64:
               description: Base64 string of the generated audio from input text
@@ -204,20 +206,6 @@ components:
     versions:
       type: object
       properties:
-        v1.1.1:
-          type: array
-          items:
-            oneOf:
-              - type: string
-                example: 'Published Date - Nov 09,2021'
-                description: Model improvement with improved enunciation of acronyms.
-        v1.0.1:
-          type: array
-          items:
-            oneOf:
-              - type: string
-                example: 'Published Date - Oct 13,2021'
-                description: Support more input characters. Improve model release.
         v1.0.0:
           type: array
           items:
@@ -254,7 +242,7 @@ components:
           example: female_singaporean
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
-            The default model is female_singaporean
+            
             1. female_generic
             2. female_singaporean
         pitch_scale:
@@ -264,7 +252,8 @@ components:
           default: False
           example: 1
           description: |+
-            The pitch factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1.
+            The pitch factor for the synthesized voice. It ranges between 0.5 and 1.5 and default is 1.
+            1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
             **used only for the female_singaporean model
         tempo_scale:
           x-name: tempo_scale
@@ -273,7 +262,8 @@ components:
           default: False
           example: 1
           description: |+
-            The speed factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1. 
+            The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1. 
+            1 means default speed, 0.5 is half speed, 2 is twice the speed
             **used only for the female_singaporean model
         
         

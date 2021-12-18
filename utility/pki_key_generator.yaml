@@ -14,7 +14,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 30, 2019"
 paths:
-  /microservices/utility/rsagetkeys/v0.1/getresults:
+  /microservices/utility/rsa-getkeys/v0/getresults:
     post:
       tags:
         - v0.1.0
