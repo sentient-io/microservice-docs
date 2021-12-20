@@ -195,120 +195,16 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "64406c95#64291"
-                  _score: 
-                    type: number
-                    description: The document score for the search request
-                    example: 1.0
+                    example: "1220020162716353"
                   _source: 
                     type: object
                     example: {<Json Object>}
                     description: Json Object of returned hits                    
                     properties:
-                            1x: 
-                              type: number
-                              description: X direction central top position of target
-                              example: 682
-                            1y: 
-                              type: number
-                              description: Y direction central top position of target
-                              example: 6210
-                            2x: 
-                              type: number
-                              description: X direction central tail position of target
-                              example: 782
-                            2y:
-                              type: number
-                              description: Y direction central tail position of target
-                              example: 6210
-                            dataclass:
-                              type: string
-                              description: Type of Data
-                              example: "SD"
-                            datalen:
-                              type: number
-                              description: Lenght of the information
-                              example: 936
-                            datanumlow:
-                              type: number
-                              description: Lower data number
-                              example: 24
-                            datanumup:
-                              type: number
-                              description: Upper data number
-                              example: 0
-                            detecttime:
-                              type: string
-                              description: Target detected time
-                              example: "2020-7-7T18:28:48.671Z"
-                            height:
-                              type: number
-                              description: Height of target
-                              example: 47
-                            identify:
-                              type: number
-                              description: Target vehicle type
-                              example: 12
-                            jamlane:
-                              type: number
-                              description: Jam lane number
-                              example: 0
-                            length:
-                              type: number
-                              description: Length of target
-                              example: 100
-                            originid:
-                              type: string
-                              description: Origin Id
-                              example: "0x145D"
-                            sendtime:
-                              type: string
-                              description: Target send time
-                              example: "2020-7-7T18:28:48.792Z"
-                            createddate:
-                              type: string
-                              description: Record first release date on sentient
-                              example: "2021-03-04T03:29:14.930Z"
                             lastupdated:
                               type: string
                               description: Record last updated date on sentient
-                              example: "2021-03-04T03:29:14.930Z"
-                            seqno:
-                              type: number
-                              description: Sequence number of target
-                              example: 64406 
-                            situation:
-                              type: string
-                              description: Situation of target
-                              example: "0x02"
-                            targetid:
-                              type: string
-                              description: Target Id
-                              example: "c95#64291"
-                            targetidx:
-                              type: string
-                              description: Target Idx
-                              example: "0x1451"
-                            width:
-                              type: number
-                              description: Width of target
-                              example: 100
-                            xspeed:
-                              type: number
-                              description: xspeed of target
-                              example: 12
-                            yspeed:
-                              type: number
-                              description: yspeed of target
-                              example: 14
-                            xcoord:
-                              type: string
-                              description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
-                              example: "357844.6167091789"
-                            ycoord:
-                              type: string
-                              description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
-                              example: "148684.80620664736"
+                              example: "2021-02-05T12:28:29.723"
                             location:
                               type: object
                               description: WGS84 (World Geodetic System) lat/long coordinates. This is the standard coordinate system used Global Positioning System (GPS).
@@ -322,6 +218,37 @@ components:
                                     type: string
                                     description: WGS84 (GPS) longitude
                                     example: "103.72224233670825"
+                            lat: 
+                              type: string
+                              description: WGS84 (GPS) latitude
+                              example: "1.3448589781787064"
+                            lng:
+                              type: string
+                              description: WGS84 (GPS) longitude
+                              example: "103.72224233670825"
+                            angel:
+                              type: float
+                              description: angel
+                              example: 5.7
+                            id:
+                              type: string
+                              description: id
+                              example: 122002_01627
+                            timestamp:
+                              description: Recods the time and date on sentient
+                              example: "2021-02-05T12:28:29.723"
+                            type:
+                              type: integer
+                              description: type
+                              example: 11
+                            unique_id:
+                              type: integer
+                              description: uniqueid
+                              example: 1220020162716353
+                  sort:
+                    type: array
+                    description: sort
+                    example: 1640025797876
     unauthorized:
       type: object
       properties:
