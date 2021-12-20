@@ -126,7 +126,7 @@ paths:
         required: true
   /async/microservices/voice/asr/v0/getstatus:
     description: |+
-     Query for processing status
+      Query for processing status
     get:
       tags:
         - v0.2.0
