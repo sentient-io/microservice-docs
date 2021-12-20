@@ -32,6 +32,8 @@ tags:
   description: "Published Date - Sep 09, 2021"
 paths:
   /async/microservices/cv/peoplecounting/v0/getuploadurl:
+    description: |+
+      Upload your file to start processing
     post:
       tags:
         - v0.1.0
@@ -129,6 +131,8 @@ paths:
               $ref: '#/components/schemas/input'
         required: true
   /async/microservices/cv/peoplecounting/v0/getstatus:
+    description: |+
+      Query for processing status
     get:
       tags:
         - v0.2.0
