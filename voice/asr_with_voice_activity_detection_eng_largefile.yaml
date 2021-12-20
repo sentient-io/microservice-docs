@@ -9,7 +9,7 @@ info:
     The length of your audio should be **upto 60 seconds**. 
 
     For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
-  version: '1.2.1'
+  version: '0.1.0'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands like “turn the volume up".
@@ -28,13 +28,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.2.1"
+- name: "v0.1.0"
   description: "Published Date - Nov 09, 2021"
 paths:
   /async/microservices/voice/vadasr/v0/getuploadurl:
     post:
       tags:
-        - v1.2.1
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -131,7 +131,7 @@ paths:
   /async/microservices/voice/vadasr/v0/getstatus:
     get:
       tags:
-        - v0.2.0
+        - v0.1.0
       parameters:
         - in: query
           name: jid
@@ -391,47 +391,14 @@ components:
     versions:
       type: object
       properties:
-        v1.2.1:
-          type: array
-          items:
-            oneOf:
-            - type: string
-              example: Published Date - Nov 09, 2021
-              x-details: Vad bug fix
-              description: Latest Version
-        v1.2.0:
-          type: array
-          items:
-            oneOf:
-            - type: string
-              example: Published Date - Apr 07, 2021
-              x-details: New model generic introduced
-              description: Depreciating on Nov 08, 2021
-        v1.1.0:
-          type: array
-          items:
-            oneOf:
-            - type: string
-              example: Published Date - Jan 22, 2021
-              x-details: Model name update
-              description: Depreciating on Apr 06, 2021
-        v1.0.0:
-          type: array
-          items:
-            oneOf:
-            - type: string
-              example: Published Date - Dec 09, 2020
-              x-details: Standardizing Output JSON  
-              description: Depreciating on Jan 21, 2021
-        
         v0.1.0:
           type: array
           items:
             oneOf:
             - type: string
-              example: Published Date - Dec 14, 2019
+              example: Published Date - Dec 17, 2021
               x-details: Initial version release
-              description: Archived
+              description: Latest Version
     input:
       type: object
       required:
