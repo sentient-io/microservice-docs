@@ -225,38 +225,38 @@ components:
           type: string
           default: true
           example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
-          description: |+
+          description: 
             Input audio wav file in base64 format.
         audio_encoding:
           type: string
           default: false
           example: pcm
-          description: |+
-            The audio coding format. Valid values: pcm, opus. Default value: pcm.
+          description: 
+            The audio coding format. Valid values - pcm, opus. Default value - pcm.
         sample_rate:
           type: number
           default: false
           example: 16000
-          description: |+
-            The audio sampling rate, in Hz. Valid values: 16000 and 8000. Default value: 16000.
+          description: 
+            The audio sampling rate, in Hz. Valid values - 16000 and 8000. Default value - 16000.
         punctuation_prediction:
           type: boolean
           default: false
           example: false
-          description: |+
-            Specifies whether to add punctuation marks during post-processing. Valid values: True and False. Default value: False.
+          description: 
+            Specifies whether to add punctuation marks during post-processing. Valid values - True and False. Default value - False.
         inverse_text_normalization:
           type: boolean
           default: false
           example: false
-          description: |+
-            Specifies whether to enable inverse text normalization (ITN) during post-processing. Valid values: True and False. Default value: False.
+          description: 
+            Specifies whether to enable inverse text normalization (ITN) during post-processing. Valid values - True and False. Default value - False.
         voice_detection:
           type: boolean
           default: false
           example: false
-          description: |+
-            Specifies whether to enable voice detection. Valid values: True and False. Default value: False. Note: If voice detection is enabled, the server detects whether the uploaded audio file includes any silent fragment. If the server detects any silent fragment, it removes the silent fragment and the subsequent content without recognizing them. The recognition result varies depending on the model.                   
+          description: 
+            Specifies whether to enable voice detection. Valid values - True and False. Default value - False. Note - If voice detection is enabled, the server detects whether the uploaded audio file includes any silent fragment. If the server detects any silent fragment, it removes the silent fragment and the subsequent content without recognizing them. The recognition result varies depending on the model.                   
     versions:
       type: object
       properties: 
