@@ -19,7 +19,7 @@ info:
   x-notes: |+
     Size cannot exceed 5000 characters.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 08, 2021"
