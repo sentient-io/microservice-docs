@@ -32,24 +32,24 @@ tags:
   description: "Published Date - Nov 09, 2021"
 html: |+
      <div id="iframe-container">
-     <iframe src="https://docs.sentient.io/static/online_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
+     <iframe src="https://storage.googleapis.com/docs.sentient.io/static/asr_with_voice_activity_detection_eng_largefile.html" width="100%" height="800px">
      </iframe>
      </div>
 paths:
   /:
     post:
       tags:
-        - v0.1.1
+        - v0.1.0
 components:
   schemas:
     versions:
       type: object
       properties:
-        v0.1.1:
+        v0.1.0:
           type: array
           items:
             oneOf:
             - type: string
-              example: Published Date - Apr 7, 2021
+              example: Published Date - Dec 12, 2021
               x-details: Initial version release
               description: Latest Version
