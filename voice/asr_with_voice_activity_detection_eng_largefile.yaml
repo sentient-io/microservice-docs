@@ -21,8 +21,9 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Nov 09, 2021"
+  description: "Published Date - Dec 12, 2021"
 html: |+
+
      <iframe src="https://docs.sentient.io/static/asr_with_voice_activity_detection_eng_largefile.html" width="100%" height="800px">
      </iframe>
 paths:
