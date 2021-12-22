@@ -1,12 +1,22 @@
 # API Documentation Platfrom will check if the yaml file has a "html" key
 # If have "html", will read HTML content and hide all other API documentation element
+openapi: 3.0.1
 info:
-  title: Online Automatic Speech Recognition ENG
-  description: >-
-    This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
-  version: '0.1.1'
+  title: ASR with Voice Activity Detection ENG
+  description: |+
+    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
+    
+    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k.
+    
+    For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
+  version: '0.1.0'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands like “turn the volume up".
+  x-subscribelink: asr_with_voice_activity_detection_eng
+  x-apitype: large file
   x-apitypedescription: |+
-    Fast | Single-Call | 10MB/Call
+    Asyncronous | Batch | 10GB/File
   x-inputfilelimit: |+
     Process up to 10000 kb of data or chat per API call.
   x-responsetime: |+
@@ -14,13 +24,12 @@ info:
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
-    Payload cannot exceed 10 MB.
+    Size cannot exceed 60 seconds.
 servers:
-  - url: 'wss://onlineasr.sentient.io'
-# tags must include in to the documentation, to read the description text for published date
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v0.1.1"
-  description: "Published Date - Apr 7, 2021"
+- name: "v0.1.0"
+  description: "Published Date - Nov 09, 2021"
 html: |+
      <div id="iframe-container">
      <iframe src="https://docs.sentient.io/static/online_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
