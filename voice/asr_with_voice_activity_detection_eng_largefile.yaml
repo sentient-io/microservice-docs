@@ -2,7 +2,7 @@
 # If have "html", will read HTML content and hide all other API documentation element
 openapi: 3.0.1
 info:
-  title: ASR with Voice Activity Detection ENG
+  title: ASR with Voice Activity Detection ENG Large
   description: |+
     This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
     
