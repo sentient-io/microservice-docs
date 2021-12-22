@@ -61,6 +61,10 @@ voice:
     versions:
       1.2.1: 'asr_with_voice_activity_detection_eng.yaml'
       0.1.0: 'asr_with_voice_activity_detection_eng_v0.1.yaml'
+  asr_with_voice_activity_detection_eng_largefile:
+    title: ASR with Voice Activity Detection ENG Large
+    versions:
+      0.1.0: 'asr_with_voice_activity_detection_eng_largefile.yaml'      
   voice_activity_detection_eng:
     title: Voice Activity Detection ENG
     versions:
