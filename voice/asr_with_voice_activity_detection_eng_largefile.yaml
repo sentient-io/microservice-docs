@@ -1,5 +1,3 @@
-# API Documentation Platfrom will check if the yaml file has a "html" key
-# If have "html", will read HTML content and hide all other API documentation element
 info:
   title: ASR with Voice Activity Detection ENG Large
   description: |+
@@ -9,11 +7,6 @@ info:
     
     For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
   version: '0.1.0'
-  x-additionalinfo: |+
-    Suggested Use Cases:
-    - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands like “turn the volume up".
-  x-subscribelink: asr_with_voice_activity_detection_eng
-  x-apitype: large file
   x-apitypedescription: |+
     Asyncronous | Batch | 10GB/File
   x-inputfilelimit: |+
@@ -28,12 +21,10 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Dec 12, 2021"
+  description: "Published Date - Nov 09, 2021"
 html: |+
-     <div id="iframe-container">
      <iframe src="https://docs.sentient.io/static/asr_with_voice_activity_detection_eng_largefile.html" width="100%" height="800px">
      </iframe>
-     </div>
 paths:
   /:
     post:
