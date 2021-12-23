@@ -79,7 +79,7 @@ voice:
     versions:
       0.1.0: 'alibaba_chi_asr_large_file.yaml'   
   google_asr_large_file:
-    title: Google ASR (Large File)
+    title: Google ASR Large File
     versions:
       0.1.0: 'google_asr_large_file.yaml'       
   speaker_diarization:
