@@ -168,6 +168,15 @@ computer vision:
     versions:
       1.0.1: 'people_counting.yaml'
       0.1.0: 'people_counting_v0.1.yaml'
+  people_counting:
+    title: People Counting
+    versions:
+      1.0.1: 'people_counting.yaml'
+      0.1.0: 'people_counting_v0.1.yaml' 
+  people_counting_large_file:
+    title: People Counting (Large File)
+    versions:
+      0.1.0: 'people_counting_large_file.yaml'      
   person_reidentification:
     title: Person Reidentification
     versions:
