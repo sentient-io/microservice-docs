@@ -433,6 +433,17 @@ components:
           example: 'text/plain'
           description: |+
             Content type
+        additional_param:
+          x-name: additional_param
+          type: object
+          properties: 
+            password:
+              x-name: password
+              type: string
+              default: false
+              example: ******
+              description: |+
+                If password required for PDF.             
     uploadinput:
       type: object
       required:
