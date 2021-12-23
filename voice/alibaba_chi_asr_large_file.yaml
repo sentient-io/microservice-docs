@@ -27,11 +27,9 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Dec 20, 2021"
+  description: "Published Date - Dec 23, 2021"
 paths:
   /async/microservices/voice/alibabachiasr/v0/getuploadurl:
-    description: |+
-      Upload your file to start processing
     post:
       tags:
         - v0.1.0
@@ -90,6 +88,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
         '413':
           description: Payload Too Large
           content:
@@ -102,12 +106,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/invalidinput'
-        '419':
-          description: Input Field Missing
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputfieldmissing'
         '500':
           description: Internal Server Error
           content:
@@ -128,9 +126,29 @@ paths:
             schema:
               $ref: '#/components/schemas/input'
         required: true
+  /upload:
+    post:
+      servers:
+        - url: 'https://storage.googleapis.com/user_space_dev/'
+          description: Override base path for the GET /ping operation    
+      tags:
+        - v0.1.0
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/uploadinput'
+        required: true          
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                message: Successfully Processed         
   /async/microservices/voice/alibabachiasr/v0/getstatus:
-    description: |+
-      Query for processing status
     get:
       tags:
         - v0.1.0
@@ -139,7 +157,7 @@ paths:
           name: jid
           schema:
             type: string
-          example: e7fe34e9c21c4d75bc94051e476141c5
+          example: 36d075917dcd481e9daf858a2549f3b1
       responses:
         '200':
           description: Ok
@@ -147,12 +165,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/getsuccess'
-              example:
-                last_updated: 'Dec 20, 2021'
-                message: Successfully Processed
-                output_url: https://storage.googleapis.com/user_space_dev/309/495/lp-alibabachiasr/output/chinetest_4f079ca05c614d789252db1d574664d8.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20211220%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211220T043649Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=aa8f395422cdd67cbe0da77b65d032a2d511ad3bcecf9d59685fbdcc0eb56233fa06192043143db4ec96189202d5bd6a20fb00e9ebf38526e11c568e76aeda31e21f12622580fed1326bf0f0a6a917f089372f94d7d7bbf55e892897845e8f1c17c20ecc00083615a0148a5ccdda1d0fb27ec15c18ad4f37ca5bebae6f668041508409aea746f9834ae8deda63cee604f84aea0ae934494aa463b8298e62e98ba487bba994986e647a259f9d660652c41cb6d99a1dee5212c2a9a1ae7c7dc1e72be705c242a858bfec7d9418710d1929c32452c9ecae38619e41ea3f763698ec47d2d3f7ce3430e29fdc20e3da7a6227cf16ba1e4908537e6144695a34ae42d8
-                request_cost: 0.0319
-                status: Success
+              example: 
+                last_updated: '2021-07-06 12:50:30'
+                message: File Processing Successfully Started
+                request_cost: 0.086
+                status: Processing
+
         '401':
           description: Unauthorized
           content:
@@ -177,6 +195,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
         '413':
           description: Payload Too Large
           content:
@@ -189,12 +213,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/invalidinput'
-        '419':
-          description: Input Field Missing
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputfieldmissing'
         '500':
           description: Internal Server Error
           content:
@@ -216,19 +234,19 @@ components:
       properties:
         last_updated:
           type: string
-          example: Dec 20, 2021
+          example: 2021-07-06 12:50:30
           description: Last updated
         message:
           type: string
-          example: Successfully Processed
+          example: File Processing Successfully Started
           description: Detail description on the API status
         request_cost:
           type: string
-          example: 0.0319
+          example: 0.086
           description: Detail description on the API status
         status:
           type: string
-          example: Success
+          example: Processing
           description: Detail description on the API status
     success:
       type: object
@@ -239,14 +257,12 @@ components:
           description: Detail description on the API status
         results:
           type: object
-          example:
-            <Json: Object>
+          example: { "<Json": "Object>" }
           description: Json Object of returned results
-          properties:
+          properties:   
             fields:
               type: object
-              example:
-                <Json: Object>
+              example: { "<Json": "Object>" }
               description: Json Object of returned results
               properties:
                 content-type:
@@ -255,7 +271,7 @@ components:
                   description: Content type of the document
                 policy:
                   type: string
-                  example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW5...
+                  example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ...
                   description: Content type of the document
                 x-goog-algorithm:
                   type: string
@@ -267,7 +283,7 @@ components:
                   description: Google algorithm
                 x-goog-date:
                   type: string
-                  example: 20211220T042940Z
+                  example: 20211123T105846Z
                   description: Google algorithm
                 x-goog-meta-additional_param:
                   type: string
@@ -275,40 +291,36 @@ components:
                   description: Google algorithm
                 x-goog-meta-oid:
                   type: string
-                  example: 309
+                  example: 1
                   description: Google algorithm
                 x-goog-meta-uid:
                   type: string
-                  example: 495
-                  description: Google algorithm
-                x-goog-meta-uploader:
-                  type: string
-                  example: f3637e07bc3b45cdbc74686395df43fa
+                  example: 2
                   description: Google algorithm
                 x-goog-meta-uuid:
                   type: string
-                  example: 4f079ca05c614d789252db1d574664d8
+                  example: 1991d4936ddb4728afaa06cb260b0253
                   description: Google algorithm
                 x-goog-signature:
                   type: string
-                  example: 304d7e52afcea3d6e41818b7c3c71973f275...
+                  example: 3d882f0762743e39146aae926435bf0b15e844836dbcf...
                   description: Google algorithm
             jid:
               type: string
-              example: e7fe34e9c21c4d75bc94051e476141c5
-              description: Google algorithm
+              example: 1991d4936ddb4728afaa06cb260b0253...
+              description: Google algorithm 
             request_cost:
               type: string
-              example: 0.0298
-              description: Google algorithm
+              example: 0
+              description: Google algorithm 
             url:
               type: string
-              example: 'https://storage.googleapis.com/user_space_dev/'
-              description: Google algorithm
+              example: https://storage.googleapis.com/user_space_dev/
+              description: Google algorithm 
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call success/failure                  
     unauthorized:
       type: object
       properties:
@@ -389,7 +401,7 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure
+          example: Failure 
     versions:
       type: object
       properties: 
@@ -398,9 +410,9 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Dec 20, 2021
-              x-details: Initial version release
-              description: Latest Version
+              example: Published Date - Dec 23, 2021
+              x-details: Initial version release  
+              description: Archived
     input:
       type: object
       required:
@@ -411,23 +423,94 @@ components:
           type: integer
           default: true
           example: 1227936
-          description: |
+          description: |+
             File Size
         file_name:
           x-name: file_name
           type: string
           default: true
           format: binary
-          example: test.wav
-          description: |
+          example: 'test.txt'
+          description: |+
             File name
         content_type:
           x-name: content_type
           type: string
           default: true
-          example: audio/wav
-          description: |
+          example: 'text/plain'
+          description: |+
             Content type
+    uploadinput:
+      type: object
+      required:
+        - filePath      
+      properties:
+        fields:
+          type: object
+          example:
+            <Json: Object>
+          description: Json Object of returned results
+          properties:
+            content-type:
+              type: string
+              example: text/plain
+              description: Content type of the document
+            policy:
+              type: string
+              example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW5...
+              description: Content type of the document
+            x-goog-algorithm:
+              type: string
+              example: GOOG4-RSA-SHA256
+              description: Google algorithm
+            x-goog-credential:
+              type: string
+              example: sentient-dev-bigqu...
+              description: Google algorithm
+            x-goog-date:
+              type: string
+              example: 20211220T042940Z
+              description: Google algorithm
+            x-goog-meta-additional_param:
+              type: string
+              example: None
+              description: Google algorithm
+            x-goog-meta-oid:
+              type: string
+              example: 309
+              description: Google algorithm
+            x-goog-meta-uid:
+              type: string
+              example: 495
+              description: Google algorithm
+            x-goog-meta-uploader:
+              type: string
+              example: f3637e07bc3b45cdbc74686395df43fa
+              description: Google algorithm
+            x-goog-meta-uuid:
+              type: string
+              example: 4f079ca05c614d789252db1d574664d8
+              description: Google algorithm
+            x-goog-signature:
+              type: string
+              example: 304d7e52afcea3d6e41818b7c3c71973f275...
+              description: Google algorithm
+        jid:
+          type: string
+          example: e7fe34e9c21c4d75bc94051e476141c5
+          description: Google algorithm
+        request_cost:
+          type: string
+          example: 0.0298
+          description: Google algorithm
+        url:
+          type: string
+          example: 'https://storage.googleapis.com/user_space_dev/'
+          description: Google algorithm
+    status:
+      type: string
+      example: Success
+      description: The status of the API call success/failure           
   securitySchemes:
     APIAuthorizer:
       type: apiKey
