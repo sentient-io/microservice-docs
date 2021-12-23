@@ -6,7 +6,7 @@ info:
     The input text should be a minimum of 100 words and a maximum of 512 words. 
     For longer text, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective summarization.
   version: '0.1.0'
-  x-subscribelink: text_summarization
+  x-subscribelink: text_summarization_large_file
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 0MB/Call
