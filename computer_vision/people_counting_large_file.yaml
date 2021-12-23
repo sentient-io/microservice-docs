@@ -434,22 +434,22 @@ components:
           type: integer
           default: true
           example: 1227936
-          description: |
+          description: |+
             File Size
         file_name:
           x-name: file_name
           type: string
           default: true
           format: binary
-          example: test.mp4
-          description: |
+          example: 'test.txt'
+          description: |+
             File name
         content_type:
           x-name: content_type
           type: string
           default: true
-          example: video/mp4
-          description: |
+          example: 'text/plain'
+          description: |+
             Content type
     uploadinput:
       type: object
