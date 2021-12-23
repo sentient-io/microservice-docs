@@ -475,13 +475,18 @@ components:
         policy:
           type: string
           default: false
-          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhcHBsaWNhdGlvbi9wZGYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDE0MDczMjYxXSx7ImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9uL3BkZiJ9LHsieC1nb29nLW1ldGEtYWRkaXRpb25hbF9wYXJhbSI6IntcInBhc3N3b3JkXCI6IFwiZmZmZmZcIn0ifSx7IngtZ29vZy1tZXRhLW9pZCI6IjEifSx7IngtZ29vZy1tZXRhLXVpZCI6IjIifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJjZjNkMzI5YmQ5ZGY0Y2VmOTE5NjZjMzM2Mzg2ZWVhMyJ9LHsiYnVja2V0IjoidXNlcl9zcGFjZV9kZXYifSx7ImtleSI6IjEvMi9scC10ZXh0c3VtbWFyaXNhdGlvbi9pbnB1dC9QZGZfNm1iX2NmM2QzMjliZDlkZjRjZWY5MTk2NmMzMzYzODZlZWEzLnBkZiJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIwOVQwOTU1MDdaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMDkvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMS0xMi0wOVQxMDo1NTowNy41MDYwNDBaIn0=
+          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ2aWRlby9tcDQiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDQzMDM5MV0seyJjb250ZW50LXR5cGUiOiJ2aWRlby9tcDQifSx7IngtZ29vZy1tZXRhLWFkZGl0aW9uYWxfcGFyYW0iOiJOb25lIn0seyJ4LWdvb2ctbWV0YS1vaWQiOiIzMDkifSx7IngtZ29vZy1tZXRhLXVpZCI6IjQ5NSJ9LHsieC1nb29nLW1ldGEtdXBsb2FkZXIiOiI0ZjIwNmIyN2Y2NWQ0ZWYyYjc4Zjg5NGQ5NjdiMmQzOSJ9LHsieC1nb29nLW1ldGEtdXVpZCI6ImU3ZmUzNGU5YzIxYzRkNzViYzk0MDUxZTQ3NjE0MWM1In0seyJidWNrZXQiOiJ1c2VyX3NwYWNlX2RldiJ9LHsia2V5IjoiMzA5LzQ5NS9scC1wZW9wbGVjb3VudGluZy9pbnB1dC80MTVLQl9lN2ZlMzRlOWMyMWM0ZDc1YmM5NDA1MWU0NzYxNDFjNS5tcDQifSx7IngtZ29vZy1kYXRlIjoiMjAyMTEyMTdUMDU0NzU4WiJ9LHsieC1nb29nLWNyZWRlbnRpYWwiOiJzZW50aWVudC1kZXYtYmlncXVlcnlAc2VudGllbnQtMjA3MzEwLmlhbS5nc2VydmljZWFjY291bnQuY29tLzIwMjExMjE3L2F1dG8vc3RvcmFnZS9nb29nNF9yZXF1ZXN0In0seyJ4LWdvb2ctYWxnb3JpdGhtIjoiR09PRzQtUlNBLVNIQTI1NiJ9XSwiZXhwaXJhdGlvbiI6IjIwMjEtMTItMTdUMDY6NDc6NTguNzU4NzkzWiJ9
           description: Fields
         x-goog-algorithm:
           type: string
           default: false
           example: GOOG4-RSA-SHA256
           description: Fields
+        x-goog-date:
+          type: string
+          default: false
+          example: 20211217T054758Z
+          description: Fields          
         x-goog-credential:
           type: string
           default: false
@@ -506,6 +511,11 @@ components:
           default: false
           example: cf3d329bd9df4cef91966c336386eea3
           description: Fields
+        x-goog-meta-uploader:
+          type: string
+          default: false
+          example: cf3d329bd9df4cef91966c336386eea3
+          description: Fields          
         x-goog-signature:
           type: string
           default: false
