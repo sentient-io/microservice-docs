@@ -441,7 +441,7 @@ components:
               x-name: password
               type: string
               default: false
-              example: ******
+              example: 123
               description: |+
                 If password required for PDF.             
     uploadinput:
