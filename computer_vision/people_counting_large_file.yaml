@@ -51,8 +51,6 @@ paths:
                     policy: >-
                       eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ2aWRlby9tcDQiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDQzMDM5MV0seyJjb250ZW50LXR5cGUiOiJ2aWRlby9tcDQifSx7IngtZ29vZy1tZXRhLWFkZGl0aW9uYWxfcGFyYW0iOiJOb25lIn0seyJ4LWdvb2ctbWV0YS1vaWQiOiIzMDkifSx7IngtZ29vZy1tZXRhLXVpZCI6IjQ5NSJ9LHsieC1nb29nLW1ldGEtdXBsb2FkZXIiOiI0ZjIwNmIyN2Y2NWQ0ZWYyYjc4Zjg5NGQ5NjdiMmQzOSJ9LHsieC1nb29nLW1ldGEtdXVpZCI6ImU3ZmUzNGU5YzIxYzRkNzViYzk0MDUxZTQ3NjE0MWM1In0seyJidWNrZXQiOiJ1c2VyX3NwYWNlX2RldiJ9LHsia2V5IjoiMzA5LzQ5NS9scC1wZW9wbGVjb3VudGluZy9pbnB1dC80MTVLQl9lN2ZlMzRlOWMyMWM0ZDc1YmM5NDA1MWU0NzYxNDFjNS5tcDQifSx7IngtZ29vZy1kYXRlIjoiMjAyMTEyMTdUMDU0NzU4WiJ9LHsieC1nb29nLWNyZWRlbnRpYWwiOiJzZW50aWVudC1kZXYtYmlncXVlcnlAc2VudGllbnQtMjA3MzEwLmlhbS5nc2VydmljZWFjY291bnQuY29tLzIwMjExMjE3L2F1dG8vc3RvcmFnZS9nb29nNF9yZXF1ZXN0In0seyJ4LWdvb2ctYWxnb3JpdGhtIjoiR09PRzQtUlNBLVNIQTI1NiJ9XSwiZXhwaXJhdGlvbiI6IjIwMjEtMTItMTdUMDY6NDc6NTguNzU4NzkzWiJ9
                     x-goog-algorithm: GOOG4-RSA-SHA256
-                    x-goog-credential: >-
-                      sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211217/auto/storage/goog4_request
                     x-goog-meta-additional_param: None
                     x-goog-meta-oid: '309'
                     x-goog-meta-uid: '495'
@@ -480,7 +478,6 @@ components:
         x-goog-credential:
           type: string
           default: false
-          example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
           description: Fields
         x-goog-meta-additional_param:
           type: string
