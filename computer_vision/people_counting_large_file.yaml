@@ -53,7 +53,6 @@ paths:
                     x-goog-algorithm: GOOG4-RSA-SHA256
                     x-goog-credential: >-
                       sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211217/auto/storage/goog4_request
-                    x-goog-date: 20211217T054758Z
                     x-goog-meta-additional_param: None
                     x-goog-meta-oid: '309'
                     x-goog-meta-uid: '495'
@@ -287,7 +286,6 @@ components:
                   description: Google algorithm
                 x-goog-date:
                   type: string
-                  example: 20211123T105846Z
                   description: Google algorithm
                 x-goog-meta-additional_param:
                   type: string
@@ -478,7 +476,6 @@ components:
         x-goog-date:
           type: string
           default: false
-          example: 20211217T054758Z
           description: Fields          
         x-goog-credential:
           type: string
