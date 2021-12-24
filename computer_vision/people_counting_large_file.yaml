@@ -23,7 +23,7 @@ info:
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
-    Size of image file should not exceed 10 MB.
+    Size of image file should not exceed 10 MB
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
@@ -45,22 +45,23 @@ paths:
                 message: Successfully Processed
                 results:
                   fields:
-                    content-type: video/mp4
-                    key: >-
-                      309/495/lp-peoplecounting/input/415KB_e7fe34e9c21c4d75bc94051e476141c5.mp4
+                    content-type: text/plain
+                    key: 1/2/lp-peoplecounting/input/test_1991d4936ddb4728afaa06cb260b0253.txt
                     policy: >-
-                      eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ2aWRlby9tcDQiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDQzMDM5MV0seyJjb250ZW50LXR5cGUiOiJ2aWRlby9tcDQifSx7IngtZ29vZy1tZXRhLWFkZGl0aW9uYWxfcGFyYW0iOiJOb25lIn0seyJ4LWdvb2ctbWV0YS1vaWQiOiIzMDkifSx7IngtZ29vZy1tZXRhLXVpZCI6IjQ5NSJ9LHsieC1nb29nLW1ldGEtdXBsb2FkZXIiOiI0ZjIwNmIyN2Y2NWQ0ZWYyYjc4Zjg5NGQ5NjdiMmQzOSJ9LHsieC1nb29nLW1ldGEtdXVpZCI6ImU3ZmUzNGU5YzIxYzRkNzViYzk0MDUxZTQ3NjE0MWM1In0seyJidWNrZXQiOiJ1c2VyX3NwYWNlX2RldiJ9LHsia2V5IjoiMzA5LzQ5NS9scC1wZW9wbGVjb3VudGluZy9pbnB1dC80MTVLQl9lN2ZlMzRlOWMyMWM0ZDc1YmM5NDA1MWU0NzYxNDFjNS5tcDQifSx7IngtZ29vZy1kYXRlIjoiMjAyMTEyMTdUMDU0NzU4WiJ9LHsieC1nb29nLWNyZWRlbnRpYWwiOiJzZW50aWVudC1kZXYtYmlncXVlcnlAc2VudGllbnQtMjA3MzEwLmlhbS5nc2VydmljZWFjY291bnQuY29tLzIwMjExMjE3L2F1dG8vc3RvcmFnZS9nb29nNF9yZXF1ZXN0In0seyJ4LWdvb2ctYWxnb3JpdGhtIjoiR09PRzQtUlNBLVNIQTI1NiJ9XSwiZXhwaXJhdGlvbiI6IjIwMjEtMTItMTdUMDY6NDc6NTguNzU4NzkzWiJ9
+                      eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ0ZXh0L3BsYWluIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMjMyOTM2XSx7ImNvbnRlbnQtdHlwZSI6InRleHQvcGxhaW4ifSx7IngtZ29vZy1tZXRhLWFkZGl0aW9uYWxfcGFyYW0iOiJOb25lIn0seyJ4LWdvb2ctbWV0YS1vaWQiOiIxIn0seyJ4LWdvb2ctbWV0YS11aWQiOiIyIn0seyJ4LWdvb2ctbWV0YS11dWlkIjoiMTk5MWQ0OTM2ZGRiNDcyOGFmYWEwNmNiMjYwYjAyNTMifSx7ImJ1Y2tldCI6InVzZXJfc3BhY2VfZGV2In0seyJrZXkiOiIxLzIvbHAtdGV4dHN1bW1hcmlzYXRpb24vaW5wdXQvdGVzdF8xOTkxZDQ5MzZkZGI0NzI4YWZhYTA2Y2IyNjBiMDI1My50eHQifSx7IngtZ29vZy1kYXRlIjoiMjAyMTExMjNUMTA1ODQ2WiJ9LHsieC1nb29nLWNyZWRlbnRpYWwiOiJzZW50aWVudC1kZXYtYmlncXVlcnlAc2VudGllbnQtMjA3MzEwLmlhbS5nc2VydmljZWFjY291bnQuY29tLzIwMjExMTIzL2F1dG8vc3RvcmFnZS9nb29nNF9yZXF1ZXN0In0seyJ4LWdvb2ctYWxnb3JpdGhtIjoiR09PRzQtUlNBLVNIQTI1NiJ9XSwiZXhwaXJhdGlvbiI6IjIwMjEtMTEtMjNUMTE6NTg6NDYuMTcxMzE1WiJ9
                     x-goog-algorithm: GOOG4-RSA-SHA256
+                    x-goog-credential: >-
+                      sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211123/auto/storage/goog4_request
+                    x-goog-date: 20211123T105846Z
                     x-goog-meta-additional_param: None
-                    x-goog-meta-oid: '309'
-                    x-goog-meta-uid: '495'
-                    x-goog-meta-uploader: '4f206b27f65d4ef2b78f894d967b2d39'
-                    x-goog-meta-uuid: e7fe34e9c21c4d75bc94051e476141c5
+                    x-goog-meta-oid: '1'
+                    x-goog-meta-uid: '2'
+                    x-goog-meta-uuid: 1991d4936ddb4728afaa06cb260b0253
                     x-goog-signature: >-
-                      79a52d6b4417e3505fdee766d4ccf4976cbd1f4f9507c986f0b476b8481d26d233002125339e7b39a958e2b200468eb6f9d64bbb56ccc59880f6db562425774aa79f7510c10d3cf575327e0c63ec4d5eb889c0cfdfa88f2f4f18a0ceffff737ade2985ac15f508eaf83f52e13fcbf87c93874f2031feca04f7ad38590ce2fbe75f16949d71b45ed9fbb80947f99e240cb282bc9890ebdcbbc0783d8d09cae8a3c1678e01c30a1bc911b1ef0b64b6aff9040de99d3b87419117449f4567d4926c7c73c9b90d1a52ed2e624bba6f2e8a212ed5fb46581b0f7dba42cd72b2c2cad1fa77fac2f7e2d50346ecd41528fc85e9030f550a90491f9a7c6bf5e44bd9fc34
-                  jid: e7fe34e9c21c4d75bc94051e476141c5
-                  request_cost: 0.0298
-                  url: 'https://storage.googleapis.com/user_space_dev'
+                      3d882f0762743e39146aae926435bf0b15e844836db9a0913fddfc04e786b939a8f3d1bcf187883c3c1dec913d1aa8eca4e8e08d7a8fcdf138bfac621f28ed9ef30c842b6a7ad9c7b7fa8a0ee60d4f1b05f7a0322a5bb404d7ce69410a494b1a5848d49ac96cd59c538dc522b21e579979b5d53b9d413e766662f65596ca22bde2f625d349392c04e13ce27d98e0d73a229f50dfc5fdb18873218f97eac6e83a8d088c6c66e49d120d21757d04ab5763565da5594eeafd31d5cc1e68f0f5933f8b2f517db16fa962be6f9c59fc5564fc909fe226c14dddbfdfd1bfc46aa21b72aec3db576b34e73cfb7acfdbca8d5cb14da998fe5c0b7f050c3656bb1d6d6052
+                  jid: 1991d4936ddb4728afaa06cb260b0253
+                  request_cost: 0
+                  url: 'https://storage.googleapis.com/user_space_dev/'
                 status: Success
         '401':
           description: Unauthorized
@@ -146,9 +147,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed         
-  /async/microservices/cv/peoplecounting/v0/getstatus:
-    description: |+
-      Query for processing status
+  /async/microservices/nlp/peoplecounting/v0/getstatus:
     get:
       tags:
         - v0.1.0
@@ -157,7 +156,7 @@ paths:
           name: jid
           schema:
             type: string
-          example: e7fe34e9c21c4d75bc94051e476141c5
+          example: 36d075917dcd481e9daf858a2549f3b1
       responses:
         '200':
           description: Ok
@@ -165,12 +164,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/getsuccess'
-              example:
-                last_updated: 'Dec 17, 2021'
-                message: Successfully Processed
-                output_url: presigned URL
-                request_cost: 0.0298
-                status: Success
+              example: 
+                last_updated: '2021-07-06 12:50:30'
+                message: File Processing Successfully Started
+                request_cost: 0.086
+                status: Processing
 
         '401':
           description: Unauthorized
@@ -284,6 +282,7 @@ components:
                   description: Google algorithm
                 x-goog-date:
                   type: string
+                  example: 20211123T105846Z
                   description: Google algorithm
                 x-goog-meta-additional_param:
                   type: string
@@ -320,7 +319,7 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure              
+          description: The status of the API call success/failure                  
     unauthorized:
       type: object
       properties:
@@ -440,6 +439,17 @@ components:
           example: 'text/plain'
           description: |+
             Content type
+        additional_param:
+          x-name: additional_param
+          type: object
+          properties: 
+            password:
+              x-name: password
+              type: string
+              default: false
+              example: 123
+              description: |+
+                If password required for PDF.             
     uploadinput:
       type: object
       required:
@@ -459,29 +469,27 @@ components:
         key:
           type: string
           default: false
-          example: 309/495/lp-peoplecounting/input/415KB_e7fe34e9c21c4d75bc94051e476141c5.mp4
+          example: 1/2/lp-textsummarisation/input/Pdf_6mb_cf3d329bd9df4cef91966c336386eea3.pdf
           description: Fields
         policy:
           type: string
           default: false
-          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ2aWRlby9tcDQiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDQzMDM5MV0seyJjb250ZW50LXR5cGUiOiJ2aWRlby9tcDQifSx7IngtZ29vZy1tZXRhLWFkZGl0aW9uYWxfcGFyYW0iOiJOb25lIn0seyJ4LWdvb2ctbWV0YS1vaWQiOiIzMDkifSx7IngtZ29vZy1tZXRhLXVpZCI6IjQ5NSJ9LHsieC1nb29nLW1ldGEtdXBsb2FkZXIiOiI0ZjIwNmIyN2Y2NWQ0ZWYyYjc4Zjg5NGQ5NjdiMmQzOSJ9LHsieC1nb29nLW1ldGEtdXVpZCI6ImU3ZmUzNGU5YzIxYzRkNzViYzk0MDUxZTQ3NjE0MWM1In0seyJidWNrZXQiOiJ1c2VyX3NwYWNlX2RldiJ9LHsia2V5IjoiMzA5LzQ5NS9scC1wZW9wbGVjb3VudGluZy9pbnB1dC80MTVLQl9lN2ZlMzRlOWMyMWM0ZDc1YmM5NDA1MWU0NzYxNDFjNS5tcDQifSx7IngtZ29vZy1kYXRlIjoiMjAyMTEyMTdUMDU0NzU4WiJ9LHsieC1nb29nLWNyZWRlbnRpYWwiOiJzZW50aWVudC1kZXYtYmlncXVlcnlAc2VudGllbnQtMjA3MzEwLmlhbS5nc2VydmljZWFjY291bnQuY29tLzIwMjExMjE3L2F1dG8vc3RvcmFnZS9nb29nNF9yZXF1ZXN0In0seyJ4LWdvb2ctYWxnb3JpdGhtIjoiR09PRzQtUlNBLVNIQTI1NiJ9XSwiZXhwaXJhdGlvbiI6IjIwMjEtMTItMTdUMDY6NDc6NTguNzU4NzkzWiJ9
+          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhcHBsaWNhdGlvbi9wZGYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDE0MDczMjYxXSx7ImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9uL3BkZiJ9LHsieC1nb29nLW1ldGEtYWRkaXRpb25hbF9wYXJhbSI6IntcInBhc3N3b3JkXCI6IFwiZmZmZmZcIn0ifSx7IngtZ29vZy1tZXRhLW9pZCI6IjEifSx7IngtZ29vZy1tZXRhLXVpZCI6IjIifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJjZjNkMzI5YmQ5ZGY0Y2VmOTE5NjZjMzM2Mzg2ZWVhMyJ9LHsiYnVja2V0IjoidXNlcl9zcGFjZV9kZXYifSx7ImtleSI6IjEvMi9scC10ZXh0c3VtbWFyaXNhdGlvbi9pbnB1dC9QZGZfNm1iX2NmM2QzMjliZDlkZjRjZWY5MTk2NmMzMzYzODZlZWEzLnBkZiJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIwOVQwOTU1MDdaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMDkvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMS0xMi0wOVQxMDo1NTowNy41MDYwNDBaIn0=
           description: Fields
         x-goog-algorithm:
           type: string
           default: false
           example: GOOG4-RSA-SHA256
           description: Fields
-        x-goog-date:
-          type: string
-          default: false
-          description: Fields          
         x-goog-credential:
           type: string
           default: false
+          example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
           description: Fields
         x-goog-meta-additional_param:
           type: string
-          default: false 
+          default: false
+          example: {\"password\": \"fffff\"}
           description: Fields
         x-goog-meta-oid:
           type: string
@@ -498,11 +506,6 @@ components:
           default: false
           example: cf3d329bd9df4cef91966c336386eea3
           description: Fields
-        x-goog-meta-uploader:
-          type: string
-          default: false
-          example: cf3d329bd9df4cef91966c336386eea3
-          description: Fields          
         x-goog-signature:
           type: string
           default: false
