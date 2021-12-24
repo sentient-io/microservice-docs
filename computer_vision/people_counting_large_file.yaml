@@ -261,14 +261,12 @@ components:
           description: Detail description on the API status
         results:
           type: object
-          example:
-            <Json: Object>
+          example: { "<Json": "Object>" }
           description: Json Object of returned results
-          properties:
+          properties:   
             fields:
               type: object
-              example:
-                <Json: Object>
+              example: { "<Json": "Object>" }
               description: Json Object of returned results
               properties:
                 content-type:
@@ -277,7 +275,7 @@ components:
                   description: Content type of the document
                 policy:
                   type: string
-                  example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW5...
+                  example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ...
                   description: Content type of the document
                 x-goog-algorithm:
                   type: string
@@ -289,7 +287,7 @@ components:
                   description: Google algorithm
                 x-goog-date:
                   type: string
-                  example: 20211217T054758Z
+                  example: 20211123T105846Z
                   description: Google algorithm
                 x-goog-meta-additional_param:
                   type: string
@@ -297,40 +295,36 @@ components:
                   description: Google algorithm
                 x-goog-meta-oid:
                   type: string
-                  example: 309
+                  example: 1
                   description: Google algorithm
                 x-goog-meta-uid:
                   type: string
-                  example: 495
-                  description: Google algorithm
-                x-goog-meta-uploader:
-                  type: string
-                  example: 4f206b27f65d4ef2b78f894d967b2d39
+                  example: 2
                   description: Google algorithm
                 x-goog-meta-uuid:
                   type: string
-                  example: e7fe34e9c21c4d75bc94051e476141c5
+                  example: 1991d4936ddb4728afaa06cb260b0253
                   description: Google algorithm
                 x-goog-signature:
                   type: string
-                  example: 79a52d6b4417e3505fdee766d4ccf4976cbd1f4f95...
+                  example: 3d882f0762743e39146aae926435bf0b15e844836dbcf...
                   description: Google algorithm
             jid:
               type: string
-              example: e7fe34e9c21c4d75bc94051e476141c5
-              description: Google algorithm
+              example: 1991d4936ddb4728afaa06cb260b0253...
+              description: Google algorithm 
             request_cost:
               type: string
-              example: 0.0298
-              description: Google algorithm
+              example: 0
+              description: Google algorithm 
             url:
               type: string
-              example: 'https://storage.googleapis.com/user_space_dev/'
-              description: Google algorithm
+              example: https://storage.googleapis.com/user_space_dev/
+              description: Google algorithm 
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure               
+          description: The status of the API call success/failure              
     unauthorized:
       type: object
       properties:
