@@ -233,7 +233,7 @@ components:
       properties:
         last_updated:
           type: string
-          example: '2021-07-06 12:50:30'
+          example: 2021-07-06 12:50:30
           description: Last updated
         message:
           type: string
@@ -439,17 +439,6 @@ components:
           example: 'text/plain'
           description: |+
             Content type
-        additional_param:
-          x-name: additional_param
-          type: object
-          properties: 
-            password:
-              x-name: password
-              type: string
-              default: false
-              example: 123
-              description: |+
-                If password required for PDF.             
     uploadinput:
       type: object
       required:
