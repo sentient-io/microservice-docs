@@ -237,7 +237,7 @@ components:
           type: float
           format: float
           default: False
-          example: 1
+          example: 0.5
           description: |+
             The pitch factor for the synthesized voice. It ranges between 0.5 and 1.5 and default is 1.
             1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
@@ -246,7 +246,7 @@ components:
           type: float
           format: float
           default: False
-          example: 1
+          example: 0.5
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1. 
             1 means default speed, 0.5 is half speed, 2 is twice the speed
