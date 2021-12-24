@@ -233,7 +233,7 @@ components:
       properties:
         last_updated:
           type: string
-          example: 2021-07-06 12:50:30
+          example: '2021-07-06 12:50:30'
           description: Last updated
         message:
           type: string
