@@ -29,7 +29,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 11, 2021"
 paths:
-  /async/microservices/voice/alibabachiasr/v0/getuploadurl:
+  /async/microservices/voice/googleasr/v0/getuploadurl:
     post:
       tags:
         - v0.1.0
