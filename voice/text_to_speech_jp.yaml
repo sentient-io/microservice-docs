@@ -12,15 +12,17 @@ info:
   x-subscribelink: text-to-speech_jp
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 10MB/Call
+    Fast | Single-Call | 3000 characters/Call
   x-inputfilelimit: |+
-    Process up to 10000 kb of data or chat per API call.
+    Process up to 3000 characters of data per API call.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
-    The API is billed by the amount of data transferred.
+    The API is billed by per request.
   x-notes: |+
-    Size cannot exceed more than 800 characters.
+    Limit cannot exceed 3000 characters.
+  x-apidetailsdesc: |+
+    Converts Japanese text to speech in a female voice.
 servers:
   - url: 'https://apis.sentient.io' 
 tags:

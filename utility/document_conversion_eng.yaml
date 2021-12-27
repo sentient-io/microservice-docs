@@ -16,13 +16,15 @@ info:
   x-apitypedescription: |+
     Fast | Single-Call | 7MB/Call
   x-inputfilelimit: |+
-    Process up to 7000 kb of data or chat per API call.
+    Process up to 7 MB of data per API call.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
-    The API is billed by the amount of data transferred.
+    The API is billed by per request.
   x-notes: |+
     File size cannot exceed 7 MB.
+  x-apidetailsdesc: |+
+    Extracts text content from docx/text/pdf docs.  
 servers:
   - url: 'https://apis.sentient.io'
 tags:

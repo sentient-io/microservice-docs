@@ -8,15 +8,17 @@ info:
   x-subscribelink: word_scoring_and_suggestions
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 5MB/Call
+    Fast | Single-Call | 50 words/Call
   x-inputfilelimit: |+
-    Process up to 5000 kb of data or chat per API call.
+    Process up to 50 words per API call.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
-    The API is billed by the amount of data transferred.
+    The API is billed by per request.
   x-notes: |+
-    Payload size cannot exceed 10 MB.
+    Limit cannot exceed 50 words and input might be single sentence.
+  x-apidetailsdesc: |+
+    Computes the probability of each word in a sentence and generates suggested words.
 servers:
   - url: 'https://apis.sentient.io' 
 tags:

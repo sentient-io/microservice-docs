@@ -15,16 +15,18 @@
     version: '1.1.0'
     x-subscribelink: page_profiler_jp
     x-apitype: small file
-    x-apitypedescription: |+
-      Fast | Single-Call | 10MB/Call
-    x-inputfilelimit: |+
-      Process up to 10000 kb of data or chat per API call.
-    x-responsetime: |+
-      The response rate is slower than the small file API due to large data
-    x-billingmethod: |+
-      The API is billed by the amount of data transferred.
-    x-notes: |+
-      Payload size cannot exceed 10 MB.
+  x-apitypedescription: |+
+    Fast | Single-Call | One URL /Call
+  x-inputfilelimit: |+
+    Process One URL per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    API allows to retrieve from One URL per request.
+  x-apidetailsdesc: |+
+    Retrieves web content in Japanese from the input URL.
   servers:
     - url: 'https://apis.sentient.io'
   tags:

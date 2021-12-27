@@ -10,15 +10,17 @@ info:
   x-subscribelink: pki_key_generator
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 10MB/Call
+    Fast | Single-Call | one byte length/Call
   x-inputfilelimit: |+
-    Process up to 10000 kb of data or chat per API call.
+    Process one byte length per API call.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
-    The API is billed by the amount of data transferred.
+    The API is billed by per request.
   x-notes: |+
-    Payload size cannot exceed 10 MB.
+    Byte length might be string 
+  x-apidetailsdesc: |+
+    Generates a Public and Private key pair based on byte-length [1 to 5]
 servers:
   - url: 'https://apis.sentient.io'
 tags:

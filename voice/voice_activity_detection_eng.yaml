@@ -18,13 +18,15 @@ info:
   x-apitypedescription: |+
     Fast | Single-Call | 60sec/Call
   x-inputfilelimit: |+
-    Process up to 10000 kb of data or chat per API call.
+    Process up to 60 seconds (1 minute) of audio file.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
-    The API is billed by the amount of data transferred.
+    The API is billed by per request.
   x-notes: |+
-    Payload size cannot exceed 60 seconds.
+    Limit cannot exceed 60 seconds (1 minute).
+  x-apidetailsdesc: |+
+    Detects utterances of input audio and give start/end time of utterances.
 servers:
   - url: 'https://apis.sentient.io'
 tags:

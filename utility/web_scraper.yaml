@@ -62,15 +62,17 @@ info:
   version: '1.1.1'
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 10MB/Call
+    Fast | Single-Call | One URL /Call
   x-inputfilelimit: |+
-    Process up to 10000 kb of data or chat per API call.
+    Process One URL per API call.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
-    The API is billed by the amount of data transferred.
+    The API is billed by per request.
   x-notes: |+
-    Payload size cannot exceed 10 MB.
+    Allows One URL per request.
+  x-apidetailsdesc: |+
+    Extracts content or specific HTML elements from the input URL.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
