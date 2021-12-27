@@ -17,14 +17,15 @@ info:
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
   x-inputfilelimit: |+
-    Process up to 10000 kb of data or chat per API call.
+    Process up to 10MB of data per API call.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
-    The API is billed by the amount of data transferred.
+    The API is billed by per request.
   x-notes: |+
-    Size of image file should not exceed 10 MB.
-
+    File size cannot exceed 10 MB.
+  x-apidetailsdesc: |+
+    Recognises faces of Singaporean and Japanese public figures.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
