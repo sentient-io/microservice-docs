@@ -89,15 +89,17 @@ info:
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 20MB/Call
+    Fast | Single-Call | 10MB/Call
   x-inputfilelimit: |+
-    Process up to xxx kb of data or chat per API call.
+    Process up to 10000 kb of data or chat per API call.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data
   x-billingmethod: |+
-    The API is billed by the amount of data transferred.
+    The API is billed by per request.
   x-notes: |+
     Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides comprehensive details of each Housing Development Board.
 servers:
   - url: 'https://api.sentient.io'
 tags:
@@ -113,7 +115,7 @@ paths:
           name: querystring
           schema:
             type: string
-          description: |+ 
+          description: |+
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
             If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.

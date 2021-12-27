@@ -41,13 +41,15 @@ info:
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
   x-inputfilelimit: |+
-    Process up to 10000 kb of data or chat per API call.
+    Process up to 10000 kb of data per API call.
   x-responsetime: |+
-    The response rate is slower than the small file API due to large data
+    The response rate is slower than the small file API due to large data.
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
     Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Returns the indicative outline of lamp posts for all Housing Development Board of Singapore.
 servers:
   - url: 'https://apis.sentient.io'
 tags:

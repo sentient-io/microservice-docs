@@ -121,6 +121,8 @@ info:
     The API is billed by the amount of data transferred.
   x-notes: |+
     Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Retrieves the list of all retail shops within Housing Development Board.
 servers:
   - url: 'https://api.sentient.io'
 tags:

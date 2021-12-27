@@ -20,6 +20,8 @@ info:
     The API is billed by the amount of data transferred.
   x-notes: |+
     Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Retrieves information on the business interest and involvement of an individual residing in Singapore.
 servers:
   - url: 'https://api.sentient.io'
 tags:

@@ -125,13 +125,15 @@ info:
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
   x-inputfilelimit: |+
-    Process up to 10000 kb of data or chat per API call.
+    Process up to 10000 kb of data per API call.
   x-responsetime: |+
-    The response rate is slower than the small file API due to large data
+    The response rate is slower than the small file API due to large data.
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
     Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Retrieves Housing Development Board (HDB) carpark information.
 servers:
   - url: 'https://api.sentient.io'
 tags:
