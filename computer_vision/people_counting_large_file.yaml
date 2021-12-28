@@ -450,12 +450,12 @@ components:
           type: string
           format: binary
           default: true
-          example: sample.wav
+          example: sample.mp4
           description: file
         content-type:
           type: string
           default: false
-          example: application/pdf
+          example: video/mp4
           description: Fields
         key:
           type: string
