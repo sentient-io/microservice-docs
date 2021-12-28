@@ -420,26 +420,26 @@ components:
       required:
         - file_name
       properties:
-        file_size:
-          x-name: file_size
-          type: integer
-          default: true
-          example: 1227936
-          description: |+
-            File Size
         file_name:
           x-name: file_name
           type: string
           default: true
           format: binary
-          example: 'test.txt'
+          example: '4 test.wav'
           description: |+
             File name
+        file_size:
+          x-name: file_size
+          type: integer
+          default: true
+          example: 4746636
+          description: |+
+            File Size
         content_type:
           x-name: content_type
           type: string
           default: true
-          example: 'text/plain'
+          example: 'audio/wav'
           description: |+
             Content type
     uploadinput:
