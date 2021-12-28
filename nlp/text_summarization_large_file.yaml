@@ -5,6 +5,51 @@ info:
     This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words. 
     The input text should be a minimum of 100 words and a maximum of 512 words. 
     For longer text, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective summarization.
+
+  x-additionalinfo: |+
+    **Sample Python client file**
+    * **Uploading with Presigned**
+
+        #!/usr/bin/env python3
+
+        import json
+        import requests
+        try:
+            ### Comment 1. Input fields
+            data = {
+            "file_name": "4 test.wav",
+            "file_size": 4747264,
+            "content_type": "audio/wav",
+            "additional_param": {
+                "model": "generic",
+                "threshold" : 1.0
+            }
+            }
+
+            headers= {'x-api-key': '6C4223D5857D4F9DA3C0'}
+
+            ### Comment 2. Get presigned URL by request the api
+            res = requests.request("POST",'https://dev-apis.sentient.io/async/microservices/voice/vadasr/v0/getuploadurl', json=data, headers=headers)
+
+            print(res.status_code)
+
+            res_data = json.loads(res.text)
+            print(res_data)
+            res_data = res_data['results']
+
+            ### Comment 3. Specify the file to be upload
+            with open("4 test.wav", "rb") as f:
+                files = {"file": ("4 test.wav", f)}
+
+                ### Comment 4. Request presigned URL and fileds to upload the file
+                upload_res = requests.post(res_data['url'], data=res_data['fields'], files=files)
+
+                print('headers', upload_res.request.headers)
+                print(upload_res.text)
+
+        except:
+            raise Exception("ERROR")
+
   version: '0.1.0'
   x-subscribelink: text_summarization_large_file
   x-apitype: small file
