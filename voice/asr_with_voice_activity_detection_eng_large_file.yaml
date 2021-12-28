@@ -443,6 +443,22 @@ components:
           example: 'audio/wav'
           description: |+
             Content type
+        additional_param:
+          x-name: additional_param
+          type: object
+          properties: 
+            model:
+              x-model: model
+              type: string
+              example: prepared_speech
+              description: |+
+                 model
+             threshold: 
+              x-threshold: threshold
+              type: float
+              example: 0.4
+              description: |+
+                threshold
     uploadinput:
       type: object
       required:
