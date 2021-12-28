@@ -463,21 +463,21 @@ components:
           type: string
           default: true
           format: binary
-          example: <<Replace filename>>
+          example: 'sample.txt'
           description: |+
             File name      
         file_size:
           x-name: file_size
           type: integer
           default: true
-          example: <<Replace size>>
+          example: 4746636
           description: |+
             File Size
         content_type:
           x-name: content_type
           type: string
           default: true
-          example: <<Replace content-type>>
+          example: 'text/plain'
           description: |+
             Content type
         additional_param:
