@@ -161,7 +161,6 @@ computer vision:
     title: Object Detection
     versions:
       1.0.0: 'object_detection.yaml'
-      0.1.0: 'object_detection_v0.1.yaml'
   face_recognition:
     title: Face Recognition
     versions:
@@ -175,7 +174,6 @@ computer vision:
     title: People Counting
     versions:
       1.0.1: 'people_counting.yaml'
-      0.1.0: 'people_counting_v0.1.yaml'
   people_counting:
     title: People Counting
     versions:
