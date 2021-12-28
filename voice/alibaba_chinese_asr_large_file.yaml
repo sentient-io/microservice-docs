@@ -452,51 +452,50 @@ components:
           example:
             <Json: Object>
           description: Json Object of returned results
-          properties:
-            content-type:
-              type: string
-              example: text/plain
-              description: Content type of the document
-            policy:
-              type: string
-              example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW5...
-              description: Content type of the document
-            x-goog-algorithm:
-              type: string
-              example: GOOG4-RSA-SHA256
-              description: Google algorithm
-            x-goog-credential:
-              type: string
-              example: sentient-dev-bigqu...
-              description: Google algorithm
-            x-goog-date:
-              type: string
-              example: 20211220T042940Z
-              description: Google algorithm
-            x-goog-meta-additional_param:
-              type: string
-              example: None
-              description: Google algorithm
-            x-goog-meta-oid:
-              type: string
-              example: 309
-              description: Google algorithm
-            x-goog-meta-uid:
-              type: string
-              example: 495
-              description: Google algorithm
-            x-goog-meta-uploader:
-              type: string
-              example: f3637e07bc3b45cdbc74686395df43fa
-              description: Google algorithm
-            x-goog-meta-uuid:
-              type: string
-              example: 4f079ca05c614d789252db1d574664d8
-              description: Google algorithm
-            x-goog-signature:
-              type: string
-              example: 304d7e52afcea3d6e41818b7c3c71973f275...
-              description: Google algorithm
+        content-type:
+          type: string
+          example: text/plain
+          description: Content type of the document
+        policy:
+          type: string
+          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW5...
+          description: Content type of the document
+        x-goog-algorithm:
+          type: string
+          example: GOOG4-RSA-SHA256
+          description: Google algorithm
+        x-goog-credential:
+          type: string
+          example: sentient-dev-bigqu...
+          description: Google algorithm
+        x-goog-date:
+          type: string
+          example: 20211220T042940Z
+          description: Google algorithm
+        x-goog-meta-additional_param:
+          type: string
+          example: None
+          description: Google algorithm
+        x-goog-meta-oid:
+          type: string
+          example: 309
+          description: Google algorithm
+        x-goog-meta-uid:
+          type: string
+          example: 495
+          description: Google algorithm
+        x-goog-meta-uploader:
+          type: string
+          example: f3637e07bc3b45cdbc74686395df43fa
+          description: Google algorithm
+        x-goog-meta-uuid:
+          type: string
+          example: 4f079ca05c614d789252db1d574664d8
+          description: Google algorithm
+        x-goog-signature:
+          type: string
+          example: 304d7e52afcea3d6e41818b7c3c71973f275...
+          description: Google algorithm
         jid:
           type: string
           example: e7fe34e9c21c4d75bc94051e476141c5
