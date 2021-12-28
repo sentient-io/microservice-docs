@@ -17,19 +17,19 @@ info:
         try:
             ### Comment 1. Input fields
             data = {
-            "file_name": "4 test.wav",
-            "file_size": 4747264,
-            "content_type": "audio/wav",
-            "additional_param": {
-                "model": "generic",
-                "threshold" : 1.0
-            }
-            }
+                  "file_name": "<<Replace filename>>",
+                  "file_size": <<Repalce size>>,
+                  "content_type": "<<Replace content-type>>",
+                  ## additional param is optional
+                  "additional_param": {
+                  "password": "******"
+                  }
+                  }
 
             headers= {'x-api-key': '6C4223D5857D4F9DA3C0'}
 
             ### Comment 2. Get presigned URL by request the api
-            res = requests.request("POST",'https://dev-apis.sentient.io/async/microservices/voice/vadasr/v0/getuploadurl', json=data, headers=headers)
+            res = requests.request("POST",'https://dev-apis.sentient.io/async/microservices/nlp/textsummarisation/v0/getuploadurl', json=data, headers=headers)
 
             print(res.status_code)
 
@@ -38,8 +38,8 @@ info:
             res_data = res_data['results']
 
             ### Comment 3. Specify the file to be upload
-            with open("4 test.wav", "rb") as f:
-                files = {"file": ("4 test.wav", f)}
+            with open("<<Replace filename>>", "rb") as f:
+                files = {"file": ("<<Replace filename>>", f)}
 
                 ### Comment 4. Request presigned URL and fileds to upload the file
                 upload_res = requests.post(res_data['url'], data=res_data['fields'], files=files)
