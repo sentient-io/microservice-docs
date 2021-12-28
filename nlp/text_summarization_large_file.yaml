@@ -463,7 +463,7 @@ components:
           type: string
           default: true
           format: binary
-          example: 'sample.txt'
+          example: 'sample.pdf'
           description: |+
             File name      
         file_size:
@@ -477,7 +477,7 @@ components:
           x-name: content_type
           type: string
           default: true
-          example: 'text/plain'
+          example: 'application/pdf'
           description: |+
             Content type
         additional_param:
