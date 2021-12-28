@@ -420,6 +420,7 @@ components:
       type: object
       required:
         - file_name
+        - additional_param
       properties:
         file_name:
           x-name: file_name
