@@ -456,7 +456,7 @@ components:
                  model
             threshold: 
               x-threshold: threshold
-              type: float
+              type: number
               example: 0.4
               description: |+
                 threshold
