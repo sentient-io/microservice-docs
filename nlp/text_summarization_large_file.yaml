@@ -9,7 +9,7 @@ info:
     The guide below provides detailed steps to try out processing a large file without any coding.
       Detailed reference to the additional parameters (https://dev-docs.sentient.io/#/nlp/text_summarization)
       The file upload form (https://sentient.io/upload/form.html)
-  x-totorial-pdf-doc: 
+  x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/text_summarization.pdf
   version: '0.1.0'
   x-subscribelink: text_summarization_large_file
