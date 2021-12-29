@@ -5,7 +5,10 @@ info:
     This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words.
 
   x-additionalinfo: |+
-    [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/lpdocs/docs/larger_payload_text_summarization.pdf)
+    Kindly note that large file / asynchronous processing requires multiple steps ands and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:
+    
+    [Detailed reference to the additional parameters](https://storage.googleapis.com/lpdocs/docs/larger_payload_text_summarization.pdf)
+    [The file upload form](https://storage.googleapis.com/dockerpoc/upload_form.html)
 
   version: '0.1.0'
   x-subscribelink: text_summarization_large_file
