@@ -6,11 +6,12 @@ info:
     The server returns the recognition result in a JSON format as a response. 
     For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
   x-additionalinfo: |+
+    [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
     Suggested Use Cases:
       - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.
       - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
       - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.
-      [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
+      
   version: '0.1.0'
   x-subscribelink: automatic_speech_recognition_chi
   x-apitype: large file
