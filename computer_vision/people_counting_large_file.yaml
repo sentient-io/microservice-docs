@@ -422,7 +422,7 @@ components:
           type: string
           default: true
           format: binary
-          example: 'test.txt'
+          example: 'sample.mp4'
           description: |+
             Name of file to be upload.
         file_size:
@@ -436,7 +436,7 @@ components:
           x-name: content_type
           type: string
           default: true
-          example: 'text/plain'
+          example: 'video/mp4'
           description: |+
             Specify the content-type. Pick any one from below list based on input file type.
             ["video/x-m4v", "video/mp4", "video/mpeg", "video/x-msvideo","video/ogg", "video/mp2t", "video/webm", "video/3gpp", "video/3gpp2","video/x-ms-wmv","video/x-ms-asf", "video/x-ms-wm","video/x-flv","application/x-mpegURL", "video/quicktime","application/x-mpegurl","application/vnd.apple.mpegurl" ]
