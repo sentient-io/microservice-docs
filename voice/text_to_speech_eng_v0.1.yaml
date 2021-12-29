@@ -24,7 +24,7 @@ info:
   x-inputfilelimit: |+
     Process up to 3000 characters of data per API call.
   x-responsetime: |+
-    The response rate is slower than the small file API due to large data
+    v
   x-billingmethod: |+
     The API is billed by per request.
   x-notes: |+
