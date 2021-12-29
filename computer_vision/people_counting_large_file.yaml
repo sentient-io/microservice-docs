@@ -3,11 +3,7 @@ info:
   title: People Counting (Large File)
   description: |+
     This Computer Vision microservice tracks and counts people appearing in the input video.
-    
     This microservice returns the number of people detected in that video, the likelihood of overestimation/underestimation, the first appearance, the duration and confidence of each person detected.
-    
-    The size of your image file should **not exceed 10 MB**, and the image dimension should be **least more than 416x416 pixels**. 
-    For larger image, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective appearance and confidence of each person detected.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Improve visitor experience and optimize operations in retail, leisure, and other sectors - build services to count visitor traffic in venues, measure detailed movements and interactions, and visualize that data to better understand what is happening in within a certain spaces. For example, one can optimize traffic, staff and marketing strategies to increase conversion rates and profits with actionable data. Businesses can use visitor count as a benchmark to figure out the conversion rate for a certain spot to see the real performance. Efficiently allocating the number of staff according to hourly visitor traffic will also create value in terms of revenue, profit and efficiency.
@@ -421,13 +417,6 @@ components:
       required:
         - file_name
       properties:
-        file_size:
-          x-name: file_size
-          type: integer
-          default: true
-          example: 1227936
-          description: |+
-            File Size
         file_name:
           x-name: file_name
           type: string
@@ -436,13 +425,21 @@ components:
           example: 'test.txt'
           description: |+
             File name
+        file_size:
+          x-name: file_size
+          type: integer
+          default: true
+          example: 1227936
+          description: |+
+            Supports upto 1GB.
         content_type:
           x-name: content_type
           type: string
           default: true
           example: 'text/plain'
           description: |+
-            Content type
+            Specify the content-type. Pick any one from below list based on input file type.
+            ["video/x-m4v", "video/mp4", "video/mpeg", "video/x-msvideo","video/ogg", "video/mp2t", "video/webm", "video/3gpp", "video/3gpp2","video/x-ms-wmv","video/x-ms-asf", "video/x-ms-wm","video/x-flv","application/x-mpegURL", "video/quicktime","application/x-mpegurl","application/vnd.apple.mpegurl" ]
     uploadinput:
       type: object
       required:
