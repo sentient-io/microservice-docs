@@ -10,8 +10,7 @@ info:
   version: '0.1.0'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands like “turn the volume up".
-    [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
+      [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
   x-subscribelink: asr_with_voice_activity_detection_eng
   x-apitype: large file
   x-apitypedescription: |+
