@@ -8,7 +8,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
       - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands like “turn the volume up".
-      [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
+      [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/lpdocs/docs/larger_payload_vadasr.pdf)
   x-subscribelink: asr_with_voice_activity_detection_eng
   x-apitype: large file
   x-apitypedescription: |+
@@ -450,6 +450,7 @@ components:
             model:
               x-model: model
               type: string
+              default: true
               example: prepared_speech
               description: |+
                 Model selection. For best performance, select the model which best matches the use-case&#58;
