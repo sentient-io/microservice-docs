@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Text Summarization (Large File)
   description: |+
-    This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words.
+    This NLP microservice takes in any given input text blurb and generates a summary.
 
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
