@@ -15,7 +15,7 @@
     x-inputfilelimit: |+
       Process up to 10000 kb of data or chat per API call.
     x-responsetime: |+
-      The response rate is slower than the small file API due to large data
+      Response rate is fast due to small data transfer per call made.
     x-billingmethod: |+
       The API is billed by per request.
     x-notes: |+
