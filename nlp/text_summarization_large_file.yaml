@@ -5,7 +5,7 @@ info:
     This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words.
 
   x-additionalinfo: |+
-    [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
+    [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/lpdocs/docs/larger_payload_text_summarization.pdf)
 
   version: '0.1.0'
   x-subscribelink: text_summarization_large_file
