@@ -2,9 +2,7 @@ openapi: 3.0.1
 info:
   title: Text Summarization (Large File)
   description: |+
-    This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words. 
-    The input text should be a minimum of 100 words and a maximum of 512 words. 
-    For longer text, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective summarization.
+    This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words.
 
   x-additionalinfo: |+
     [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
@@ -424,21 +422,22 @@ components:
           format: binary
           example: 'sample.pdf'
           description: |+
-            File name      
+            Name of file to be upload.  
         file_size:
           x-name: file_size
           type: integer
           default: true
           example: 4746636
           description: |+
-            File Size
+             Size of the file. Maximum size should be 1 GB.
         content_type:
           x-name: content_type
           type: string
           default: true
           example: 'application/pdf'
           description: |+
-            Content type
+            Specify the content-type. Pick any one from below list based on input file type.
+            ["text/plain","application/pdf","application/vnd.openxmlformats-officedocument.wordprocessingml.document"]
         additional_param:
           x-name: additional_param
           type: object
