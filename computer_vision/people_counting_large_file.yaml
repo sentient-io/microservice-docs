@@ -5,10 +5,12 @@ info:
     This Computer Vision microservice tracks and counts people appearing in the input video.
     This microservice returns the number of people detected in that video, the likelihood of overestimation/underestimation, the first appearance, the duration and confidence of each person detected.
   x-additionalinfo: |+
-    Suggested Use Cases:
-    - Improve visitor experience and optimize operations in retail, leisure, and other sectors - build services to count visitor traffic in venues, measure detailed movements and interactions, and visualize that data to better understand what is happening in within a certain spaces. For example, one can optimize traffic, staff and marketing strategies to increase conversion rates and profits with actionable data. Businesses can use visitor count as a benchmark to figure out the conversion rate for a certain spot to see the real performance. Efficiently allocating the number of staff according to hourly visitor traffic will also create value in terms of revenue, profit and efficiency.
-
-    [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. 
+    The guide below provides detailed steps to try out processing a large file without any coding.
+      Detailed reference to the additional parameters https://dev-docs.sentient.io/#/voice/alibaba_chi_asr
+      The file upload form https://sentient.io/upload/form.html
+  x-tutorial-pdf-doc: 
+      https://storage.googleapis.com/lpdocs/docs/people_counting.pdf 
   version: '0.1.0'
   x-subscribelink: people_counting_large_file
   x-apitype: large file
