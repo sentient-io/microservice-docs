@@ -11,7 +11,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Improve visitor experience and optimize operations in retail, leisure, and other sectors - build services to count visitor traffic in venues, measure detailed movements and interactions, and visualize that data to better understand what is happening in within a certain spaces. For example, one can optimize traffic, staff and marketing strategies to increase conversion rates and profits with actionable data. Businesses can use visitor count as a benchmark to figure out the conversion rate for a certain spot to see the real performance. Efficiently allocating the number of staff according to hourly visitor traffic will also create value in terms of revenue, profit and efficiency.
-  x-additional: |+
+
     [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
   version: '0.1.0'
   x-subscribelink: people_counting_large_file
