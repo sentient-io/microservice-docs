@@ -10,6 +10,7 @@ info:
     Suggested Use Cases:
       - Supports the following audio coding formats: WAV files, mp3.
       - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
+      [Steps to Check the Larger Payload Flow](https://storage.googleapis.com/dockerpoc/LargerpayloadTesting.pdf)
   version: '0.1.0'
   x-subscribelink: automatic_speech_recognition_chi
   x-apitype: large file
