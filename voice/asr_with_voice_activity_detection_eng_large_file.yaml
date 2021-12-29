@@ -427,14 +427,14 @@ components:
           format: binary
           example: '4 test.wav'
           description: |+
-            File name
+            Name of file to be upload.
         file_size:
           x-name: file_size
           type: integer
           default: true
           example: 4746636
           description: |+
-            Supports upto 1GB.
+             Size of the file. Maximum size should be 1 GB.
         content_type:
           x-name: content_type
           type: string
