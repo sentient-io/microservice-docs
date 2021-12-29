@@ -454,13 +454,17 @@ components:
               type: string
               example: prepared_speech
               description: |+
-                 model
+                Model selection. For best performance, select the model which best matches the use-case&#58;
+
+                1. generic - Large nnet3-chain factorized TDNN model, trained on ~1200 hours of audio. Generic English, 16KHz
+                2. prepared_speech - Better suited for transcribing prepared / formal speech (e.g. news or parliamentary speeches). 16 kHz, mono channel, .wav format.
+                3. telephony - Better suited for conversational speech or telephony use cases. 8 kHz, mono channel, .wav format.
             threshold: 
               x-threshold: threshold
               type: number
               example: 0.4
               description: |+
-                threshold
+                0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
     uploadinput:
       type: object
       required:
