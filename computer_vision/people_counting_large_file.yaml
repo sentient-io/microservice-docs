@@ -150,7 +150,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed         
-  /async/microservices/nlp/peoplecounting/v0/getstatus:
+  /async/microservices/cv/peoplecounting/v0/getstatus:
     description: |+
       Query for processing status.
     get:
