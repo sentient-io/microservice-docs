@@ -1,0 +1,354 @@
+openapi: 3.0.1
+info:
+  title: LTA Passenger Volume by Bus Stops
+  x-subscribelink: lta_pv_bus
+  description: |+
+      Returns tap in and tap out passenger volume by weekdays and weekends for individual bus stop.
+      This microservice contains information from LTA Datamall's VBS dataset which is made available under the terms of the 
+      [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+      By 15th of every month, the passenger volume for previous month data will be generated. If current date is below 15 default return 
+      should be 2nd month data from current month, if date is after 15 return should be the last month data.
+  x-additionalinfo : |+
+    **Match Types:**
+    A match type is a match operator. The supported match types are&#58;
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"day_type":"WEEKDAY"}}     
+    * **match** - Search within a full text field for a single word
+      > {"match":{"day_type":"WEEKDAY"}}
+    * **range** - Returns results that contain terms within a stipulated range
+      > {"range": {"year_month": {"gte": "2021-09", "lte": "2021-10"}}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"day_type"}}
+      
+  version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides tap in and tap out passenger volume by weekdays and weekends for individual bus stop.
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Nov 22, 2021"
+paths:
+  /microservices/data/ltapvbus/v0/getdata:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  hits:
+                  - _id: 8411920211014weekday
+                    _index: lta_vbs
+                    _score:
+                    _source:
+                      day_type: WEEKDAY
+                      lastupdated: '2021-11-22T11:06:19.492Z'
+                      pt_code: '84119'
+                      pt_type: BUS
+                      source: lta
+                      time_per_hour: '14'
+                      total_tap_in_volume: '2918'
+                      total_tap_out_volume: '1233'
+                      year_month: 2021-10
+                    _type: _doc
+                    sort:
+                    - 1637579179492
+                  max_score:
+                  total: 1
+                status: Success
+
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure             
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "lta_vbs"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "_doc"
+                  _id: 
+                    type: string
+                    description: The bus stop code (pt_code), year month and day type
+                    example: "8411920211014weekday"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      year_month:
+                        type: string
+                        description: Record month and year
+                        example: 2021-11
+                      day_type:
+                        type: string
+                        description: Should be 
+                          - WEEKDAY
+                          - WEEKENDS/HOLIDAY
+                        example: WEEKDAY
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-11-22T11:06:19.492Z"           
+                      pt_code:
+                        type: integer
+                        description: The bus stop code
+                        example: 84119
+                      pt_type:
+                        type: string
+                        description: Type of vehicle
+                        example: "BUS"
+                      time_per_hour:
+                        type: integer
+                        description: At what time it stops at the bus stop, takes only hour
+                        example: 13
+                      total_tap_in_volume:
+                        type : integer
+                        description: At a bus stop how many people are entering
+                        example: 2918
+                      total_tap_out_volume:
+                        type: integer
+                        description: Same bus stop how many people are leaving
+                      source: 
+                        type: string
+                        description: Dataset source
+                        example: lta
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Nov 22, 2021
+              x-details: Initial version release
+              description: Latest Version
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 0, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index 
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match" :{"day_type":"WEEKDAY"}}]
+          description: |+
+            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * match_phrase
+            * range
+            * exists
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

@@ -16,7 +16,20 @@
       - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
     version: '1.0.0'
     x-subscribelink: page_profiler_eng
-    x-depreciated: "Oct 15, 2020"
+    x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | One URL /Call
+  x-inputfilelimit: |+
+    Process One URL per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    API allows to retrieve from One URL per request.
+  x-apidetailsdesc: |+
+    Retrieves web content in English from the input URL.
+  x-depreciated: "Oct 15, 2020"
   servers:
     - url: 'https://apis.sentient.io'
   tags:
@@ -209,28 +222,32 @@
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Partial URL support         
+                x-details: Partial URL support         
+                description: Latest Version
           v2.0.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Sep 30, 2020
-                description: Standardizing Output JSON           
+                x-details: Standardizing Output JSON           
+                description: Depreciating on Oct 29,2020
           v1.0.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - May 15, 2018
-                description: Swaping the NLP with Named-Entity Recognition ENG             
+                x-details: Swaping the NLP with Named-Entity Recognition ENG             
+                description: Depreciating on Sep 29, 2020
           v0.1.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Apr 16, 2018
-                description: Initial version release     
+                x-details: Initial version release     
+                description: Archived
       input:
         type: object
         required:

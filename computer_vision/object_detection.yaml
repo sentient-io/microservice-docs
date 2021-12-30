@@ -6,7 +6,7 @@ info:
     
     The microservice returns detected objects with their classes and their bounding boxes in the image coordinates.
     
-    The classes are: person, bicycle, car, motorbike, aeroplane, bus, train, truck, boat, traffic light, fire hydrant, stop sign, parking meter, bench, bird, cat, dog, horse, sheep, cow, elephant, bear, zebra, giraffe, backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard, sports ball, kite, baseball bat, baseball glove, skateboard, surfboard, tennis racket, bottle, wine glass, cup, fork, knife, spoon, bowl, banana, apple, sandwich, orange, broccoli, carrot, hot dog, pizza, donut, cake, chair, sofa, pottedplant, bed, diningtable, toilet, tvmonitor, laptop, mouse, remote, keyboard, cell phone, microwave, oven, toaster, sink, refrigerator, book, clock, vase, scissors, teddy bear, hair drier, toothbrush.
+    The classes are: person, bicycle, car, motorbike, aeroplane, bus, train, truck, boat, traffic light, fire hydrant, stop sign, parking meter, bench, bird, cat, dog, horse, sheep, cow, elephant, bear, zebra, giraffe, backpack, umbrella, handbag, tie, suitcase, frisbee, skis, snowboard, sports ball, kite, baseball bat, baseball glove, skateboard, surfboard, tennis racket, bottle, wine glass, cup, fork, knife, spoon, bowl, banana, apple, sandwich, orange, broccoli, carrot, hotdog, pizza, donut, cake, chair, sofa, potted plant, bed, dining table, toilet, tv monitor, laptop, mouse, remote, keyboard, cell phone, microwave, oven, toaster, sink, refrigerator, book, clock, vase, scissors, teddy bear, hair dryer, toothbrush.
     
     The size of your image file should **not exceed 5 MB**, and the image dimension should be **at least 416x416 pixels**. 
   x-additionalinfo: |+
@@ -16,6 +16,19 @@ info:
     - Build an object detection app for the visually-impaired - help users identify daily objects that they may need aid in recognising
   version: '1.1.0'
   x-subscribelink: object_detection
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5 MB/Call
+  x-inputfilelimit: |+
+    Process up to 5 MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 5 MB.
+  x-apidetailsdesc: |+
+    Detects objects in the input image.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -247,21 +260,24 @@ components:
             oneOf:
             - type: string
               example: Published Date - Oct 08, 2021
-              description: Model upgrade
+              x-details: Model upgrade
+              description: Latest Version
         v1.0.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - Jan 25, 2021
-              description: Standardizing Output JSON
+              x-details: Standardizing Output JSON
+              description: Depreciating on Oct 07, 2021
         v0.1.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - May 15, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
     input:
       type: object
       required:

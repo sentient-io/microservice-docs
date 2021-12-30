@@ -5,7 +5,7 @@ info:
   x-subscribelink: get_deleted_user_list
   version: '0.1.0'
 servers:
-  - url: 'https://platform-apis-org.sentient.io'
+  - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 6, 2021"

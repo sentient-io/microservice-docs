@@ -5,7 +5,7 @@ info:
   version: v0.1.0
   x-subscribelink: add_user
 servers:
-  - url: 'https://platform-apis-org.sentient.io' 
+  - url: 'https://dev-microserviceapi-org.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 09, 2021"

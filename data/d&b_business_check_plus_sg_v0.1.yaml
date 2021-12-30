@@ -8,6 +8,19 @@ info:
     - Aside from being able to protect your business via litigation checks to safeguard against reputational risk by avoiding companies potentially involved in financial crimes, the information from this microservice can serve as a quick solution for analysts or lawyers in a company whom are looking to draft documents related to cooperate finance or legal domains with one quick search.
   version: '0.1.0'
   x-subscribelink: d&b_business_check_plus_sg
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides key business information, litigation information and and Winding Up Trace of a company.
 servers:
   - url: 'https://api.sentient.io'
 tags:
@@ -1664,7 +1677,7 @@ components:
       type: object
       properties:
         TOT_ITEMS:
-          type: number
+          type: integer
           example: 1
           description: Number of subjects being enquired relating to the Run
           default: false
@@ -1694,14 +1707,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Apr 15, 2021
-              description: Optimized and Standardized results in Json Format
+              x-details: Optimized and Standardized results in Json Format
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Aug 15, 2019
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

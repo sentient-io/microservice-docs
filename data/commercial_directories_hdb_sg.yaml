@@ -3,7 +3,7 @@ info:
   title: HDB Commercial Directories (SG)
   x-subscribelink: commercial_directories_hdb_sg
   description: |+
-   This Data microservice retrieves the list of all retail shops within Singapore HDBs and allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates type of business. The resultant dataset offers useful information like the shop operating hours and contact number. Updated weekly. 
+   This Data microservice retrieves the list of all retail shops within Housing Development Board (HDB) and allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates and type of business. The returned dataset offers useful information like the shop operating hours and contact number. Updated weekly. 
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
@@ -82,6 +82,19 @@ info:
          > filterdata = {"filter":[{"match_phrase": {"trade":"cake shop"}},{"match": {"block":"122"}},{"match_phrase": {"street":"bukit merah lane 1"}}]}
   
   version: '1.0.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Retrieves the list of all retail shops within Housing Development Board.   
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -97,7 +110,7 @@ paths:
           name: querystring
           schema:
             type: string
-          description: |+ 
+          description: |+
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
             If this field is set to null, by default the microservice will return all retail shops (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
@@ -130,7 +143,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match_phrase":{"name":"Kumon"}}],"filter":[{"match":{"trade":"commercial school"}}],"should":[{"match":{"postalcode":560529}}],"must_not":[{"match":{"trade":"betting"}}]}
+              {"must":[{"match_phrase":{"name":"school"}}],"filter":[{"match":{"trade":"schools & centres"}}],"should":[{"match":{"postalcode":530202}}],"must_not":[{"match":{"trade":"betting"}}]}
       responses:
         '200':
           description: Ok
@@ -145,20 +158,19 @@ paths:
                   hits:
                   - _index: sentient_hdb_directory_index
                     _type: dir_doc
-                    _id: K7scqWgBv3dNEHq2WvMo
-                    _score: 17.995623
+                    _id: pet_specialist
+                    _score: 1.0
                     _source:
-                      id: '201902011250341437360'
                       postalcode: 560720
                       unit: '4102'
                       level: '01'
                       source: hdb
-                      name: Ang Mo Kio Polyclinic
+                      name: pet_specialist
                       phonenumber: 63553000
                       email: ''
                       operatinghours: mon - fri  8am - 4.30pm  sat  8am - 12.30pm
-                      trade: shop/retail
-                      createddate: '2019-02-01'
+                      trade: pets
+                      lastupdated: '2019-02-01'
                       type: shop
                       block: '720'
                       street: ang mo kio avenue 6
@@ -236,12 +248,12 @@ components:
           description: Json Object of returned results          
           properties:
             total:
-              type: number
+              type: integer
               example: 986
               description: Total number of records
             max_score:
-              type: number
-              example: 17.995623
+              type: float
+              example: 1.0
               description: The highest score value
             hits:
               type: array
@@ -261,11 +273,11 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "K7scqWgBv3dNEHq2WvMo"
+                    example: "pet_specialist"
                   _score: 
-                    type: number
+                    type: float
                     description: The document score for the search request
-                    example: 17.995623
+                    example: 1.0
                   _source: 
                     type: object
                     example: {<Json Object>}
@@ -274,9 +286,9 @@ components:
                             id: 
                               type: string
                               description: Unique Id
-                              example: "201902011250341437360"
+                              example: "pet_specialist"
                             postalcode: 
-                              type: number
+                              type: integer
                               description: Postal code of a block
                               example: 560720
                             unit: 
@@ -294,7 +306,7 @@ components:
                             name: 
                               type: string
                               description: Business name
-                              example: "Ang Mo Kio Polyclinic"
+                              example: "Pets"
                             phonenumber:
                               type: string
                               description: Contact number
@@ -346,7 +358,7 @@ components:
                                 sports and recreation building
                                 others
                               example: "shop/retail"
-                            createddate:
+                            lastupdated:
                               type: string
                               description: Record created date
                               example: "2019-02-01"
@@ -481,14 +493,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - May 21,2021
-              description: Optimized release
+              x-details: Optimized release
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Dec 26,2018
-              description: Initial version release          
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

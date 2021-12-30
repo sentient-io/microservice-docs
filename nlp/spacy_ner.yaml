@@ -13,6 +13,19 @@ info:
     - Can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning -e.g. tokenization, Parts-of-Speech (PoS) Tagging, Text Classification and Named Entity Recognition.
   version: '1.0.0'
   x-subscribelink: spacy_ner
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Locates and Classifies the named-entities classes from input unstructured English text.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -182,7 +195,7 @@ components:
               x-name: quantity
               type: array
               example: [[about one degree,85 miles,137 kilometres,1,8]]
-              description: 	Measurements, as of weight or distance.
+              description: Measurements, as of weight or distance.
             ordinal:
               x-name: ordinal
               type: array
@@ -294,14 +307,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Nov 26, 2021
-              description: Optional input parameter introduced. Output Format Changed  
+              x-details: Optional input parameter introduced. Output Format Changed  
+              description: Latest Version
         v0.1.0:
          type: array"
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 30, 2020
-              description: Initial version release    
+              x-details: Initial version release    
+              desrciption: Archived
     input:
       type: object
       required:

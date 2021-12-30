@@ -1,0 +1,242 @@
+openapi: 3.0.1
+info:
+  title: Text-To-Speech CHI
+  description: |+
+    This Voice microservice converts Mandarin text to speech in a female voice.
+    
+    The Text-to-Speech AI generated synthesized voice speaks with a native Mandarin accent.
+    
+    Do ensure that your text is **within 750 characters**.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Voice bots in contact centers - Deliver a better voice experience for customer service by dynamically generating speech, instead of playing static, pre-recorded audio. Engage with synthesized voices that give callers a sense of familiarity and personalization.
+
+    - Voice generation in devices - Enable natural communications with users by empowering your devices to speak humanlike voices. Build an end-to-end voice user interface together with Speech-to-Text and improve user experience with easy and engaging interactions.
+
+    - Accessible EPGs (Electronic Program Guides) - Implement text-to-speech functionality in EPGs to provide a better user experience to customers and meet accessibility requirements for services and applications.
+  version: '0.1.0'
+  x-subscribelink: text-to-speech_chi
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 3000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 3000 characters of data per API call.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 3000 characters.
+  x-apidetailsdesc: |+
+    Converts Mandarin text to speech in a female voice.
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Sep 28, 2018"
+paths:
+  /microservices/voice/ttssch/v0.1/getpredictions:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                audioContent: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded' 
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the api status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+        audioContent:
+          type: string
+          example: UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=
+          description: Audio file converted to base64 encoded string.
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure   
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 28,2018
+              x-details: Initial version release   
+              description: Latest Version
+    input:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          x-name: text
+          type: string
+          default: true
+          example: 大家好 我叫 墓园
+          description: |+
+            Input text
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

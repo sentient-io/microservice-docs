@@ -5,10 +5,10 @@ info:
   version: v0.1.0
   x-subscribelink: add_group
 servers:
-  - url: 'https://platform-apis-org.sentient.io' 
+  - url: 'https://dev-microserviceapi-org.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Nov 19, 2021"
+  description: "Published Date - Nov 1, 2021"
 paths:
   /org/v0/updateorggroup:
     post:
@@ -113,7 +113,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Nov 19, 2021
+                example: Published Date - Nov 1, 2021
                 description: Initial version release    
     input:
       type: object

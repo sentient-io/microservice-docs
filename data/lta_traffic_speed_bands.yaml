@@ -1,0 +1,402 @@
+openapi: 3.0.1
+info:
+  title: LTA Traffic Speed Bands
+  x-subscribelink: lta_traffic_speed_bands
+  description: |+
+        This Data microservice returns current traffic speeds on expressways and arterial roads,expressed in speed bands. Updates every 5 minutes. 
+        This microservice contains information from LTA Datamall's Traffic Speed Bands dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+  x-additionalinfo : |+
+    **Match Types:**
+    A match type is a match operator. The supported match types are&#58;
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"road_name":"JALAN KORMA"}}       
+    * **match** - Search within a full text field for a single word
+      > {"match":{"road_name":"JALAN KORMA"}}
+    * **range** - Returns results that contain terms within a stipulated range
+      > {"range":{"maximum_speed":{"gte":20}}}
+      > {"range":{"maximum_speed":{"lte":50}}}
+      > {"range":{"maximum_speed":{"gte":20,"lte":100}}}
+    * **geo_distance** - Returns the geo search based on the distance and location lat/long
+      > {"geo_distance": {"distance": "1km","start_location": "1.3170,103.8529"}}
+      > {"geo_distance": {"distance": "1km","end_location": "1.3166,103.8525"}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"speed_band"}}
+      
+  version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides current traffic speeds.
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jul 30, 2021"
+paths:
+   /microservices/data/ltatrafficspeedbandsv2/v0/getdata:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  hits:
+                  - _id: '103000000'
+                    _index: lta_traffic_speed_bands
+                    _score: 0
+                    _source:
+                      end_location:
+                        lat: '1.3166840028663076'
+                        lon: '103.85259882242372'
+                      lastupdated: '2021-07-26T18:04:26.575Z'
+                      link_id: '103000000'
+                      maximum_speed: '29'
+                      minimum_speed: '20'
+                      road_category: E
+                      road_name: KENT ROAD
+                      source: lta
+                      speed_band: 3
+                      start_location:
+                        lat: '1.3170142376560023'
+                        lon: '103.85298052044503'
+                    _type: dir_doc
+                  max_score: 0
+                  total: 500
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure             
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "lta_traffic_images"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "1709"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      linkid:
+                        type: string
+                        example: 103000000
+                        description: Unique ID for this stretch of road 
+                      maximumspeed:
+                        type: string
+                        example: "29"
+                        description: Maximum speed in km/h
+                      minimumspeed:
+                        type: string
+                        example: "20"
+                        description: Minimum speed in km/h
+                      roadcategory:
+                        type: string
+                        example: "E"
+                        description:  |+
+                                      * A – Expressways
+                                      * B – Major Arterial Roads
+                                      * C – Arterial Roads
+                                      * D – Minor Arterial Roads
+                                      * E – Small Roads
+                                      * F – Slip Roads
+                                      * G – No category info available  
+                      roadname:
+                        type: string
+                        example: "KENT ROAD"
+                        description: Road Name
+                      speedband:
+                        type: number
+                        example: 3
+                        description:  |+
+                                      Speed Bands Information. Total: 8
+                                      * 1 – indicates speed range from 0 < 9
+                                      * 2 – indicates speed range from 10 < 19
+                                      * 3 – indicates speed range from 20 < 29
+                                      * 4 – indicates speed range from 30 < 39
+                                      * 5 – indicates speed range from 40 < 49
+                                      * 6 – indicates speed range from 50 < 59
+                                      * 7 – indicates speed range from 60 < 69
+                                      * 8 – speed range from 70 or more 
+                      start_location:
+                        type: object
+                        properties:
+                          lat:
+                            type: string
+                            example: 1.31384231654635
+                            description: Latitude map
+                              coordinates for start points for this stretch of road
+                          lon:
+                            type: string
+                            example: 103.845603032574
+                            description: Longitude map
+                              coordinates for start points for this stretch of road
+                        example: {<Json Object>}
+                        description: Latitude and Longitude map
+                                      coordinates.
+                      end_location:
+                        type: object
+                        properties:
+                          lat:
+                            type: string
+                            example: 1.31384231654635
+                            description: Latitude map
+                              coordinates for end points for this stretch of road
+                          lon:
+                            type: string
+                            example: 103.845603032574
+                            description: Longitude map
+                              coordinates for end  points for this stretch of road
+                        example: {<Json Object>}
+                        description: Latitude and Longitude map
+                                      coordinates.    
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"           
+                      source: 
+                        type: string
+                        description: Dataset source
+                        example: lta
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 30, 2021
+              x-details: Initial version release
+              description: Latest Version
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 0, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index 
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match" :{"road_name":"KENT ROAD"}}]
+          description: |+
+            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * match_phrase
+            * range
+            * geo_distance
+            * exists
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

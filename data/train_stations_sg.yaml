@@ -18,6 +18,19 @@ info:
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"station_name"}}
   version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides results for all train stations in Singapore.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -310,7 +323,8 @@ components:
           oneOf:
             - type: string
               example: Published Date - Oct 29, 2021
-              description: Initial version release
+              x-details: Initial version release
+              description: Latest Version
     input:
       type: object
       properties:

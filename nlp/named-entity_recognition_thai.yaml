@@ -4,9 +4,9 @@ info:
   description: |+
     This NLP microservice locates and classifies the named-entities classes from input unstructured Thai text.
 
-    The named-entity classes extracted are persons, locations, organisations and miscellaneous.
+    The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
 
-    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+    This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
     
     Do ensure that your text is **within 5000 characters**.
   version: '1.0.0'
@@ -14,10 +14,23 @@ info:
     Suggested Use Cases:
     - Extract structured pre-defined information from text.
 
-    - Insights from online customers - extract structured information from unstructured text data such as chatlogs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
+    - Insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
 
     - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
   x-subscribelink: named-entity_recognition_thai
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Locates and Classifies named-entities classes from unstructured Thai text.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -300,14 +313,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Sep 30, 2020
-              description: Updated version release v1.0
+              x-details: Updated version release v1.0
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Aug 28, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
     input:
       type: object
       required:

@@ -6,13 +6,28 @@
       
       From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output.
       
-      The named-entity classes extracted are persons, locations, organisations and miscellaneous.<br><br>This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+      The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
+
+      This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
     x-subscribelink: page_profiler_eng
     x-additionalinfo: |+
       Suggested Use Cases:
-      - Gain insights from online customers - extract structured information from unstructured text data such as chatlogs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
+      - Gain insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
       - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
     version: '2.1.1'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | One URL /Call
+  x-inputfilelimit: |+
+    Process One URL per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    API allows to retrieve from One URL per request.
+  x-apidetailsdesc: |+
+    Retrieves web content in English from the input URL.
   servers:
     - url: 'https://apis.sentient.io'
   tags:
@@ -217,35 +232,40 @@
             oneOf:
               - type: string
                 example: Published Date - Dec 04, 2020
-                description: Patch Update             
+                x-details: Patch Update
+                description: Latest Version
           v2.1.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Partial URL support         
+                x-details: Partial URL support         
+                description: Depreciating on Dec 03, 2020
           v2.0.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Sep 30, 2020
-                description: Standardizing Output JSON           
+                x-details: Standardizing Output JSON           
+                description: Depreciating on Oct 29, 2020
           v1.0.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - May 15, 2018
-                description: Swap the NLP with Named-Entity Recognition ENG             
+                x-details: Swap the NLP with Named-Entity Recognition ENG             
+                description: Depreciating on Sep 29,2020
           v0.1.0:
            type: array
            items:
             oneOf:
               - type: string
                 example: Published Date - Apr 16, 2018
-                description: Initial version release  
+                x-details: Initial version release  
+                description: Archived
       input:
         type: object
         required:

@@ -1,0 +1,270 @@
+openapi: 3.0.1
+info:
+  title: Automatic Speech Recognition CHI
+  description: |+
+    This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text. This microservice works best when the audio file consists of mostly speech with no long pauses in between. 
+    
+    The length of your audio should be **up to 20 seconds**.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+      - Extraction of text from Mandarin speech from audio files.
+
+      - Extraction of text from Mandarin speech from videos.
+
+      - Improve customer service - empower a customer service system by adding IVR (interactive voice response) and agent conversations to call centers. Perform analytics on conversation data to gain more insights into the calls and customers.
+
+      - Enable voice control services - e.g. implement voice commands such as “turn the volume up,” and voice search such as saying “what is the temperature in Paris?”
+
+      - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.
+  version: '1.0.0'
+  x-subscribelink: automatic_speech_recognition_chi
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 20sec/Call
+  x-inputfilelimit: |+
+    Process up to 20 seconds of audio file.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 20 seconds.
+  x-apidetailsdesc: |+
+    Transcribes Mandarin speech content for CHI audio file (in WAV format at 16kHz).
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - Apr 07, 2021"
+paths:
+  /microservices/voice/asrsch/v1/getpredictions:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                status: Success
+                results:
+                  output: "和 许诺 的 含着 那 主力 候补 含住 探测 好的 海里 的 非礼"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+              results:
+                type: object
+                description: output object 
+                example: {"<Json":"Object>"}
+                properties:
+                  output:
+                    type: string
+                    example: 和 许诺 的 含着 那 主力 候补 含住 探测 好的 海里 的 非礼
+                    description: converted text
+              status:
+                type: string
+                example: Success
+                description: The status of the API call success/failure
+              message:
+                type: string
+                example: Successfully Processed
+                description: Status Message               
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    input:
+      type: object
+      required:
+        - wav_base64 
+      properties:
+        wav_base64:
+          x-name: wav_base64
+          type: string
+          default: true
+          example: UklGRkbiBABXQVZFZm10IBAAAAABA...
+          description: |+
+            Input audio file in base64 format. 
+            
+            Input file needs to be prefixed by the data type and encoding.
+            
+            <wav in base64 string>
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 07, 2021
+              x-details: Standardizing Input and Output Updated.
+              description: Latest Version
+        v0.1.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 28, 2018
+              x-details: Patch update on bug fixes
+              description: Depreciating on Apr 06, 2021
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 21, 2018
+              x-details: Initial version release
+              description: Archived
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

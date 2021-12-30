@@ -31,7 +31,8 @@ voice:
   automatic_speech_recognition_chi:
     title: Automatic Speech Recognition CHI
     versions:
-      1.0.0: 'automatic_speech_recognition_chi.yaml'
+      2.0.0: 'automatic_speech_recognition_chi.yaml'
+      1.0.0: 'automatic_speech_recognition_chi_1.0.yaml'
   online_automatic_speech_recognition_eng:
     title: Online Automatic Speech Recognition ENG
     versions:
@@ -43,29 +44,45 @@ voice:
   text-to-speech_eng:
     title: Text-To-Speech ENG
     versions:
-      1.1.1: 'text-to-speech_eng.yaml'
+      1.2.1: 'text-to-speech_eng.yaml'
   text-to-speech_chi:
     title: Text-To-Speech CHI
     versions:
-      0.1.0: 'text-to-speech_chi.yaml'
+      0.1.0: 'text_to_speech_chi.yaml'
   text-to-speech_jp:
     title: Text-To-Speech JP
     versions:
-      0.1.0: 'text-to-speech_jp.yaml'      
+      0.1.0: 'text_to_speech_jp.yaml'
+  text-to-speech_eng_ncs:
+    title: Text-To-Speech ENG NCS
+    versions:
+      0.1.0: 'text-to-speech_eng_ncs.yaml'
   asr_with_voice_activity_detection_eng:
     title: ASR with Voice Activity Detection ENG
     versions:
-      1.2.0: 'asr_with_voice_activity_detection_eng.yaml'
+      1.2.1: 'asr_with_voice_activity_detection_eng.yaml'
       0.1.0: 'asr_with_voice_activity_detection_eng_v0.1.yaml'
+  asr_with_voice_activity_detection_eng_large_file:
+    title: ASR with Voice Activity Detection ENG (Large File)
+    versions:
+      0.1.0: 'asr_with_voice_activity_detection_eng_large_file.yaml'      
   voice_activity_detection_eng:
     title: Voice Activity Detection ENG
     versions:
-      1.0.0: 'voice_activity_detection_eng.yaml'
-      0.1.0: 'voice_activity_detection_eng_v0.1.yaml'
+      1.0.1: 'voice_activity_detection_eng.yaml'
+      0.1.0: 'voice_activity_detection_eng_v0.1.yaml'    
+  google_asr_large_file:
+    title: Google ASR (Large File)
+    versions:
+      0.1.0: 'google_asr_large_file.yaml'       
   speaker_diarization:
     title: Speaker Diarization
     versions:
-      0.1.0: 'speaker_diarization.yaml'      
+      0.1.0: 'speaker_diarization.yaml'     
+  automatic_speech_recognition_chi_large_file:
+    title: Automatic Speech Recognition CHI (Large File)
+    versions:
+      0.1.0: 'automatic_speech_recognition_chi_large_file.yaml'      
 nlp:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
@@ -79,7 +96,8 @@ nlp:
   spacy_ner:
     title: spaCy NER
     versions:
-      0.1.0: 'spacy_ner.yaml'
+      1.0.0: 'spacy_ner.yaml'
+      0.1.0: 'spacy_ner_v0.1.yaml'
   page_profiler_eng:
     title: Page Profiler ENG
     versions:
@@ -114,46 +132,67 @@ nlp:
     title: Script Alignment
     versions:
       1.0.0: 'script_alignment.yaml'
-      0.1.0: 'script_alignment_v1.0.yaml'
+      0.1.0: 'script_alignment_v0.1.yaml'
+  word_scoring_and_suggestions:
+    title: Word Scoring and Suggestions
+    versions:
+      0.1.0: 'word_scoring_and_suggestions.yaml'
   text_summarization:
     title: Text Summarization
     versions:
       0.2.0: 'text_summarization.yaml' 
+  text_summarization_large_file:
+    title: Text Summarization (Large File)
+    versions:
+      0.1.0: 'text_summarization_large_file.yaml'        
   sentiment_analysis_and_sarcasm_detection:
     title: Sentiment Analysis and Sarcasm Detection
     versions:
-      0.1.0: 'sentiment_analysis_and_sarcasm_detection.yaml'     
-  word_scoring_and_suggestions:
-    title: Word Scoring and Suggestions
+      0.1.0: 'sentiment_analysis_and_sarcasm_detection.yaml'
+  google_translate:
+    title: Google Translate
     versions:
-      0.1.0: 'word_scoring_and_suggestions.yaml'      
+      0.1.0: 'google_translate.yaml'      
 computer vision:
   object_detection:
     title: Object Detection
     versions:
-      1.1.0: 'object_detection.yaml'
+      1.0.0: 'object_detection.yaml'
   face_recognition:
     title: Face Recognition
     versions:
       1.0.1: 'face_recognition.yaml'
-      0.1.0: 'face_recognition_politicians_sg.yaml'
+      0.1.0: 'face_recognition_v0.1.yaml'
+  masked_face_recognition:
+    title: Masked Face Recognition
+    versions:
+      0.1.0: 'masked_face_recognition.yaml'
   people_counting:
     title: People Counting
     versions:
       1.0.1: 'people_counting.yaml'
+  people_counting:
+    title: People Counting
+    versions:
+      1.0.1: 'people_counting.yaml'
+      0.1.0: 'people_counting_v0.1.yaml' 
+  people_counting_large_file:
+    title: People Counting (Large File)
+    versions:
+      0.1.0: 'people_counting_large_file.yaml'      
   person_reidentification:
     title: Person Reidentification
     versions:
-      0.1.0: 'person_reidentification.yaml'      
-  landmark_detection_sg:
+      0.1.0: 'person_reidentification.yaml'
+  landmark_recognition_sg:
     title: Landmark Detection (SG)
     versions:
-      1.0.0: 'landmark_detection_sg.yaml'
-  landmark_detection_jp:
+      1.0.0: 'landmark_recognition_sg.yaml'
+  landmark_recognition_jp:
     title: Landmark Detection (JP)
     versions:
-      1.0.0: 'landmark_detection_jp.yaml'
-      0.1.0: 'landmark_detection_jp_v0.1.yaml'
+      1.0.0: 'landmark_recognition_jp.yaml'
+      0.1.0: 'landmark_recognition_jp_v0.1.yaml'
   demographics_classification:
     title: Demographics Classification
     versions:
@@ -165,12 +204,12 @@ computer vision:
   receipt_scanner:
     title: Receipt Scanner
     versions:
-      0.1.0: 'receipt_scanner.yaml'         
+      0.1.0: 'receipt_scanner.yaml'       
 utility:
-  video-to-audio_convertor:
+  video-to-audio_converter:
     title: Video-To-Audio Convertor
     versions:
-      0.1.0: 'video-to-audio_convertor.yaml'
+      0.1.0: 'video-to-audio_converter.yaml'
   web_scraper:
     title: Web Scraper
     versions:
@@ -178,7 +217,7 @@ utility:
   document_convertor_eng:
     title: Document Convertor ENG
     versions:
-      1.0.0: 'document_convertor_eng.yaml'
+      1.0.0: 'document_conversion_eng.yaml'
   pdf_extractor:
     title: PDF Extractor
     versions:
@@ -194,11 +233,11 @@ utility:
   decryption_using_pki_key:
     title: Decryption using PKI Key
     versions:
-      0.1.0: 'decryption_using_pki_key.yaml'
-  wikipedia_retrieval:
+      0.1.0: 'decryption_for_pki_key.yaml'
+  wikipedia:
     title: Wikipedia Retrieval
     versions:
-      1.0.0: 'wikipedia_retrieval.yaml'
+      1.0.0: 'wikipedia.yaml'
   json-csv_convertor:
     title: JSON-CSV Convertor
     versions:
@@ -207,10 +246,10 @@ utility:
     title: CSV-JSON Convertor
     versions:
       1.0.0: 'csv-json_convertor.yaml'
-  audio_format_convertor:
+  audio_processing_utility:
     title: Audio Format Convertor
     versions:
-      0.1.0: 'audio_format_convertor.yaml'
+      0.1.0: 'audio_processing_utility.yaml'
   video-to-image_convertor:
     title: Video-to-Image Convertor
     versions:
@@ -223,22 +262,22 @@ utility:
     title: URLs Retrieval
     versions:
       0.2.1: 'urls_retrieval.yaml'
-  base64_encoder:
+  base64_file_encode:
     title: Base64 Encoder
     versions:
-      0.1.0: 'base64_encoder.yaml'
-  base64_decoder:
+      0.1.0: 'base64_file_encode.yaml'
+  base64_file_decode:
     title: Base64 Decoder
     versions:
-      0.1.0: 'base64_decoder.yaml'
+      0.1.0: 'base64_file_decode.yaml'    
   get_ip:
     title: Get IP
     versions:
-      0.1.0: 'get_ip.yaml'   
+      0.1.0: 'get_ip.yaml'
   date_resolution:
     title: Date Resolution
     versions:
-      0.1.0: 'date_resolution.yaml'       
+      0.2.0: 'date_resolution.yaml'       
 data:
   commercial_directories_hdb_sg:
     title: HDB Commercial Directories (SG)
@@ -308,11 +347,51 @@ data:
   hdb_amenities_score:
     title: HDB Amenities Score
     versions:
-      0.1.0: 'hdb_amenities_score.yaml'      
+      0.1.0: 'hdb_amenities_score.yaml'
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
-      0.1.0: 'trajectory_clustering.yaml'      
+      0.1.0: 'trajectory_clustering.yaml' 
+  lta_road_works:
+    title: LTA Road Works
+    versions:
+      0.1.0: 'lta_road_works.yaml' 
+  lta_car_park_availability_historical:
+    title: LTA Carpark Availability Historical
+    versions:
+      0.1.0: 'lta_car_park_availability_historical.yaml'      
+  lta_traffic_images:
+    title: LTA Traffic Images
+    versions:
+      0.1.0: 'lta_traffic_images.yaml'       
+  lta_traffic_incidents:
+    title: LTA Traffic Incidents
+    versions:
+      0.1.0: 'lta_traffic_incidents.yaml'      
+  lta_traffic_speed_bands_historical:
+    title: LTA Traffic Speed Bands Historical
+    versions:
+      0.1.0: 'lta_traffic_speed_bands_historical.yaml'       
+  lta_vms:
+    title: LTA VMS
+    versions:
+      0.1.0: 'lta_vms.yaml'      
+  lta_faulty_traffic_lights:
+    title: LTA Faulty Traffic Lights
+    versions:
+      0.1.0: 'lta_faulty_traffic_lights.yaml'
+  lta_pv_bus:
+    title: LTA Passenger Volume by Bus Stops
+    versions:
+      0.1.0: 'lta_pv_bus.yaml'       
+  realtime_weather:
+    title: Realtime Weather
+    versions:
+      0.1.0: 'realtime_weather.yaml' 
+  lidar_trajectory_data:
+    title: LiDAR Trajectory Data
+    versions:
+      0.1.0: 'lidar_trajectory_data.yaml'     
   train_stations_sg:
     title: Train Stations (SG)
     versions:

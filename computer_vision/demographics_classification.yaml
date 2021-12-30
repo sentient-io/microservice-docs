@@ -2,13 +2,26 @@ openapi: 3.0.1
 info:
   title: Demographics Classification
   description: |+
-    This Computer Vision microservice detects for faces from an input image and predicts the demographics of each face (age, gender and race). The image is given as an input encoded using base64. The microservice will a face detector and subsequently models to predict age, gender and race. The results will then be returned back to the user as a JSON output together with bounding box coordinates for each face.Races include: Asian, Indian, White, Black, Middle Eastern and Latino Hispanic
+    This Computer Vision microservice identifies faces within an input image and predicts the demographics of each face (age, gender and race). The image is processed as an input encoded using base64. The results will then be returned back to the user as a JSON output together with bounding box coordinates for each face. Races include: Asian, Indian, White, Black, Middle Eastern and Latino Hispanic
     The size of your image file should **not exceed 10 MB**, and the image dimension should be **at least 416x416 pixels**.
   x-additionalinfo: |+
     Suggested Use Cases:
     - This microservice can be used as a solution to help businesses better understand and connect with their customers, engage new prospects and increase revenue. For example, it can be used to improve visitor experience and optimize operations in retail, leisure, and other sectors by identifying the type of demogrpahic that frequents a certain place the most. It can also be used to create intelligent prospect lists that ensure one is always maximizing their marketing investment.
   version: v0.1.0
   x-subscribelink: demographics_classification
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 10 MB.
+  x-apidetailsdesc: |+
+    Identifies faces within an input image and predicts the demographics.
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
@@ -267,7 +280,8 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Dec 09, 2020
-                description: Initial version release     
+                x-details: Initial version release
+                description: Latest Version
     input:
       type: object
       required:

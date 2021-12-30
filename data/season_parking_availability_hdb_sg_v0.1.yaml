@@ -79,6 +79,19 @@ info:
        > filterdata = {"filter":[{"match":{"street":"serangoon north avenue 4"}},{"match":{"block":"503"}},{"match":{"vehicle_type":"H"}}]}
        
   version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides season car park availability within Housing Development Board.
 servers:
   - url: 'https://api.sentient.io'
 tags:
@@ -230,11 +243,11 @@ components:
           description: Json Object of returned results
           properties:
             total:
-              type: number
+              type: integer
               example: 1
               description: Total number of records
             max_score:
-              type: number
+              type: float
               example: 13.663734
               description: The highest score value
             hits:
@@ -253,7 +266,7 @@ components:
                     description: Document ID
                     example: "AM/G40/Y/552506"
                   _score: 
-                    type: number
+                    type: float
                     description: The document score for the search request
                     example: 13.663734
                   _source: 
@@ -280,7 +293,7 @@ components:
                                 S - Season (Car)
                               example: "Y"
                             car_park_availability: 
-                              type: number
+                              type: integer
                               description: Car Park Availability
                               example: 15
                             postalcode: 
@@ -430,14 +443,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - May 21,2021
-              description: Optimized release
+              x-details: Optimized release
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - May 15,2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

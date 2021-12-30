@@ -121,6 +121,19 @@ info:
        > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
 
   version: '0.2.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Retrieves Housing Development Board (HDB) carpark information.
 servers:
   - url: 'https://api.sentient.io'
 tags:
@@ -284,11 +297,11 @@ components:
           description: Json Object of returned results
           properties:
             total:
-              type: number
+              type: integer
               example: 986
               description: Total number of records
             max_score:
-              type: number
+              type: float
               example: 17.995623
               description: The highest score value
             hits:
@@ -311,7 +324,7 @@ components:
                     description: Document ID
                     example: "K7scqWgBv3dNEHq2WvMo"
                   _score: 
-                    type: number
+                    type: float
                     description: The document score for the search request
                     example: 17.995623
                   _source: 
@@ -369,15 +382,15 @@ components:
                                     description: WGS84 (GPS) longitude
                                     example: 103.8469821
                             car:
-                              type: number
+                              type: integer
                               description: Number of car parking lots
                               example: 18
                             lorry:
-                              type: number
+                              type: integer
                               description: Number of lorry parking lots
                               example: 6
                             mc:
-                              type: number
+                              type: integer
                               description: Number of motorcycle parking lots
                               example: 0
                             createddate:
@@ -486,24 +499,27 @@ components:
           oneOf:
             - type: string
               example: Published Date - May 21,2021
-              description: optimized release
+              x-details: optimized release
+              description: Latest Version
         v0.2.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 15,2020
-              description: |+
+              x-details: |+
                 The following additional fields are added&#58;
                 1. postalcode - list of postal code
                 2. location - lat / log of the carpark park
+               description: Depreciating on May 20, 2021
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Nov 25,2019
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

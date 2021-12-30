@@ -52,6 +52,19 @@ info:
     - .xpm
   version: v0.1.0
   x-subscribelink: person_reidentification
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5 MB/Call
+  x-inputfilelimit: |+
+    Process up to 5 MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 5 MB.
+  x-apidetailsdesc: |+
+    Return similarity score (confidence) between two cropped images of people.
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
@@ -242,7 +255,8 @@ components:
             oneOf:
               - type: string
                 example: Published Date - November 26, 2021
-                description: Initial Version   
+                x-details: Initial Version
+                description: Latest Version
     input:
       type: object
       required:

@@ -3,7 +3,10 @@ info:
   title: Web Scraper
   x-subscribelink: web_scraper
   description: |+
-    This API is used to extract content or specific HTML elements from web pages. Supports both HTML and Text output. The web scraper can be instructed to extract HTML elements that match the criteria given in the queryList HTTP request parameter, it can even do navigate down the html tree like get all p tag inside a div class "class":"class_name p".  
+    This Utility microservice extracts content or specific HTML elements from the input URL. It can extract HTML elements that matches the criteria given in the queryList HTTP request parameter. 
+    For example, to look for all h1 elements in the webpage, one would pass the following queryList parameter: “queryList:[{‘title’:<name_of_element_you_are_looking_for>,’findType’:’findall’,‘tag’:’h1’ }]”
+    <br>
+    The results are returned in JSON format to rapidly retrieve website elements like tables, images, etc. from multiple URLs.
   x-additionalinfo: |+
     x-additionalinfo: |+
       Suggested Use Cases:
@@ -57,6 +60,19 @@ info:
     
     The results are returned in JSON format and allow for developers to rapidly retrieve website elements like tables, images, etc. from URL
   version: '1.1.1'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | One URL /Call
+  x-inputfilelimit: |+
+    Process One URL per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Allows One URL per request.
+  x-apidetailsdesc: |+
+    Extracts content or specific HTML elements from the input URL.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -282,28 +298,32 @@ components:
           oneOf:
             - type: string
               example: Published Date - Dec 04, 2020
-              description: Patch Update       
+              x-details: Patch Update       
+              description: Latest Version
         v1.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Oct 30, 2020
-              description: Partial URL support 
+              x-details: Partial URL support 
+              description: Depreciating on Dec 03, 2020
         v1.0.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jul 03, 2020
-              description: Improvised search filters using queryList, now you can even navigate down the html tree like get all p tag inside a div class "class":"class_name p"
+              x-details: Improvised search filters using queryList, now you can even navigate down the html tree like get all p tag inside a div class "class":"class_name p"
+              description: Depreciating on Oct 29, 2020
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jul 18, 2018
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
     input:
       type: object
       properties:

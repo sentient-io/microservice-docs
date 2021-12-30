@@ -1,0 +1,302 @@
+openapi: 3.0.1
+info:
+  title: Masked Face Recognition
+  description: |+
+    This microservice is used to recognise faces of identities behind a mask. The model has been trained on Singapore Politicians Data.
+    The size of your image file should **not exceed 5 MB**. Minimum image resolution for a perfect face detectiona and recognition should be 250X250 pixels.
+    The model works well for frontal masked faces.
+  version: v0.1.0
+  x-additionalinfo: |+
+    Supported File Formats
+    - .blp
+    - .bmp
+    - .bufr
+    - .cur
+    - .dcx 
+    - .dds 
+    - .dib 
+    - .eps 
+    - .ps 
+    - .fit 
+    - .fits 
+    - .flc 
+    - .fli 
+    - .fpx 
+    - .ftc 
+    - .ftu 
+    - .gbr 
+    - .gif 
+    - .grib 
+    - .h5 
+    - .hd5 
+    - .icns 
+    - .ico 
+    - .im 
+    - .iim 
+    - .jpeg 
+    - .jp2 
+    - .mic 
+    - .mpeg 
+    - .msp 
+    - .pcd 
+    - .pcx 
+    - .pxr 
+    - .png 
+    - .ppm 
+    - .psd 
+    - .sgi
+    - .ras 
+    - .tga 
+    - .tiff 
+    - .wmf 
+    - .xbm
+    - .xpm
+  x-subscribelink: masked_face_recognition
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5 MB/Call
+  x-inputfilelimit: |+
+    Process up to 5 MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 5 MB.
+  x-apidetailsdesc: |+
+    Recognise faces of identities behind a mask.
+servers:
+  - url: 'https://dev-apis.sentient.io' 
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Dec 30, 2021"
+paths:
+  /microservices/cv/maskedfacerecognition/v0/getpredictions:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                results:
+                  output: {conf: 0.5590788722038269,identity: Teo Chee Hean,location:[71,19,118,82]}
+
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'       
+        '500':
+          description: Internal Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties: 
+            output:
+              type: array
+              example: {conf: 0.5590788722038269,identity: Teo Chee Hean,location:[71,19,118,82]}
+              description: Details of the masked face recognised from the image
+              items:
+                oneOf:
+                  - type: object 
+                    properties:
+                      conf:
+                        description: Confidence score for recognition
+                        example: 0.5590788722038269
+                        type: float
+                      identity:
+                        description: Name of the identity recognised behind the mask
+                        example: Teo Chee Hean
+                        type: string
+                      location:
+                        description: bounding box of the face in pixel coordinates of left, top, right, bottom.
+                        example: [71,19,118,82]
+                        items:
+                          oneOf:
+                            - type: integer
+                              example: 71
+                        type: array
+
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+        
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Dec 30, 2021
+                x-details: Initial version release
+                description: Latest Version
+    input:
+      type: object
+      required:
+      
+        - image_base64
+      
+      properties:
+        image_base64:
+          x-name: image_base64
+          type: string
+          default: True
+          example: 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
+          description: |+
+            Input image file in base64 format.
+        
+        
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Word Sense Disambiguation ENG
   description: |+
-    This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence.
+    This NLP microservice takes in a text and a target word and identifies the target word's hypernym. Hypernym refers to the specific meaning of the word within the context of the sentence. For example, colour is a hypernym of red.
     
     If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
     
@@ -13,6 +13,19 @@ info:
     - Information Retrieval - this microservice can be used to build a system that assists users in finding the information they required but it does not explicitly return the answers of the questions. 
     - Text Mining and Information Extraction - this microservice can be used to do accurate analysis of text. For example it can help to create an intelligent gathering system to do flagging of the correct words e.g. medical intelligent system might need flagging of “red balloon” rather than “led balloon”.
   x-subscribelink: word_sense_disambiguation_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Target word and identifies the target word's hypernym for text.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -176,12 +189,12 @@ components:
                               example: society.n.01 
                               description: The target word name in wordnet library
                             synset_score:
-                              type: number
+                              type: float
                               format : float
                               example: 0.9870249032974243  
                               description: Is the confidence score from the network
                             token_index:
-                              type: number
+                              type: integer
                               example: 40    
                               description: Is the target word position in the sentence  
         message:
@@ -309,14 +322,16 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Standardizing Output JSON
+                x-details: Standardizing Output JSON
+                description: Latest Version
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Mar 06, 2020
-                description: Initial version release  
+                x-details: Initial version release  
+                description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

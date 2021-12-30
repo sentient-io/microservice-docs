@@ -16,6 +16,19 @@ info:
     - This microservice can be used to manage taxonomies, such as a hierarchy of product categories used for an eCommerce site. The information in a taxonomy is meta-information about the categories used to classify a set of things. For an eCommerce site, the set of things are items in the product catalog. Users can use this meta-information to enhance search.
   version: '0.1.0'
   x-subscribelink: taxonomy_matcher_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Matches the input word with the name of a leaf node in the predefined English taxonomy.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -198,27 +211,22 @@ components:
     versions:
       type: object
       properties: 
-        v1.0.1:
-          type: array
-          items:
-            oneOf:
-              - type: string
-                example: Published Date - May 12, 2021
-                description: Error handling fixed
         v1.0.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Standardizing Output JSON
+                x-details: Standardizing Output JSON
+                description: Latest Version
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Jan 24, 2020
-                description: Initial version releaseelease
+                x-details: Initial version release
+                description: Archived
     input:
       type: object
       required:
@@ -235,7 +243,7 @@ components:
             Supported formats: ASCII only
         threshold:
           x-name: threshold
-          type: number
+          type: integer
           default: true
           example: 1
           description: |+

@@ -1,56 +1,158 @@
 openapi: 3.0.1
 info:
-  title: HDB Shelters Locations (SG)
-  x-subscribelink: amenities_shelters_hdb_sg
+  title: HDB Block Coordinates (SG)
+  x-subscribelink: building_addresses_hdb_sg
   description: |+
-   This Data microservice returns the indicative outline of shelters for all HDB Towns and Estates and only on HDB Land. The features were identified visually from high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from SLA (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were extrapolated where possible and may not fully represent the actual shape of the actual object. Precinct Pavilions are not included in this microservice.
-   As this is a dataset download microservice, a successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
+   This Data microservice retrieves information on the Singapore Housing Development Board building blocks in Singapore that includes addresses, postal code, latitude and longitude coordinates. Updated monthly
+
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
-  x-additionalinfo: |+
-    Suggested Use Cases:
-    - Real estate services - can be used as a solution to extract information related to the types and number of shelters present for people buying or renting a HDB home.
-
-    - Property background checks - can be used as a background check service for retail shops owners looking to set up their shops in HDBs, as areas with shelters may induce the likelihood of more customers.
-
-    - Can also be used as a solution to improve user awareness and personalization - for example, a weather app can refer a user to the nearest HDB shelter in the case of a rainy day.
-    
-    Download the complete dataset using a pre-signed URL. It's a two steps process
    
-    **Step 1:**  Get the pre-signed URL 
+   **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+       
+  x-additionalinfo : |+
+    Suggested Use Cases:
+    - Information from this microservice can be used to build a geo-targeting app with precise map features. 
     
-    Replace the correct x-api-key, and API endpoint
+    **Refining queries in the filterdata field using filter types and match types**
     
-    > **curl -X GET -H "Content-Type: application/json" -H "x-api-key:XXXXX" <\<API Endpoint>>**
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+  
+    **Filter Types:**
     
-    **Step 2:**  Download file 
+    A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
     
-    Using the results.url (i.e) the pre-signed URL to download the dataset
+    * **must** - All of the stated conditions must match. Equivalent to an AND operator.
     
-    > **curl --request GET "results.url" >> "FILE_NAME"**
+      > {"must":[{"range":{"block":{"gte":100}}}]}
     
-    **Data schema**
+    * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
+      > {"must_not":[{"match":{"street":"avenue 3"}}]}
     
-    | Name  |  Type |  Size | Description  |
-    |---|---|---|---|---|
-    |  FEATID | Integer  |  N/A |  Feature ID. Unique running number. |
-    |  TYPE |  Char | N/A	  | Captures the type of object.  |
-    |  LVL |  Char | N/A	  | Captures whether the object is located at Ground level or Above Ground level.  |
-    |  QUALITY |  Char | N/A	  | Captures whether the section of the feature was Fully Visible or Partially Visible.  |
-    |  INC_CRC |  Varchar | 50	  | Sub Location Id  |
-    |  FMEL_UPD_D |  Datetime | N/A	  | Area of the feature  |
-    |  Shape__Area |  Float | N/A	  | Area of the feature  |
-    |  Shape__Length |  Float | N/A	  | Length of the feature  |
+    * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
+      > {"should":[{"range":{"block":{"lte":200}}}]}
+    
+    * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
+      > {"filter":[{"match_phrase":{"street":"ang mo kio"}}]}
+      
+    For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
+    
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    
+    **Match Types:**
+    
+    A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+
+      > {"match":{"street":"serangoon"}}
+
+    * **match_phrase** - Search within a full text field
+
+      > {"match_phrase":{"street":"ang mo kio street"}}
+
+    * **match_phrase_prefix** - Search within a full text field with prefix
+
+      > {"match_phrase_prefix":{"street":"ang mo kio"}}
+
+    * **term** - Returns results that contain an exact term in a provided field
+
+      > {"term":{"postalcode":"550151"}}
+
+    * **terms** - Returns results that contain one or more exact terms in a provided field
+
+      > {"terms":{"postalcode":["550151","550152"]}}
+
+    * **range** - Returns results that contain terms within a stipulated range
+        > {"range":{"postalcode":{"lte":650347}}}
+        > {"range":{"postalcode":{"gte":650347}}}
+        > {"range":{"postalcode":{"gte":650347,"lte":760415}}}
+      
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{ "field": "postalcode"}}
+
+    For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+    
+    **Forming sophisticated queries using combinations of filter types (in JSON)**
+    
+    Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
+    
+     > {
+     > "must":[{"range":{"block":{"gte":100}}}],
+     > "should":[{"range":{"block":{"lte":200}}}],
+     > "filter":[{"match_phrase":{"street":"ang mo kio"}}],
+     > "must_not":[{"match":{"street":"avenue 3"}}]
+     > }
+
+
+    **Sample Queries Based on Use Cases**
+    1. **Search the latitude and longitude coordinates for 442 Pasir Ris Drive 6**
+    
+       Using a filterdata only&#58;
+       > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.368960,103.957980"}}]}
+       
   version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Retrieves information on the Housing Development Board (HDB) building blocks in Singapore.
 servers:
   - url: 'https://api.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Mar 24, 2020"
+  description: "Published Date - Nov 25, 2019"
 paths:
-   /DaaS/prod/hdb/amenities/gs/csv/shelter/hdb:
+   /DaaS/prod/directories/searchbranch:
     get:
       tags:
         - v0.1.0
+      parameters:
+        - in: query
+          name: querystring
+          schema:
+            type: string
+          description: |+ 
+            Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
+            
+            If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            
+          example: "serangoon"
+          default: false
+        - in: query
+          name: offset
+          schema:
+            type: integer
+          description: The offset of the record list ie the starting index
+          example: "0"
+          default: false
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: The max records to return for the request. Default - 10, Max - 10000
+          example: "10"
+          default: false
+        - in: query
+          name: filterdata
+          schema:
+            type: string
+          description: |+
+            Refine the search further on any of the possible through the 4 filter types &#58;
+            * must
+            * must_not
+            * should
+            * filter
+          default: false
+          example: |+
+              {"must":[{"range":{"block":{"gte":100}}}],"should":[{"range":{"block":{"lte":200}}}],"filter":[{"match_phrase":{"street":"ang mo kio"}}],"must_not":[{"match":{"street":"avenue 3"}}]}
       responses:
         '200':
           description: Ok
@@ -60,9 +162,25 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  url: "<pre-signed URL>"
-                status: Success
+                  total: 1
+                  max_score: 12.08503
+                  hits:
+                  - _index: sentient_directory_building_index
+                    _type: dir_doc
+                    _id: uLxcqWgBv3dNEHq2Dznn
+                    _score: 12.08503
+                    _source:
+                      buildingname: nex
+                      postalcode: '556083'
+                      block: '23'
+                      street: serangoon central
+                      location:
+                        lat: 1.350748
+                        lon: 103.872798
+                      source: starhub
+                      createddate: '2019-02-01'
                 message: Successfully Processed
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -124,23 +242,92 @@ components:
     success:
       type: object
       properties:
-          results:
-            type: object
-            example: { "<Json": "Object>" }
-            description: Json Object of returned results
-            properties:
-              url: 
-                type: string
-                description: pre-signed URL to download the file
-                example: "<pre-signed URL>"
-          status:
-            type: string
-            example: Success
-            description: The status of the API call. success/failure
-          message:
-            type: string
-            example: Successfully Processed
-            description: Detail description on the api status
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results 
+          properties:                
+            total: 
+              type: integer
+              example: 1
+              description: Total number of records
+            max_score:
+              type: integer
+              example: 17.995623
+              description: The highest score value                   
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:                      
+                    _index:
+                      type: string
+                      description: Index group of the document
+                      example: "sentient_directory_building_index"
+                    _type: 
+                      type: string
+                      description: Content type of the document
+                      example: "dir_doc"
+                    _id: 
+                      type: string
+                      description: Document ID
+                      example: "uLxcqWgBv3dNEHq2Dznn"                    
+                    _score: 
+                      type: integer
+                      description: The document score for the search request
+                      example: 12.08503                    
+                    _source:
+                      type: object
+                      example: {<Json Object>}
+                      description: Json Object of returned hits
+                      properties: 
+                          buildingname:
+                            type: string
+                            description: Building Name
+                            example: "nex"
+                          street:
+                            type: string
+                            description: Street Name of Building
+                            example: "serangoon central"
+                          postalcode:
+                            type: string
+                            description: Postal code
+                            example: "556083"       
+                          block: 
+                            type: string
+                            description: Block Number
+                            example: "23"
+                          location:
+                            type: object
+                            description: WGS84 coordinates lat/long
+                            example: {"lat":1.350748,"lon":103.872798}
+                            properties:
+                                lat: 
+                                  type: string
+                                  description: WGS84 latitude
+                                  example: 1.350748
+                                lon:
+                                  type: string
+                                  description: WGS84 longitude
+                                  example: 103.872798                        
+                          source: 
+                            type: string
+                            description: Dataset source
+                            example: "hdb"
+                          createddate:
+                            type: string
+                            description: Record first released date on Sentient.io
+                            example: "2019-02-01"                      
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
     unauthorized:
       type: object
       properties:
@@ -230,15 +417,17 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Apr 15, 2021
-              description: Optimized release
+              example: Published Date - May 21, 2021
+              x-details: Optimized release
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 24, 2020
-              description: Initial version release
+              example: Published Date - Nov 25,2019
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

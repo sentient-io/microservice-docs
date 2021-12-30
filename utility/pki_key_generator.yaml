@@ -2,12 +2,25 @@ openapi: 3.0.1
 info:
   title: PKI Key Generator
   description: |+
-    This Utiltiy microservice generates Public key and Private key pair, and is useful for encryption purposes.
+    This Utility microservice generates a Public and Private key pair, and is useful for encryption purposes.
   x-additionalinfo: |+
     Suggested Use Cases:
     - This microservice can be used to simplify the deployment, management, and security of one's enterprise PKI with a microservice that helps to automate time-consuming, risky, and error-prone infrastructure tasks, freeing users to focus on higher-value projects.
   version: '0.1.0'
   x-subscribelink: pki_key_generator
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | one byte length/Call
+  x-inputfilelimit: |+
+    Process one byte length per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Byte length might be string 
+  x-apidetailsdesc: |+
+    Generates a Public and Private key pair based on byte-length [1 to 5]
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -97,7 +110,7 @@ components:
       type: object
       properties:
         keyLength:
-          type: string
+          type: integer
           example: 1024
           description: byte value of generated key
         publicKey:
@@ -198,13 +211,14 @@ components:
           oneOf:
             - type: string
               example: Published Date - Aug 30, 2019
-              description: Initial version release
+              x-details: Initial version release
+              description: Latest Version
     input:
       type: object
       properties:
         bitcode:
           type: string
-          example: "1"
+          example: 1
           default: true
           description: bitcode to generate the key by byte-length. Maximum up to 5. Empty string and above 5 should be consider as 1.
   securitySchemes:

@@ -1,0 +1,364 @@
+openapi: 3.0.1
+info:
+  title: Google Translate
+  description: |+
+    This document describes how to use the Cloud Translation - Basic (v2) to translate text. 
+    The input text can be plain text or HTML. Cloud Translation - Basic does not translate any HTML tags in the input, only text that appears between the tags. The output retains the (untranslated) HTML tags, with the translated text between the tags to the extent possible due to differences between the source and target languages. The order of HTML tags in the output may differ from the order in the input text due to word order changes in the translation.
+    Do ensure that your text is within **5000 characters**.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Use this microservice to translate the input text into different languages. 
+  version: '0.1.0'
+  x-subscribelink: google_translate
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Translate string based on language.
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Dec 21, 2021"
+paths:
+  /microservices/nlp/googletranslate/v0/getpredictions:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                  results:
+                    input_text: Good Morning
+                    detected_source_language: en
+                    translated_text: Bonjour
+                  message: Successfully Processed
+                  status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+              message:
+                type: string
+                example: Successfully Processed
+                description: Response message
+              results:
+                type: object
+                example: {<Json Object>}
+                description: Json Object of returned results
+                properties:
+                  translated_text:
+                   type: string
+                   example: "Bonjour"
+                   description: Translated text from the given input text.
+                  detected_source_language:
+                    type: string
+                    example: "en"
+                    description: The input text language was detected.
+                  input_text:
+                    type: string
+                    example: "Good Morning"
+                    description: The input text that has to be translated.
+              status:
+                type: string
+                example: Success
+                description: API success call.
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Dec 21, 2021
+              x-details: Initial version release
+              description: Latest Version
+    input:
+      type: object
+      required:
+        - text
+        - target_lang
+      properties:
+        text:
+          type: string
+          example: "Good Morning"
+          description: Input text that has to be translated (can be in any language). It supports 5000 characters.
+          default: true
+        target_lang:
+          type: string
+          example: "fr"
+          description: |+
+            The language in which the text has to translated. 
+            Supported languages are,
+            - af - afrikaans
+            - sq - albanian
+            - am - amharic
+            - ar -  arabic
+            - hy - armenian
+            - az - azerbaijani
+            - eu - basque
+            - be - belarusian
+            - bn - bengali
+            - bs - bosnian
+            - bg - bulgarian
+            - ca - catalan
+            - ceb - cebuano
+            - ny - chichewa
+            - zh-cn - chinese (simplified)
+            - zh-tw - chinese (traditional)
+            - co - corsican
+            - hr - croatian
+            - cs - czech
+            - da - danish
+            - nl - dutch
+            - en - english
+            - eo - esperanto
+            - et - estonian
+            - tl - filipino
+            - fi - finnish
+            - fr - french
+            - fy - frisian
+            - gl - galician
+            - ka - georgian
+            - de - german
+            - el - greek
+            - gu - gujarati
+            - ht - haitian creole
+            - ha - hausa
+            - haw - hawaiian
+            - iw - hebrew
+            - hi - hindi
+            - hmn - hmong
+            - hu - hungarian
+            - is - icelandic
+            - ig - igbo
+            - id - indonesian
+            - ga - irish
+            - it - italian
+            - ja - japanese
+            - jw - javanese
+            - kn - kannada
+            - kk - kazakh
+            - km - khmer
+            - ko - korean
+            - ku - kurdish (kurmanji)
+            - ky - kyrgyz
+            - lo - lao
+            - la - latin
+            - lv - latvian
+            - lt - lithuanian
+            - lb - luxembourgish
+            - mk - macedonian
+            - mg - malagasy
+            - ms - malay
+            - ml - malayalam
+            - mt - maltese
+            - mi - maori
+            - mr - marathi
+            - mn - mongolian
+            - my - myanmar (burmese)
+            - ne - nepali
+            - no - norwegian
+            - ps - pashto
+            - fa - persian
+            - pl - polish
+            - pt - portuguese
+            - pa - punjabi
+            - ro - romanian
+            - ru - russian
+            - sm - samoan
+            - gd - scots gaelic
+            - sr - serbian
+            - st - sesotho
+            - sn - shona
+            - sd - sindhi
+            - si - sinhala
+            - sk - slovak
+            - sl - slovenian
+            - so - somali
+            - es - spanish
+            - su - sundanese
+            - sw - swahili
+            - sv - swedish
+            - tg - tajik
+            - ta - tamil
+            - te - telugu
+            - th - thai
+            - tr - turkish
+            - uk - ukrainian
+            - ur - urdu
+            - uz - uzbek
+            - vi - vietnamese
+            - cy - welsh
+            - xh - xhosa
+            - yi - yiddish
+            - yo - yoruba
+            - zu - zulu
+            - fil - Filipino
+            - he - Hebrew
+          default: true
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

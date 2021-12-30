@@ -18,6 +18,19 @@ info:
     - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
   version: '0.1.0'
   x-subscribelink: named-entity_recognition_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Locates and Classifies named-entities classes from unstructured English text.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -233,14 +246,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Sep 30, 2020
-              description: Updated version release v1.0
+              x-details: Updated version release v1.0
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Nov 25, 2019
-              description: Initial version release   
+              x-details: Initial version release   
+              description: Archived
     input:
       type: object
       required:

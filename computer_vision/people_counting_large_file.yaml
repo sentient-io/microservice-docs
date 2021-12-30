@@ -1,0 +1,515 @@
+openapi: 3.0.1
+info:
+  title: People Counting (Large File)
+  description: |+
+    This Computer Vision microservice tracks and counts people appearing in the input video.
+    This microservice returns the number of people detected in that video, the likelihood of overestimation/underestimation, the first appearance, the duration and confidence of each person detected.
+  x-additionalinfo: |+
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
+  x-tutorial-pdf-doc: 
+      https://storage.googleapis.com/lpdocs/docs/people_counting.pdf 
+  version: '0.1.0'
+  x-subscribelink: people_counting_large_file
+  x-apitype: large file
+  x-apitypedescription: |+
+    Asyncronous | Batch | 1GB/File.
+  x-inputfilelimit: |+
+    Process up to 1 GB of File Size.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Size cannot exceed 1 GB.
+  x-apidetailsdesc: |+
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Dec 30, 2021"
+paths:
+  /async/microservices/cv/peoplecounting/v0/getuploadurl:
+    description: |+
+      Get the pre-signed url to upload the file.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                message: Successfully Processed
+                results:
+                  fields:
+                    content-type: text/plain
+                    key: 1/2/lp-peoplecounting/input/test_1991d4936ddb4728afaa06cb260b0253.txt
+                    policy: >-
+                      eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ0ZXh0L3BsYWluIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMjMyOTM2XSx7ImNvbnRlbnQtdHlwZSI6InRleHQvcGxhaW4ifSx7IngtZ29vZy1tZXRhLWFkZGl0aW9uYWxfcGFyYW0iOiJOb25lIn0seyJ4LWdvb2ctbWV0YS1vaWQiOiIxIn0seyJ4LWdvb2ctbWV0YS11aWQiOiIyIn0seyJ4LWdvb2ctbWV0YS11dWlkIjoiMTk5MWQ0OTM2ZGRiNDcyOGFmYWEwNmNiMjYwYjAyNTMifSx7ImJ1Y2tldCI6InVzZXJfc3BhY2VfZGV2In0seyJrZXkiOiIxLzIvbHAtdGV4dHN1bW1hcmlzYXRpb24vaW5wdXQvdGVzdF8xOTkxZDQ5MzZkZGI0NzI4YWZhYTA2Y2IyNjBiMDI1My50eHQifSx7IngtZ29vZy1kYXRlIjoiMjAyMTExMjNUMTA1ODQ2WiJ9LHsieC1nb29nLWNyZWRlbnRpYWwiOiJzZW50aWVudC1kZXYtYmlncXVlcnlAc2VudGllbnQtMjA3MzEwLmlhbS5nc2VydmljZWFjY291bnQuY29tLzIwMjExMTIzL2F1dG8vc3RvcmFnZS9nb29nNF9yZXF1ZXN0In0seyJ4LWdvb2ctYWxnb3JpdGhtIjoiR09PRzQtUlNBLVNIQTI1NiJ9XSwiZXhwaXJhdGlvbiI6IjIwMjEtMTEtMjNUMTE6NTg6NDYuMTcxMzE1WiJ9
+                    x-goog-algorithm: GOOG4-RSA-SHA256
+                    x-goog-credential: >-
+                      sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211123/auto/storage/goog4_request
+                    x-goog-date: 20211123T105846Z
+                    x-goog-meta-additional_param: None
+                    x-goog-meta-oid: '1'
+                    x-goog-meta-uid: '2'
+                    x-goog-meta-uuid: 1991d4936ddb4728afaa06cb260b0253
+                    x-goog-signature: >-
+                      3d882f0762743e39146aae926435bf0b15e844836db9a0913fddfc04e786b939a8f3d1bcf187883c3c1dec913d1aa8eca4e8e08d7a8fcdf138bfac621f28ed9ef30c842b6a7ad9c7b7fa8a0ee60d4f1b05f7a0322a5bb404d7ce69410a494b1a5848d49ac96cd59c538dc522b21e579979b5d53b9d413e766662f65596ca22bde2f625d349392c04e13ce27d98e0d73a229f50dfc5fdb18873218f97eac6e83a8d088c6c66e49d120d21757d04ab5763565da5594eeafd31d5cc1e68f0f5933f8b2f517db16fa962be6f9c59fc5564fc909fe226c14dddbfdfd1bfc46aa21b72aec3db576b34e73cfb7acfdbca8d5cb14da998fe5c0b7f050c3656bb1d6d6052
+                  jid: 1991d4936ddb4728afaa06cb260b0253
+                  request_cost: 0
+                  url: 'https://storage.googleapis.com/user_space_dev/'
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+  /upload:
+    description: |+
+      Upload your file to start processing.
+    post:
+      servers:
+        - url: 'https://storage.googleapis.com/user_space_dev/'
+          description: Override base path for the GET /ping operation    
+      tags:
+        - v0.1.0
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/uploadinput'
+        required: true          
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                message: Successfully Processed         
+  /async/microservices/cv/peoplecounting/v0/getstatus:
+    description: |+
+      Query for processing status.
+    get:
+      tags:
+        - v0.1.0
+      parameters:
+        - in: query
+          name: jid
+          schema:
+            type: string
+          example: 36d075917dcd481e9daf858a2549f3b1
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getsuccess'
+              example: 
+                last_updated: '2021-07-06 12:50:30'
+                message: File Processing Successfully Started
+                request_cost: 0.086
+                status: Processing
+
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    getsuccess:
+      type: object
+      properties:
+        last_updated:
+          type: string
+          example: 2021-07-06 12:50:30
+          description: Last updated
+        message:
+          type: string
+          example: File Processing Successfully Started
+          description: Detail description on the API status
+        request_cost:
+          type: string
+          example: 0.086
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Processing
+          description: Detail description on the API status
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        results:
+          type: object
+          example: { "<Json": "Object>" }
+          description: Json Object of returned results
+          properties:   
+            fields:
+              type: object
+              example: { "<Json": "Object>" }
+              description: Json Object of returned results
+              properties:
+                content-type:
+                  type: string
+                  example: text/plain
+                  description: Content type of the document
+                policy:
+                  type: string
+                  example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ...
+                  description: Content type of the document
+                x-goog-algorithm:
+                  type: string
+                  example: GOOG4-RSA-SHA256
+                  description: Google algorithm
+                x-goog-credential:
+                  type: string
+                  example: sentient-dev-bigqu...
+                  description: Google algorithm
+                x-goog-date:
+                  type: string
+                  example: 20211123T105846Z
+                  description: Google algorithm
+                x-goog-meta-additional_param:
+                  type: string
+                  example: None
+                  description: Google algorithm
+                x-goog-meta-oid:
+                  type: string
+                  example: 1
+                  description: Google algorithm
+                x-goog-meta-uid:
+                  type: string
+                  example: 2
+                  description: Google algorithm
+                x-goog-meta-uuid:
+                  type: string
+                  example: 1991d4936ddb4728afaa06cb260b0253
+                  description: Google algorithm
+                x-goog-signature:
+                  type: string
+                  example: 3d882f0762743e39146aae926435bf0b15e844836dbcf...
+                  description: Google algorithm
+            jid:
+              type: string
+              example: 1991d4936ddb4728afaa06cb260b0253...
+              description: Google algorithm 
+            request_cost:
+              type: string
+              example: 0
+              description: Google algorithm 
+            url:
+              type: string
+              example: https://storage.googleapis.com/user_space_dev/
+              description: Google algorithm 
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure                  
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid input - Error in URL.
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure 
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Dec 30, 2021
+              x-details: Initial version release  
+              description: Latest Version
+    input:
+      type: object
+      required:
+        - file_name
+      properties:
+        file_name:
+          x-name: file_name
+          type: string
+          default: true
+          format: binary
+          example: 'sample.mp4'
+          description: |+
+            Name of file to be upload.
+        file_size:
+          x-name: file_size
+          type: integer
+          default: true
+          example: 1227936
+          description: |+
+            Size of the file. Maximum size should be 1 GB.
+        content_type:
+          x-name: content_type
+          type: string
+          default: true
+          example: 'video/mp4'
+          description: |+
+            Specify the content-type. Pick any one from below list based on input file type.
+            ["video/x-m4v", "video/mp4", "video/mpeg", "video/x-msvideo","video/ogg", "video/mp2t", "video/webm", "video/3gpp", "video/3gpp2","video/x-ms-wmv","video/x-ms-asf", "video/x-ms-wm","video/x-flv","application/x-mpegURL", "video/quicktime","application/x-mpegurl","application/vnd.apple.mpegurl" ]
+    uploadinput:
+      type: object
+      required:
+        - filePath      
+      properties:
+        filePath:
+          type: string
+          format: binary
+          default: true
+          example: sample.mp4
+          description: file
+        content-type:
+          type: string
+          default: false
+          example: video/mp4
+          description: Fields
+        key:
+          type: string
+          default: false
+          example: 1/2/lp-textsummarisation/input/Pdf_6mb_cf3d329bd9df4cef91966c336386eea3.pdf
+          description: Fields
+        policy:
+          type: string
+          default: false
+          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhcHBsaWNhdGlvbi9wZGYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDE0MDczMjYxXSx7ImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9uL3BkZiJ9LHsieC1nb29nLW1ldGEtYWRkaXRpb25hbF9wYXJhbSI6IntcInBhc3N3b3JkXCI6IFwiZmZmZmZcIn0ifSx7IngtZ29vZy1tZXRhLW9pZCI6IjEifSx7IngtZ29vZy1tZXRhLXVpZCI6IjIifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJjZjNkMzI5YmQ5ZGY0Y2VmOTE5NjZjMzM2Mzg2ZWVhMyJ9LHsiYnVja2V0IjoidXNlcl9zcGFjZV9kZXYifSx7ImtleSI6IjEvMi9scC10ZXh0c3VtbWFyaXNhdGlvbi9pbnB1dC9QZGZfNm1iX2NmM2QzMjliZDlkZjRjZWY5MTk2NmMzMzYzODZlZWEzLnBkZiJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIwOVQwOTU1MDdaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMDkvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMS0xMi0wOVQxMDo1NTowNy41MDYwNDBaIn0=
+          description: Fields
+        x-goog-algorithm:
+          type: string
+          default: false
+          example: GOOG4-RSA-SHA256
+          description: Fields
+        x-goog-credential:
+          type: string
+          default: false
+          example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
+          description: Fields
+        x-goog-meta-additional_param:
+          type: string
+          default: false
+          example: {\"password\": \"fffff\"}
+          description: Fields
+        x-goog-meta-oid:
+          type: string
+          default: false
+          example: 1
+          description: Fields
+        x-goog-meta-uid:
+          type: string
+          default: false
+          example: 2
+          description: Fields
+        x-goog-meta-uuid:
+          type: string
+          default: false
+          example: cf3d329bd9df4cef91966c336386eea3
+          description: Fields
+        x-goog-signature:
+          type: string
+          default: false
+          example: 7970619677c2a0dc26af460a7d62f883528af9e1e8a1459aa09671ee0fbf15f7a611b7bd8c382fd8d39f74fe212a7e3db1768535f0c1ccff062239627ebe49195cc2c42c2238eb5e268ecaca49e647eb244eb023f3d4ba97922fd1228aab677a7176b9f84fef1c909897ccf0e1e8f9e3d030dbfc9892c7c026060dcf20b4ad4598f346de478b0f8495d9bce292b83a5b3bfa13c7dc08a2ce162f652c3bce91191167eeee3019b6b196e4271f5e3a6a1fe067f70acdaa082e6091c2f3ac8182bca8be41afc90600fc32dcdb3072acb43aaf90910a38c4aec9e3a42fdd21deb5ce936d8269e9ed011377ef058cac20d336218a35858753bd99b4ffdb1db171f0f4
+          description: Fields            
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

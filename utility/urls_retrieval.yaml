@@ -10,6 +10,19 @@ info:
     - Use this microservice to update web content or indices of other sites' web content. 
   version: '0.2.1'
   x-subscribelink: urls_retrieval
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 500 URL /Call
+  x-inputfilelimit: |+
+    Process 500 URL per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Allows 500 URL per request.
+  x-apidetailsdesc: |+
+    Crawls and Retrieves content from the input URLs
 servers:
   - url: 'https://apis.sentient.io'
 tags:
@@ -229,21 +242,24 @@ components:
           oneOf:
             - type: string
               example: Published Date - Dec 04, 2020
-              description: Patch Update       
+              x-details: Patch Update       
+              description: Latest Version
         v0.2.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Oct 30, 2020
-              description: Partial URL support       
+              x-details: Partial URL support       
+              description: Depreciating on Dec 03, 2020
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 1, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
     input:
       type: object
       properties:

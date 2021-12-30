@@ -1,0 +1,180 @@
+asyncapi: '2.1.0'
+info:
+  title: Online Automatic Speech Recognition ENG
+  version: 1.0.0
+  description: This Voice microservice takes in an audio stream (.wav format) and transcribes English speech content within the stream into text.
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Payload cannot exceed 10 MB.
+servers:
+  private:
+    url: onlineasr.sentient.io
+    protocol: wss
+channels:
+  /:
+    publish:
+      message:
+        oneOf:
+          - $ref: '#/components/messages/connection'
+          - $ref: '#/components/messages/message_exchange'
+          - $ref: '#/components/messages/end_of_stream'
+    subscribe:
+      description: Messages that you receive from the API
+      operationId: listening
+      message:
+        oneOf:
+          - $ref: '#/components/messages/connection_response'
+          - $ref: '#/components/messages/message_exchange_response'
+          - $ref: '#/components/messages/end_of_stream_response'
+components:
+  messages:
+    connection:
+      payload:
+        $ref: '#/components/schemas/connection'
+      x-response:
+        $ref: '#/components/messages/connection_response'   
+    message_exchange:
+      payload:
+        $ref: '#/components/schemas/message_exchange'
+      x-response:
+        $ref: '#/components/messages/message_exchange_response'
+    end_of_stream:
+      payload:
+        $ref: '#/components/schemas/end_of_stream'
+      x-response:
+        $ref: '#/components/messages/end_of_stream_response'
+    connection_response:
+      payload:
+        type: object
+        properties:
+          status:
+              type: string
+              description: server status
+              example: listening
+    message_exchange_response:
+      payload:
+        $ref: '#/components/schemas/message_exchange_response'
+    end_of_stream_response:
+      payload:
+        $ref: '#/components/schemas/end_of_stream_response'
+  schemas: 
+    connection:
+        type: object
+        properties:
+          x-api-key:
+            type: string
+            description: API key of the user
+            example: Your API KEY string
+          action:
+            type: string
+            description: start
+            example: start
+          model:
+            type: string
+            example: en-SG
+            description: model name:"en-SG"  OR  "en-SG-conversation"  OR  "en-SG-news"  OR  "en-SG-telephony"  OR  "generic_en_vosk"
+          sampling-rate:
+            type: string
+            example: 8000
+            description: Optional. Sampling rate of the input wave file. 8000 or 16000 (Default).
+          diarization:
+            type: object
+            example: {"type": "seminar", "nspk": 3}
+            description: Optional. If set to True or specified as dict, returns spkSeq at end of stream. spkSeq is ordered list of speaker ID for each utterance in stream.
+            properties:
+              type:
+                type: string
+                description: 'Optional. "seminar" or "meeting" (Default). "seminar": More than 10 people. "meeting": 1 to 10 people.'
+                example: "seminar"
+              nspk:
+                type: integer
+                example: 3
+                description: 'Optional. Number of speakers. Must be greater than 0. If unspecified, algorithm will estimate the number of speakers.'
+    message_exchange:
+        type: string
+        default: true
+        example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+        description: |+
+              Input audio wav file in base64 format. 
+
+              Mono channel, 8kHz.
+    end_of_stream:
+      type: string
+      example: 0
+    message_exchange_response:
+      type: object
+      properties:
+        result:
+          type: array
+          description: Predicted words and meta-data of the utterance.
+          example: '"result": [{"word": "HELLO", "start": 3.42, "end": 3.63, "conf": 1},{"word": "WORLD", "start": 3.63, "end": 4.02, "conf": 1},{"word": "THIS", "start": 4.02, "end": 4.14, "conf": 1},{"word": "IS", "start": 4.14, "end": 4.26, "conf": 0.9976},{"word": "A", "start": 4.26, "end": 4.439, "conf": 0.838751},{"word": "TEST", "start": 4.47, "end": 4.92, "conf": 0.96717}],"text": "HELLO WORLD THIS IS A TEST"'
+          items:
+            type: object
+            properties:                      
+              word:
+                type: string
+                description: Predicted word
+                example: "HELLO"
+              start:
+                type: integer
+                format: float
+                description: Start time of word, in seconds. Offset from the start of stream.
+                example: "3.42"
+              end:
+                type: integer
+                format: float
+                description: End time of word, in seconds. Offset from the start of stream.
+                example: "3.63"
+              conf:
+                type: integer
+                format: float
+                description: Confidence score, 0.0 to 1.0.
+                example: 1
+        text:
+          type: string
+          example: HELLO WORLD THIS IS A TEST
+    end_of_stream_response:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Predicted text for the utterance.
+          example: "GOOD JOB"
+        spkSeq:
+          type: integer
+          description: Optional. Only available is diarization param is passed. Ordered list of speaker ID for utterances in stream.
+          example: [0, 2, 1, 1]
+        result:
+          type: array
+          description: Predicted words and meta-data of the utterance.
+          example: '[{"word": "GOOD", "start": 3.42, "end": 3.63, "conf": 1},{"word": "JOB", "start": 3.63, "end": 4.02, "conf": 1}]'
+          items:
+            type: object
+            properties:                      
+              word:
+                type: string
+                description: Predicted word
+                example: "HELLO"
+              start:
+                type: integer
+                format: float
+                description: Start time of word, in seconds. Offset from the start of stream.
+                example: "3.42"
+              end:
+                type: integer
+                format: float
+                description: End time of word, in seconds. Offset from the start of stream.
+                example: "3.63"
+              conf:
+                type: integer
+                format: float
+                description: Confidence score, 0.0 to 1.0.
+                example: 1
