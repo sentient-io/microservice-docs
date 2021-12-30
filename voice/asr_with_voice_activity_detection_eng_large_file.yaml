@@ -11,7 +11,7 @@ info:
       - Detailed reference to the additional parameters https://docs.sentient.io/#/voice/asr_with_voice_activity_detection_eng
       - The file upload form https://sentient.io/upload/form.html
   x-tutorial-pdf-doc: 
-      https://storage.googleapis.com/lpdocs/docs/vadasr.pdf    
+      https://storage.googleapis.com/lpdocs/docs/vadasr_prod.pdf
   x-subscribelink: asr_with_voice_activity_detection_eng
   x-apitype: large file
   x-apitypedescription: |+
