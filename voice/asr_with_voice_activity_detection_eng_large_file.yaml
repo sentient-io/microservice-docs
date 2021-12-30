@@ -25,7 +25,7 @@ info:
   x-notes: |+
     Size cannot exceed 1 GB.
   x-apidetailsdesc: |+
-    Combines Voice Activity Detection feature and Automatic Speech Recognition capabilities for Larger Files.
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
