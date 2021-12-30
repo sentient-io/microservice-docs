@@ -79,10 +79,10 @@ voice:
     title: Speaker Diarization
     versions:
       0.1.0: 'speaker_diarization.yaml'     
-  alibaba_chi_asr_large_file:
-    title: Alibaba Chinese ASR (Large File)
+  automatic_speech_recognition_chi_large_file:
+    title: Automatic Speech Recognition CHI (Large File)
     versions:
-      0.1.0: 'alibaba_chinese_asr_large_file.yaml'      
+      0.1.0: 'automatic_speech_recognition_chi_large_file.yaml'      
 nlp:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
