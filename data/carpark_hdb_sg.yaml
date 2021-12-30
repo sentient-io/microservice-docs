@@ -473,7 +473,7 @@ components:
                 The following additional fields are added&#58;
                 1. postalcode - list of postal code
                 2. location - lat / log of the carpark park
-               description: Depreciating on May 20, 2021
+              description: Depreciating on May 20, 2021
         v0.1.0:
          type: array
          items:
