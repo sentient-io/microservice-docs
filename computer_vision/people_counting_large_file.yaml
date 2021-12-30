@@ -22,7 +22,7 @@ info:
   x-notes: |+
     Size cannot exceed 1 GB.
   x-apidetailsdesc: |+
-    Computer Vision microservice tracks and counts people appearing.
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
