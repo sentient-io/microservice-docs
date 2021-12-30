@@ -195,7 +195,7 @@ components:
               x-name: quantity
               type: array
               example: [[about one degree,85 miles,137 kilometres,1,8]]
-              description: 	Measurements, as of weight or distance.
+              description: Measurements, as of weight or distance.
             ordinal:
               x-name: ordinal
               type: array
