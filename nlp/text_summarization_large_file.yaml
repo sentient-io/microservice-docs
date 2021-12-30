@@ -31,7 +31,7 @@ tags:
 paths:
   /async/microservices/nlp/textsummarisation/v0/getuploadurl:
     description: |+
-      Get the pre-signed url to upload the file
+      Get the pre-signed url to upload the file.
     post:
       tags:
         - v0.1.0
@@ -128,7 +128,7 @@ paths:
         required: true
   /upload:
     description: |+
-      Upload your file to start processing
+      Upload your file to start processing.
     post:
       servers:
         - url: 'https://storage.googleapis.com/user_space_dev/'
@@ -152,7 +152,7 @@ paths:
                 message: Successfully Processed         
   /async/microservices/nlp/textsummarisation/v0/getstatus:
     description: |+
-      Query for processing status
+      Query for processing status.
     get:
       tags:
         - v0.1.0
@@ -414,9 +414,9 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Dec 23, 2021
+              example: Published Date - Dec 30, 2021
               x-details: Initial version release  
-              description: Archived
+              description: Latest Version
     input:
       type: object
       required:
