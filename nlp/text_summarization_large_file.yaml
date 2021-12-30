@@ -27,7 +27,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Aug 11, 2021"
+  description: "Published Date - Dec 30, 2021"
 paths:
   /async/microservices/nlp/textsummarisation/v0/getuploadurl:
     post:
@@ -408,9 +408,9 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Dec 23, 2021
+              example: Published Date - Dec 30, 2021
               x-details: Initial version release  
-              description: Archived
+              description: Latest Version
     input:
       type: object
       required:
