@@ -12,15 +12,17 @@ info:
   x-subscribelink: wikipedia_retrieval
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 10MB/Call
+    Fast | Single-Call | 5000 characters/Call
   x-inputfilelimit: |+
-    Process up to 10000 kb of data or chat per API call.
+    Process up to 5000 characters per API call.
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
-    Payload size cannot exceed 10 MB.
+    Size cannot exceed more than 5000 characters.
+  x-apidetailsdesc: |+
+    A  short summary of the Wikipedia article that was requested.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
