@@ -62,7 +62,7 @@ voice:
       1.2.1: 'asr_with_voice_activity_detection_eng.yaml'
       0.1.0: 'asr_with_voice_activity_detection_eng_v0.1.yaml'
   asr_with_voice_activity_detection_eng_large_file:
-    title: ASR with Voice Activity Detection ENG Large File
+    title: ASR with Voice Activity Detection ENG (Large File)
     versions:
       0.1.0: 'asr_with_voice_activity_detection_eng_large_file.yaml'      
   voice_activity_detection_eng:
@@ -145,7 +145,7 @@ nlp:
     versions:
       0.2.0: 'text_summarization.yaml' 
   text_summarization_large_file:
-    title: Text Summarization Large File
+    title: Text Summarization (Large File)
     versions:
       0.1.0: 'text_summarization_large_file.yaml'        
   sentiment_analysis_and_sarcasm_detection:
