@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Alibaba Chinese ASR
+  title: Automatic Speech Recognition CHI
   description: |+
     This Voice microservice takes in the input audio file  and supports recognizing a short speech that lasts within 1 minute. 
     The server returns the recognition result in a JSON format as a response.
@@ -9,7 +9,7 @@ info:
       - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.
       - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
       - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.
-  version: '0.1.0'
+  version: '2.0.0'
   x-subscribelink: automatic_speech_recognition_chi
   x-apitype: small file
   x-apitypedescription: |+
@@ -27,10 +27,10 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Aug 20, 2021"
+- name: "v2.0.0"
+  description: "Published Date - Dec 30, 2021"
 paths:
-  /microservices/voice/alibabachiasr/v0/getpredictions:
+  /microservices/voice/asrsch/v2/getpredictions:
     post:
       tags:
         - v0.1.0
@@ -262,14 +262,38 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Dec 30, 2021
+              x-details: Upgrading with Samplerate, Encoding etc..
+              description: Latest Version      
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 07, 2021
+              x-details: Standardizing Input and Output Updated.
+              description: Old Version
+        v0.1.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 28, 2018
+              x-details: Patch update on bug fixes
+              description: Depreciating on Apr 06, 2021
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Aug 20, 2021
+              example: Published Date - Jun 21, 2018
               x-details: Initial version release
-              description: Latest Version
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey
