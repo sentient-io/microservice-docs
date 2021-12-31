@@ -140,11 +140,7 @@ nlp:
   sentiment_analysis_and_sarcasm_detection:
     title: Sentiment Analysis and Sarcasm Detection
     versions:
-      0.1.0: 'sentiment_analysis_and_sarcasm_detection.yaml'
-  google_translate:
-    title: Google Translate
-    versions:
-      0.1.0: 'google_translate.yaml'      
+      0.1.0: 'sentiment_analysis_and_sarcasm_detection.yaml'      
 computer vision:
   object_detection:
     title: Object Detection
