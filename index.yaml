@@ -53,10 +53,6 @@ voice:
     title: Text-To-Speech JP
     versions:
       0.1.0: 'text_to_speech_jp.yaml'
-  text-to-speech_eng_ncs:
-    title: Text-To-Speech ENG NCS
-    versions:
-      0.1.0: 'text-to-speech_eng_ncs.yaml'
   asr_with_voice_activity_detection_eng:
     title: ASR with Voice Activity Detection ENG
     versions:
@@ -159,14 +155,6 @@ computer vision:
     versions:
       1.0.1: 'face_recognition.yaml'
       0.1.0: 'face_recognition_v0.1.yaml'
-  masked_face_recognition:
-    title: Masked Face Recognition
-    versions:
-      0.1.0: 'masked_face_recognition.yaml'
-  people_counting:
-    title: People Counting
-    versions:
-      1.0.1: 'people_counting.yaml'
   people_counting:
     title: People Counting
     versions:
@@ -348,56 +336,10 @@ data:
     title: Trajectory Clustering
     versions:
       0.1.0: 'trajectory_clustering.yaml' 
-  lta_road_works:
-    title: LTA Road Works
-    versions:
-      0.1.0: 'lta_road_works.yaml' 
-  lta_car_park_availability_historical:
-    title: LTA Carpark Availability Historical
-    versions:
-      0.1.0: 'lta_car_park_availability_historical.yaml'      
-  lta_traffic_images:
-    title: LTA Traffic Images
-    versions:
-      0.1.0: 'lta_traffic_images.yaml'       
-  lta_traffic_incidents:
-    title: LTA Traffic Incidents
-    versions:
-      0.1.0: 'lta_traffic_incidents.yaml'      
-  lta_traffic_speed_bands_historical:
-    title: LTA Traffic Speed Bands Historical
-    versions:
-      0.1.0: 'lta_traffic_speed_bands_historical.yaml'       
-  lta_vms:
-    title: LTA VMS
-    versions:
-      0.1.0: 'lta_vms.yaml'      
-  lta_faulty_traffic_lights:
-    title: LTA Faulty Traffic Lights
-    versions:
-      0.1.0: 'lta_faulty_traffic_lights.yaml'
-  lta_pv_bus:
-    title: LTA Passenger Volume by Bus Stops
-    versions:
-      0.1.0: 'lta_pv_bus.yaml'       
-  realtime_weather:
-    title: Realtime Weather
-    versions:
-      0.1.0: 'realtime_weather.yaml' 
-  lidar_trajectory_data:
-    title: LiDAR Trajectory Data
-    versions:
-      0.1.0: 'lidar_trajectory_data.yaml'     
   train_stations_sg:
     title: Train Stations (SG)
     versions:
-      0.1.0: 'train_stations_sg.yaml'      
-data alliance:
-  download_dataset_api:
-    title: Download Dataset API
-    urlkey: download_dataset_api
-    versions:
-      0.1.0: 'download_dataset.yaml'
+      0.1.0: 'train_stations_sg.yaml' 
 Platform APIs:
   org_info:
     title: View Organizational Info
