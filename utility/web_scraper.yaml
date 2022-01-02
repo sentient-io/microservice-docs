@@ -188,7 +188,7 @@ components:
           description: The status of the API call success/failure
         results:
           type: object
-          example: 	{"data":"text content of the webpage","dataList": [{ "title": "imagelinks", "findType": "find_all", "tag": "img", "attribute": "src" }]}
+          example: 	{"data": "text content of the webpage","dataList": [{ "title": "imagelinks", "findType": "find_all", "tag": "img", "attribute": "src" }]}
           description: Json Object of returned results
           properties:
             data: 
