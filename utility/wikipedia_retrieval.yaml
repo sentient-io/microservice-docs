@@ -10,6 +10,19 @@ info:
     - Extract the most relevant content from Wikipedia’s categories to provide a text analysis service to ascertain what any text is in reference to.
   version: '1.0.0'
   x-subscribelink: wikipedia_retrieval
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Size cannot exceed more than 5000 characters.
+  x-apidetailsdesc: |+
+    A  short summary of the Wikipedia article that was requested.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
