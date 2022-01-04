@@ -6,7 +6,7 @@ info:
     The server returns the recognition result in a JSON format as a response.
   x-additionalinfo: |+
     Suggested Use Cases:
-      - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.
+      - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), and 16-bit mono.
       - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
       - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.
   version: '2.0.0'
@@ -234,7 +234,7 @@ components:
           default: false
           example: pcm
           description: 
-            The audio coding format. Valid values - pcm, opus. Default value - pcm.
+            The audio coding format. Valid values - pcm. Default value - pcm.
         sample_rate:
           type: number
           default: false
