@@ -229,12 +229,6 @@ components:
           example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: 
             Input audio wav file in base64 format.
-        audio_encoding:
-          type: string
-          default: false
-          example: pcm
-          description: 
-            The audio coding format. Valid values - pcm. Default value - pcm.
         sample_rate:
           type: number
           default: false
