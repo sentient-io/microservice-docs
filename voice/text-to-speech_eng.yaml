@@ -121,7 +121,7 @@ components:
             sampling_rate:
               description: Sample rate of the output audio. Should come only for female_generic
               example: 16000
-              type: integer
+              type: number
             wav_base64:
               description: Base64 string of the generated audio from input text
               example: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
