@@ -269,12 +269,12 @@ components:
           example: https://www.sentient.io/ja/
           description: url
         depth:
-          type: integer
+          type: number
           example: "2"
           default: false
           description: Default is 0.
         numberofurls:
-          type: integer
+          type: number
           example: "10"
           default: false
           description: Default value is 100.
