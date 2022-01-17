@@ -120,7 +120,7 @@ components:
           example: { "<Json": "Object>" }
           properties:
             counter:
-              type: integer
+              type: number
               example: 11
               description: Number of people detected in video
             likelihood of overestimation:
