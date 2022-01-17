@@ -248,17 +248,17 @@ components:
           example: "1,3,6"
           description: Page numbers, example 1,3,6. Default all pages
         maxPages:
-          type: integer
+          type: number
           default: false
           example: "3"
           description: Maximum of page number. Default all pages
         startPage:
-          type: integer
+          type: number
           default: false
           example: "1"
           description: Starting page number, if used endPage parameter is mandatory
         endPage:
-          type: integer
+          type: number
           default: false
           example: "5"
           description: End of page number, if used startPage parameter is mandatory
