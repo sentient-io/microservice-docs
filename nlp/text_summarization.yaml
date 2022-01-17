@@ -113,7 +113,7 @@
             description: Json Object of returned results
             properties:   
               score:
-                type: integer
+                type: number
                 example: 2.2100781633414535
                 description: Confidence score
               text:
