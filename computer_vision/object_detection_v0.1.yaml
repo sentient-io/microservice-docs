@@ -133,19 +133,19 @@ components:
                 description: Bounding box of the image
                 properties:
                   Bot: 
-                   type: integer
+                   type: number
                    example: 742
                    description: Bottom coordinate of the box
                   Left: 
-                   type: integer
+                   type: number
                    example: 19
                    description: Left coordinate of the box
                   Right: 
-                   type: integer
+                   type: number
                    example: 1019
                    description: Right coordinate of the box
                   Top: 
-                   type: integer
+                   type: number
                    example: 73   
                    description: Top coordinate of the box                         
     unauthorized:
