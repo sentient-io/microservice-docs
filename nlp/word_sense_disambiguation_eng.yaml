@@ -177,7 +177,7 @@ components:
                                     example: social_group.n.01
                                     description: Describes the category in which the target word belongs to. Eg:car is a transport. car is the target word and transport is the category(hypernym) 
                                   potential_candidate_score:
-                                    type: integer
+                                    type: number
                                     example: 1   
                                     description: Is the confidence score from the network  
                             synset_definition:
@@ -194,7 +194,7 @@ components:
                               example: 0.9870249032974243  
                               description: Is the confidence score from the network
                             token_index:
-                              type: integer
+                              type: number
                               example: 40    
                               description: Is the target word position in the sentence  
         message:
