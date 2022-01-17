@@ -184,7 +184,7 @@ components:
                   format: list
                   example: 1915 Singapore Mutiny
             pageid:
-              type: integer
+              type: number
               example: 27318
               description: The id of the page requested
             summary:
@@ -313,7 +313,7 @@ components:
           default: true
           description: The search term, highest match to the title of the Wikipedia page.
         pageid: 
-          type: integer
+          type: number
           default: true
           example: 27318
           description: The Wikipedia id of the page requested.
