@@ -133,7 +133,7 @@ components:
                         example: 4
                         description: End time of word, in seconds. Offset from the start of stream.
                       seqNum:
-                        type: integer
+                        type: number
                         example: 1
                         description: Running sequence. Start from 1.
                       start:
@@ -280,14 +280,14 @@ components:
                 properties:
                   seqNum:
                     x-name: seqNum
-                    type: integer
+                    type: number
                     default: true
                     example: 1
                     description: |+
                       Running sequence. Start from 1.
                   start:
                     x-name: start
-                    type: integer
+                    type: number
                     format: float
                     default: true
                     example: 1.0
@@ -295,7 +295,7 @@ components:
                       Start time of utterance, in seconds. Offset from the start of stream.
                   end:
                     x-name: end
-                    type: integer
+                    type: number
                     format: float
                     default: true
                     example: 4.0
