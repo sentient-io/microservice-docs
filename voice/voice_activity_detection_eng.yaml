@@ -131,16 +131,16 @@ components:
                         - type: object 
                           properties:
                             end:
-                              type: float
+                              type: number
                               format: float
                               example: 23.72
                               description: End time of utterance, in seconds. Offset from the start of stream.
                             seqNum:
-                              type: integer
+                              type: number
                               example: 1
                               description: Running sequence. Starts from 1.
                             start:
-                              type: float
+                              type: number
                               format: float
                               example: 0.64
                               description: Start time of utterance, in seconds. Offset from the start of stream.
