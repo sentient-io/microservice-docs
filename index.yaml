@@ -184,6 +184,10 @@ computer vision:
     title: Person Reidentification
     versions:
       0.1.0: 'person_reidentification.yaml'
+  landmark_detection:
+    title: Landmark Detection
+    versions:
+      1.0.1: 'landmark_recognition.yaml'
   landmark_recognition_sg:
     title: Landmark Detection (SG)
     versions:
