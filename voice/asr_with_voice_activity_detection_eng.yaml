@@ -267,7 +267,41 @@ components:
           default: false
           example: false
           description: |+
-            Boolean value true or false to decide whether vad required or not
+            Optional. Boolean value true or false to decide whether vad required or not
+        srt:
+          x-name: srt
+          type: array
+          default: false
+          example: [{seqNum: 1,start: 1.0,end: 4.0}]
+          description: |+
+            Optional. An ordered array of utterance struct. Used for time-coding.
+          items:
+            oneOf:
+              - type: object 
+                properties:
+                  end:
+                    x-name: end
+                    type: float
+                    format: float
+                    default: false
+                    example: "4.0"
+                    description: |+
+                      "End time of utterance, in seconds. Offset from the start of stream."
+                  seqNum:
+                    x-name: seqNum
+                    type: integer
+                    default: false
+                    example: "1"
+                    description: |+
+                      "Running sequence. Starts from 1."
+                  start:
+                    x-name: start
+                    type: float
+                    format: float
+                    default: false
+                    example: "1.0"
+                    description: |+
+                      "Start time of utterance, in seconds. Offset from the start of stream."
         threshold:
           x-name: threshold
           type: number
@@ -275,7 +309,7 @@ components:
           default: false
           example: 0.4
           description: |+
-            0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
+            Optional. 0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
     versions:
       type: object
       properties:
