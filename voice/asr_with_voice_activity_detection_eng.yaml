@@ -274,7 +274,7 @@ components:
           default: false
           example: [{seqNum: 1,start: 1.0,end: 4.0}]
           description: |+
-            Optional. An ordered array of utterance struct. Used for time-coding.
+            Optional parameter to be used only if vad is false. An ordered array of utterance struct. Used for time-coding.
           items:
             oneOf:
               - type: object 
