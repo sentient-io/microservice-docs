@@ -3,7 +3,7 @@ openapi: 3.0.1
 info:
   title: Paraphrase
   description: |+
-    This microservice is used to rewrite and enhance the input text.
+    This microservice is used to rewrite and enhance the input sentence.
   version: v0.1.0
   x-additionalinfo:
   x-subscribelink: paraphrase
