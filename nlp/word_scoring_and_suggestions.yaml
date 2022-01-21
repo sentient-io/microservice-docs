@@ -211,6 +211,15 @@ components:
         status:
           type: string
           example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     gatewaytimeout:
       type: object
       properties:
