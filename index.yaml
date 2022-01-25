@@ -84,6 +84,10 @@ voice:
     versions:
       0.1.0: 'automatic_speech_recognition_chi_large_file.yaml'      
 nlp:
+  kyc:
+    title: KYC
+    versions:
+      0.1.0: 'kyc.yaml'
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
     versions:
