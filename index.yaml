@@ -78,11 +78,7 @@ voice:
   speaker_diarization:
     title: Speaker Diarization
     versions:
-      0.1.0: 'speaker_diarization.yaml'     
-  automatic_speech_recognition_chi_large_file:
-    title: Automatic Speech Recognition CHI (Large File)
-    versions:
-      0.1.0: 'automatic_speech_recognition_chi_large_file.yaml'      
+      0.1.0: 'speaker_diarization.yaml'        
 nlp:
   kyc:
     title: KYC
