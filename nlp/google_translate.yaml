@@ -242,7 +242,11 @@ components:
           example: "Good Morning"
           description: Input text that has to be translated (can be in any language). It supports 5000 characters.
           default: true
-        target_lang:
+        input_language:
+          type: string
+          example: en
+          description: Optional. Specify the input language of the input text, if required.
+        target_language:
           type: string
           example: "fr"
           description: |+
