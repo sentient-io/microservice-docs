@@ -157,15 +157,6 @@ components:
         status:
           type: string
           example: Failure
-    notfound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Request URL
-        status:
-          type: string
-          example: Failure
     servererror:
       type: object
       properties:
