@@ -599,36 +599,34 @@ components:
           example: en-US
           description: |+
             Specify the language code of the input audio.
-        word_time_offsets:
-          type: boolean
-          default: false
-          example: false
-          description: |+
-            Specifies whether to enable word time offsets during post-processing. Valid values - True and False. Default value - False.
         automatic_punctuation:
           type: boolean
           default: false
           example: false
           description: |+
             Specifies whether to enable automatic punctuation during post-processing. Valid values - True and False. Default value - False.
+            It is supported only for selected languages, refer to additional info for details.
         profanity_filter:
           type: boolean
           default: false
           example: false
           description: |+
             Specifies whether to add profanity filter during post-processing. Valid Values - True and False. Default value - False.
+            It is supported only for selected languages, refer to additional info for details.
         spoken_punctuation:
           type: boolean
           default: false
           example: false
           description: |+
             Specifies whether to enable spoken punctuation during post-processing. Valid values - True and False. Default value - False.
+            It is supported only for selected languages, refer to additional info for details.
         spoken_emojis:
           type: boolean
           default: false
           example: false
           description: |+
             Specifies whether to enable spoken emojis during post-processing. Valid values - True and False. Default value - False.
+            It is supported only for selected languages, refer to additional info for details.
     uploadinput:
       type: object
       required:
