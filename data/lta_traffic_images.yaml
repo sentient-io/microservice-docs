@@ -337,7 +337,7 @@ components:
           type: boolean
           default: false
           example: false
-          description: It returns the hourly aggregation of no of camera images. Input should be true/false, default is false.
+          description: It returns the hourly aggregation of total number of camera images captured. Input should be true/false, default is false.
         collapse:
           type: boolean
           default: false
