@@ -10,48 +10,43 @@ info:
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
     * **Supported languages are:**
-          -
-             Name: English (Australia)
-             BCP-47: en-AU
-             Automatic punctuation: Yes
-             Profanity filter: Yes
-             Spoken punctuation: Yes
-             Spoken emojis: Yes
-          -
-             Name: English (India)
-             BCP-47: en-IN
-             Automatic punctuation: Yes
-             Profanity filter: Yes
-             Spoken punctuation: Yes
-             Spoken emojis: Yes
-          -
-             Name: English (Singapore)
-             BCP-47: en-SG
-             Automatic punctuation: Yes
-             Profanity filter: Yes
-             Spoken punctuation: Yes
-             Spoken emojis: Yes
-          -
-             Name: English (United Kingdom)
-             BCP-47: en-GB
-             Automatic punctuation: Yes
-             Profanity filter: Yes
-             Spoken punctuation: Yes
-             Spoken emojis: Yes
-          -
-             Name: English (United States)
-             BCP-47: en-US
-             Automatic punctuation: Yes
-             Profanity filter: Yes
-             Spoken punctuation: Yes
-             Spoken emojis: Yes
-          -
-             Name: French (France)
-             BCP-47: fr-FR
-             Automatic punctuation: Yes
-             Profanity filter: Yes
-             Spoken punctuation: Yes
-             Spoken emojis: Yes
+          - Name: English (Australia)
+            BCP-47: en-AU
+            Automatic punctuation: 'Yes'
+            Profanity filter: 'Yes'
+            Spoken punctuation: 'Yes'
+            Spoken emojis: 'Yes'
+          - Name: English (India)
+            BCP-47: en-IN
+            Automatic punctuation: 'Yes'
+            Profanity filter: 'Yes'
+            Spoken punctuation: 'Yes'
+            Spoken emojis: 'Yes'
+          - Name: English (Singapore)
+            BCP-47: en-SG
+            Automatic punctuation: 'Yes'
+            Profanity filter: 'Yes'
+            Spoken punctuation: 'Yes'
+            Spoken emojis: 'Yes'
+          - Name: English (United Kingdom)
+            BCP-47: en-GB
+            Automatic punctuation: 'Yes'
+            Profanity filter: 'Yes'
+            Spoken punctuation: 'Yes'
+            Spoken emojis: 'Yes'
+          - Name: English (United States)
+            BCP-47: en-US
+            Automatic punctuation: 'Yes'
+            Profanity filter: 'Yes'
+            Spoken punctuation: 'Yes'
+            Spoken emojis: 'Yes'
+          - Name: French (France)
+            BCP-47: fr-FR
+            Automatic punctuation: 'Yes'
+            Profanity filter: 'Yes'
+            Spoken punctuation: 'Yes'
+            Spoken emojis: 'Yes'
+
 
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/google_asr.pdf      
