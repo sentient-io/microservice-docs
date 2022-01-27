@@ -8,7 +8,7 @@ info:
       - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
     For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
   x-additionalinfo: |+
-    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/dev/form.html
     * **Supported languages are:**
             - af-ZA - Afrikaans
             - sq-AL - Albanian
