@@ -10,57 +10,12 @@ info:
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
     * **Supported languages are:**
-          root: 
-           rows: 
-            - 
-             col1: Name
-             col2: "BCP-47"
-             col3: "Automatic punctuation"
-             col4: "Profanity filter"
-             col5: "Spoken punctuation"
-             col6: "Spoken emojis"
-            - 
-             col1: "English (Australia)"
-             col2: "en-AU"
-             col3: Yes
-             col4: Yes
-             col5: Yes
-             col6: Yes
-            - 
-             col1: "English (India)"
-             col2: "en-IN"
-             col3: Yes
-             col4: Yes
-             col5: Yes
-             col6: Yes
-            - 
-             col1: "English (Singapore)"
-             col2: "en-SG"
-             col3: Yes
-             col4: Yes
-             col5: Yes
-             col6: Yes
-            - 
-             col1: "English (United Kingdom)"
-             col2: "en-GB"
-             col3: Yes
-             col4: Yes
-             col5: Yes
-             col6: Yes
-            - 
-             col1: "English (United States)"
-             col2: "en-US"
-             col3: Yes
-             col4: Yes
-             col5: Yes
-             col6: Yes
-            - 
-             col1: "French (France)"
-             col2: "fr-FR"
-             col3: Yes
-             col4: Yes
-             col5: Yes
-             col6: Yes
+          Groups:
+            ATeam:
+              - [FirstName, LastName, Height]
+              - [Joe, Soap, 184]
+              - [Mary, Ryan, 169]
+              - [Alex, Dole, 174]
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/google_asr.pdf      
   version: '0.1.0'
