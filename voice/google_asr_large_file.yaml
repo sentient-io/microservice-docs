@@ -18,6 +18,10 @@ info:
           | English (United Kingdom) |  en-GB   |           Yes             |          Yes         |           Yes          |         Yes       |
           | English (United States)  |  en-US   |           Yes             |          Yes         |           Yes          |         Yes       |
           | French (France)          |  fr-FR   |           Yes             |          Yes         |           Yes          |         Yes       |
+          | **id** | **name** | **age** | **gender** |
+          |:------:|:--------:|:-------:|:----------:|
+          | 1      | Roberta  | 39      | M          |
+          | 2      | Oliver   | 25      | M          |
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/google_asr.pdf      
   version: '0.1.0'
