@@ -10,18 +10,143 @@ info:
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
     * **Supported languages are:**
-            +------------+----------+--------+------------+
-            |    Date    |  Range   |   Pr   | Expiration |
-            +------------+----------+--------+------------+
-            | 2016-01-04 | [-2, 20] |    0.9 |            |
-            | 2016-01-04 | [-2, 20] |    0.9 |            |
-            | 2016-01-07 |          |        |            |
-            | 2016-01-04 |          | [0, 3] |            |
-            | 2015-12-25 |  [-1, 2] |    0.8 |            |
-            | 2015-12-23 |   [0, 7] |    0.2 | 2015-12-23 |
-            | 2016-01-04 | [-∞, 12] |   0.12 | 2015-12-31 |
-            | 2015-12-28 |          |        |            |
-            +------------+----------+--------+------------+
+            - af-ZA - Afrikaans
+            - sq-AL - Albanian
+            - am-ET - Amharic
+            - ar-DZ - Arabic (Algeria)
+            - ar-BH - Arabic (Bahrain)
+            - ar-EG - Arabic (Egypt)
+            - ar-IQ - Arabic (Iraq)
+            - ar-IL - Arabic (Israel)
+            - ar-JO - Arabic (Jordan)
+            - ar-KW - Arabic (Kuwait)
+            - ar-LB - Arabic (Lebanon)
+            - ar-MA - Arabic (Morocco)
+            - ar-OM - Arabic (Oman)
+            - ar-QA -Arabic (Qatar)
+            - ar-SA - Arabic (Saudi Arabia)
+            - ar-PS - Arabic (State of Palestine)
+            - ar-TN - Arabic (Tunisia)
+            - ar-AE - Arabic (United Arab Emirates)
+            - ar-YE - Arabic (Yemen)
+            - hy-AM - Armenian
+            - az-AZ - Azerbaijani
+            - eu-ES - Basque
+            - bn-BD - Bengali (Bangladesh)
+            - bn-IN - Bengali (India)
+            - bs-BA - Bosnian
+            - bg-BG - Bulgarian
+            - my-MM - Burmese
+            - ca-ES - Catalan
+            - yue-Hant-HK - Chinese, Cantonese (Traditional Hong Kong)
+            - zh - Chinese, Mandarin (Simplified, China)
+            - zh-TW - Chinese, Mandarin (Traditional, Taiwan)
+            - hr-HR - Croatian
+            - cs-CZ - Czech
+            - da-DK - Danish
+            - nl-BE - Dutch (Belgium)
+            - nl-NL - Dutch (Netherlands)
+            - en-AU - English (Australia)
+            - en-CA - English (Canada)
+            - en-GH - English (Ghana)
+            - en-HK - English (Hong Kong)
+            - en-IN - English (India)
+            - en-IE - English (Ireland)
+            - en-KE - Englisgh (Kenya)
+            - en-NZ - English ( New Zealand)
+            - en-NG - English ( Nigeria)
+            - en-PK - English (Pakistan)
+            - en-PH - English (Philippines)
+            - en-SG - English (Singapore)
+            - en-ZA - English (South Africa)
+            - en-TZ - English (Tanzania)
+            - en-GB - English (United Kingdom)
+            - en-US - English (United States)
+            - et-EE - Estonian
+            - fil-PH - Filipino
+            - fi-FI - Finnish
+            - fr-BE - French (Belgium)
+            - fr-CA - French (Canada)
+            - fr-FR - French (France)
+            - fr-CH - French (Switzerland)
+            - gl-ES - Galician
+            - ka-GE - Georgian
+            - de-AT - German (Austria)
+            - de-DE - German (Germany)
+            - de-CH - German (Switerzland)
+            - el-GR - Greek
+            - gu-IN - Gujarati
+            - iw-IL - Hebrew
+            - hi-IN - Hindi
+            - hu-HU - Hungarian
+            - is-IS - Icelandic
+            - id-ID - Indonesia
+            - it-IT - Italian (Italy)
+            - it-CH - Italian (Switzerland)
+            - ja-JP - Japanese
+            - jv-ID - Javanese (Indonesia)
+            - kn-IN - Kannada
+            - kk-KZ - Kazakh
+            - KM-kh - kHMER
+            - KO-KR - Korean
+            - lo-LA - Lao
+            - lv-LV - Latvian
+            - lt-LT - Lithuanian
+            - mk-MK - Macedonian
+            - ms-MY - Malay (Malaysia)
+            - ml-IN - Malayalam
+            - mr-IN - Marathi
+            - mn-MN - Mongolian
+            - ne-NP - Nepali
+            - no-NO - Norwegian
+            - fa-IR - Persian
+            = pl-PL - Polish
+            - pt-BR - Portuguese (Brazil)
+            - pt-PT - Portuguese (Portugal)
+            - pa-Guru-IN - Punjabi (Gurmukhi India)
+            - ro-RO - Romanian
+            - ru-RU - Russian
+            - sr-RS - Serbian
+            - si-LK - Sinhala (Sri Lanka)
+            - sk-SK - Slovak
+            - sl-SI - Slovenian
+            - es-AR - Spanish (Argentina)
+            - es-BO - Spanish (Bolivia)
+            - es-CL - Spanish (Chile)
+            - es-CO - Spanish (Colombia)
+            - es-CR - Spanish (Costa Rica)
+            - es-DO - Spanish (Dominican Republic)
+            - es-EC - Spanish (Ecuador)
+            - es-SV - Spanish (Salvador)
+            - es-GT - Spanish (Guatemala)
+            - es-HN - Spanish (Honduras)
+            - es-MX - Spanish (Mexico)
+            - es-NI - Spanish (Nicaragua)
+            - es-PA - Spanish (Panama)
+            - es-PY - Spanish (Paraguay)
+            - es-PE - Spanish (Peru)
+            - es-PR - Spanish (Puerto Rico)
+            - es-ES - Spanish (Spain)
+            - es-US - Spanish (United States)
+            - es-UY - Spanish (Uruguay)
+            - es-VE - Spanish (Venezuela)
+            - su-ID - Sundanese (Indonesia)
+            - sw-KE - Swahili (Kenya)
+            - sw-TZ - swahili (Tanzania)
+            - sv-SE - Swedish
+            - ta-IN - Tamil (India)
+            - ta-MY - Tamil (Malaysia)
+            - ta-SG - Tamil (Singapore)
+            - ta-LK - Tamil (Sri Lanka)
+            - te-IN - Telugu
+            - th-TH - Thai
+            - tr-TR - Turkish
+            - uk-UA - Ukrainian
+            - ur-IN - Urdu (India)
+            - ur-PK - Urdu (Pakistan)
+            - uz-UZ - Uzbek
+            - ui-VN - Vietnamese
+            - zu-ZA - Zulu
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/google_asr.pdf      
   version: '0.1.0'
