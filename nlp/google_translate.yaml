@@ -245,7 +245,7 @@ components:
         input_language:
           type: string
           example: en
-          description: Optional. Specify the input language of the input text, if required.
+          description: Specify the input language of the input text, if required. If not specified it will automatically detect the input language.
         target_language:
           type: string
           example: "fr"
