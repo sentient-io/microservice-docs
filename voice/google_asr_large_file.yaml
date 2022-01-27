@@ -11,14 +11,145 @@ info:
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/dev/form.html
     * **Supported Languages:**
     
-    |          **Name**        | **Code** | **Automatic punctuation** | **Profanity filter** | **Spoken punctuation** | **Spoken emojis** |
-    |:------------------------:|:--------:|:-------------------------:|:--------------------:|:----------------------:|:-----------------:|
-    | English (Australia)      |  en-AU   |           Yes             |          Yes         |           Yes          |         Yes       |
-    | English (India)          |  en-IN   |           Yes             |          Yes         |           Yes          |         Yes       |
-    | English (Singapore)      |  en-SG   |           Yes             |          Yes         |           Yes          |         Yes       |
-    | English (United Kingdom) |  en-GB   |           Yes             |          Yes         |           Yes          |         Yes       |
-    | English (United States)  |  en-US   |           Yes             |          Yes         |           Yes          |         Yes       |
-    | French (France)          |  fr-FR   |           Yes             |          Yes         |           Yes          |         Yes       |
+    |                 **Name**                    |       **Code**       | **Automatic punctuation** | **Profanity filter** | **Spoken punctuation** | **Spoken emojis** |
+    |:-------------------------------------------:|:--------------------:|:-------------------------:|:--------------------:|:----------------------:|:-----------------:|
+    | Afrikaans (South Africa)                    |       af-ZA          |           No              |          Yes         |           No           |         No        |
+    | Albanian (Albania)                          |       sq-AL          |           No              |          Yes         |           No           |         No        |
+    | Amharic (Ethiopia)	                        |       am-ET          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Algeria)	                          |       ar-DZ          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Bahrain)	                          |       ar-BH          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Egypt)	                            |       ar-EG          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Iraq)	                              |       ar-IQ          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Israel)	                            |       ar-IL          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Jordan)	                            |       ar-JO          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Kuwait)	                            |       ar-KW          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Lebanon)	                          |       ar-LB          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Morocco)	                          |       ar-MA          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Oman)	                              |       ar-OM          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Qatar)	                            |       ar-QA          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Saudi Arabia)	                      |       ar-SA          |           No              |          Yes         |           No           |         No        |
+    | Arabic (State of Palestine)                 |       ar-PS          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Tunisia)	                          |       ar-TN          |           No              |          Yes         |           No           |         No        |
+    | Arabic (United Arab Emirates)	              |       ar-AE          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Yemen)	                            |       ar-YE          |           No              |          Yes         |           No           |         No        |
+    | Armenian (Armenia)	                        |       hy-AM          |           No              |          Yes         |           No           |         No        |
+    | Azerbaijani (Azerbaijan)	                  |       az-AZ          |           No              |          Yes         |           No           |         No        |
+    | Basque (Spain)	                            |       eu-ES          |           No              |          Yes         |           No           |         No        |
+    | Bengali (Bangladesh)	                      |       bn-BD          |           No              |          Yes         |           No           |         No        |
+    | Bengali (India)	                            |       bn-IN          |           No              |          Yes         |           No           |         No        |
+    | Bosnian (Bosnia and Herzegovina)            |       bs-BA          |           No              |          Yes         |           No           |         No        |
+    | Bulgarian (Bulgaria)	                      |       bg-BG          |           No              |          Yes         |           No           |         No        |
+    | Burmese (Myanmar)	                          |       my-MM          |           No              |          Yes         |           No           |         No        |
+    | Catalan (Spain)	                            |       ca-ES          |           No              |          Yes         |           No           |         No        |
+    | Chinese, Cantonese (Traditional Hong Kong)  |	    yue-Hant-HK      |           No              |          Yes         |           No           |         No        |
+    | Chinese, Mandarin (Simplified, China)       |   zh (cmn-Hans-CN)   |           Yes             |          Yes         |           No           |         No        |
+    | Chinese, Mandarin (Traditional, Taiwan)	    | zh-TW (cmn-Hant-TW)  |           Yes             |          Yes         |           No           |         No        |
+    | Croatian (Croatia)	                        |       hr-HR          |           No              |          Yes         |           No           |         No        |
+    | Czech (Czech Republic)	                    |       cs-CZ          |           Yes             |          Yes         |           Yes          |         No        |
+    | Danish (Denmark)	                          |       da-DK          |           Yes             |          Yes         |           Yes          |         No        |
+    | Dutch (Belgium)	                            |       nl-BE          |           No              |          Yes         |           Yes          |         No        |
+    | Dutch (Netherlands)	                        |       nl-NL          |           No              |          Yes         |           Yes          |         No        |
+    | English (Australia)                         |       en-AU          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | English (Canada)	                          |       en-CA          |           No              |          Yes         |           No           |         No        |
+    | English (Ghana)	                            |       en-GH          |           No              |          Yes         |           Yes          |         No        |
+    | English (Hong Kong)	                        |       en-HK          |           No              |          Yes         |           Yes          |         Yes       |
+    | English (India)                             |       en-IN          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | English (Ireland)                   	      |       en-IE          |           No              |          Yes         |           Yes          |         Yes       |
+    | English (Kenya)	                            |       en-KE          |           No              |          Yes         |           Yes          |         No        |
+    | English (New Zealand)     	                |       en-NZ          |           No              |          Yes         |           Yes          |         Yes       |
+    | English (Nigeria)                           |       en-NG          |           No              |          Yes         |           Yes          |         No        |
+    | English (Pakistan)	                        |       en-PK          |           No              |          Yes         |           Yes          |         Yes       |
+    | English (Philippines)	                      |       en-PH          |           No              |          Yes         |           No           |         No        |
+    | English (Singapore)                         |       en-SG          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | English (South Africa)	                    |       en-ZA          |           No              |          Yes         |           Yes          |         No        |
+    | English (Tanzania)	                        |       en-TZ          |           No              |          Yes         |           Yes          |         No        |
+    | English (United Kingdom)                    |       en-GB          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | English (United States)                     |       en-US          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | Estonian (Estonia)	                        |       et-EE          |           No              |          Yes         |           No           |         No        |
+    | Filipino (Philippines)	                    |       fil-PH         |           No              |          Yes         |           No           |         No        |
+    | Finnish (Finland)	                          |       fi-FI          |           No              |          Yes         |           No           |         No        |
+    | French (Belgium)	                          |       fr-BE          |           No              |          Yes         |           Yes          |         Yes       |
+    | French (Canada)	                            |       fr-CA          |           No              |          Yes         |           Yes          |         No        |
+    | French (France)                             |       fr-FR          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | French (Switzerland)	                      |       fr-CH          |           No              |          Yes         |           Yes          |         Yes       |
+    | Galician (Spain)	                          |       gl-ES          |           No              |          Yes         |           No           |         No        |
+    | Georgian (Georgia)	                        |       ka-GE          |           No              |          Yes         |           No           |         No        |
+    | German (Austria)	                          |       de-AT          |           No              |          Yes         |           Yes          |         No        |
+    | German (Germany)	                          |       de-DE          |           Yes             |          Yes         |           Yes          |         No        |
+    | German (Switzerland)	                      |       de-CH          |           No              |          Yes         |           Yes          |         No        |
+    | Greek (Greece)	                            |       el-GR          |           No              |          Yes         |           No           |         No        |
+    | Gujarati (India)	                          |       gu-IN          |           No              |          Yes         |           No           |         No        |
+    | Hebrew (Israel)	                            |       iw-IL          |           No              |          Yes         |           Yes          |         No        |
+    | Hindi (India)	                              |       hi-IN          |           No              |          Yes         |           Yes          |         No        |
+    | Hungarian (Hungary)	                        |       hu-HU          |           No              |          Yes         |           No           |         No        |
+    | Icelandic (Iceland)	                        |       is-IS          |           No              |          Yes         |           No           |         No        |
+    | Indonesian (Indonesia)	                    |       id-ID          |           Yes             |          Yes         |           Yes          |         No        |
+    | Italian (Italy)	                            |       it-IT          |           Yes             |          Yes         |           Yes          |         No        |
+    | Italian (Switzerland)	                      |       it-CH          |           No              |          Yes         |           Yes          |         No        |
+    | Japanese (Japan)	                          |       ja-JP          |           Yes             |          Yes         |           Yes          |         No        |
+    | Javanese (Indonesia)	                      |       jv-ID          |           No              |          Yes         |           No           |         No        |
+    | Kannada (India)	                            |       kn-IN          |           No              |          Yes         |           No           |         No        |
+    | Kazakh (Kazakhstan)	                        |       kk-KZ          |           No              |          Yes         |           No           |         No        |
+    | Khmer (Cambodia)	                          |       km-KH          |           No              |          Yes         |           No           |         No        |
+    | Korean (South Korea)	                      |       ko-KR          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | Lao (Laos)	                                |       lo-LA          |           No              |          Yes         |           No           |         No        |
+    | Latvian (Latvia)	                          |       lv-LV          |           No              |          Yes         |           No           |         No        |
+    | Lithuanian (Lithuania)	                    |       lt-LT          |           No              |          Yes         |           No           |         No        |
+    | Macedonian (North Macedonia)	              |       mk-MK          |           No              |          Yes         |           No           |         No        |
+    | Malay (Malaysia)	                          |       ms-MY          |           No              |          Yes         |           No           |         No        |
+    | Malayalam (India)	                          |       ml-IN          |           No              |          Yes         |           No           |         No        |
+    | Marathi (India)                             |       mr-IN          |           No              |          Yes         |           No           |         No        |
+    | Mongolian (Mongolia)	                      |       mn-MN          |           No              |          Yes         |           No           |         No        |
+    | Nepali (Nepal)	                            |       ne-NP          |           No              |          Yes         |           No           |         No        |
+    | Norwegian Bokmål (Norway)	                  |       no-NO          |           No              |          Yes         |           Yes          |         No        |
+    | Persian (Iran)	                            |       fa-IR          |           No              |          Yes         |           No           |         No        |
+    | Polish (Poland)	                            |       pl-PL          |           No              |          Yes         |           Yes          |         No        |
+    | Portuguese (Brazil)	                        |       pt-BR          |           No              |          Yes         |           Yes          |         No        |
+    | Portuguese (Portugal)	                      |       pt-PT          |           No              |          Yes         |           Yes          |         No        |
+    | Punjabi (Gurmukhi India)	                  |     pa-Guru-IN       |           No              |          Yes         |           Yes          |         No        |
+    | Romanian (Romania)	                        |       ro-RO          |           No              |          Yes         |           No           |         No        |
+    | Russian (Russia)	                          |       ru-RU          |           No              |          Yes         |           Yes          |         No        |
+    | Serbian (Serbia)	                          |       sr-RS          |           No              |          Yes         |           No           |         No        |
+    | Sinhala (Sri Lanka)	                        |       si-LK          |           No              |          Yes         |           No           |         No        |
+    | Slovak (Slovakia)	                          |       sk-SK          |           No              |          Yes         |           No           |         No        |
+    | Slovenian (Slovenia)	                      |       sl-SI          |           No              |          Yes         |           No           |         No        |
+    | Spanish (Argentina)	                        |       es-AR          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Bolivia)	                          |       es-BO          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Chile)	                            |       es-CL          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Colombia)	                        |       es-CO          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Costa Rica)	                      |       es-CR          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Dominican Republic)	              |       es-DO          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Ecuador)	                          |       es-EC          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (El Salvador)	                      |       es-SV          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Guatemala)	                        |       es-GT          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Honduras)	                        |       es-HN          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Mexico)	                          |       es-MX          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Nicaragua)	                        |       es-NI          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Panama)	                          |       es-PA          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Paraguay)	                        |       es-PY          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Peru)	                            |       es-PE          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Puerto Rico)	                      |       es-PR          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Spain)	                            |       es-ES          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (United States)	                    |       es-US          |           Yes             |          Yes         |           Yes          |         No        |
+    | Spanish (Uruguay)	                          |       es-UY          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Venezuela)	                        |       es-VE          |           No              |          Yes         |           Yes          |         No        |
+    | Sundanese (Indonesia)                       |       su-ID          |           No              |          Yes         |           No           |         No        |
+    | Swahili (Kenya)	                            |       sw-KE          |           No              |          Yes         |           No           |         No        |
+    | Swahili (Tanzania)	                        |       sw-TZ          |           No              |          Yes         |           No           |         No        |
+    | Swedish (Sweden)	                          |       sv-SE          |           Yes             |          Yes         |           Yes          |         No        |
+    | Tamil (India)	                              |       ta-IN          |           No              |          Yes         |           No           |         No        |
+    | Tamil (Malaysia)	                          |       ta-MY          |           No              |          Yes         |           No           |         No        |
+    | Tamil (Singapore)	                          |       ta-SG          |           No              |          Yes         |           No           |         No        |
+    | Tamil (Sri Lanka)	                          |       ta-LK          |           No              |          Yes         |           No           |         No        |
+    | Telugu (India)                              |       te-IN          |           No              |          Yes         |           No           |         No        |
+    | Thai (Thailand)	                            |       th-TH          |           No              |          Yes         |           No           |         No        |
+    | Turkish (Turkey)	                          |       tr-TR          |           Yes             |          Yes         |           Yes          |         No        |
+    | Ukrainian (Ukraine)	                        |       uk-UA          |           No              |          Yes         |           No           |         No        |
+    | Urdu (India)	                              |       ur-IN          |           No              |          Yes         |           No           |         No        |
+    | Urdu (Pakistan)	                            |       ur-PK          |           No              |          Yes         |           No           |         No        |
+    | Uzbek (Uzbekistan)	                        |       uz-UZ          |           No              |          Yes         |           No           |         No        |
+    | Vietnamese (Vietnam)	                      |       vi-VN          |           No              |          Yes         |           No           |         No        |
+    | Zulu (South Africa)                         |       zu-ZA          |           No              |          Yes         |           No           |         No        |
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/google_asr.pdf      
   version: '0.1.0'
