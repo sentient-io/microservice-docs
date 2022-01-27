@@ -3,7 +3,7 @@ info:
   title: LTA Traffic Images
   x-subscribelink: lta_traffic_images
   description: |+
-    This Data microservice returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 1 to 5 minutes or whenever there are updates.
+    This Data microservice returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 2 minutes.
     This microservice contains information from LTA Datamall's Traffic Images dataset which is made available under the terms of the[Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
   x-additionalinfo : |+
     **Match Types:**
@@ -20,14 +20,33 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.3138,103.8456"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"image_link"}}
+
+    **Aggregations Request Data:**
+      > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"camera_id":"1709"}}]}
+      
+    **Last Updated Data in Time Limit:**
+      > {"limit":10,"offset":0,"collapse":true,"filter":[{"range": {"lastupdated": {"gte": "2021-11-26T17:00:00","lte": "2021-11-26T18:00:00"}}}]} 
       
     **Generate Presigned URL:**      
-        Traffic images are stored in GCP location. To access the image need to generate the presigned URL.
+        Traffic images are stored in GCS location. To access the image need to generate the presigned URL.
           **End Point** - https://dev-apis.sentient.io/microservices/data/ltapresignedurl/v0/getdata
           **Input Example** - {"image_link": "gs://lta_data/trafficimages/1501_20211022_194451.jpg"}
   version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides links to images of live traffic conditions.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
@@ -299,7 +318,8 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 30, 2021
-              description: Initial version release
+              x-details: Initial version release
+              description: Latest Version
     input:
       type: object
       properties:
@@ -313,6 +333,18 @@ components:
           default: false
           example: 0
           description: The offset of the record list ie the starting index 
+        aggregation:
+          type: boolean
+          default: false
+          example: false
+          description: It returns the hourly aggregation of no of camera images. Input should be true/false, default is false.
+        collapse:
+          type: boolean
+          default: false
+          example: false
+          description: |+
+              It returns the last updated data alone based on time. Input should be true/false, default is false. Collapse key 
+              cannot be used along with aggregation data.           
         filter:
           type: array
           default: false
