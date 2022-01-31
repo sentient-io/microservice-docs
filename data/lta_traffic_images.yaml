@@ -199,7 +199,7 @@ components:
                         description: A unique ID for this camera
                       imageLink:
                         type: string
-                        example: 'gs://lta_data/trafficimages/1501_20211022_194451.jpg'
+                        example: 'https://cdn.sentient/io/lta_data/trafficimages/1501_20211022_194451.jpg'
                         description: |+
                                     • Link for downloading this image.
                       location:
