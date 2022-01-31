@@ -216,7 +216,7 @@ components:
                     properties:
                       type:
                         type: string
-                        example: Road Works
+                        example: Roadwork
                         description: |+
                                   Incident Types - 
                                   • Accident
