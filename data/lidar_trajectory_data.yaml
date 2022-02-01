@@ -379,6 +379,11 @@ components:
             * range
             * geo_distance
             * exists
+        scroll_id:
+          type: string
+          default: false
+          example: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAC-UWZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
+          description: when Elastic Search more than 10K data need to add the scroll_id for pagination with query.         
   securitySchemes:
     APIAuthorizer:
       type: apiKey
