@@ -38,7 +38,7 @@ info:
   x-apidetailsdesc: |+
     Provides real time incidents on the roads.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Oct 13, 2021"
