@@ -46,7 +46,7 @@ info:
   x-apidetailsdesc: |+
     Provides links to images of live traffic conditions.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
