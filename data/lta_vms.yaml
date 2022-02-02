@@ -36,7 +36,7 @@ info:
   x-apidetailsdesc: |+
     Provides traffic advisories.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Jul 30, 2021"
