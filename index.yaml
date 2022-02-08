@@ -331,7 +331,7 @@ data:
     title: Train Stations (SG)
     versions:
       0.1.0: 'train_stations_sg.yaml' 
-Platform APIs:
+platform apis:
   org_info:
     title: View Organizational Info
     urlkey: org_info
