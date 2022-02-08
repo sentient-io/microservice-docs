@@ -1,0 +1,367 @@
+openapi: 3.0.1
+info:
+  title: Recommendation Engine
+  description: |+
+    Recommendation Engine is a new type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm (CCO), which can use data from a wide variety of sources to tune and make recommendations better.
+  version: '1.0.0'
+servers:
+  - url: 'https://dev-ttap-harnessapps.sentient.io'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - Oct 30, 2020"
+paths:
+  /addevent:
+    post:
+      tags:
+        - v1.0.0
+      description: testing
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                "{\"comment\":\"UR input processed\"}"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+  /viewevent:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vieweventsuccess'
+              example: 
+                "{\"result\":[{\"item\":\"Page 30\",\"score\":2.48592472076416},{\"item\":\"Page 24\",\"score\":2.48592472076416},{\"item\":\"Page 21\",\"score\":2.48592472076416},{\"item\":\"Page 29\",\"score\":2.48592472076416},{\"item\":\"Page 26\",\"score\":2.48592472076416},{\"item\":\"Page 17\",\"score\":2.48592472076416},{\"item\":\"Page 12\",\"score\":2.48592472076416},{\"item\":\"Page 1\",\"score\":2.48592472076416},{\"item\":\"Page 7\",\"score\":1.862879991531372},{\"item\":\"Page 20\",\"score\":0.6230446696281433},{\"item\":\"Page 27\",\"score\":0.6230446696281433},{\"item\":\"Page 25\",\"score\":0.6230446696281433},{\"item\":\"Page 23\",\"score\":0.6230446696281433},{\"item\":\"Page 22\",\"score\":0.6230446696281433},{\"item\":\"Page 16\",\"score\":0.6230446696281433},{\"item\":\"Page 28\",\"score\":0.6230446696281433},{\"item\":\"Page 6\",\"score\":0.6230446696281433},{\"item\":\"Page 9\",\"score\":0.6230446696281433},{\"item\":\"Page 11\",\"score\":0.6230446696281433},{\"item\":\"Page 3\",\"score\":0.6230446696281433}]}"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vieweventinput'
+        required: true
+  /trainevent:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/traineventsuccess'
+              example: 
+                "{\"description\":{\"jobId\":\"e4673adc-f50d-4f90-8f72-eb1d9dba7628\",\"status\":{\"name\":\"queued\"},\"comment\":\"Spark job\",\"createdAt\":\"2022-01-20T06:17:55.504Z\"},\"comment\":\"Started train Job on Spark\"}"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+  /bulkupload:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bulkuploadsuccess'
+              example: 
+                "{\"description\":{\"jobId\":\"e4673adc-f50d-4f90-8f72-eb1d9dba7628\",\"status\":{\"name\":\"queued\"},\"comment\":\"Spark job\",\"createdAt\":\"2022-01-20T06:17:55.504Z\"},\"comment\":\"Started train Job on Spark\"}"
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/bulkuploadinput'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        comment:
+          type: string
+          description: The result of the API call.
+          example: UR input processed
+    bulkuploadsuccess:
+      type: object
+      properties:
+        comment:
+          type: string
+          description: The result of the API call.
+          example: UR input processed
+    vieweventsuccess:
+      type: object
+      properties:
+        result:
+          type: array
+          description: The result of the API call.
+          example: UR input processed
+          items:
+            type: object
+            properties:
+              item:
+                type: string
+                description: The result of the item details.
+                example: Page 30
+              score:
+                type: string
+                description: The result of the score details.
+                example: 2.48592472076416
+    traineventsuccess:
+      type: object
+      properties:
+        description:
+          type: object
+          description: The result of the API call.
+          example: UR input processed
+          properties:
+            jobId:
+              type: string
+              description: Job ID of the train event.
+              example: e4673adc-f50d-4f90-8f72-eb1d9dba7628
+            status:
+              type: object
+              description: List of the object
+              example: {"name": "queued"}
+              properties:
+                name:
+                  type: string
+                  description: Name of the job status
+                  example: queued
+            comment:
+              type: string
+              description: Comment of the train event
+              example: Spark job
+            createdAt:
+              type: string
+              description: Train event created date and time
+              example: "2022-01-20T06:17:55.504Z"
+        comment:
+          type: string
+          description: Comment of the train event
+          example: Started train Job on Spark
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Oct 30, 2020
+                x-details: Standardizing Output JSON
+                description: Latest Version
+    bulkuploadinput:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+          default: true
+          example: sample.csv
+          description: Upload CSV file with details of input - event, entityType, entityId, targetEntityType, targetEntityId, eventTime
+    vieweventinput:
+      type: object
+      properties:
+        user:
+          type: string
+          default: true
+          description: |+ 
+             The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
+          example: User 10
+    input:
+      type: object
+      required:
+        - event
+        - entityType
+        - entityId
+        - targetEntityType
+        - targetEntityId
+        - eventTime
+      properties:
+        event:
+          type: string
+          default: true
+          description: |+ 
+             The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
+          example: buy
+        entityType:
+          type: string
+          default: true
+          example: user
+          description: |+
+            This is always "user", do not use any other type for indicators.
+        entityId:
+          type: string
+          default: true
+          example: User 10
+          description: |+
+            This is whatever string you use to identify a user.
+        targetEntityType:
+          type: string
+          default: true
+          example: item
+          description: |+
+            This is always "item", do not use any other type for indicators.
+        targetEntityId:
+          type: string
+          default: true
+          example: Page 15
+          description: |+
+            The id for items that correspond to the indicator name. May be a product-id, category-id, a tag-id, search term, location, anything that the event represents.
+        properties:
+          type: object
+          default: true
+          example: {}
+          description: |+
+            Always empty and can be omitted.
+        eventTime:
+          type: string
+          default: true
+          example: "2022-01-19T21:02:49.228Z"
+          description: |+
+            The ISO8601 formatted string for the time the event occurred.
