@@ -418,7 +418,6 @@ data alliance:
 Platform APIs:
   org_info:
     title: View Organizational Info
-    urlkey: org_info
     versions:
       0.1.0: 'org_info.yaml'
   update_org:
