@@ -205,6 +205,14 @@ components:
     versions:
       type: object
       properties: 
+        v0.1.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 10, 2022
+              x-details: Patch Update(Input Type Change)
+              description: Latest Version      
         v0.1.0:
          type: array
          items:
@@ -212,7 +220,7 @@ components:
             - type: string
               example: Published Date - Aug 30, 2019
               x-details: Initial version release
-              description: Latest Version
+              description: Archived
     input:
       type: object
       properties:
