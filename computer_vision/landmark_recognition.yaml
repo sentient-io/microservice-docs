@@ -244,7 +244,7 @@ components:
             - type: string
               example: Published Date - Jan 28, 2022
               x-details: |+
-                Optional Parametr landmark_loc introduced.
+                Optional Parameter location introduced.
               description: Latest Version
         v1.0.0:
           type: array
@@ -281,9 +281,9 @@ components:
           x-name: landmark_loc
           type: string
           default: false
-          example: sg
+          example: SG
           description: |+
-            Location of Landmark passed as input.Values accepted are sg and jp. By default its sg.
+            Location of Landmark passed as input.Values accepted are SG and JP. By default its SG.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
