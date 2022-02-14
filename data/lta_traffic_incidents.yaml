@@ -20,7 +20,11 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.3265,103.9730"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"message"}}
-
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"type":"Roadwork"}}]}}
+      > {"bool":{"must":[{"match":{"type":"Roadwork"}}]}}
+      > {"bool":{"should":[{"match":{"type":"Roadwork"}},{"match":{"type":"Vehicle Breakdown"}}]}}
+      
     **Aggregations Request Data:**
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"type":"Roadwork"}}]}
   version: '0.1.0'
