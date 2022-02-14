@@ -20,6 +20,10 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.3270,103.8848"}}     
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"message"}}
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"message":"HEAVY VEHICLES"}}]}}
+      > {"bool":{"must":[{"message":"HEAVY VEHICLES"}}]}}
+      > {"bool":{"should":[{"message":"HEAVY VEHICLES"}}]}}
       
   version: '0.1.0'
   x-apitype: small file
