@@ -124,27 +124,27 @@ components:
               type: array
               example: [{"end_char": 3,"entity": "Donald Trump","start_char": 1}]
               description: People, including fictional.
-            norp:
+            misc:
               x-name: misc
               type: array
               example: [{"entity":"Chinese","start_char": 1,"end_char": 2},{"entity":Singaporean,"start_char": 4,"end_char": 5},{"entity": Malay,"start_char": 6,"end_char": 7}]
               description: Nationalities or religious or political groups.
-            fac:
+            facility:
               x-name: facility
               type: array
               example: [{"entity":Changi Airport,"start_char": 1,"end_char": 3}]
               description: Buildings, airports, highways, bridges, etc.
-            org:
+            organization:
               x-name: organization
               type: array
               example: [{"entity": "ICAO","start_char": 14,"end_char": 15}]
               description: Companies, agencies, institutions, etc.
-            gpe:
+            geopolitical:
               x-name: geopolitical
               type: array
               example: [{"entity": "Singapore","start_char": 0,"end_char": 1}]
               description: Countries, cities, states.
-            loc:
+            location:
               x-name: location
               type: array
               example: [{"entity":"Asia","start_char": 42,"end_char": 43}]
