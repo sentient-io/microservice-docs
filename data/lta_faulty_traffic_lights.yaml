@@ -37,7 +37,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Oct 13, 2021"
+  description: "Published Date - Feb 01, 2022"
 paths:
    /microservices/data/ltafaultytrafficlights/v0/getdata:
     post:
@@ -308,7 +308,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Oct 13, 2021
+              example: Published Date - Feb 01, 2022
               x-details: Initial version release
               description: Latest Version
     input:
