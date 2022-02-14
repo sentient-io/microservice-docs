@@ -21,7 +21,11 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.29375,103.85718"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"area"}}
-
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"agency":"LTA"}}]}}
+      > {"bool":{"must":[{"agency":"LTA"}}]}}
+      > {"bool":{"should":[{"match":{"agency":"LTA"}}},{"match":{"agency":"HDB"}}]}}
+      
     **Aggregations Request Data:**
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"agency":"LTA"}}]}
       
