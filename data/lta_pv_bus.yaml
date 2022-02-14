@@ -19,7 +19,10 @@ info:
       > {"range": {"year_month": {"gte": "2021-09", "lte": "2021-10"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"day_type"}}
-      
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"day_type":"WEEKDAY"}}]}}
+      > {"bool":{"must":[{"match":{"day_type":"WEEKDAY"}}]}}
+      > {"bool":{"should":[{"match":{"day_type":"WEEKDAY"}}]}}      
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
