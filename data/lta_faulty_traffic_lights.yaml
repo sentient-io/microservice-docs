@@ -18,7 +18,10 @@ info:
       > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"alarmid"}}
-      
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"alarmid":"GL703034136"}}]}}
+      > {"bool":{"must":[{"match":{"alarmid":"GL703034136"}}]}}
+      > {"bool":{"should":[{"match":{"alarmid":"GL703034136"}},{"match":{"alarmid":"GL743034172"}}]}}      
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
