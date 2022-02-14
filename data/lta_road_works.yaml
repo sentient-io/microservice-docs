@@ -18,7 +18,11 @@ info:
       > {"range":{"end_date":{"gte":"now/d","lte":"now+100d/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"road_name"}}
-
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"road_name":"arthur"}}]}}
+      > {"bool":{"must":[{"match":{"road_name":"arthur"}}]}}
+      > {"bool":{"should":[{"match":{"road_name":"arthur"}}]}}
+      
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
