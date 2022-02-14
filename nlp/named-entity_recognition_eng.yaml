@@ -342,7 +342,7 @@ components:
         return_entity_position:
           x-name: return_entity_position
           type: boolean
-          default: true
+          default: false
           example: true
           description: |+
             Boolean value indicating whether entity position needs to be returned or not. Default value is True.
