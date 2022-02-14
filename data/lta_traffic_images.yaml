@@ -20,7 +20,11 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.3138,103.8456"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"image_link"}}
-
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"camera_id":"1709"}}]}}
+      > {"bool":{"must":[{"match":{"camera_id":"1709"}}]}}
+      > {"bool":{"should":[{"match":{"camera_id":"1709"}}]}}
+      
     **Aggregations Request Data:**
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"camera_id":"1709"}}]}
       
