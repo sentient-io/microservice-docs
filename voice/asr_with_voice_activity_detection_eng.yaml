@@ -261,8 +261,8 @@ components:
             Input audio wav file in base64 format. 
             
             Mono channel, 8kHz / 16kHz sampling rate.
-        vad:
-          x-name: vad
+        voice_activity_detection:
+          x-name: voice_activity_detection
           type: boolean
           default: false
           example: false
