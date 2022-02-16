@@ -175,7 +175,7 @@ components:
         scroll_id:
           type: string
           example: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAC-UWZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
-          description: Using for pagination when records are more than 10K. "scroll_id" is same for all pagination so no need to change again
+          description: This is auto generated id from Elastic Search for query more than 10K records. Sample query formation with scroll id given in Additional Information Section.
         results:
           type: object
           example: {<Json Object>}
@@ -257,6 +257,18 @@ components:
                               type: integer
                               description: Unique ID
                               example: 1220020162716353
+                            frame:
+                              type: integer
+                              description: Frame number of one vehicle images.
+                              example: 1220020162716353       
+                            vx:
+                              type: number
+                              description: Vehicle X axis.
+                              example: 1220020162716353
+                            vy:
+                              type: number
+                              description: Vehicle Y axis.
+                              example: 1220020162716353                              
                   sort:
                     type: array
                     description: Sort
