@@ -180,7 +180,7 @@ components:
             hits:
               type: array
               example: [{<JSON result Object}]
-              description: The list of Json result object
+              description: The list of JSON result object
               items:
                 type: object
                 properties:
