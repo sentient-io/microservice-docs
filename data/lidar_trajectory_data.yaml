@@ -179,7 +179,7 @@ components:
         results:
           type: object
           example: {<Json Object>}
-          description: Json Object of returned results
+          description: JSON Object of returned results
           properties:
             total:
               type: integer
@@ -210,8 +210,8 @@ components:
                     example: "1220020162716353"
                   _source: 
                     type: object
-                    example: {<Json Object>}
-                    description: Json Object of returned hits                    
+                    example: {<JSON Object>}
+                    description: JSON Object of returned hits                    
                     properties:
                             lastupdated:
                               type: string
@@ -238,28 +238,28 @@ components:
                               type: string
                               description: WGS84 (GPS) longitude
                               example: "103.72224233670825"
-                            angel:
+                            angle:
                               type: float
-                              description: angel
+                              description: Angle. This angle is referenced by the vehicle direction on the map. 
                               example: 5.7
                             id:
                               type: string
-                              description: id
+                              description: ID
                               example: 122002_01627
                             timestamp:
                               description: Recods the time and date on sentient
                               example: "2021-02-05T12:28:29.723"
                             type:
                               type: integer
-                              description: type
+                              description: Type
                               example: 11
                             unique_id:
                               type: integer
-                              description: uniqueid
+                              description: Unique ID
                               example: 1220020162716353
                   sort:
                     type: array
-                    description: sort
+                    description: Sort
                     example: 1640025797876
     unauthorized:
       type: object
