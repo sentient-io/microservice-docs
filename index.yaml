@@ -196,7 +196,7 @@ computer vision:
   landmark_detection:
     title: Landmark Detection
     versions:
-      1.0.1: 'landmark_recognition.yaml'
+      1.0.0: 'landmark_recognition.yaml'
   landmark_recognition_sg:
     title: Landmark Detection (SG)
     versions:

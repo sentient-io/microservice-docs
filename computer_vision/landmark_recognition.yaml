@@ -28,13 +28,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.0.1"
-  description: "Published Date - Jan 28, 2022"
+- name: "v1.0.0"
+  description: "Published Date - Feb 18, 2022"
 paths:
   /microservices/cv/landmarkdetection/v1/getpredictions:
     post:
       tags:
-        - v1.0.1
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -237,34 +237,15 @@ components:
     versions:
       type: object
       properties: 
-        v1.0.1:
-          type: array
-          items:
-            oneOf:
-            - type: string
-              example: Published Date - Jan 28, 2022
-              x-details: |+
-                Optional Parameter location introduced.
-              description: Latest Version
         v1.0.0:
           type: array
           items:
             oneOf:
             - type: string
-              example: Published Date - Mar 05, 2021
+              example: Published Date - Feb 18, 2022
               x-details: |+
-                1. Standardizing Output JSON
-                2. Overall model accuracy improvements
-                3. Better accuracy in detecting non-landmarks
-                4. Fix bug in the confidence score computation
-        v0.1.0:
-          type: array
-          items:
-            oneOf:
-            - type: string
-              example: Published Date - Jul 30, 2020
-              x-details: Initial version release
-              description: Archived
+                Initial release. The previous Landmark Detection (SG) and Landmark Detection (JP) has been merged into this new microservice.
+              description: Latest Version
     input:
       type: object
       properties:
@@ -283,7 +264,9 @@ components:
           default: false
           example: SG
           description: |+
-            Location of Landmark passed as input.Values accepted are SG and JP. By default its SG.
+            Country of landmark to be detected. Options are:
+            - SG (default)
+            - JP
   securitySchemes:
     APIAuthorizer:
       type: apiKey
