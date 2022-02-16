@@ -592,41 +592,47 @@ components:
           description: |+
             Specify the content-type. Pick any one from below list based on input file type.
             ["audio/wav","audio/aac","audio/midi","audio/x-midi","audio/mpeg","audio/opus","audio/webm","audio/3gpp","audio/3gpp2"]
-        language_code:
-          x-name: language_code
-          type: string
-          default: true
-          example: en-US
-          description: |+
-            Specify the language code of the input audio.
-        automatic_punctuation:
-          type: boolean
-          default: false
-          example: false
-          description: |+
-            Specifies whether to enable automatic punctuation during post-processing. Valid values - True and False. Default value - False.
-            It is supported only for selected languages, refer to additional info for details.
-        profanity_filter:
-          type: boolean
-          default: false
-          example: false
-          description: |+
-            Specifies whether to add profanity filter during post-processing. Valid Values - True and False. Default value - False.
-            It is supported only for selected languages, refer to additional info for details.
-        spoken_punctuation:
-          type: boolean
-          default: false
-          example: false
-          description: |+
-            Specifies whether to enable spoken punctuation during post-processing. Valid values - True and False. Default value - False.
-            It is supported only for selected languages, refer to additional info for details.
-        spoken_emojis:
-          type: boolean
-          default: false
-          example: false
-          description: |+
-            Specifies whether to enable spoken emojis during post-processing. Valid values - True and False. Default value - False.
-            It is supported only for selected languages, refer to additional info for details.
+        additional_param:
+          x-name: additional_param
+          type: object
+          properties:                     
+            language_code:
+              x-name: language_code
+              type: string
+              default: true
+              example: en-US
+              description: |+
+                Specify the language code of the input audio.
+            word_level:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to enable word time offsets during post-processing. Valid values - True and False. Default value - False.                
+            automatic_punctuation:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to enable automatic punctuation during post-processing. Valid values - True and False. Default value - False.
+            profanity_filter:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to add profanity filter during post-processing. Valid Values - True and False. Default value - False.
+            spoken_punctuation:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to enable spoken punctuation during post-processing, which is valid only for english language. Valid values - True and False. Default value - False.
+            spoken_emojis:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to enable spoken emojis during post-processing, which is valid only for english language. Valid values - True and False. Default value - False.
     uploadinput:
       type: object
       required:
