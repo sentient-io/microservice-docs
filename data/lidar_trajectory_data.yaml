@@ -58,45 +58,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: Successfully Processed
-                total: 1
-                results:
-                - _id: 43349c95#11839
-                  _index: index_ihi_pointcloud2
-                  _score:
-                  _source:
-                    1x: -244
-                    1y: 4337
-                    2x: -244
-                    2y: 4468
-                    createddate: '2021-03-05T10:08:01.393Z'
-                    dataclass: SD
-                    datalen: 792
-                    datanumlow: 20
-                    datanumup: 0
-                    detecttime: '2020-7-7T19:26:38.232Z'
-                    height: 160
-                    identify: 12
-                    jamlane: 0
-                    lastupdated: '2021-03-05T10:08:01.393Z'
-                    length: 131
-                    location:
-                      lat: '1.344893454845137'
-                      lon: '103.72207077486455'
-                    originid: '0x145D'
-                    sendtime: '2020-7-7T19:26:38.252Z'
-                    seqno: 43349
-                    situation: '0x02'
-                    targetid: c95#11839
-                    targetidx: '0x1451'
-                    width: 100
-                    xcoord: '357825.5286162619'
-                    xspeed: 11
-                    ycoord: '148688.62788286374'
-                    yspeed: 5
-                  _type: dir_doc
-                  sort:
-                  - 1614938881393
+                  message: Successfully Processed
+                  results:
+                    hits:
+                    - _id: '1440026031996596'
+                      _index: index_ihi_data
+                      _score:
+                      _source:
+                        frame: 96596
+                        id: '144002_60319'
+                        lastupdated: '2022-01-12T13:16:51.813Z'
+                        lat: 35.69020405266453
+                        lng: 139.70444397964013
+                        location:
+                          lat: 35.69020405266453
+                          lon: 139.70444397964013
+                        timestamp: '2021-02-05T14:48:06.162Z'
+                        type: 12
+                        unique_id: '1440026031996596'
+                        vx: 2.024
+                        vy: -1.308
+                      _type: dir_doc
+                      sort:
+                      - '1440026031996596'
+                    max_score:
+                    total: 1
+                  scroll_id: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
+                  status: Success
         '401':
           description: Unauthorized
           content:
