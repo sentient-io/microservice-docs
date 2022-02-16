@@ -166,7 +166,7 @@ components:
           description: This is auto generated id from Elastic Search for query more than 10K records. Sample query formation with scroll id given in Additional Information Section.
         results:
           type: object
-          example: {<Json Object>}
+          example: {<JSON Object>}
           description: JSON Object of returned results
           properties:
             total:
