@@ -20,7 +20,11 @@ info:
       > {"geo_distance": {"distance": "1km","end_location": "1.3166,103.8525"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"speed_band"}}
-
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"road_name":"JALAN KORMA"}}]}}
+      > {"bool":{"must":[{"match":{"road_name":"JALAN KORMA"}}]}}
+      > {"bool":{"should":[{"match":{"road_name":"JALAN KORMA"}}]}}
+      
     **Aggregations Request Data:**
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"road_name":"JALAN KORMA"}}]}
       
@@ -42,10 +46,10 @@ info:
   x-apidetailsdesc: |+
     Provides current traffic speeds.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Oct 26, 2021"
+  description: "Published Date - Feb 01, 2022"
 paths:
    /microservices/data/ltaspeedbandhistorical/v0/getdata:
     post:
@@ -437,7 +441,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Oct 26, 2021
+              example: Published Date - Feb 01, 2022
               x-details: Initial version release
               description: Latest Version
     input:

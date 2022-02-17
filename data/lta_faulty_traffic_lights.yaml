@@ -18,7 +18,10 @@ info:
       > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"alarmid"}}
-      
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"alarmid":"GL703034136"}}]}}
+      > {"bool":{"must":[{"match":{"alarmid":"GL703034136"}}]}}
+      > {"bool":{"should":[{"match":{"alarmid":"GL703034136"}},{"match":{"alarmid":"GL743034172"}}]}}      
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
@@ -37,7 +40,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Oct 13, 2021"
+  description: "Published Date - Feb 01, 2022"
 paths:
    /microservices/data/ltafaultytrafficlights/v0/getdata:
     post:
@@ -308,7 +311,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Oct 13, 2021
+              example: Published Date - Feb 01, 2022
               x-details: Initial version release
               description: Latest Version
     input:

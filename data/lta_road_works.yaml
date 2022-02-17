@@ -18,7 +18,11 @@ info:
       > {"range":{"end_date":{"gte":"now/d","lte":"now+100d/d"}}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"road_name"}}
-
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"road_name":"arthur"}}]}}
+      > {"bool":{"must":[{"match":{"road_name":"arthur"}}]}}
+      > {"bool":{"should":[{"match":{"road_name":"arthur"}}]}}
+      
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
@@ -34,10 +38,10 @@ info:
   x-apidetailsdesc: |+
     Provides returns all road works being / to be carried out.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Jul 30, 2021"
+  description: "Published Date - Feb 01, 2022"
 paths:
    /microservices/data/ltaroadworks/v0/getdata:
     post:
@@ -312,7 +316,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jul 30, 2021
+              example: Published Date - Feb 01, 2022
               x-details: Initial version release
               description: Latest Version
     input:
