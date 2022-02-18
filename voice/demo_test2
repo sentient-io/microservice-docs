@@ -1,0 +1,342 @@
+openapi: 3.0.1
+info:
+  title: Automatic Speech Recognition ENG
+  description: |+
+    This Voice microservice transcribes the input audio stream into text.
+    This microservice can be used on generic English or on specific use cases or accents. There's currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case
+    
+    The length of your audio should be **upto 60 seconds**.
+  version: '1.2.0'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Combine this with the Text-to-Speech API to deliver voice-enabled experiences in IoT (Internet of Things) applications, such as implementing voice commands.
+  x-subscribelink: automatic_speech_recognition_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 60sec/Call
+  x-inputfilelimit: |+
+    Process up to 60 seconds (1 minute) of audio file.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 60 seconds (1 minute).
+  x-apidetailsdesc: |+
+    Transcribes Singaporean-accented English speech content for audio file (in WAV format at 16kHz).
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v1.2.0"
+  description: "Published Date - Apr 07, 2021"
+paths:
+  /microservices/voice/asr/v1/getpredictions:
+    post:
+      tags:
+        - v1.2.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                results:
+                  output:
+                  - seqNum: 1
+                    start: 0.64
+                    end: 23.72
+                    text: HELLO WORLD
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'   
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'  
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties:
+            output:
+              type: array
+              example: [{ "<Json": "Object>" }]
+              description: List of Json Objects
+              items:
+                oneOf:
+                  - type: object 
+                    example: {seqNum: 1,start: 1.0,end: 4.0,text: HELLO WORLD}
+                    properties:
+                      end:
+                        type: float
+                        format: float
+                        example: 23.72
+                        description: End time of utterance in seconds
+                      seqNum:
+                        type: integer
+                        example: 1
+                        description: Running sequence. Starts from 1.
+                      start:
+                        type: float
+                        format: float
+                        example: 0.64
+                        description: Start time of utterance in seconds
+                      text:
+                        type: string
+                        description: Converted text from the input audio file
+                        example: THE COMING YEAR LIFE FOR A REASON A CITIZEN OR A LIFETIME LIKE YOU WHEN SOMEONE IS IN YOUR LIFE A REASON IT USUALLY TO MEET IN NEED WITHIN YOU HAVE NEVER MET YOU BUT I LIKE YOU WHEN SOMEONE IS IN YOUR LIFE FOR A SEASON IS BECAUSE IT IS YOUR TURN TO SHARE LEARN AND GROW AND WANT SOMEONE IN YOUR LIFE FOR A LIFETIME IT CITY THROUGH LESSONS AND IF NOT WHAT THE PEOPLE
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure  
+    unauthorized:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Missing Authentication Token
+          status:
+            type: string
+            example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    input:
+      type: object
+      required:
+        - model
+        - wav_base64
+      properties:
+        model:
+          x-name: model
+          type: string
+          default: true
+          example: generic
+          description: |+
+            Model selection. For best performance, select the model which best matches the use-case&#58;
+            
+            1. generic - Large nnet3-chain factorized TDNN model, trained on ~1200 hours of audio. Generic English, 16KHz
+            2. prepared_speech - Better suited for transcribing prepared / formal speech (e.g. news or parliamentary speeches). 16 kHz, mono channel, .wav format.
+            3. telephony - Better suited for conversational speech or telephony use cases. 8 kHz, mono channel, .wav format. 
+            
+        wav_base64:
+          x-name: wav_base64
+          type: string
+          default: true
+          example: UklGRkbiBABXQVZFZm10IBAAAAABA...
+          description: |+
+            Input wav file in base64 format.
+        srt:
+          x-name: srt
+          type: array
+          default: false
+          example: [{seqNum: 1,start: 1.0,end: 4.0}]
+          description: |+
+            Optional. An ordered array of utterance struct. Used for time-coding.
+          items:
+            oneOf:
+              - type: object 
+                properties:
+                  end:
+                    x-name: end
+                    type: float
+                    format: float
+                    default: false
+                    example: "4.0"
+                    description: |+
+                      "End time of utterance, in seconds. Offset from the start of stream."
+                  seqNum:
+                    x-name: seqNum
+                    type: integer
+                    default: false
+                    example: "1"
+                    description: |+
+                      "Running sequence. Starts from 1."
+                  start:
+                    x-name: start
+                    type: float
+                    format: float
+                    default: false
+                    example: "1.0"
+                    description: |+
+                      "Start time of utterance, in seconds. Offset from the start of stream."
+    versions:
+      type: object
+      properties:
+        v1.2.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Apr 07, 2021
+              x-details: New model generic introduced
+              description: Latest Version
+        v1.1.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Jan 22, 2021
+              x-details: Model name update
+              description: Depreciating on Apr 06, 2021
+        v1.0.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Dec 09, 2020
+              x-details: Standardizing Output JSON 
+              description: Depreciating on Jan 21, 2021
+        
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jul 03, 2020
+                x-details: Initial version release                  
+                description: Archived
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
