@@ -2,11 +2,11 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition CHI
   description: |+
-    This Voice microservice takes in the input audio file and supports recognizing a short speech that lasts within 1 minute. 
+    This Voice microservice takes in the input audio file  and supports recognizing a short speech that lasts within 1 minute. 
     The server returns the recognition result in a JSON format as a response.
   x-additionalinfo: |+
     Suggested Use Cases:
-      - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), opus and 16-bit mono.
+      - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), and 16-bit mono.
       - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
       - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.
   version: '2.0.0'
@@ -28,7 +28,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Dec 30, 2021"
+  description: "Published Date - Feb 18, 2022"
 paths:
   /microservices/voice/asrsch/v2/getpredictions:
     post:
@@ -229,12 +229,6 @@ components:
           example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: 
             Input audio wav file in base64 format.
-        audio_encoding:
-          type: string
-          default: false
-          example: pcm
-          description: 
-            The audio coding format. Valid values - pcm, opus. Default value - pcm.
         sample_rate:
           type: number
           default: false
@@ -253,7 +247,7 @@ components:
           example: false
           description: 
             Specifies whether to enable inverse text normalization (ITN) during post-processing. Valid values - True and False. Default value - False.
-        voice_detection:
+        voice_activity_detection:
           type: boolean
           default: false
           example: false
@@ -267,7 +261,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Dec 30, 2021
+              example: Published Date - Feb 18, 2022
               x-details: Upgrading with Samplerate, Encoding etc..
               description: Latest Version      
         v1.0.0:
