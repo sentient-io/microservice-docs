@@ -8,13 +8,9 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
       - Extraction of text from Mandarin speech from audio files.
-
       - Extraction of text from Mandarin speech from videos.
-
       - Improve customer service - empower a customer service system by adding IVR (interactive voice response) and agent conversations to call centers. Perform analytics on conversation data to gain more insights into the calls and customers.
-
       - Enable voice control services - e.g. implement voice commands such as “turn the volume up,” and voice search such as saying “what is the temperature in Paris?”
-
       - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.
   version: '1.0.0'
   x-subscribelink: automatic_speech_recognition_chi
