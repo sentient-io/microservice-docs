@@ -7,11 +7,11 @@ info:
     - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.
     - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
     - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.    
-  x-additionalinfo: |+
-    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
-  x-tutorial-pdf-doc: 
-      https://storage.googleapis.com/lpdocs/asrschine_prod.pdf
   version: '0.1.0'
+  x-additionalinfo: |+
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/dev/form.html
+  x-tutorial-pdf-doc: 
+    https://storage.googleapis.com/lpdocs/docs/asrsch_prod.pdf
   x-subscribelink: automatic_speech_recognition_chi
   x-apitype: large file
   x-apitypedescription: |+
@@ -30,7 +30,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Dec 30, 2021"
+  description: "Published Date - Feb 18, 2022"
 paths:
   /async/microservices/voice/asrsch/v0/getuploadurl:
     description: |+
@@ -419,7 +419,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Dec 30, 2021
+              example: Published Date - Feb 18, 2022
               x-details: Initial version release  
               description: Latest Version
     input:
@@ -449,7 +449,19 @@ components:
           example: 'audio/wav'
           description: |+
             Specify the content-type. Pick any one from below list based on input file type.
-            ["audio/wav","audio/aac","audio/midi","audio/x-midi","audio/mpeg","audio/opus", "audio/webm","audio/3gpp","audio/3gpp2"]
+            ["audio/wav", "audio/opus", "audio/mpeg"]
+        inverse_text_normalization:
+          type: boolean
+          default: false
+          example: false
+          description: 
+            Specifies whether to enable inverse text normalization (ITN) during post-processing. Valid values - True and False. Default value - False.
+        punctuation_prediction:
+          type: boolean
+          default: false
+          example: false
+          description: 
+            Specifies whether to add punctuation marks during post-processing. Valid values - True and False. Default value - False. 
     uploadinput:
       type: object
       required:
