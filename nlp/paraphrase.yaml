@@ -206,7 +206,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - January 28, 2022
+                example: Published Date - Feb 18, 2022
                 description: Initial Release    
     input:
       type: object
