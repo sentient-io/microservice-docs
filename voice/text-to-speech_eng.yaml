@@ -26,13 +26,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
-- name: "v1.2.1"
+- name: "v1.3.1"
   description: "Published Date - Feb 18, 2022"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
-        - v1.2.1
+        - v1.3.1
       responses:
         '200':
           description: success response
