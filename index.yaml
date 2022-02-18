@@ -31,7 +31,8 @@ voice:
   automatic_speech_recognition_chi:
     title: Automatic Speech Recognition CHI
     versions:
-      1.0.0: 'automatic_speech_recognition_chi.yaml'
+      2.0.0: 'automatic_speech_recognition_chi.yaml'
+      1.0.0: 'automatic_speech_recognition_chi_1.0.yaml'
   online_automatic_speech_recognition_eng:
     title: Online Automatic Speech Recognition ENG
     versions:
@@ -69,7 +70,11 @@ voice:
   speaker_diarization:
     title: Speaker Diarization
     versions:
-      0.1.0: 'speaker_diarization.yaml'        
+      0.1.0: 'speaker_diarization.yaml'   
+  automatic_speech_recognition_chi_large_file:
+    title: Automatic Speech Recognition CHI (Large File)
+    versions:
+      0.1.0: 'automatic_speech_recognition_chi_large_file.yaml'           
 nlp:
   inverse_text_normalisation_eng:
     title: Inverse Text Normalisation ENG
