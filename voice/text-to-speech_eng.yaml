@@ -27,7 +27,7 @@ servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v1.2.1"
-  description: "Published Date - Dec 25, 2021"
+  description: "Published Date - Feb 18, 2022"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
@@ -220,6 +220,14 @@ components:
     versions:
       type: object
       properties:
+        v1.3.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Feb 18,2022'
+                x-details: Model update
+                description: Archived      
         v1.2.1:
           type: array
           items:
@@ -227,7 +235,7 @@ components:
               - type: string
                 example: 'Published Date - Dec 25,2021'
                 x-details: Model update
-                description: Latest Version
+                description: Archived
         v1.1.1:
           type: array
           items:
@@ -235,7 +243,7 @@ components:
               - type: string
                 example: 'Published Date - Nov 09,2021'
                 x-details: Model improvement with improved enunciation of acronyms.
-                description: Latest Version
+                description: Archived
         v1.0.1:
           type: array
           items:
