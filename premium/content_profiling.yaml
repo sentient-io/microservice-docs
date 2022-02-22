@@ -2,9 +2,7 @@ openapi: 3.0.1
 info:
   title: Content Profiling
   description: |+
-    This Utility microservice converts the input CSV to JSON format. The headers should be the keywords and columns should be the value of proper keywords.
-    
-    The size of your file should **not exceed 3.5 MB**.
+    This is Content Profiling Microservice.
   x-additionalinfo: |+
     Suggested Use Cases:
     - For users who would like to combine data into useful spreadsheets for others to analyze, update, or refer to. This microservice can convert a collection of CSV spreadsheets like Google Sheets or Excel into JSON to analyze data without programming.
