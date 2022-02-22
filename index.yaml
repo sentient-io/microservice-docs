@@ -99,7 +99,7 @@ nlp:
       2.0.0: 'named-entity_recognition_eng.yaml'
       1.0.0: 'named-entity_recognition_eng_v1.0.yaml'
   sentence_paraphrase:
-    title: Sentence paraphrase
+    title: Sentence Paraphrase
     versions:
       0.1.0: 'sentence_paraphrase.yaml'
   spacy_ner:
