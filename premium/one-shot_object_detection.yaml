@@ -2,9 +2,7 @@ openapi: 3.0.1
 info:
   title: One-Shot Object Detection
   description: |+
-    This Utility microservice converts the input CSV to JSON format. The headers should be the keywords and columns should be the value of proper keywords.
-    
-    The size of your file should **not exceed 3.5 MB**.
+    This is One-shot Object Detection Microservice.
   x-additionalinfo: |+
     Suggested Use Cases:
     - For users who would like to combine data into useful spreadsheets for others to analyze, update, or refer to. This microservice can convert a collection of CSV spreadsheets like Google Sheets or Excel into JSON to analyze data without programming.
@@ -29,7 +27,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jan 17, 2022"
 paths:
-  /microservices/utility/csvtojson/v1.0/getresults:
+  /microservices/premium/oneshotobjectdetection/v0/getresults:
     post:
       tags:
         - v0.1.0
