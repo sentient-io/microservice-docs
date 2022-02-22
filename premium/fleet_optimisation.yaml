@@ -27,7 +27,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Jan 17, 2022"
 paths:
-  /microservices/premium/fleetoptimisation/v1.0/getresults:
+  /microservices/premium/fleetoptimisation/v0/getresults:
     post:
       tags:
         - v0.1.0
