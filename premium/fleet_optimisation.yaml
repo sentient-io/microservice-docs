@@ -20,7 +20,7 @@ info:
   x-notes: |+
     File size cannot exceed 3.5 MB.
   x-apidetailsdesc: |+
-    Converts CSV file to JSON format.
+    Fleet optimisation microservice.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
