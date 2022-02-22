@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: Sentence paraphrase
+  title: Sentence Paraphrase
   description: |+
     This NLP microservice takes in English sentences in informal / colloquial tone and rewrites it in a formal tone. It helps to smooth out sentences that contains irregularities (profanities, grammatical errors, awkward sentence structures) that can be typically found in informal dialogues or conversations.
     
