@@ -8,6 +8,19 @@ info:
     The input text sentence should have less than 60 sub-words. Any excess words in the sentence beyond that limit will be ignored. As a word may often consist of 2 or more sub-words (e.g. “thumbnail” consists of the sub-words “thumb” and “nail”), generally, we suggest keeping the input sentence to around 30 to 50 words to be safe.
   version: v0.1.0
   x-subscribelink: sentence_paraphrase
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    English sentences in informal / colloquial tone and rewrites it in a formal tone.  
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
