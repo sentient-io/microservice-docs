@@ -9,10 +9,10 @@ info:
   version: v0.1.0
   x-subscribelink: sentence_paraphrase
 servers:
-  - url: 'https://dev-apis.sentient.io' 
+  - url: 'https://apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Feb 18, 2022"
+  description: "Published Date - Feb 23, 2022"
 paths:
   /microservices/nlp/paraphrase/v0/getpredictions:
     post:
@@ -206,7 +206,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Feb 18, 2022
+                example: Published Date - Feb 23, 2022
                 description: Initial Release    
     input:
       type: object
