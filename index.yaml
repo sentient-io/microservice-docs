@@ -85,6 +85,10 @@ nlp:
     title: Named-Entity Recognition ENG
     versions:
       1.0.0: 'named-entity_recognition_eng.yaml'
+  sentence_paraphrase:
+    title: Sentence Paraphrase
+    versions:
+      0.1.0: 'sentence_paraphrase.yaml'      
   spacy_ner:
     title: spaCy NER
     versions:
