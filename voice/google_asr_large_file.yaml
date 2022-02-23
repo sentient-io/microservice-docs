@@ -594,6 +594,7 @@ components:
         additional_param:
           x-name: additional_param
           type: object
+          default: true
           properties:                     
             language_code:
               x-name: language_code
