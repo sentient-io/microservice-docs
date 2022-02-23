@@ -5,7 +5,6 @@ info:
     This Voice microservice takes in the input audio file  and supports recognizing a short speech .
     The server returns the recognition result in a JSON format as a response. 
       - Supports the following audio coding formats: WAV files, mp3.
-      - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
     For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/dev/form.html
@@ -42,8 +41,8 @@ info:
     | Burmese (Myanmar)	                          |       my-MM          |           No              |          Yes         |           No           |         No        |
     | Catalan (Spain)	                            |       ca-ES          |           No              |          Yes         |           No           |         No        |
     | Chinese, Cantonese (Traditional Hong Kong)  |	    yue-Hant-HK      |           No              |          Yes         |           No           |         No        |
-    | Chinese, Mandarin (Simplified, China)       |   zh (cmn-Hans-CN)   |           Yes             |          Yes         |           No           |         No        |
-    | Chinese, Mandarin (Traditional, Taiwan)	    | zh-TW (cmn-Hant-TW)  |           Yes             |          Yes         |           No           |         No        |
+    | Chinese, Mandarin (Simplified, China)       |         zh           |           Yes             |          Yes         |           No           |         No        |
+    | Chinese, Mandarin (Traditional, Taiwan)	    |       zh-TW          |           Yes             |          Yes         |           No           |         No        |
     | Croatian (Croatia)	                        |       hr-HR          |           No              |          Yes         |           No           |         No        |
     | Czech (Czech Republic)	                    |       cs-CZ          |           Yes             |          Yes         |           Yes          |         No        |
     | Danish (Denmark)	                          |       da-DK          |           Yes             |          Yes         |           Yes          |         No        |
