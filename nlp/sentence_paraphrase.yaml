@@ -22,7 +22,7 @@ info:
   x-apidetailsdesc: |+
     English sentences in informal / colloquial tone and rewrites it in a formal tone.  
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - Feb 23, 2022"
