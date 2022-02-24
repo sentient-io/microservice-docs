@@ -219,6 +219,7 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Feb 24, 2022
+                x-details: Initial version release
                 description: Initial Release    
     input:
       type: object
