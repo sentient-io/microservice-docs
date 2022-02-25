@@ -27,7 +27,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.2.2"
-  description: "Published Date - Jan 28, 2022"
+  description: "Published Date - Feb 25, 2022"
 paths:
   /microservices/voice/vadasr/v2/getpredictions:
     post:
@@ -268,40 +268,6 @@ components:
           example: false
           description: |+
             Optional. Boolean value true or false to decide whether vad required or not
-        srt:
-          x-name: srt
-          type: array
-          default: false
-          example: [{seqNum: 1,start: 1.0,end: 4.0}]
-          description: |+
-            Optional parameter to be used only if vad is false. An ordered array of utterance struct. Used for time-coding.
-          items:
-            oneOf:
-              - type: object 
-                properties:
-                  end:
-                    x-name: end
-                    type: float
-                    format: float
-                    default: false
-                    example: "4.0"
-                    description: |+
-                      "End time of utterance, in seconds. Offset from the start of stream."
-                  seqNum:
-                    x-name: seqNum
-                    type: integer
-                    default: false
-                    example: "1"
-                    description: |+
-                      "Running sequence. Starts from 1."
-                  start:
-                    x-name: start
-                    type: float
-                    format: float
-                    default: false
-                    example: "1.0"
-                    description: |+
-                      "Start time of utterance, in seconds. Offset from the start of stream."
         threshold:
           x-name: threshold
           type: number
