@@ -230,11 +230,12 @@ components:
             oneOf:
             - type: string
               example: Published Date - Mar 05, 2021
-              description: |+
+              x-details: |+
                 1. Standardizing Output JSON
                 2. Overall model accuracy improvements
                 3. Better accuracy in detecting non-landmarks
                 4. Fix bug in the confidence score computation
+              description: End-of-life by May 31,2022
         v0.1.0:
           type: array
           items:
