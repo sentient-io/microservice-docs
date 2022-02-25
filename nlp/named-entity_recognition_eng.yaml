@@ -33,7 +33,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Jan 28, 2022"
+  description: "Published Date - Feb 25, 2022"
 paths:
   /microservices/nlp/namedentityrecognition/v2/getpredictions:
     post:
@@ -46,7 +46,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: {"message": "Successfully Processed","results": {"cardinal": [{"end_char": 47,"entity": "77","start_char": 45},{"end_char": 527,"entity": "11.59pm","start_char": 520},{"end_char": 571,"entity": "14","start_char": 569}],"status": "Success"}}
+              example: {"message": "Successfully Processed","results": {"cardinal": [{"entity": "77","start_char": 45,"end_char": 47},{"entity": "11.59pm","start_char": 520,"end_char": 527},{"entity": "14","start_char": 569,"end_char": 571}],"status": "Success"}}
         '401':
           description: Unauthorized
           content:
@@ -125,10 +125,10 @@ components:
               example: [{"end_char": 3,"entity": "Donald Trump","start_char": 1}]
               description: People, including fictional.
             misc:
-              x-name: misc
+              x-name: other
               type: array
               example: [{"entity":"Chinese","start_char": 1,"end_char": 2},{"entity":Singaporean,"start_char": 4,"end_char": 5},{"entity": Malay,"start_char": 6,"end_char": 7}]
-              description: Nationalities or religious or political groups.
+              description: Other miscellaneous classes.
             facility:
               x-name: facility
               type: array
@@ -306,7 +306,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jan 28, 2022
+              example: Published Date - Feb 25, 2022
               x-details: Merged Spacy ner and change in Output format
               description: Latest Version
         v1.0.0:
@@ -342,8 +342,8 @@ components:
         return_entity_position:
           x-name: return_entity_position
           type: boolean
-          default: true
-          example: true
+          default: false
+          example: false
           description: |+
             Boolean value indicating whether entity position needs to be returned or not. Default value is True.
         legacy_output:
