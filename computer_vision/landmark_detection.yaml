@@ -243,6 +243,7 @@ components:
             oneOf:
             - type: string
               example: Published Date - Feb 25, 2022
+              x-details: Initial version release
               description: Initial release. The previous Landmark Detection (SG) and Landmark Detection (JP) has been merged into this new microservice.
     input:
       type: object
