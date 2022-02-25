@@ -26,7 +26,7 @@ info:
   x-apidetailsdesc: |+
     Identifies Singapore & Japan landmarks from multiple input images.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Feb 18, 2022"
