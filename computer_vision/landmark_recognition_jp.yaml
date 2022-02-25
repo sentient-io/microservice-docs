@@ -248,7 +248,7 @@ components:
                 2. Overall model accuracy improvements
                 3. Better accuracy in detecting non-landmarks
                 4. Fix bug in the confidence score computation
-              description: Latest Version
+              description: End-of-life by May 31,2022
         v0.1.0:
           type: array
           items:
