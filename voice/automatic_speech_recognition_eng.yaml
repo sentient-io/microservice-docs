@@ -294,7 +294,7 @@ components:
             - type: string
               example: Published Date - Apr 07, 2021
               x-details: New model generic introduced
-              description: Latest Version
+              description: End-of-life by May 31,2022
         v1.1.0:
           type: array
           items:
