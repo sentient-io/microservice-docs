@@ -2,14 +2,14 @@ openapi: 3.0.1
 info:
   title: Named-Entity Recognition ENG
   description: |+
-    This NLP microservice locates and classifies the named-entities classes from input unstructured English text.
+    This NLP microservice locates and classifies the named-entities classes from input unstructured English text and also returns the entity start and endpositions.
     
-    The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
+    The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.
     
     This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
     
     Do ensure that your text is within **5000 characters**.
-  version: '1.0.0'
+  version: '2.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Extracting structured pre-defined information from text.
@@ -32,13 +32,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Sep 30, 2020"
+- name: "v2.0.0"
+  description: "Published Date - Feb 25, 2022"
 paths:
-  /microservices/nlp/namedentityrecognition/v1/getpredictions:
+  /microservices/nlp/namedentityrecognition/v2/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v2.0.0
       responses:
         '200':
           description: Ok
@@ -46,7 +46,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: {"message":"SuccessfullyProcessed","results":{"loc":["Hubei","Singapore","SINGAPORE","China","Immigration"],"misc":["ICA.They"],"org":["ImmigrationandCheckpointsAuthority","ICA","LOA"]},"status":"Success"}
+              example: {"message": "Successfully Processed","results": {"cardinal": [{"entity": "77","start_char": 45,"end_char": 47},{"entity": "11.59pm","start_char": 520,"end_char": 527},{"entity": "14","start_char": 569,"end_char": 571}],"status": "Success"}}
         '401':
           description: Unauthorized
           content:
@@ -119,40 +119,96 @@ components:
           example: { "<Json": "Object>" }
           description: Json Object of returned results
           properties:
-            loc:
+            person:
+              x-name: person
               type: array
-              items:
-                type: string
-              example: 
-                - Hubei
-                - Singapore
-                - Hubei
-                - Hubei
-                - Immigration
-              description: "name of location found in the text string"
-            misc:
+              example: [{"end_char": 3,"entity": "Donald Trump","start_char": 1}]
+              description: People, including fictional.
+            other:
+              x-name: other
               type: array
-              items:
-                type: string
-              example: 
-                - ICA.They
-              description: "name of miscellaneous names found in the text string"
-            org:
+              example: [{"entity":"Chinese","start_char": 1,"end_char": 2},{"entity":Singaporean,"start_char": 4,"end_char": 5},{"entity": Malay,"start_char": 6,"end_char": 7}]
+              description: Other miscellaneous classes.
+            facility:
+              x-name: facility
               type: array
-              items:
-                type: string
-              example: 
-                - Immigration and Checkpoints Authority
-                - ICA
-                - LOA
-              description: "name of organizations names found in the text string" 
-            per:
+              example: [{"entity":Changi Airport,"start_char": 1,"end_char": 3}]
+              description: Buildings, airports, highways, bridges, etc.
+            organization:
+              x-name: organization
               type: array
-              items:
-                type: string
-              example: 
-                - Lee Hsien Loong
-              description: "person names found in the text string"  
+              example: [{"entity": "ICAO","start_char": 14,"end_char": 15}]
+              description: Companies, agencies, institutions, etc.
+            geopolitical:
+              x-name: geopolitical
+              type: array
+              example: [{"entity": "Singapore","start_char": 0,"end_char": 1}]
+              description: Countries, cities, states.
+            location:
+              x-name: location
+              type: array
+              example: [{"entity":"Asia","start_char": 42,"end_char": 43}]
+              description: Non-GPE locations, mountain ranges, bodies of water.
+            product:
+              x-name: product
+              type: array
+              example: [{"entity": Formula 1,"start_char": 5,"end_char": 7}]
+              description: Objects, vehicles, foods, etc. (Not services.)
+            event:
+              x-name: event
+              type: array
+              example: [{"entity": the Second World War,"start_char": 1,"end_char": 5}]
+              description: Named hurricanes, battles, wars, sports events, etc.
+            work_of_art:
+              x-name: work_of_art
+              type: array
+              example: [{"entity":Wizardry,"start_char": 1,"end_char": 2}]
+              description: Titles of books, songs, etc.
+            law:
+              x-name: law
+              type: array
+              example: [{"entity":the Penal Code,"start_char": 1,"end_char": 4}]
+              description: Named documents made into laws.
+            language:
+              x-name: language
+              type: array
+              example: [{"entity": English,"start_char": 1,"end_char": 2}]
+              description: Any named language.
+            date:
+              x-name: date
+              type: array
+              example: [{"entity": Tuesday,"start_char": 1,"end_char": 2}]
+              description: Absolute or relative dates or periods.
+            time:
+              x-name: time
+              type: array
+              example: [{"entity": twenty-four hours,"start_char": 1,"end_char": 5}]
+              description: Times smaller than a day.
+            percent:
+              x-name: percent
+              type: array
+              example: [{"entity": 91%,"start_char": 1,"end_char": 2},{"entity": 25%,"start_char": 2,"end_char": 3},{"entity": 61%,"start_char": 4,"end_char": 5}]
+              description: Percentage, including ”%“.
+            money:
+              x-name: money
+              type: array
+              example: [{"entity": up to $1000,"start_char": 1,"end_char": 4}]
+              description: Monetary values, including unit.
+            quantity:
+              x-name: quantity
+              type: array
+              example: [{"entity": about one degree,85 miles,137 kilometres,"start_char": 1,"end_char": 8}]
+              description: Measurements, as of weight or distance.
+            ordinal:
+              x-name: ordinal
+              type: array
+              example: [{"entity": ninth,"start_char": 1,"end_char": 2},{"entity": seventh,"start_char": 3,"end_char": 4},{"entity": second,"start_char": 5,"end_char": 6}]
+              description: “first”, “second”, etc.
+            cardinal:
+              x-name: cardinal
+              type: array
+              example: [{"entity": four,"start_char": 1,"end_char": 2}]
+              description: Numerals that do not fall under another type.  
         message:
           type: string
           example: Successfully Processed
@@ -245,6 +301,14 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 25, 2022
+              x-details: Merged Spacy ner and change in Output format
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -252,7 +316,7 @@ components:
             - type: string
               example: Published Date - Sep 30, 2020
               x-details: Updated version release v1.0
-              description: Latest Version
+              description: End-of-life by May 31,2022 
         v0.1.0:
          type: array
          items:
@@ -275,6 +339,20 @@ components:
             Input text.
             
             Supported formats: ASCII only
+        return_entity_position:
+          x-name: return_entity_position
+          type: boolean
+          default: false
+          example: true
+          description: |+
+            Boolean value indicating whether entity position needs to be returned or not. Default value is True.
+        legacy_output:
+          x-name: legacy_output
+          type: boolean
+          default: false
+          example: false
+          description: |+
+            Boolean value indicating whether the output should be of legacy output format. Default value is False.    
   securitySchemes:
     APIAuthorizer:
       type: apiKey
