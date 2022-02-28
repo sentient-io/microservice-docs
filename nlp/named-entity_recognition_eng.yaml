@@ -33,7 +33,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Feb 25, 2022"
+  description: "Published Date - Feb 28, 2022"
 paths:
   /microservices/nlp/namedentityrecognition/v2/getpredictions:
     post:
@@ -306,7 +306,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Feb 25, 2022
+              example: Published Date - Feb 28, 2022
               x-details: Merged Spacy ner and change in Output format
               description: Latest Version
         v1.0.0:
