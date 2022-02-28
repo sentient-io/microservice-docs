@@ -262,7 +262,7 @@ components:
           x-name: script
           type: array
           default: true
-          example: ["Hello World, This is a test. This is another test."]
+          example: ["Hello World", "This is a test.", "This is another test."]
           description: |+
             An ordered array of text. Each element contains a line of the script. 
             
