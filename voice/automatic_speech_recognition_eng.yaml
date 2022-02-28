@@ -284,7 +284,7 @@ components:
           items:
             oneOf:
             - type: string
-              example: Published Date - Feb 25, 2021
+              example: Published Date - Feb 25, 2022
               x-details: Input parameter srt removed,output parameter seqNum changed to sequence
               description: Latest Version
         v1.2.0:
