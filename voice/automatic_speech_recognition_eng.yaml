@@ -274,7 +274,7 @@ components:
           default: false
           example: 0.4
           description: |+
-            Optional. 0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
+            Optional. 0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25. Threshold parameter required only if voice_activity_detection parameter is True.
         
     versions:
       type: object
