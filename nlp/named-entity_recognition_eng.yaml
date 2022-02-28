@@ -46,7 +46,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: {"message": "Successfully Processed","results": {"cardinal": [{"entity": "77","start_char": 45,"end_char": 47},{"entity": "11.59pm","start_char": 520,"end_char": 527},{"entity": "14","start_char": 569,"end_char": 571}],"status": "Success"}}
+              example: {"message": "Successfully Processed","results": {"cardinal": [{"entity": "77","start": 45,"end": 47},{"entity": "11.59pm","start": 520,"end": 527},{"entity": "14","start": 569,"end": 571}],"status": "Success"}}
         '401':
           description: Unauthorized
           content:
@@ -122,92 +122,92 @@ components:
             person:
               x-name: person
               type: array
-              example: [{"end_char": 3,"entity": "Donald Trump","start_char": 1}]
+              example: [{"end": 3,"entity": "Donald Trump","start": 1}]
               description: People, including fictional.
             other:
               x-name: other
               type: array
-              example: [{"entity":"Chinese","start_char": 1,"end_char": 2},{"entity":Singaporean,"start_char": 4,"end_char": 5},{"entity": Malay,"start_char": 6,"end_char": 7}]
+              example: [{"entity":"Chinese","start": 1,"end": 2},{"entity":Singaporean,"start": 4,"end": 5},{"entity": Malay,"start": 6,"end": 7}]
               description: Other miscellaneous classes.
             facility:
               x-name: facility
               type: array
-              example: [{"entity":Changi Airport,"start_char": 1,"end_char": 3}]
+              example: [{"entity":Changi Airport,"start": 1,"end": 3}]
               description: Buildings, airports, highways, bridges, etc.
             organization:
               x-name: organization
               type: array
-              example: [{"entity": "ICAO","start_char": 14,"end_char": 15}]
+              example: [{"entity": "ICAO","start": 14,"end": 15}]
               description: Companies, agencies, institutions, etc.
             geopolitical:
               x-name: geopolitical
               type: array
-              example: [{"entity": "Singapore","start_char": 0,"end_char": 1}]
+              example: [{"entity": "Singapore","start": 0,"end": 1}]
               description: Countries, cities, states.
             location:
               x-name: location
               type: array
-              example: [{"entity":"Asia","start_char": 42,"end_char": 43}]
+              example: [{"entity":"Asia","start": 42,"end": 43}]
               description: Non-GPE locations, mountain ranges, bodies of water.
             product:
               x-name: product
               type: array
-              example: [{"entity": Formula 1,"start_char": 5,"end_char": 7}]
+              example: [{"entity": Formula 1,"start": 5,"end": 7}]
               description: Objects, vehicles, foods, etc. (Not services.)
             event:
               x-name: event
               type: array
-              example: [{"entity": the Second World War,"start_char": 1,"end_char": 5}]
+              example: [{"entity": the Second World War,"start": 1,"end": 5}]
               description: Named hurricanes, battles, wars, sports events, etc.
             work_of_art:
               x-name: work_of_art
               type: array
-              example: [{"entity":Wizardry,"start_char": 1,"end_char": 2}]
+              example: [{"entity":Wizardry,"start": 1,"end": 2}]
               description: Titles of books, songs, etc.
             law:
               x-name: law
               type: array
-              example: [{"entity":the Penal Code,"start_char": 1,"end_char": 4}]
+              example: [{"entity":the Penal Code,"start": 1,"end": 4}]
               description: Named documents made into laws.
             language:
               x-name: language
               type: array
-              example: [{"entity": English,"start_char": 1,"end_char": 2}]
+              example: [{"entity": English,"start": 1,"end": 2}]
               description: Any named language.
             date:
               x-name: date
               type: array
-              example: [{"entity": Tuesday,"start_char": 1,"end_char": 2}]
+              example: [{"entity": Tuesday,"start": 1,"end": 2}]
               description: Absolute or relative dates or periods.
             time:
               x-name: time
               type: array
-              example: [{"entity": twenty-four hours,"start_char": 1,"end_char": 5}]
+              example: [{"entity": twenty-four hours,"start": 1,"end": 5}]
               description: Times smaller than a day.
             percent:
               x-name: percent
               type: array
-              example: [{"entity": 91%,"start_char": 1,"end_char": 2},{"entity": 25%,"start_char": 2,"end_char": 3},{"entity": 61%,"start_char": 4,"end_char": 5}]
+              example: [{"entity": 91%,"start": 1,"end": 2},{"entity": 25%,"start": 2,"end": 3},{"entity": 61%,"start": 4,"end": 5}]
               description: Percentage, including ”%“.
             money:
               x-name: money
               type: array
-              example: [{"entity": up to $1000,"start_char": 1,"end_char": 4}]
+              example: [{"entity": up to $1000,"start": 1,"end": 4}]
               description: Monetary values, including unit.
             quantity:
               x-name: quantity
               type: array
-              example: [{"entity": about one degree,85 miles,137 kilometres,"start_char": 1,"end_char": 8}]
+              example: [{"entity": about one degree,85 miles,137 kilometres,"start": 1,"end": 8}]
               description: Measurements, as of weight or distance.
             ordinal:
               x-name: ordinal
               type: array
-              example: [{"entity": ninth,"start_char": 1,"end_char": 2},{"entity": seventh,"start_char": 3,"end_char": 4},{"entity": second,"start_char": 5,"end_char": 6}]
+              example: [{"entity": ninth,"start": 1,"end": 2},{"entity": seventh,"start": 3,"end": 4},{"entity": second,"start": 5,"end": 6}]
               description: “first”, “second”, etc.
             cardinal:
               x-name: cardinal
               type: array
-              example: [{"entity": four,"start_char": 1,"end_char": 2}]
+              example: [{"entity": four,"start": 1,"end": 2}]
               description: Numerals that do not fall under another type.  
         message:
           type: string
