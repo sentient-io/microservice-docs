@@ -4,19 +4,17 @@ info:
   description: |+
     This NLP microservice locates and classifies the named-entities classes from input unstructured English text.
     
-    The named-entity classes extracted are persons, locations, organisations and miscellaneous.
+    The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
     
-    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc. 
+    This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
     
     Do ensure that your text is within **5000 characters**.
+  version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Extracting structured pre-defined information from text.
-
-    - Gain insights from online customers - extract structured information from unstructured text data such as chatlogs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
-
+    - Gain insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
     - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
-  version: '0.1.0'
   x-subscribelink: named-entity_recognition_eng
   x-apitype: small file
   x-apitypedescription: |+
@@ -34,13 +32,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Nov 25, 2019"
+- name: "v1.0.0"
+  description: "Depreciation Date - May 31, 2022"
 paths:
-  /microservices/nlp/namedentityrecognition/v0.1/getpredictions:
+  /microservices/nlp/namedentityrecognition/v1/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -48,26 +46,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: 
-                  LOC:
-                  - America
-                  - Saudi Arabia
-                  - Yemen
-                  - Abqaiq
-                  - Iraq
-                  - Iran
-                  - Khurais
-                  MISC:
-                  - Arabian
-                  - American
-                  - Saudi
-                  - Iranian
-                  - Shia
-                  ORG:
-                  - Houthi
-                  PER:
-                  - DONALD TRUMP
-                  - Mike Pompeo
+              example: {"message":"SuccessfullyProcessed","results":{"loc":["Hubei","Singapore","SINGAPORE","China","Immigration"],"misc":["ICA.They"],"org":["ImmigrationandCheckpointsAuthority","ICA","LOA"]},"status":"Success"}
         '401':
           description: Unauthorized
           content:
@@ -135,27 +114,53 @@ components:
     success:
       type: object
       properties: 
-        LOC:
-          x-name: LOC
-          type: array
-          example: [ America,Saudi Arabia,Yemen,Abqaiq ]
-          description: "name of location found in the text string"
-        MISC:
-          x-name: MISC
-          type: array
-          example: [ Arabian,American,Saudi ]
-          description: "name of miscellaneous names found in the text string"
-        ORG:
-          x-name: ORG
-          type: array
-          example: [ Houthi ]
-          description: "name of organizations found in the text string"             
-        PER:
-          x-name: PER
-          type: array
-          example: [ DONALD TRUMP,Mike Pompeo ]
-          description: "name of persons found in the text string"
-          
+        results:
+          type: object
+          example: { "<Json": "Object>" }
+          description: Json Object of returned results
+          properties:
+            loc:
+              type: array
+              items:
+                type: string
+              example: 
+                - Hubei
+                - Singapore
+                - Hubei
+                - Hubei
+                - Immigration
+              description: "name of location found in the text string"
+            misc:
+              type: array
+              items:
+                type: string
+              example: 
+                - ICA.They
+              description: "name of miscellaneous names found in the text string"
+            org:
+              type: array
+              items:
+                type: string
+              example: 
+                - Immigration and Checkpoints Authority
+                - ICA
+                - LOA
+              description: "name of organizations names found in the text string" 
+            per:
+              type: array
+              items:
+                type: string
+              example: 
+                - Lee Hsien Loong
+              description: "person names found in the text string"  
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
     unauthorized:
       type: object
       properties:
@@ -227,7 +232,7 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure 
+          example: Failure  
     invalidinput:
       type: object
       properties:
@@ -240,6 +245,14 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jan 28, 2022
+              x-details: Merged Spacy ner and change in Output format
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -247,14 +260,14 @@ components:
             - type: string
               example: Published Date - Sep 30, 2020
               x-details: Updated version release v1.0
-              description: Latest Version
+              description: End-of-life by May 31,2022 
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Nov 25, 2019
-              x-details: Initial version release   
+              x-details: Initial version release 
               description: Archived
     input:
       type: object
@@ -265,9 +278,9 @@ components:
           x-name: text
           type: string
           default: true
-          example: The Singaporean procedure of hanging condemned individuals is similar to the methods formerly used in the United Kingdom.
+          example: SINGAPORE - Immigration officers have issued 77 stay-home notices as of noon on Wednesday (Feb 19), 12 hours after the scheme kicked in.These notices were issued to Singapore residents, long-term pass holders and foreign workers who have travelled to mainland China in the last 14 days, said the Immigration and Checkpoints Authority (ICA) in response to queries on Thursday.Travellers from Hubei province are excluded from this scheme, as they are quarantined.Those who are issued the new notices, which took effect at 11.59pm on Tuesday, cannot leave their homes for 14 days./n This is stricter than the leave of absence (LOA), which allowed people to briefly leave their homes for necessities. LOA will no longer be issued.Those who do not observe the stay-home period can be prosecuted under the Infectious Diseases Act, warned the ICA.They could be fined up to $10,000 or jailed for up to six month, or both, for the first offence. For subsequent offences, this could go up to a maximum of $20,000 and up to a year.
           description: |+
-            Input text. 
+            Input text.
             
             Supported formats: ASCII only
   securitySchemes:
