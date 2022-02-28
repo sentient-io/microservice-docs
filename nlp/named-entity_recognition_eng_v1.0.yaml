@@ -250,7 +250,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jan 28, 2022
+              example: Published Date - Feb 28, 2022
               x-details: Merged Spacy ner and change in Output format
               description: Latest Version
         v1.0.0:
