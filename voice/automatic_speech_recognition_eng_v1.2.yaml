@@ -300,6 +300,14 @@ components:
     versions:
       type: object
       properties:
+        v2.2.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Feb 25, 2022
+              x-details: Input parameter srt removed,output parameter seqNum changed to sequence
+              description: Latest Version
         v1.2.0:
           type: array
           items:
