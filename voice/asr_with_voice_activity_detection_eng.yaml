@@ -277,55 +277,56 @@ components:
           description: |+
             Optional. 0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
     versions:
-     type: object
-     properties:
-      v1.2.2:
-       type: array
-       items:
-        oneOf:
-         - type: string
-           example: Published Date - Jan 28, 2022
-           x-details: Introduced optional parameter vad
-           description: Latest Version
-      v1.2.1:
-       type: array
-       items:
-        oneOf:
-         - type: string
-           example: Published Date - Nov 09, 2021
-           x-details: Vad bug fix
-      v1.2.0:
-       type: array
-       items:
-        oneOf:
-         - type: string
-           example: Published Date - Apr 07, 2021
-           x-details: New model generic introduced
-           description: Depreciating on Nov 08, 2021
-      v1.1.0:
-       type: array
-       items:
-        oneOf:
-         - type: string
-           example: Published Date - Jan 22, 2021
-           x-details: Model name update
-           description: Depreciating on Apr 06, 2021
-      v1.0.0:
-       type: array
-       items:
-        oneOf:
-         - type: string
-           example: Published Date - Dec 09, 2020
-           x-details: Standardizing Output JSON  
-           description: Depreciating on Jan 21, 2021
-      v0.1.0:
-       type: array
-       items:
-        oneOf:
-         - type: string
-           example: Published Date - Dec 14, 2019
-           x-details: Initial version release
-           description: Archived     
+      type: object
+      properties:
+        v1.2.2:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Jan 28, 2022'
+                x-details: Introduced optional parameter vad
+                description: Latest Version      
+        v1.2.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Nov 09, 2021'
+                x-details: Vad bug fix
+                description: Archived
+        v1.2.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Apr 07, 2021'
+                x-details: New model generic introduced
+                description: Depreciating on Nov 08, 2021
+        v1.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Jan 22, 2021'
+                x-details: Model name update
+                description: Depreciating on Apr 06, 2021
+        v1.0.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Dec 09, 2020'
+                x-details: Standardizing Output JSON
+                description: Depreciating on Jan 21, 2021
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Dec 14, 2019'
+                x-details: Initial version release    
+                description: Archived  
   securitySchemes:
     APIAuthorizer:
       type: apiKey
