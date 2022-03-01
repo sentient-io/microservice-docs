@@ -283,34 +283,34 @@ components:
           type: array
           items:
             oneOf:
-            - type: string
-              example: Published Date - Feb 25, 2022
-              x-details: Input parameter srt removed,output parameter seqNum changed to sequence
-              description: Latest Version
+              - type: string
+                example: Published Date - Feb 25, 2022
+                x-details: Input parameter srt removed,output parameter seqNum changed to sequence
+                description: Latest Version
         v1.2.0:
           type: array
           items:
             oneOf:
-            - type: string
-              example: Published Date - Apr 07, 2021
-              x-details: New model generic introduced
-              description: End-of-life by May 31,2022
+              - type: string
+                example: Published Date - Apr 07, 2021
+                x-details: New model generic introduced
+                description: End-of-life by May 31,2022
         v1.1.0:
           type: array
           items:
             oneOf:
-            - type: string
-              example: Published Date - Jan 22, 2021
-              x-details: Model name update
-              description: Depreciating on Apr 06, 2021
+              - type: string
+                example: Published Date - Jan 22, 2021
+                x-details: Model name update
+                description: Depreciating on Apr 06, 2021
         v1.0.0:
           type: array
           items:
             oneOf:
-            - type: string
-              example: Published Date - Dec 09, 2020
-              x-details: Standardizing Output JSON 
-              description: Depreciating on Jan 21, 2021
+              - type: string
+                example: Published Date - Dec 09, 2020
+                x-details: Standardizing Output JSON 
+                description: Depreciating on Jan 21, 2021
         
         v0.1.0:
           type: array
