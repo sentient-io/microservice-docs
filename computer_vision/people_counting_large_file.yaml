@@ -7,7 +7,7 @@ info:
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
   x-tutorial-pdf-doc: 
-      https://storage.googleapis.com/lpdocs/docs/people_counting_prod.pdf 
+      https://storage.googleapis.com/lpdocs/docs/people_counting_prod.pdf
   version: '0.1.0'
   x-subscribelink: people_counting_large_file
   x-apitype: large file
@@ -131,7 +131,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/user_space_dev/'
+        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
@@ -454,7 +454,7 @@ components:
           type: string
           format: binary
           default: true
-          example: sample.mp4
+          example: sample.wav
           description: file
         content-type:
           type: string
@@ -464,7 +464,7 @@ components:
         key:
           type: string
           default: false
-          example: 1/2/lp-textsummarisation/input/Pdf_6mb_cf3d329bd9df4cef91966c336386eea3.pdf
+          example: 309/495/lp-peoplecounting/input/sample_e10653217c9640fba57c02eb43d8e27b.mp4
           description: Fields
         policy:
           type: string
@@ -479,23 +479,33 @@ components:
         x-goog-credential:
           type: string
           default: false
-          example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
+          example: sentient-bigquery@sentient-231509.iam.gserviceaccount.com/20220224/auto/storage/goog4_request
           description: Fields
+        x-goog-date:
+          type: string
+          default: false
+          example: 20220224T045625Z
+          description: Fields          
         x-goog-meta-additional_param:
           type: string
           default: false
-          example: {\"password\": \"fffff\"}
+          example: "{\"model\": \"prepared_speech\", \"threshold\": 0.4}"
           description: Fields
         x-goog-meta-oid:
           type: string
           default: false
-          example: 1
+          example: 309
           description: Fields
         x-goog-meta-uid:
           type: string
           default: false
-          example: 2
+          example: 495
           description: Fields
+        x-goog-meta-uploader:
+          type: string
+          default: false
+          example: 01832842d1774e4fb711d31b30fa9431
+          description: Fields           
         x-goog-meta-uuid:
           type: string
           default: false
@@ -505,7 +515,7 @@ components:
           type: string
           default: false
           example: 7970619677c2a0dc26af460a7d62f883528af9e1e8a1459aa09671ee0fbf15f7a611b7bd8c382fd8d39f74fe212a7e3db1768535f0c1ccff062239627ebe49195cc2c42c2238eb5e268ecaca49e647eb244eb023f3d4ba97922fd1228aab677a7176b9f84fef1c909897ccf0e1e8f9e3d030dbfc9892c7c026060dcf20b4ad4598f346de478b0f8495d9bce292b83a5b3bfa13c7dc08a2ce162f652c3bce91191167eeee3019b6b196e4271f5e3a6a1fe067f70acdaa082e6091c2f3ac8182bca8be41afc90600fc32dcdb3072acb43aaf90910a38c4aec9e3a42fdd21deb5ce936d8269e9ed011377ef058cac20d336218a35858753bd99b4ffdb1db171f0f4
-          description: Fields            
+          description: Fields          
   securitySchemes:
     APIAuthorizer:
       type: apiKey
