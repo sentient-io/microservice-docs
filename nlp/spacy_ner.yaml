@@ -298,25 +298,6 @@ components:
         status:
           type: string
           example: Failure  
-    versions:
-      type: object
-      properties: 
-        v1.0.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Nov 26, 2021
-              x-details: Optional input parameter introduced. Output Format Changed  
-              description: End-of-life by May 31,2022
-        v0.1.0:
-         type: array"
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Sep 30, 2020
-              x-details: Initial version release    
-              desrciption: Archived
     input:
       type: object
       required:
@@ -336,6 +317,25 @@ components:
           example: false
           description: |+
             Boolean value indicating whether entity position needs to be returned or not. Default value is False.
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Nov 26, 2021
+              x-details: Optional input parameter introduced. Output Format Changed  
+              description: End-of-life by May 31,2022
+        v0.1.0:
+         type: array"
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 30, 2020
+              x-details: Initial version release    
+              desrciption: Archived            
   securitySchemes:
     APIAuthorizer:
       type: apiKey
