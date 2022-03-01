@@ -9,7 +9,7 @@ info:
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:
       
-      - Detailed reference to the additional parameters https://dev-docs.sentient.io/#/voice/automatic_speech_recognition_eng
+      - Detailed reference to the additional parameters https://docs.sentient.io/#/voice/automatic_speech_recognition_eng
       - The file upload form https://sentient.io/upload/form.html
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/asr_prod.pdf
