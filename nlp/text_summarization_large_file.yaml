@@ -3,7 +3,6 @@ info:
   title: Text Summarization (Large File)
   description: |+
     This NLP microservice takes in any given input text blurb and generates a summary.
-
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
   x-tutorial-pdf-doc: 
@@ -46,23 +45,21 @@ paths:
                 message: Successfully Processed
                 results:
                   fields:
-                    content-type: text/plain
-                    key: 1/2/lp-textsummarisation/input/test_1991d4936ddb4728afaa06cb260b0253.txt
-                    policy: >-
-                      eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ0ZXh0L3BsYWluIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMjMyOTM2XSx7ImNvbnRlbnQtdHlwZSI6InRleHQvcGxhaW4ifSx7IngtZ29vZy1tZXRhLWFkZGl0aW9uYWxfcGFyYW0iOiJOb25lIn0seyJ4LWdvb2ctbWV0YS1vaWQiOiIxIn0seyJ4LWdvb2ctbWV0YS11aWQiOiIyIn0seyJ4LWdvb2ctbWV0YS11dWlkIjoiMTk5MWQ0OTM2ZGRiNDcyOGFmYWEwNmNiMjYwYjAyNTMifSx7ImJ1Y2tldCI6InVzZXJfc3BhY2VfZGV2In0seyJrZXkiOiIxLzIvbHAtdGV4dHN1bW1hcmlzYXRpb24vaW5wdXQvdGVzdF8xOTkxZDQ5MzZkZGI0NzI4YWZhYTA2Y2IyNjBiMDI1My50eHQifSx7IngtZ29vZy1kYXRlIjoiMjAyMTExMjNUMTA1ODQ2WiJ9LHsieC1nb29nLWNyZWRlbnRpYWwiOiJzZW50aWVudC1kZXYtYmlncXVlcnlAc2VudGllbnQtMjA3MzEwLmlhbS5nc2VydmljZWFjY291bnQuY29tLzIwMjExMTIzL2F1dG8vc3RvcmFnZS9nb29nNF9yZXF1ZXN0In0seyJ4LWdvb2ctYWxnb3JpdGhtIjoiR09PRzQtUlNBLVNIQTI1NiJ9XSwiZXhwaXJhdGlvbiI6IjIwMjEtMTEtMjNUMTE6NTg6NDYuMTcxMzE1WiJ9
+                    content-type: application/pdf
+                    key: 309/495/lp-textsummarisation/input/sample_a6b23b313b134defab37d4da65dbb3fe.pdf
+                    policy: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhcHBsaWNhdGlvbi9wZGYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDQ3NTE2MzZdLHsiY29udGVudC10eXBlIjoiYXBwbGljYXRpb24vcGRmIn0seyJ4LWdvb2ctbWV0YS1hZGRpdGlvbmFsX3BhcmFtIjoie1wicGFzc3dvcmRcIjogXCIqKioqKipcIn0ifSx7IngtZ29vZy1tZXRhLW9pZCI6IjMwOSJ9LHsieC1nb29nLW1ldGEtdWlkIjoiNDk1In0seyJ4LWdvb2ctbWV0YS11cGxvYWRlciI6IjMyZmFlMTczZjEyMjRiNWU4Y2QwMWEzZjZlYzdjYTUwIn0seyJ4LWdvb2ctbWV0YS11dWlkIjoiYTZiMjNiMzEzYjEzNGRlZmFiMzdkNGRhNjVkYmIzZmUifSx7ImJ1Y2tldCI6ImxwX3VzZXJfc3BhY2VfcHJvZCJ9LHsia2V5IjoiMzA5LzQ5NS9scC10ZXh0c3VtbWFyaXNhdGlvbi9pbnB1dC9zYW1wbGVfYTZiMjNiMzEzYjEzNGRlZmFiMzdkNGRhNjVkYmIzZmUucGRmIn0seyJ4LWdvb2ctZGF0ZSI6IjIwMjIwMjI0VDA3MTk0M1oifSx7IngtZ29vZy1jcmVkZW50aWFsIjoic2VudGllbnQtYmlncXVlcnlAc2VudGllbnQtMjMxNTA5LmlhbS5nc2VydmljZWFjY291bnQuY29tLzIwMjIwMjI0L2F1dG8vc3RvcmFnZS9nb29nNF9yZXF1ZXN0In0seyJ4LWdvb2ctYWxnb3JpdGhtIjoiR09PRzQtUlNBLVNIQTI1NiJ9XSwiZXhwaXJhdGlvbiI6IjIwMjItMDItMjRUMDg6MTk6NDMuMjM3MTcxWiJ9
                     x-goog-algorithm: GOOG4-RSA-SHA256
-                    x-goog-credential: >-
-                      sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211123/auto/storage/goog4_request
-                    x-goog-date: 20211123T105846Z
-                    x-goog-meta-additional_param: None
-                    x-goog-meta-oid: '1'
-                    x-goog-meta-uid: '2'
-                    x-goog-meta-uuid: 1991d4936ddb4728afaa06cb260b0253
-                    x-goog-signature: >-
-                      3d882f0762743e39146aae926435bf0b15e844836db9a0913fddfc04e786b939a8f3d1bcf187883c3c1dec913d1aa8eca4e8e08d7a8fcdf138bfac621f28ed9ef30c842b6a7ad9c7b7fa8a0ee60d4f1b05f7a0322a5bb404d7ce69410a494b1a5848d49ac96cd59c538dc522b21e579979b5d53b9d413e766662f65596ca22bde2f625d349392c04e13ce27d98e0d73a229f50dfc5fdb18873218f97eac6e83a8d088c6c66e49d120d21757d04ab5763565da5594eeafd31d5cc1e68f0f5933f8b2f517db16fa962be6f9c59fc5564fc909fe226c14dddbfdfd1bfc46aa21b72aec3db576b34e73cfb7acfdbca8d5cb14da998fe5c0b7f050c3656bb1d6d6052
-                  jid: 1991d4936ddb4728afaa06cb260b0253
-                  request_cost: 0
-                  url: 'https://storage.googleapis.com/user_space_dev/'
+                    x-goog-credential: sentient-bigquery@sentient-231509.iam.gserviceaccount.com/20220224/auto/storage/goog4_request
+                    x-goog-date: 20220224T071943Z
+                    x-goog-meta-additional_param: '{"password": "******"}'
+                    x-goog-meta-oid: '309'
+                    x-goog-meta-uid: '495'
+                    x-goog-meta-uploader: 32fae173f1224b5e8cd01a3f6ec7ca50
+                    x-goog-meta-uuid: a6b23b313b134defab37d4da65dbb3fe
+                    x-goog-signature: b6a2e86c98617f654a4a881fdb7c5ae02f040a2e11b84ba8884c49bf85fcf589196642935830afe202948c363727c962118acf27deba7257d902e3dca00f7845a414db8b1b62fed0fdecb0990cf6e04c7ac96bff0f7c3d4b7a412c04daa75fceb034b0dd4f2453ae254b60ea21ef56f90d21e324a9193e7156eb0564e2b9ab932a56aa3c96c46e4e090990d8e2440fa4ffbafee87929adfe50829c6c2ae45d9cb5d927c2fe6a2417a537ce5f49bef2b3f15654ecbbe43e2662dd6fe61f3ed84da555e6833b074082cd1b991644244d0b15242bb87df224919e996c4e89deff8a9cd87d87f60976d445b4b8c23cd1ed7f6600b9263cbee49c085b44b0f813d8da
+                  jid: a6b23b313b134defab37d4da65dbb3fe
+                  request_cost: 0.0742
+                  url: https://storage.googleapis.com/lp_user_space_prod/
                 status: Success
         '401':
           description: Unauthorized
@@ -131,7 +128,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/user_space_dev/'
+        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
@@ -475,7 +472,7 @@ components:
         key:
           type: string
           default: false
-          example: 1/2/lp-textsummarisation/input/Pdf_6mb_cf3d329bd9df4cef91966c336386eea3.pdf
+          example: 309/495/lp-textsummarisation/input/sample_a6b23b313b134defab37d4da65dbb3fe.pdf
           description: Fields
         policy:
           type: string
@@ -492,21 +489,31 @@ components:
           default: false
           example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
           description: Fields
+        x-goog-date:
+          type: string
+          default: false
+          example: 20220224T045625Z
+          description: Fields          
         x-goog-meta-additional_param:
           type: string
           default: false
-          example: {\"password\": \"fffff\"}
+          example: "{\"password\": \"******\"}"
           description: Fields
         x-goog-meta-oid:
           type: string
           default: false
-          example: 1
+          example: 309
           description: Fields
         x-goog-meta-uid:
           type: string
           default: false
-          example: 2
+          example: 495
           description: Fields
+        x-goog-meta-uploader:
+          type: string
+          default: false
+          example: 01832842d1774e4fb711d31b30fa9431
+          description: Fields           
         x-goog-meta-uuid:
           type: string
           default: false
@@ -516,7 +523,7 @@ components:
           type: string
           default: false
           example: 7970619677c2a0dc26af460a7d62f883528af9e1e8a1459aa09671ee0fbf15f7a611b7bd8c382fd8d39f74fe212a7e3db1768535f0c1ccff062239627ebe49195cc2c42c2238eb5e268ecaca49e647eb244eb023f3d4ba97922fd1228aab677a7176b9f84fef1c909897ccf0e1e8f9e3d030dbfc9892c7c026060dcf20b4ad4598f346de478b0f8495d9bce292b83a5b3bfa13c7dc08a2ce162f652c3bce91191167eeee3019b6b196e4271f5e3a6a1fe067f70acdaa082e6091c2f3ac8182bca8be41afc90600fc32dcdb3072acb43aaf90910a38c4aec9e3a42fdd21deb5ce936d8269e9ed011377ef058cac20d336218a35858753bd99b4ffdb1db171f0f4
-          description: Fields            
+          description: Fieldss            
   securitySchemes:
     APIAuthorizer:
       type: apiKey
