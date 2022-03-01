@@ -329,7 +329,7 @@ components:
               x-details: Optional input parameter introduced. Output Format Changed  
               description: End-of-life by May 31,2022
         v0.1.0:
-         type: array"
+         type: array
          items:
           oneOf:
             - type: string
