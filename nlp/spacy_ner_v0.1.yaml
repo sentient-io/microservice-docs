@@ -299,17 +299,6 @@ components:
         status:
           type: string
           example: Failure  
-    versions:
-      type: object
-      properties: 
-        v0.1.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Sep 30, 2020
-              x-details: Initial version release    
-              description: Latest Version
     input:
       type: object
       required:
@@ -322,6 +311,17 @@ components:
           example: "Singapore Changi Airport, commonly known as Changi Airport (IATA: SIN, ICAO: WSSS, FAA LID: SIN), is a major civilian airport that serves Singapore, and is one of the largest transportation hubs in Asia. As one of the world's busiest airports by international passenger and cargo traffic, it is currently rated the World's Best Airport by Skytrax, the first Airport in the world to do so for eight consecutive years.[10][11] It has also been rated as the one of the world's cleanest airports and highly rated international transit airports.[12][13]The airport is located in Changi, at the eastern end of Singapore, approximately 20 km (12 mi)[14] from Marina Bay (Singapore's Downtown Core), on a 13-square-kilometre (5.0 sq mi) site. The airport is operated by Changi Airport Group and it is the home base of Singapore Airlines,[15] Singapore Airlines Cargo,[15] SilkAir,[15] Scoot, Jetstar Asia Airways and BOC Aviation."
           description: |+
             Input text
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 30, 2020
+              x-details: Initial version release    
+              description: Latest Version            
   securitySchemes:
     APIAuthorizer:
       type: apiKey
