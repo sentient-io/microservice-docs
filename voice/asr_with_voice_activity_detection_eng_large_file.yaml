@@ -49,25 +49,21 @@ paths:
                 message: Successfully Processed
                 results:
                   fields:
-                    content-type: audio/mpeg
-                    key: >-
-                      309/495/lp-vadasr/input/113test_7c949f4a2cdd4cfc87de9a66cbe53eea.mp3
-                    policy: >-
-                      eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhdWRpby9tcGVnIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMTMzNzgyMDVdLHsiY29udGVudC10eXBlIjoiYXVkaW8vbXBlZyJ9LHsieC1nb29nLW1ldGEtYWRkaXRpb25hbF9wYXJhbSI6Ik5vbmUifSx7IngtZ29vZy1tZXRhLW9pZCI6IjMwOSJ9LHsieC1nb29nLW1ldGEtdWlkIjoiNDk1In0seyJ4LWdvb2ctbWV0YS11cGxvYWRlciI6IjBiYjczMzliMGM0ZTQ3NmM5YjY0NzVlMDkwMzRlMjMzIn0seyJ4LWdvb2ctbWV0YS11dWlkIjoiN2M5NDlmNGEyY2RkNGNmYzg3ZGU5YTY2Y2JlNTNlZWEifSx7ImJ1Y2tldCI6InVzZXJfc3BhY2VfZGV2In0seyJrZXkiOiIzMDkvNDk1L2xwLXZhZGFzci9pbnB1dC8xMTN0ZXN0XzdjOTQ5ZjRhMmNkZDRjZmM4N2RlOWE2NmNiZTUzZWVhLm1wMyJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIxN1QwNTQ0MjNaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMTcvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMS0xMi0xN1QwNjo0NDoyMy4yODUyMjRaIn0=
+                    content-type: audio/wav
+                    key: 309/495/lp-vadasr/input/4test_c1d5428e080540d69a56e4dda2f7a9e8.wav
+                    policy: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhdWRpby93YXYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDQ3NTE2MzZdLHsiY29udGVudC10eXBlIjoiYXVkaW8vd2F2In0seyJ4LWdvb2ctbWV0YS1hZGRpdGlvbmFsX3BhcmFtIjoie1wibW9kZWxcIjogXCJwcmVwYXJlZF9zcGVlY2hcIiwgXCJ0aHJlc2hvbGRcIjogMC40fSJ9LHsieC1nb29nLW1ldGEtb2lkIjoiMzA5In0seyJ4LWdvb2ctbWV0YS11aWQiOiI0OTUifSx7IngtZ29vZy1tZXRhLXVwbG9hZGVyIjoiMDE4MzI4NDJkMTc3NGU0ZmI3MTFkMzFiMzBmYTk0MzEifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJjMWQ1NDI4ZTA4MDU0MGQ2OWE1NmU0ZGRhMmY3YTllOCJ9LHsiYnVja2V0IjoibHBfdXNlcl9zcGFjZV9wcm9kIn0seyJrZXkiOiIzMDkvNDk1L2xwLXZhZGFzci9pbnB1dC80dGVzdF9jMWQ1NDI4ZTA4MDU0MGQ2OWE1NmU0ZGRhMmY3YTllOC53YXYifSx7IngtZ29vZy1kYXRlIjoiMjAyMjAyMjRUMDQ1NjI1WiJ9LHsieC1nb29nLWNyZWRlbnRpYWwiOiJzZW50aWVudC1iaWdxdWVyeUBzZW50aWVudC0yMzE1MDkuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMjAyMjQvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMi0wMi0yNFQwNTo1NjoyNS4wNjk5NzVaIn0=
                     x-goog-algorithm: GOOG4-RSA-SHA256
-                    x-goog-credential: >-
-                      sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211217/auto/storage/goog4_request
-                    x-goog-date: 20211217T054423Z
-                    x-goog-meta-additional_param: None
+                    x-goog-credential: mailto:sentient-bigquery@sentient-231509.iam.gserviceaccount.com/20220224/auto/storage/goog4_request
+                    x-goog-date: 20220224T045625Z
+                    x-goog-meta-additional_param: '{"model": "prepared_speech", "threshold": 0.4}'
                     x-goog-meta-oid: '309'
                     x-goog-meta-uid: '495'
-                    x-goog-meta-uploader: '0bb7339b0c4e476c9b6475e09034e233'
-                    x-goog-meta-uuid: 7c949f4a2cdd4cfc87de9a66cbe53eea
-                    x-goog-signature: >-
-                      9d5387492104addd79296abe2feb38bbe9947092de7f32c44e85d3844c0ac1c9dd2317102d7a36dd2e0eeea1944a5d689dc193dafce67958984fb25a20bd252bab0a930caeb7dd761028bae463860e795441ab69e0cc1bd937d135f889eb33e582228523ec77ece6fd1df7b29fa9cd02d54e0caaefccfc3cfe28f65682bc15ce78666b4ad094e42cf4c841e7556d378d34f7966b635272991071be64e5d39a132e7d2bce4e5d7d320a815c2f3dcbdab3b5cf78ee4be982ed1b75d0773e39c4326119e16ad999f8fef7e8892a57943b427cab0d2ff5593e1703bb6b62383c0a65ab11adba128e6f0c40d89e1ea6254116de932735c5464a2c6d941e7e456aee2c
-                  jid: 7c949f4a2cdd4cfc87de9a66cbe53eea
-                  request_cost: 7.9361
-                  url: 'https://storage.googleapis.com/user_space_dev/'
+                    x-goog-meta-uploader: '01832842d1774e4fb711d31b30fa9431'
+                    x-goog-meta-uuid: c1d5428e080540d69a56e4dda2f7a9e8
+                    x-goog-signature: 8e6e95bd76ded2fe6dff325784ac8939378f8a1dbfbfbc43b5e691ce7efa66599dbfe1815b416b54482e49a2fc470b5905391b76aeb7d8aa0663cacf2332786a900768e41db2757e1ba806c056bf2ac1c6363bb81b94f96e4fee3327c5337bedea263a796d10857b000586cd46d02f95d0c01644ad6c16f2e1d86ed016705217c13d7a9fa75f88cfcbf54a0f363b752a2c480a534e592c90d81c8b4fb17c3dfcb727952231e29db8aba4fb38163f8d2a9606e7fcd12c8be04f81bbcce3d9351af7ece1dcec9d412a71f617829242874d4dc45a2a700e4752c5f7c3c5c0824398d31f4e412e67f55b799f9d1a2da9e8ba218d6fe092ab054b95c991540fbc81d3
+                  jid: c1d5428e080540d69a56e4dda2f7a9e8
+                  request_cost: 0.1019
+                  url: https://storage.googleapis.com/lp_user_space_prod/
                 status: Success
         '401':
           description: Unauthorized
@@ -277,7 +273,7 @@ components:
               properties:
                 content-type:
                   type: string
-                  example: text/plain
+                  example: audio/wav
                   description: Content type of the document
                 policy:
                   type: string
@@ -463,7 +459,6 @@ components:
               example: prepared_speech
               description: |+
                 Model selection. For best performance, select the model which best matches the use-case&#58;
-
                 1. generic - Large nnet3-chain factorized TDNN model, trained on ~1200 hours of audio. Generic English, 16KHz
                 2. prepared_speech - Better suited for transcribing prepared / formal speech (e.g. news or parliamentary speeches). 16 kHz, mono channel, .wav format.
                 3. telephony - Better suited for conversational speech or telephony use cases. 8 kHz, mono channel, .wav format.
@@ -487,12 +482,12 @@ components:
         content-type:
           type: string
           default: false
-          example: application/pdf
+          example: audio/wav
           description: Fields
         key:
           type: string
           default: false
-          example: 1757/2531/lp-vadasr/input/4test_61c2cadaaae5479fa24494a8a073b86c.wav
+          example: 309/495/lp-vadasr/input/4test_c1d5428e080540d69a56e4dda2f7a9e8.wav
           description: Fields
         policy:
           type: string
@@ -509,21 +504,31 @@ components:
           default: false
           example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
           description: Fields
+        x-goog-date:
+          type: string
+          default: false
+          example: 20220224T045625Z
+          description: Fields          
         x-goog-meta-additional_param:
           type: string
           default: false
-          example: {\"password\": \"fffff\"}
+          example: "{\"model\": \"prepared_speech\", \"threshold\": 0.4}"
           description: Fields
         x-goog-meta-oid:
           type: string
           default: false
-          example: 1
+          example: 309
           description: Fields
         x-goog-meta-uid:
           type: string
           default: false
-          example: 2
+          example: 495
           description: Fields
+        x-goog-meta-uploader:
+          type: string
+          default: false
+          example: 01832842d1774e4fb711d31b30fa9431
+          description: Fields           
         x-goog-meta-uuid:
           type: string
           default: false
