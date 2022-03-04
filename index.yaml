@@ -424,7 +424,7 @@ data alliance:
     urlkey: download_dataset_api
     versions:
       0.1.0: 'download_dataset.yaml'
-platform apis:
+platform functions:
   org_info:
     title: View Organizational Info
     versions:
