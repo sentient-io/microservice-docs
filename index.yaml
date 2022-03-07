@@ -167,7 +167,7 @@ nlp:
     title: Google Translate
     versions:
       0.1.0: 'google_translate.yaml'
-recommendation_engine:
+recommendation engine:
   engine:
     title: Recommendation Engine
     versions:
