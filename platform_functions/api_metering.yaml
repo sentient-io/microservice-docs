@@ -1,0 +1,260 @@
+openapi: 3.0.1
+info:
+  title: API Metering
+  description: This API provides detail usage metrics that helps you as an organization to 1. Track and understand your usage of Sentient APIs 2. Monitor performance of your applications and Sentient APIs 3. Discover problems that may be happening between your application and Sentient APIs. By using this API you can dramatically speed up resolution time while troubleshooting problems or are in need of technical support from Sentient. The metrics provided throught this API include request counts, total latencies, error rates, request sizes, and response rates. You can view API metrics in administrator user dashboard.  
+  version: v0.1.0
+  x-subscribelink: api_metering
+servers:
+  - url: 'https://dev-microserviceapi-catalog.sentient.io' 
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jul 09, 2021"
+paths:
+  /v0/apimetering:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  - activity: 'YES'
+                    microservice_performance:
+                      - endpoint: https://api.sentient.io/DaaS/dev/ihidata
+                        error_rate: 0
+                        function_code: IHIDATA
+                        function_name: LiDAR Trajectory Data
+                        total_calls: 68
+                      - endpoint: >-
+                          http://dev-apis.sentient.io/extauth/microservices/utility/wikipedia/v0.1/getresult1.0/getresults
+                        error_rate: 3.7037037037037033
+                        function_code: WIKIPEDIA
+                        function_name: Wikipedia
+                        total_calls: 27
+                    microservice_usage_by_daterange:
+                      - - '2021-01-27'
+                        - 3
+                        - 0
+                      - - '2021-01-28'
+                        - 4
+                        - 0
+                    summary:
+                      avg_response_time: 3012.5098039215686
+                      total_error_count: 21.568627450980394
+                      total_function_count: 11
+                      total_successfull_calls: 51
+                    userlist:
+                      - user_id: 4
+                        user_name: root_01
+                      - user_id: 5
+                        user_name: '22222'
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'        
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The status message of the API call.
+        results:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of Json result object
+          items:
+            type: object
+            properties:                      
+                activity:
+                  type: string
+                  example: YES
+                  description: Activity details
+                microservice_performance:
+                  type: array
+                  example: [{<JSON result Object}]
+                  description: The list of Json result object
+                  items:
+                    type: object
+                    properties:                      
+                        endpoint:
+                          type: string
+                          example: https://api.sentient.io/DaaS/dev/ihidata
+                          description: Endpoint of the microservice
+                        error_rate:
+                          type: integer
+                          format: float
+                          example: 0.0
+                          description: Microserive error rate
+                        function_code:
+                          type: string
+                          example: IHIDATA
+                          description: Microserive function code
+                        function_name:
+                          type: string
+                          example: LiDAR Trajectory Data
+                          description: Microserive function name
+                        total_calls:
+                          type: integer
+                          example: 68
+                          description: Microserive total calls count
+                microservice_usage_by_daterange:
+                  type: array
+                  example: ["2021-01-27",3,0]
+                  description: Array of date in the format YYYY-MM-DD, Authorised Calls, Unsuccessful Calls
+                  items:
+                    type: object
+                summary:
+                  type: object
+                  description: The result of the API call.
+                  example: { "<Json": "Object>" }
+                  properties: 
+                    avg_response_time:
+                      description: Average response time of the api calls
+                      example: 3012.5098039215686
+                      type: integer
+                      format: float
+                    total_error_count:
+                      description: Total error count of the api calls
+                      example: 21.568627450980394
+                      type: integer
+                      format: float
+                    total_function_count:
+                      description: Total function count
+                      example: 11
+                      type: integer
+                    total_successfull_calls:
+                      description: Total success calls of the api
+                      example: 51
+                      type: integer
+                userlist:
+                  type: array
+                  example: [{<JSON result Object}]
+                  description: The list of Json result object
+                  items:
+                    type: object
+                    properties:                      
+                        user_id:
+                          type: integer
+                          description: User id of the user
+                          example: 4
+                        user_name:
+                          type: string
+                          description: Username of the user
+                          example: root_01
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jul 09, 2021
+                description: Initial version release    
+    input:
+      type: object
+      required:
+        - x-name
+        - to_date
+      properties:
+        from_date:
+          x-name: from_date
+          type: string
+          default: True
+          example: "2021-01-01"
+          description: Api metering graph details from date in the format YYYY-DD-MM
+        to_date:
+          x-name: to_date
+          type: string
+          default: True
+          example: "2021-02-24"
+          description: Api metering graph details to date in the format YYYY-DD-MM
+        user_id:
+          x-name: user_id
+          type: integer
+          example: 2
+          description: User id to view the api metering graph details. Refer to User List API to get the user id (results.user_id) details.
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

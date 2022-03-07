@@ -1,0 +1,199 @@
+openapi: 3.0.1
+info:
+  title: View User Details
+  description: This API allows an orgonization admin to access user inforamtion and data.
+  x-subscribelink: user_info
+  version: '0.1.0'
+servers:
+  - url: 'https://dev-microserviceapi-org.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jul 09, 2021"
+paths:
+   /org/v0/getuserinfo:
+    get:
+      tags:
+        - v0.1.0
+      parameters:
+        - in: query
+          name: user_id
+          schema:
+            type: integer
+          description: Default it will be based on api key user details. For User Id, Refer to User List API to get the user id (results.user_id) details.
+          example: "1334"
+          default: false
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                results:
+                  user_id: '2194'
+                  user_name: example@example.io
+                  last_active: 22 jun 2021 / 13:43
+                  user_api_key: C92FE433074E498081C2
+                  groups:
+                    - id: 2469
+                      value: AI & Data (Individual)
+                  direct_function:
+                    - id: 1452
+                      value: Object Detection(new owner)
+                  group_function:
+                    - id: 238
+                      value: Get deleted user list
+                    - id: 153
+                      value: Remove Function From Group
+                    - id: 152
+                      value: Add Functions To Group
+                  referral_code: '5571014473'
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results 
+          properties:      
+            user_id:
+              type: integer
+              example: 2194
+              description: User id of the user
+            user_name:
+              type: string
+              example: "example@example.io"
+              description: User name of the user
+            last_active:
+              type: string
+              example: "22 jun 2021 / 13:43"
+              description: Last active details of the user
+            user_api_key:
+              type: string
+              example: "99C61DF0B6..."
+              description: User api key of the user
+            groups:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:                      
+                    id:
+                      type: integer
+                      description: User group id of the user
+                      example: 2469
+                    value: 
+                      type: string
+                      description: User group name of the user
+                      example: "AI & Data (Individual)"
+            direct_function:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:                      
+                    id:
+                      type: integer
+                      description: Direct function id of the user
+                      example: 1452
+                    value: 
+                      type: string
+                      description: Direct function name of the user
+                      example: "Object Detection(new owner)"
+            group_function:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:                      
+                    id:
+                      type: integer
+                      description: Group function id of the user
+                      example: 238
+                    value: 
+                      type: string
+                      description: Group function name of the user
+                      example: "Get deleted user list"
+            referral_code:
+              type: string
+              example: "49688.."
+              description: Referral code of the user
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+    versions:
+      type: object
+      properties:
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 09,2019
+              description: Initial version release          
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.

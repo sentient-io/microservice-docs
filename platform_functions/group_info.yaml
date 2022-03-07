@@ -1,0 +1,202 @@
+
+openapi: 3.0.1
+info:
+  title: View Group Details
+  description: This is an organization function and this API allow the user to view the group details of their Organization. By using this API, a group admin can get the required group details to assign a group or remove a function to/from the user. 
+  x-subscribelink: group_info
+  version: '0.1.0'
+servers:
+  - url: 'https://dev-microserviceapi-org.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jul 09, 2021"
+paths:
+   /org/v0/getgroupinfo:
+    get:
+      tags:
+        - v0.1.0
+      parameters:
+        - in: query
+          name: group_id
+          schema:
+            type: integer
+          required: true
+          description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
+          example: "253"
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                result:
+                  group_id: 2374
+                  group_name: AI & Data (Individual)
+                  group_description: Predefined group
+                  date_created: 22 jun 2021 / 20:12
+                  date_updated: 22 jun 2021 / 20:12
+                  created_by: ''
+                  group_function:
+                    - function_id: 64255
+                      value: Get deleted user list
+                    - function_id: 64256
+                      value: Remove Function From Group
+                  users:
+                    - user_id: 2194
+                      value: mohansenti@gmail.com
+                    - user_id: 2194
+                      value: mohansenti@gmail.com
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results 
+          properties:  
+            group_id:
+              type: integer
+              example: "2374"
+              description: Group id of the group
+            group_name:
+              type: string
+              example: AI & Data (Individual)
+              description: Group name of the group
+            group_description:
+              type: string
+              example: Predefined group
+              description: Group description of the group
+            date_created:
+              type: string
+              example: "22 jun 2021 / 20:12"
+              description: Group created date and time
+            date_updated:
+              type: string
+              example: "22 jun 2021 / 20:12"
+              description: Group details updated date and time
+            created_by:
+              type: string
+              example: "2"
+              description: Group created by user
+            group_function:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:                      
+                    function_id:
+                      type: integer
+                      description: Group function id of the group
+                      example: "64255"
+                    value: 
+                      type: string
+                      description: Group function name of the group
+                      example: "Get deleted user list"
+            users:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:                      
+                    user_id:
+                      type: integer
+                      description: User id of the group
+                      example: "2194"
+                    value: 
+                      type: string
+                      description: User name of the group
+                      example: "example@example.com"
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 09,2021
+              description: Initial version release          
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.

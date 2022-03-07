@@ -1,0 +1,135 @@
+openapi: 3.0.1
+info:
+  title: Subscribe To Microservice
+  description: This API provides operations to subscribe function to the users in your organization.
+  x-subscribelink: subscription
+  version: '0.1.0'
+servers:
+  - url: 'https://dev-microserviceapi-org.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Sep 6, 2021"
+paths:
+   /org/v0/subscription:
+    get:
+      tags:
+        - v0.1.0
+      required:
+        - key
+        - value
+      parameters:
+        - in: query
+          name: key
+          schema:
+            type: string
+          required: true
+          description: Keys of either Function Id or Function Code.
+          example: "function_id or function_code"
+        - in: query
+          name: value
+          schema:
+            type: string
+          required: true
+          description: Value of Funtion Id or Function Code. To get Function Id, Refer to Assign Functions API to get the function id (result.function_id) details.
+          example: "217 or WEBSCRAPING"
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 6,2021
+              description: Initial version release          
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
