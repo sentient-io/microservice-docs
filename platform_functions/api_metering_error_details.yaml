@@ -1,0 +1,218 @@
+openapi: 3.0.1
+info:
+  title: API Metering Error Details
+  description: This API provides detail insight into errors that may occur while performing an API call. This API shows the aspects including but limited to the number of invalid inputs, authentication failures, number of invalid requests, and API key errors for any given microservice within a specific period of time (i.e. monthly, yearly, etc.).
+  version: v0.1.0
+  x-subscribelink: api_metering_error_details
+servers:
+  - url: 'https://dev-microserviceapi-catalog.sentient.io' 
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jul 09, 2021"
+paths:
+  /v0/apimeteringerrordetails:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  - activity: 'YES'
+                    error_detail:
+                      - api_result:
+                          - auth_message: Invalid Request URL
+                            unsuccess_call: 1
+                        total_unsuccess_call: 1
+                    error_usage:
+                      - - '2021-01-27'
+                        - 2
+                        - 0
+                      - - '2021-01-28'
+                        - 2
+                        - 0
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '415':
+          description: Invalid Input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detailed status if the api call
+        results:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of array Json result object
+          items:
+            type: object
+            properties:
+                activity:
+                  type: string
+                  example: YES
+                  description: Activity details
+                error_detail:
+                  type: array
+                  description: The list of Json result object
+                  example: [{"<JSON":"result Object"}]
+                  items:
+                    type: object
+                    properties:
+                      api_result:
+                        type: array
+                        description: The list of Json result object
+                        example: [{"<JSON":"result Object"}]
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                              description: Stauts of the api result
+                              example: "Invalid Request URL"
+                            unsuccesscount:
+                              type: string
+                              description: Unsuccess count of the api
+                              example: 1
+                      total_unsuccess_call:
+                        type: string
+                        example: 1
+                        description: Total unsuccess count of the api
+                error_usage:
+                  type: array
+                  example: ["2021-01-27",2,0]
+                  description: Array of date in the format YYYY-MM-DD, Authorised Calls, Unsuccessful Calls
+                  items:
+                    type: object
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jul 09, 2021
+                description: Initial version release    
+    input:
+      type: object
+      required:
+        - from_date
+        - to_date
+        - key
+        - value
+      properties:
+        from_date:
+          x-name: from_date
+          type: string
+          default: True
+          example: "2021-01-01"
+          description: Api metering graph details from date in the format YYYY-DD-MM
+        to_date:
+          x-name: to_date
+          type: string
+          default: True
+          example: "2021-02-24"
+          description: Api metering graph details to date in the format YYYY-DD-MM
+        user_id:
+          x-name: user_id
+          type: integer
+          example: 2
+          description: User id to view the api metering graph details. Refer to User List API to get the user id (results.user_id) details.
+        key:
+          x-name: key
+          type: string
+          default: True
+          example: "function_id or function_code"
+          description: Microservice function id or function code keys required to view the api metering graph details of any microservice.
+        value:
+          x-name: value
+          type: string
+          default: True
+          example: "583 or WIKIPEDIA"
+          description: Values of function id or function code required to view the api metering graph details. To get Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
