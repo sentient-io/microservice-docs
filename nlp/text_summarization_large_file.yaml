@@ -458,7 +458,7 @@ components:
       required:
         - filePath      
       properties:
-        filePath:
+        file:
           type: string
           format: binary
           default: true
