@@ -448,9 +448,9 @@ components:
     uploadinput:
       type: object
       required:
-        - filePath      
+        - file      
       properties:
-        filePath:
+        file:
           type: string
           format: binary
           default: true
