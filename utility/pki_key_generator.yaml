@@ -228,7 +228,7 @@ components:
           type: number
           example: 1
           default: true
-          description: bitcode to generate the key by byte-length. Maximum up to 5. Empty string and above 5 should be consider as 1.
+          description: Bitcode to generate the key by byte-length. Maximum up to 5. 0 and above 5 should be consider as 1.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
