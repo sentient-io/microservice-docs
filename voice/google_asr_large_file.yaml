@@ -454,74 +454,74 @@ components:
     uploadinput:
       type: object
       required:
-        - filePath      
+        - file      
       properties:
-        fields:
-          type: object
-          example:
-            <Json: Object>
-          description: Json Object of returned results
-          properties:
-            content-type:
-              type: string
-              example: text/plain
-              description: Content type of the document
-            policy:
-              type: string
-              example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb25...
-              description: Content type of the document
-            x-goog-algorithm:
-              type: string
-              example: GOOG4-RSA-SHA256
-              description: Google algorithm
-            x-goog-credential:
-              type: string
-              example: sentient-dev-bigqu...
-              description: Google algorithm
-            x-goog-date:
-              type: string
-              example: 20211220T044135Z
-              description: Google algorithm
-            x-goog-meta-additional_param:
-              type: string
-              example: None
-              description: Google algorithm
-            x-goog-meta-oid:
-              type: string
-              example: 309
-              description: Google algorithm
-            x-goog-meta-uid:
-              type: string
-              example: 495
-              description: Google algorithm
-            x-goog-meta-uploader:
-              type: string
-              example: 4b82151d31e0429ba28f3ad1525c3aa6
-              description: Google algorithm
-            x-goog-meta-uuid:
-              type: string
-              example: e4ff367c93664fb9acfa40d9a4c6e43f
-              description: Google algorithm
-            x-goog-signature:
-              type: string
-              example: 53976156d99fe7521e373c45d9e5056a420d25...
-              description: Google algorithm
-        jid:
+        file:
           type: string
-          example: e4ff367c93664fb9acfa40d9a4c6e43f
-          description: Google algorithm
-        request_cost:
+          format: binary
+          default: true
+          example: sample.wav
+          description: file
+        content-type:
           type: string
-          example: 0.3323
-          description: Google algorithm
-        url:
+          default: false
+          example: audio/wav
+          description: Fields
+        key:
           type: string
-          example: 'https://storage.googleapis.com/user_space_dev/'
-          description: Google algorithm
-    status:
-      type: string
-      example: Success
-      description: The status of the API call success/failure           
+          default: false
+          example: 309/495/lp-vadasr/input/4test_c1d5428e080540d69a56e4dda2f7a9e8.wav
+          description: Fields
+        policy:
+          type: string
+          default: false
+          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhcHBsaWNhdGlvbi9wZGYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDE0MDczMjYxXSx7ImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9uL3BkZiJ9LHsieC1nb29nLW1ldGEtYWRkaXRpb25hbF9wYXJhbSI6IntcInBhc3N3b3JkXCI6IFwiZmZmZmZcIn0ifSx7IngtZ29vZy1tZXRhLW9pZCI6IjEifSx7IngtZ29vZy1tZXRhLXVpZCI6IjIifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJjZjNkMzI5YmQ5ZGY0Y2VmOTE5NjZjMzM2Mzg2ZWVhMyJ9LHsiYnVja2V0IjoidXNlcl9zcGFjZV9kZXYifSx7ImtleSI6IjEvMi9scC10ZXh0c3VtbWFyaXNhdGlvbi9pbnB1dC9QZGZfNm1iX2NmM2QzMjliZDlkZjRjZWY5MTk2NmMzMzYzODZlZWEzLnBkZiJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIwOVQwOTU1MDdaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMDkvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMS0xMi0wOVQxMDo1NTowNy41MDYwNDBaIn0=
+          description: Fields
+        x-goog-algorithm:
+          type: string
+          default: false
+          example: GOOG4-RSA-SHA256
+          description: Fields
+        x-goog-credential:
+          type: string
+          default: false
+          example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
+          description: Fields
+        x-goog-date:
+          type: string
+          default: false
+          example: 20220224T045625Z
+          description: Fields          
+        x-goog-meta-additional_param:
+          type: string
+          default: false
+          example: "{\"model\": \"prepared_speech\", \"threshold\": 0.4}"
+          description: Fields
+        x-goog-meta-oid:
+          type: string
+          default: false
+          example: 309
+          description: Fields
+        x-goog-meta-uid:
+          type: string
+          default: false
+          example: 495
+          description: Fields
+        x-goog-meta-uploader:
+          type: string
+          default: false
+          example: 01832842d1774e4fb711d31b30fa9431
+          description: Fields           
+        x-goog-meta-uuid:
+          type: string
+          default: false
+          example: cf3d329bd9df4cef91966c336386eea3
+          description: Fields
+        x-goog-signature:
+          type: string
+          default: false
+          example: 7970619677c2a0dc26af460a7d62f883528af9e1e8a1459aa09671ee0fbf15f7a611b7bd8c382fd8d39f74fe212a7e3db1768535f0c1ccff062239627ebe49195cc2c42c2238eb5e268ecaca49e647eb244eb023f3d4ba97922fd1228aab677a7176b9f84fef1c909897ccf0e1e8f9e3d030dbfc9892c7c026060dcf20b4ad4598f346de478b0f8495d9bce292b83a5b3bfa13c7dc08a2ce162f652c3bce91191167eeee3019b6b196e4271f5e3a6a1fe067f70acdaa082e6091c2f3ac8182bca8be41afc90600fc32dcdb3072acb43aaf90910a38c4aec9e3a42fdd21deb5ce936d8269e9ed011377ef058cac20d336218a35858753bd99b4ffdb1db171f0f4
+          description: Fields         
   securitySchemes:
     APIAuthorizer:
       type: apiKey
