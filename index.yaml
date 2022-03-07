@@ -166,7 +166,11 @@ nlp:
   google_translate:
     title: Google Translate
     versions:
-      0.1.0: 'google_translate.yaml'      
+      0.1.0: 'google_translate.yaml' 
+  recommendation_engine:
+    title: Recommendation Engine
+    versions:
+      0.1.0: 'engine.yaml'
 computer vision:
   object_detection:
     title: Object Detection
