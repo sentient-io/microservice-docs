@@ -5,37 +5,25 @@ info:
     Recommendation Engine is a new type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm (CCO), which can use data from a wide variety of sources to tune and make recommendations better.
   version: '1.0.0'
 servers:
-  - url: 'https://dev-ttap-harnessapps.sentient.io'
+  - url: 'https://dev-apis.sentient.io/recommedationengine/microservices/dataanalytics'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Oct 30, 2020"
 paths:
-  /addevent:
+  /readdevent/v0/getresults:
     post:
       tags:
         - v1.0.0
-      description: testing
       responses:
         '200':
           description: Ok
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/success'
+                $ref: '#/components/schemas/readdeventsuccess'
               example: 
-                "{\"comment\":\"UR input processed\"}"
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/forbidden'
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/notfound'
+                message: Successfully Added
+                status: Success
         '419':
           description: Input Field Missing
           content:
@@ -49,13 +37,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/input'
+              $ref: '#/components/schemas/readdeventinput'
         required: true
-  /viewevent:
+  /readditem/v0/getresults:
     post:
       tags:
         - v1.0.0
@@ -65,21 +55,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/vieweventsuccess'
+                $ref: '#/components/schemas/readditemsuccess'
               example: 
-                "{\"result\":[{\"item\":\"Page 30\",\"score\":2.48592472076416},{\"item\":\"Page 24\",\"score\":2.48592472076416},{\"item\":\"Page 21\",\"score\":2.48592472076416},{\"item\":\"Page 29\",\"score\":2.48592472076416},{\"item\":\"Page 26\",\"score\":2.48592472076416},{\"item\":\"Page 17\",\"score\":2.48592472076416},{\"item\":\"Page 12\",\"score\":2.48592472076416},{\"item\":\"Page 1\",\"score\":2.48592472076416},{\"item\":\"Page 7\",\"score\":1.862879991531372},{\"item\":\"Page 20\",\"score\":0.6230446696281433},{\"item\":\"Page 27\",\"score\":0.6230446696281433},{\"item\":\"Page 25\",\"score\":0.6230446696281433},{\"item\":\"Page 23\",\"score\":0.6230446696281433},{\"item\":\"Page 22\",\"score\":0.6230446696281433},{\"item\":\"Page 16\",\"score\":0.6230446696281433},{\"item\":\"Page 28\",\"score\":0.6230446696281433},{\"item\":\"Page 6\",\"score\":0.6230446696281433},{\"item\":\"Page 9\",\"score\":0.6230446696281433},{\"item\":\"Page 11\",\"score\":0.6230446696281433},{\"item\":\"Page 3\",\"score\":0.6230446696281433}]}"
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/forbidden'
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/notfound'
+                message: Successfully Added
+                status: Success
         '419':
           description: Input Field Missing
           content:
@@ -93,13 +72,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/vieweventinput'
+              $ref: '#/components/schemas/readditeminput'
         required: true
-  /trainevent:
+  /redeleteevent/v0/getresults:
     post:
       tags:
         - v1.0.0
@@ -109,21 +90,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/traineventsuccess'
+                $ref: '#/components/schemas/redeleteeventsuccess'
               example: 
-                "{\"description\":{\"jobId\":\"e4673adc-f50d-4f90-8f72-eb1d9dba7628\",\"status\":{\"name\":\"queued\"},\"comment\":\"Spark job\",\"createdAt\":\"2022-01-20T06:17:55.504Z\"},\"comment\":\"Started train Job on Spark\"}"
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/forbidden'
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/notfound'
+                message: Successfully Deleted
+                status: Success
         '419':
           description: Input Field Missing
           content:
@@ -137,7 +107,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
-  /bulkupload:
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/redeleteeventinput'
+        required: true
+  /reitem/v0/getresults:
     post:
       tags:
         - v1.0.0
@@ -147,21 +125,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/bulkuploadsuccess'
+                $ref: '#/components/schemas/reitemsuccess'
               example: 
-                "{\"description\":{\"jobId\":\"e4673adc-f50d-4f90-8f72-eb1d9dba7628\",\"status\":{\"name\":\"queued\"},\"comment\":\"Spark job\",\"createdAt\":\"2022-01-20T06:17:55.504Z\"},\"comment\":\"Started train Job on Spark\"}"
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/forbidden'
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/notfound'
+                re_id: efe8d908-9472-11ec-8d59-66e65c6117ca
+                item: Page 24
+                score: 1.3801217079162598
+                properties:
+                - pageurl:
+                  - www.page24.com
+                  description:
+                  - Page 24 description
+                  pagetitle:
+                  - Page 24 Title
         '419':
           description: Input Field Missing
           content:
@@ -175,29 +150,231 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reiteminput'
+        required: true
+  
+  /reuser/v0/getresults:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reusersuccess'
+              example: 
+                re_id: efe8d908-9472-11ec-8d59-66e65c6117ca
+                item: Page 24
+                score: 1.3801217079162598
+                properties:
+                - pageurl:
+                  - www.page24.com
+                  description:
+                  - Page 24 description
+                  pagetitle:
+                  - Page 24 Title
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reuserinput'
+        required: true
+  /retrainengine/v0/getresults:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retraineventsuccess'
+              example: 
+                message: Training is Scheduled
+                status: Success
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/retraineventinput'
+        required: true
+  /rebulkuploadevent/v0/getresults:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rebulkuploadeventsuccess'
+              example: 
+                message: Partially Added
+                status: Success
+                error_rows: []
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
       requestBody:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/bulkuploadinput'
+              $ref: '#/components/schemas/rebulkuploadeventinput'
+        required: true
+  /rebulkuploaditem/v0/getresults:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rebulkuploaditemsuccess'
+              example: 
+                message: Partially Added
+                status: Success
+                error_rows: []
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/rebulkuploaditeminput'
         required: true
 components:
   schemas:
-    success:
+    readdeventsuccess:
       type: object
       properties:
-        comment:
+        message:
           type: string
-          description: The result of the API call.
-          example: UR input processed
-    bulkuploadsuccess:
+          description: The message of the API call.
+          example: Successfully Added
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+    readditemsuccess:
       type: object
       properties:
-        comment:
+        message:
           type: string
-          description: The result of the API call.
-          example: UR input processed
-    vieweventsuccess:
+          description: The message of the API call.
+          example: Successfully Added
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+    redeleteeventsuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Successfully Deleted
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+    rebulkuploadeventsuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Partially Added
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+        error_rows:
+          type: string
+          description: The status of the API call.
+          example: []
+    rebulkuploaditemsuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Partially Added
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+        error_rows:
+          type: string
+          description: The status of the API call.
+          example: []
+    reitemsuccess:
       type: object
       properties:
         result:
@@ -207,47 +384,89 @@ components:
           items:
             type: object
             properties:
+              re_id:
+                type: string
+                description: The result of the API call.
+                example: efe8d908-9472-11ec-8d59-66e65c6117ca
               item:
                 type: string
-                description: The result of the item details.
+                description: The result of the API call.
                 example: Page 30
               score:
                 type: string
-                description: The result of the score details.
+                description: The result of the API call.
                 example: 2.48592472076416
-    traineventsuccess:
+              properties:
+                type: array
+                description: The result of the API call.
+                example: List of objects
+                items:
+                  type: object
+                  properties:
+                    pageurl:
+                      type: string
+                      description: The result of the API call.
+                      example: ["www.page24.com","www.page25.com"]
+                    description:
+                      type: string
+                      description: The result of the API call.
+                      example: ["Page 24 description","Page 25 description"]
+                    pagetitle:
+                      type: string
+                      description: The result of the API call.
+                      example: ["Page 24 Title","Page 25 Title"]
+    reusersuccess:
       type: object
       properties:
-        description:
-          type: object
+        result:
+          type: array
           description: The result of the API call.
           example: UR input processed
-          properties:
-            jobId:
-              type: string
-              description: Job ID of the train event.
-              example: e4673adc-f50d-4f90-8f72-eb1d9dba7628
-            status:
-              type: object
-              description: List of the object
-              example: {"name": "queued"}
+          items:
+            type: object
+            properties:
+              re_id:
+                type: string
+                description: The result of the API call.
+                example: efe8d908-9472-11ec-8d59-66e65c6117ca
+              item:
+                type: string
+                description: The result of the API call.
+                example: Page 30
+              score:
+                type: string
+                description: The result of the API call.
+                example: 2.48592472076416
               properties:
-                name:
-                  type: string
-                  description: Name of the job status
-                  example: queued
-            comment:
-              type: string
-              description: Comment of the train event
-              example: Spark job
-            createdAt:
-              type: string
-              description: Train event created date and time
-              example: "2022-01-20T06:17:55.504Z"
-        comment:
+                type: array
+                description: The result of the API call.
+                example: List of objects
+                items:
+                  type: object
+                  properties:
+                    pageurl:
+                      type: string
+                      description: The result of the API call.
+                      example: ["www.page24.com","www.page25.com"]
+                    description:
+                      type: string
+                      description: The result of the API call.
+                      example: ["Page 24 description","Page 25 description"]
+                    pagetitle:
+                      type: string
+                      description: The result of the API call.
+                      example: ["Page 24 Title","Page 25 Title"]
+    retraineventsuccess:
+      type: object
+      properties:
+        message:
           type: string
-          description: Comment of the train event
-          example: Started train Job on Spark
+          description: The message of the API call.
+          example: Training is Scheduled
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
     forbidden:
       type: object
       properties:
@@ -295,59 +514,226 @@ components:
                 example: Published Date - Oct 30, 2020
                 x-details: Standardizing Output JSON
                 description: Latest Version
-    bulkuploadinput:
+    rebulkuploadeventinput:
       type: object
+      required:
+        - file
+        - engine_name
+        - event
       properties:
         file:
           type: string
           format: binary
           default: true
-          example: sample.csv
-          description: Upload CSV file with details of input - event, entityType, entityId, targetEntityType, targetEntityId, eventTime
-    vieweventinput:
-      type: object
-      properties:
-        user:
+          example: sample.wav
+          description: Maximum file size up to 10 MB.
+        engine_name:
           type: string
           default: true
           description: |+ 
-             The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
-          example: User 10
-    input:
-      type: object
-      required:
-        - event
-        - entityType
-        - entityId
-        - targetEntityType
-        - targetEntityId
-        - eventTime
-      properties:
+             Recommendation engine name
+          example: ttap-on-pageurl
         event:
           type: string
           default: true
           description: |+ 
              The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
-          example: buy
-        entityType:
+          example: pageurl
+    rebulkuploaditeminput:
+      type: object
+      required:
+        - file
+        - engine_name
+        - properties
+      properties:
+        file:
+          type: string
+          format: binary
+          default: true
+          example: sample.wav
+          description: Maximum file size up to 10 MB.
+        engine_name:
           type: string
           default: true
-          example: user
+          description: |+ 
+             Recommendation engine name
+          example: ttap-on-pageurl
+        properties:
+          type: string
+          default: true
+          description: |+ 
+             The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
+          example: ["pagetile","description","pageurl"]
+    retraineventinput:
+      type: object
+      required:
+        - engine_name
+        - item
+      properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: ttap-on-pageurl
+    reiteminput:
+      type: object
+      required:
+        - engine_name
+        - item
+      properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: ttap-on-pageurl
+        item:
+          type: string
+          default: true
+          example: Page 15
           description: |+
-            This is always "user", do not use any other type for indicators.
-        entityId:
+            It contains the unique item identifier
+        item_bias:
+          type: string
+          default: true
+          example: Page 15
+          description: |+
+            This tells the recommender to return items similar to this the item specified.
+        item_set:
+          type: string
+          default: true
+          example: []
+          description: |+
+            It contains a list of unique item identifiers
+        item_set_bias:
+          type: string
+          default: true
+          example: 
+          description: |+
+        offset:
+          type: string
+          example: 0
+          description: |+
+            Rank/position to start returning recommendations from
+        limit:
+          type: string
+          example: 4
+          description: |+
+            Max number of recommendations to return
+        rules:
+          type: string
+          example: []
+          description: |+
+            Array of fields values and biases to use in this query.
+        date_range:
+          type: string
+          example: {}
+          description: |+
+            Values for the before and after are strings in ISO 8601 format.
+        blacklist_items:
+          type: string
+          example: []
+          description: |+
+             It specifies event types this part of the query specifies individual items to remove from returned recommendations.
+        return_self:
+          type: string
+          example: false
+          description: |+
+            Its boolean asking to include the item that was part of the query as part of the results. Defaults to false.
+    reuserinput:
+      type: object
+      required:
+        - engine_name
+        - user
+      properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: ttap-on-pageurl
+        user:
           type: string
           default: true
           example: User 10
           description: |+
             This is whatever string you use to identify a user.
-        targetEntityType:
+        user_bias:
           type: string
           default: true
-          example: item
+          example: User 10
           description: |+
-            This is always "item", do not use any other type for indicators.
-        targetEntityId:
+            This tells the recommender to return recommendations based on the user's event history
+        offset:
+          type: string
+          example: 0
+          description: |+
+            Rank/position to start returning recommendations from
+        limit:
+          type: string
+          example: 4
+          description: |+
+            Max number of recommendations to return
+        rules:
+          type: string
+          example: []
+          description: |+
+            Array of fields values and biases to use in this query.
+        date_range:
+          type: string
+          example: {}
+          description: |+
+            Values for the before and after are strings in ISO 8601 format.
+        blacklist_items:
+          type: string
+          example: []
+          description: |+
+             It specifies event types this part of the query specifies individual items to remove from returned recommendations.
+        return_self:
+          type: string
+          example: false
+          description: |+
+            Its boolean asking to include the item that was part of the query as part of the results. Defaults to false.
+    redeleteeventinput:
+      type: object
+      required:
+        - engine_name
+        - item
+        - event_time
+      properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: ttap-on-pageurl
+        item:
+          type: string
+          default: true
+          example: Page 15
+          description: |+
+            The id for items that correspond to the indicator name. May be a product-id, category-id, a tag-id, search term, location, anything that the event represents.
+        event_time:
+          type: string
+          default: true
+          example: "2022-01-19T21:02:49.228Z"
+          description: |+
+            The ISO8601 formatted string for the time the event occurred.
+    readditeminput:
+      type: object
+      required:
+        - engine_name
+        - item
+        - event_time
+      properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: ttap-on-pageurl
+        item:
           type: string
           default: true
           example: Page 15
@@ -355,13 +741,62 @@ components:
             The id for items that correspond to the indicator name. May be a product-id, category-id, a tag-id, search term, location, anything that the event represents.
         properties:
           type: object
-          default: true
-          example: {}
-          description: |+
-            Always empty and can be omitted.
-        eventTime:
+          properties:
+            pagetitle:
+              type: string
+              example: [Page title] 
+            pageurl:
+              type: string
+              example: [Page url] 
+        event_time:
           type: string
           default: true
           example: "2022-01-19T21:02:49.228Z"
           description: |+
             The ISO8601 formatted string for the time the event occurred.
+    readdeventinput:
+      type: object
+      required:
+        - engine_name
+        - event
+        - user
+        - item
+        - event_time
+      properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: ttap-on-pageurl
+        event:
+          type: string
+          default: true
+          description: |+ 
+             The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
+          example: pageurl
+        user:
+          type: string
+          default: true
+          example: User 10
+          description: |+
+            This is whatever string you use to identify a user.
+        item:
+          type: string
+          default: true
+          example: Page 15
+          description: |+
+            The id for items that correspond to the indicator name. May be a product-id, category-id, a tag-id, search term, location, anything that the event represents.
+        event_time:
+          type: string
+          default: true
+          example: "2022-01-19T21:02:49.228Z"
+          description: |+
+            The ISO8601 formatted string for the time the event occurred.
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
