@@ -167,6 +167,10 @@ nlp:
     title: Google Translate
     versions:
       0.1.0: 'google_translate.yaml'
+  google_translate_large_file:
+    title: Google Translate (Large File)
+    versions:
+      0.1.0: 'google_translate_large_file.yaml'      
 recommendation engine:
   engine:
     title: Recommendation Engine
