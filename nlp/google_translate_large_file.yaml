@@ -6,7 +6,117 @@ info:
       - Supports the following file formats: .pdf, .txt, .docx
     For pdf and txt files, we suggest breaking them up into batches and making multiple calls to this microservice for more effective.
   x-additionalinfo: |+
-    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/dev/form.html
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:
+      
+      - Detailed reference to the additional parameters https://dev-docs.sentient.io/#/nlp/google_translate_large_file
+      - The file upload form https://sentient.io/upload/dev/form.html
+     **Supported languages are:**
+        - af - afrikaans
+        - sq - albanian
+        - am - amharic
+        - ar -  arabic
+        - hy - armenian
+        - az - azerbaijani
+        - eu - basque
+        - be - belarusian
+        - bn - bengali
+        - bs - bosnian
+        - bg - bulgarian
+        - ca - catalan
+        - ceb - cebuano
+        - ny - chichewa
+        - zh-cn - chinese (simplified)
+        - zh-tw - chinese (traditional)
+        - co - corsican
+        - hr - croatian
+        - cs - czech
+        - da - danish
+        - nl - dutch
+        - en - english
+        - eo - esperanto
+        - et - estonian
+        - tl - filipino
+        - fi - finnish
+        - fr - french
+        - fy - frisian
+        - gl - galician
+        - ka - georgian
+        - de - german
+        - el - greek
+        - gu - gujarati
+        - ht - haitian creole
+        - ha - hausa
+        - haw - hawaiian
+        - iw - hebrew
+        - hi - hindi
+        - hmn - hmong
+        - hu - hungarian
+        - is - icelandic
+        - ig - igbo
+        - id - indonesian
+        - ga - irish
+        - it - italian
+        - ja - japanese
+        - jw - javanese
+        - kn - kannada
+        - kk - kazakh
+        - km - khmer
+        - ko - korean
+        - ku - kurdish (kurmanji)
+        - ky - kyrgyz
+        - lo - lao
+        - la - latin
+        - lv - latvian
+        - lt - lithuanian
+        - lb - luxembourgish
+        - mk - macedonian
+        - mg - malagasy
+        - ms - malay
+        - ml - malayalam
+        - mt - maltese
+        - mi - maori
+        - mr - marathi
+        - mn - mongolian
+        - my - myanmar (burmese)
+        - ne - nepali
+        - no - norwegian
+        - ps - pashto
+        - fa - persian
+        - pl - polish
+        - pt - portuguese
+        - pa - punjabi
+        - ro - romanian
+        - ru - russian
+        - sm - samoan
+        - gd - scots gaelic
+        - sr - serbian
+        - st - sesotho
+        - sn - shona
+        - sd - sindhi
+        - si - sinhala
+        - sk - slovak
+        - sl - slovenian
+        - so - somali
+        - es - spanish
+        - su - sundanese
+        - sw - swahili
+        - sv - swedish
+        - tg - tajik
+        - ta - tamil
+        - te - telugu
+        - th - thai
+        - tr - turkish
+        - uk - ukrainian
+        - ur - urdu
+        - uz - uzbek
+        - vi - vietnamese
+        - cy - welsh
+        - xh - xhosa
+        - yi - yiddish
+        - yo - yoruba
+        - zu - zulu
+        - fil - Filipino
+        - he - Hebrew
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/google_translate.pdf    
   version: '0.1.0'
