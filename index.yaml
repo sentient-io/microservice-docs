@@ -33,6 +33,10 @@ voice:
     versions:
       2.0.0: 'automatic_speech_recognition_chi.yaml'
       1.0.0: 'automatic_speech_recognition_chi_1.0.yaml'
+  automatic_speech_recognition_eng_large_file:
+    title: Automatic Speech Recognition ENG (Large File)
+    versions:
+      0.1.0: 'automatic_speech_recognition_eng_large_file.yaml'      
   online_automatic_speech_recognition_eng:
     title: Online Automatic Speech Recognition ENG
     versions:
