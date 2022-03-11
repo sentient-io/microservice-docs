@@ -4,7 +4,6 @@ info:
   description: |+
     This microservice takes in the input as file and translates the text and return the output as file.
       - Supports the following file formats: .pdf, .txt, .docx
-    For pdf and txt files, we suggest breaking them up into batches and making multiple calls to this microservice for more effective.
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:
       
