@@ -242,7 +242,7 @@ components:
           default: False
           example: 360
           description: |+
-            Pixel width of thumbnail images. Value should be between 1 and 1920.
+            Pixel width of thumbnail images. Value should be between 1 and 1920. Default value is 360.
         
         
   securitySchemes:
