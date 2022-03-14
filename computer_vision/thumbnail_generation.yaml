@@ -235,6 +235,14 @@ components:
           example: mp4
           description: |+
             Type of video container. If not specified, the type of container is detected and processed. Accepted containers: 'mp4', 'avi', 'mpeg', 'm4v', 'mov', 'webm'
+
+        output_width:
+          x-name: output_width
+          type: number
+          default: False
+          example: 360
+          description: |+
+            Pixel width of thumbnail images. Value should be between 1 and 1920.
         
         
   securitySchemes:
