@@ -8,6 +8,19 @@ info:
   x-additionalinfo: |+
     Video filetypes accepted are 'mp4', 'avi', 'mpeg', 'm4v', 'mov', 'webm'
   x-subscribelink: thumbnail_generation
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10 MB/Call
+  x-inputfilelimit: |+
+    Process up to 10 MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 10 MB.
+  x-apidetailsdesc: |+
+    Thumbnail Generation 
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
@@ -205,7 +218,7 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Mar 22, 2022
-                x-details: Initial Version
+                x-details: Initial version release
                 description: Initial version release.
     input:
       type: object
