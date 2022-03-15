@@ -152,7 +152,7 @@ info:
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/google_asr_prod.pdf      
   version: '0.1.0'
-  x-subscribelink: automatic_speech_recognition_chi
+  x-subscribelink: google_asr
   x-apitype: large file
   x-apitypedescription: |+
     Asyncronous | Batch | 1GB/File.
