@@ -172,7 +172,7 @@ nlp:
     versions:
       0.1.0: 'google_translate_large_file.yaml'      
 data analytics:
-  engine:
+  recommendation_engine:
     title: Recommendation Engine
     versions:
       0.1.0: 'recommendation_engine.yaml'
