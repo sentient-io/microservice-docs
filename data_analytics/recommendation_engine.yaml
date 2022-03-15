@@ -541,8 +541,8 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Oct 30, 2020
-                x-details: Standardizing Output JSON
+                example: Published Date - March 30, 2022
+                x-details: Initial version release
                 description: Latest Version
     rebulkuploadeventinput:
       type: object
