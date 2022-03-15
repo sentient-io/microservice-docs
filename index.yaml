@@ -72,6 +72,10 @@ voice:
     versions:
       1.0.1: 'voice_activity_detection_eng.yaml'
       0.1.0: 'voice_activity_detection_eng_v0.1.yaml'         
+  google_asr_large_file:
+    title: Google ASR (Large File)
+    versions:
+      0.1.0: 'google_asr_large_file.yaml'       
   speaker_diarization:
     title: Speaker Diarization
     versions:
