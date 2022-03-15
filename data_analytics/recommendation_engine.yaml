@@ -6,7 +6,7 @@ info:
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - This microservice can be used as a solution to help businesses better understand and connect with their customers, engage new prospects and increase revenue. For example, it can be used to improve visitor experience and optimize operations in retail, leisure, and other sectors by identifying the type of demogrpahic that frequents a certain place the most. It can also be used to create intelligent prospect lists that ensure one is always maximizing their marketing investment.
+    - This microservice can be used to add event and items to get recommendation.
   x-subscribelink: recommendation_engine
   x-apitype: small file
   x-apitypedescription: |+
