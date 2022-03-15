@@ -454,6 +454,7 @@ components:
         additional_param:
           x-name: additional_param
           type: object
+          default: true
           properties: 
             model:
               x-model: model
