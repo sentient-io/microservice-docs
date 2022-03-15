@@ -4,6 +4,20 @@ info:
   description: |+
     Recommendation Engine is a new type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm (CCO), which can use data from a wide variety of sources to tune and make recommendations better.
   version: '1.0.0'
+  x-subscribelink: recommendation_engine
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 10 MB.
+  x-apidetailsdesc: |+
+     It's a type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm
 servers:
   - url: 'https://dev-apis.sentient.io/recommedationengine/microservices/dataanalytics'
 tags:
