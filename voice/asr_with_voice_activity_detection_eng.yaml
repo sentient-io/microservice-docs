@@ -111,6 +111,10 @@ paths:
             schema:
               $ref: '#/components/schemas/input'
         required: true
+  /microservices/voice/vadasr/v2/getpredictions:
+    post:
+      tags:
+        - v1.2.2
 components:
   schemas:
     success:
