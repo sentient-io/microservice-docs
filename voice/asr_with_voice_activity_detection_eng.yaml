@@ -33,14 +33,6 @@ paths:
     post:
       tags:
         - v1.2.2
-  /microservices/voice/vadasr/v3/getpredictions:
-    post:
-      tags:
-        - v1.2.2
-  /microservices/voice/vadasr/v4/getpredictions:
-    post:
-      tags:
-        - v1.2.2
       responses:
         '200':
           description: Ok
