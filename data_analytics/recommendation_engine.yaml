@@ -29,7 +29,7 @@ paths:
       tags:
         - v1.0.0
       description:
-        Recommendation engine add event
+        This API is used to add the event in recommendation engine
       responses:
         '200':
           description: Ok
@@ -66,7 +66,7 @@ paths:
       tags:
         - v1.0.0
       description:
-        Recommendation engine add item 
+        This API is used to add the item and properties in recommendation engine
       responses:
         '200':
           description: Ok
@@ -103,7 +103,7 @@ paths:
       tags:
         - v1.0.0
       description:
-        Recommendation engine delete event 
+        This API is used to delete the event in recommendation engine
       responses:
         '200':
           description: Ok
@@ -140,7 +140,7 @@ paths:
       tags:
         - v1.0.0
       description:
-        Get recommendation based on the item
+        This API is used to get recommendation based on the item
       responses:
         '200':
           description: Ok
@@ -186,7 +186,7 @@ paths:
       tags:
         - v1.0.0
       description:
-        Get recommendation based on the user
+        This API is used to get the recommendation based on the user
       responses:
         '200':
           description: Ok
@@ -231,7 +231,7 @@ paths:
       tags:
         - v1.0.0
       description:
-        Train engine to get recommendations
+        This API is used to train the recommendation engine
       responses:
         '200':
           description: Ok
@@ -268,7 +268,7 @@ paths:
       tags:
         - v1.0.0
       description:
-        Bulk upload of CSV file to add event
+        This API is used to bulk upload the event in recommendation engine
       responses:
         '200':
           description: Ok
@@ -306,7 +306,7 @@ paths:
       tags:
         - v1.0.0
       description:
-        Bulk upload of CSV file to add item
+        This API is used to bulk upload the item and properties in recommendation engine
       responses:
         '200':
           description: Ok
