@@ -7,7 +7,7 @@ info:
     It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case.
     
     Do ensure that your text is within **5000 characters**.
-  version: '1.0.0'
+  version: '2.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be integrated into services or apps that offer digital writing assistance to make writing clear and effective.
