@@ -8,7 +8,7 @@ info:
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:
       
       - Detailed reference to the additional parameters https://dev-docs.sentient.io/#/nlp/google_translate_large_file
-      - The file upload form https://sentient.io/upload/dev/form.html
+      - The file upload form https://sentient.io/upload/form.html
      **Supported languages are:**
         - af - afrikaans
         - sq - albanian
@@ -117,7 +117,7 @@ info:
         - fil - Filipino
         - he - Hebrew
   x-tutorial-pdf-doc: 
-      https://storage.googleapis.com/lpdocs/google_translate.pdf    
+      https://storage.googleapis.com/lpdocs/docs/google_translate_prod.pdf    
   version: '0.1.0'
   x-subscribelink: google_translate
   x-apitype: large file
@@ -134,7 +134,7 @@ info:
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Mar 08, 2022"
@@ -170,7 +170,7 @@ paths:
                     x-goog-signature: 521f824fa3853e9cfb9a597e306ae11d9427b63efeefc552b9093da46fdf5172850e14a799b1f3d666b5042e767572d52ea61b4a667ef1cb4b2eb12f40817ef521acc817e23dfbbd1c5319d556845918c38e1ff450aa26303ea187f3c6e998405232a3d0251a11d6b896d3bbd5ca8aff1ccb9f829d83a99c087d4f4b2b287ee1ad50d16b3faf75fa45b5753d8d10a030dfcdcecc7fe0e5388addf82c7ec0aebeb1494510fbe01a374f8d26584a031420c0871cc5d2fc7b0c7abdeca1b9c7ae4f52b936997a4d97f102fea3aadeeb93a9d9cbaf428eb2ff5b067fd1dc5f55482dee06c9e092792796e961aabae7609e9bdadaba8ff6dbb097a3e2aea5bd1cc576
                   jid: 4f2bac8ccf854358aab6b7045f59efac
                   request_cost: 0.0842
-                  url: https://storage.googleapis.com/user_space_dev/
+                  url: https://storage.googleapis.com/lp_user_space_prod/
                 status: Success
         '401':
           description: Unauthorized
@@ -239,7 +239,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/user_space_dev/'
+        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
