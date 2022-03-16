@@ -27,9 +27,9 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.2.2"
-  description: "Published Date - Feb 25, 2022"
+  description: "Depreciation Date - May 31, 2022"
 paths:
-  /microservices/voice/vadasr/v2/getpredictions:
+  /microservices/voice/vadasr/v1/getpredictions:
     post:
       tags:
         - v1.2.2
@@ -278,15 +278,7 @@ components:
             Optional. 0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
     versions:
       type: object
-      properties:
-        v1.2.2:
-          type: array
-          items:
-            oneOf:
-              - type: string
-                example: 'Published Date - Jan 28, 2022'
-                x-details: Introduced optional parameter vad
-                description: Latest Version      
+      properties: 
         v1.2.1:
           type: array
           items:
@@ -294,7 +286,7 @@ components:
               - type: string
                 example: 'Published Date - Nov 09, 2021'
                 x-details: Vad bug fix
-                description: Archived
+                description: End-of-life by May 31,2022
         v1.2.0:
           type: array
           items:
