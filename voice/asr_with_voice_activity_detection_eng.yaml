@@ -27,7 +27,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.2.1"
-  description: "Published Date - Nov 09, 2021"
+  description: "Depreciation Date - May 31, 2022"
 paths:
   /microservices/voice/vadasr/v1/getpredictions:
     post:
@@ -288,7 +288,7 @@ components:
             - type: string
               example: Published Date - Nov 09, 2021
               x-details: Vad bug fix
-              description: Latest Version
+              description: End-of-life by May 31,2022
         v1.2.0:
           type: array
           items:
