@@ -44,7 +44,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  output: "We are under attack. One senior US Navy seal and us will be going into Battlefield tomorrow."
+                  output: "Apple said the project-financing fund was the first of its kind. Real estate developers often secure bonds for affordable housing development, but must service the debt during construction until the houses are built and start to generate revenue. Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders."
                 message: Successfully Processed
                 status: Success
         '401':
@@ -122,7 +122,7 @@ components:
             output :
               x-name: output
               type: string
-              example: We are under attack. One senior US Navy seal and us will be going into Battlefield tomorrow.
+              example: Apple said the project-financing fund was the first of its kind. Real estate developers often secure bonds for affordable housing development, but must service the debt during construction until the houses are built and start to generate revenue. Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders.
               description: Corrected input text
         message:
           type: string
@@ -251,7 +251,7 @@ components:
           x-name: text
           type: string
           default: True
-          example: we are under attack one senior us navy seal and us will be going into battlefield tomorrow
+          example: apple said the project-financing fund was the first of its kind real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
           description: |+
             Input text
   securitySchemes:
