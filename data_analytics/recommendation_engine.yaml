@@ -565,7 +565,7 @@ components:
           default: true
           description: |+ 
              Recommendation engine name
-          example: <engine name>
+          example: sentient engine
         event:
           type: string
           default: true
@@ -590,7 +590,7 @@ components:
           default: true
           description: |+ 
              Recommendation engine name
-          example: <engine name>
+          example: sentient engine
         properties:
           type: string
           default: true
@@ -601,14 +601,13 @@ components:
       type: object
       required:
         - engine_name
-        - item
       properties:
         engine_name:
           type: string
           default: true
           description: |+ 
              Recommendation engine name
-          example: <engine name>
+          example: sentient engine
     reiteminput:
       type: object
       required:
@@ -620,30 +619,31 @@ components:
           default: true
           description: |+ 
              Recommendation engine name
-          example: <engine name>
+          example: sentient engine
         item:
           type: string
           default: true
-          example: Page 15
+          example: item1
           description: |+
-            It contains the unique item identifier
+            Optional. It contains the unique item identifier
         item_bias:
           type: string
           default: true
-          example: Page 15
+          example: itemId1, itemId2
           description: |+
-            This tells the recommender to return items similar to this the item specified.
+            Optional. This tells the recommender to return items similar to this the item specified. Use for "people who liked this also liked these". 
         item_set:
           type: string
           default: true
           example: []
           description: |+
-            It contains a list of unique item identifiers
+            Optional. It contains a list of unique item identifiers
         item_set_bias:
           type: string
           default: true
-          example: 
+          example:  -maxFloat/maxFloat
           description: |+
+            Optional. Mixing itemSet queries with user and item queries is not recommended and it is difficult to predict what it will return in the final mixed results.
         offset:
           type: string
           example: 0
@@ -655,18 +655,46 @@ components:
           description: |+
             Max number of recommendations to return
         rules:
-          type: string
-          example: []
-          description: |+
-            Array of fields values and biases to use in this query.
+          type: array
+          description: Array of fields values and biases to use in this query.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The "name" identifies the property name to match.
+                example: categories
+              values:
+                type: string
+                description: The "values" provide a list of values that the properties of the recommended items are matched against.
+                example: ["series", "mini-series"]
+              bias:
+                type: string
+                description: |+
+                  bias = -1: Include recommended items that match the rest of the Rule
+                  bias = 0: Exclude recommended items that match the rest of the Rule
+                  bias > 0: Boost recommended items that match the rest of the Rule by the bias value.
+                example: -1
         date_range:
-          type: string
-          example: {}
+          type: object
           description: |+
             Values for the before and after are strings in ISO 8601 format.
+          properties:
+              name:
+                type: string
+                description: The "name" identifies the property name to match.
+                example: dateFieldname
+              before:
+                type: string
+                description: The "name" identifies the property name to match.
+                example: 2015-09-15T11:28:45.114-07:00
+              after:
+                type: string
+                description: The "name" identifies the property name to match.
+                example: 2015-08-15T11:28:45.114-07:00
         blacklist_items:
           type: string
-          example: []
+          example: ["itemId1", "itemId2"]
           description: |+
              It specifies event types this part of the query specifies individual items to remove from returned recommendations.
         return_self:
@@ -685,7 +713,7 @@ components:
           default: true
           description: |+ 
              Recommendation engine name
-          example: <engine name>
+          example: sentient engine
         user:
           type: string
           default: true
@@ -695,9 +723,9 @@ components:
         user_bias:
           type: string
           default: true
-          example: User 10
+          example: -maxFloat/maxFloat
           description: |+
-            This tells the recommender to return recommendations based on the user's event history
+            Optional. The user may be anonymous as long as the id is unique from any authenticated user. This tells the recommender to return recommendations based on the user's event history. Used for personalized recommendations.
         offset:
           type: string
           example: 0
@@ -709,18 +737,46 @@ components:
           description: |+
             Max number of recommendations to return
         rules:
-          type: string
-          example: []
-          description: |+
-            Array of fields values and biases to use in this query.
+          type: array
+          description: Array of fields values and biases to use in this query.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The "name" identifies the property name to match.
+                example: categories
+              values:
+                type: string
+                description: The "values" provide a list of values that the properties of the recommended items are matched against.
+                example: ["series", "mini-series"]
+              bias:
+                type: string
+                description: |+
+                  bias = -1: Include recommended items that match the rest of the Rule
+                  bias = 0: Exclude recommended items that match the rest of the Rule
+                  bias > 0: Boost recommended items that match the rest of the Rule by the bias value.
+                example: -1
         date_range:
-          type: string
-          example: {}
+          type: object
           description: |+
             Values for the before and after are strings in ISO 8601 format.
+          properties:
+              name:
+                type: string
+                description: The "name" identifies the property name to match.
+                example: dateFieldname
+              before:
+                type: string
+                description: The "name" identifies the property name to match.
+                example: 2015-09-15T11:28:45.114-07:00
+              after:
+                type: string
+                description: The "name" identifies the property name to match.
+                example: 2015-08-15T11:28:45.114-07:00
         blacklist_items:
           type: string
-          example: []
+          example: ["itemId1", "itemId2"]
           description: |+
              It specifies event types this part of the query specifies individual items to remove from returned recommendations.
         return_self:
@@ -740,7 +796,7 @@ components:
           default: true
           description: |+ 
              Recommendation engine name
-          example: <engine name>
+          example: sentient engine
         item:
           type: string
           default: true
@@ -765,7 +821,7 @@ components:
           default: true
           description: |+ 
              Recommendation engine name
-          example: <engine name>
+          example: sentient engine
         item:
           type: string
           default: true
@@ -801,7 +857,7 @@ components:
           default: true
           description: |+ 
              Recommendation engine name
-          example: <engine name>
+          example: sentient engine
         event:
           type: string
           default: true
