@@ -191,6 +191,10 @@ computer vision:
     title: Demographics Classification
     versions:
       0.1.0: 'demographics_classification.yaml'
+  thumbnail_generation:
+    title: Thumbnail Generation
+    versions:
+      0.1.0: 'thumbnail_generation.yaml'      
   invoice_scanner:
     title: Invoice Scanner
     versions:
