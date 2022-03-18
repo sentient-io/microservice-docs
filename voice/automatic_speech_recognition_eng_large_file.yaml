@@ -4,16 +4,15 @@ info:
   description: |+
     This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capabilities. The input can be bypassed to asr without passing through vad by setting the optional paramater "vad" to false. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
     This microservice can be used on generic English or on specific use cases or accents. There are currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case
-
     For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
   version: '0.1.0'
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:
       
-      - Detailed reference to the additional parameters https://dev-docs.sentient.io/#/voice/automatic_speech_recognition_eng
-      - The file upload form https://sentient.io/upload/dev/form.html
+      - Detailed reference to the additional parameters https://docs.sentient.io/#/voice/automatic_speech_recognition_eng
+      - The file upload form https://sentient.io/upload/form.html
   x-tutorial-pdf-doc: 
-      https://storage.googleapis.com/lpdocs/docs/asr.pdf
+      https://storage.googleapis.com/lpdocs/docs/asr_prod.pdf
   x-subscribelink: automatic_speech_recognition_eng
   x-apitype: large file
   x-apitypedescription: |+
@@ -29,10 +28,10 @@ info:
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Feb 28, 2022"
+  description: "Published Date - Mar 01, 2022"
 paths:
   /async/microservices/voice/asr/v0/getuploadurl:
     post:
@@ -136,7 +135,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/user_space_dev/'
+        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
@@ -420,7 +419,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Feb 28, 2022
+              example: Published Date - Mar 01, 2022
               x-details: Initial version release  
               description: Latest Version
     input:
@@ -454,7 +453,6 @@ components:
         additional_param:
           x-name: additional_param
           type: object
-          default: true
           properties: 
             model:
               x-model: model
@@ -463,14 +461,13 @@ components:
               example: prepared_speech
               description: |+
                 Model selection. For best performance, select the model which best matches the use-case&#58;
-
                 1. generic - Large nnet3-chain factorized TDNN model, trained on ~1200 hours of audio. Generic English, 16KHz
                 2. prepared_speech - Better suited for transcribing prepared / formal speech (e.g. news or parliamentary speeches). 16 kHz, mono channel, .wav format.
                 3. telephony - Better suited for conversational speech or telephony use cases. 8 kHz, mono channel, .wav format.
             threshold: 
               x-threshold: threshold
               type: number
-              example: 0.4
+              example: 0.25
               description: |+
                 0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
             voice_activity_detection: 
@@ -515,10 +512,15 @@ components:
           default: false
           example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
           description: Fields
+        x-goog-date:
+          type: string
+          default: false
+          example: 20220224T045625Z
+          description: Fields           
         x-goog-meta-additional_param:
           type: string
           default: false
-          example: "{\"model\": \"prepared_speech\", \"threshold\": 0.4,\"voice_activity_detection\":\"false\"}"
+          example: "{\"model\": \"prepared_speech\", \"threshold\": 0.25,\"voice_activity_detection\":\"false\"}"
           description: Fields
         x-goog-meta-oid:
           type: string
@@ -530,6 +532,11 @@ components:
           default: false
           example: 2
           description: Fields
+        x-goog-meta-uploader:
+          type: string
+          default: false
+          example: 01832842d1774e4fb711d31b30fa9431
+          description: Fields           
         x-goog-meta-uuid:
           type: string
           default: false
