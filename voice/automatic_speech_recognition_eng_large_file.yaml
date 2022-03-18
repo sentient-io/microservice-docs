@@ -512,6 +512,11 @@ components:
           default: false
           example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
           description: Fields
+        x-goog-date:
+          type: string
+          default: false
+          example: 20220224T045625Z
+          description: Fields           
         x-goog-meta-additional_param:
           type: string
           default: false
@@ -527,6 +532,11 @@ components:
           default: false
           example: 2
           description: Fields
+        x-goog-meta-uploader:
+          type: string
+          default: false
+          example: 01832842d1774e4fb711d31b30fa9431
+          description: Fields           
         x-goog-meta-uuid:
           type: string
           default: false
