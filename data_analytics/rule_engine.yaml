@@ -1,0 +1,159 @@
+openapi: 3.0.1
+info:
+  title: Rule Engine
+  description: |+
+    It provides a core Business Rules Engine
+  version: '1.0.0'
+servers:
+  - url: 'https://dev-apis.sentient.io/ruleengine/microservices/dataanalytics'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - Oct 30, 2020"
+paths:
+  /getsuggestion/v0/getresults:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ruleenginesuccess'
+              example: 
+                message: Successfully Processed
+                status: Success
+                results:
+                  suggestion: Please begin by choosing Create/Modify Global parts on screen or Create/Modify
+                    Global parts by download/upload master. Alternatively, you can request support
+                    here[link to chatbot].
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ruleengineinput'
+        required: true
+components:
+  schemas:
+    ruleenginesuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Successfully Processed
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+        results:
+          type: object
+          properties:
+            suggestion:
+              type: string
+              description: The message of the API call.
+              example: Please begin by choosing Create/Modify Global parts on screen or Create/Modify Global parts by download/upload master. Alternatively, you can request support here[link to chatbot].
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Oct 30, 2020
+                x-details: Standardizing Output JSON
+                description: Latest Version
+    ruleengineinput:
+      type: object
+      properties:
+        event_history:
+          type: object
+          properties:
+            page_url:
+              type: string
+              default: true
+              description: |+ 
+                Page URL of getting suggestion
+              example: https://test.brivge.com/globalparts/create
+            time_interval:
+              type: string
+              default: true
+              description: |+ 
+                Time interval of getting suggestion value will be greater than or equal to 60000
+              example: 60000
+            selected_mode:
+              type: string
+              description: |+ 
+                 Selected mode of getting suggestion
+              example: Create/Modify Global parts on screen
+            upload:
+              type: string
+              description: |+ 
+                 Upload of getting suggestion value will be greater than 0
+              example: 1
+            add_item:
+              type: string
+              description: |+ 
+                 Add Item of getting suggestion value will be greater than 0
+              example: 1
+            edit_item:
+              type: string
+              description: |+ 
+                 Edit item of getting suggestion value will be greater than 0
+              example: 1
+            first_prompt:
+              type: string
+              description: |+ 
+                 First prompt of getting suggestion value will be true/false
+              example: true/false
