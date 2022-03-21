@@ -138,7 +138,7 @@ components:
           type: object
           description: |+ 
             List of object
-          example: {"page_url":"https://test.brivge.com/globalparts/create","time_interval":"60000","first_prompt":"true"}
+          example: {}
           properties:
             page_url:
               type: string
