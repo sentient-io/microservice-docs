@@ -49,7 +49,7 @@ info:
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Apr 15, 2021"
