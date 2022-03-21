@@ -136,6 +136,9 @@ components:
       properties:
         event_history:
           type: object
+          description: |+ 
+                List of object
+          example: {}
           properties:
             page_url:
               type: string
