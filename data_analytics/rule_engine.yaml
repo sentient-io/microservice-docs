@@ -1,14 +1,13 @@
 openapi: 3.0.1
 info:
-  title: Demographics Classification
+  title: Rule Engine
   description: |+
-    This Computer Vision microservice identifies faces within an input image and predicts the demographics of each face (age, gender and race). The image is processed as an input encoded using base64. The results will then be returned back to the user as a JSON output together with bounding box coordinates for each face. Races include: Asian, Indian, White, Black, Middle Eastern and Latino Hispanic
-    The size of your image file should **not exceed 10 MB**, and the image dimension should be **at least 416x416 pixels**.
+    It provides a core Business Rules Engine
   x-additionalinfo: |+
     Suggested Use Cases:
-    - This microservice can be used as a solution to help businesses better understand and connect with their customers, engage new prospects and increase revenue. For example, it can be used to improve visitor experience and optimize operations in retail, leisure, and other sectors by identifying the type of demogrpahic that frequents a certain place the most. It can also be used to create intelligent prospect lists that ensure one is always maximizing their marketing investment.
+    - This microservice can be used to get suggestions based on the rules.
   version: v0.1.0
-  x-subscribelink: demographics_classification
+  x-subscribelink: rule_engine
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
@@ -23,12 +22,12 @@ info:
   x-apidetailsdesc: |+
     Identifies faces within an input image and predicts the demographics.
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://dev-apis.sentient.io/ruleengine/microservices/dataanalytics' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - Dec 09, 2020"
 paths:
-  /microservices/cv/democlass/v0/getpredictions:
+  /getsuggestion/v0/getresults:
     post:
       tags:
         - v0.1.0
@@ -38,39 +37,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/success'
-              example:
-                results: 
-                  persons:
-                  - age: 33.21062944528088
-                    bbox:
-                      bottom: 459
-                      left: 82
-                      right: 393
-                      top: 0
-                    gender: Man
-                    race: white
-
+                $ref: '#/components/schemas/ruleenginesuccess'
+              example: 
                 message: Successfully Processed
                 status: Success
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/unauthorized'
-        '402':
-          description: Payment Required
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/paymentrequired'
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/forbidden'
+                results:
+                  suggestion: Please begin by choosing Create/Modify Global parts on screen or Create/Modify
+                    Global parts by download/upload master. Alternatively, you can request support
+                    here[link to chatbot].
         '404':
           description: Not Found
           content:
@@ -83,30 +57,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-        '413':
-          description: Payload Too Large
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputlimitexceeded'  
-        '415':
-          description: Unsupported Media Type
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
-        '504':
-          description: Gateway Timeout
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
       
@@ -114,82 +70,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/input'
+              $ref: '#/components/schemas/ruleengineinput'
         required: true
-
-
 components:
   schemas:
-    success:
+    ruleenginesuccess:
       type: object
       properties:
-        results:
-          type: object
-          description: The result of the API call.
-          example: { "<Json": "Object>" }
-          properties: 
-            persons:
-              description: Demographic details of the detected person
-              example:
-                age: 33.21062944528088
-                bbox:
-                  bottom: 459
-                  left: 82
-                  right: 393
-                  top: 0
-                gender: Man
-                race: white
-              items:
-                properties:
-                  description: Demographic details of the detected person
-                  example: ' '
-                  properties:
-                    age:
-                      description: Age of the detected person in the input image 
-                      example: 33.21062944528088
-                      type: float
-                    bbox:
-                      description: Bounding box of the detected person in the input image 
-                      example: ' '
-                      properties:
-                        bottom:
-                          description: Bottom coordinate of the box
-                          example: 459
-                          type: integer
-                        left:
-                          description: Left coordinate of the box
-                          example: 82
-                          type: integer
-                        right:
-                          description: Right coordinate of the box
-                          example: 393
-                          type: integer
-                        top:
-                          description: Top coordinate of the box
-                          example: 0
-                          type: integer
-                      type: object
-                    gender:
-                      description: Gender of the detected person in the input image
-                      example: Man
-                      type: string
-                    race:
-                      description: Race of the detected person in the input image
-                      example: white
-                      type: string
-                  type: object
-                type: object
-              type: array
-
         message:
           type: string
+          description: The message of the API call.
           example: Successfully Processed
-          description: Detail description on the API status
         status:
           type: string
+          description: The status of the API call.
           example: Success
-          description: The status of the API call success/failure
-        
+        results:
+          type: object
+          properties:
+            suggestion:
+              type: string
+              description: The message of the API call.
+              example: Please begin by choosing Create/Modify Global parts on screen or Create/Modify Global parts by download/upload master. Alternatively, you can request support here[link to chatbot].
     unauthorized:
       type: object
       properties:
@@ -282,22 +184,49 @@ components:
                 example: Published Date - Dec 09, 2020
                 x-details: Initial version release
                 description: Latest Version
-    input:
+    ruleengineinput:
       type: object
-      required:
-      
-        - image_base64
-      
       properties:
-        image_base64:
-          x-name: image_base64
-          type: string
-          default: True
-          example: /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUG...
-          description: |+
-            Input image file in base64 format.
-        
-        
+        event_history:
+          type: object
+          properties:
+            page_url:
+              type: string
+              default: true
+              description: |+ 
+                Page URL of getting suggestion
+              example: https://test.brivge.com/globalparts/create
+            time_interval:
+              type: string
+              default: true
+              description: |+ 
+                Time interval of getting suggestion value will be greater than or equal to 60000
+              example: 60000
+            selected_mode:
+              type: string
+              description: |+ 
+                 Selected mode of getting suggestion
+              example: Create/Modify Global parts on screen
+            upload:
+              type: string
+              description: |+ 
+                 Upload of getting suggestion value will be greater than 0
+              example: 1
+            add_item:
+              type: string
+              description: |+ 
+                 Add Item of getting suggestion value will be greater than 0
+              example: 1
+            edit_item:
+              type: string
+              description: |+ 
+                 Edit item of getting suggestion value will be greater than 0
+              example: 1
+            first_prompt:
+              type: string
+              description: |+ 
+                 First prompt of getting suggestion value will be true/false
+              example: true/false
   securitySchemes:
     APIAuthorizer:
       type: apiKey
