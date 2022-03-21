@@ -3,10 +3,10 @@ info:
   title: Rule Engine
   description: |+
     It provides a core Business Rules Engine
+  version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - This microservice can be used to get suggestions based on the rules.
-  version: '0.1.0'
+    - This microservice can be used to add event and items to get recommendation.
   x-subscribelink: rule_engine
   x-apitype: small file
   x-apitypedescription: |+
@@ -20,24 +20,24 @@ info:
   x-notes: |+
     File size cannot exceed 10 MB.
   x-apidetailsdesc: |+
-    Identifies faces within an input image and predicts the demographics.
+     It's a type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm
 servers:
-  - url: 'https://dev-apis.sentient.io/ruleengine/microservices/dataanalytics' 
+  - url: 'https://dev-apis.sentient.io/ruleengine/microservices/dataanalytics'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Dec 09, 2020"
+- name: "v1.0.0"
+  description: "Published Date - Oct 30, 2020"
 paths:
   /getsuggestion/v0/getresults:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ruleenginesuccess'
+                $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed
                 status: Success
@@ -45,36 +45,28 @@ paths:
                   suggestion: Please begin by choosing Create/Modify Global parts on screen or Create/Modify
                     Global parts by download/upload master. Alternatively, you can request support
                     here[link to chatbot].
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/notfound'
         '419':
           description: Input Field Missing
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
+      
         '500':
-          description: Internal Server error
+          description: Internal Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
-      security:
-        - APIAuthorizer: []
-      
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ruleengineinput'
+              $ref: '#/components/schemas/input'
         required: true
 components:
   schemas:
-    ruleenginesuccess:
+    success:
       type: object
       properties:
         message:
@@ -92,15 +84,6 @@ components:
               type: string
               description: The message of the API call.
               example: Please begin by choosing Create/Modify Global parts on screen or Create/Modify Global parts by download/upload master. Alternatively, you can request support here[link to chatbot].
-    unauthorized:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Missing Authentication Token
-        status:
-          type: string
-          example: Failure
     forbidden:
       type: object
       properties:
@@ -110,21 +93,12 @@ components:
         status:
           type: string
           example: Failure
-    paymentrequired:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Insufficient Credits Kindly Top Up
-        status:
-          type: string
-          example: Failure
     notfound:
       type: object
       properties:
         message:
           type: string
-          example: Invalid Request
+          example: Invalid Request URL
         status:
           type: string
           example: Failure
@@ -133,16 +107,7 @@ components:
       properties:
         message:
           type: string
-          example: Internal Server error
-        status:
-          type: string
-          example: Failure
-    gatewaytimeout:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Request Timeout
+          example: Internal Server Error
         status:
           type: string
           example: Failure
@@ -155,36 +120,18 @@ components:
         status:
           type: string
           example: Failure
-    inputlimitexceeded:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Input Limit Exceeded
-        status:
-          type: string
-          example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
-        status:
-          type: string
-          example: Failure
     versions:
       type: object
       properties: 
-        v0.1.0:
+        v1.0.0:
           type: array
           items:
             oneOf:
               - type: string
-                example: Published Date - Dec 09, 2020
-                x-details: Initial version release
+                example: Published Date - Oct 30, 2020
+                x-details: Standardizing Output JSON
                 description: Latest Version
-    ruleengineinput:
+    input:
       type: object
       properties:
         event_history:
@@ -227,10 +174,3 @@ components:
               description: |+ 
                  First prompt of getting suggestion value will be true/false
               example: true/false
-  securitySchemes:
-    APIAuthorizer:
-      type: apiKey
-      name: x-api-key
-      in: header
-      x-amazon-apigateway-authtype: custom
-      description: Authentication is done using the x-api-key in the request header
