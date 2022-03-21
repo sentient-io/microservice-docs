@@ -135,6 +135,8 @@ components:
                 description: Latest Version
     input:
       type: object
+      required:
+        - event_history
       properties:
         event_history:
           type: object
@@ -144,13 +146,11 @@ components:
           properties:
             page_url:
               type: string
-              default: true
               description: |+ 
                 Page URL of getting suggestion
               example: https://test.brivge.com/globalparts/create
             time_interval:
               type: string
-              default: true
               description: |+ 
                 Time interval of getting suggestion value will be greater than or equal to 60000
               example: 60000
