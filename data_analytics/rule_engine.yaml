@@ -137,8 +137,8 @@ components:
         event_history:
           type: object
           description: |+ 
-                List of object
-          example: {}
+            List of object
+          example: {"page_url":"https://test.brivge.com/globalparts/create","time_interval":"60000","first_prompt":"true"}
           properties:
             page_url:
               type: string
