@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Rule Engine
   description: |+
-    It provides a core Business Rules Engine
+    It provides a suggestion based on the core business rules.
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
