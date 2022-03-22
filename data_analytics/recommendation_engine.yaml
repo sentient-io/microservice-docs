@@ -6,9 +6,9 @@ info:
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - This microservice can be used to add event and items to get recommendation.
+    - This microservice can be used to add item event and items to get recommendation.
   x-subscribelink: recommendation_engine
-  x-apitype: large file
+  x-apitype: latge file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
   x-inputfilelimit: |+
@@ -592,11 +592,14 @@ components:
              Recommendation engine name
           example: sentient engine
         properties:
-          type: string
+          type: array
           default: true
           description: |+ 
              The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
           example: ["pagetile","description","pageurl"]
+          items:
+            oneOf:
+              - type: object
     retraineventinput:
       type: object
       required:
@@ -612,7 +615,6 @@ components:
       type: object
       required:
         - engine_name
-        - item
       properties:
         engine_name:
           type: string
@@ -622,59 +624,49 @@ components:
           example: sentient engine
         item:
           type: string
-          default: true
-          example: item1
+          example: Book1
           description: |+
             Optional. It contains the unique item identifier
         item_bias:
           type: string
-          default: true
-          example: itemId1, itemId2
+          example: -1
           description: |+
-            Optional. This tells the recommender to return items similar to this the item specified. Use for "people who liked this also liked these". 
-        item_set:
-          type: string
-          default: true
-          example: []
-          description: |+
-            Optional. It contains a list of unique item identifiers
-        item_set_bias:
-          type: string
-          default: true
-          example:  -maxFloat/maxFloat
-          description: |+
-            Optional. Mixing itemSet queries with user and item queries is not recommended and it is difficult to predict what it will return in the final mixed results.
+            Optional. This tells the recommender to return items similar to this the item specified.
+            bias = -1: Include recommended items that match the rest of the Rule
+            bias = 0: Exclude recommended items that match the rest of the Rule
+            bias > 0: Boost recommended items that match the rest of the Rule by the bias value.
         offset:
-          type: string
+          type: number
           example: 0
           description: |+
             Rank/position to start returning recommendations from
         limit:
-          type: string
+          type: number
           example: 4
           description: |+
             Max number of recommendations to return
         rules:
           type: array
-          description: Array of fields values and biases to use in this query.
+          description: Array of field values and biases to use in this query.
           items:
-            type: object
-            properties:
-              name:
-                type: string
-                description: The "name" identifies the property name to match.
-                example: categories
-              values:
-                type: string
-                description: The "values" provide a list of values that the properties of the recommended items are matched against.
-                example: ["series", "mini-series"]
-              bias:
-                type: string
-                description: |+
-                  bias = -1: Include recommended items that match the rest of the Rule
-                  bias = 0: Exclude recommended items that match the rest of the Rule
-                  bias > 0: Boost recommended items that match the rest of the Rule by the bias value.
-                example: -1
+            oneOf:
+              - type: object 
+                properties:
+                  name:
+                    type: string
+                    description: The "name" identifies the property name to match.
+                    example: categories
+                  values:
+                    type: string
+                    description: The "values" provide a list of values that the properties of the recommended items are matched against.
+                    example: ["series", "mini-series"]
+                  bias:
+                    type: string
+                    description: |+
+                      bias = -1: Include recommended items that match the rest of the Rule
+                      bias = 0: Exclude recommended items that match the rest of the Rule
+                      bias > 0: Boost recommended items that match the rest of the Rule by the bias value.
+                    example: -1
         date_range:
           type: object
           description: |+
@@ -683,20 +675,23 @@ components:
               name:
                 type: string
                 description: The "name" identifies the property name to match.
-                example: dateFieldname
+                example: eventTime
               before:
                 type: string
-                description: The "name" identifies the property name to match.
+                description: The date range from 
                 example: 2015-09-15T11:28:45.114-07:00
               after:
                 type: string
-                description: The "name" identifies the property name to match.
+                description: The date range to
                 example: 2015-08-15T11:28:45.114-07:00
         blacklist_items:
-          type: string
+          type: array
           example: ["itemId1", "itemId2"]
           description: |+
              It specifies event types this part of the query specifies individual items to remove from returned recommendations.
+          items:
+            oneOf:
+              - type: object
         return_self:
           type: string
           example: false
@@ -706,7 +701,6 @@ components:
       type: object
       required:
         - engine_name
-        - user
       properties:
         engine_name:
           type: string
@@ -716,23 +710,24 @@ components:
           example: sentient engine
         user:
           type: string
-          default: true
           example: User 10
           description: |+
             This is whatever string you use to identify a user.
         user_bias:
           type: string
-          default: true
-          example: -maxFloat/maxFloat
+          example: -1
           description: |+
             Optional. The user may be anonymous as long as the id is unique from any authenticated user. This tells the recommender to return recommendations based on the user's event history. Used for personalized recommendations.
+            bias = -1: Include recommended user that match the rest of the Rule
+            bias = 0: Exclude recommended user that match the rest of the Rule
+            bias > 0: Boost recommended user that match the rest of the Rule by the bias value.
         offset:
-          type: string
+          type: number
           example: 0
           description: |+
             Rank/position to start returning recommendations from
         limit:
-          type: string
+          type: number
           example: 4
           description: |+
             Max number of recommendations to return
@@ -765,20 +760,23 @@ components:
               name:
                 type: string
                 description: The "name" identifies the property name to match.
-                example: dateFieldname
+                example: eventTime
               before:
                 type: string
-                description: The "name" identifies the property name to match.
+                description: The date range from 
                 example: 2015-09-15T11:28:45.114-07:00
               after:
                 type: string
-                description: The "name" identifies the property name to match.
+                description: The date range to
                 example: 2015-08-15T11:28:45.114-07:00
         blacklist_items:
-          type: string
+          type: array
           example: ["itemId1", "itemId2"]
           description: |+
              It specifies event types this part of the query specifies individual items to remove from returned recommendations.
+          items:
+            oneOf:
+              - type: object
         return_self:
           type: string
           example: false
