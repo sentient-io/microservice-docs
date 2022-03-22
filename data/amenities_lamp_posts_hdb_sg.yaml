@@ -53,21 +53,32 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: Successfully Processed
-                total: 1
                 results:
-                - _id: rminrm2020122140arthurroad
-                  _index: lta_road_works
-                  _score: 0
-                  _source:
-                    end_date: '2021-12-29'
-                    event_id: RMINRM-202012-2140
-                    lastupdated: '2021-07-26T04:24:16.409Z'
-                    other: For details
-                    road_name: ARTHUR ROAD
-                    source: lta
-                    start_date: '2020-12-30'
-                    svcdept: SINGTEL - ACCESS NETWORK ENGINEERING DIVISION
-                  _type: dir_doc
+                  hits:
+                  - _id: 4ZpNsH8B1VPRFDGbjLoe
+                    _index: hdb_map_index
+                    _score: 0
+                    _source:
+                      geometry:
+                        coordinates:
+                        - 103.82709969896652
+                        - 1.284112489206572
+                        type: Point
+                      lastupdated: '2022-03-22T14:25:40.805Z'
+                      properties:
+                        FEATID: 12888
+                        FMEL_UPD_D: '2018-06-29'
+                        INC_CRC: B36680519553298F
+                        LVL: GROUND LEVEL
+                        QUALITY: PARTIALLY VISIBLE
+                        TYPE: LAMP POST
+                      property_type: LAMP POST
+                      type: Point
+                      unique_id: 12888b36680519553298f
+                    _type: doc
+                  max_score: 0
+                  total: 23431
+                scroll_id: DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAIoSFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACKExZHeWxGN1VqalJqcUxpOUgzMU1BeV9nAAAAAAAAihQWR3lsRjdVampSanFMaTlIMzFNQXlfZwAAAAAAAIoVFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACKFhZHeWxGN1VqalJqcUxpOUgzMU1BeV9n
                 status: Success
         '401':
           description: Unauthorized
