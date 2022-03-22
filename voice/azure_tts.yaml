@@ -7,6 +7,7 @@ info:
 
         The input text should not exceed **400 characters**.
   x-additionalinfo: |+
+    Supported languages are:
     |                 **Name**                    |     **Locale**     |    **Gender**    |     **Voice name**      |
     |:-------------------------------------------:|:------------------:|:----------------:|:-----------------------:|
     | Afrikaans (South Africa)	                  |       af-ZA	       |       Female	    |   af-ZA-AdriNeural      |
@@ -530,7 +531,7 @@ components:
         - voice_name
       
       properties:
-        text:
+        input_text:
           x-name: text
           type: string
           default: True
@@ -543,14 +544,14 @@ components:
           default: True
           example: en-US
           description: |+
-            Select the input text language from the above mentioned table.
+            Select the input text language from the supported language table.
         voice_name:
           x-name: voice_name
           type: string
           default: True
           example: en-US-JennyNeural
           description: |+
-            Select the voice name from the above mentioned table for the output audio.
+            Select the voice name from the supported language table for the output audio.
         
   securitySchemes:
     APIAuthorizer:
