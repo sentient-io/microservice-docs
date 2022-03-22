@@ -325,14 +325,12 @@ components:
           default: false
           items:
               type: object
-          example: [{"match":{"road_name":"arthur"}}]
+          example: [{"match_phrase":{"properties.QUALITY":"FULLY VISIBLE"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
             * match_phrase
-            * range
             * exists
-
   securitySchemes:
     APIAuthorizer:
       type: apiKey
