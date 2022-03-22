@@ -62,6 +62,10 @@ voice:
     title: Text-To-Speech ENG NCS
     versions:
       0.1.0: 'text-to-speech_eng_ncs.yaml'
+  azure_tts:
+    title: Azure TTS
+    versions:
+      0.1.0: 'azure_tts.yaml'      
   asr_with_voice_activity_detection_eng:
     title: ASR with Voice Activity Detection ENG
     versions:
