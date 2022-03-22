@@ -40,7 +40,7 @@ tags:
 - name: "v2.0.0"
   description: "Published Date - Mar 22, 2022"
 paths:
-   /microservices/data/shelter/v0/getdata:
+   /microservices/data/shelter/v2/getdata:
     post:
       tags:
         - v2.0.0
