@@ -8,7 +8,7 @@ info:
     Suggested Use Cases:
     - This microservice can be used to add event and items to get recommendation.
   x-subscribelink: recommendation_engine
-  x-apitype: latge file
+  x-apitype: large file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
   x-inputfilelimit: |+
