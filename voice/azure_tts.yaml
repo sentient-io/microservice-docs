@@ -1,0 +1,561 @@
+
+openapi: 3.0.1
+info:
+  title: Azure TTS
+  description: |+
+        The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale.
+
+        The input text should not exceed **400 characters**.
+  x-additionalinfo: |+
+    |                 **Name**                    |     **Locale**     |    **Gender**    |     **Voice name**      |
+    |:-------------------------------------------:|:------------------:|:----------------:|:-----------------------:|
+    | Afrikaans (South Africa)	                  |       af-ZA	       |       Female	    |   af-ZA-AdriNeural      |
+    | Afrikaans (South Africa)	                  |       af-ZA	       |        Male	    |   af-ZA-WillemNeural    |
+    | Amharic (Ethiopia)	                        |       am-ET        |   	   Female	    |   am-ET-MekdesNeural    |
+    | Amharic (Ethiopia)	                        |       am-ET	       |        Male	    |   am-ET-AmehaNeural     |
+    | Arabic (Algeria)	                          |       ar-DZ	       |       Female	    |   ar-DZ-AminaNeural     |
+    | Arabic (Algeria)	                          |       ar-DZ	       |        Male	    |   ar-DZ-IsmaelNeural    |
+    | Arabic (Bahrain)	                          |       ar-BH	       |       Female	    |   ar-BH-LailaNeural     |
+    | Arabic (Bahrain)	                          |       ar-BH	       |        Male	    |   ar-BH-AliNeural       |
+    | Arabic (Egypt)	                            |       ar-EG	       |       Female	    |   ar-EG-SalmaNeural     |
+    | Arabic (Egypt)	                            |       ar-EG	       |        Male	    |   ar-EG-ShakirNeural    |
+    | Arabic (Iraq)	                              |       ar-IQ	       |       Female	    |  ar-IQ-RanaNeural       |
+    | Arabic (Iraq)	                              |       ar-IQ	       |        Male	    |  ar-IQ-BasselNeural     |
+    | Arabic (Jordan)	                            |       ar-JO	       |       Female	    |   ar-JO-SanaNeural      |
+    | Arabic (Jordan)	                            |       ar-JO	       |        Male	    |   ar-JO-TaimNeural      |
+    | Arabic (Kuwait)	                            |       ar-KW	       |       Female	    |   ar-KW-NouraNeural     |
+    | Arabic (Kuwait)	                            |       ar-KW	       |        Male	    |   ar-KW-FahedNeural     |
+    | Arabic (Libya)	                            |       ar-LY	       |       Female	    |   ar-LY-ImanNeural      |
+    | Arabic (Libya)	                            |       ar-LY	       |        Male	    |   ar-LY-OmarNeural      |
+    | Arabic (Morocco)	                          |       ar-MA	       |       Female	    |   ar-MA-MounaNeural     |
+    | Arabic (Morocco)	                          |       ar-MA	       |        Male	    |   ar-MA-JamalNeural     |
+    | Arabic (Qatar)	                            |       ar-QA	       |       Female	    |   ar-QA-AmalNeural      |
+    | Arabic (Qatar)	                            |       ar-QA	       |        Male	    |   ar-QA-MoazNeural      |
+    | Arabic (Saudi Arabia)	                      |       ar-SA	       |       Female	    |   ar-SA-ZariyahNeural   |
+    | Arabic (Saudi Arabia)	                      |       ar-SA	       |        Male	    |   ar-SA-HamedNeural     |
+    | Arabic (Syria)	                            |       ar-SY	       |       Female	    |   ar-SY-AmanyNeural	    |
+    | Arabic (Syria)	                            |       ar-SY	       |        Male	    |   ar-SY-LaithNeural	    |
+    | Arabic (Tunisia)	                          |       ar-TN	       |       Female	    |   ar-TN-ReemNeural	    |
+    | Arabic (Tunisia)	                          |       ar-TN	       |        Male	    |   ar-TN-HediNeural      |
+    | Arabic (United Arab Emirates)	              |       ar-AE	       |       Female	    |   ar-AE-FatimaNeural    |
+    | Arabic (United Arab Emirates)	              |       ar-AE	       |        Male	    |   ar-AE-HamdanNeural    |
+    | Arabic (Yemen)	                            |       ar-YE	       |       Female	    |   ar-YE-MaryamNeural    |
+    | Arabic (Yemen)	                            |       ar-YE	       |        Male	    |   ar-YE-SalehNeural	    |
+    | Bangla (Bangladesh)	                        |       bn-BD	       |       Female	    |   bn-BD-NabanitaNeural  |
+    | Bangla (Bangladesh)	                        |       bn-BD	       |        Male	    |   bn-BD-PradeepNeural   |
+    | Bengali (India)	                            |       bn-IN	       |       Female	    |   bn-IN-TanishaaNeural  |
+    | Bengali (India)	                            |       bn-IN	       |        Male	    |   bn-IN-BashkarNeural   |
+    | Bulgarian (Bulgaria)	                      |       bg-BG	       |       Female	    |   bg-BG-KalinaNeural    |
+    | Bulgarian (Bulgaria)	                      |       bg-BG	       |        Male	    |   bg-BG-BorislavNeural  |
+    | Burmese (Myanmar)	                          |       my-MM	       |       Female	    |   my-MM-NilarNeural     |
+    | Burmese (Myanmar)	                          |       my-MM	       |        Male	    |   my-MM-ThihaNeural	    |
+    | Catalan (Spain)	                            |       ca-ES	       |       Female	    |   ca-ES-AlbaNeural	    |
+    | Catalan (Spain)	                            |       ca-ES	       |       Female	    |   ca-ES-JoanaNeural	    |
+    | Catalan (Spain)	                            |       ca-ES	       |        Male	    |   ca-ES-EnricNeural	    |
+    | Chinese (Cantonese, Traditional)	          |       zh-HK	       |       Female	    |   zh-HK-HiuGaaiNeural   |
+    | Chinese (Cantonese, Traditional)	          |       zh-HK	       |       Female	    |   zh-HK-HiuMaanNeural   |
+    | Chinese (Cantonese, Traditional)	          |       zh-HK	       |        Male	    |   zh-HK-WanLungNeural   |
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaochenNeural  |
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaohanNeural   |
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaomoNeural    |
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaoqiuNeural   |
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaoruiNeural   |
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaoshuangNeural|
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaoxiaoNeural	|
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaoxuanNeural	|
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaoyanNeural   |
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |       Female	    |   zh-CN-XiaoyouNeural 	|
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |        Male	    |   zh-CN-YunxiNeural	    |
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |        Male	    |   zh-CN-YunyangNeural	  |
+    | Chinese (Mandarin, Simplified)	            |       zh-CN	       |        Male	    |   zh-CN-YunyeNeural	    |
+    | Chinese (Taiwanese Mandarin)	              |       zh-TW	       |       Female	    |   zh-TW-HsiaoChenNeural	|
+    | Chinese (Taiwanese Mandarin)	              |       zh-TW	       |       Female	    |   zh-TW-HsiaoYuNeural	  |
+    | Chinese (Taiwanese Mandarin)	              |       zh-TW	       |        Male	    |   zh-TW-YunJheNeural	  |
+    | Croatian (Croatia)	                        |       hr-HR	       |       Female	    |   hr-HR-GabrijelaNeural	|
+    | Croatian (Croatia)	                        |       hr-HR	       |        Male	    |   hr-HR-SreckoNeural	  |
+    | Czech (Czech)	                              |       cs-CZ	       |       Female	    |   cs-CZ-VlastaNeural	  |
+    | Czech (Czech)	                              |       cs-CZ	       |        Male	    |   cs-CZ-AntoninNeural   |
+    | Danish (Denmark)	                          |       da-DK	       |       Female	    |   da-DK-ChristelNeural	|
+    | Danish (Denmark)	                          |       da-DK	       |        Male	    |   da-DK-JeppeNeural	    |
+    | Dutch (Belgium)	                            |       nl-BE	       |       Female	    |   nl-BE-DenaNeural	    |
+    | Dutch (Belgium)	                            |       nl-BE	       |        Male	    |   nl-BE-ArnaudNeural	  |
+    | Dutch (Netherlands)	                        |       nl-NL	       |       Female	    |   nl-NL-ColetteNeural	  |
+    | Dutch (Netherlands)	                        |       nl-NL	       |       Female	    |   nl-NL-FennaNeural	    |
+    | Dutch (Netherlands)	                        |       nl-NL	       |        Male	    |   nl-NL-MaartenNeural	  |
+    | English (Australia)	                        |       en-AU	       |       Female	    |   en-AU-NatashaNeural  	|
+    | English (Australia)	                        |       en-AU	       |        Male	    |   en-AU-WilliamNeural	  |
+    | English (Canada)	                          |       en-CA	       |       Female	    |   en-CA-ClaraNeural	    |
+    | English (Canada)	                          |       en-CA	       |        Male	    |   en-CA-LiamNeural	    |
+    | English (Hongkong)	                        |       en-HK	       |       Female	    |   en-HK-YanNeural	      |
+    | English (Hongkong)	                        |       en-HK	       |        Male	    |   en-HK-SamNeural	      |
+    | English (India)	                            |       en-IN	       |       Female	    |   en-IN-NeerjaNeural	  |
+    | English (India)	                            |       en-IN	       |        Male	    |   en-IN-PrabhatNeural  	|
+    | English (Ireland)	                          |       en-IE	       |       Female	    |   en-IE-EmilyNeural	    |
+    | English (Ireland)	                          |       en-IE	       |        Male	    |   en-IE-ConnorNeural	  |
+    | English (Kenya)	                            |       en-KE	       |       Female	    |   en-KE-AsiliaNeural	  |
+    | English (Kenya)	                            |       en-KE	       |        Male	    |   en-KE-ChilembaNeural  |
+    | English (New Zealand)	                      |       en-NZ	       |       Female	    |   en-NZ-MollyNeural	    |
+    | English (New Zealand)	                      |       en-NZ	       |        Male	    |   en-NZ-MitchellNeural	|
+    | English (Nigeria)	                          |       en-NG	       |       Female	    |   en-NG-EzinneNeural	  |
+    | English (Nigeria)	                          |       en-NG	       |        Male	    |   en-NG-AbeoNeural	    |
+    | English (Philippines)	                      |       en-PH	       |       Female	    |   en-PH-RosaNeural	    |
+    | English (Philippines)	                      |       en-PH	       |        Male	    |   en-PH-JamesNeural	    |
+    | English (Singapore)	                        |       en-SG	       |       Female	    |   en-SG-LunaNeural	    |
+    | English (Singapore)	                        |       en-SG	       |        Male	    |   en-SG-WayneNeural	    |
+    | English (South Africa)	                    |       en-ZA	       |       Female	    |   en-ZA-LeahNeural	    |
+    | English (South Africa)	                    |       en-ZA	       |        Male	    |   en-ZA-LukeNeural	    |
+    | English (Tanzania)	                        |       en-TZ	       |       Female	    |   en-TZ-ImaniNeural	    |
+    | English (Tanzania)	                        |       en-TZ	       |        Male	    |   en-TZ-ElimuNeural	    |
+    | English (United Kingdom)	                  |       en-GB	       |       Female	    |   en-GB-LibbyNeural	    |
+    | English (United Kingdom)	                  |       en-GB	       |       Female	    |   en-GB-MiaNeural       |
+    | English (United Kingdom)	                  |       en-GB	       |       Female	    |   en-GB-SoniaNeural	    |
+    | English (United Kingdom)	                  |       en-GB	       |        Male	    |   en-GB-RyanNeural	    |
+    | English (United States)	                    |       en-US	       |       Female	    |   en-US-AmberNeural	    |
+    | English (United States)	                    |       en-US	       |       Female	    |   en-US-AriaNeural	    |
+    | English (United States)	                    |       en-US	       |       Female	    |   en-US-AshleyNeural	  |
+    | English (United States)	                    |       en-US	       |       Female	    |   en-US-CoraNeural	    |
+    | English (United States)	                    |       en-US	       |       Female	    |   en-US-ElizabethNeural	|
+    | English (United States)	                    |       en-US	       |       Female	    |   en-US-JennyNeural	    |
+    | English (United States)	                    |       en-US	       |       Female	    |   en-US-MichelleNeural	|
+    | English (United States)	                    |       en-US	       |       Female	    |   en-US-MonicaNeural	  |
+    | English (United States)	                    |       en-US	       |       Female	    |   en-US-SaraNeural	    |
+    | English (United States)	                    |       en-US	       |        Kid	      |   en-US-AnaNeural	      |
+    | English (United States)	                    |       en-US	       |        Male	    |   en-US-BrandonNeural  	|
+    | English (United States)	                    |       en-US	       |        Male	    |  en-US-ChristopherNeural|
+    | English (United States)	                    |       en-US	       |        Male	    |   en-US-EricNeural	    |
+    | English (United States)	                    |       en-US	       |        Male	    |   en-US-GuyNeural	      |
+    | English (United States)	                    |       en-US	       |        Male	    |   en-US-JacobNeural     |
+    | Estonian (Estonia)	                        |       et-EE	       |       Female	    |   et-EE-AnuNeural	      |
+    | Estonian (Estonia)	                        |       et-EE	       |        Male	    |   et-EE-KertNeural	    |
+    | Filipino (Philippines)	                    |       fil-PH	     |       Female	    |   fil-PH-BlessicaNeural	|
+    | Filipino (Philippines)	                    |       fil-PH	     |        Male	    |   fil-PH-AngeloNeural	  |
+    | Finnish (Finland)	                          |       fi-FI	       |       Female	    |   fi-FI-NooraNeural	    |
+    | Finnish (Finland)	                          |       fi-FI	       |       Female	    |   fi-FI-SelmaNeural	    |
+    | Finnish (Finland)	                          |       fi-FI 	     |        Male	    |   fi-FI-HarriNeural	    |
+    | French (Belgium)	                          |       fr-BE	       |       Female	    |   fr-BE-CharlineNeural	|
+    | French (Belgium)	                          |       fr-BE	       |        Male	    |   fr-BE-GerardNeural	  |
+    | French (Canada)	                            |       fr-CA	       |       Female	    |   fr-CA-SylvieNeural    |
+    | French (Canada)	                            |       fr-CA	       |        Male	    |   fr-CA-AntoineNeural	  |
+    | French (Canada)	                            |       fr-CA	       |        Male	    |   fr-CA-JeanNeural	    |
+    | French (France)	                            |       fr-FR	       |       Female	    |   fr-FR-DeniseNeural	  |
+    | French (France)	                            |       fr-FR	       |        Male	    |   fr-FR-HenriNeural	    |
+    | French (Switzerland)	                      |       fr-CH	       |       Female	    |   fr-CH-ArianeNeural	  |
+    | French (Switzerland)	                      |       fr-CH	       |        Male	    |   fr-CH-FabriceNeural	  |
+    | Galician (Spain)	                          |       gl-ES	       |       Female	    |   gl-ES-SabelaNeural	  |
+    | Galician (Spain)	                          |       gl-ES	       |        Male	    |   gl-ES-RoiNeural	      |
+    | German (Austria)	                          |       de-AT	       |       Female	    |   de-AT-IngridNeural	  |
+    | German (Austria)	                          |       de-AT	       |        Male	    |   de-AT-JonasNeural	    |
+    | German (Germany)	                          |       de-DE	       |       Female	    |   de-DE-KatjaNeural	    |
+    | German (Germany)	                          |       de-DE	       |        Male	    |   de-DE-ConradNeural	  |
+    | German (Switzerland)	                      |       de-CH	       |       Female	    |   de-CH-LeniNeural	    |
+    | German (Switzerland)	                      |       de-CH	       |        Male	    |   de-CH-JanNeural	      |
+    | Greek (Greece)	                            |       el-GR	       |       Female	    |   el-GR-AthinaNeural  	|
+    | Greek (Greece)	                            |       el-GR	       |        Male	    |   el-GR-NestorasNeural	|
+    | Gujarati (India)	                          |       gu-IN	       |       Female	    |   gu-IN-DhwaniNeural	  |
+    | Gujarati (India)	                          |       gu-IN	       |        Male	    |   gu-IN-NiranjanNeural	|
+    | Hebrew (Israel)	                            |       he-IL	       |       Female	    |   he-IL-HilaNeural	    |
+    | Hebrew (Israel)	                            |       he-IL	       |        Male	    |   he-IL-AvriNeural	    |
+    | Hindi (India)	                              |       hi-IN	       |       Female	    |   hi-IN-SwaraNeural	    |
+    | Hindi (India)	                              |       hi-IN	       |        Male	    |   hi-IN-MadhurNeural	  |
+    | Hungarian (Hungary)	                        |       hu-HU	       |       Female	    |   hu-HU-NoemiNeural	    |
+    | Hungarian (Hungary)	                        |       hu-HU	       |        Male	    |   hu-HU-TamasNeural	    |
+    | Icelandic (Iceland)	                        |       is-IS	       |       Female	    |   is-IS-GudrunNeural    |
+    | Icelandic (Iceland)	                        |       is-IS	       |        Male	    |   is-IS-GunnarNeural    |
+    | Indonesian (Indonesia)	                    |       id-ID	       |       Female	    |   id-ID-GadisNeural	    |
+    | Indonesian (Indonesia)	                    |       id-ID	       |        Male	    |   id-ID-ArdiNeural	    |
+    | Irish (Ireland)	                            |       ga-IE	       |       Female	    |   ga-IE-OrlaNeural	    |
+    | Irish (Ireland)	                            |       ga-IE	       |        Male	    |   ga-IE-ColmNeural	    |
+    | Italian (Italy)	                            |       it-IT	       |       Female	    |   it-IT-ElsaNeural	    |
+    | Italian (Italy)	                            |       it-IT	       |       Female	    |   it-IT-IsabellaNeural	|
+    | Italian (Italy)	                            |       it-IT	       |        Male	    |   it-IT-DiegoNeural     |
+    | Japanese (Japan)	                          |       ja-JP	       |       Female	    |   ja-JP-NanamiNeural	  |
+    | Japanese (Japan)	                          |       ja-JP	       |        Male	    |   ja-JP-KeitaNeural	    |
+    | Javanese (Indonesia)	                      |       jv-ID	       |       Female	    |   jv-ID-SitiNeural	    |
+    | Javanese (Indonesia)	                      |       jv-ID	       |        Male	    |   jv-ID-DimasNeural	    |
+    | Kannada (India)	                            |       kn-IN	       |       Female	    |   kn-IN-SapnaNeural     |
+    | Kannada (India)	                            |       kn-IN	       |        Male	    |   kn-IN-GaganNeural     |
+    | Kazakh (Kazakhstan)	                        |       kk-KZ	       |       Female	    |   kk-KZ-AigulNeural     |
+    | Kazakh (Kazakhstan)	                        |       kk-KZ	       |        Male	    |   kk-KZ-DauletNeural    |
+    | Khmer (Cambodia)	                          |       km-KH	       |       Female	    |   km-KH-SreymomNeural	  |
+    | Khmer (Cambodia)	                          |       km-KH	       |        Male	    |   km-KH-PisethNeural	  |
+    | Korean (Korea)	                            |       ko-KR	       |       Female	    |   ko-KR-SunHiNeural	    |
+    |Korean (Korea)	                              |       ko-KR	       |        Male	    |   ko-KR-InJoonNeural	  |
+    | Lao (Laos)	                                |       lo-LA	       |       Female	    |   lo-LA-KeomanyNeural   |
+    | Lao (Laos)	                                |       lo-LA	       |        Male	    |  lo-LA-ChanthavongNeural|
+    | Latvian (Latvia)	                          |       lv-LV	       |       Female	    |   lv-LV-EveritaNeural	  |
+    | Latvian (Latvia)	                          |       lv-LV	       |        Male	    |   lv-LV-NilsNeural	    |
+    | Lithuanian (Lithuania)	                    |       lt-LT	       |       Female	    |   lt-LT-OnaNeural	      |
+    | Lithuanian (Lithuania)	                    |       lt-LT	       |        Male	    |   lt-LT-LeonasNeural	  |
+    | Macedonian (Republic of North Macedonia)	  |       mk-MK	       |       Female	    |   mk-MK-MarijaNeural    |
+    | Macedonian (Republic of North Macedonia)	  |       mk-MK	       |        Male	    |   mk-MK-AleksandarNeural|
+    | Malay (Malaysia)	                          |       ms-MY	       |       Female	    |   ms-MY-YasminNeural	  |
+    | Malay (Malaysia)	                          |       ms-MY	       |        Male	    |   ms-MY-OsmanNeural	    |
+    | Malayalam (India)	                          |       ml-IN	       |       Female	    |   ml-IN-SobhanaNeural   |
+    | Malayalam (India)	                          |       ml-IN	       |        Male	    |   ml-IN-MidhunNeural    |
+    | Maltese (Malta)	                            |       mt-MT	       |       Female	    |   mt-MT-GraceNeural	    |
+    | Maltese (Malta)	                            |       mt-MT	       |        Male	    |   mt-MT-JosephNeural	  |
+    | Marathi (India)	                            |       mr-IN	       |       Female	    |   mr-IN-AarohiNeural	  |
+    | Marathi (India)	                            |       mr-IN	       |        Male	    |   mr-IN-ManoharNeural	  |
+    | Norwegian (Bokmål, Norway)	                |       nb-NO	       |       Female	    |   nb-NO-IselinNeural	  |
+    | Norwegian (Bokmål, Norway)	                |       nb-NO	       |       Female	    |   nb-NO-PernilleNeural	|
+    | Norwegian (Bokmål, Norway)	                |       nb-NO	       |        Male	    |   nb-NO-FinnNeural	    |
+    | Pashto (Afghanistan)	                      |       ps-AF	       |       Female	    |   ps-AF-LatifaNeural    |
+    | Pashto (Afghanistan)	                      |       ps-AF	       |        Male	    |   ps-AF-GulNawazNeural  |
+    | Persian (Iran)	                            |       fa-IR	       |       Female	    |   fa-IR-DilaraNeural	  |
+    | Persian (Iran)	                            |       fa-IR	       |        Male	    |   fa-IR-FaridNeural	    |
+    | Polish (Poland)	                            |       pl-PL	       |       Female	    |   pl-PL-AgnieszkaNeural	|
+    | Polish (Poland)	                            |       pl-PL	       |       Female	    |   pl-PL-ZofiaNeural	    |
+    | Polish (Poland)	                            |       pl-PL	       |        Male	    |   pl-PL-MarekNeural	    |
+    | Portuguese (Brazil)	                        |       pt-BR	       |       Female	    |   pt-BR-FranciscaNeural	|
+    | Portuguese (Brazil)	                        |       pt-BR	       |        Male	    |   pt-BR-AntonioNeural	  |
+    | Portuguese (Portugal)	                      |       pt-PT	       |       Female	    |   pt-PT-FernandaNeural	|
+    | Portuguese (Portugal)	                      |       pt-PT	       |       Female	    |   pt-PT-RaquelNeural	  |
+    | Portuguese (Portugal)	                      |       pt-PT	       |        Male	    |   pt-PT-DuarteNeural   	|
+    | Romanian (Romania)	                        |       ro-RO	       |       Female	    |   ro-RO-AlinaNeural	    |
+    | Romanian (Romania)	                        |       ro-RO	       |        Male	    |   ro-RO-EmilNeural	    |
+    | Russian (Russia)	                          |       ru-RU	       |       Female	    |   ru-RU-DariyaNeural	  |
+    | Russian (Russia)	                          |       ru-RU	       |       Female	    |   ru-RU-SvetlanaNeural	|
+    | Russian (Russia)	                          |       ru-RU	       |        Male	    |   ru-RU-DmitryNeural	  |
+    | Serbian (Serbia, Cyrillic)	                |       sr-RS	       |       Female	    |   sr-RS-SophieNeural    |
+    | Serbian (Serbia, Cyrillic)	                |       sr-RS	       |        Male	    |   sr-RS-NicholasNeural  |
+    | Sinhala (Sri Lanka)	                        |       si-LK	       |       Female	    |   si-LK-ThiliniNeural   |
+    | Sinhala (Sri Lanka)	                        |       si-LK	       |        Male	    |   si-LK-SameeraNeural   |
+    | Slovak (Slovakia)	                          |       sk-SK	       |       Female	    |   sk-SK-ViktoriaNeural	|
+    | Slovak (Slovakia)	                          |       sk-SK	       |        Male	    |   sk-SK-LukasNeural	    |
+    | Slovenian (Slovenia)	                      |       sl-SI	       |       Female	    |   sl-SI-PetraNeural	    |
+    | Slovenian (Slovenia)	                      |       sl-SI	       |        Male	    |   sl-SI-RokNeural	      |
+    | Somali (Somalia)	                          |       so-SO	       |       Female	    |   so-SO-UbaxNeural	    |
+    | Somali (Somalia)	                          |       so-SO	       |        Male	    |   so-SO-MuuseNeural	    |
+    | Spanish (Argentina)	                        |       es-AR	       |       Female	    |   es-AR-ElenaNeural	    |
+    | Spanish (Argentina)	                        |       es-AR	       |        Male	    |   es-AR-TomasNeural	    |
+    | Spanish (Bolivia)	                          |       es-BO	       |       Female	    |   es-BO-SofiaNeural	    |
+    | Spanish (Bolivia)	                          |       es-BO	       |        Male	    |   es-BO-MarceloNeural	  |
+    | Spanish (Chile)	                            |       es-CL	       |       Female	    |   es-CL-CatalinaNeural	|
+    | Spanish (Chile)	                            |       es-CL	       |        Male	    |   es-CL-LorenzoNeural	  |
+    | Spanish (Colombia)	                        |       es-CO	       |       Female	    |   es-CO-SalomeNeural	  |
+    | Spanish (Colombia)	                        |       es-CO	       |        Male	    |   es-CO-GonzaloNeural	  |
+    | Spanish (Costa Rica)	                      |       es-CR	       |       Female	    |   es-CR-MariaNeural	    |
+    | Spanish (Costa Rica)	                      |       es-CR	       |        Male	    |   es-CR-JuanNeural	    |
+    | Spanish (Cuba)	                            |       es-CU	       |       Female	    |   es-CU-BelkysNeural	  |
+    | Spanish (Cuba)	                            |       es-CU	       |        Male	    |   es-CU-ManuelNeural	  |
+    | Spanish (Dominican Republic)	              |       es-DO	       |       Female	    |   es-DO-RamonaNeural	  |
+    | Spanish (Dominican Republic)	              |       es-DO	       |        Male	    |   es-DO-EmilioNeural	  |
+    | Spanish (Ecuador)	                          |       es-EC	       |       Female	    |   es-EC-AndreaNeural	  |
+    | Spanish (Ecuador)	                          |       es-EC	       |        Male	    |   es-EC-LuisNeural	    |
+    | Spanish (El Salvador)	                      |       es-SV	       |       Female	    |   es-SV-LorenaNeural	  |
+    | Spanish (El Salvador)	                      |       es-SV	       |        Male	    |   es-SV-RodrigoNeural  	|
+    | Spanish (Equatorial Guinea)	                |       es-GQ	       |       Female	    |   es-GQ-TeresaNeural	  |
+    | Spanish (Equatorial Guinea)	                |       es-GQ	       |        Male	    |   es-GQ-JavierNeural	  |
+    | Spanish (Guatemala)	                        |       es-GT	       |       Female	    |   es-GT-MartaNeural	    |
+    | Spanish (Guatemala)	                        |       es-GT	       |        Male	    |   es-GT-AndresNeural	  |
+    | Spanish (Honduras)	                        |       es-HN	       |       Female	    |   es-HN-KarlaNeural	    |
+    | Spanish (Honduras)	                        |       es-HN	       |        Male	    |   es-HN-CarlosNeural	  |
+    | Spanish (Mexico)	                          |       es-MX	       |       Female	    |   es-MX-DaliaNeural     |
+    | Spanish (Mexico)	                          |       es-MX	       |        Male	    |   es-MX-JorgeNeural	    |
+    | Spanish (Nicaragua)	                        |       es-NI	       |       Female	    |   es-NI-YolandaNeural	  |
+    | Spanish (Nicaragua)	                        |       es-NI	       |        Male	    |   es-NI-FedericoNeural	|
+    | Spanish (Panama)	                          |       es-PA	       |       Female	    |   es-PA-MargaritaNeural	|
+    | Spanish (Panama)	                          |       es-PA	       |        Male	    |   es-PA-RobertoNeural  	|
+    | Spanish (Paraguay)	                        |       es-PY	       |       Female	    |   es-PY-TaniaNeural	    |
+    | Spanish (Paraguay)	                        |       es-PY	       |        Male	    |   es-PY-MarioNeural	    |
+    | Spanish (Peru)	                            |       es-PE	       |       Female	    |   es-PE-CamilaNeural	  |
+    { Spanish (Peru)	                            |       es-PE 	     |        Male	    |   es-PE-AlexNeural	    |
+    | Spanish (Puerto Rico)	                      |       es-PR	       |       Female	    |   es-PR-KarinaNeural  	|
+    | Spanish (Puerto Rico)	                      |       es-PR	       |        Male	    |   es-PR-VictorNeural	  |
+    | Spanish (Spain)	                            |       es-ES	       |       Female	    |   es-ES-ElviraNeural	  |
+    | Spanish (Spain)	                            |       es-ES	       |        Male	    |   es-ES-AlvaroNeural	  |
+    | Spanish (Uruguay)	                          |       es-UY	       |       Female	    |   es-UY-ValentinaNeural |
+    | Spanish (Uruguay)	                          |       es-UY	       |        Male	    |   es-UY-MateoNeural	    |
+    | Spanish (US)	                              |       es-US	       |       Female	    |   es-US-PalomaNeural	  |
+    | Spanish (US)	                              |       es-US	       |        Male	    |   es-US-AlonsoNeural	  |
+    | Spanish (Venezuela)	                        |       es-VE	       |       Female	    |   es-VE-PaolaNeural	    |
+    | Spanish (Venezuela)	                        |       es-VE	       |        Male	    |   es-VE-SebastianNeural	|
+    | Sundanese (Indonesia)	                      |       su-ID	       |       Female	    |   su-ID-TutiNeural	    |
+    | Sundanese (Indonesia)	                      |       su-ID	       |        Male      |   su-ID-JajangNeural	  |
+    | Swahili (Kenya)	                            |       sw-KE	       |       Female	    |   sw-KE-ZuriNeural	    |
+    | Swahili (Kenya)	                            |       sw-KE	       |        Male      |   sw-KE-RafikiNeural	  |
+    | Swahili (Tanzania)	                        |       sw-TZ	       |       Female	    |   sw-TZ-RehemaNeural	  |
+    | Swahili (Tanzania)	                        |       sw-TZ	       |        Male	    |   sw-TZ-DaudiNeural	    |
+    | Swedish (Sweden)	                          |       sv-SE	       |       Female	    |   sv-SE-HilleviNeural	  |
+    | Swedish (Sweden)	                          |       sv-SE	       |       Female	    |   sv-SE-SofieNeural	    |
+    | Swedish (Sweden)	                          |       sv-SE	       |        Male	    |   sv-SE-MattiasNeural	  |
+    | Tamil (India)	                              |       ta-IN	       |       Female	    |   ta-IN-PallaviNeural	  |
+    | Tamil (India)	                              |       ta-IN	       |        Male	    |   ta-IN-ValluvarNeural	|
+    | Tamil (Singapore)	                          |       ta-SG	       |       Female	    |   ta-SG-VenbaNeural	    |
+    | Tamil (Singapore)	                          |       ta-SG	       |        Male	    |   ta-SG-AnbuNeural	    |
+    | Tamil (Sri Lanka)	                          |       ta-LK	       |       Female	    |   ta-LK-SaranyaNeural	  |
+    | Tamil (Sri Lanka)	                          |       ta-LK	       |        Male	    |   ta-LK-KumarNeural	    |
+    | Telugu (India)	                            |       te-IN	       |       Female	    |   te-IN-ShrutiNeural	  |
+    | Telugu (India)	                            |       te-IN	       |        Male	    |   te-IN-MohanNeural	    |
+    | Thai (Thailand)	                            |       th-TH	       |       Female	    |   th-TH-AcharaNeural	  |
+    | Thai (Thailand)	                            |       th-TH	       |       Female	    |   th-TH-PremwadeeNeural	|
+    | Thai (Thailand)	                            |       th-TH	       |        Male	    |   th-TH-NiwatNeural	    |
+    | Turkish (Turkey)	                          |       tr-TR	       |       Female	    |   tr-TR-EmelNeural	    |
+    | Turkish (Turkey)	                          |       tr-TR	       |        Male	    |   tr-TR-AhmetNeural	    |
+    | Ukrainian (Ukraine)	                        |       uk-UA	       |       Female	    |   uk-UA-PolinaNeural	  |
+    | Ukrainian (Ukraine)	                        |       uk-UA	       |        Male	    |   uk-UA-OstapNeural	    |
+    | Urdu (India)	                              |       ur-IN	       |       Female	    |   ur-IN-GulNeural	      |
+    | Urdu (India)	                              |       ur-IN	       |        Male	    |   ur-IN-SalmanNeural	  |
+    | Urdu (Pakistan)	                            |       ur-PK	       |       Female	    |   ur-PK-UzmaNeural	    |
+    | Urdu (Pakistan)	                            |       ur-PK	       |        Male	    |   ur-PK-AsadNeural	    |
+    | Uzbek (Uzbekistan)	                        |       uz-UZ	       |       Female	    |   uz-UZ-MadinaNeural	  |
+    | Uzbek (Uzbekistan)	                        |       uz-UZ	       |        Male	    |   uz-UZ-SardorNeural	  |
+    | Vietnamese (Vietnam)	                      |       vi-VN	       |       Female	    |   vi-VN-HoaiMyNeural	  |
+    | Vietnamese (Vietnam)	                      |       vi-VN	       |        Male	    |   vi-VN-NamMinhNeural  	|
+    | Welsh (United Kingdom)	                    |       cy-GB	       |       Female	    |   cy-GB-NiaNeural	      |
+    | Welsh (United Kingdom)	                    |       cy-GB	       |        Male	    |   cy-GB-AledNeural	    |
+    | Zulu (South Africa)	                        |       zu-ZA	       |       Female	    |   zu-ZA-ThandoNeural	  |
+    | Zulu (South Africa)	                        |       zu-ZA	       |        Male	    |   zu-ZA-ThembaNeural    |
+  version: 0.1.0
+  x-subscribelink: text-to-speech_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 3000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 3000 characters of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 3000 characters.
+  x-apidetailsdesc: |+
+    Converts text to speech in a different voices.
+servers:
+  - url: 'https://dev-apis.sentient.io' 
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Mar 22, 2022"
+paths:
+  /microservices/voice/atts/v0/getpredictions:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                results: 
+                  audio_content: UklGRja3AQBXQVZFZm10IBIAAAABAAEAgD4AAAB9AAACABAAAABkYXRhELcBAP3/+P8AAAEA
+                  message: Successfully Processed
+                  status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'       
+        '500':
+          description: Internal Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties:
+            audio_content:
+              description: Base64 string of the generated audio from input text
+              example: UklGRja3AQBXQVZFZm10IBIAAAABAAEAgD4AAAB9AAACABAAAABkYXRhELcBAP3/+P8AAAEA
+              type: string
+
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+        
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Mar 22,2022'
+                x-details: Initial version release    
+                description: Latest Version
+    input:
+      type: object
+      required:
+      
+        - input_text
+        - text_language
+        - voice_name
+      
+      properties:
+        text:
+          x-name: text
+          type: string
+          default: True
+          example: I want a credit card.
+          description: |+
+            Input text to be synthesised.
+        text_language:
+          x-name: text_language
+          type: string
+          default: True
+          example: en-US
+          description: |+
+            Select the input text language from the above mentioned table.
+        voice_name:
+          x-name: voice_name
+          type: string
+          default: True
+          example: en-US-JennyNeural
+          description: |+
+            Select the voice name from the above mentioned table for the output audio.
+        
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
