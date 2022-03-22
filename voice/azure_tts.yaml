@@ -307,7 +307,7 @@ info:
     | Zulu (South Africa)	                        |       zu-ZA	       |       Female	    |   zu-ZA-ThandoNeural	  |
     | Zulu (South Africa)	                        |       zu-ZA	       |        Male	    |   zu-ZA-ThembaNeural    |
   version: 0.1.0
-  x-subscribelink: text-to-speech_eng
+  x-subscribelink: azure_tts 
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 3000 characters/Call
