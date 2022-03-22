@@ -9,19 +9,15 @@ info:
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"road_name":"arthur"}}    
+      > {"match_phrase":{"properties.QUALITY":"FULLY VISIBLE"}}    
     * **match** - Search within a full text field for a single word
-      > {"match":{"road_name":"arthur"}}
-    * **range** - Returns results that contain terms within a stipulated range
-      > {"range":{"end_date":{"gte":"now/d"}}}
-      > {"range":{"end_date":{"lte":"now+100d/d"}}}
-      > {"range":{"end_date":{"gte":"now/d","lte":"now+100d/d"}}}
+      > {"match":{"properties.QUALITY":"FULLY VISIBLE"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"road_name"}}
     * **bool** - Returns results that must or must_not match with word
-      > {"bool":{"must_not":[{"match":{"road_name":"arthur"}}]}}
-      > {"bool":{"must":[{"match":{"road_name":"arthur"}}]}}
-      > {"bool":{"should":[{"match":{"road_name":"arthur"}}]}}
+      > {"bool":{"must_not":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}]}}
+      > {"bool":{"must":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}]}}
+      > {"bool":{"should":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}}]}}
       
   version: '2.0.0'
   x-apitype: small file
