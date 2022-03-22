@@ -52,22 +52,42 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: Successfully Processed
-                total: 1
                 results:
-                - _id: rminrm2020122140arthurroad
-                  _index: lta_road_works
-                  _score: 0
-                  _source:
-                    end_date: '2021-12-29'
-                    event_id: RMINRM-202012-2140
-                    lastupdated: '2021-07-26T04:24:16.409Z'
-                    other: For details
-                    road_name: ARTHUR ROAD
-                    source: lta
-                    start_date: '2020-12-30'
-                    svcdept: SINGTEL - ACCESS NETWORK ENGINEERING DIVISION
-                  _type: dir_doc
+                  hits:
+                  - _id: d5pNsH8B1VPRFDGbTafY
+                    _index: hdb_map_index
+                    _score: 0
+                    _source:
+                      geometry:
+                        coordinates:
+                        - - - 103.75898806278323
+                            - 1.35076246656039
+                          - - 103.75904274102436
+                            - 1.350768674890894
+                          - - 103.75905820988616
+                            - 1.350646753578955
+                          - - 103.75900152607664
+                            - 1.350639871436288
+                          - - 103.75898806278323
+                            - 1.35076246656039
+                        type: Polygon
+                      lastupdated: '2022-03-22T14:25:29.452Z'
+                      properties:
+                        FEATID: 129
+                        FMEL_UPD_D: '2018-06-29'
+                        INC_CRC: C70C5D2A82FCBDC2
+                        LVL: GROUND LEVEL
+                        QUALITY: FULLY VISIBLE
+                        TYPE: HARDCOURT
+                      property_type: HARDCOURT
+                      type: Polygon
+                      unique_id: 129c70c5d2a82fcbdc2
+                    _type: doc
+                  max_score: 0
+                  total: 971
+                scroll_id: DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAInuFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACJ7RZHeWxGN1VqalJqcUxpOUgzMU1BeV9nAAAAAAAAie8WR3lsRjdVampSanFMaTlIMzFNQXlfZwAAAAAAAInwFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACJ8RZHeWxGN1VqalJqcUxpOUgzMU1BeV9n
                 status: Success
+
         '401':
           description: Unauthorized
           content:
