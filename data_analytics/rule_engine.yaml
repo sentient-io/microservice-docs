@@ -58,8 +58,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
-      security:
-        - APIAuthorizer: []
       requestBody:
         content:
           application/json:
