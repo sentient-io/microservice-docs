@@ -532,7 +532,7 @@ components:
       
       properties:
         input_text:
-          x-name: text
+          x-name: input_text
           type: string
           default: True
           example: I want a credit card.
