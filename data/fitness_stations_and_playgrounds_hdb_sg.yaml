@@ -288,7 +288,7 @@ components:
           type: string
           example: Failure
     versions:
-     type: object
+      type: object
       properties: 
         v2.0.0:
          type: array
