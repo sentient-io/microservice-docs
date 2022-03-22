@@ -362,7 +362,8 @@ data:
   amenities_hardcourts_hdb_sg:
     title: HDB Hardcourts Locations (SG)
     versions:
-      1.0.0: 'amenities_hardcourts_hdb_sg.yaml'
+      2.0.0: 'amenities_hardcourts_hdb_sg.yaml'
+      1.0.0: 'amenities_hardcourts_hdb_sg_v1.yaml'
   amenities_shelters_hdb_sg:
     title: HDB Shelters Locations (SG)
     versions:
