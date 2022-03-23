@@ -525,10 +525,7 @@ components:
     input:
       type: object
       required:
-      
         - input_text
-        - text_language
-        - voice_name
       
       properties:
         input_text:
