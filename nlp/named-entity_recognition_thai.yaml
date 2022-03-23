@@ -201,7 +201,7 @@ components:
             time:
               x-name: time
               type: array
-              example: [{"entity": "16.30 น.,"start":30,"end":35},{"entity": 5 วัน,"start":45,"end":47}]
+              example: [{"entity": 16.30 น.,"start":30,"end":35},{"entity": 5 วัน,"start":45,"end":47}]
               description: "time  found in the text string" 
             email:
               x-name: email
