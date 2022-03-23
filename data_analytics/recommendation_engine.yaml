@@ -5,10 +5,9 @@ info:
     Recommendation Engine is a new type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm (CCO), which can use data from a wide variety of sources to tune and make recommendations better.
   version: '1.0.0'
   x-additionalinfo: |+
-    Suggested Use Cases:
-    - This microservice can be used to add item event and items to get recommendation.
+    - This microservice consists of set of REST APIs to inject data, train data, get recommendations etc. User can also use bulk upload APIs to insert historial data using CSV for both events and items.
   x-subscribelink: recommendation_engine
-  x-apitype: latge file
+  x-apitype: Subscription
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
   x-inputfilelimit: |+
@@ -16,11 +15,13 @@ info:
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
-    The API is billed by per request.
+    Subscription Fee + The API is billed by per request for get recommendations.
   x-notes: |+
     File size cannot exceed 10 MB.
   x-apidetailsdesc: |+
-     It's a type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm
+     This microservice consists of set of REST APIs to inject data, train data, get recommendations etc. 
+     User can also use bulk upload APIs to insert historial data using CSV for both events and items.
+     Dedicated engines are created per primary indicator, after the engine creation the apis can be used to inject the data.
 servers:
   - url: 'https://dev-apis.sentient.io/recommedationengine/microservices/dataanalytics'
 tags:
@@ -29,7 +30,7 @@ tags:
 paths:
   /readdevent/v0/getresults:
     description: |+
-        This API is used to add the event in recommendation engine
+        This API is used to add the event to recommendation engine
     post:
       tags:
         - v1.0.0
@@ -66,7 +67,7 @@ paths:
         required: true
   /readditem/v0/getresults:
     description: |+
-        This API is used to add the item and properties in recommendation engine
+        This API is used to add the item and its properties to recommendation engine
     post:
       tags:
         - v1.0.0
@@ -103,7 +104,7 @@ paths:
         required: true
   /redeleteevent/v0/getresults:
     description: |+
-        This API is used to delete the event in recommendation engine
+        This API is used to delete the event from recommendation engine
     post:
       tags:
         - v1.0.0
@@ -268,7 +269,7 @@ paths:
         required: true
   /rebulkuploadevent/v0/getresults:
     description: |+
-        This API is used to bulk upload the event in recommendation engine
+        This API is used to bulk upload the event to recommendation engine
     post:
       tags:
         - v1.0.0
@@ -306,7 +307,7 @@ paths:
         required: true
   /rebulkuploaditem/v0/getresults:
     description: |+
-        This API is used to bulk upload the item and properties in recommendation engine
+        This API is used to bulk upload the item and its properties to recommendation engine
     post:
       tags:
         - v1.0.0
