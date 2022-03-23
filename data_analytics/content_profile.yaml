@@ -8,9 +8,13 @@ info:
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"content_ngrams":"solutions"}}    
+      > {"match_phrase":{"content_ngrams":"solutions"}}
+      > {"match_phrase":{"content_categories":"news/local/news"}}
+      > {"match_phrase":{"content_groupcategories":"technology"}}
     * **match** - Search within a full text field for a single word
       > {"match":{"content_ngrams":"solutions"}}
+      > {"match":{"content_categories":"news/local/news"}}
+      > {"match":{"content_groupcategories":"technology"}}
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
