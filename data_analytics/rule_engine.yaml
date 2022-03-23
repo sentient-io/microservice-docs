@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Rule Engine
   description: |+
-    It provides a suggestion based on the core business rules.
+    It is an expert-system program, which runs the rules on the data and if any condition matches then it executes the corresponding actions. The inference engine is the component of the intelligent system in artificial intelligence, which applies logical rules to the knowledge base to infer new information from known facts. Inference-Engine’s program works in three phases to execute the rule on given data, Match, Resolve and Execute. 
   version: '1.0.0'
   x-subscribelink: rule_engine
   x-apitype: small file
@@ -17,7 +17,7 @@ info:
   x-notes: |+
     File size cannot exceed 10 MB.
   x-apidetailsdesc: |+
-     It's a type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm
+     Sentient’s Rule-Engine uses the Rete Algorithm for pattern matching. It is one of the best algorithms for pattern matching.
 servers:
   - url: 'https://dev-apis.sentient.io/ruleengine/microservices/dataanalytics'
 tags:
