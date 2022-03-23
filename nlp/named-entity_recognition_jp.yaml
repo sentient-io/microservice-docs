@@ -33,7 +33,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Mar 25, 2022"
+  description: "Published Date - Mar 23, 2022"
 paths:
   /microservices/nlp/japanesener/v2/getpredictions:
     post:
@@ -49,29 +49,58 @@ paths:
               example:
                 message: Successfully Processed
                 results:
-                  age:
-                  - '56'
-                  countx_other:
-                  - 2稿
-                  - 8口
-                  doctrine_method_other:
-                  - 険所コホ特室りょ
-                  n_event:
-                  - 受1
-                  numex_other:
-                  - 百経
                   ordinal_number:
-                  - 30弾
+                  - entity: 30弾
+                    start: 0
+                    end: 3
+                  doctrine_method_other:
+                  - entity: 険所コホ特室りょ
+                    start: 16
+                    end: 24
                   person:
-                  - くぼ
-                  - 壮
-                  - 琢紫
-                  - ナユ
+                  - entity: くぼ
+                    start: 24
+                    end: 26
+                  - entity: 壮
+                    start: 74
+                    end: 75
+                  - entity: 琢紫
+                    start: 83
+                    end: 85
+                  - entity: ナユ
+                    start: 98
+                    end: 100
                   product_other:
-                  - 都合ヘラアニ限
-                  - 議帳
+                  - entity: 都合ヘラアニ限
+                    start: 26
+                    end: 33
+                  - entity: 議帳
+                    start: 104
+                    end: 106
+                  countx_other:
+                  - entity: 2稿
+                    start: 33
+                    end: 35
+                  - entity: 8口
+                    start: 79
+                    end: 81
+                  numex_other:
+                  - entity: 百経
+                    start: 92
+                    end: 94
+                  n_event:
+                  - entity: 受1
+                    start: 108
+                    end: 110
+                  age:
+                  - entity: '56'
+                    start: 130
+                    end: 132
                   show_organization:
-                  - 左成相態
+                  - entity: 左成相態
+                    start: 172
+                    end: 176
+
                 status: Success
         '401':
           description: Unauthorized
@@ -146,72 +175,90 @@ components:
           description: Json Object of returned results
           properties:
             age:
+              x-name: age
               type: array
-              items:
-                type: string
               example: 
-                - 56
+                - entity: '56'
+                  start: 130
+                  end: 132
               description: "age details found in the text string"                
             countx_other:
+              x-name: countx_other
               type: array
-              items:
-                type: string
               example: 
-                - 2稿
-                - 8口
+                - entity: 2稿
+                  start: 33
+                  end: 35
+                - entity: 8口
+                  start: 79
+                  end: 81
               description: "countx other details found in the text string"                   
             doctrine_method_other:
+              x-name: doctrine_method_other
               type: array
-              items:
-                type: string
               example: 
-                - 険所コホ特室りょ
+                - entity: 険所コホ特室りょ
+                  start: 16
+                  end: 24
               description: "doctrine method in the text string"                   
             n_event:
+              x-name: n_event
               type: array
-              items:
-                type: string
               example: 
-                - 受1
+                - entity: 受1
+                  start: 108
+                  end: 110
               description: "n_event in the text string"                   
             numex_other:
+              x-name: numex_other
               type: array
-              items:
-                type: string
               example: 
-                - 受1
+                - entity: 百経
+                  start: 92
+                  end: 94
               description: "numex_other details found in the text string"                   
             ordinal_number:
+              x-name: ordinal_number
               type: array
-              items:
-                type: string
               example: 
-                -30弾
+                - entity: 30弾
+                  start: 0
+                  end: 3
               description: "ordinal_number details in the text string"                   
             person:
+              x-name: person
               type: array
-              items:
-                type: string
               example: 
-                - person
-                - 壮
-                - 琢紫
-                - ナユ
+                - entity: くぼ
+                  start: 24
+                  end: 26
+                - entity: 壮
+                  start: 74
+                  end: 75
+                - entity: 琢紫
+                  start: 83
+                  end: 85
+                - entity: ナユ
+                  start: 98
+                  end: 100
               description: "person details found in the text string"                   
             product_other:
+              x-name: product_other
               type: array
-              items:
-                type: string
               example: 
-                - 都合ヘラアニ限
-                - 議帳
+                - entity: 都合ヘラアニ限
+                  start: 26
+                  end: 33
+                - entity: 議帳
+                  start: 104
+                  end: 106
               description: "product found in the text string"                   
             show_organization:
               type: array
-              items:
-                type: string
               example: 
-                - 左成相態
+                - entity: 左成相態
+                  start: 172
+                  end: 176
               description: "organization details found in the text string"                   
         message:
           type: string
@@ -310,7 +357,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 25, 2022
+              example: Published Date - Mar 23, 2022
               x-details: Updated version release v1.0, entity positions returned
               description: Latest Version
         v1.0.0:
@@ -320,7 +367,7 @@ components:
             - type: string
               example: Published Date - Sep 30, 2020
               x-details: Updated version release v1.0
-              description: Latest Version
+              description: Version 1 release
         v0.1.0:
          type: array
          items:
