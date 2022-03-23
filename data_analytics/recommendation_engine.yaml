@@ -28,11 +28,11 @@ tags:
   description: "Published Date - Oct 30, 2020"
 paths:
   /readdevent/v0/getresults:
+    description: |+
+        This API is used to add the event in recommendation engine
     post:
       tags:
         - v1.0.0
-      description:
-        This API is used to add the event in recommendation engine
       responses:
         '200':
           description: Ok
