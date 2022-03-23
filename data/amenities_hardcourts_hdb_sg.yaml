@@ -216,7 +216,6 @@ components:
                   items:
                    example: 103.71618687465097
                            1.348193609950229
-                   description: coordinates
     unauthorized:
       type: object
       properties:
