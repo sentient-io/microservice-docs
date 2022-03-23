@@ -187,6 +187,10 @@ data analytics:
     title: Rule Engine
     versions:
       0.1.0: 'rule_engine.yaml'
+  content_profile:
+    title: Content Profile
+    versions:
+      0.1.0: 'content_profile.yaml'
 computer vision:
   object_detection:
     title: Object Detection
