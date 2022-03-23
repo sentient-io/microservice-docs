@@ -130,27 +130,27 @@ components:
         selected_mode:
           type: string
           description: |+ 
-             Selected mode of getting suggestion
+             Default value null. Selected mode of getting suggestion
           example: Create/Modify Global parts on screen
         upload:
           type: number
           description: |+ 
-             Upload of getting suggestion value will be greater than 0
+             Default value 0. Upload of getting suggestion value will be greater than 0
           example: 1
         add_item:
           type: number
           description: |+ 
-             Add Item of getting suggestion value will be greater than 0
+             Default value 0. Add Item of getting suggestion value will be greater than 0
           example: 1
         edit_item:
           type: number
           description: |+ 
-             Edit item of getting suggestion value will be greater than 0
+             Default value 0. Edit item of getting suggestion value will be greater than 0
           example: 1
         first_prompt:
           type: string
           description: |+ 
-             First prompt of getting suggestion value will be true/false
+             Default value false.First prompt of getting suggestion value will be true/false
           example: true
   securitySchemes:
     APIAuthorizer:
