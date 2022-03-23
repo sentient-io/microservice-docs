@@ -197,6 +197,10 @@ computer vision:
     versions:
       1.0.1: 'face_recognition.yaml'
       0.1.0: 'face_recognition_v0.1.yaml'
+  few_shots_object_detection:
+    title: Few Shots Object Detection
+    versions:
+      v0.1.0: few_shots_object_detection.yaml
   masked_face_recognition:
     title: Masked Face Recognition
     versions:
