@@ -11,10 +11,13 @@ info:
       > {"match_phrase":{"content_ngrams":"solutions"}}
       > {"match_phrase":{"content_categories":"news/local/news"}}
       > {"match_phrase":{"content_groupcategories":"technology"}}
+      > {"match_phrase":{"content":"articleUrl"}}
+      
     * **match** - Search within a full text field for a single word
       > {"match":{"content_ngrams":"solutions"}}
       > {"match":{"content_categories":"news/local/news"}}
       > {"match":{"content_groupcategories":"technology"}}
+      > {"match":{"content":"articleUrl"}}
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
