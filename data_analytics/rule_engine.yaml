@@ -4,9 +4,6 @@ info:
   description: |+
     It provides a suggestion based on the core business rules.
   version: '1.0.0'
-  x-additionalinfo: |+
-    Suggested Use Cases:
-    - This microservice can be used to add event and items to get recommendation.
   x-subscribelink: rule_engine
   x-apitype: small file
   x-apitypedescription: |+
@@ -125,7 +122,7 @@ components:
             Page URL of getting suggestion
           example: https://test.brivge.com/globalparts/create
         time_interval:
-          type: string
+          type: number
           default: true
           description: |+ 
             Time interval of getting suggestion value will be greater than or equal to 60000
@@ -136,17 +133,17 @@ components:
              Selected mode of getting suggestion
           example: Create/Modify Global parts on screen
         upload:
-          type: string
+          type: number
           description: |+ 
              Upload of getting suggestion value will be greater than 0
           example: 1
         add_item:
-          type: string
+          type: number
           description: |+ 
              Add Item of getting suggestion value will be greater than 0
           example: 1
         edit_item:
-          type: string
+          type: number
           description: |+ 
              Edit item of getting suggestion value will be greater than 0
           example: 1
@@ -154,7 +151,7 @@ components:
           type: string
           description: |+ 
              First prompt of getting suggestion value will be true/false
-          example: true/false
+          example: true
   securitySchemes:
     APIAuthorizer:
       type: apiKey
