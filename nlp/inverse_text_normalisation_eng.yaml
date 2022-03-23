@@ -231,7 +231,7 @@ components:
               - type: string
                 example: Published Date - Oct 30, 2020
                 x-details: Standardizing Output JSON
-                description: Latest Version
+                description: Version 1 release
         v0.1.0:
           type: array
           items:
