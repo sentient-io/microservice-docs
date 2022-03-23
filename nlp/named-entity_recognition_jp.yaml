@@ -2,14 +2,14 @@ openapi: 3.0.1
 info:
   title: Named-Entity Recognition JP
   description: |+
-    This NLP microservice locates and classifies the named-entities classes from input unstructured Japanese text.
+    This NLP microservice locates and classifies the named-entities classes from input unstructured Japanese text and also returns the entity start and endpositions.
     
     The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
     
     This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
     
     Do ensure that your text is within **5000 characters**.
-  version: '1.0.0'
+  version: '2.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Extract structured pre-defined information from text.
@@ -30,15 +30,15 @@ info:
   x-apidetailsdesc: |+
     Locates and Classifies named-entities classes from unstructured Japanese text.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Sep 30, 2020"
+- name: "v2.0.0"
+  description: "Published Date - Mar 25, 2022"
 paths:
-  /microservices/nlp/japanesener/v1/getpredictions:
+  /microservices/nlp/japanesener/v2/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v2.0.0
       responses:
         '200':
           description: Ok
@@ -305,6 +305,14 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 25, 2022
+              x-details: Updated version release v1.0, entity positions returned
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -335,6 +343,14 @@ components:
             Input text.
             
             Supported formats: ASCII only
+
+        return_entity_position:
+          x-name: return_entity_position
+          type: boolean
+          default: false
+          example: true
+          description: |+
+            Boolean value indicating whether entity position needs to be returned or not. Default value is True.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
