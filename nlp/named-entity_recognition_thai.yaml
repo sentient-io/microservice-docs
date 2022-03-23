@@ -176,7 +176,7 @@ components:
             law:
               x-name: law
               type: array
-              example: [พ.ร.บ.โรคระบาด พ.ศ.2499, รัฐธรรมนูญ]
+              example: [{"entity":พ.ร.บ.โรคระบาด พ.ศ.2499,"start":89,"end":96}]
               description: "law details found in the text string"                     
             location:
               x-name: location

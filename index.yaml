@@ -147,7 +147,7 @@ nlp:
   named-entity_recognition_thai:
     title: Named Entity Recognition THAI
     versions:
-      2.0.1: 'named-entity_recognition_thai.yaml'
+      2.0.0: 'named-entity_recognition_thai.yaml'
       1.0.0: 'named-entity_recognition_thai_v1.0.yaml'
   script_alignment:
     title: Script Alignment
