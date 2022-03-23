@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Content Profiler
-  x-subscribelink: content_interest_profiler
+  x-subscribelink: content_profiler
   description: |+
     This microservice returns all content profiler.
   x-additionalinfo : |+
