@@ -58,6 +58,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
       requestBody:
         content:
           application/json:
@@ -153,3 +155,11 @@ components:
           description: |+ 
              First prompt of getting suggestion value will be true/false
           example: true/false
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
+         
