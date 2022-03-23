@@ -579,7 +579,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"match":{"_id":"interest_profiles/interest_profile_a8448456964b2f8c.json"}}]
+          example: [{"match":{"_id":"content_profiles/1_www.sentient.io_ai-colab.json"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
