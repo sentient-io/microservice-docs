@@ -214,7 +214,6 @@ components:
                 coordinates:
                   type: array
                   items:
-                   type: number
                    example: 103.71618687465097
                            1.348193609950229
                    description: coordinates
