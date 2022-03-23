@@ -541,14 +541,14 @@ components:
           default: True
           example: en-US
           description: |+
-            Select the input text language from the supported language table.
+            Specify the text language of the input text from supported languages, if required. If not specified it will automatically detect the input language.
         voice_name:
           x-name: voice_name
           type: string
           default: True
           example: en-US-JennyNeural
           description: |+
-            Select the voice name from the supported language table for the output audio.
+            Specify the voice name from the supported languages, if required. If not specified it will automatically takes the voice name.
         
   securitySchemes:
     APIAuthorizer:
