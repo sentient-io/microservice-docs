@@ -2,14 +2,14 @@ openapi: 3.0.1
 info:
   title: Named-Entity Recognition THAI
   description: |+
-    This NLP microservice locates and classifies the named-entities classes from input unstructured Thai text and also returns the entity start and end positions..
+    This NLP microservice locates and classifies the named-entities classes from input unstructured Thai text.
 
     The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
 
     This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
     
     Do ensure that your text is **within 5000 characters**.
-  version: '2.0.0'
+  version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Extract structured pre-defined information from text.
@@ -32,15 +32,15 @@ info:
   x-apidetailsdesc: |+
     Locates and Classifies named-entities classes from unstructured Thai text.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Mar 25, 2022"
+- name: "v1.0.0"
+  description: "Published Date - Sep 30, 2020"
 paths:
-  /microservices/nlp/thainer/v2/getpredictions:
+  /microservices/nlp/thainer/v1/getpredictions:
     post:
       tags:
-        - v2.0.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -52,54 +52,22 @@ paths:
                 message: Successfully Processed
                 results:
                   law:
-                  - entity: รัฐธรรมนูญ
-                    start: 751
-                    end: 760
+                  - รัฐธรรมนูญ
                   location:
-                  - entity: ราชอาณาจักรไทย
-                    start: 14
-                    end: 27
-                  - entity: กัมพูชาทางทิศใต้ติดกับอ่าวไทย
-                    start: 518
-                    end: 546
-                  - entity: อินเดียทางทะเลอันดามันทางตะวันตกเฉียงใต้
-                    start: 692
-                    end: 731
-                  - entity: ประเทศพม่า
-                    start: 607
-                    end: 616
-                  - entity: เวียดนาม
-                    start: 639
-                    end: 646
-                  - entity: ลาวทางทิศตะวันออกติดกับลาว
-                    start: 489
-                    end: 514
-                  - entity: ประเทศไทย
-                    start: 0
-                    end: 8
-                  - entity: ทะเลอันดามัน
-                    start: 580
-                    end: 591
-                  - entity: เอเชียตะวันออกเฉียงใต้
-                    start: 80
-                    end: 101
-                  - entity: กรุงเทพมหานคร
-                    start: 404
-                    end: 416
-                  - entity: มาเลเซีย
-                    start: 550
-                    end: 557
-                  - entity: อินโดนีเซีย
-                    start: 678
-                    end: 688
+                  - ประเทศไทย
+                  - มาเลเซีย
+                  - ทะเลอันดามัน
+                  - กรุงเทพมหานคร
+                  - อินโดนีเซีย
+                  - ราชอาณาจักรไทย
+                  - อินเดียทางทะเลอันดามันทางตะวันตกเฉียงใต้
+                  - ลาวทางทิศตะวันออกติดกับลาว
+                  - เอเชียตะวันออกเฉียงใต้
+                  - เวียดนาม
+                  - ประเทศพม่า
+                  - กัมพูชาทางทิศใต้ติดกับอ่าวไทย
                   organization:
-                  - entity: รัฐสภา
-                    start: 778
-                    end: 783
-                  person:
-                  - entity: เผด็จการทหารย
-                    start: 892
-                    end: 904
+                  - รัฐสภา
                 status: Success
         '401':
           description: Unauthorized
@@ -181,57 +149,70 @@ components:
             location:
               x-name: location
               type: array
-              example: [{"entity":ประเทศไทย,"start":0,"end":10},{"entity": มาเลเซีย, "start": 0, "end": 1}]
+              example: 
+                  - ประเทศไทย
+                  - มาเลเซีย
+                  - ทะเลอันดามัน
+                  - กรุงเทพมหานคร
+                  - อินโดนีเซีย
+                  - ราชอาณาจักรไทย
+                  - อินเดียทางทะเลอันดามันทางตะวันตกเฉียงใต้
+                  - ลาวทางทิศตะวันออกติดกับลาว
+                  - เอเชียตะวันออกเฉียงใต้
+                  - เวียดนาม
+                  - ประเทศพม่า
+                  - กัมพูชาทางทิศใต้ติดกับอ่าวไทย
               description: "location found in the text string"                  
             organization:
               x-name: organization
               type: array
-              example: [{"entity" : รัฐสภา,"start":0, "end":12}]
+              example: 
+                  - รัฐสภา
               description: "organization found in the text string" 
             date:
               x-name: date
               type: array
-              example: [{"entity": 2/21/2004,"start":9,"end":15},{"entity": 16 ก.พ.,"start":6,"end":10},{"entity":จันทร์,"start":10,"end":14}]
+              example: [2/21/2004, 16 ก.พ., จันทร์]
               description: "date  found in the text string" 
             money:
               x-name: money
               type: array
-              example: [{"entity":2.7 ล้านบาท,"start":90,"end":96}, {"entity":2,000 บาท,"start":45,"end":50}]
+              example: [2.7 ล้านบาท, 2,000 บาท]
               description: "amount of currency found in the text string" 
             time:
               x-name: time
               type: array
-              example: [{"entity": "16.30 น.,"start":30,"end":35},{"entity": 5 วัน,"start":45,"end":47}]
+              example: [16.30 น., 5 วัน, 1-3 ปี]
               description: "time  found in the text string" 
             email:
               x-name: email
               type: array
-              example: [{"entity":info@nrpsc.ac.th,"start":34,"end":38}]
+              example: [info@nrpsc.ac.th]
               description: "email id  found in the text string" 
             len:
               x-name: len
               type: array
-              example: [{"entity":30 กิโลเมตร,"start":12,"end":18},{"entity":5 กม.,"start":1,"end":5}]
+              example: [30 กิโลเมตร, 5 กม.]
               description: "distance in km found in the text string" 
             person:
               x-name: person
               type: array
-              example: [{"entity":นางประนอม ทองจันทร์,"start":56,"end":58}]
+              example: [น.พ.จรัล, นางประนอม ทองจันทร์]
               description: "name of person found in the text string" 
             phone:
               x-name: phone
               type: array
-              example: [{"entity":8888 กิโลเมตร,"start":12,"end":16}]
+              example: [0 2670 8888]
               description: "date  found in the text string" 
             url:
               x-name: url
               type: array
-              example: [{"entity":http://www.bangkokhealth.com/,"start":10,"end":20}]
+              example: [http://www.bangkokhealth.com/]
               description: "url in the text string" 
             zip:
               x-name: zip
               type: array
-              example: [{"entity":10400,"start":15,"end":20}]
+              example: [10400]
               description: "zipcode  found in the text string" 
 
         message:
@@ -326,14 +307,6 @@ components:
     versions:
       type: object
       properties: 
-        v2.0.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Mar 25, 2022
-              x-details: Updated version release v2.0, entity positions returned
-              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -364,14 +337,6 @@ components:
             Input text.
             
             Supported formats: ASCII only
-
-        return_entity_position:
-          x-name: return_entity_position
-          type: boolean
-          default: false
-          example: true
-          description: |+
-            Boolean value indicating whether entity position needs to be returned or not. Default value is True.
   securitySchemes:
     APIAuthorizer:
       type: apiKey

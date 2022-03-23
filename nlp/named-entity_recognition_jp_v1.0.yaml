@@ -1,0 +1,344 @@
+openapi: 3.0.1
+info:
+  title: Named-Entity Recognition JP
+  description: |+
+    This NLP microservice locates and classifies the named-entities classes from input unstructured Japanese text.
+    
+    The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
+    
+    This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+    
+    Do ensure that your text is within **5000 characters**.
+  version: '1.0.0'
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Extract structured pre-defined information from text.
+    - Insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
+    - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
+  x-subscribelink: named-entity_recognition_jp
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Locates and Classifies named-entities classes from unstructured Japanese text.
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - Sep 30, 2020"
+paths:
+  /microservices/nlp/japanesener/v1/getpredictions:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  age:
+                  - '56'
+                  countx_other:
+                  - 2稿
+                  - 8口
+                  doctrine_method_other:
+                  - 険所コホ特室りょ
+                  n_event:
+                  - 受1
+                  numex_other:
+                  - 百経
+                  ordinal_number:
+                  - 30弾
+                  person:
+                  - くぼ
+                  - 壮
+                  - 琢紫
+                  - ナユ
+                  product_other:
+                  - 都合ヘラアニ限
+                  - 議帳
+                  show_organization:
+                  - 左成相態
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded' 
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties: 
+        results:
+          type: object
+          example: { "<Json": "Object>" }
+          description: Json Object of returned results
+          properties:
+            age:
+              type: array
+              items:
+                type: string
+              example: 
+                - 56
+              description: "age details found in the text string"                
+            countx_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 2稿
+                - 8口
+              description: "countx other details found in the text string"                   
+            doctrine_method_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 険所コホ特室りょ
+              description: "doctrine method in the text string"                   
+            n_event:
+              type: array
+              items:
+                type: string
+              example: 
+                - 受1
+              description: "n_event in the text string"                   
+            numex_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 受1
+              description: "numex_other details found in the text string"                   
+            ordinal_number:
+              type: array
+              items:
+                type: string
+              example: 
+                -30弾
+              description: "ordinal_number details in the text string"                   
+            person:
+              type: array
+              items:
+                type: string
+              example: 
+                - person
+                - 壮
+                - 琢紫
+                - ナユ
+              description: "person details found in the text string"                   
+            product_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 都合ヘラアニ限
+                - 議帳
+              description: "product found in the text string"                   
+            show_organization:
+              type: array
+              items:
+                type: string
+              example: 
+                - 左成相態
+              description: "organization details found in the text string"                   
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure  
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure 
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 30, 2020
+              x-details: Updated version release v1.0
+              description: Latest Version
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - May 15, 2020
+              x-details: Initial version release
+              description: Archived
+    input:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          x-name: text
+          type: string
+          default: true
+          example: 30弾ソイキ昇機マ了映だ店原いひ険所コホ特室りょくぼ都合ヘラアニ限2稿タチケア迷芸歌セ利講ルねひ詳績めかをぶ観提メエ府木ホフタ分不写ひフ妹検らし器増壮憶クわ。8口アユ琢紫ヨ理特ゆほス見百経イス図退ナユ介精しぜ議帳モテ受1中コハ載北早ぎのりや載裁風力壌ひろふ。運56済ぞ下写報スや来際おっはの学要ヘ手米真社つみよや非央で野館き肉待づぜフ次睡ルをが左成相態万えやろ。
+          description: |+
+            Input text.
+            
+            Supported formats: ASCII only
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
