@@ -42,6 +42,7 @@ paths:
                   suggestion: Please begin by choosing Create/Modify Global parts on screen or Create/Modify
                     Global parts by download/upload master. Alternatively, you can request support
                     here[link to chatbot].
+                  count: 1
         '419':
           description: Input Field Missing
           content:
@@ -83,6 +84,10 @@ components:
               type: string
               description: The message of the API call.
               example: Please begin by choosing Create/Modify Global parts on screen or Create/Modify Global parts by download/upload master. Alternatively, you can request support here[link to chatbot].
+            count:
+              type: number
+              description: If result returns suggestion then count value will be 1 If suggestion returns empty then count value will be 0.
+              example: 1
     servererror:
       type: object
       properties:
@@ -148,7 +153,7 @@ components:
              Default value 0. Edit item of getting suggestion value will be greater than 0
           example: 1
         first_prompt:
-          type: string
+          type: boolean
           description: |+ 
              Default value false.First prompt of getting suggestion value will be true/false
           example: true
