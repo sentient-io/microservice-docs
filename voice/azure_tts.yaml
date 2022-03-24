@@ -546,7 +546,7 @@ components:
           type: string
           example: en-US-JennyNeural
           description: |+
-            Specify the voice name from the supported languages, if required. If not specified it will automatically takes the voice name.
+            Specify the voice name from the supported languages, if required. If not specified it will automatically takes any one of the gender voice name.
         
   securitySchemes:
     APIAuthorizer:
