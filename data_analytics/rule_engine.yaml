@@ -19,12 +19,12 @@ info:
   x-apidetailsdesc: |+
      Sentient’s Rule-Engine uses the Rete Algorithm for pattern matching. It is one of the best algorithms for pattern matching.
 servers:
-  - url: 'https://dev-apis.sentient.io/ruleengine/microservices/dataanalytics'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Oct 30, 2020"
 paths:
-  /getsuggestion/v0/getresults:
+  /microservices/dataanalytics/ruleengine/v0/getresults:
     post:
       tags:
         - v1.0.0
