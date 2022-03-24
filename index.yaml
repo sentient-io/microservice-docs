@@ -187,14 +187,10 @@ data analytics:
     title: Rule Engine
     versions:
       0.1.0: 'rule_engine.yaml'
-  interest_profile:
-    title: Interest Profile
+  content_interest_profile:
+    title: Content Interest Profile
     versions:
-      0.1.0: 'interest_profile.yaml'
-  content_profile:
-    title: Content Profile
-    versions:
-      0.1.0: 'content_profile.yaml'
+      0.1.0: 'content_interest_profile.yaml'
 computer vision:
   object_detection:
     title: Object Detection
