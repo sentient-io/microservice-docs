@@ -538,14 +538,12 @@ components:
         text_language:
           x-name: text_language
           type: string
-          default: True
           example: en-US
           description: |+
             Specify the text language of the input text from supported languages, if required. If not specified it will automatically detect the input language.
         voice_name:
           x-name: voice_name
           type: string
-          default: True
           example: en-US-JennyNeural
           description: |+
             Specify the voice name from the supported languages, if required. If not specified it will automatically takes the voice name.
