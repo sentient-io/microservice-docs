@@ -156,7 +156,7 @@ components:
           type: boolean
           description: |+ 
              Default value false.First prompt of getting suggestion value will be true/false
-          example: true
+          example: false
   securitySchemes:
     APIAuthorizer:
       type: apiKey
