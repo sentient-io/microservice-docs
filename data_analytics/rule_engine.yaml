@@ -132,7 +132,7 @@ components:
           description: |+ 
             Time interval of getting suggestion value will be greater than or equal to 60000
           example: 60000
-        selected_mode:
+        selection_mode:
           type: string
           description: |+ 
              Default value null. Selected mode of getting suggestion
