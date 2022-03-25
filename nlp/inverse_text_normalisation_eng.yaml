@@ -222,8 +222,8 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Mar 22, 2022
-                x-details: New Inverse norm using BERT
-                description: Latest Version
+                x-details: New Inverse norm using BERT,introducing new parameter “output” in the response json
+                description: New Inverse norm using BERT,introducing new parameter “output” in the response json
         v1.0.0:
           type: array
           items:
