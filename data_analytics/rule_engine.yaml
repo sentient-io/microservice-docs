@@ -3,7 +3,7 @@ info:
   title: Rule Engine
   description: |+
     It is an expert-system program, which runs the rules on the data and if any condition matches then it executes the corresponding actions. The inference engine is the component of the intelligent system in artificial intelligence, which applies logical rules to the knowledge base to infer new information from known facts. Inference-Engine’s program works in three phases to execute the rule on given data, Match, Resolve and Execute. 
-  version: '1.0.0'
+  version: '0.1.0'
   x-subscribelink: rule_engine
   x-apitype: Subscription
   x-apitypedescription: |+
@@ -21,13 +21,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.1.0"
   description: "Published Date - Oct 30, 2020"
 paths:
   /microservices/dataanalytics/ruleengine/v0/getresults:
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -109,13 +109,13 @@ components:
     versions:
       type: object
       properties: 
-        v1.0.0:
+        v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
-                example: Published Date - Oct 30, 2020
-                x-details: Standardizing Output JSON
+                example: Published Date - March 20, 2022
+                x-details: Initial Version
                 description: Latest Version
     input:
       type: object
