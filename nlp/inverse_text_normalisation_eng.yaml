@@ -29,7 +29,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Mar 22, 2022"
+  description: "Published Date - Mar 28, 2022"
 paths:
   /microservices/nlp/inversenorm/v2/getpredictions:
     post:
@@ -221,7 +221,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Mar 22, 2022
+                example: Published Date - Mar 28, 2022
                 x-details: New Inverse norm using BERT,introducing new parameter “output” in the response json
                 description: New Inverse norm using BERT,introducing new parameter “output” in the response json
         v1.0.0:
