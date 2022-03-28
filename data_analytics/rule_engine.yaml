@@ -16,8 +16,6 @@ info:
     Subscription Fee
   x-notes: |+
     File size cannot exceed 10 MB.
-  x-apidetailsdesc: |+
-     Sentient’s Rule-Engine comes with UI access to Rule Engine where user can create objects and define the rules. Later, using the get result API user can integrate into their application to get the respective rules trigger.
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
