@@ -3,7 +3,7 @@ info:
   title: Recommendation Engine
   description: |+
     Recommendation Engine is a new type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm (CCO), which can use data from a wide variety of sources to tune and make recommendations better.
-  version: '1.0.0'
+  version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of set of REST APIs to inject data, train data, get recommendations etc. User can also use bulk upload APIs to insert historial data using CSV for both events and items.
   x-subscribelink: recommendation_engine
@@ -25,7 +25,7 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io/recommedationengine/microservices/dataanalytics'
 tags:
-- name: "v1.0.0"
+- name: "v0.1.0"
   description: "Published Date - Oct 30, 2020"
 paths:
   /readdevent/v0/getresults:
@@ -33,7 +33,7 @@ paths:
         This API is used to add the event to recommendation engine
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -70,7 +70,7 @@ paths:
         This API is used to add the item and its properties to recommendation engine
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -107,7 +107,7 @@ paths:
         This API is used to delete the event from recommendation engine
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -144,7 +144,7 @@ paths:
         This API is used to get recommendation based on the item
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -190,7 +190,7 @@ paths:
         This API is used to get the recommendation based on the user
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -235,7 +235,7 @@ paths:
         This API is used to train the recommendation engine
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -272,7 +272,7 @@ paths:
         This API is used to bulk upload the event to recommendation engine
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -310,7 +310,7 @@ paths:
         This API is used to bulk upload the item and its properties to recommendation engine
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -540,7 +540,7 @@ components:
     versions:
       type: object
       properties: 
-        v1.0.0:
+        v0.1.0:
           type: array
           items:
             oneOf:
