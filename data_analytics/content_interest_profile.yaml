@@ -5,19 +5,34 @@ info:
   description: |+
     This microservice returns all content interest profiler.
   x-additionalinfo : |+
-    **Match Types:**
-    A match type is a match operator. The supported match types are&#58;
+    **Get Interest Profile using _id:**
     * **match_phrase** - Search within a full text field
       > {"match_phrase":{"_id":"interest_profiles/interest_profile_a4bbe6221f51f0d9.json"}}
-      > {"match_phrase":{"content_ngrams":"solutions"}}
-      > {"match_phrase":{"content_categories":"news/local/news"}}
-      > {"match_phrase":{"content_groupcategories":"technology"}}
-      > {"match_phrase":{"external_id":"0"}}
     * **match** - Search within a full text field for a single word
       > {"match":{"_id":"interest_profiles/interest_profile_a4bbe6221f51f0d9.json"}}
+    
+    **Get Interest Profile using content_ngrams**
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"content_ngrams":"solutions"}}
+    * **match** - Search within a full text field for a single word
       > {"match":{"content_ngrams":"solutions"}}
-      > {"match":{"content_categories":"news/local/news"}}
+      
+    **Get Interest Profile using content_categories**
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"content_categories":"news/local/news"}}
+    * **match** - Search within a full text field for a single word
+      > {"match_phrase":{"content_categories":"news/local/news"}}
+      
+    **Get Interest Profile using content_groupcategories**
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"content_groupcategories":"technology"}}
+    * **match** - Search within a full text field for a single word
       > {"match":{"content_groupcategories":"technology"}}
+      
+    **Get Interest Profile using external_id**
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"external_id":"0"}}
+    * **match** - Search within a full text field for a single word
       > {"match":{"external_id":"0"}}
   version: '0.1.0'
   x-apitype: small file
