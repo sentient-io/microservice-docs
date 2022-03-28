@@ -26,7 +26,7 @@ info:
   x-apidetailsdesc: |+
     Recovers Normalized text from input text.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v2.0.0"
   description: "Published Date - Mar 22, 2022"
