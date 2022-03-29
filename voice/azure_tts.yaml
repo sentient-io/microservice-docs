@@ -547,7 +547,7 @@ components:
           type: string
           example: en-US-JennyNeural
           description: |+
-            If text language given it will detect any one of voice name based on input language. If text language not given voice name is mandatory based on input language. Refer, Additional Information table Section.
+            If text language given it will detect any one of voice name based on input language. If text language not given voice name is mandatory based on input text. Refer, Additional Information table Section.
         
   securitySchemes:
     APIAuthorizer:
