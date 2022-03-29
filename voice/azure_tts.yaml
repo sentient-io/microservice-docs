@@ -541,13 +541,13 @@ components:
           type: string
           example: en-US
           description: |+
-            Specify the text language of the input text from supported languages, if required. If not specified it will automatically detect the input language.
+            Text language is non mandatory. Automatically detect based on input text. Refer, Additional Information Section.
         voice_name:
           x-name: voice_name
           type: string
           example: en-US-JennyNeural
           description: |+
-            Other than English, it is mandatory to specify voice name. Specify the voice name from the supported languages, if required. If not specified it will automatically take any one of the gender voice name.
+            If text language given it will detect any one of voice name based on input language. If text language not given voice name is mandatory based on input language. Refer, Additional Information table Section.
         
   securitySchemes:
     APIAuthorizer:
