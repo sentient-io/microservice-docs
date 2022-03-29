@@ -7,7 +7,7 @@ info:
 
         The input text should not exceed **400 characters**.
   x-additionalinfo: |+
-    Other than english, it is mandatory to mention the voice name.
+    Other than English, it is mandatory to mention the voice name.
     Supported languages are:
     |                 **Name**                    |     **Locale**     |    **Gender**    |     **Voice name**      |
     |:-------------------------------------------:|:------------------:|:----------------:|:-----------------------:|
