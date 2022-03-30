@@ -10,15 +10,29 @@ info:
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"properties.QUALITY":"FULLY VISIBLE"}}    
+      > {"match_phrase":{"properties.quality":"FULLY VISIBLE"}}    
     * **match** - Search within a full text field for a single word
-      > {"match":{"properties.QUALITY":"FULLY VISIBLE"}}
+      > {"match":{"properties.quality":"FULLY VISIBLE"}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"field":"road_name"}}
+      > {"exists":{"field":"properties.featid"}}
+    * **geo_distance** - Returns the geo search based on the distance and location lat/long
+      > {"geo_distance": {"distance": "11km","geometry": "1.349439786854645,103.75736216302658"}}
+    * **geo_shape** - Returns the geo search based on the type and coordinates
+      > {
+        "geo_shape": {
+          "geometry": {
+            "shape": {
+              "type": "polygon",
+              "coordinates":[ [[ 103.757362163026585, 1.349439786854645 ], [ 103.757401139617556, 1.349479539383153 ], [ 103.757489093469715, 1.349395625337523 ], [ 103.757362163026585, 1.349439786854645 ] ]]
+            },
+            "relation": "intersects"
+          }
+        }
+      }   
     * **bool** - Returns results that must or must_not match with word
-      > {"bool":{"must_not":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}]}}
-      > {"bool":{"must":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}]}}
-      > {"bool":{"should":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}}]}}
+      > {"bool":{"must_not":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
+      > {"bool":{"must":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
+      > {"bool":{"should":[{"match":{"properties.quality":"FULLY VISIBLE"}}}]}}
       
   version: '2.0.0'
   x-apitype: small file
