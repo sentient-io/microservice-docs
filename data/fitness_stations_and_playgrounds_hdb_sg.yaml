@@ -7,18 +7,42 @@ info:
     A successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
     The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
   x-additionalinfo : |+
-    **Match Types:**
+    **Match types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"properties.QUALITY":"FULLY VISIBLE"}}    
+      > {"match_phrase":{"properties.quality":"FULLY VISIBLE"}}    
     * **match** - Search within a full text field for a single word
-      > {"match":{"properties.QUALITY":"FULLY VISIBLE"}}
+      > {"match":{"properties.quality":"FULLY VISIBLE"}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"field":"road_name"}}
+      > {"exists":{"field":"properties.featid"}}
+    * **geo_distance** - Returns the geo search based on the distance and location lat/long
+      > {"geo_distance": {"distance": "11km","geometry": "1.349439786854645,103.75736216302658"}}
+    * **geo_shape** - Returns the geo search based on the type and coordinates.
+        relation should be anyone based on requirement.
+          > INTERSECTS - (default) Return all documents whose geo_shape field intersects the query geometry.
+          > DISJOINT - Return all documents whose geo_shape field has nothing in common with the query geometry.
+          > WITHIN - Return all documents whose geo_shape field is within the query geometry.        
+      > {
+        "geo_shape": {
+          "geometry": {
+            "shape": {
+              "type": "polygon",
+              "coordinates":[ [ [103.69907590788098,1.341790133926203],[ 103.6990219038758,
+                                    1.341868809532727],[103.69919264733477,1.341893585818229],
+                                    [103.69919936085681,1.341886273517502],[103.69907590788098,
+                                    1.341790133926203
+                                ]
+                            ]
+                        ]
+            },
+            "relation": "intersects"
+          }
+        }
+      }   
     * **bool** - Returns results that must or must_not match with word
-      > {"bool":{"must_not":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}]}}
-      > {"bool":{"must":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}]}}
-      > {"bool":{"should":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}}]}}
+      > {"bool":{"must_not":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
+      > {"bool":{"must":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
+      > {"bool":{"should":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       
   version: '2.0.0'
   x-apitype: small file
@@ -38,7 +62,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Mar 22, 2022"
+  description: "Published Date - Mar 30, 2022"
 paths:
    /microservices/data/fitnessstationplaygrnd/v2/getdata:
     post:
@@ -66,12 +90,12 @@ paths:
                         type: Point
                       lastupdated: '2022-03-22T14:25:40.805Z'
                       properties:
-                        FEATID: 12888
-                        FMEL_UPD_D: '2018-06-29'
-                        INC_CRC: B36680519553298F
-                        LVL: GROUND LEVEL
-                        QUALITY: PARTIALLY VISIBLE
-                        TYPE: LAMP POST
+                        featid: 12888
+                        fmel_upd_d: '2018-06-29'
+                        inc_crc: B36680519553298F
+                        lvl: GROUND LEVEL
+                        quality: PARTIALLY VISIBLE
+                        type: LAMP POST
                       property_type: LAMP POST
                       type: Point
                       unique_id: 12888b36680519553298f
@@ -117,7 +141,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/inputlimitexceeded'
         '415':
-          description: Unsupported Media Type
+          description: Unsupported Media type
           content:
             application/json:
               schema:
@@ -169,23 +193,23 @@ components:
               example: {<Json Object>}
               description: Json Object of returned results
               properties:
-                FEATID:
+                featid:
                   type: integer
                   example: 312
-                  description: FEATID
-                LVL:
+                  description: featid
+                lvl:
                   type: string
                   example: "GROUND LEVEL"
-                  description: LVL
-                QUALITY:
+                  description: lvl
+                quality:
                   type: string
                   example: "FULLY VISIBLE"
-                  description: Quality
-                TYPE:
+                  description: quality
+                type:
                   type: string
                   example: "FITTNESS STATION / PLAYGROUND"
                   description: type
-                INC_CRC:
+                inc_crc:
                   type: string
                   example: "A96A55E334CF84C1"
                   description: inc_crc
@@ -296,7 +320,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 22, 2022
+              example: Published Date - Mar 30, 2022
               x-details: Data structure changed
               description: Latest Version
         v1.0.0:
@@ -333,7 +357,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"match_phrase":{"properties.QUALITY":"FULLY VISIBLE"}}]
+          example: [{"match_phrase":{"properties.quality":"FULLY VISIBLE"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
