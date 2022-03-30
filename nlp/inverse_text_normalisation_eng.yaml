@@ -6,7 +6,7 @@ info:
     
     It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case. 
     
-    The input text should be a maximum of 512 sub words.
+    The input text should be a maximum of 400 words.
   version: '2.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
