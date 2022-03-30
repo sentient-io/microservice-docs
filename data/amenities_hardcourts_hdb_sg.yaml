@@ -88,12 +88,12 @@ paths:
                         type: Polygon
                       lastupdated: '2022-03-22T14:25:29.452Z'
                       properties:
-                        FEATID: 129
-                        FMEL_UPD_D: '2018-06-29'
-                        INC_CRC: C70C5D2A82FCBDC2
-                        LVL: GROUND LEVEL
-                        QUALITY: FULLY VISIBLE
-                        TYPE: HARDCOURT
+                        featid: 129
+                        fmel_upd_d: '2018-06-29'
+                        inc_crc: C70C5D2A82FCBDC2
+                        lvl: GROUND LEVEL
+                        quality: FULLY VISIBLE
+                        type: HARDCOURT
                       property_type: HARDCOURT
                       type: Polygon
                       unique_id: 129c70c5d2a82fcbdc2
@@ -192,27 +192,27 @@ components:
               example: {<Json Object>}
               description: Json Object of returned results
               properties:
-                FEATID:
+                featid:
                   type: integer
                   example: 128
                   description: FEATID
-                LVL:
+                lvl:
                   type: string
                   example: "GROUND LEVEL"
                   description: LVL
-                QUALITY:
+                quality:
                   type: string
                   example: "FULLY VISIBLE"
                   description: Quality
-                TYPE:
+                type:
                   type: string
                   example: "HARDCOURT"
                   description: type
-                INC_CRC:
+                inc_crc:
                   type: string
                   example: "6CBA10726FCF8D23"
                   description: inc_crc
-                FMEL_UPD_D:
+                fmel_upd_d:
                   type: string
                   example: "2018-06-29"
                   description: fmel_upd_d
