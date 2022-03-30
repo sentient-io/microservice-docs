@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
-  title: Get IP
-  x-subscribelink: get_ip
+  title: IP Location
+  x-subscribelink: ip_location
   description: |+
-        This Utility microservice locates and identifies website visitors by IP (Internet Protocol) address. Know where your customers access your website from and customize user experiences based on IP address.
+        This API allows you to see the geographical location of any IP address. Just input the IP address and you will be shown the city, continent_code, continent_name, country_code, country_name, geoname_id, ip, is_eu, lat, localtime, localtime_epoch, lon, region, type, tz_id .
        
   x-additionalinfo : |+
     Suggested Use Cases:
@@ -28,7 +28,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Apr 07, 2021"
 paths:
-  /microservices/utility/getip/v0/getresults:
+  /microservices/utility/iplocator/v0/getresults:
     get:
       tags:
         - v0.1.0
