@@ -7,6 +7,10 @@ info:
     Upon subscription, a javascript is send to the user to place it within the web page. This will capture the web page traffic and auto profile the content as well the user. If required user can also pass in user ID in order to identify the user using the external_id field.
     It would address English language texts only.
   x-additionalinfo : |+
+  
+    - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/data_analytics_docs/recommendation_engine.yaml
+    
+    
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field
