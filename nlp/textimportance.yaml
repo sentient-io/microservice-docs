@@ -1,0 +1,261 @@
+
+openapi: 3.0.1
+info:
+  title: text_importance_model
+  description: |+
+    This NLP microservice given a set of sentences in a text document,  rank each sentence by their importance/relevance after pre-processing.
+  version: v0.1.0
+  x-additionalinfo: |+
+   Suggested usecases: It can be used in text analytics to understanding importance and get a textual importance of any provided document.
+servers:
+  - url: 'https://https://dev-apis.sentient.io' 
+tags:
+- name: "v0.1.0"
+  description: "Published Date - March 30, 2022"
+paths:
+  /microservices/nlp/textimportance/v0/getpredictions:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                results: 
+                  textoutput:
+                  - a right - arm leg spinner , he is widely considered as one of the greatest bowlers
+                    in cricket history , and in 2000 he was selected by a panel of cricket experts as
+                    one of five wisden cricketers of the century , the only specialist bowler and the
+                    only one still playing at the time .
+                  - warne 's 708 test wickets was the record for the most wickets taken by any bowler
+                    in test cricket until 2007 .
+                  - a useful lower - order batsman , warne scored more than 3,000 test runs , with a
+                    highest score of 99 , and remains the highest test runscorer without a century.[5
+                    ] as well as playing internationally , warne played domestic cricket for his home
+                    state of victoria and english domestic cricket for hampshire .
+                  - in 2007 , warne was named in australia 's greatest ever odi team .
+                  - in the 150th anniversary of the wisden cricketers ' almanack , warne was named in
+                    an all - time test world xi.[6 ] in 2012 , he was also inducted into the cricket
+                    hall of fame by cricket australia.[7 ] in 2013 , warne was inducted into the icc
+                    cricket hall of fame.[8 ] in february 2018 , the rajasthan royals appointed warne
+                    as their team mentor for the ipl 2018.[9 ] his career was plagued by scandals off
+                    the field , including a ban from cricket for testing positive for a prohibited substance
+                    , charges of bringing the game into disrepute with the john the bookmaker controversy
+                    and sexual indiscretions .
+
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'       
+        '500':
+          description: Internal Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties: 
+            textoutput:
+              description: Returns a list of sentences ranked based on the relevance in the document. 
+              example: a right - arm leg spinner , he is widely considered as one of the greatest
+                bowlers in cricket history , and in 2000 he was selected by a panel of cricket
+                experts as one of five wisden cricketers of the century , the only specialist
+                bowler and the only one still playing at the time .
+              items:
+                description: Returns a list of sentences ranked based on relevance in the document. 
+                example: a right - arm leg spinner , he is widely considered as one of the greatest
+                  bowlers in cricket history , and in 2000 he was selected by a panel of cricket
+                  experts as one of five wisden cricketers of the century , the only specialist
+                  bowler and the only one still playing at the time .
+                type: string
+              type: array
+
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+        
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - March 30, 2022
+                description: TO FILL MANUALLY     
+    input:
+      type: object
+      required:
+      
+        - text
+      
+      properties:
+        text:
+          x-name: text
+          type: string
+          default: True
+          example: Shane Keith Warne (13 September 1969 – 4 March 2022) was an Australian cricketer. A right-arm leg spinner, he is widely considered as one of the greatest bowlers in cricket history, and in 2000 he was selected by a panel of cricket experts as one of five Wisden Cricketers of the Century, the only specialist bowler and the only one still playing at the time. Warne played his first Test match in 1992 and took more than 1,000 wickets in Tests and One Day Internationals (ODIs). Warne's 708 Test wickets was the record for the most wickets taken by any bowler in Test cricket until 2007. He was named one of the Wisden Cricketers of the Year in the 1994 Wisden Cricketers' Almanack, and was the Wisden Leading Cricketer in the World in 1997 and 2004. A useful lower-order batsman, Warne scored more than 3,000 Test runs, with a highest score of 99, and remains the highest Test runscorer without a century.[5] As well as playing internationally, Warne played domestic cricket for his home state of Victoria and English domestic cricket for Hampshire. He was captain of Hampshire for three seasons from 2005 to 2007. Warne retired from international cricket in January 2007 at the end of Australia's 2006–07 Ashes series victory over England. In 2007, Warne was named in Australia's greatest ever ODI team. He played in the first four seasons (2008–2011) of the Indian Premier League for the Rajasthan Royals, where he played the roles of both captain and coach, winning the competition in 2008. In the 150th anniversary of the Wisden Cricketers' Almanack, Warne was named in an all-time Test World XI.[6] In 2012, he was also inducted into the Cricket Hall of Fame by Cricket Australia.[7] In 2013, Warne was inducted into the ICC Cricket Hall of Fame.[8] In February 2018, the Rajasthan Royals appointed Warne as their team mentor for the IPL 2018.[9] His career was plagued by scandals off the field, including a ban from cricket for testing positive for a prohibited substance, charges of bringing the game into disrepute with the John the bookmaker controversy and sexual indiscretions. Warne revolutionised cricket thinking with his mastery of leg spin, which had come to be regarded as a dying art.[10][11][12] After retirement, he regularly worked as a cricket commentator, predominantly on Australia's Nine Network. He worked for charitable organisations and also endorsed commercial products. In recognition of his skill, a statue of him bowling was placed outside the Melbourne Cricket Ground.
+          description: |+
+            Joined sentences passed from any file based object
+        
+        
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
