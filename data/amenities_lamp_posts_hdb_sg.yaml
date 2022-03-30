@@ -32,7 +32,7 @@ info:
         }
       }       
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"field":"road_name"}}
+      > {"exists":{"field":"properties.featid"}}
     * **bool** - Returns results that must or must_not match with word
       > {"bool":{"must_not":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       > {"bool":{"must":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
