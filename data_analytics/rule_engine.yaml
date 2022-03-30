@@ -4,6 +4,9 @@ info:
   description: |+
     It is an expert-system program, which runs the rules on the data and if any condition matches then it executes the corresponding actions. The inference engine is the component of the intelligent system in artificial intelligence, which applies logical rules to the knowledge base to infer new information from known facts. Inference-Engine’s program works in three phases to execute the rule on given data, Match, Resolve and Execute. 
   version: '0.1.0'
+  x-additionalinfo: |+
+
+    - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/data_analytics_docs/rule_engine.yaml
   x-subscribelink: rule_engine
   x-apitype: Subscription
   x-apitypedescription: |+
