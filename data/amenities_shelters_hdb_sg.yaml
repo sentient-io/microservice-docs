@@ -7,18 +7,36 @@ info:
      A successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
      The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
   x-additionalinfo : |+
-    **Match Types:**
+    **Match types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"properties.QUALITY":"FULLY VISIBLE"}}    
+      > {"match_phrase":{"properties.quality":"FULLY VISIBLE"}}    
     * **match** - Search within a full text field for a single word
-      > {"match":{"properties.QUALITY":"FULLY VISIBLE"}}
+      > {"match":{"properties.quality":"FULLY VISIBLE"}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"field":"road_name"}}
+      > {"exists":{"field":"properties.featid"}}
+    * **geo_distance** - Returns the geo search based on the distance and location lat/long
+      > {"geo_distance": {"distance": "11km","geometry": "1.349439786854645,103.75736216302658"}}
+    * **geo_shape** - Returns the geo search based on the type and coordinates.
+        relation should be anyone based on requirement.
+          > INTERSECTS - (default) Return all documents whose geo_shape field intersects the query geometry.
+          > DISJOINT - Return all documents whose geo_shape field has nothing in common with the query geometry.
+          > WITHIN - Return all documents whose geo_shape field is within the query geometry.        
+      > {
+        "geo_shape": {
+          "geometry": {
+            "shape": {
+              "type": "polygon",
+              "coordinates":[ [[ 103.757362163026585, 1.349439786854645 ], [ 103.757401139617556, 1.349479539383153 ], [ 103.757489093469715, 1.349395625337523 ], [ 103.757362163026585, 1.349439786854645 ] ]]
+            },
+            "relation": "intersects"
+          }
+        }
+      }   
     * **bool** - Returns results that must or must_not match with word
-      > {"bool":{"must_not":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}]}}
-      > {"bool":{"must":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}]}}
-      > {"bool":{"should":[{"match":{"properties.QUALITY":"FULLY VISIBLE"}}}]}}
+      > {"bool":{"must_not":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
+      > {"bool":{"must":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
+      > {"bool":{"should":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       
   version: '2.0.0'
   x-apitype: small file
@@ -38,7 +56,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Mar 22, 2022"
+  description: "Published Date - Mar 30, 2022"
 paths:
    /microservices/data/shelter/v2/getdata:
     post:
@@ -122,12 +140,12 @@ paths:
                         type: Polygon
                       lastupdated: '2022-03-22T14:26:12.134Z'
                       properties:
-                        FEATID: 32
-                        FMEL_UPD_D: '2018-06-29'
-                        INC_CRC: 47C214E0ED444693
-                        LVL: GROUND LEVEL
-                        QUALITY: PARTIALLY VISIBLE
-                        TYPE: SHELTER
+                        featid: 32
+                        fmel_upd_d: '2018-06-29'
+                        inc_crc: 47C214E0ED444693
+                        lvl: GROUND LEVEL
+                        quality: PARTIALLY VISIBLE
+                        type: SHELTER
                       property_type: SHELTER
                       type: Polygon
                       unique_id: 3247c214e0ed444693
@@ -173,7 +191,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/inputlimitexceeded'
         '415':
-          description: Unsupported Media Type
+          description: Unsupported Media type
           content:
             application/json:
               schema:
@@ -225,27 +243,27 @@ components:
               example: {<Json Object>}
               description: Json Object of returned results
               properties:
-                FEATID:
+                featid:
                   type: integer
                   example: 32
-                  description: FEATID
-                LVL:
+                  description: featid
+                lvl:
                   type: string
                   example: "GROUND LEVEL"
-                  description: LVL
-                QUALITY:
+                  description: GROUND LEVEL
+                quality:
                   type: string
                   example: "PARTIALLY VISIBLE"
-                  description: Quality
-                TYPE:
+                  description: quality
+                type:
                   type: string
                   example: "SHELTER"
                   description: type
-                INC_CRC:
+                inc_crc:
                   type: string
                   example: "47C214E0ED444693"
                   description: inc_crc
-                FMEL_UPD_D:
+                fmel_upd_d:
                   type: string
                   example: "2018-06-29"
                   description: fmel_upd_d
@@ -356,7 +374,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 22, 2022
+              example: Published Date - Mar 30, 2022
               x-details: Data structure changed
               description: Latest Version
         v1.0.0:
@@ -393,7 +411,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"match_phrase":{"properties.QUALITY":"FULLY VISIBLE"}}]
+          example: [{"match_phrase":{"properties.quality":"FULLY VISIBLE"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
