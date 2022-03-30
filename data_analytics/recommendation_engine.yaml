@@ -7,7 +7,7 @@ info:
   x-additionalinfo: |+
     - This microservice consists of set of REST APIs to inject data, train data, get recommendations etc. User can also use bulk upload APIs to insert historial data using CSV for both events and items.Dedicated engines are created per primary indicator, after the engine creation the apis can be used to inject the data.
     
-    - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/data_analytics_docs/recommendation_engine.yaml
+    - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/data_analytics_docs/rule_engine.yaml
   x-subscribelink: recommendation_engine
   x-apitype: Subscription
   x-apitypedescription: |+
