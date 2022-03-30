@@ -319,7 +319,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 22, 2022
+              example: Published Date - Mar 30, 2022
               x-details: Data structure changed
               description: Latest Version
         v1.0.0:
@@ -356,7 +356,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"match_phrase":{"properties.QUALITY":"FULLY VISIBLE"}}]
+          example: [{"match_phrase":{"properties.quality":"FULLY VISIBLE"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
