@@ -36,7 +36,7 @@ info:
     * **bool** - Returns results that must or must_not match with word
       > {"bool":{"must_not":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       > {"bool":{"must":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
-      > {"bool":{"should":[{"match":{"properties.quality":"FULLY VISIBLE"}}}]}}
+      > {"bool":{"should":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       
   version: '2.0.0'
   x-apitype: small file
