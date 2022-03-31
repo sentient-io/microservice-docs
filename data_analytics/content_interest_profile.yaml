@@ -601,7 +601,7 @@ paths:
                           - stream
                           - text
                           - transcript
-                          - transcript text
+                          - transcript  
                           - utterance
                           - continuous piece
                           - piece
@@ -846,6 +846,136 @@ paths:
               schema:
                 $ref: '#/components/schemas/input'
         required: true
+  /microservice/dataanalytics/cip/v0/getvisitsdetails:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successvisitdetails'
+              example:
+                message: Successfully Processed
+                status: Success
+                results: '{"nb_uniq_visitors":72,"nb_users":0,"nb_visits":77,"nb_actions":159,"nb_visits_converted":0,"bounce_count":44,"sum_visit_length":6618,"max_actions":12,"bounce_rate":"57%","nb_actions_per_visit":2.1,"avg_time_on_site":86}'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/visitdetailsinput'
+        required: true
+  /microservice/dataanalytics/cip/v0/getpagedetails:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successpagedetails'
+              example:
+                message: Successfully Processed
+                status: Success
+                results: '[{"label":"/ai-data","nb_visits":7,"nb_uniq_visitors":7,"nb_hits":11,"sum_time_spent":619,"nb_hits_with_time_server":"11","min_time_server":"0.0390","max_time_server":"2.1600","nb_hits_with_time_transfer":"11","min_time_transfer":"0.0000","max_time_transfer":"0.0120","nb_hits_with_time_dom_processing":"11","min_time_dom_processing":"0.1200","max_time_dom_processing":"1.3060","exit_nb_uniq_visitors":"3","exit_nb_visits":"3","avg_time_server":0.939,"avg_time_transfer":0.005,"avg_time_dom_processing":0.499,"avg_page_load_time":1.443,"avg_time_on_page":56,"bounce_rate":"0%","exit_rate":"43%","url":"https://www.sentient.io/ai-data","segment":"pageUrl==https%253A%252F%252Fwww.sentient.io%252Fai-data"}]'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/pagedetailsinput'
+        required: true
 components:
   schemas:
     successcontentprofile:
@@ -973,6 +1103,180 @@ components:
           type: string
           example: Success
           description: The status of the API call Success/Failure
+    successvisitdetails:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+        results:
+          type: object
+          example: {<JSON result Object}
+          description: The list of Json result object
+          properties:
+            nb_uniq_visitors:
+              type: string
+              description: Number of unique visitors
+              example: 7
+            nb_users: 
+              type: string
+              description: Number of unique active users
+              example: 0
+            nb_visits: 
+              type: string
+              description: Number of Visits
+              example: 7
+            nb_actions: 
+              type: number
+              description: Number of actions
+              example: 35
+            nb_visits_converted: 
+              type: number
+              description: Number of visits that converted a goal
+              example: 0
+            bounce_count: 
+              type: number
+              description: Number of visits that bounced
+              example: 0
+            sum_visit_length: 
+              type: number
+              description: Total time spent, in seconds
+              example: 2308
+            max_actions: 
+              type: number
+              description: Maximum number of actions in a visit
+              example: 12
+            bounce_rate: 
+              type: number
+              description: Ratio of visits leaving the website after landing on this page
+              example: 0%
+            nb_actions_per_visit: 
+              type: number
+              description: Number of actions per visits
+              example: 5
+            avg_time_on_site: 
+              type: number
+              description: Average time spent on website
+              example: 330
+    successpagedetails:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+        results:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of Json result object
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: This is used to search only for the row matching
+                example: ai-data
+              nb_visits: 
+                type: string
+                description: Number of Visits
+                example: 7
+              nb_uniq_visitors: 
+                type: string
+                description: Number of unique visitors
+                example: 7
+              nb_hits: 
+                type: number
+                description: Number of views on this page
+                example: 11
+              sum_time_spent: 
+                type: number
+                description: Total time spent on this page, in seconds
+                example: 619
+              nb_hits_with_time_server: 
+                type: number
+                description: Number of views on this page with time server
+                example: 11
+              min_time_server: 
+                type: number
+                description: Minimum time in the server
+                example: 0.0390
+              max_time_server: 
+                type: number
+                description: Maxmimum time in the server
+                example: 2.1600
+              nb_hits_with_time_transfer: 
+                type: number
+                description: Number of views on this page with time transfer
+                example: 11
+              min_time_transfer: 
+                type: number
+                description: Minimum time transfer
+                example: 0.0000
+              max_time_transfer: 
+                type: number
+                description: Maximum time transfer
+                example: 0.0120
+              nb_hits_with_time_dom_processing: 
+                type: number
+                description: Number of views on this page with time and dom processing
+                example: 3
+              min_time_dom_processing: 
+                type: number
+                description: Minimum time and dom processing
+                example: 0.1200
+              max_time_dom_processing: 
+                type: number
+                description: Maximum time and dom processing
+                example: 1.3060
+              exit_nb_uniq_visitors: 
+                type: number
+                description: Number of unique visitors that ended their visit on this page
+                example: 3
+              exit_nb_visits: 
+                type: number
+                description: Number of visits that finished on this page
+                example: 3
+              avg_time_server: 
+                type: number
+                description: Average time server
+                example: 0.939
+              avg_time_transfer: 
+                type: number
+                description: Average time transfer
+                example: 0.005
+              avg_time_dom_processing: 
+                type: number
+                description: Average time with dom processing
+                example: 0.499
+              avg_page_load_time: 
+                type: number
+                description: Average page load time
+                example: 1.443
+              bounce_rate: 
+                type: number
+                description: Ratio of visits leaving the website after landing on this page
+                example: 0%
+              exit_rate: 
+                type: number
+                description: Ratio of visits that do not view any other page after this page
+                example: 43%
+              url: 
+                type: number
+                description: Page url
+                example: https:\/\/www.sentient.io\/ai-data\
+              segment: 
+                type: number
+                description: records with filtered by
+                example: pageUrl==https%253A%252F%252Fwww.sentient.io%252Fai-data\
     successinterestprofile:
       type: object
       properties:
@@ -1242,6 +1546,91 @@ components:
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
             * match_phrase
+    pagedetailsinput:
+      type: object
+      required:
+        - idSite
+        - period
+        - date
+      properties:
+        idSite:
+          type: number
+          default: true
+          example: 1
+          description: |+
+            The ID of the website we're tracking a visit/action for.
+            - can also specify a list of idSites comma separated, eg. idSite=1,4,5,6
+            - if you want to get data for all websites, set idSite=all
+        period:
+          type: string
+          default: true
+          example: day
+          description: |+
+            The period you request the statistics for.
+            - It can be day, week, month, year or range
+            - If you want to get report for the specific period the here is the example 
+              --  period=range and date=2022-01-01,2022-02-15
+        date:
+          type: string
+          default: true
+          example: '2022-03-29'
+          description: |+
+            The date you request the statistic for.
+            - standard format = YYYY-MM-DD
+            - It can be also using magic keywords = today, yesterday, lastWeek, lastMonth or lastYear
+            - range of dates
+              -- lastX for the last X periods including today
+              -- previousX returns the last X periods before today
+              -- YYYY-MM-DD,YYYY-MM-DD for every period
+        filter_limit:
+          type: string
+          default: false
+          example: 3
+          description: |+
+            Optional. By default, only the top 100 rows are returned.
+            Set to -1 to return all rows.
+        segment:
+          type: string
+          default: false
+          example: pageUrl==https://www.sentient.io/ai-data
+          description: |+
+            It defines the Custom Segment you wish to filter your reports to.
+    visitdetailsinput:
+      type: object
+      required:
+        - idSite
+        - period
+        - date
+      properties:
+        idSite:
+          type: number
+          default: true
+          example: 1
+          description: |+
+            The ID of the website we're tracking a visit/action for.
+            - can also specify a list of idSites comma separated, eg. idSite=1,4,5,6
+            - if you want to get data for all websites, set idSite=all
+        period:
+          type: string
+          default: true
+          example: day
+          description: |+
+            The period you request the statistics for.
+            - It can be day, week, month, year or range
+            - If you want to get report for the specific period the here is the example 
+              --  period=range and date=2022-01-01,2022-02-15
+        date:
+          type: string
+          default: true
+          example: '2022-03-29'
+          description: |+
+            The date you request the statistic for.
+            - standard format = YYYY-MM-DD
+            - It can be also using magic keywords = today, yesterday, lastWeek, lastMonth or lastYear
+            - range of dates
+              -- lastX for the last X periods including today
+              -- previousX returns the last X periods before today
+              -- YYYY-MM-DD,YYYY-MM-DD for every period
   securitySchemes:
     APIAuthorizer:
       type: apiKey
