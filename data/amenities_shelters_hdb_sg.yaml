@@ -3,7 +3,7 @@ info:
   title: HDB Shelters Locations (SG)
   x-subscribelink: amenities_shelters_hdb_sg
   description: |+
-    Returns information on the map data including: coordinates, type and the details of the location.This Data microservice returns the indicative outline of shelters for all Housing Development Board (HDB) Towns and Estates and only on HDB Land. The features were identified visually from a high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from SLA (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were extrapolated where possible and may not fully represent the actual shape of the actual object. Precinct Pavilions are not included in this microservice.
+    Returns information on the map data including: coordinates, type and the details of the location.This Data microservice returns the indicative outline of shelters for all Housing Development Board (HDB) Towns and Estates and only on HDB Land. The features were identified visually from a high definition ortho-rectified aerial imagery and manually digitised.
   x-additionalinfo : |+
     **Match types:**
     A match type is a match operator. The supported match types are&#58;
