@@ -3,7 +3,7 @@ info:
   title: HDB Fitness Stations and Playgrounds (SG)
   x-subscribelink: fitness_stations_and_playgrounds_hdb_sg
   description: |+
-    Returns information on the map data including: coordinates, type and the details of the location.This Data microservice captures the indicative outline of fitness stations/playgrounds for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from a high definition ortho-rectified aerial imagery (2014) and manually digitized. Objects largely obstructed by trees, structures and/or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were estimated where possible and may not accurately represent the actual shape of the actual object.
+    Returns information on the map data including: coordinates, type and the details of the location.This Data microservice captures the indicative outline of fitness stations/playgrounds for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land.
   x-additionalinfo : |+
     **Match types:**
     A match type is a match operator. The supported match types are&#58;
