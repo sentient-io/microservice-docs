@@ -343,7 +343,7 @@ components:
         limit:
           type: number
           default: false
-          example: 10000
+          example: 10
           description: The max records to return for the request. Default - 0, Max - 10000
         offset:
           type: number
