@@ -976,6 +976,71 @@ paths:
               schema:
                 $ref: '#/components/schemas/pagedetailsinput'
         required: true
+  /microservice/dataanalytics/cip/v0/getcustomdimension:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successcustomdimension'
+              example:
+                message: Successfully Processed
+                status: Success
+                results: '[{"label":"user2","nb_uniq_visitors":9,"nb_visits":10,"nb_actions":61,"max_actions":14,"sum_visit_length":5092,"bounce_count":1,"nb_visits_converted":0,"avg_time_on_site":509,"bounce_rate":"10%","nb_actions_per_visit":6.1,"segment":"dimension1==user2"}]'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/pagedetailsinput'
+        required: true
 components:
   schemas:
     successcontentprofile:
@@ -1120,15 +1185,15 @@ components:
           description: The list of Json result object
           properties:
             nb_uniq_visitors:
-              type: string
+              type: number
               description: Number of unique visitors
               example: 7
             nb_users: 
-              type: string
+              type: number
               description: Number of unique active users
               example: 0
             nb_visits: 
-              type: string
+              type: number
               description: Number of Visits
               example: 7
             nb_actions: 
@@ -1163,6 +1228,76 @@ components:
               type: number
               description: Average time spent on website
               example: 330
+    successcustomdimension:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+        results:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of Json result object
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: This is used to search only for the row matching
+                example: ai-data
+              nb_uniq_visitors: 
+                type: number
+                description: Number of unique visitors
+                example: 9
+              nb_visits: 
+                type: number
+                description: Number of Visits
+                example: 10
+              nb_actions: 
+                type: number
+                description: Number of actions
+                example: 61
+              max_actions: 
+                type: number
+                description: Maximum number of actions in a visit
+                example: 14
+              sum_visit_length: 
+                type: number
+                description: Total time spent, in seconds
+                example: 5092
+              bounce_count: 
+                type: number
+                description: Number of visits that bounced
+                example: 1
+              max_time_server: 
+                type: number
+                description: Maxmimum time in the server
+                example: 2.1600
+              nb_visits_converted: 
+                type: number
+                description: Number of visits that converted a goal
+                example: 0
+              avg_time_on_site: 
+                type: number
+                description: Average time spent
+                example: 509
+              bounce_rate: 
+                type: number
+                description: Ratio of visits leaving the website after landing on this page
+                example: 10%
+              nb_actions_per_visit: 
+                type: number
+                description: Number of actions per visit
+                example: 6.1
+              segment: 
+                type: string
+                description: defines the Custom Segment you wish to filter your reports.
+                example: dimension1==user2
     successpagedetails:
       type: object
       properties:
@@ -1186,11 +1321,11 @@ components:
                 description: This is used to search only for the row matching
                 example: ai-data
               nb_visits: 
-                type: string
+                type: number
                 description: Number of Visits
                 example: 7
               nb_uniq_visitors: 
-                type: string
+                type: number
                 description: Number of unique visitors
                 example: 7
               nb_hits: 
@@ -1270,11 +1405,11 @@ components:
                 description: Ratio of visits that do not view any other page after this page
                 example: 43%
               url: 
-                type: number
+                type: string
                 description: Page url
                 example: https:\/\/www.sentient.io\/ai-data\
               segment: 
-                type: number
+                type: string
                 description: records with filtered by
                 example: pageUrl==https%253A%252F%252Fwww.sentient.io%252Fai-data\
     successinterestprofile:
@@ -1553,6 +1688,61 @@ components:
         - period
         - date
       properties:
+        idSite:
+          type: number
+          default: true
+          example: 1
+          description: |+
+            The ID of the website we're tracking a visit/action for.
+            - can also specify a list of idSites comma separated, eg. idSite=1,4,5,6
+            - if you want to get data for all websites, set idSite=all
+        period:
+          type: string
+          default: true
+          example: day
+          description: |+
+            The period you request the statistics for.
+            - It can be day, week, month, year or range
+            - If you want to get report for the specific period the here is the example 
+              --  period=range and date=2022-01-01,2022-02-15
+        date:
+          type: string
+          default: true
+          example: '2022-03-29'
+          description: |+
+            The date you request the statistic for.
+            - standard format = YYYY-MM-DD
+            - It can be also using magic keywords = today, yesterday, lastWeek, lastMonth or lastYear
+            - range of dates
+              -- lastX for the last X periods including today
+              -- previousX returns the last X periods before today
+              -- YYYY-MM-DD,YYYY-MM-DD for every period
+        filter_limit:
+          type: string
+          default: false
+          example: 3
+          description: |+
+            Optional. By default, only the top 100 rows are returned.
+            Set to -1 to return all rows.
+        segment:
+          type: string
+          default: false
+          example: pageUrl==https://www.sentient.io/ai-data
+          description: |+
+            It defines the Custom Segment you wish to filter your reports to.
+    customdimensioninput:
+      type: object
+      required:
+        - idSite
+        - period
+        - date
+      properties:
+        idDimension:
+          type: number
+          default: true
+          example: 1
+          description: |+
+            The ID of the custom dimension we're tracking a visit/action for.
         idSite:
           type: number
           default: true
