@@ -1039,7 +1039,7 @@ paths:
         content:
           application/json:
               schema:
-                $ref: '#/components/schemas/pagedetailsinput'
+                $ref: '#/components/schemas/customdimensioninput'
         required: true
 components:
   schemas:
@@ -1688,14 +1688,14 @@ components:
         - period
         - date
       properties:
-        idSite:
+        id_site:
           type: number
           default: true
           example: 1
           description: |+
             The ID of the website we're tracking a visit/action for.
-            - can also specify a list of idSites comma separated, eg. idSite=1,4,5,6
-            - if you want to get data for all websites, set idSite=all
+            - can also specify a list of idSites comma separated, eg. id_site=1,4,5,6
+            - if you want to get data for all websites, set id_site=all
         period:
           type: string
           default: true
@@ -1717,19 +1717,26 @@ components:
               -- lastX for the last X periods including today
               -- previousX returns the last X periods before today
               -- YYYY-MM-DD,YYYY-MM-DD for every period
-        filter_limit:
+        limit:
           type: string
           default: false
           example: 3
           description: |+
             Optional. By default, only the top 100 rows are returned.
             Set to -1 to return all rows.
-        segment:
+        offset:
           type: string
           default: false
-          example: pageUrl==https://www.sentient.io/ai-data
+          example: 1
           description: |+
-            It defines the Custom Segment you wish to filter your reports to.
+            Optional. By default, only the top 100 rows are returned.
+            Set to -1 to return all rows.
+        page_url:
+          type: string
+          default: false
+          example: https://www.sentient.io/ai-data
+          description: |+
+            Optional. It defines the Custom Segment you wish to filter your reports to.
     customdimensioninput:
       type: object
       required:
@@ -1737,20 +1744,20 @@ components:
         - period
         - date
       properties:
-        idDimension:
+        id_dimension:
           type: number
           default: true
           example: 1
           description: |+
             The ID of the custom dimension we're tracking a visit/action for.
-        idSite:
+        id_site:
           type: number
           default: true
           example: 1
           description: |+
             The ID of the website we're tracking a visit/action for.
-            - can also specify a list of idSites comma separated, eg. idSite=1,4,5,6
-            - if you want to get data for all websites, set idSite=all
+            - can also specify a list of idSites comma separated, eg. id_site=1,4,5,6
+            - if you want to get data for all websites, set id_site=all
         period:
           type: string
           default: true
@@ -1772,19 +1779,6 @@ components:
               -- lastX for the last X periods including today
               -- previousX returns the last X periods before today
               -- YYYY-MM-DD,YYYY-MM-DD for every period
-        filter_limit:
-          type: string
-          default: false
-          example: 3
-          description: |+
-            Optional. By default, only the top 100 rows are returned.
-            Set to -1 to return all rows.
-        segment:
-          type: string
-          default: false
-          example: pageUrl==https://www.sentient.io/ai-data
-          description: |+
-            It defines the Custom Segment you wish to filter your reports to.
     visitdetailsinput:
       type: object
       required:
@@ -1792,14 +1786,14 @@ components:
         - period
         - date
       properties:
-        idSite:
+        id_site:
           type: number
           default: true
           example: 1
           description: |+
             The ID of the website we're tracking a visit/action for.
-            - can also specify a list of idSites comma separated, eg. idSite=1,4,5,6
-            - if you want to get data for all websites, set idSite=all
+            - can also specify a list of idSites comma separated, eg. id_site=1,4,5,6
+            - if you want to get data for all websites, set id_site=all
         period:
           type: string
           default: true
