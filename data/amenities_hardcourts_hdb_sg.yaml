@@ -233,7 +233,7 @@ components:
                 coordinates:
                   type: array
                   items:
-                   example: 103.71618687465097
+                    example: 103.71618687465097
                            1.348193609950229
     unauthorized:
       type: object
