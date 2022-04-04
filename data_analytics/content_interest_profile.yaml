@@ -6,13 +6,16 @@ info:
     This microservice helps profile the content and interest from the web page traffic. Content profiler would profile given text documents and Interest profiler would profile an entity (a human being/Internet session/Cookie/etc.) based on the history of documents it has accessed over time and the profile of those documents.
     Upon subscription, a javascript is send to the user to place it within the web page. This will capture the web page traffic and auto profile the content as well the user. If required user can also pass in user ID in order to identify the user using the external_id field.
     It would address English language texts only.
+    In addition to the CIP microservices, we are also releasing few analytics overview microservice namely, traffic overview, page overview and external id analytics.
   x-additionalinfo : |+
   
     - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/data_analytics_docs/content_interest_profile.yaml
     
+    Filters are applicable only for Content and Interest Profiling APIs.
     
     **Match Types:**
-    A match type is a match operator. The supported match types are&#58;
+    A match type is a match operator nested within a filter that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    
     * **match_phrase** - Search within a full text field
       > {"match_phrase":{"content_categories":"news/business news/construction"}}     
     * **match** - Search within a full text field for a single word
@@ -28,7 +31,7 @@ info:
       > {"bool":{"must":[{"match":{"content_categories":"news"}}]}}
       > {"bool":{"should":[{"match":{"content_categories":"news"}},{"match":{"content_ngrams":"solutions"}}]}}
       
-    **Sample Queries Based on Use Cases**
+    **Sample Queries Based on Use Cases for Content and Interest Profiling APIs.**
     
     1. **Search for the profiles matching categories news/business news/construction.**
       
@@ -976,7 +979,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/pagedetailsinput'
         required: true
-  /microservice/dataanalytics/cip/v0/getcustomdimension:
+  /microservice/dataanalytics/cip/v0/getexternaliddetails:
     post:
       tags:
         - v0.1.0
@@ -1744,12 +1747,6 @@ components:
         - period
         - date
       properties:
-        id_dimension:
-          type: number
-          default: true
-          example: 1
-          description: |+
-            The ID of the custom dimension we're tracking a visit/action for.
         id_site:
           type: number
           default: true
