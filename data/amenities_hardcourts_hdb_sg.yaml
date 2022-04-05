@@ -74,38 +74,38 @@ paths:
                 message: Successfully Processed
                 results:
                   hits:
-                  - _id: d5pNsH8B1VPRFDGbTafY
+                  - _id: 3161fa9077473e138ed
                     _index: hdb_map_index
                     _score: 0
                     _source:
                       geometry:
                         coordinates:
-                            - 103.75898806278323
-                            - 1.35076246656039
-                            - 103.75904274102436
-                            - 1.350768674890894
-                            - 103.75905820988616
-                            - 1.350646753578955
-                            - 103.75900152607664
-                            - 1.350639871436288
-                            - 103.75898806278323
-                            - 1.35076246656039
+                        - - - 103.70325637102218
+                            - 1.340288655171077
+                          - - 103.70324988930291
+                            - 1.340330798101515
+                          - - 103.7033615141859
+                            - 1.340351217328143
+                          - - 103.70336972380933
+                            - 1.34030944346928
+                          - - 103.70325637102218
+                            - 1.340288655171077
                         type: Polygon
-                      lastupdated: '2022-03-22T14:25:29.452Z'
+                      geometry_type: Polygon
+                      lastupdated: '2022-04-05T16:05:00.644Z'
                       properties:
-                        featid: 129
+                        featid: 316
                         fmel_upd_d: '2018-06-29'
-                        inc_crc: C70C5D2A82FCBDC2
+                        inc_crc: 1FA9077473E138ED
                         lvl: GROUND LEVEL
                         quality: FULLY VISIBLE
-                        type: HARDCOURT
-                      property_type: HARDCOURT
-                      type: Polygon
-                      unique_id: 129c70c5d2a82fcbdc2
-                    _type: doc
+                        type: FITNESS STATION / PLAYGROUND
+                    _type: _doc
                   max_score: 0
-                  total: 971
-                scroll_id: DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAInuFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACJ7RZHeWxGN1VqalJqcUxpOUgzMU1BeV9nAAAAAAAAie8WR3lsRjdVampSanFMaTlIMzFNQXlfZwAAAAAAAInwFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACJ8RZHeWxGN1VqalJqcUxpOUgzMU1BeV9n
+                  total:
+                    relation: eq
+                    value: 3118
+                scroll_id: FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoBRZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCAWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCEWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCIWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCMWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCQWdjVWcXJXaVhRaXVaQzBma19Jckthdw==
                 status: Success
 
         '401':
@@ -215,7 +215,7 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "lta_road_works"
+                    example: "hdb_map_index"
                   _type: 
                     type: string
                     description: Content type of the document
