@@ -249,7 +249,7 @@ components:
                             description: Quality of Properties
                           type:
                             type: string
-                            example: "HARDCOURT"
+                            example: "LAMP POST"
                             description: Property Types
                           inc_crc:
                             type: string
