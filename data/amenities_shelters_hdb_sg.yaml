@@ -38,7 +38,9 @@ info:
       > {"bool":{"must_not":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       > {"bool":{"must":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       > {"bool":{"should":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
-      
+
+    **Pagination with scroll_id:** - We face a major issue of handling the hits, i.e., whenever the hits returned are more than 10,000 hits Elasticsearch will only return till 10k hits. For query more than 10K records scroll id need to add in query as like below.
+      > {"limit":10000,"scroll_id": "DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAAwsWZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==","filter":[]}
   version: '2.0.0'
   x-apitype: small file
   x-apitypedescription: |+
@@ -74,86 +76,38 @@ paths:
                 message: Successfully Processed
                 results:
                   hits:
-                  - _id: yJtNsH8B1VPRFDGb9AbO
+                  - _id: 340461a6a0c72740ed
                     _index: hdb_map_index
                     _score: 0
                     _source:
                       geometry:
                         coordinates:
-                            - 103.83896370719248
-                            - 1.379917141038405
-                            - 103.8389617689625
-                            - 1.379914774321904
-                            - 103.83895945063658
-                            - 1.379912782917438
-                            - 103.83895682499933
-                            - 1.379911226512886
-                            - 103.83895397022681
-                            - 1.379910153039367
-                            - 103.83895097348078
-                            - 1.379909594149399
-                            - 103.83894792551727
-                            - 1.379909567930089
-                            - 103.838944919788
-                            - 1.37991007438118
-                            - 103.8389420479475
-                            - 1.379911099032636
-                            - 103.83893939536021
-                            - 1.379912609327147
-                            - 103.83893704379629
-                            - 1.379914560950682
-                            - 103.83893506514151
-                            - 1.379916893310656
-                            - 103.83893351870162
-                            - 1.379919536770902
-                            - 103.83893245210083
-                            - 1.379922409938516
-                            - 103.83893189678908
-                            - 1.379925425994456
-                            - 103.8389318707376
-                            - 1.379928492693536
-                            - 103.8389323739462
-                            - 1.379931517790612
-                            - 103.83893339203745
-                            - 1.379934409040575
-                            - 103.83893489356107
-                            - 1.37993707872015
-                            - 103.83893683179102
-                            - 1.379939444532327
-                            - 103.83893915011696
-                            - 1.379941436841178
-                            - 103.83894177575425
-                            - 1.379942993245732
-                            - 103.8389446305268
-                            - 1.379944066719282
-                            - 103.83894762727286
-                            - 1.379944624704878
-                            - 103.83895067433784
-                            - 1.379944651828569
-                            - 103.83895368006714
-                            - 1.379944144473109
-                            - 103.83895655280627
-                            - 1.379943120725983
-                            - 103.83895920539358
-                            - 1.37994160952709
-                            - 103.83896155695751
-                            - 1.379939657903533
+                            - 103.83591962785529
+                              1.381192407476683
+                            - 103.83599688718462
+                              1.381088400081616
+                            - 103.83589434536609
+                              1.381011246171939
+                            - 103.83581708693336
+                              1.381115253563739
+                            - 103.83591962785529
+                              1.381192407476683
                         type: Polygon
-                      lastupdated: '2022-03-22T14:26:12.134Z'
+                      geometry_type: Polygon
+                      lastupdated: '2022-04-05T16:36:15.538Z'
                       properties:
-                        featid: 32
+                        featid: 34
                         fmel_upd_d: '2018-06-29'
-                        inc_crc: 47C214E0ED444693
+                        inc_crc: 0461A6A0C72740ED
                         lvl: GROUND LEVEL
-                        quality: PARTIALLY VISIBLE
+                        quality: FULLY VISIBLE
                         type: SHELTER
-                      property_type: SHELTER
-                      type: Polygon
-                      unique_id: 3247c214e0ed444693
-                    _type: doc
+                    _type: _doc
                   max_score: 0
-                  total: 1582
-                scroll_id: DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAInzFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACJ8hZHeWxGN1VqalJqcUxpOUgzMU1BeV9nAAAAAAAAifQWR3lsRjdVampSanFMaTlIMzFNQXlfZwAAAAAAAIn1Fkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACJ9hZHeWxGN1VqalJqcUxpOUgzMU1BeV9n
+                  total:
+                    relation: eq
+                    value: 1582
+                scroll_id: FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoBRZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABGsWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABG4WdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABG8WdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABGwWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABG0WdjVWcXJXaVhRaXVaQzBma19Jckthdw==
                 status: Success
         '401':
           description: Unauthorized
@@ -229,63 +183,102 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure             
+          description: The status of the API call Success/Failure  
+        scroll_id: 
+          type: string
+          example: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
+          description: Pagination id        
         results:
           type: object
           example: {<Json Object>}
           description: Json Object of returned results
           properties:
-            type:
-              type: string
-              example: "Feature"
-              description: type
-            properties:
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            total: 
               type: object
               example: {<Json Object>}
-              description: Json Object of returned results
+              description: Json Object of returned total
               properties:
-                featid:
+                relation:
+                  type: string
+                  example: eq
+                  description: Realtion between total counts and display result count.
+                value:
                   type: integer
-                  example: 32
-                  description: featid
-                lvl:
-                  type: string
-                  example: "GROUND LEVEL"
-                  description: GROUND LEVEL
-                quality:
-                  type: string
-                  example: "PARTIALLY VISIBLE"
-                  description: quality
-                type:
-                  type: string
-                  example: "SHELTER"
-                  description: type
-                inc_crc:
-                  type: string
-                  example: "47C214E0ED444693"
-                  description: inc_crc
-                fmel_upd_d:
-                  type: string
-                  example: "2018-06-29"
-                  description: fmel_upd_d
-            geometry:
-              type: object
-              example: {<Json Object>}
-              description: Json Object of returned results
-              properties:
-                type:
-                  type: string
-                  example: "Polygon"
-                  description: type
-                coordinates:
-                  type: array
-                  items:
-                    type: array
-                    items:
-                     type: number
-                     example: 103.71618687465097
-                             1.348193609950229
-                     description: coordinates
+                  example: 1
+                  description: Total number of records             
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "hdb_map_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "340461a6a0c72740ed"
+                  _score: 
+                    type: float
+                    description: The document score for the search request
+                    example: 0.0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      properties:
+                        type: object
+                        example: {<Json Object>}
+                        description: Json Object of returned results
+                        properties:
+                          featid:
+                            type: integer
+                            example: 128
+                            description: Properties FEATID
+                          lvl:
+                            type: string
+                            example: "GROUND LEVEL"
+                            description: Properties Level
+                          quality:
+                            type: string
+                            example: "FULLY VISIBLE"
+                            description: Quality of Properties
+                          type:
+                            type: string
+                            example: "SHELTER"
+                            description: Property Types
+                          inc_crc:
+                            type: string
+                            example: "6CBA10726FCF8D23"
+                            description: INC_CRC
+                          fmel_upd_d:
+                            type: string
+                            example: "2018-06-29"
+                            description: fmel_upd_d
+                      geometry:
+                        type: geo_shape
+                        description: Location coordinates and its type
+                        example: {"type": "Polygon", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"
+                      geometry_type:
+                        type: string
+                        description: Type of Geometry Coordinates
+                        example: "Polygon" 
     unauthorized:
       type: object
       properties:
