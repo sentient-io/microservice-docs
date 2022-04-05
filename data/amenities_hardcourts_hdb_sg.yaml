@@ -200,7 +200,7 @@ components:
                 relation:
                   type: string
                   example: eq
-                  description: ID for this road work
+                  description: Realtion between total counts and display result count.
                 total:
                   type: integer
                   example: 1
