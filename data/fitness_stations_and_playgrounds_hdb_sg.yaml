@@ -265,7 +265,7 @@ components:
                             description: Quality of Properties
                           type:
                             type: string
-                            example: "HARDCOURT"
+                            example: ""FITNESS STATION / PLAYGROUND"
                             description: Property Types
                           inc_crc:
                             type: string
@@ -286,7 +286,7 @@ components:
                       geometry_type:
                         type: string
                         description: Type of Geometry Coordinates
-                        example: ""FITNESS STATION / PLAYGROUND" 
+                        example: "Polygon" 
     unauthorized:
       type: object
       properties:
