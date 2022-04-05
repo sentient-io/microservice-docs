@@ -260,20 +260,34 @@ components:
                             description: fmel_upd_d
                       geometry:
                         type: object
-                        example: {<Json Object>}
-                        description: Json Object of returned results
-                        properties:
-                          type:
-                            type: string
-                            example: "Point"
-                            description: type
-                          coordinates:
-                            type: array
-                            items:
-                              type: number
-                              example:
-                                - 103.757362163026585
-                                  1.349439786854645
+                        example: {
+                                  "coordinates": [
+                                      [
+                                          [
+                                              103.74078184376863,
+                                              1.338518429771009
+                                          ],
+                                          [
+                                              103.74091355795706,
+                                              1.338518078450399
+                                          ],
+                                          [
+                                              103.74091402374538,
+                                              1.338293084625927
+                                          ],
+                                          [
+                                              103.74078145145886,
+                                              1.338293105822206
+                                          ],
+                                          [
+                                              103.74078184376863,
+                                              1.338518429771009
+                                          ]
+                                      ]
+                                  ],
+                                  "type": "Polygon"
+                              }
+                        description: Geo shape details
                       lastupdated:
                         type: string
                         description: Record last updated date on sentient
