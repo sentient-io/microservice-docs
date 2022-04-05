@@ -241,23 +241,23 @@ components:
                           featid:
                             type: integer
                             example: 128
-                            description: FEATID
+                            description: Properties FEATID
                           lvl:
                             type: string
                             example: "GROUND LEVEL"
-                            description: LVL
+                            description: Properties Level
                           quality:
                             type: string
                             example: "FULLY VISIBLE"
-                            description: Quality
+                            description: Quality of Properties
                           type:
                             type: string
                             example: "HARDCOURT"
-                            description: type
+                            description: Property Types
                           inc_crc:
                             type: string
                             example: "6CBA10726FCF8D23"
-                            description: inc_crc
+                            description: INC_CRC
                           fmel_upd_d:
                             type: string
                             example: "2018-06-29"
