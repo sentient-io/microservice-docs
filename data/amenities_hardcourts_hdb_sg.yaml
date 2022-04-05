@@ -279,7 +279,7 @@ components:
                             type: array
                             items:
                               example: 103.71618687465097
-                                     1.348193609950229
+                                       1.348193609950229
                       lastupdated:
                         type: string
                         description: Record last updated date on sentient
