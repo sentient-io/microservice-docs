@@ -2,18 +2,24 @@ openapi: 3.0.1
 info:
   title: HDB Fitness Stations and Playgrounds (SG)
   x-subscribelink: fitness_stations_and_playgrounds_hdb_sg
-  description: |+
-    Returns information on the map data including: coordinates, type and the details of the location.This Data microservice captures the indicative outline of fitness stations/playgrounds for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land.
-  x-additionalinfo : |+
+  description: >
+    Returns information on the map data including: coordinates, type and the
+    details of the location.This Data microservice captures the indicative
+    outline of fitness stations/playgrounds for all Housing Development Board of
+    Singapore (HDB) Towns, HDB Estates and on HDB Land.
+  x-additionalinfo: >
     **Match types:**
+
     A match type is a match operator. The supported match types are&#58;
+
     * **match_phrase** - Search within a full text field
       > {"match_phrase":{"properties.quality":"FULLY VISIBLE"}}    
     * **match** - Search within a full text field for a single word
       > {"match":{"properties.quality":"FULLY VISIBLE"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"properties.featid"}}
-    * **geo_distance** - Returns the geo search based on the distance and location lat/long
+    * **geo_distance** - Returns the geo search based on the distance and
+    location lat/long
       > {"geo_distance": {"distance": "11km","geometry": "1.349439786854645,103.75736216302658"}}
     * **geo_shape** - Returns the geo search based on the type and coordinates.
         relation should be anyone based on requirement.
@@ -42,27 +48,27 @@ info:
       > {"bool":{"must":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       > {"bool":{"should":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       
-  version: '2.0.0'
+  version: 2.0.0
   x-apitype: small file
-  x-apitypedescription: |+
+  x-apitypedescription: |
     Fast | Single-Call | 10MB/Call
-  x-inputfilelimit: |+
+  x-inputfilelimit: |
     Process up to 10000 kb of data or chat per API call.
-  x-responsetime: |+
+  x-responsetime: |
     Response rate is fast due to small data transfer per call made.
-  x-billingmethod: |+
+  x-billingmethod: |
     The API is billed by per request.
-  x-notes: |+
+  x-notes: |
     Process up to 10,000 records.
-  x-apidetailsdesc: |+
+  x-apidetailsdesc: |
     Provides returns all road works being / to be carried out.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: https://dev-apis.sentient.io
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Mar 30, 2022"
+  - name: v2.0.0
+    description: Published Date - Mar 30, 2022
 paths:
-   /microservices/data/fitnessstationplaygrnd/v2/getdata:
+  /microservices/data/fitnessstationplaygrnd/v2/getdata:
     post:
       tags:
         - v2.0.0
@@ -77,30 +83,39 @@ paths:
                 message: Successfully Processed
                 results:
                   hits:
-                  - _id: 4ZpNsH8B1VPRFDGbjLoe
-                    _index: hdb_map_index
-                    _score: 0
-                    _source:
-                      geometry:
-                        coordinates:
-                        - 103.82709969896652
-                        - 1.284112489206572
-                        type: Point
-                      lastupdated: '2022-03-22T14:25:40.805Z'
-                      properties:
-                        featid: 12888
-                        fmel_upd_d: '2018-06-29'
-                        inc_crc: B36680519553298F
-                        lvl: GROUND LEVEL
-                        quality: PARTIALLY VISIBLE
-                        type: LAMP POST
-                      property_type: LAMP POST
-                      type: Point
-                      unique_id: 12888b36680519553298f
-                    _type: doc
+                    - _id: 3161fa9077473e138ed
+                      _index: hdb_map_index
+                      _score: 0
+                      _source:
+                        geometry:
+                          coordinates:
+                              - 103.70325637102218
+                                1.340288655171077
+                              - 103.70324988930291
+                                1.340330798101515
+                              - 103.7033615141859
+                                1.340351217328143
+                              - 103.70336972380933
+                                1.34030944346928
+                              - 103.70325637102218
+                                1.340288655171077
+                          type: Polygon
+                        geometry_type: Polygon
+                        lastupdated: '2022-04-05T16:05:00.644Z'
+                        properties:
+                          featid: 316
+                          fmel_upd_d: '2018-06-29'
+                          inc_crc: 1FA9077473E138ED
+                          lvl: GROUND LEVEL
+                          quality: FULLY VISIBLE
+                          type: FITNESS STATION / PLAYGROUND
+                      _type: _doc
                   max_score: 0
-                  total: 23431
-                scroll_id: DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAIoXFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACKGBZHeWxGN1VqalJqcUxpOUgzMU1BeV9nAAAAAAAAihkWR3lsRjdVampSanFMaTlIMzFNQXlfZwAAAAAAAIoaFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACKGxZHeWxGN1VqalJqcUxpOUgzMU1BeV9n
+                  total:
+                    relation: eq
+                    value: 3118
+                scroll_id: >-
+                  FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoBRZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHUWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHcWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHYWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHkWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHgWdjVWcXJXaVhRaXVaQzBma19Jckthdw==
                 status: Success
         '401':
           description: Unauthorized
@@ -126,12 +141,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/notfound'
-        '419':
-          description: Input Field Missing
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputfieldmissing'
         '413':
           description: Payload Too Large
           content:
@@ -144,6 +153,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/invalidinput'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
         '500':
           description: Internal Server Error
           content:
@@ -161,8 +176,8 @@ paths:
       requestBody:
         content:
           application/json:
-              schema:
-                $ref: '#/components/schemas/input'
+            schema:
+              $ref: '#/components/schemas/input'
         required: true
 components:
   schemas:
@@ -176,59 +191,102 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure             
+          description: The status of the API call Success/Failure  
+        scroll_id: 
+          type: string
+          example: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
+          description: Pagination id        
         results:
           type: object
           example: {<Json Object>}
           description: Json Object of returned results
           properties:
-            type:
-              type: string
-              example: "Feature"
-              description: type
-            properties:
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            total: 
               type: object
               example: {<Json Object>}
-              description: Json Object of returned results
+              description: Json Object of returned total
               properties:
-                featid:
+                relation:
+                  type: string
+                  example: eq
+                  description: Realtion between total counts and display result count.
+                value:
                   type: integer
-                  example: 312
-                  description: featid
-                lvl:
-                  type: string
-                  example: "GROUND LEVEL"
-                  description: lvl
-                quality:
-                  type: string
-                  example: "FULLY VISIBLE"
-                  description: quality
-                type:
-                  type: string
-                  example: "FITTNESS STATION / PLAYGROUND"
-                  description: type
-                inc_crc:
-                  type: string
-                  example: "A96A55E334CF84C1"
-                  description: inc_crc
-            geometry:
-              type: object
-              example: {<Json Object>}
-              description: Json Object of returned results
-              properties:
-                type:
-                  type: string
-                  example: "Polygon"
-                  description: type
-                coordinates:
-                  type: array
-                  items:
-                    type: array
-                    items:
-                     type: number
-                     example: 103.71618687465097
-                             1.348193609950229
-                     description: coordinates
+                  example: 1
+                  description: Total number of records             
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "hdb_map_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "156edd775b13856fc71"
+                  _score: 
+                    type: float
+                    description: The document score for the search request
+                    example: 0.0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      properties:
+                        type: object
+                        example: {<Json Object>}
+                        description: Json Object of returned results
+                        properties:
+                          featid:
+                            type: integer
+                            example: 128
+                            description: Properties FEATID
+                          lvl:
+                            type: string
+                            example: "GROUND LEVEL"
+                            description: Properties Level
+                          quality:
+                            type: string
+                            example: "FULLY VISIBLE"
+                            description: Quality of Properties
+                          type:
+                            type: string
+                            example: "HARDCOURT"
+                            description: Property Types
+                          inc_crc:
+                            type: string
+                            example: "6CBA10726FCF8D23"
+                            description: INC_CRC
+                          fmel_upd_d:
+                            type: string
+                            example: "2018-06-29"
+                            description: fmel_upd_d
+                      geometry:
+                        type: geo_shape
+                        description: Location coordinates and its type
+                        example: {"type": ""FITNESS STATION / PLAYGROUND", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"
+                      geometry_type:
+                        type: string
+                        description: Type of Geometry Coordinates
+                        example: ""FITNESS STATION / PLAYGROUND" 
     unauthorized:
       type: object
       properties:
@@ -312,31 +370,31 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
         v2.0.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Mar 30, 2022
-              x-details: Data structure changed
-              description: Latest Version
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Mar 30, 2022
+                x-details: Data structure changed
+                description: Latest Version
         v1.0.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Apr 15, 2021
-              x-details: Optimized release
-              description: Archived
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Apr 15, 2021
+                x-details: Optimized release
+                description: Archived
         v0.1.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Mar 24, 2020
-              x-details: Initial version release
-              description: Archived  
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Mar 24, 2020
+                x-details: Initial version release
+                description: Archived
     input:
       type: object
       properties:
@@ -354,14 +412,23 @@ components:
           type: array
           default: false
           items:
-              type: object
-          example: [{"match_phrase":{"properties.quality":"FULLY VISIBLE"}}]
-          description: |+
-            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            type: object
+          example:
+            - match_phrase:
+                properties.quality: FULLY VISIBLE
+          description: >+
+            Its a list of filters to refine the search further. Default it
+            returns the today's latest record. Each filter consists of a match
+            type, the field and the value. The possible match types are&#58;
+
             * match
+
             * match_phrase
+
             * geo_distance
+
             * geo_shape
+
             * exists
 
   securitySchemes:
