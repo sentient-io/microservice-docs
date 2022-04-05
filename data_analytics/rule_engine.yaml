@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Rule Engine
   description: |+
-    It is an expert-system program, which runs the rules on the data and if any condition matches then it executes the corresponding actions. The inference engine is the component of the intelligent system in artificial intelligence, which applies logical rules to the knowledge base to infer new information from known facts. Inference-Engine’s program works in three phases to execute the rule on given data, Match, Resolve and Execute. 
+    It is an expert-system program, which runs the rules on the data and if any condition matches then it executes the corresponding actions. The inference engine is the component of the intelligent system in artificial intelligence, which applies logical rules to the knowledge base to infer new information from known facts. Inference-Engine’s program works in three phases to execute the rule on given data: Match, Resolve and Execute. 
   version: '0.1.0'
   x-additionalinfo: |+
 
