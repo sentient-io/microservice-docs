@@ -219,7 +219,7 @@ components:
                   _type: 
                     type: string
                     description: Content type of the document
-                    example: "dir_doc"
+                    example: "_doc"
                   _id: 
                     type: string
                     description: Document ID
