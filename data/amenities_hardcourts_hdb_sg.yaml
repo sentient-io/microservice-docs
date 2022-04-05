@@ -223,7 +223,7 @@ components:
                   _id: 
                     type: string
                     description: Document ID
-                    example: "rminrm2021061572arthurroad"
+                    example: "156edd775b13856fc71"
                   _score: 
                     type: number
                     description: The document score for the search request
