@@ -262,35 +262,9 @@ components:
                             example: "2018-06-29"
                             description: fmel_upd_d
                       geometry:
-                        type: object
-                        example: {
-                                  "coordinates": [
-                                      [
-                                          [
-                                              103.74078184376863,
-                                              1.338518429771009
-                                          ],
-                                          [
-                                              103.74091355795706,
-                                              1.338518078450399
-                                          ],
-                                          [
-                                              103.74091402374538,
-                                              1.338293084625927
-                                          ],
-                                          [
-                                              103.74078145145886,
-                                              1.338293105822206
-                                          ],
-                                          [
-                                              103.74078184376863,
-                                              1.338518429771009
-                                          ]
-                                      ]
-                                  ],
-                                  "type": "Polygon"
-                              }
-                        description: Geo shape details
+                        type: geo_shape
+                        description: Location coordinates and its type
+                        example: {"type": "LineString", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}
                       lastupdated:
                         type: string
                         description: Record last updated date on sentient
