@@ -178,7 +178,10 @@ components:
           type: string
           example: Success
           description: The status of the API call Success/Failure  
-        scroll_id: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==            
+        scroll_id: 
+          type: string
+          example: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
+          description: Pagination id        
         results:
           type: object
           example: {<Json Object>}
