@@ -341,9 +341,58 @@ paths:
             schema:
               $ref: '#/components/schemas/rebulkuploaditeminput'
         required: true
+  /reselected/v0/getresults:
+    description: |+
+        This API is used to update the selected option
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reselectedsuccess'
+              example: 
+                message: Successfully Processed
+                status: Success
+
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reselectedinput'
+        required: true
 components:
   schemas:
     readdeventsuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Successfully Processed
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+    reselectedsuccess:
       type: object
       properties:
         message:
@@ -610,6 +659,17 @@ components:
           description: |+ 
              Recommendation engine name
           example: sentient engine
+    reselectedinput:
+      type: object
+      required:
+        - re_id
+      properties:
+        re_id:
+          type: string
+          default: true
+          description: |+ 
+             Unique identifier number of the records
+          example: 07629354-b01a-11ec-bb42-d29531929cde
     reiteminput:
       type: object
       required:
