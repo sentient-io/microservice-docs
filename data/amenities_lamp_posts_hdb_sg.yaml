@@ -187,7 +187,7 @@ components:
           properties:
             max_score:
               type: float
-              example: 0
+              example: 0.0
               description: The highest score value
             total: 
               type: object
