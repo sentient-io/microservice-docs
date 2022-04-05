@@ -195,13 +195,13 @@ components:
             total: 
               type: object
               example: {<Json Object>}
-              description: Json Object of returned hits
+              description: Json Object of returned total
               properties:
                 relation:
                   type: string
                   example: eq
                   description: Realtion between total counts and display result count.
-                total:
+                value:
                   type: integer
                   example: 1
                   description: Total number of records             
