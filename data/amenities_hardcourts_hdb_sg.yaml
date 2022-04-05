@@ -85,14 +85,6 @@ paths:
                         coordinates:
                             - 103.70325637102218
                             - 1.340288655171077
-                            - 103.70324988930291
-                            - 1.340330798101515
-                            - 103.7033615141859
-                            - 1.340351217328143
-                            - 103.70336972380933
-                            - 1.34030944346928
-                            - 103.70325637102218
-                            - 1.340288655171077
                         type: Polygon
                       geometry_type: Polygon
                       lastupdated: '2022-04-05T16:05:00.644Z'
@@ -267,10 +259,21 @@ components:
                             example: "2018-06-29"
                             description: fmel_upd_d
                       geometry:
-                        type: geo_shape
-                        description: Location coordinates and its type
-                        example: {"type": "LineString", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}6585
-                                1.349439786854645
+                        type: object
+                        example: {<Json Object>}
+                        description: Json Object of returned results
+                        properties:
+                          type:
+                            type: string
+                            example: "Point"
+                            description: type
+                          coordinates:
+                            type: array
+                            items:
+                              type: number
+                              example:
+                                - 103.757362163026585
+                                  1.349439786854645
                       lastupdated:
                         type: string
                         description: Record last updated date on sentient
