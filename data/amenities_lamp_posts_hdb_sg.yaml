@@ -186,7 +186,7 @@ components:
           description: Json Object of returned results
           properties:
             max_score:
-              type: number
+              type: float
               example: 0
               description: The highest score value
             total: 
