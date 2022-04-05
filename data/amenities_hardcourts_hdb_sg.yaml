@@ -267,20 +267,9 @@ components:
                             example: "2018-06-29"
                             description: fmel_upd_d
                       geometry:
-                        type: object
-                        example: {<Json Object>}
-                        description: Json Object of returned results
-                        properties:
-                          type:
-                            type: string
-                            example: "Polygon"
-                            description: type
-                        coordinates:
-                          type: array
-                          items:
-                            type: number
-                            example:
-                              - 103.757362163026585
+                        type: geo_shape
+                        description: Location coordinates and its type
+                        example: {"type": "LineString", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}6585
                                 1.349439786854645
                       lastupdated:
                         type: string
