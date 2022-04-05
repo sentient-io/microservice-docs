@@ -229,9 +229,9 @@ components:
                     description: Document ID
                     example: "156edd775b13856fc71"
                   _score: 
-                    type: number
+                    type: float
                     description: The document score for the search request
-                    example: 0
+                    example: 0.0
                   _source: 
                     type: object
                     example: {<Json Object>}
