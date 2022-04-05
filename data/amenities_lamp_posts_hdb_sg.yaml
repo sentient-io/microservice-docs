@@ -76,30 +76,30 @@ paths:
                 message: Successfully Processed
                 results:
                   hits:
-                  - _id: 4ZpNsH8B1VPRFDGbjLoe
+                  - _id: 8893890212d4766fe20d
                     _index: hdb_map_index
                     _score: 0
                     _source:
                       geometry:
                         coordinates:
-                        - 103.82709969896652
-                        - 1.284112489206572
+                        - 103.91016904258795
+                        - 1.329420542256962
                         type: Point
-                      lastupdated: '2022-03-22T14:25:40.805Z'
+                      geometry_type: Point
+                      lastupdated: '2022-04-05T16:09:49.832Z'
                       properties:
-                        featid: 12888
+                        featid: 8893
                         fmel_upd_d: '2018-06-29'
-                        inc_crc: B36680519553298F
+                        inc_crc: 890212D4766FE20D
                         lvl: GROUND LEVEL
-                        quality: PARTIALLY VISIBLE
+                        quality: FULLY VISIBLE
                         type: LAMP POST
-                      property_type: LAMP POST
-                      type: Point
-                      unique_id: 12888b36680519553298f
-                    _type: doc
+                    _type: _doc
                   max_score: 0
-                  total: 23
-                scroll_id: DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAIoSFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACKExZHeWxGN1VqalJqcUxpOUgzMU1BeV9nAAAAAAAAihQWR3lsRjdVampSanFMaTlIMzFNQXlfZwAAAAAAAIoVFkd5bEY3VWpqUmpxTGk5SDMxTUF5X2cAAAAAAACKFhZHeWxGN1VqalJqcUxpOUgzMU1BeV9n
+                  total:
+                    relation: eq
+                    value: 23431
+                scroll_id: FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoBRZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABGMWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABGEWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABGIWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABGUWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABGQWdjVWcXJXaVhRaXVaQzBma19Jckthdw==
                 status: Success
         '401':
           description: Unauthorized
@@ -175,64 +175,102 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure        
-        scroll_id: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==          
+          description: The status of the API call Success/Failure  
+        scroll_id: 
+          type: string
+          example: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
+          description: Pagination id        
         results:
           type: object
           example: {<Json Object>}
           description: Json Object of returned results
           properties:
-            type:
-              type: string
-              example: "Feature"
-              description: type
-            properties:
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            total: 
               type: object
               example: {<Json Object>}
-              description: Json Object of returned results
+              description: Json Object of returned total
               properties:
-                featid:
+                relation:
+                  type: string
+                  example: eq
+                  description: Realtion between total counts and display result count.
+                value:
                   type: integer
-                  example: 8888
-                  description: featid
-                lvl:
-                  type: string
-                  example: "GROUND LEVEL"
-                  description: lvl
-                quality:
-                  type: string
-                  example: "PARTIALLY VISIBLE"
-                  description: quality
-                type:
-                  type: string
-                  example: "LAMP POST"
-                  description: type
-                inc_crc:
-                  type: string
-                  example: "B2485B94230255EC"
-                  description: inc_crc
-                fmel_upd_d:
-                  type: string
-                  example: "2018-06-29"
-                  description: fmel_upd_d
-            geometry:
-              type: object
-              example: {<Json Object>}
-              description: Json Object of returned results
-              properties:
-                type:
-                  type: string
-                  example: "Point"
-                  description: type
-                coordinates:
-                  type: array
-                  items:
-                    type: array
-                    items:
-                     type: number
-                     example: 103.71618687465097
-                             1.348193609950229
-                     description: coordinates
+                  example: 1
+                  description: Total number of records             
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "hdb_map_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "156edd775b13856fc71"
+                  _score: 
+                    type: float
+                    description: The document score for the search request
+                    example: 0.0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      properties:
+                        type: object
+                        example: {<Json Object>}
+                        description: Json Object of returned results
+                        properties:
+                          featid:
+                            type: integer
+                            example: 128
+                            description: Properties FEATID
+                          lvl:
+                            type: string
+                            example: "GROUND LEVEL"
+                            description: Properties Level
+                          quality:
+                            type: string
+                            example: "FULLY VISIBLE"
+                            description: Quality of Properties
+                          type:
+                            type: string
+                            example: "HARDCOURT"
+                            description: Property Types
+                          inc_crc:
+                            type: string
+                            example: "6CBA10726FCF8D23"
+                            description: INC_CRC
+                          fmel_upd_d:
+                            type: string
+                            example: "2018-06-29"
+                            description: fmel_upd_d
+                      geometry:
+                        type: geo_shape
+                        description: Location coordinates and its type
+                        example: {"type": "Point", "coordinates": [[103.8300615, 1.3060184]]}
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"
+                      geometry_type:
+                        type: string
+                        description: Type of Geometry Coordinates
+                        example: "Point"
     unauthorized:
       type: object
       properties:
