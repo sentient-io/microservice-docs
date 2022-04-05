@@ -278,7 +278,7 @@ components:
                       geometry:
                         type: geo_shape
                         description: Location coordinates and its type
-                        example: {"type": ""FITNESS STATION / PLAYGROUND", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}
+                        example: {"type": "FITNESS STATION / PLAYGROUND", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}
                       lastupdated:
                         type: string
                         description: Record last updated date on sentient
