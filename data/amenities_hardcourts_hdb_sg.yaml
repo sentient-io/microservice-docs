@@ -188,53 +188,102 @@ components:
           example: {<Json Object>}
           description: Json Object of returned results
           properties:
-            type:
-              type: string
-              example: "Feature"
-              description: type
-            properties:
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            total: 
               type: object
               example: {<Json Object>}
-              description: Json Object of returned results
+              description: Json Object of returned hits
               properties:
-                featid:
+                relation:
+                  type: string
+                  example: eq
+                  description: ID for this road work
+                total:
                   type: integer
-                  example: 128
-                  description: FEATID
-                lvl:
-                  type: string
-                  example: "GROUND LEVEL"
-                  description: LVL
-                quality:
-                  type: string
-                  example: "FULLY VISIBLE"
-                  description: Quality
-                type:
-                  type: string
-                  example: "HARDCOURT"
-                  description: type
-                inc_crc:
-                  type: string
-                  example: "6CBA10726FCF8D23"
-                  description: inc_crc
-                fmel_upd_d:
-                  type: string
-                  example: "2018-06-29"
-                  description: fmel_upd_d
-            geometry:
-              type: object
-              example: {<Json Object>}
-              description: Json Object of returned results
-              properties:
-                type:
-                  type: string
-                  example: "Polygon"
-                  description: type
-                coordinates:
-                  type: array
-                  items:
-                    example: 103.71618687465097
-                           1.348193609950229
+                  example: 1
+                  description: Total number of records             
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "lta_road_works"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "rminrm2021061572arthurroad"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      properties:
+                        type: object
+                        example: {<Json Object>}
+                        description: Json Object of returned results
+                        properties:
+                          featid:
+                            type: integer
+                            example: 128
+                            description: FEATID
+                          lvl:
+                            type: string
+                            example: "GROUND LEVEL"
+                            description: LVL
+                          quality:
+                            type: string
+                            example: "FULLY VISIBLE"
+                            description: Quality
+                          type:
+                            type: string
+                            example: "HARDCOURT"
+                            description: type
+                          inc_crc:
+                            type: string
+                            example: "6CBA10726FCF8D23"
+                            description: inc_crc
+                          fmel_upd_d:
+                            type: string
+                            example: "2018-06-29"
+                            description: fmel_upd_d
+                      geometry:
+                        type: object
+                        example: {<Json Object>}
+                        description: Json Object of returned results
+                        properties:
+                          type:
+                            type: string
+                            example: "Polygon"
+                            description: type
+                          coordinates:
+                            type: array
+                            items:
+                              example: 103.71618687465097
+                                     1.348193609950229
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"
+                      geometry_type:
+                        type: string
+                        description: Type of Geometry Coordinates
+                        example: "Polygon"                         
     unauthorized:
       type: object
       properties:
