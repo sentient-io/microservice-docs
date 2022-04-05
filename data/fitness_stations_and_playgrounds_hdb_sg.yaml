@@ -265,7 +265,7 @@ components:
                             description: Quality of Properties
                           type:
                             type: string
-                            example: ""FITNESS STATION / PLAYGROUND"
+                            example: "FITNESS STATION / PLAYGROUND"
                             description: Property Types
                           inc_crc:
                             type: string
