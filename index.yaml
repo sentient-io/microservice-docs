@@ -194,7 +194,7 @@ computer vision:
   thumbnail_generation:
     title: Thumbnail Generation
     versions:
-      0.1.0: 'thumbnail_generation.yaml'      
+      0.1.1: 'thumbnail_generation.yaml'      
   invoice_scanner:
     title: Invoice Scanner
     versions:
