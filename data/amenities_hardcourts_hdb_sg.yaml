@@ -3,7 +3,9 @@ info:
   title: HDB Hardcourts Locations (SG)
   x-subscribelink: amenities_hardcourts_hdb_sg
   description: |+
-      Returns information on the map data including: coordinates, type and the details of the location.This Data microservice returns the indicative outline of hardcourts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from a high definition ortho-rectified aerial imagery and manually digitised.
+      This Data microservice returns the indicative outline of hardcourts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB land. The output includes map data such as: coordinates, type and the details of the location. The features were captured by the Singapore Land Authority (SLA) in 2014 using high-definition ortho-rectified aerial imagery and manually digitised. Objects that are largely obscured by trees, structures and /or shadows are likely not captured in this data set. The outlines of partially obstructed objects were estimated where possible and may noy accurately represent the actual shape of the object. A successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file. 
+      The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.
+
   x-additionalinfo : |+
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
