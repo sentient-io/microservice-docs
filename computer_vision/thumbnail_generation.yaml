@@ -4,7 +4,7 @@ info:
   description: |+
     This Computer Vision microservice automatically selects appropriate frames as thumbnails representative of an input video. Thumbnails are selected based on visual quality and aesthetics (e.g. no dark, blurry or transitioning frames) and relevance to the video content based on clustering analysis. 
     The size of your video file should not exceed 10MB 
-  version: v0.1.0
+  version: v0.1.1
   x-additionalinfo: |+
     Video filetypes accepted are 'mp4', 'avi', 'mpeg', 'm4v', 'mov', 'webm'
   x-subscribelink: thumbnail_generation
@@ -24,13 +24,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
-- name: "v0.1.0"
+- name: "v0.1.1"
   description: "Published Date - Apr 06, 2022"
 paths:
   /microservices/cv/thumbnailgeneration/v0/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v0.1.1
       responses:
         '200':
           description: success response
