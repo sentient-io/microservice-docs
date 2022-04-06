@@ -218,8 +218,8 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Apr 06, 2022
-                x-details: Bug Fix
-                description: Initial version release.      
+                x-details: Latest Version
+                description: Bug Fix.      
         v0.1.0:
           type: array
           items:
