@@ -208,8 +208,8 @@ components:
               type: array
               example: [{"entity":info@nrpsc.ac.th,"start":34,"end":38}]
               description: "email id  found in the text string" 
-            len:
-              x-name: len
+            measurement:
+              x-name: measurement
               type: array
               example: [{"entity":30 กิโลเมตร,"start":12,"end":18},{"entity":5 กม.,"start":1,"end":5}]
               description: "distance in km found in the text string" 
@@ -228,8 +228,8 @@ components:
               type: array
               example: [{"entity":http://www.bangkokhealth.com/,"start":10,"end":20}]
               description: "url in the text string" 
-            zip:
-              x-name: zip
+            postal_code:
+              x-name: postal_code
               type: array
               example: [{"entity":10400,"start":15,"end":20}]
               description: "zipcode  found in the text string" 
