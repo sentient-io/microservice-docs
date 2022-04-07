@@ -3,7 +3,7 @@ info:
   title: HDB Hardcourts Locations (SG)
   x-subscribelink: amenities_hardcourts_hdb_sg
   description: |+
-      This Data microservice returns the indicative outline of hardcourts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB land. The output includes map data such as: coordinates, type and the details of the location. The features were captured by the Singapore Land Authority (SLA) in 2014 using high-definition ortho-rectified aerial imagery and manually digitised. Objects that are largely obscured by trees, structures and / or shadows are likely not captured in this data set. The outlines of partially obstructed objects were estimated where possible and may noy accurately represent the actual shape of the object. 
+      This Data microservice returns the indicative outline of hardcourts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB land. The output includes map data such as: coordinates, type and the details of the location. The features were captured by the Singapore Land Authority (SLA) in 2014 using high-definition ortho-rectified aerial imagery and manually digitised. Objects that are largely obscured by trees, structures and / or shadows are likely not captured in this data set. The outlines of partially obstructed objects were estimated where possible and may not accurately represent the actual shape of the object. 
       
       A successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file. 
       
