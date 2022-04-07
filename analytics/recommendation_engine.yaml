@@ -606,7 +606,7 @@ components:
           type: string
           format: binary
           default: true
-          example: sample.wav
+          example: sample.csv
           description: Maximum file size up to 10 MB.
         engine_name:
           type: string
