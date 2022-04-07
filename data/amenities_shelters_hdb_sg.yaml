@@ -197,7 +197,7 @@ components:
           properties:
             max_score:
               type: float
-              example: 0.0
+              example: 0.9
               description: The highest score value
             total: 
               type: object
@@ -207,7 +207,7 @@ components:
                 relation:
                   type: string
                   example: eq
-                  description: Realtion between total counts and display result count.
+                  description: Relation between total counts and display result count.
                 value:
                   type: integer
                   example: 1
@@ -234,7 +234,7 @@ components:
                   _score: 
                     type: float
                     description: The document score for the search request
-                    example: 0.0
+                    example: 0.5
                   _source: 
                     type: object
                     example: {<Json Object>}
@@ -393,12 +393,12 @@ components:
       type: object
       properties:
         limit:
-          type: number
+          type: integer
           default: false
-          example: 10
+          example: 0
           description: The max records to return for the request. Default - 0, Max - 10000
         offset:
-          type: number
+          type: integer
           default: false
           example: 0
           description: The offset of the record list ie the starting index . Default - 0
