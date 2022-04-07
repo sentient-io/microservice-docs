@@ -194,7 +194,7 @@ components:
           properties:
             max_score:
               type: float
-              example: 0.0
+              example: 0.9
               description: The highest score value
             total: 
               type: object
@@ -231,7 +231,7 @@ components:
                   _score: 
                     type: float
                     description: The document score for the search request
-                    example: 0.0
+                    example: 0.5
                   _source: 
                     type: object
                     example: {<Json Object>}
@@ -390,12 +390,12 @@ components:
       type: object
       properties:
         limit:
-          type: number
+          type: integer
           default: false
-          example: 10
+          example: 0
           description: The max records to return for the request. Default - 0, Max - 10000
         offset:
-          type: number
+          type: integer
           default: false
           example: 0
           description: The offset of the record list ie the starting index . Default - 0
@@ -406,7 +406,7 @@ components:
               type: object
           example: [{"match_phrase":{"properties.quality":"FULLY VISIBLE"}}]
           description: |+
-            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            A list of filters to refine the search further. Default response returns the latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
             * match_phrase
             * geo_distance
