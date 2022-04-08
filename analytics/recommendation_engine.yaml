@@ -439,71 +439,71 @@ components:
             properties:
               ID:
                 type: string
-                description: The result of the API call.
-                example: bdcd1f86-b65c-11ec-9705-5ee8....
+                description: Unique id for the list
+                example: bdcd1f86-b65c-11ec-97.....
               EXTERNAL_ID:
                 type: string
-                description: The result of the API call.
+                description: External ID
                 example: "Page 1"
               ENTITY_TYPE:
                 type: string
-                description: The result of the API call.
-                example: pagename
+                description: Entity type
+                example: entitytype name
               ENTITY_DETAILS:
                 type: string
-                description: The result of the API call.
+                description: Entity details
                 example: null
               INPUT:
                 type: string
-                description: The result of the API call.
-                example: {\"engineId\": \"ttap-om-page\", \"item\": \"Page 1\", \"itemBias\": \"\", \"from\": \"\", \"num\": \"\", \"rules\": [], \"dateRange\": {}, \"blacklistItems\": [], \"returnSelf\": false}
+                description: Input details
+                example: {\"engineId\": \"sentientengine\", \"item\": \"Page 1\", \"itemBias\": \"\", \"from\": \"\", \"num\": \"\", \"rules\": [], \"dateRange\": {}, \"blacklistItems\": [], \"returnSelf\": false}
               RE_TYPE:
                 type: string
-                description: The result of the API call.
+                description: Re type
                 example: ML
               OPTIONS:
                 type: string
-                description: The result of the API call.
+                description: Options
                 example: 11
               SELECTED:
                 type: string
-                description: The result of the API call.
+                description: Selected
                 example: false
               CREATED_DATE_TIME:
                 type: string
-                description: The result of the API call.
+                description: created date time
                 example: 2022-04-07T18:23:17
               owner_id:
                 type: string
-                description: The result of the API call.
-                example: 1821
+                description: Owner id
+                example: 1
               owner_name:
                 type: string
-                description: The result of the API call.
-                example: TTAP
+                description: Owner name
+                example: ownername
               org_id:
                 type: string
-                description: The result of the API call.
-                example: 1821
+                description: org id
+                example: org id
               org_name:
                 type: string
-                description: The result of the API call.
-                example: TTAP
+                description: org name
+                example: org name
               user_id:
                 type: string
-                description: The result of the API call.
-                example: 2601
+                description: user id
+                example: 12
               user_name:
                 type: string
-                description: The result of the API call.
-                example: ttap_admin
+                description: user name
+                example: username
               api_key:
                 type: string
-                description: The result of the API call.
+                description: Api key
                 example: A2FAAE0499E7...
               updated_date_time:
                 type: string
-                description: The result of the API call.
+                description: updated date time
                 example: null
     readdeventsuccess:
       type: object
