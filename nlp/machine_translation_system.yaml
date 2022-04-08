@@ -15,6 +15,7 @@ info:
   x-additionalinfo: |+
     Suggested usecases: It can be used to translate text for any applications, and can be augmented to internationalize
     with existing NLP microservices provided by sentient.io.
+  x-subscribelink: machine_translation_system
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
