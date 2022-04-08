@@ -203,7 +203,7 @@ components:
                   example: eq
                   description: Realtion between total counts and display result count.
                 value:
-                  type: integer
+                  type: number
                   example: 1
                   description: Total number of records             
             hits:
@@ -240,7 +240,7 @@ components:
                         description: Json Object of returned results
                         properties:
                           featid:
-                            type: integer
+                            type: number
                             example: 128
                             description: Properties FEATID
                           lvl:
