@@ -1026,15 +1026,19 @@ components:
             The ISO8601 formatted string for the time the event occurred.
     getanalyticsinput:
       type: object
-      required:
-        - owner_id
       properties:
-        owner_id:
+        offset:
           type: number
-          default: true
+          default: false
           description: |+ 
-             Owner id to get the analytics
-          example: 1281
+             Default 0. It specifies the page of analytics records to display
+          example: 0
+        limit:
+          type: number
+          default: false
+          description: |+ 
+             Default 5000. It specifies the number of analytics records to display
+          example: 10
     readdeventinput:
       type: object
       required:
