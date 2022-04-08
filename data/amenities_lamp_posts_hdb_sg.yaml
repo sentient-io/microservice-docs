@@ -60,10 +60,10 @@ info:
   x-apidetailsdesc: |+
     Provides returns all road works being / to be carried out.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Mar 30, 2022"
+  description: "Published Date - Apr 08, 2022"
 paths:
    /microservices/data/lamppost/v2/getdata:
     post:
@@ -364,7 +364,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 30, 2022
+              example: Published Date - Apr 08, 2022
               x-details: Data structure changed
               description: Latest Version
         v1.0.0:
