@@ -69,7 +69,9 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Apr 01, 2022"
 paths:
-  /microservice/dataanalytics/cip/v0/getinterestprofile:
+  /microservices/analytics/ciprofile/v0/getinterestprofile:
+    description: |+
+        This API is used to get interset profile
     post:
       tags:
         - v0.1.0
@@ -557,7 +559,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/input'
         required: true
-  /microservice/dataanalytics/cip/v0/getcontentprofile:
+  /microservices/analytics/ciprofile/v0/getcontentprofile:
+    description: |+
+        This API is used to get content profile
     post:
       tags:
         - v0.1.0
@@ -849,7 +853,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/input'
         required: true
-  /microservice/dataanalytics/cip/v0/getvisitsdetails:
+  /microservices/analytics/ciprofile/v0/getvisitsdetails:
+    description: |+
+        This API is used to get visitors details
     post:
       tags:
         - v0.1.0
@@ -914,7 +920,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/visitdetailsinput'
         required: true
-  /microservice/dataanalytics/cip/v0/getpagedetails:
+  /microservices/analytics/ciprofile/v0/getpagedetails:
+    description: |+
+        This API is used to get page details
     post:
       tags:
         - v0.1.0
@@ -979,7 +987,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/pagedetailsinput'
         required: true
-  /microservice/dataanalytics/cip/v0/getexternaliddetails:
+  /microservices/analytics/ciprofile/v0/getexternalid:
+    description: |+
+        This API is used to get external id details
     post:
       tags:
         - v0.1.0
