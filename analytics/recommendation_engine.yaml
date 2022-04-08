@@ -1031,13 +1031,13 @@ components:
           type: number
           default: false
           description: |+ 
-             Default 0. It specifies the page of analytics records to display
+             Default 0. The offset of the record list ie the starting index
           example: 0
         limit:
           type: number
           default: false
           description: |+ 
-             Default 5000. It specifies the number of analytics records to display
+             The max records to return for the request. Default - 5000
           example: 10
     readdeventinput:
       type: object
