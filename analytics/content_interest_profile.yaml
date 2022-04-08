@@ -9,7 +9,7 @@ info:
     In addition to the CIP microservices, we are also releasing few analytics overview microservice namely, traffic overview, page overview and external id analytics.
   x-additionalinfo : |+
   
-    - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/data_analytics_docs/content_interest_profile.yaml
+    - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/content_interest_profile.yaml
     
     Filters are applicable only for Content and Interest Profiling APIs.
     
