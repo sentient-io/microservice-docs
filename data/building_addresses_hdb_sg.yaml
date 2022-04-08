@@ -115,14 +115,14 @@ paths:
         - in: query
           name: offset
           schema:
-            type: integer
+            type: number
           description: The offset of the record list ie the starting index
           example: "0"
           default: false
         - in: query
           name: limit
           schema:
-            type: integer
+            type: number
           description: The max records to return for the request. Default - 10, Max - 10000
           example: "10"
           default: false
@@ -234,7 +234,7 @@ components:
           description: Json Object of returned results 
           properties:                
             total: 
-              type: integer
+              type: number
               example: 1
               description: Total number of records
             max_score:
@@ -278,7 +278,8 @@ components:
                             description: Street Name of Building
                             example: "serangoon central"
                           postalcode:
-                            type: integer
+                            type: number
+                            
                             description: Postal code
                             example: 556083      
                           block: 
