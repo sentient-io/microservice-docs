@@ -21,12 +21,12 @@ info:
   x-notes: |+
     File size cannot exceed 10 MB.
 servers:
-  - url: 'https://dev-apis.sentient.io/recommedationengine/microservices/dataanalytics'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Oct 30, 2020"
 paths:
-  /readdevent/v0/getresults:
+  /microservices/analytics/recommendationengine/v0/addevent:
     description: |+
         This API is used to add the event to recommendation engine
     post:
@@ -63,7 +63,7 @@ paths:
             schema:
               $ref: '#/components/schemas/readdeventinput'
         required: true
-  /readditem/v0/getresults:
+  /microservices/analytics/recommendationengine/v0/additem:
     description: |+
         This API is used to add the item and its properties to recommendation engine
     post:
@@ -100,7 +100,7 @@ paths:
             schema:
               $ref: '#/components/schemas/readditeminput'
         required: true
-  /redeleteevent/v0/getresults:
+  /microservices/analytics/recommendationengine/v0/deleteevent:
     description: |+
         This API is used to delete the event from recommendation engine
     post:
@@ -137,7 +137,7 @@ paths:
             schema:
               $ref: '#/components/schemas/redeleteeventinput'
         required: true
-  /reitem/v0/getresults:
+  /microservices/analytics/recommendationengine/v0/getitem:
     description: |+
         This API is used to get recommendation based on the item
     post:
@@ -183,7 +183,7 @@ paths:
               $ref: '#/components/schemas/reiteminput'
         required: true
   
-  /reuser/v0/getresults:
+  /microservices/analytics/recommendationengine/v0/getuser:
     description: |+
         This API is used to get the recommendation based on the user
     post:
@@ -228,7 +228,7 @@ paths:
             schema:
               $ref: '#/components/schemas/reuserinput'
         required: true
-  /retrainengine/v0/getresults:
+  /microservices/analytics/recommendationengine/v0/trainengine:
     description: |+
         This API is used to train the recommendation engine
     post:
@@ -265,7 +265,7 @@ paths:
             schema:
               $ref: '#/components/schemas/retraineventinput'
         required: true
-  /rebulkuploadevent/v0/getresults:
+  /microservices/analytics/recommendationengine/v0/bulkuploadevent:
     description: |+
         This API is used to bulk upload the event to recommendation engine
     post:
@@ -303,7 +303,7 @@ paths:
             schema:
               $ref: '#/components/schemas/rebulkuploadeventinput'
         required: true
-  /rebulkuploaditem/v0/getresults:
+  /microservices/analytics/recommendationengine/v0/bulkuploaditem:
     description: |+
         This API is used to bulk upload the item and its properties to recommendation engine
     post:
@@ -341,7 +341,7 @@ paths:
             schema:
               $ref: '#/components/schemas/rebulkuploaditeminput'
         required: true
-  /reselected/v0/getresults:
+  /microservices/analytics/recommendationengine/v0/getselected:
     description: |+
         This API is used to update the selected option
     post:
@@ -379,8 +379,132 @@ paths:
             schema:
               $ref: '#/components/schemas/reselectedinput'
         required: true
+  /microservices/analytics/recommendationengine/v0/getanalytics:
+    description: |+
+        This API is used to get analytics of the recommendation engine usage
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getanalyticssuccess'
+              example: 
+                message: Successfully Processed
+                status: Success
+
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/getanalyticsinput'
+        required: true
 components:
   schemas:
+    getanalyticssuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Successfully Processed
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+        results:
+          type: array
+          description: The result of the API call.
+          example: List of objects
+          items:
+            type: object
+            properties:
+              ID:
+                type: string
+                description: The result of the API call.
+                example: bdcd1f86-b65c-11ec-9705-5ee8....
+              EXTERNAL_ID:
+                type: string
+                description: The result of the API call.
+                example: "Page 1"
+              ENTITY_TYPE:
+                type: string
+                description: The result of the API call.
+                example: pagename
+              ENTITY_DETAILS:
+                type: string
+                description: The result of the API call.
+                example: null
+              INPUT:
+                type: string
+                description: The result of the API call.
+                example: {\"engineId\": \"ttap-om-page\", \"item\": \"Page 1\", \"itemBias\": \"\", \"from\": \"\", \"num\": \"\", \"rules\": [], \"dateRange\": {}, \"blacklistItems\": [], \"returnSelf\": false}
+              RE_TYPE:
+                type: string
+                description: The result of the API call.
+                example: ML
+              OPTIONS:
+                type: string
+                description: The result of the API call.
+                example: 11
+              SELECTED:
+                type: string
+                description: The result of the API call.
+                example: false
+              CREATED_DATE_TIME:
+                type: string
+                description: The result of the API call.
+                example: 2022-04-07T18:23:17
+              owner_id:
+                type: string
+                description: The result of the API call.
+                example: 1821
+              owner_name:
+                type: string
+                description: The result of the API call.
+                example: TTAP
+              org_id:
+                type: string
+                description: The result of the API call.
+                example: 1821
+              org_name:
+                type: string
+                description: The result of the API call.
+                example: TTAP
+              user_id:
+                type: string
+                description: The result of the API call.
+                example: 2601
+              user_name:
+                type: string
+                description: The result of the API call.
+                example: ttap_admin
+              api_key:
+                type: string
+                description: The result of the API call.
+                example: A2FAAE0499E7...
+              updated_date_time:
+                type: string
+                description: The result of the API call.
+                example: null
     readdeventsuccess:
       type: object
       properties:
@@ -900,6 +1024,17 @@ components:
           example: "2022-01-19T21:02:49.228Z"
           description: |+
             The ISO8601 formatted string for the time the event occurred.
+    getanalyticsinput:
+      type: object
+      required:
+        - owner_id
+      properties:
+        owner_id:
+          type: number
+          default: true
+          description: |+ 
+             Owner id to get the analytics
+          example: 1281
     readdeventinput:
       type: object
       required:
