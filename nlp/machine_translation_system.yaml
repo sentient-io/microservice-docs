@@ -13,8 +13,8 @@ info:
     7. English - Malay
   version: v0.1.0
   x-additionalinfo: |+
-  Suggested usecases: It can be used to translate text for any applications, and can be augmented to internationalize
-  with existing NLP microservices provided by sentient.io.
+    Suggested usecases: It can be used to translate text for any applications, and can be augmented to internationalize
+    with existing NLP microservices provided by sentient.io.
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
