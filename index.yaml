@@ -181,6 +181,11 @@ nlp:
     title: Google Translate (Large File)
     versions:
       0.1.0: 'google_translate_large_file.yaml'
+  machine_translation_system:
+    title: Machine Translation System
+    versions:
+      0.1.0: 'machine_translation_system.yaml'
+  machine_translation_system
 computer vision:
   object_detection:
     title: Object Detection

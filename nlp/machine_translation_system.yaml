@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: machine_translation_system
+  title: Machine Translation System
   description: |+
     A machine learning translation system supporting four official languages in Singapore(English, Malay, Chinese, Tamil) and supports 7 language pairs ie:
     1. English - Chinese
