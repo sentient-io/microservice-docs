@@ -869,7 +869,18 @@ paths:
               example:
                 message: Successfully Processed
                 status: Success
-                results: '{"nb_uniq_visitors":72,"nb_users":0,"nb_visits":77,"nb_actions":159,"nb_visits_converted":0,"bounce_count":44,"sum_visit_length":6618,"max_actions":12,"bounce_rate":"57%","nb_actions_per_visit":2.1,"avg_time_on_site":86}'
+                results:
+                  nb_uniq_visitors: 72
+                  nb_users: 0
+                  nb_visits: 77
+                  nb_actions: 159
+                  nb_visits_converted: 0
+                  bounce_count: 44
+                  sum_visit_length: 6618
+                  max_actions: 12
+                  bounce_rate: 57%
+                  nb_actions_per_visit: 2.1
+                  avg_time_on_site: 86
         '401':
           description: Unauthorized
           content:
@@ -936,7 +947,96 @@ paths:
               example:
                 message: Successfully Processed
                 status: Success
-                results: '[{"label":"/ai-data","nb_visits":7,"nb_uniq_visitors":7,"nb_hits":11,"sum_time_spent":619,"nb_hits_with_time_server":"11","min_time_server":"0.0390","max_time_server":"2.1600","nb_hits_with_time_transfer":"11","min_time_transfer":"0.0000","max_time_transfer":"0.0120","nb_hits_with_time_dom_processing":"11","min_time_dom_processing":"0.1200","max_time_dom_processing":"1.3060","exit_nb_uniq_visitors":"3","exit_nb_visits":"3","avg_time_server":0.939,"avg_time_transfer":0.005,"avg_time_dom_processing":0.499,"avg_page_load_time":1.443,"avg_time_on_page":56,"bounce_rate":"0%","exit_rate":"43%","url":"https://www.sentient.io/ai-data","segment":"pageUrl==https%253A%252F%252Fwww.sentient.io%252Fai-data"}]'
+                results:
+                  - label: en
+                    nb_visits: 6
+                    nb_hits: 8
+                    sum_time_spent: 203
+                    nb_hits_with_time_network: 8
+                    min_time_network: 0
+                    max_time_network: 0.315
+                    nb_hits_with_time_server: 8
+                    min_time_server: 0.049
+                    max_time_server: 2.065
+                    nb_hits_with_time_transfer: 8
+                    min_time_transfer: 0
+                    max_time_transfer: 0.031
+                    nb_hits_with_time_dom_processing: 6
+                    min_time_dom_processing: 0.227
+                    max_time_dom_processing: 2.73
+                    entry_nb_visits: 5
+                    entry_nb_actions: 18
+                    entry_sum_visit_length: 1377
+                    entry_bounce_count: 0
+                    avg_time_network: 0.058
+                    avg_time_server: 0.387
+                    avg_time_transfer: 0.011
+                    avg_time_dom_processing: 0.79
+                    avg_page_load_time: 1.246
+                    avg_time_on_page: 25
+                    bounce_rate: 0%
+                    exit_rate: 0%
+                    segment: pageUrl=^https%253A%252F%252Fsentient.io%252Fen
+                    idsubdatatable: 1
+                  - label: /team
+                    nb_visits: 5
+                    nb_uniq_visitors: 5
+                    nb_hits: 8
+                    sum_time_spent: 247
+                    nb_hits_with_time_network: '8'
+                    min_time_network: '0.0000'
+                    max_time_network: '0.1720'
+                    nb_hits_with_time_server: '8'
+                    min_time_server: '0.0460'
+                    max_time_server: '2.1780'
+                    nb_hits_with_time_transfer: '8'
+                    min_time_transfer: '0.0010'
+                    max_time_transfer: '0.1240'
+                    nb_hits_with_time_dom_processing: '8'
+                    min_time_dom_processing: '0.0430'
+                    max_time_dom_processing: '4.4150'
+                    entry_nb_uniq_visitors: '1'
+                    entry_nb_visits: '1'
+                    entry_nb_actions: '5'
+                    entry_sum_visit_length: '115'
+                    entry_bounce_count: '0'
+                    avg_time_network: 0.022
+                    avg_time_server: 0.966
+                    avg_time_transfer: 0.024
+                    avg_time_dom_processing: 1.09
+                    avg_page_load_time: 2.1020000000000003
+                    avg_time_on_page: 31
+                    bounce_rate: 0%
+                    exit_rate: 0%
+                    url: https://www.sentient.io/team
+                    segment: pageUrl==https%253A%252F%252Fwww.sentient.io%252Fteam
+                  - label: /ai-colab
+                    nb_visits: 2
+                    nb_uniq_visitors: 2
+                    nb_hits: 2
+                    sum_time_spent: 1035
+                    nb_hits_with_time_network: '2'
+                    min_time_network: '0.0000'
+                    max_time_network: '0.0000'
+                    nb_hits_with_time_server: '2'
+                    min_time_server: '2.0050'
+                    max_time_server: '2.5210'
+                    nb_hits_with_time_transfer: '2'
+                    min_time_transfer: '0.0020'
+                    max_time_transfer: '0.0040'
+                    nb_hits_with_time_dom_processing: '2'
+                    min_time_dom_processing: '0.3000'
+                    max_time_dom_processing: '0.3200'
+                    avg_time_network: 0
+                    avg_time_server: 2.263
+                    avg_time_transfer: 0.003
+                    avg_time_dom_processing: 0.31
+                    avg_page_load_time: 2.576
+                    avg_time_on_page: 518
+                    bounce_rate: 0%
+                    exit_rate: 0%
+                    url: https://www.sentient.io/ai-colab
+                    segment: pageUrl==https%253A%252F%252Fwww.sentient.io%252Fai-colab
         '401':
           description: Unauthorized
           content:
@@ -1003,7 +1103,19 @@ paths:
               example:
                 message: Successfully Processed
                 status: Success
-                results: '[{"label":"user2","nb_uniq_visitors":9,"nb_visits":10,"nb_actions":61,"max_actions":14,"sum_visit_length":5092,"bounce_count":1,"nb_visits_converted":0,"avg_time_on_site":509,"bounce_rate":"10%","nb_actions_per_visit":6.1,"segment":"dimension1==user2"}]'
+                results:
+                  - label: user2
+                    nb_uniq_visitors: 8
+                    nb_visits: 9
+                    nb_actions: 29
+                    max_actions: 7
+                    sum_visit_length: 1295
+                    bounce_count: 0
+                    nb_visits_converted: 0
+                    avg_time_on_site: 144
+                    bounce_rate: 0%
+                    nb_actions_per_visit: 3.2
+                    segment: dimension1==user2
         '401':
           description: Unauthorized
           content:
