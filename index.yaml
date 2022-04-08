@@ -185,7 +185,6 @@ nlp:
     title: Machine Translation System
     versions:
       0.1.0: 'machine_translation_system.yaml'
-  machine_translation_system
 computer vision:
   object_detection:
     title: Object Detection
