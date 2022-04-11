@@ -114,8 +114,6 @@ paths:
                   total:
                     relation: eq
                     value: 3118
-                scroll_id: >-
-                  FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoBRZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHUWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHcWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHYWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHkWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHgWdjVWcXJXaVhRaXVaQzBma19Jckthdw==
                 status: Success
         '401':
           description: Unauthorized
@@ -191,11 +189,7 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure  
-        scroll_id: 
-          type: string
-          example: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
-          description: Pagination id        
+          description: The status of the API call Success/Failure         
         results:
           type: object
           example: {<Json Object>}
@@ -213,7 +207,7 @@ components:
                 relation:
                   type: string
                   example: eq
-                  description: Realtion between total counts and display result count.
+                  description: Relation between total counts and display result count.
                 value:
                   type: integer
                   example: 1
