@@ -156,10 +156,10 @@ components:
              Default value false.First prompt of getting suggestion value will be true/false
           example: false
         external_id:
-          type: number
+          type: string
           description: |+ 
              External Identifier
-          example: false
+          example: user2
   securitySchemes:
     APIAuthorizer:
       type: apiKey
