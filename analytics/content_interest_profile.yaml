@@ -1843,14 +1843,14 @@ components:
               -- previousX returns the last X periods before today
               -- YYYY-MM-DD,YYYY-MM-DD for every period
         limit:
-          type: string
+          type: number
           default: false
           example: 3
           description: |+
             Optional. By default, only the top 100 rows are returned.
             Set to -1 to return all rows.
         offset:
-          type: string
+          type: number
           default: false
           example: 1
           description: |+
