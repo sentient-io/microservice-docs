@@ -808,6 +808,7 @@ components:
         item:
           type: string
           example: Book1
+          default: true
           description: |+
             Optional. It contains the unique item identifier
         item_bias:
@@ -822,15 +823,15 @@ components:
           type: number
           example: 0
           description: |+
-            Rank/position to start returning recommendations from
+             Optional. Rank/position to start returning recommendations from
         limit:
           type: number
           example: 4
           description: |+
-            Max number of recommendations to return
+             Optional. Max number of recommendations to return
         rules:
           type: array
-          description: Array of field values and biases to use in this query.
+          description:  Optional. Array of field values and biases to use in this query.
           items:
             oneOf:
               - type: object 
@@ -853,7 +854,7 @@ components:
         date_range:
           type: object
           description: |+
-            Values for the before and after are strings in ISO 8601 format.
+             Optional. Values for the before and after are strings in ISO 8601 format.
           properties:
               name:
                 type: string
@@ -871,7 +872,7 @@ components:
           type: array
           example: ["itemId1", "itemId2"]
           description: |+
-             It specifies event types this part of the query specifies individual items to remove from returned recommendations.
+              Optional. It specifies event types this part of the query specifies individual items to remove from returned recommendations.
           items:
             oneOf:
               - type: object
@@ -879,7 +880,7 @@ components:
           type: string
           example: false
           description: |+
-            Its boolean asking to include the item that was part of the query as part of the results. Defaults to false.
+             Optional. Its boolean asking to include the item that was part of the query as part of the results. Defaults to false.
     reuserinput:
       type: object
       required:
@@ -894,6 +895,7 @@ components:
         user:
           type: string
           example: User 10
+          default: true
           description: |+
             This is whatever string you use to identify a user.
         user_bias:
@@ -908,15 +910,15 @@ components:
           type: number
           example: 0
           description: |+
-            Rank/position to start returning recommendations from
+            Optional. Rank/position to start returning recommendations from
         limit:
           type: number
           example: 4
           description: |+
-            Max number of recommendations to return
+             Optional.Max number of recommendations to return
         rules:
           type: array
-          description: Array of fields values and biases to use in this query.
+          description:  Optional.Array of fields values and biases to use in this query.
           items:
             type: object
             properties:
@@ -938,7 +940,7 @@ components:
         date_range:
           type: object
           description: |+
-            Values for the before and after are strings in ISO 8601 format.
+             Optional. Values for the before and after are strings in ISO 8601 format.
           properties:
               name:
                 type: string
@@ -956,7 +958,7 @@ components:
           type: array
           example: ["itemId1", "itemId2"]
           description: |+
-             It specifies event types this part of the query specifies individual items to remove from returned recommendations.
+              Optional. It specifies event types this part of the query specifies individual items to remove from returned recommendations.
           items:
             oneOf:
               - type: object
@@ -964,7 +966,7 @@ components:
           type: string
           example: false
           description: |+
-            Its boolean asking to include the item that was part of the query as part of the results. Defaults to false.
+             Optional. Its boolean asking to include the item that was part of the query as part of the results. Defaults to false.
     redeleteeventinput:
       type: object
       required:
@@ -1027,14 +1029,20 @@ components:
     getanalyticsinput:
       type: object
       properties:
-        offset:
+        engine_name:
           type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: sentient engine
+        offset:
+          type: number
           default: false
           description: |+ 
              Default 0. The offset of the record list ie the starting index
           example: 0
         limit:
-          type: string
+          type: number
           default: false
           description: |+ 
              The max records to return for the request. Default - 5000
