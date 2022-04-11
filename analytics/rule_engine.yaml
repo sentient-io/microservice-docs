@@ -22,7 +22,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Oct 30, 2020"
 paths:
-  /microservices/dataanalytics/ruleengine/v0/getresults:
+  /microservices/analytics/ruleengine/v0/getresults:
     post:
       tags:
         - v0.1.0
@@ -155,6 +155,11 @@ components:
           description: |+ 
              Default value false.First prompt of getting suggestion value will be true/false
           example: false
+        external_id:
+          type: number
+          description: |+ 
+             External Identifier
+          example: false
   securitySchemes:
     APIAuthorizer:
       type: apiKey
@@ -162,4 +167,3 @@ components:
       in: header
       x-amazon-apigateway-authtype: custom
       description: Authentication is done using the x-api-key in the request header
-         
