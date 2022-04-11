@@ -1028,13 +1028,13 @@ components:
       type: object
       properties:
         offset:
-          type: number
+          type: string
           default: false
           description: |+ 
              Default 0. The offset of the record list ie the starting index
           example: 0
         limit:
-          type: number
+          type: string
           default: false
           description: |+ 
              The max records to return for the request. Default - 5000
