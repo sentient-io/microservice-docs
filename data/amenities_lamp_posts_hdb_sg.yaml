@@ -194,7 +194,7 @@ components:
                 relation:
                   type: string
                   example: eq
-                  description: Realtion between total counts and display result count.
+                  description: Relation between total counts and display result count.
                 value:
                   type: number
                   example: 1
