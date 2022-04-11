@@ -232,7 +232,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties:
+      properties: 
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 08, 2022
+              x-details: Data structure changed
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -240,7 +248,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized release
-              description: Latest Version
+              description: Old Version
         v0.1.0:
          type: array
          items:
@@ -248,7 +256,7 @@ components:
             - type: string
               example: Published Date - Mar 24, 2020
               x-details: Initial version release
-              description: Archived
+              description: Archived  
   securitySchemes:
     APIAuthorizer:
       type: apiKey
