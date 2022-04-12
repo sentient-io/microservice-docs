@@ -851,23 +851,6 @@ components:
                       bias = 0: Exclude recommended items that match the rest of the Rule
                       bias > 0: Boost recommended items that match the rest of the Rule by the bias value.
                     example: -1
-        date_range:
-          type: object
-          description: |+
-             Optional. Values for the before and after are strings in ISO 8601 format.
-          properties:
-              name:
-                type: string
-                description: The "name" identifies the property name to match.
-                example: eventTime
-              before:
-                type: string
-                description: The date range from 
-                example: 2015-09-15T11:28:45.114-07:00
-              after:
-                type: string
-                description: The date range to
-                example: 2015-08-15T11:28:45.114-07:00
         blacklist_items:
           type: array
           example: ["itemId1", "itemId2"]
@@ -937,23 +920,6 @@ components:
                   bias = 0: Exclude recommended items that match the rest of the Rule
                   bias > 0: Boost recommended items that match the rest of the Rule by the bias value.
                 example: -1
-        date_range:
-          type: object
-          description: |+
-             Optional. Values for the before and after are strings in ISO 8601 format.
-          properties:
-              name:
-                type: string
-                description: The "name" identifies the property name to match.
-                example: eventTime
-              before:
-                type: string
-                description: The date range from 
-                example: 2015-09-15T11:28:45.114-07:00
-              after:
-                type: string
-                description: The date range to
-                example: 2015-08-15T11:28:45.114-07:00
         blacklist_items:
           type: array
           example: ["itemId1", "itemId2"]
