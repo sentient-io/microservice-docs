@@ -798,6 +798,7 @@ components:
       type: object
       required:
         - engine_name
+        - item
       properties:
         engine_name:
           type: string
@@ -810,9 +811,9 @@ components:
           example: Book1
           default: true
           description: |+
-            Optional. It contains the unique item identifier
+            The id for items that correspond to the indicator name. May be a product-id, category-id, a tag-id, search term, location, anything that the event represents.
         item_bias:
-          type: string
+          type: number
           example: -1
           description: |+
             Optional. This tells the recommender to return items similar to this the item specified.
@@ -868,6 +869,7 @@ components:
       type: object
       required:
         - engine_name
+        - user
       properties:
         engine_name:
           type: string
@@ -979,6 +981,7 @@ components:
             The id for items that correspond to the indicator name. May be a product-id, category-id, a tag-id, search term, location, anything that the event represents.
         properties:
           type: object
+          description: You can define your items by providing additional properties
           properties:
             pagetitle:
               type: string
@@ -989,7 +992,7 @@ components:
         event_time:
           type: string
           default: true
-          example: "2022-01-19T21:02:49.228Z"
+          example: "2022-01-19T21:02:49.228Z" 
           description: |+
             The ISO8601 formatted string for the time the event occurred.
     getanalyticsinput:
