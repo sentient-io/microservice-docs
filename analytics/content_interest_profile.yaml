@@ -1087,7 +1087,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/pagedetailsinput'
         required: true
-  /microservices/analytics/ciprofile/v0/getexternalid:
+  /microservices/analytics/ciprofile/v0/getexternaliddetails:
     description: |+
         This API is used to get external id details
     post:
@@ -1785,17 +1785,27 @@ components:
               description: Latest Version
     input:
       type: object
+      required:
+        - idSite
       properties:
+        id_site:
+          type: number
+          default: true
+          example: 1
+          description: |+
+            The ID of the website we're tracking a visit/action for.
+            - can also specify a list of idSites comma separated, eg. id_site=1,4,5,6
+            - if you want to get data for all websites, set id_site=all
         limit:
           type: number
           default: false
           example: 10
-          description: The max records to return for the request. Default - 0, Max - 10000
+          description: Optional. The max records to return for the request. Default - 0, Max - 10000
         offset:
           type: number
           default: false
           example: 0
-          description: The offset of the record list ie the starting index . Default - 0
+          description: Optional. The offset of the record list ie the starting index . Default - 0
         filter:
           type: array
           default: false
@@ -1803,7 +1813,7 @@ components:
               type: object
           example: [{"match":{"content_ngrams":"solutions"}}]
           description: |+
-            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            Optional. Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
             * match_phrase
     pagedetailsinput:
