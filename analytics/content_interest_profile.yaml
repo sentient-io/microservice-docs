@@ -1906,7 +1906,7 @@ components:
         offset:
           type: number
           default: false
-          example: 1
+          example: 0
           description: |+
             Optional. By default, only the top 100 rows are returned.
             Set to -1 to return all rows.
