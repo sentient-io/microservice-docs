@@ -324,7 +324,6 @@ components:
     input:
       type: object
       required:
-        - model
         - image_base64
       properties:
         image_base64:
@@ -334,6 +333,13 @@ components:
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
             Input image file in base64 format.
+        model:
+          x-name: model
+          type: string
+          default: false
+          example: ntu
+          description: |+
+            Name of model.
         file_type:
           x-name: file_type
           type: string
