@@ -212,7 +212,7 @@ components:
               x-name: measurement
               type: array
               example: [{"entity":30 กิโลเมตร,"start":12,"end":18},{"entity":5 กม.,"start":1,"end":5}]
-              description: "distance in km found in the text string" 
+              description: "measurement units found in the text string" 
             person:
               x-name: person
               type: array
@@ -232,7 +232,7 @@ components:
               x-name: postal_code
               type: array
               example: [{"entity":10400,"start":15,"end":20}]
-              description: "zipcode  found in the text string" 
+              description: "postalcode found in the text string" 
 
         message:
           type: string
@@ -332,7 +332,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Mar 23, 2022
-              x-details: Updated version release v2.0, entity positions returned
+              x-details: Standardized all output parameters, added return entity positions  
               description: Latest Version
         v1.0.0:
          type: array
