@@ -100,6 +100,43 @@ paths:
             schema:
               $ref: '#/components/schemas/readditeminput'
         required: true
+  /microservices/analytics/recommendationengine/v0/deleteitem:
+    description: |+
+        This API is used to delete the event from recommendation engine
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/redeleteitemsuccess'
+              example: 
+                message: Successfully Deleted
+                status: Success
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/redeleteiteminput'
+        required: true
   /microservices/analytics/recommendationengine/v0/deleteevent:
     description: |+
         This API is used to delete the event from recommendation engine
@@ -538,6 +575,17 @@ components:
           type: string
           description: The status of the API call.
           example: Success
+    redeleteitemsuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Successfully Deleted
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
     redeleteeventsuccess:
       type: object
       properties:
@@ -935,7 +983,7 @@ components:
           example: false
           description: |+
              Optional. Its boolean asking to include the item that was part of the query as part of the results. Defaults to false.
-    redeleteeventinput:
+    redeleteiteminput:
       type: object
       required:
         - engine_name
@@ -954,6 +1002,31 @@ components:
           example: Page 15
           description: |+
             The id for items that correspond to the indicator name. May be a product-id, category-id, a tag-id, search term, location, anything that the event represents.
+        event_time:
+          type: string
+          default: true
+          example: "2022-01-19T21:02:49.228Z"
+          description: |+
+            The ISO8601 formatted string for the time the event occurred.
+    redeleteeventinput:
+      type: object
+      required:
+        - engine_name
+        - user
+        - event_time
+      properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: sentient engine
+        user:
+          type: string
+          default: true
+          example: User 15
+          description: |+
+            This is whatever string you use to identify a user.
         event_time:
           type: string
           default: true
