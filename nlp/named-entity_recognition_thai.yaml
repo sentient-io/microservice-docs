@@ -333,7 +333,7 @@ components:
             - type: string
               example: Published Date - Mar 23, 2022
               x-details: Standardized all output parameters, added return entity positions  
-              description: Latest Version
+              description: Standardized all output parameters, added return entity positions 
         v1.0.0:
          type: array
          items:
