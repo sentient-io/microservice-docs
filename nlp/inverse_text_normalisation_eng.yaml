@@ -266,7 +266,7 @@ components:
           x-name: datetime_normalised
           type: boolean
           default: False
-          example: falsetrue
+          example: false
           description: |+
             Normalize the datetime. Default is False.
         threshold:
