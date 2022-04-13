@@ -46,7 +46,7 @@ info:
   x-apidetailsdesc: |+
     Provides number of available lots within Singapore's Housing Development Board.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Feb 01, 2022"
