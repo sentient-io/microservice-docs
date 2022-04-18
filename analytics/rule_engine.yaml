@@ -3,8 +3,7 @@ info:
   title: Rule Engine
   description: |+
     This Analytics microservice is part of a business rule management system which executes a set of rules or condition in a runtime production environment. Such rules are used to process data and if any condition matches then it executes the corresponding actions. 
-
-This microservice only provides the inference (processing objects based on predefined rules), while the creation of the projects and objects and definition of rules is handled by a separate user-interface.
+    This microservice only provides the inference (processing objects based on predefined rules), while the creation of the projects and objects and definition of rules is handled by a separate user-interface.
   version: '0.1.0'
   x-subscribelink: rule_engine
   x-apitype: Subscription
