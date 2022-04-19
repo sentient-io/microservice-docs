@@ -226,6 +226,16 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Apr 19, 2022
+                x-details: New Inverse norm using BERT,introducing new parameter “output” in the response json, 
+                          3 optional input parameters text2digits_normalised,datetime_normalised and threshold.
+                description: New Inverse norm using BERT,introducing new parameter “output” in the response json,
+                            3 optional input parameters text2digits_normalised,datetime_normalised and threshold.
         v1.0.0:
           type: array
           items:
@@ -233,7 +243,7 @@ components:
               - type: string
                 example: Published Date - Oct 30, 2020
                 x-details: Standardizing Output JSON
-                description: Latest Version
+                description: Version 1 release
         v0.1.0:
           type: array
           items:
