@@ -256,28 +256,6 @@ components:
           example: apple said the project-financing fund was the first of its kind real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
           description: |+
             Input text
-
-        text2digits_normalised:
-          x-name: text2digits_normalised
-          type: boolean
-          default: False
-          example: false
-          description: |+
-            Convert digits(in words) to digits(in number). Default is False.
-        datetime_normalised:
-          x-name: datetime_normalised
-          type: boolean
-          default: False
-          example: false
-          description: |+
-            Normalize the datetime. Default is False.
-        threshold:
-          x-name: threshold
-          type: integer
-          default: False
-          example: 3000
-          description: |+
-            Set a threshold for text2digits. Only convert number lower than the threshold. Default is 0.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
