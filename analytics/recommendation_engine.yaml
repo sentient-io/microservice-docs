@@ -24,7 +24,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Oct 30, 2020"
+  description: "Published Date - Apr 20, 2022"
 paths:
   /microservices/analytics/recommendationengine/v0/addevent:
     description: |+
