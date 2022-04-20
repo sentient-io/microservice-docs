@@ -67,7 +67,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Apr 01, 2022"
+  description: "Published Date - Apr 20, 2022"
 paths:
   /microservices/analytics/ciprofile/v0/getinterestprofile:
     description: |+
