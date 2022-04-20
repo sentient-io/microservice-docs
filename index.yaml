@@ -228,7 +228,7 @@ utility:
   pki_key_generator:
     title: PKI Key Generator
     versions:
-      0.1.0: 'pki_key_generator.yaml'
+      0.1.1: 'pki_key_generator.yaml'
   encryption_using_pki_key:
     title: Encryption using PKI Key
     versions:
