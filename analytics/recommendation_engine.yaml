@@ -316,7 +316,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/rebulkuploadeventsuccess'
               example: 
-                message: Partially Added
+                message: Successfully Added
                 status: Success
                 error_rows: []
         '419':
@@ -354,7 +354,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/rebulkuploaditemsuccess'
               example: 
-                message: Partially Added
+                message: Successfully Added
                 status: Success
                 error_rows: []
         '419':
@@ -603,7 +603,7 @@ components:
         message:
           type: string
           description: The message of the API call.
-          example: Partially Added
+          example: Successfully Added
         status:
           type: string
           description: The status of the API call.
@@ -618,7 +618,7 @@ components:
         message:
           type: string
           description: The message of the API call.
-          example: Partially Added
+          example: Successfully Added
         status:
           type: string
           description: The status of the API call.
@@ -779,7 +779,9 @@ components:
           format: binary
           default: true
           example: sample.csv
-          description: Maximum file size up to 10 MB.
+          description: |+ 
+            Maximum file size up to 10 MB.
+            csv file format should contains the specified column name - user, item and event_time
         engine_name:
           type: string
           default: true
@@ -804,7 +806,9 @@ components:
           format: binary
           default: true
           example: sample.wav
-          description: Maximum file size up to 10 MB.
+          description: |+
+            Maximum file size up to 10 MB.
+            csv file format should contains the specified column name - Properties of the field name,and event_time
         engine_name:
           type: string
           default: true
