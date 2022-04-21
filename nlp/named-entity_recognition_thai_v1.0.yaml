@@ -307,6 +307,14 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 21, 2022
+              x-details: Standardized all output parameters, added return entity positions  
+              description: Standardized all output parameters, added return entity positions 
         v1.0.0:
          type: array
          items:
@@ -314,7 +322,7 @@ components:
             - type: string
               example: Published Date - Sep 30, 2020
               x-details: Updated version release v1.0
-              description: Latest Version
+              description: Version 1 release
         v0.1.0:
          type: array
          items:
