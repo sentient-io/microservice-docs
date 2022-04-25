@@ -898,7 +898,7 @@ components:
                     description: The "values" provide a list of values that the properties of the recommended items are matched against.
                     example: ["series", "mini-series"]
                   bias:
-                    type: string
+                    type: number
                     description: |+
                       bias = -1: Include recommended items that match the rest of the Rule
                       bias = 0: Exclude recommended items that match the rest of the Rule
@@ -968,7 +968,7 @@ components:
                 description: The "values" provide a list of values that the properties of the recommended items are matched against.
                 example: ["series", "mini-series"]
               bias:
-                type: string
+                type: number
                 description: |+
                   bias = -1: Include recommended items that match the rest of the Rule
                   bias = 0: Exclude recommended items that match the rest of the Rule
