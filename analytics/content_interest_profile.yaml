@@ -64,7 +64,7 @@ info:
     Upon subscription, a javascript is send to the user to place it within the web page. This will capture the web page traffic and auto profile the content as well the user. If required user can also pass in user ID in order to identify the user using the external_id field.
     It would address English language texts only.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Apr 20, 2022"
