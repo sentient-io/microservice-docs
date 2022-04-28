@@ -26,6 +26,43 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Apr 20, 2022"
 paths:
+  /microservices/analytics/recommendationengine/v0/addengine:
+    description: |+
+        This API is used to add the event to recommendation engine
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/readdenginesuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/readdengineinput'
+        required: true
   /microservices/analytics/recommendationengine/v0/addevent:
     description: |+
         This API is used to add the event to recommendation engine
@@ -99,6 +136,43 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/readditeminput'
+        required: true
+  /microservices/analytics/recommendationengine/v0/deleteengine:
+    description: |+
+        This API is used to add the event to recommendation engine
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/redeleteenginesuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/redeleteengineinput'
         required: true
   /microservices/analytics/recommendationengine/v0/deleteitem:
     description: |+
@@ -456,6 +530,28 @@ paths:
         required: true
 components:
   schemas:
+    readdenginesuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Engine Created Successfully 
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+    redeleteenginesuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Successfully Created
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
     getanalyticssuccess:
       type: object
       properties:
@@ -1093,6 +1189,38 @@ components:
           description: |+ 
              The max records to return for the request. Default - 5000
           example: 10
+    redeleteengineinput:
+      type: object
+      required:
+        - engine_name
+      properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: sentient engine
+    readdengineinput:
+      type: object
+      required:
+        - engine_name
+        - indicators
+      properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: sentient engine
+        indicators:
+          type: array
+          default: true
+          description: |+ 
+             Recommendation engine name
+          example: ["pagename","pagename1"]
+          items:
+            oneOf:
+              - type: object
     readdeventinput:
       type: object
       required:
