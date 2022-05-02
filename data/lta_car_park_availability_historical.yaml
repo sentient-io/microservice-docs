@@ -445,8 +445,8 @@ components:
           default: false
           example: 0
           description: |+
-          The offset of the record list ie the starting index       
-          Negative values or non numeric values should return Default 10 values.
+              The offset of the record list ie the starting index       
+              Negative values or non numeric values should return Default 10 values.
         aggregation:
           type: boolean
           default: false
