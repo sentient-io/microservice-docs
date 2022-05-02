@@ -245,13 +245,13 @@ components:
     input:
       type: object
       required:
-        - csvfile
+        - filePath
       properties:
-        csvfile:
+        filePath:
           type: string
           format: binary
-          default: true
           example: sample.csv
+          default: true
           description: The file object.
   securitySchemes:
     APIAuthorizer:
