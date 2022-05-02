@@ -111,7 +111,7 @@ components:
       properties:
         results:
           type: object
-          example: [{key:value}]
+          example: { "<Json": "Object>" }
           description: list of json objects
           properties: 
             url: 
