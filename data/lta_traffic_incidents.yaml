@@ -386,11 +386,14 @@ components:
           description: |+ 
               The max records to return for the request. Default - 10, Max - 10000.
               If aggregation is enabled we can set limit Default - 0, Max - 10000.
+              Negative values or non numeric values should return Default 10 results.
         offset:
           type: number
           default: false
           example: 0
-          description: The offset of the record list ie the starting index 
+          description: |+
+              The offset of the record list ie the starting index.
+              Negative values or non numeric values should return Default 10 results.
         aggregation:
           type: boolean
           default: false
