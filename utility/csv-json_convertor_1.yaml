@@ -24,12 +24,12 @@ info:
   x-apidetailsdesc: |+
     Converts CSV file to JSON format.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 02, 2022"
+  description: "Published Date - Jan 17, 2022"
 paths:
-  /microservices/utility/csvtojson/v2/getresults:
+  /microservices/utility/csvtojson/v1.0/getresults:
     post:
       tags:
         - v0.1.0
@@ -209,14 +209,6 @@ components:
     versions:
       type: object
       properties: 
-        v2.0.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - May 02, 2022
-              x-details: Input parameter changed to standard.   
-              description: Latest Version        
         v0.1.0:
          type: array
          items:
@@ -224,7 +216,7 @@ components:
             - type: string
               example: Published Date - Jan 17, 2022
               x-details: On Prem Setup Added   
-              description: Previous Version          
+              description: Latest Version          
         v0.0.1:
          type: array
          items:
