@@ -3,6 +3,7 @@ info:
   title: JSON-CSV Convertor
   description: |+
     This Utility microservice converts the input JSON file to CSV file. It will convert nested json upto key and value should be in dictionary format.
+    The size of your file should **not exceed 3.5 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
     - For users who would like to combine data into useful spreadsheets for others to analyze, update, or refer to. This microservice can convert a collection of JSON into CSV spreadsheets like Google Sheets or Excel to analyze data without programming.
