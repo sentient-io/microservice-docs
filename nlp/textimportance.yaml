@@ -144,15 +144,15 @@ components:
                       bowler and the only one still playing at the time.
                   items:
                     properties:
-                      description: TO FILL MANUALLY
+                      description: Individual objects in textOutput
                       example: ' '
                       properties:
                         score:
-                          description: How important the text is
+                          description: How important the sentence is in given text according to the Model.
                           example: 0.5730226756621493
                           type: float
                         sentence:
-                          description: A sentence in text provided
+                          description: A sentence in text input provided.
                           example: A right-arm leg spinner, he is widely considered as one of
                             the greatest bowlers in cricket history, and in 2000 he was selected
                             by a panel of cricket experts as one of five Wisden Cricketers of
@@ -267,7 +267,7 @@ components:
             oneOf:
               - type: string
                 example: Published Date - May 02, 2022
-                description: TO FILL MANUALLY     
+                description: "Initial version of API."    
     input:
       type: object
       required:
