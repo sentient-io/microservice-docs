@@ -286,7 +286,7 @@ utility:
     title: JSON-CSV Convertor
     versions:
       2.0.0: 'json-csv_convertor.yaml'
-      0.1.0: 'json-csv_convertor_1.yaml'
+      1.0.0: 'json-csv_convertor_1.yaml'
   csv-json_convertor:
     title: CSV-JSON Convertor
     versions:
