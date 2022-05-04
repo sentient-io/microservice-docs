@@ -1,9 +1,8 @@
-
 openapi: 3.0.1
 info:
-  title: Machine Translation System
+  title: machine_translation_system
   description: |+
-    A machine learning translation system supporting four official languages in Singapore(English, Malay, Chinese, Tamil) and supports 7 language pairs ie:
+    A machine learning translation system supporting four official language pairs in Singapore(English, Malay, Chinese, Tamil) and supports 7 language pairs ie:
       1. English - Chinese
       2. English - Tamil
       3. Chinese - English
@@ -11,7 +10,7 @@ info:
       5. Tamil - English
       6. Malay - English
       7. English - Malay
-  version: v0.1.0
+  version: v0.1.1
   x-additionalinfo: |+
     Suggested usecases: It can be used to translate text for any applications, and can be augmented to internationalize
     with existing NLP microservices provided by sentient.io.
@@ -19,13 +18,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
-- name: "v0.1.0"
-  description: "Published Date - April 07, 2022"
+- name: "v0.1.1"
+  description: "Published Date - May 02, 2022"
 paths:
   /microservices/nlp/translate/v0/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v0.1.1
       responses:
         '200':
           description: success response
@@ -35,7 +34,12 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results: 
-                  translation_text: "\u65E9\u4E0A\u597D"
+                  message: Successfully Processed
+                  results:
+                    translation_text: Di hari Rabu, petugas imigrasi yang paling khusus telah di-izinkan
+                      keluar dari rumah selama 12 bulan, lebih jauh dari rumah mereka akan diinformasikan
+                      kepada orang-orang yang mungkin telah diinformasikan pada hari Selasa,
+                  status: Success
 
                 message: Successfully Processed
                 status: Success
@@ -111,9 +115,24 @@ components:
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties: 
-            translation_text:
-              description: Translated text in target language
-              example: "\u65E9\u4E0A\u597D"
+            message:
+              description: Status of API call and indicated whether it's succesfully processed, whether any invalid input or errors exist.
+              example: Successfully Processed
+              type: string
+            results:
+              description: The results
+              example: ' '
+              properties:
+                translation_text:
+                  description: Text which is translated in target language
+                  example: Di hari Rabu, petugas imigrasi yang paling khusus telah di-izinkan
+                    keluar dari rumah selama 12 bulan, lebih jauh dari rumah mereka akan diinformasikan
+                    kepada orang-orang yang mungkin telah diinformasikan pada hari Selasa,
+                  type: string
+              type: object
+            status:
+              description: Indicates whether API call is succesful or not.
+              example: Success
               type: string
 
         message:
@@ -209,45 +228,45 @@ components:
     versions:
       type: object
       properties: 
-        v0.1.0:
+        v0.1.1:
           type: array
           items:
             oneOf:
               - type: string
-                example: Published Date - April 07, 2022
-                description: Machine Translation System     
+                example: Published Date - May 2, 2022
+                description: Fixed bugs raised related to limit not being set and added error handling logic.
     input:
       type: object
       required:
-      
-        - text
       
         - source
       
         - target
       
+        - text
+      
       properties:
-        text:
-          x-name: text
-          type: string
-          default: True
-          example: Good Morning
-          description: |+
-            The input text to be passed
         source:
           x-name: source
           type: string
           default: True
-          example: en
+          example: zh
           description: |+
             The source language of text
         target:
           x-name: target
           type: string
           default: True
-          example: zh
+          example: ms
           description: |+
             The target language for which text to be translated
+        text:
+          x-name: text
+          type: string
+          default: True
+          example: 新加坡 - 截至周三（2 月 19 日）中午，即该计划启动 12 小时后，移民官员已发出 77 份居家通知。这些通知是发给新加坡居民、长期准证持有者和曾到大陆旅行的外国工人的周四，移民和关卡局（ICA）在回答询问时表示，中国在过去 14 天内。来自湖北省的旅客被排除在该计划之外，因为他们已被隔离。收到新通知的人于周二晚上 11.59，14 天不能离开家。这比休假 (LOA) 更严格，后者允许人们短暂离开家以获取必需品。 LOA 将不再签发。那些不遵守居家期间的人可能会根据《传染病法》被起诉，ICA 警告说。他们可能被处以最高 10,000 美元的罚款或最长 6 个月的监禁，或两者兼施。初犯。对于随后的犯罪，最高可达 20,000 美元，最长可达一年。
+          description: |+
+            The input text to be passed for translation
         
         
   securitySchemes:
