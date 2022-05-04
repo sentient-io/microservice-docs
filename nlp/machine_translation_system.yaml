@@ -36,9 +36,7 @@ paths:
                 results: 
                   message: Successfully Processed
                   results:
-                    translation_text: Di hari Rabu, petugas imigrasi yang paling khusus telah di-izinkan
-                      keluar dari rumah selama 12 bulan, lebih jauh dari rumah mereka akan diinformasikan
-                      kepada orang-orang yang mungkin telah diinformasikan pada hari Selasa,
+                    translation_text: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
                   status: Success
 
                 message: Successfully Processed
@@ -125,9 +123,7 @@ components:
               properties:
                 translation_text:
                   description: Text which is translated in target language
-                  example: Di hari Rabu, petugas imigrasi yang paling khusus telah di-izinkan
-                    keluar dari rumah selama 12 bulan, lebih jauh dari rumah mereka akan diinformasikan
-                    kepada orang-orang yang mungkin telah diinformasikan pada hari Selasa,
+                  example: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
                   type: string
               type: object
             status:
@@ -250,21 +246,21 @@ components:
           x-name: source
           type: string
           default: True
-          example: zh
+          example: en
           description: |+
             The source language of text
         target:
           x-name: target
           type: string
           default: True
-          example: ms
+          example: zh
           description: |+
             The target language for which text to be translated
         text:
           x-name: text
           type: string
           default: True
-          example: 新加坡 - 截至周三（2 月 19 日）中午，即该计划启动 12 小时后，移民官员已发出 77 份居家通知。这些通知是发给新加坡居民、长期准证持有者和曾到大陆旅行的外国工人的周四，移民和关卡局（ICA）在回答询问时表示，中国在过去 14 天内。来自湖北省的旅客被排除在该计划之外，因为他们已被隔离。收到新通知的人于周二晚上 11.59，14 天不能离开家。这比休假 (LOA) 更严格，后者允许人们短暂离开家以获取必需品。 LOA 将不再签发。那些不遵守居家期间的人可能会根据《传染病法》被起诉，ICA 警告说。他们可能被处以最高 10,000 美元的罚款或最长 6 个月的监禁，或两者兼施。初犯。对于随后的犯罪，最高可达 20,000 美元，最长可达一年。
+          example: More than 950,000 travellers used the land checkpoints between Singapore and Malaysia over the long weekend.More travellers left Singapore - 491,400 - compared with 462,400 arrivals into the country over five days from last Friday (April 29) to Tuesday.
           description: |+
             The input text to be passed for translation
         
