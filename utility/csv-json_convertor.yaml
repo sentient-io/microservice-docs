@@ -217,7 +217,7 @@ components:
               example: Published Date - May 02, 2022
               x-details: Input parameter changed to standard.   
               description: Latest Version        
-        v0.1.0:
+        v1.0.0:
          type: array
          items:
           oneOf:
