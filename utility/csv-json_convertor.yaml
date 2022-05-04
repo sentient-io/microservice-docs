@@ -43,7 +43,6 @@ paths:
               example:
                 message: Successfully Converted and stored in Google Cloud Storage
                 results:
-                  jsondata: []
                   url: https://storage.googleapis.com/json_csv/data.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-bigquery%40sentient-231509.iam.gserviceaccount.com%2F20200617%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20200617T125854Z&X-Goog-Expires=6000&X-Goog-SignedHeaders=host&X-Goog-Signature=b66fb7b978a78d702e099b44ce7575de8a29834c23a6d365368022d7b1ab815e154100aa1648650e8b9ff9c038f0a61ac7d6d22b04195f18dfbf365e2050a7cbb29d9f87eb860fbe36f10573c941856341fa3117bbfee92bbd7e189ceca0a62fa8b78cb62647c4fc47e60e972c7c107088698924a7217571fee1900888c987fd80bdc078d4d765f6a4a65f4ff792c42344e07caf39b73961bee0d4b83407fda54e0d6b90fe528f62908ea54e3b07d8fba8098859330d6e9cc698f6cede40bdc05f1ec4efb29f1afc93572de52fe531d3b67fbdd035844a97b310e16eec17a4edeabdabb076b29bee9b1d44e0b90951c070046534f660d2fb291a1e1bae98ddc3
                 status: Success 
         '401':
@@ -122,10 +121,6 @@ components:
           example: { "<Json": "Object>" }
           description: List of items
           properties:
-            jsondata:
-              type: string
-              example: [{"emp_name":"xxxxx","email":"xxxxx@sentient.io","job":"developer"}]
-              description: converted json object
             url: 
               type: string
               description: converted json object
