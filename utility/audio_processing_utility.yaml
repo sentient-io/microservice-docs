@@ -8,7 +8,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Build services related to sound engineering or audio editing as WAV is the format of choice for video and audio editors. WAV files are lossless compared to the lossy MP3 file format, meaning that WAV audio is a high-quality uncompressed file that is excellent for studio recordings and audio mastering.
-  version: '0.1.0'
+  version: '0.1.1'
   x-subscribelink: audio_format_convertor
   x-apitype: small file
   x-apitypedescription: |+
@@ -26,13 +26,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Mar 24, 2020"
+- name: "v0.1.1"
+  description: "Published Date - Feb 10, 2022"
 paths:
   /microservices/utility/audioprocessing/v0.1/getresults:
     post:
       tags:
-        - v0.1.0
+        - v0.1.1
       responses:
         '200':
           description: Ok
