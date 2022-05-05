@@ -295,7 +295,7 @@ utility:
   audio_processing_utility:
     title: Audio Format Convertor
     versions:
-      0.1.0: 'audio_processing_utility.yaml'
+      0.1.1: 'audio_processing_utility.yaml'
   video-to-image_convertor:
     title: Video-to-Image Convertor
     versions:
