@@ -1,19 +1,19 @@
-
 openapi: 3.0.1
 info:
   title: Sentence Ranking
   description: |+
-    This NLP microservice given a set of sentences in a text document,  rank each sentence by their importance/relevance after pre-processing.
+    Takes in a set of sentences in a text document and rank each sentence by their importance/relevancy 
   version: v0.1.0
   x-additionalinfo: |+
-   Suggested usecases: It can be used in text analytics to understanding importance and get a textual importance of any provided document.
+    Suggested usecases: It can be used in text analytics to understanding importance and get a textual importance of any provided document.
+  x-subscribelink: text_importance_model
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - March 30, 2022"
+  description: "Published Date - May 02, 2022"
 paths:
-  /microservices/nlp/textimportance/v0/getpredictions:
+  /microservices/nlp/sentenceranking/v0/getpredictions:
     post:
       tags:
         - v0.1.0
@@ -26,26 +26,31 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results: 
-                  textoutput:
-                  - a right - arm leg spinner , he is widely considered as one of the greatest bowlers
-                    in cricket history , and in 2000 he was selected by a panel of cricket experts as
-                    one of five wisden cricketers of the century , the only specialist bowler and the
-                    only one still playing at the time .
-                  - warne 's 708 test wickets was the record for the most wickets taken by any bowler
-                    in test cricket until 2007 .
-                  - a useful lower - order batsman , warne scored more than 3,000 test runs , with a
-                    highest score of 99 , and remains the highest test runscorer without a century.[5
-                    ] as well as playing internationally , warne played domestic cricket for his home
-                    state of victoria and english domestic cricket for hampshire .
-                  - in 2007 , warne was named in australia 's greatest ever odi team .
-                  - in the 150th anniversary of the wisden cricketers ' almanack , warne was named in
-                    an all - time test world xi.[6 ] in 2012 , he was also inducted into the cricket
-                    hall of fame by cricket australia.[7 ] in 2013 , warne was inducted into the icc
-                    cricket hall of fame.[8 ] in february 2018 , the rajasthan royals appointed warne
-                    as their team mentor for the ipl 2018.[9 ] his career was plagued by scandals off
-                    the field , including a ban from cricket for testing positive for a prohibited substance
-                    , charges of bringing the game into disrepute with the john the bookmaker controversy
-                    and sexual indiscretions .
+                  message: Successfully Processed
+                  results:
+                    textoutput:
+                    - score: 0.5730226756621493
+                      sentence: A right-arm leg spinner, he is widely considered as one of the greatest
+                        bowlers in cricket history, and in 2000 he was selected by a panel of cricket
+                        experts as one of five Wisden Cricketers of the Century, the only specialist
+                        bowler and the only one still playing at the time.
+                    - score: 0.8634419098743766
+                      sentence: Warne's 708 Test wickets was the record for the most wickets taken by
+                        any bowler in Test cricket until 2007.
+                    - score: 0.5932291458244913
+                      sentence: As well as playing internationally, Warne played domestic cricket for
+                        his home state of Victoria and English domestic cricket for Hampshire.
+                    - score: 0.8016876316725924
+                      sentence: In 2007, Warne was named in Australia's greatest ever ODI team.
+                    - score: 0.753433672617181
+                      sentence: In the 150th anniversary of the Wisden Cricketers' Almanack, Warne was
+                        named in an all-time Test World XI.
+                    - score: 1.0
+                      sentence: In 2012, he was also inducted into the Cricket Hall of Fame by Cricket
+                        Australia.
+                    - score: 0.7101315532171941
+                      sentence: In 2013, Warne was inducted into the ICC Cricket Hall of Fame.[8]
+                  status: Success
 
                 message: Successfully Processed
                 status: Success
@@ -121,20 +126,47 @@ components:
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties: 
-            textoutput:
-              description: Returns a list of sentences ranked based on the relevance in the document. 
-              example: a right - arm leg spinner , he is widely considered as one of the greatest
-                bowlers in cricket history , and in 2000 he was selected by a panel of cricket
-                experts as one of five wisden cricketers of the century , the only specialist
-                bowler and the only one still playing at the time .
-              items:
-                description: Returns a list of sentences ranked based on relevance in the document. 
-                example: a right - arm leg spinner , he is widely considered as one of the greatest
-                  bowlers in cricket history , and in 2000 he was selected by a panel of cricket
-                  experts as one of five wisden cricketers of the century , the only specialist
-                  bowler and the only one still playing at the time .
-                type: string
-              type: array
+            message:
+              description: Response message
+              example: Successfully Processed
+              type: string
+            results:
+              description: Json Object of returned results
+              example: ' '
+              properties:
+                textoutput:
+                  description: An array of important sentences ranked by output.
+                  example:
+                    score: 0.5730226756621493
+                    sentence: A right-arm leg spinner, he is widely considered as one of the greatest
+                      bowlers in cricket history, and in 2000 he was selected by a panel of cricket
+                      experts as one of five Wisden Cricketers of the Century, the only specialist
+                      bowler and the only one still playing at the time.
+                  items:
+                    properties:
+                      description: Individual objects in textOutput
+                      example: ' '
+                      properties:
+                        score:
+                          description: How important the sentence is in given text according to the Model.
+                          example: 0.5730226756621493
+                          type: float
+                        sentence:
+                          description: A sentence in text input provided.
+                          example: A right-arm leg spinner, he is widely considered as one of
+                            the greatest bowlers in cricket history, and in 2000 he was selected
+                            by a panel of cricket experts as one of five Wisden Cricketers of
+                            the Century, the only specialist bowler and the only one still playing
+                            at the time.
+                          type: string
+                      type: object
+                    type: object
+                  type: array
+              type: object
+            status:
+              description: API success call.
+              example: Success
+              type: string
 
         message:
           type: string
@@ -234,8 +266,8 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - March 30, 2022
-                description: Initial version release.     
+                example: Published Date - May 02, 2022
+                description: "Initial version of API."    
     input:
       type: object
       required:

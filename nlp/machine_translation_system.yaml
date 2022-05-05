@@ -1,9 +1,8 @@
-
 openapi: 3.0.1
 info:
   title: Machine Translation System
   description: |+
-    A machine learning translation system supporting four official languages in Singapore(English, Malay, Chinese, Tamil) and supports 7 language pairs ie:
+    A machine learning translation system supporting four official language pairs in Singapore(English, Malay, Chinese, Tamil) and supports 7 language pairs ie:
       1. English - Chinese
       2. English - Tamil
       3. Chinese - English
@@ -20,7 +19,7 @@ servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - April 07, 2022"
+  description: "Published Date - May 02, 2022"
 paths:
   /microservices/nlp/translate/v0/getpredictions:
     post:
@@ -35,7 +34,10 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results: 
-                  translation_text: "\u65E9\u4E0A\u597D"
+                  message: Successfully Processed
+                  results:
+                    translation_text: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
+                  status: Success
 
                 message: Successfully Processed
                 status: Success
@@ -111,9 +113,22 @@ components:
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties: 
-            translation_text:
-              description: Translated text in target language
-              example: "\u65E9\u4E0A\u597D"
+            message:
+              description: Status of API call and indicated whether it's succesfully processed, whether any invalid input or errors exist.
+              example: Successfully Processed
+              type: string
+            results:
+              description: The results
+              example: ' '
+              properties:
+                translation_text:
+                  description: Text which is translated in target language
+                  example: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
+                  type: string
+              type: object
+            status:
+              description: Indicates whether API call is succesful or not.
+              example: Success
               type: string
 
         message:
@@ -214,26 +229,19 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - April 07, 2022
-                description: Machine Translation System     
+                example: Published Date - May 2, 2022
+                description: Initial version with fixes for bugs raised related to limit not being set and added error handling logic.
     input:
       type: object
       required:
-      
-        - text
       
         - source
       
         - target
       
+        - text
+      
       properties:
-        text:
-          x-name: text
-          type: string
-          default: True
-          example: Good Morning
-          description: |+
-            The input text to be passed
         source:
           x-name: source
           type: string
@@ -248,6 +256,13 @@ components:
           example: zh
           description: |+
             The target language for which text to be translated
+        text:
+          x-name: text
+          type: string
+          default: True
+          example: More than 950,000 travellers used the land checkpoints between Singapore and Malaysia over the long weekend.More travellers left Singapore - 491,400 - compared with 462,400 arrivals into the country over five days from last Friday (April 29) to Tuesday.
+          description: |+
+            The input text to be passed for translation
         
         
   securitySchemes:
