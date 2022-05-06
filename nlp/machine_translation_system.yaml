@@ -119,7 +119,7 @@ components:
               type: string
             results:
               description: The results
-              example: ' '
+              example: { "<Json": "Object>" }
               properties:
                 translation_text:
                   description: Text which is translated in target language
