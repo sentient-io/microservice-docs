@@ -49,11 +49,11 @@ paths:
               example:
                 message: Successfully Processed
                 results:
-                  ordinal_number:
+                  ordinal:
                   - entity: 30弾
                     start: 0
                     end: 3
-                  doctrine_method_other:
+                  other:
                   - entity: 険所コホ特室りょ
                     start: 16
                     end: 24
@@ -70,33 +70,31 @@ paths:
                   - entity: ナユ
                     start: 98
                     end: 100
-                  product_other:
+                  artefact:
                   - entity: 都合ヘラアニ限
                     start: 26
                     end: 33
                   - entity: 議帳
                     start: 104
                     end: 106
-                  countx_other:
+                  quantity:
                   - entity: 2稿
                     start: 33
                     end: 35
                   - entity: 8口
                     start: 79
                     end: 81
-                  numex_other:
-                  - entity: 百経
-                    start: 92
-                    end: 94
-                  n_event:
                   - entity: 受1
                     start: 108
                     end: 110
-                  age:
+                  measurement:
+                  - entity: 百経
+                    start: 92
+                    end: 94
                   - entity: '56'
                     start: 130
                     end: 132
-                  show_organization:
+                  organization:
                   - entity: 左成相態
                     start: 172
                     end: 176
@@ -173,17 +171,9 @@ components:
           type: object
           example: { "<Json": "Object>" }
           description: Json Object of returned results
-          properties:
-            age:
-              x-name: age
-              type: array
-              example: 
-                - entity: '56'
-                  start: 130
-                  end: 132
-              description: "age details found in the text string"                
-            countx_other:
-              x-name: countx_other
+          properties:              
+            quantity:
+              x-name: quantity
               type: array
               example: 
                 - entity: 2稿
@@ -192,33 +182,25 @@ components:
                 - entity: 8口
                   start: 79
                   end: 81
-              description: "countx other details found in the text string"                   
-            doctrine_method_other:
-              x-name: doctrine_method_other
+              description: "quantity details found in the text string"                   
+            other:
+              x-name: other
               type: array
               example: 
                 - entity: 険所コホ特室りょ
                   start: 16
                   end: 24
-              description: "doctrine method in the text string"                   
-            n_event:
-              x-name: n_event
-              type: array
-              example: 
-                - entity: 受1
-                  start: 108
-                  end: 110
-              description: "n_event in the text string"                   
-            numex_other:
-              x-name: numex_other
+              description: "other entities"                                    
+            measurement:
+              x-name: measurement
               type: array
               example: 
                 - entity: 百経
                   start: 92
                   end: 94
-              description: "numex_other details found in the text string"                   
-            ordinal_number:
-              x-name: ordinal_number
+              description: "measurement details found in the text string"                   
+            ordinal:
+              x-name: ordinal
               type: array
               example: 
                 - entity: 30弾
@@ -242,8 +224,8 @@ components:
                   start: 98
                   end: 100
               description: "person details found in the text string"                   
-            product_other:
-              x-name: product_other
+            artefact:
+              x-name: artefact
               type: array
               example: 
                 - entity: 都合ヘラアニ限
@@ -252,8 +234,9 @@ components:
                 - entity: 議帳
                   start: 104
                   end: 106
-              description: "product found in the text string"                   
-            show_organization:
+              description: "artefacts found in the text string"                   
+            organization:
+              x-name: organization
               type: array
               example: 
                 - entity: 左成相態
