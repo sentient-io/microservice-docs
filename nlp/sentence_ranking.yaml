@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Sentence Ranking
   description: |+
-    Takes in a set of sentences in a text document and rank each sentence by their importance/relevancy 
+    It takes in a set of sentences in text document and ranks sentences using page rank algorithm based on their importance. 
   version: v0.1.0
   x-additionalinfo: |+
     Suggested usecases: It can be used in text analytics to understanding importance and get a textual importance of any provided document.
@@ -121,53 +121,30 @@ components:
     success:
       type: object
       properties:
-        results:
+        results: 
           type: object
-          description: The result of the API call.
+          description: Json Object of returned results.
           example: { "<Json": "Object>" }
-          properties: 
-            message:
-              description: Response message
-              example: Successfully Processed
-              type: string
-            results:
-              description: Json Object of returned results
-              example: { "<Json": "Object>" }
-              properties:
-                textoutput:
-                  description: An array of important sentences ranked by output.
-                  example:
-                    score: 0.5730226756621493
-                    sentence: A right-arm leg spinner, he is widely considered as one of the greatest
-                      bowlers in cricket history, and in 2000 he was selected by a panel of cricket
-                      experts as one of five Wisden Cricketers of the Century, the only specialist
-                      bowler and the only one still playing at the time.
-                  items:
-                    properties:
-                      description: Individual objects in textOutput
-                      example: ' '
-                      properties:
-                        score:
-                          description: How important the sentence is in given text according to the Model.
-                          example: 0.5730226756621493
-                          type: float
-                        sentence:
-                          description: A sentence in text input provided.
-                          example: A right-arm leg spinner, he is widely considered as one of
-                            the greatest bowlers in cricket history, and in 2000 he was selected
-                            by a panel of cricket experts as one of five Wisden Cricketers of
-                            the Century, the only specialist bowler and the only one still playing
-                            at the time.
-                          type: string
-                      type: object
-                    type: object
-                  type: array
-              type: object
-            status:
-              description: API success call.
-              example: Success
-              type: string
-
+          properties:
+            textoutput:
+              type: array
+              description: An array of important sentences ranked by output.
+              example:
+                score: 0.5730226756621493
+                sentence: A right-arm leg spinner, he is widely considered as one of the greatest
+                  bowlers in cricket history, and in 2000 he was selected by a panel of cricket
+                  experts as one of five Wisden Cricketers of the Century, the only specialist
+                  bowler and the only one still playing at the time.
+              items:
+                properties:
+                  score:
+                    description: How important the sentence is in given text according to the Model.
+                    example: 0.5730226756621493
+                    type: float
+                  sentence:
+                    description: A sentence in text input provided.
+                    example: A right-arm leg spinner, he is widely considered as one of the greatest bowlers in cricket history, and in 2000 he was selected by a panel of cricket experts as one of five Wisden Cricketers of the Century, the only specialist bowler and the only one still playing at the time.
+                    type: string
         message:
           type: string
           example: Successfully Processed
