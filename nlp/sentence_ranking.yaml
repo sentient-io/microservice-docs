@@ -132,7 +132,7 @@ components:
               type: string
             results:
               description: Json Object of returned results
-              example: ' '
+              example: { "<Json": "Object>" }
               properties:
                 textoutput:
                   description: An array of important sentences ranked by output.
