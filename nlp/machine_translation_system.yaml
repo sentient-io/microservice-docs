@@ -109,27 +109,14 @@ components:
       type: object
       properties:
         results:
-          type: object
           description: The result of the API call.
           example: { "<Json": "Object>" }
-          properties: 
-            message:
-              description: Status of API call and indicated whether it's succesfully processed, whether any invalid input or errors exist.
-              example: Successfully Processed
+          properties:
+            translation_text:
+              description: Text which is translated in target language
+              example: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
               type: string
-            results:
-              description: The results
-              example: { "<Json": "Object>" }
-              properties:
-                translation_text:
-                  description: Text which is translated in target language
-                  example: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
-                  type: string
-              type: object
-            status:
-              description: Indicates whether API call is succesful or not.
-              example: Success
-              type: string
+          type: object
 
         message:
           type: string
