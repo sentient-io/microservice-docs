@@ -26,32 +26,28 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results: 
-                  message: Successfully Processed
-                  results:
-                    textoutput:
-                    - score: 0.5730226756621493
-                      sentence: A right-arm leg spinner, he is widely considered as one of the greatest
-                        bowlers in cricket history, and in 2000 he was selected by a panel of cricket
-                        experts as one of five Wisden Cricketers of the Century, the only specialist
-                        bowler and the only one still playing at the time.
-                    - score: 0.8634419098743766
-                      sentence: Warne's 708 Test wickets was the record for the most wickets taken by
-                        any bowler in Test cricket until 2007.
-                    - score: 0.5932291458244913
-                      sentence: As well as playing internationally, Warne played domestic cricket for
-                        his home state of Victoria and English domestic cricket for Hampshire.
-                    - score: 0.8016876316725924
-                      sentence: In 2007, Warne was named in Australia's greatest ever ODI team.
-                    - score: 0.753433672617181
-                      sentence: In the 150th anniversary of the Wisden Cricketers' Almanack, Warne was
-                        named in an all-time Test World XI.
-                    - score: 1.0
-                      sentence: In 2012, he was also inducted into the Cricket Hall of Fame by Cricket
-                        Australia.
-                    - score: 0.7101315532171941
-                      sentence: In 2013, Warne was inducted into the ICC Cricket Hall of Fame.[8]
-                  status: Success
-
+                  textoutput:
+                  - score: 0.5730226756621493
+                    sentence: A right-arm leg spinner, he is widely considered as one of the greatest
+                      bowlers in cricket history, and in 2000 he was selected by a panel of cricket
+                      experts as one of five Wisden Cricketers of the Century, the only specialist
+                      bowler and the only one still playing at the time.
+                  - score: 0.8634419098743766
+                    sentence: Warne's 708 Test wickets was the record for the most wickets taken by
+                      any bowler in Test cricket until 2007.
+                  - score: 0.5932291458244913
+                    sentence: As well as playing internationally, Warne played domestic cricket for
+                      his home state of Victoria and English domestic cricket for Hampshire.
+                  - score: 0.8016876316725924
+                    sentence: In 2007, Warne was named in Australia's greatest ever ODI team.
+                  - score: 0.753433672617181
+                    sentence: In the 150th anniversary of the Wisden Cricketers' Almanack, Warne was
+                      named in an all-time Test World XI.
+                  - score: 1.0
+                    sentence: In 2012, he was also inducted into the Cricket Hall of Fame by Cricket
+                      Australia.
+                  - score: 0.7101315532171941
+                    sentence: In 2013, Warne was inducted into the ICC Cricket Hall of Fame.[8]
                 message: Successfully Processed
                 status: Success
         '401':
