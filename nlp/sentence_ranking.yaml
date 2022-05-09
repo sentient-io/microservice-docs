@@ -2,7 +2,9 @@ openapi: 3.0.1
 info:
   title: Sentence Ranking
   description: |+
-    It takes in a set of sentences in text document and ranks sentences using page rank algorithm based on their importance. 
+    It takes in a set of sentences in text documnt and ranks sentences using page rank algorithm based on their importance. 
+
+    Do ensure that your text is within **5000 characters**.
   version: v0.1.0
   x-additionalinfo: |+
     Suggested usecases: It can be used in text analytics to understanding importance and get a textual importance of any provided document.
