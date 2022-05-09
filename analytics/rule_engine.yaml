@@ -119,48 +119,60 @@ components:
     input:
       type: object
       properties:
-        page_url:
-          type: string
-          default: true
-          description: |+ 
-            Page URL of getting suggestion
-          example: https://test.brivge.com/globalparts/create
-        time_interval:
-          type: number
-          default: true
-          description: |+ 
-            Time interval of getting suggestion value will be greater than or equal to 60000
-          example: 60000
-        selection_mode:
-          type: string
-          description: |+ 
-             Default value null. Selected mode of getting suggestion
-          example: Create/Modify Global parts on screen
-        upload:
-          type: number
-          description: |+ 
-             Default value 0. Upload of getting suggestion value will be greater than 0
-          example: 1
-        add_item:
-          type: number
-          description: |+ 
-             Default value 0. Add Item of getting suggestion value will be greater than 0
-          example: 1
-        edit_item:
-          type: number
-          description: |+ 
-             Default value 0. Edit item of getting suggestion value will be greater than 0
-          example: 1
-        first_prompt:
-          type: boolean
-          description: |+ 
-             Default value false.First prompt of getting suggestion value will be true/false
-          example: false
-        external_id:
-          type: string
-          description: |+ 
-             External Identifier
-          example: user2
+        event_history:
+          type: object
+          example:
+            page_url: https://test.brivge.com/globalparts/create
+            time_interval: 60000
+            selection_mode: Create/Modify Global parts on screen
+            upload: 1
+            add_item: 1
+            edit_item: 1
+            first_prompt: true/false
+            external_id: TH-SUPPLIER-001
+          properties:
+            page_url:
+              type: string
+              default: true
+              description: |+ 
+                Page URL of getting suggestion
+              example: https://test.brivge.com/globalparts/create
+            time_interval:
+              type: number
+              default: true
+              description: |+ 
+                Time interval of getting suggestion value will be greater than or equal to 60000
+              example: 60000
+            selection_mode:
+              type: string
+              description: |+ 
+                 Default value null. Selected mode of getting suggestion
+              example: Create/Modify Global parts on screen
+            upload:
+              type: number
+              description: |+ 
+                 Default value 0. Upload of getting suggestion value will be greater than 0
+              example: 1
+            add_item:
+              type: number
+              description: |+ 
+                 Default value 0. Add Item of getting suggestion value will be greater than 0
+              example: 1
+            edit_item:
+              type: number
+              description: |+ 
+                 Default value 0. Edit item of getting suggestion value will be greater than 0
+              example: 1
+            first_prompt:
+              type: boolean
+              description: |+ 
+                 Default value false.First prompt of getting suggestion value will be true/false
+              example: false
+            external_id:
+              type: string
+              description: |+ 
+                 External Identifier
+              example: TH-SUPPLIER-001
   securitySchemes:
     APIAuthorizer:
       type: apiKey
