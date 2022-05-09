@@ -8,7 +8,7 @@ info:
   version: v0.1.0
   x-additionalinfo: |+
     Suggested usecases: It can be used in text analytics to understanding importance and get a textual importance of any provided document.
-  x-subscribelink: text_importance_model
+  x-subscribelink: sentence_ranking
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
