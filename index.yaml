@@ -114,7 +114,7 @@ nlp:
   sentence_ranking:
     title: Sentence Ranking
     versions:
-      0.1.0: 'textimportance.yaml'
+      0.1.0: 'sentence_ranking.yaml'
   spacy_ner:
     title: spaCy NER
     versions:
