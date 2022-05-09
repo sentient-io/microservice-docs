@@ -2,7 +2,9 @@ openapi: 3.0.1
 info:
   title: Sentence Ranking
   description: |+
-    Takes in a set of sentences in a text document and rank each sentence by their importance/relevancy 
+    It takes in a set of sentences in text documnt and ranks sentences using page rank algorithm based on their importance. 
+
+    Do ensure that your text is within **5000 characters**.
   version: v0.1.0
   x-additionalinfo: |+
     Suggested usecases: It can be used in text analytics to understanding importance and get a textual importance of any provided document.
@@ -26,32 +28,28 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results: 
-                  message: Successfully Processed
-                  results:
-                    textoutput:
-                    - score: 0.5730226756621493
-                      sentence: A right-arm leg spinner, he is widely considered as one of the greatest
-                        bowlers in cricket history, and in 2000 he was selected by a panel of cricket
-                        experts as one of five Wisden Cricketers of the Century, the only specialist
-                        bowler and the only one still playing at the time.
-                    - score: 0.8634419098743766
-                      sentence: Warne's 708 Test wickets was the record for the most wickets taken by
-                        any bowler in Test cricket until 2007.
-                    - score: 0.5932291458244913
-                      sentence: As well as playing internationally, Warne played domestic cricket for
-                        his home state of Victoria and English domestic cricket for Hampshire.
-                    - score: 0.8016876316725924
-                      sentence: In 2007, Warne was named in Australia's greatest ever ODI team.
-                    - score: 0.753433672617181
-                      sentence: In the 150th anniversary of the Wisden Cricketers' Almanack, Warne was
-                        named in an all-time Test World XI.
-                    - score: 1.0
-                      sentence: In 2012, he was also inducted into the Cricket Hall of Fame by Cricket
-                        Australia.
-                    - score: 0.7101315532171941
-                      sentence: In 2013, Warne was inducted into the ICC Cricket Hall of Fame.[8]
-                  status: Success
-
+                  textoutput:
+                  - score: 0.5730226756621493
+                    sentence: A right-arm leg spinner, he is widely considered as one of the greatest
+                      bowlers in cricket history, and in 2000 he was selected by a panel of cricket
+                      experts as one of five Wisden Cricketers of the Century, the only specialist
+                      bowler and the only one still playing at the time.
+                  - score: 0.8634419098743766
+                    sentence: Warne's 708 Test wickets was the record for the most wickets taken by
+                      any bowler in Test cricket until 2007.
+                  - score: 0.5932291458244913
+                    sentence: As well as playing internationally, Warne played domestic cricket for
+                      his home state of Victoria and English domestic cricket for Hampshire.
+                  - score: 0.8016876316725924
+                    sentence: In 2007, Warne was named in Australia's greatest ever ODI team.
+                  - score: 0.753433672617181
+                    sentence: In the 150th anniversary of the Wisden Cricketers' Almanack, Warne was
+                      named in an all-time Test World XI.
+                  - score: 1.0
+                    sentence: In 2012, he was also inducted into the Cricket Hall of Fame by Cricket
+                      Australia.
+                  - score: 0.7101315532171941
+                    sentence: In 2013, Warne was inducted into the ICC Cricket Hall of Fame.[8]
                 message: Successfully Processed
                 status: Success
         '401':
@@ -121,53 +119,30 @@ components:
     success:
       type: object
       properties:
-        results:
+        results: 
           type: object
-          description: The result of the API call.
+          description: Json Object of returned results.
           example: { "<Json": "Object>" }
-          properties: 
-            message:
-              description: Response message
-              example: Successfully Processed
-              type: string
-            results:
-              description: Json Object of returned results
-              example: ' '
-              properties:
-                textoutput:
-                  description: An array of important sentences ranked by output.
-                  example:
-                    score: 0.5730226756621493
-                    sentence: A right-arm leg spinner, he is widely considered as one of the greatest
-                      bowlers in cricket history, and in 2000 he was selected by a panel of cricket
-                      experts as one of five Wisden Cricketers of the Century, the only specialist
-                      bowler and the only one still playing at the time.
-                  items:
-                    properties:
-                      description: Individual objects in textOutput
-                      example: ' '
-                      properties:
-                        score:
-                          description: How important the sentence is in given text according to the Model.
-                          example: 0.5730226756621493
-                          type: float
-                        sentence:
-                          description: A sentence in text input provided.
-                          example: A right-arm leg spinner, he is widely considered as one of
-                            the greatest bowlers in cricket history, and in 2000 he was selected
-                            by a panel of cricket experts as one of five Wisden Cricketers of
-                            the Century, the only specialist bowler and the only one still playing
-                            at the time.
-                          type: string
-                      type: object
-                    type: object
-                  type: array
-              type: object
-            status:
-              description: API success call.
-              example: Success
-              type: string
-
+          properties:
+            textoutput:
+              type: array
+              description: An array of important sentences ranked by output.
+              example:
+                score: 0.5730226756621493
+                sentence: A right-arm leg spinner, he is widely considered as one of the greatest
+                  bowlers in cricket history, and in 2000 he was selected by a panel of cricket
+                  experts as one of five Wisden Cricketers of the Century, the only specialist
+                  bowler and the only one still playing at the time.
+              items:
+                properties:
+                  score:
+                    description: How important the sentence is in given text according to the Model.
+                    example: 0.5730226756621493
+                    type: float
+                  sentence:
+                    description: A sentence in text input provided.
+                    example: A right-arm leg spinner, he is widely considered as one of the greatest bowlers in cricket history, and in 2000 he was selected by a panel of cricket experts as one of five Wisden Cricketers of the Century, the only specialist bowler and the only one still playing at the time.
+                    type: string
         message:
           type: string
           example: Successfully Processed

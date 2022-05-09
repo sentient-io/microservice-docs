@@ -10,6 +10,8 @@ info:
       5. Tamil - English
       6. Malay - English
       7. English - Malay
+
+    Do ensure that your text is within **500 characters**.
   version: v0.1.0
   x-additionalinfo: |+
     Suggested usecases: It can be used to translate text for any applications, and can be augmented to internationalize
@@ -34,11 +36,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results: 
-                  message: Successfully Processed
-                  results:
-                    translation_text: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
-                  status: Success
-
+                  translation_text: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
                 message: Successfully Processed
                 status: Success
         '401':
@@ -109,27 +107,14 @@ components:
       type: object
       properties:
         results:
-          type: object
           description: The result of the API call.
           example: { "<Json": "Object>" }
-          properties: 
-            message:
-              description: Status of API call and indicated whether it's succesfully processed, whether any invalid input or errors exist.
-              example: Successfully Processed
+          properties:
+            translation_text:
+              description: Text which is translated in target language
+              example: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
               type: string
-            results:
-              description: The results
-              example: ' '
-              properties:
-                translation_text:
-                  description: Text which is translated in target language
-                  example: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
-                  type: string
-              type: object
-            status:
-              description: Indicates whether API call is succesful or not.
-              example: Success
-              type: string
+          type: object
 
         message:
           type: string
