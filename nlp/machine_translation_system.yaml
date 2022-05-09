@@ -36,11 +36,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results: 
-                  message: Successfully Processed
-                  results:
-                    translation_text: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
-                  status: Success
-
+                  translation_text: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
                 message: Successfully Processed
                 status: Success
         '401':
