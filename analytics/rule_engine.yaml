@@ -128,8 +128,8 @@ components:
             upload: 1
             add_item: 1
             edit_item: 1
-            first_prompt: true/false
-            external_id: TH-SUPPLIER-001
+            first_prompt: true
+            external_id: provide external id
           properties:
             page_url:
               type: string
