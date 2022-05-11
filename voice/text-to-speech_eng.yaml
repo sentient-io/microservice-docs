@@ -311,8 +311,22 @@ components:
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1. 
             **used only for the female_singaporean model
-        
-        
+        ttn_flags:
+          x-name: ttn_flags
+          anyOf:
+          - type: string
+          - type: array
+          default: False
+          example: 1
+          description: |+
+            TTN Flags. No default value
+        wrapper_required:
+          x-name: wrapper_required
+          type: boolean
+          default: False
+          example: false
+          description: |+
+            Parameter to decide whether preprocessing required or not
   securitySchemes:
     APIAuthorizer:
       type: apiKey
