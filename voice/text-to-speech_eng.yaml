@@ -313,13 +313,18 @@ components:
             **used only for the female_singaporean model.
         ttn_flags:
           x-name: ttn_flags
-          anyOf:
-            - type: string
-            - type: array
+          type: array
           default: False
-          example: "ALL"
+          example: ["ALL"]
           description: |+
             TTN Flags. No default value
+        wrapper_required:
+          x-name: wrapper_required
+          type: boolean
+          default: False
+          example: false
+          description: |+
+            Parameter to decide whether preprocessing required or not
   securitySchemes:
     APIAuthorizer:
       type: apiKey
