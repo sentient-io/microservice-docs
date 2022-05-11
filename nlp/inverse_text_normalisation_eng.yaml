@@ -277,7 +277,7 @@ components:
           default: False
           example: false
           description: |+
-            Convert text to ordinals. Default is False.
+            Convert text to ordinals only if text2digits_normalised parameter is True. Default is False.
         threshold:
           x-name: threshold
           type: integer
