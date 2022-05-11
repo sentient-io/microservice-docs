@@ -314,8 +314,8 @@ components:
         ttn_flags:
           x-name: ttn_flags
           anyOf:
-          - type: string
-          - type: array
+            - type: string
+            - type: array
           default: False
           example: 1
           description: |+
