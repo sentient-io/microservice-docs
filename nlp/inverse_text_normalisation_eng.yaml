@@ -271,6 +271,13 @@ components:
           example: false
           description: |+
             Normalize the datetime. Default is False.
+        convert_ordinals:
+          x-name: convert_ordinals
+          type: boolean
+          default: False
+          example: false
+          description: |+
+            Convert text to ordinals. Default is False.
         threshold:
           x-name: threshold
           type: integer
