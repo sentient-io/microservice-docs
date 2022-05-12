@@ -211,9 +211,9 @@ components:
     input:
       type: object
       required:
-        - filePath
+        - file_path
       properties:
-        filePath:
+        file_path:
           type: string
           format: binary
           example: sample.json
