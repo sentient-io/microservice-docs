@@ -186,6 +186,10 @@ nlp:
     versions:
       0.1.0: 'machine_translation_system.yaml'
 computer vision:
+  clip:
+    title: Image Text Similarity
+    versions:
+      0.1.0: 'clip.yaml'
   object_detection:
     title: Object Detection
     versions:
