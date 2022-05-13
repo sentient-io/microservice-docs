@@ -322,10 +322,10 @@ components:
         wrapper_required:
           x-name: wrapper_required
           type: boolean
-          default: False
-          example: false
+          default: True
+          example: true
           description: |+
-            Parameter to decide whether preprocessing required or not
+            Parameter to decide whether preprocessing required or not. Default value is True
   securitySchemes:
     APIAuthorizer:
       type: apiKey
