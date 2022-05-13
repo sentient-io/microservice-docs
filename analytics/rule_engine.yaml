@@ -1,0 +1,180 @@
+openapi: 3.0.1
+info:
+  title: Rule Engine
+  description: |+
+    This Analytics microservice is part of a business rule management system which executes a set of rules or condition in a runtime production environment. Such rules are used to process data and if any condition matches then it executes the corresponding actions. 
+    This microservice only provides the inference (processing objects based on predefined rules), while the creation of the projects and objects and definition of rules is handled by a separate user-interface.
+  version: '0.1.0'
+  x-subscribelink: rule_engine
+  x-apitype: Subscription
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    Subscription Fee
+  x-notes: |+
+    File size cannot exceed 10 MB.
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Apr 20, 2022"
+paths:
+  /microservices/analytics/ruleengine/v0/getresults:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                message: Successfully Processed
+                status: Success
+                results:
+                  suggestion: Please begin by choosing Create/Modify Global parts on screen or Create/Modify
+                    Global parts by download/upload master. Alternatively, you can request support
+                    here[link to chatbot].
+                  count: 1
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message of the API call.
+          example: Successfully Processed
+        status:
+          type: string
+          description: The status of the API call.
+          example: Success
+        results:
+          type: object
+          properties:
+            suggestion:
+              type: string
+              description: The message of the API call.
+              example: Please begin by choosing Create/Modify Global parts on screen or Create/Modify Global parts by download/upload master. Alternatively, you can request support here[link to chatbot].
+            count:
+              type: number
+              description: If result returns suggestion then count value will be 1 If suggestion returns empty then count value will be 0.
+              example: 1
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - March 20, 2022
+                x-details: Initial Version
+                description: Latest Version
+    input:
+      type: object
+      properties:
+        event_history:
+          type: object
+          description: |+ 
+            event_history will have the fields to filter the rules.
+          example:
+            page_url: https://test.brivge.com/globalparts/create
+            time_interval: 60000
+            first_prompt: true
+            external_id: provide external id
+          properties:
+            page_url:
+              type: string
+              default: true
+              description: |+ 
+                Page URL of getting suggestion
+              example: https://test.brivge.com/globalparts/create
+            time_interval:
+              type: number
+              default: true
+              description: |+ 
+                Time interval of getting suggestion value will be greater than or equal to 60000
+              example: 60000
+            selection_mode:
+              type: string
+              description: |+ 
+                 Default value null. Selected mode of getting suggestion
+              example: Create/Modify Global parts on screen
+            upload:
+              type: number
+              description: |+ 
+                 Default value 0. Upload of getting suggestion value will be greater than 0
+              example: 1
+            add_item:
+              type: number
+              description: |+ 
+                 Default value 0. Add Item of getting suggestion value will be greater than 0
+              example: 1
+            edit_item:
+              type: number
+              description: |+ 
+                 Default value 0. Edit item of getting suggestion value will be greater than 0
+              example: 1
+            first_prompt:
+              type: boolean
+              description: |+ 
+                 Default value false.First prompt of getting suggestion value will be true/false
+              example: false
+            external_id:
+              type: string
+              description: |+ 
+                 External Identifier
+              example: TH-SUPPLIER-001
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
