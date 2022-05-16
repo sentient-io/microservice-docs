@@ -230,14 +230,22 @@ components:
     versions:
       type: object
       properties: 
-        v0.1.0:
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - May 16, 2022
+              x-details: Input parameter changed and supported to nested json.   
+              description: Latest Version        
+        v1.0.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jan 17, 2022
               x-details: On Prem Setup Added   
-              description: Latest Version          
+              description: Previous Version         
         v0.0.1:
          type: array
          items:
