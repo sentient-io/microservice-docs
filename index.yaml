@@ -241,11 +241,13 @@ utility:
   json-csv_convertor:
     title: JSON-CSV Convertor
     versions:
-       0.1.0: 'json-csv_convertor.yaml'
+      2.0.0: 'json-csv_convertor.yaml'
+      1.0.0: 'json-csv_convertor_1.yaml'
   csv-json_convertor:
     title: CSV-JSON Convertor
     versions:
-       0.1.0: 'csv-json_convertor.yaml'
+      2.0.0: 'csv-json_convertor.yaml'
+      1.0.0: 'csv-json_convertor_1.yaml'
   audio_processing_utility:
     title: Audio Format Convertor
     versions:
