@@ -1,27 +1,29 @@
 openapi: 3.0.1
 info:
-  title: Machine Translation System
+  title: Machine Translation
   description: |+
-    A machine learning translation system supporting four official language pairs in Singapore(English, Malay, Chinese, Tamil) and supports 7 language pairs ie:
-      1. English - Chinese
-      2. English - Tamil
-      3. Chinese - English
-      4. Chinese - Malay
-      5. Tamil - English
-      6. Malay - English
-      7. English - Malay
-
+    This NLP microservice provides machine translation for the four official languages in Singapore (English, Malay, Chinese, Tamil). Additional language pair models can be added on. This model can also be deployed on-prem and used for future custom training.
+    
     Do ensure that your text is within **500 characters**.
   version: v0.1.0
   x-additionalinfo: |+
-    Suggested usecases: It can be used to translate text for any applications, and can be augmented to internationalize
-    with existing NLP microservices provided by sentient.io.
-  x-subscribelink: machine_translation_system
+    **Supported languages are:**
+        - zh - chinese
+        - en - english
+        - ms - malay (minangkabau)
+        - ta - tamil
+
+
+    **Suggested usecases:**
+    
+    It can be used to translate text for any applications, and can be augmented to internationalize
+    NLP microservices provided by sentient.io.
+  x-subscribelink: machine_translation
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 02, 2022"
+  description: "Published Date - May 16, 2022"
 paths:
   /microservices/nlp/translate/v0/getpredictions:
     post:
@@ -214,7 +216,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - May 2, 2022
+                example: Published Date - May 16, 2022
                 description: Initial version with fixes for bugs raised related to limit not being set and added error handling logic.
     input:
       type: object
@@ -233,14 +235,14 @@ components:
           default: True
           example: en
           description: |+
-            The source language of text
+            The source language of text (see “Additional Information” section for language codes).
         target:
           x-name: target
           type: string
           default: True
           example: zh
           description: |+
-            The target language for which text to be translated
+            The target language for which text to be translated (see “Additional Information” section for language codes).
         text:
           x-name: text
           type: string
