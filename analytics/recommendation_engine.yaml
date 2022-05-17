@@ -913,13 +913,12 @@ components:
           example: sentient engine
         properties:
           type: array
-          default: true
-          description: |+ 
-             The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
-          example: ["pagetile","description","pageurl"]
           items:
-            oneOf:
-              - type: object
+            type: string
+          example: ["pagetile","description","pageurl"]
+          default: true
+          description: |+
+            The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
     retraineventinput:
       type: object
       required:
