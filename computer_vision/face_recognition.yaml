@@ -179,7 +179,8 @@ components:
                   - type: object 
                     properties:
                       conf:
-                        type: float
+                        type: number
+                        format: float
                         example: 0.6588699206768599
                         description: 0.0 to 1.0. Confidence score of identification. Higher is more confidence.
                       identity:
@@ -339,7 +340,7 @@ components:
           default: false
           example: ntu
           description: |+
-            Name of model.
+           Name of model.
         file_type:
           x-name: file_type
           type: string
