@@ -1460,7 +1460,8 @@ components:
                 description: The details of documents
                 properties:
                   docId:
-                    type: number
+                    type: integer
+                    format: int32
                     example: 102581
                     description: Document ID
                   status:
@@ -1483,21 +1484,22 @@ components:
                             - type: number
                               example: 1490  
                       num_pages:
-                        type: number
+                        type: integer
+                        format: int32
                         example: 1
-                        description: Total pages
+                        description: Total Pages
                       customer:
                         type: string
                         example: XYZ Buyer
-                        description: Customer name
+                        description: Customer Name
                       supplier:
                         type: string
                         example: ABC Supplier
-                        description: Supplier name                        
+                        description: Supplier Name                        
                       type:
                         type: string
                         example: receipt
-                        description: Type of document     
+                        description: Type of Document     
                       tabledetected:
                         type: boolean
                         example: True
@@ -1505,7 +1507,7 @@ components:
                       total:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: Invoice Total amount     
+                        description: Invoice Total Amount     
                       subtotal:
                         type: object
                         example: { "<Json": "Object>" }
@@ -1517,7 +1519,7 @@ components:
                       servicecharge:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: ServiceCharge     
+                        description: Service Charge     
                       currency:
                         type: object
                         example: { "<Json": "Object>" }
@@ -1525,7 +1527,7 @@ components:
                       billingdddress:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: Billing to Address  
+                        description: Billing Address  
                       email:
                         type: object
                         example: { "<Json": "Object>" }
@@ -1537,23 +1539,23 @@ components:
                       uennumber:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: UENNumber
+                        description: UEN Number
                       gstnumber:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: GSTNumber     
+                        description: GST Number     
                       senderaddress:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: SenderAddress     
+                        description: Sender Address     
                       otherdate:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: OtherDate   
+                        description: Other Date   
                       lineitems_standardheader:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: LineItems_standardHeader                          
+                        description: Line items standard header                          
           message:
             type: string
             example: Successfully Processed
@@ -1658,7 +1660,7 @@ components:
           example:  upload file
           description: The receipt document
         handwritten:
-          type: string
+          type: boolean
           example:  'false'
           description: Specify handwritten true or false. Default is false       
   securitySchemes:
