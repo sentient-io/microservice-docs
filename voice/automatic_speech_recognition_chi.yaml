@@ -225,16 +225,18 @@ components:
         wav_base64:
           x-name: wav_base64
           type: string
+          format: byte
           default: true
           example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
           description: 
             Input audio wav file in base64 format.
         sample_rate:
-          type: number
+          type: integer
+          format: int32
           default: false
           example: 16000
           description: 
-            The audio sampling rate, in Hz. Valid values - 16000 and 8000. Default value - 16000.
+            The audio sampling rate, in Hz. Valid values are 16000 and 8000. Use 16000 for normal prepared speech and 8000 for telephony.
         punctuation_prediction:
           type: boolean
           default: false
