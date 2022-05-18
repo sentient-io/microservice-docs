@@ -297,7 +297,7 @@ components:
             2. female_singaporean
         pitch_scale:
           x-name: pitch_scale
-          type: float
+          type: number
           format: float
           default: False
           example: 1
@@ -306,7 +306,7 @@ components:
             **used only for the female_singaporean model
         tempo_scale:
           x-name: tempo_scale
-          type: float
+          type: number
           format: float
           default: False
           example: 1
