@@ -241,13 +241,14 @@ components:
         wav_base64:
           x-name: wav_base64
           type: string
+          format: bytes
           default: true
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
-            Required. Input audio file in base64 format. 
+            Required. Input audio wav file in base64 format. 
         threshold:
           x-name: threshold
-          type: float
+          type: number
           format: float
           default: false
           example: 0.2
