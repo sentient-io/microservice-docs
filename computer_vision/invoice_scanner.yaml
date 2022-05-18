@@ -340,10 +340,9 @@ components:
     input:
       type: object
       required:
-        - file
-        - endpointUrl
+        - file_path
       properties:
-        file:
+        file_path:
           type: string
           format: binary
           default: true
