@@ -1476,7 +1476,7 @@ components:
                       docsize:
                         type: array
                         example: [[1990,1490]]
-                        description: An array contain the size info of tempalte
+                        description: An array contain the size info of template
                         items:
                           oneOf:
                             - type: number
