@@ -116,24 +116,24 @@
           results:
             type: object
             example: { "<Json": "Object>" }
-            description: Json Object of returned results
+            description: Json object in the returned results
             properties:
               loc:
                type: array
                example: ["Nat","Sentient.io","Home","Inte","CONTACT","Join"]
-               description: "name of location found in the text string"
+               description: Name of locations found in the text string
               misc:
                type: array
                example: ["Sentient.io","English"]
-               description: "name of misc found in the text string"    
+               description: Name of miscellaneous entities found in the text string    
               org:
                type: array
                example: ["Our Clients","AI","APIs","Sentient.io","Our Technology Partners","Named Entity Recognition","Our Investors"]
-               description: "name of org found in the text string"   
+               description: Name of organizations found in the text string   
               per:
                type: array
                example: ["Sentient.io","Speech","LinkedIn"]
-               description: "name of persons found in the text string"                 
+               description: Name of persons found in the text string                
           message:
             type: string
             example: Successfully Processed
@@ -141,7 +141,7 @@
           status:
             type: string
             example: Success
-            description: The status of the API call success/failure 
+            description: The status of the API call - success/failure 
       unauthorized:
         type: object
         properties:
