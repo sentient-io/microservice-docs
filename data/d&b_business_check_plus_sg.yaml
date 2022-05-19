@@ -982,7 +982,7 @@ components:
                       example: "Employee Size"
                     AMOUNT:
                       type: integer
-                      description: Number of employee
+                      description: Number of employees
                       example: 300
                 LIST_BIZ_BRANCH :
                   type: array
