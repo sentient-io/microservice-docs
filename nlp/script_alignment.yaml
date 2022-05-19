@@ -280,7 +280,8 @@ components:
                 properties:
                   seqNum:
                     x-name: seqNum
-                    type: number
+                    type: integer
+                    formnat: Int32
                     default: true
                     example: 1
                     description: |+
