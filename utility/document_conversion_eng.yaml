@@ -238,7 +238,7 @@ components:
           format: binary
           default: true
           example: sample.txt
-          description: The file object. 
+          description: The file path that describes the location of the file to be converted. 
           
           Supported formats: docx, pdf, txt.
   securitySchemes:
