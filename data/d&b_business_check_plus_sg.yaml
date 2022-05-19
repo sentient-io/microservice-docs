@@ -2462,7 +2462,7 @@ components:
           type: integer
           format: int32
           example: 1
-          description: Number of subjects being enquired relating to the Run
+          description: Number of subjects being enquired relating to the search.
           default: false
         subject_idno:
           type: string
@@ -2472,7 +2472,7 @@ components:
         subject_name:
           type: string
           example: GPS INDUSTRIES PTE LTD
-          description: Subjects Name as captured in DDP
+          description: Subject's name as captured in DDP.
           default: false
     versions:
       type: object
