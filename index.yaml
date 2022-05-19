@@ -181,10 +181,10 @@ nlp:
     title: Google Translate (Large File)
     versions:
       0.1.0: 'google_translate_large_file.yaml'
-  machine_translation_system:
-    title: Machine Translation System
+  machine_translation:
+    title: Machine Translation
     versions:
-      0.1.0: 'machine_translation_system.yaml'
+      0.1.0: 'machine_translation.yaml'
 computer vision:
   image_text_similarity:
     title: Image Text Similarity
