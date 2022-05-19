@@ -255,7 +255,7 @@ components:
           default: True
           example: apple said the project-financing fund was the first of its kind real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
           description: |+
-            Input text
+            The input text to be corrected.
 
         text2digits_normalised:
           x-name: text2digits_normalised
@@ -291,4 +291,4 @@ components:
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
-      description: Authentication is done using the x-api-key in the request header
+      description: Authentication is done using the x-api-key in the request header.
