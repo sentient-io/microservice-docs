@@ -2,13 +2,16 @@ openapi: 3.0.1
 info:
   title: Sentence Ranking
   description: |+
-    It takes in a set of sentences in text documnt and ranks sentences using page rank algorithm based on their importance. 
+   This NLP microservice takes in a text blurb and ranks the sentences based on their importance score. The sentence’s score is computed by the frequency of every each word in the sentence being mentioned in other sentences (using term frequency–inverse document frequency and TextRank algorithms).
 
-    Do ensure that your text is within **5000 characters**.
+   This Sentence Ranking microservice is useful for extractive summaries, which involves picking up the most important phrases and sentences from the original text input and reusing those to make up the summary. In this case, the microservice will only consider sentences with a score above the mean score (of all other sentences scores) as being significant and return those sentences only. Do note that the sentences are also returned on the order of appearance within the original text. 
+
+   Do ensure that your text is within **5000 characters**.
   version: v0.1.0
   x-additionalinfo: |+
-    Suggested usecases: It can be used in text analytics to understanding importance and get a textual importance of any provided document.
-  x-subscribelink: sentence_ranking
+    **Suggested usecases:**
+      This Sentence Ranking microservice is useful for extractive summaries, which involves picking up the most important phrases and sentences from the original text input and reusing those to make up the summary. It can be used in text analytics as well.
+  x-subscribelink: text_importance_model
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
