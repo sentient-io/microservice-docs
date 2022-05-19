@@ -140,7 +140,7 @@ components:
             sentence_index:
                 type: object
                 example: {"4": "But our genius for creative storytelling , combined with our inability to detect our own ignorance , can sometimes lead to situations that are embarrassing , unfortunate , or downright dangerous \u2013 especially in a technologically advanced , complex democratic society that occasionally invests mistaken popular beliefs with immense destructive power ( See : crisis , financial ; war , Iraq ) .","7": "The society of extraordinary gentlemen has a natural way of overcoming difficulties in tough times to come out stronger , saving society from itself ."}
-                description: Is a mapping from an index of the sentence in the presented text (say, 0, 1, 2...) to the text of the sentence itself.
+                description: The index of the sentence in the presented text [say 0,1,2,3] mapped to the sentence itself.
                 properties:
                   4:
                     type: string
