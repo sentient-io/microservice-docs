@@ -170,67 +170,67 @@
                     - เวียดนาม
                     - ประเทศพม่า
                     - กัมพูชาทางทิศใต้ติดกับอ่าวไทย
-                description: "location found in the text string"                  
+                description: "Name of locations found in the text string"                  
               organization:
                 x-name: organization
                 type: array
                 example: 
                     - รัฐสภา
-                description: "organization found in the text string" 
+                description: "Name of organizations found in the text string" 
               date:
                 x-name: date
                 type: array
                 example: [2/21/2004, 16 ก.พ., จันทร์]
-                description: "date  found in the text string" 
+                description: "Dates found in the text string" 
               money:
                 x-name: money
                 type: array
                 example: [2.7 ล้านบาท, 2,000 บาท]
-                description: "amount of currency found in the text string" 
+                description: "Amount of currency found in the text string" 
               time:
                 x-name: time
                 type: array
                 example: [16.30 น., 5 วัน, 1-3 ปี]
-                description: "time  found in the text string" 
+                description: "Time found in the text string" 
               email:
                 x-name: email
                 type: array
                 example: [info@nrpsc.ac.th]
-                description: "email id  found in the text string" 
+                description: "Email id found in the text string" 
               len:
                 x-name: len
                 type: array
                 example: [30 กิโลเมตร, 5 กม.]
-                description: "distance in km found in the text string" 
+                description: "Distance in km found in the text string" 
               person:
                 x-name: person
                 type: array
                 example: [น.พ.จรัล, นางประนอม ทองจันทร์]
-                description: "name of person found in the text string" 
+                description: "Name of persons found in the text string" 
               phone:
                 x-name: phone
                 type: array
                 example: [0 2670 8888]
-                description: "date  found in the text string" 
+                description: "Phone numbers found in the text string" 
               url:
                 x-name: url
                 type: array
                 example: [http://www.bangkokhealth.com/]
-                description: "url in the text string" 
+                description: "URL found in the text string" 
               zip:
                 x-name: zip
                 type: array
                 example: [10400]
-                description: "zipcode  found in the text string" 
+                description: "Zipcodes found in the text string" 
 
           message:
             type: string
             example: Successfully Processed
-            description: Detail description on the API status
+            description: Description of the API status
           status:
             type: string
             example: Success
-            description: The status of the API call success/failure                  
+            description: The status of the API call - success/failure                  
       unauthorized:
         type: object
         properties:
