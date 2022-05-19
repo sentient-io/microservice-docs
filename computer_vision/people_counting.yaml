@@ -120,15 +120,18 @@ components:
           example: { "<Json": "Object>" }
           properties:
             counter:
-              type: number
+              type: integer
+              format: int32
               example: 11
               description: Number of people detected in video
             likelihood of overestimation:
-              type: float
+              type: number
+              format: float
               example: 0.76
               description:  How likely would there be ID spikes causing counter to increase People
             likelihood of underestimation:
-              type: float
+              type: number
+              format: float
               example: 0.39
               description:  How likely the model might miss out detecting people in the video
             people:
