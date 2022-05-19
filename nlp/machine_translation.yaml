@@ -7,17 +7,17 @@ info:
     Do ensure that your text is within **500 characters**.
   version: v0.1.0
   x-additionalinfo: |+
-    **Supported languages are:**
+     **Supported languages are:**
         - zh - chinese
         - en - english
         - ms - malay (minangkabau)
         - ta - tamil
 
 
-    **Suggested usecases:**
-    
-    It can be used to translate text for any applications, and can be augmented to internationalize
-    NLP microservices provided by sentient.io.
+      **Suggested usecases:**
+          
+          It can be used to translate text for any applications, and can be augmented to internationalize
+          NLP microservices provided by sentient.io.
   x-subscribelink: machine_translation
 servers:
   - url: 'https://dev-apis.sentient.io' 
