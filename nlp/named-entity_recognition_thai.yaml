@@ -177,32 +177,32 @@ components:
               x-name: law
               type: array
               example: [{"entity":พ.ร.บ.โรคระบาด พ.ศ.2499,"start":89,"end":96}]
-              description: "Law details found in the text string"                     
+              description: "Named documents made into laws"                     
             location:
               x-name: location
               type: array
               example: [{"entity":ประเทศไทย,"start":0,"end":10},{"entity": มาเลเซีย, "start": 0, "end": 1}]
-              description: "Name of locations found in the text string"                  
+              description: "Name of non-GPE locations, mountain ranges, bodies of waterg"                  
             organization:
               x-name: organization
               type: array
               example: [{"entity" : รัฐสภา,"start":0, "end":12}]
-              description: "Name of organizations found in the text string" 
+              description: "Name of companies, agencies, institutions, etc" 
             date:
               x-name: date
               type: array
               example: [{"entity": 2/21/2004,"start":9,"end":15},{"entity": 16 ก.พ.,"start":6,"end":10},{"entity":จันทร์,"start":10,"end":14}]
-              description: "Dates found in the text string" 
+              description: "Absolute or relative dates or periods" 
             money:
               x-name: money
               type: array
               example: [{"entity":2.7 ล้านบาท,"start":90,"end":96}, {"entity":2,000 บาท,"start":45,"end":50}]
-              description: "Amount of currency found in the text string" 
+              description: "Monetary values, including unit" 
             time:
               x-name: time
               type: array
               example: [{"entity": 16.30 น.,"start":30,"end":35},{"entity": 5 วัน,"start":45,"end":47}]
-              description: "Time found in the text string" 
+              description: "Times smaller than a day" 
             email:
               x-name: email
               type: array
@@ -212,12 +212,12 @@ components:
               x-name: measurement
               type: array
               example: [{"entity":30 กิโลเมตร,"start":12,"end":18},{"entity":5 กม.,"start":1,"end":5}]
-              description: "Measurement units found in the text string" 
+              description: "Measurement units, as of weight or distance." 
             person:
               x-name: person
               type: array
               example: [{"entity":นางประนอม ทองจันทร์,"start":56,"end":58}]
-              description: "Name of persons found in the text string" 
+              description: "Name of persons, including fictional" 
             phone:
               x-name: phone
               type: array
