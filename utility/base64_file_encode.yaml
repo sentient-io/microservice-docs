@@ -219,7 +219,7 @@ components:
           format: binary
           example: sample.txt
           default: true
-          description: The file object.
+          description: The file path that describes the location of the file to be converted.
         format:
           type: string
           example: "xml"
