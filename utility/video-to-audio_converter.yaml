@@ -221,15 +221,17 @@ components:
           format: binary
           example: sample.mp4
           default: true
-          description: The file object. 
+          description: The file path that describes the location of the file to be converted. 
           Supported formats: 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v.
         samplerate:
-          type: string
+          type: integer
+          format: int32
           example: "16000"
           default: false
-          description: Sample rate of the audio file in Hz. That there is no set Hz range. Note that decimals and negative values are not supported.
+          description: Sample rate of the audio file in Hz. There is no set Hz range. Note that decimals and negative values are not supported.
         channel:
-          type: string
+          type: integer
+          format: int32
           example: "1"
           default: false
           description: Indicates the type of audio channel. Value must be 1 for mono or 2 for Stereo. Default is 2(Stereo)
