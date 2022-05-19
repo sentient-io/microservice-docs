@@ -14,7 +14,7 @@ info:
   version: '1.0.0'
   x-subscribelink: spacy_ner
   x-apitype: small file
-  x-apitypedescription: |+
+  x-apitypedescription: |+ 
     Fast | Single-Call | 5000 characters/Call
   x-inputfilelimit: |+
     Process up to 5000 characters per API call.
@@ -216,7 +216,7 @@ components:
           x-name: status
           type: string
           example: Success
-          description: The status of the API call -- success/failure.
+          description: The status of the API call - success/failure.
     invalidinput:
       type: object
       properties:
