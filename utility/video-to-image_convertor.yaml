@@ -243,7 +243,7 @@ components:
           format: binary
           default: true
           example:  sample.mp4
-          description: The Video file object.
+          description: The file path that describes the location of the file to be converted.
           
           Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
   securitySchemes:
