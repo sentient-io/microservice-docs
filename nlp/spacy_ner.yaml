@@ -114,7 +114,7 @@ components:
         results:
           type: object
           example: { "<Json": "Object>" }
-          description: Json Object of returned results
+          description: Json object in the returned results
           properties:
             person:
               x-name: person
@@ -210,13 +210,13 @@ components:
           x-name: message
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status.
           
         status:
           x-name: status
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call -- success/failure.
     invalidinput:
       type: object
       properties:
