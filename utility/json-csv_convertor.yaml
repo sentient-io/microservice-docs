@@ -218,7 +218,7 @@ components:
           format: binary
           example: sample.json
           default: true
-          description: The file object.
+          description: The file path that describes the location of the file to be converted.
     versions:
       type: object
       properties: 
