@@ -346,7 +346,7 @@ components:
           type: string
           format: binary
           default: true
-          example:  {'file_path':('upload file',open('upload file','rb'),'application/octet-stream')}
+          example:  upload file
           description: The file path that describes the location of the receipt document.
         handwritten:
           type: boolean
