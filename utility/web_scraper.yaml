@@ -181,11 +181,11 @@ components:
         message:
           type: string
           example: successfully processed
-          description: Detail description on the API status
+          description: Description of the API status
         status:
           type: string
           example: success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure
         results:
           type: object
           example: {"data": "text content of the webpage","dataList": [{ "title": "imagelinks", "findType": "find_all", "tag": "img", "attribute": "src" }]}
