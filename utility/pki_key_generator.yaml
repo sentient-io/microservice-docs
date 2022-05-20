@@ -111,6 +111,7 @@ components:
       properties:
         keyLength:
           type: integer
+          format: int32
           example: 1024
           description: byte value of generated key
         publicKey:
@@ -120,7 +121,7 @@ components:
         privateKey:
           type: string
           example: MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl....
-          description: private key to decoding. this private key should decode when the text encoded by the public key which generate with this only.
+          description: Used for decoding the text encoded with the corresponding public key.
     unauthorized:
       type: object
       properties:
@@ -225,10 +226,11 @@ components:
       type: object
       properties:
         bitcode:
-          type: number
+          type: integer
+          format: int32
           example: 1
           default: true
-          description: Bitcode to generate the key by byte-length. Maximum up to 5. 0 and above 5 should be consider as 1.
+          description: Bitcode to generate the key by byte-length. Maximum up to 5. Empty string and above 5 should be consider as 1.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
