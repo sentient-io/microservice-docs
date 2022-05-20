@@ -193,7 +193,7 @@ components:
               type: array
               description: "Expression of a date"   
             disease:
-              x-name: date
+              x-name: disease
               type: array
               description: "Disease or injury" 
             entertainment:
@@ -228,6 +228,10 @@ components:
               x-name: identification_number
               type: array
               description: "Identification number. These can be personal identification numbers (e.g. passport number, driver’s license number or uniform number) or service identification numbers (e.g. flight number, vehicle number) "  
+            identity_groups:
+              x-name: identity_groups
+              type: array
+              description: "Nationalities, religious, ethnic and political groups"  
             language:
               x-name: language
               type: array
@@ -248,9 +252,9 @@ components:
               x-name: measurement
               type: array
               example: 
-                - entity: 百経
-                  start: 92
-                  end: 94
+              - entity: 百経
+                start: 92
+                end: 94
               description: "Various measurement units (including length, weight, area, volume, temperature, etc)" 
             medicine:
               x-name: medicine
@@ -263,11 +267,7 @@ components:
             musical_instrument:
               x-name: musical_instrument
               type: array
-              description: "Musical instrument"  
-            identity_groups:
-              x-name: identity_groups
-              type: array
-              description: "Nationalities, religious, ethnic and political groups"  
+              description: "Musical instrument" 
             natural_object:
               x-name: natural_object
               type: array
@@ -276,9 +276,9 @@ components:
               x-name: ordinal
               type: array
               example: 
-                - entity: 30弾
-                  start: 0
-                  end: 3
+              - entity: 30弾
+                start: 0
+                end: 3
               description: "Expression of order (e.g. "first", "second", etc)" 
             offense:
               x-name: offense
@@ -288,17 +288,17 @@ components:
               x-name: organization
               type: array
               example: 
-                - entity: 左成相態
-                  start: 172
-                  end: 176
+              - entity: 左成相態
+                start: 172
+                end: 176
               description: "Companies, agencies or institutions" 
             other:
               x-name: other
               type: array
               example: 
-                - entity: 険所コホ特室りょ
-                  start: 16
-                  end: 24
+              - entity: 険所コホ特室りょ
+                start: 16
+                end: 24
               description: "All other miscellaneous classes"  
             percent:
               x-name: percent
@@ -308,18 +308,18 @@ components:
               x-name: person
               type: array
               example: 
-                - entity: くぼ
-                  start: 24
-                  end: 26
-                - entity: 壮
-                  start: 74
-                  end: 75
-                - entity: 琢紫
-                  start: 83
-                  end: 85
-                - entity: ナユ
-                  start: 98
-                  end: 100
+              - entity: くぼ
+                start: 24
+                end: 26
+              - entity: 壮
+                start: 74
+                end: 75
+              - entity: 琢紫
+                start: 83
+                end: 85
+              - entity: ナユ
+                start: 98
+                end: 100
               description: "People, including fictional"  
             phone:
               x-name: phone
@@ -329,23 +329,23 @@ components:
               x-name: product
               type: array
               example: 
-                - entity: 都合ヘラアニ限
-                  start: 26
-                  end: 33
-                - entity: 議帳
-                  start: 104
-                  end: 106
+              - entity: 都合ヘラアニ限
+                start: 26
+                end: 33
+              - entity: 議帳
+                start: 104
+                end: 106
               description: "Thing, object or product produced by human beings"
             quantity:
               x-name: quantity
               type: array
               example: 
-                - entity: 2稿
-                  start: 33
-                  end: 35
-                - entity: 8口
-                  start: 79
-                  end: 81
+              - entity: 2稿
+                start: 33
+                end: 35
+              - entity: 8口
+                start: 79
+                end: 81
               description: "Expression of count or quantification" 
             relationship:
               x-name: relationship
@@ -386,12 +386,7 @@ components:
             postal_code:
               x-name: vehicle
               type: array
-              description: "Postal address that includes a lot number, street number, house number or zip code" 
-                              
-                                              
-                             
-                             
-                               
+              description: "Postal address that includes a lot number, street number, house number or zip code"              
                               
         message:
           type: string
