@@ -2,8 +2,17 @@ openapi: 3.0.1
 info:
   title: Few Shots Object Detection
   description: |+
-    This computer vision microservice generates a list of bounding boxes in the input query image. The bounding boxes are instances of the objects in the input set of support images.
-    The size of your image file should **not exceed 5 MB**. 
+    This Computer Vision microservice detects a single user-defined object class in the input  query image and returns detected objects and their bounding boxes in the image coordinates.
+    
+    The object class is defined by the user with a set of support images. Each support image should be tightly cropped to the relevant part of the objects. E.g. To detect car tyres, cropped away other parts of the car; with only the tyre visible.
+    
+    The size of your image files should not exceed 5 MB, and the image dimension should be at least 416x416 pixels.  
+  x-additionalinfo: |+
+    To improve object detection accuracy:
+
+    - ensure that the support images are of the same orientation as how it should appear in the query image
+    - crop out all unnecessary elements (such as a busy background) from the support images
+    - ensure that the support images are variations of the same object, and not images of multiple (different) objects.
   version: v0.1.0
   x-subscribelink: few_shots_object_detection
   x-apitype: small file
