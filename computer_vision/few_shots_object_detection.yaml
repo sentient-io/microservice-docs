@@ -45,7 +45,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  output: {"bounding box": {"bottom": 513,"left": 65,"right": 311,"top": 377},"confidence": 0.9715367555618286}
+                  output: {"bounding box": {"top": 377,"right": 311,"bottom": 513,"left": 65,},"confidence": 0.9715367555618286}
 
                 message: Successfully Processed
                 status: Success
