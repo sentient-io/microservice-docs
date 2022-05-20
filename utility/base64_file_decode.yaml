@@ -112,11 +112,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the api status
+          description: Description on the api status
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure
         url:
           type: string
           example: https://storage.googleapis.com/base64decode/24f03729131e469181a2fc22eb3a627a.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20201015%2Fauto%2Fstora...
