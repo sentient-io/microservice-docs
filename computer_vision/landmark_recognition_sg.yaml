@@ -127,9 +127,10 @@ components:
           properties:
             confidence:
               x-name: confidence
-              type: string
-              example: 100%
-              description: Confidence score of identification. Higher is more confidence.
+              type: integer
+              format: int32
+              example: '100'
+              description: The confidence score of identification starts from 0. 100 is the maximum confidence score.
             landmark:
               x-name: landmark
               type: string
