@@ -171,26 +171,79 @@ components:
           type: object
           example: { "<Json": "Object>" }
           description: Json Object of returned results
-          properties:              
-            quantity:
-              x-name: quantity
+          properties: 
+            academia:
+              x-name: academia
               type: array
-              example: 
-                - entity: 2稿
-                  start: 33
-                  end: 35
-                - entity: 8口
-                  start: 79
-                  end: 81
-              description: "Quantity details found in the text string"                   
-            other:
-              x-name: other
+              description: "Academic field, school, method of art or science"   
+            animal:
+              x-name: animal
               type: array
-              example: 
-                - entity: 険所コホ特室りょ
-                  start: 16
-                  end: 24
-              description: "Other miscellaneous classes"                                    
+              description: "Animals (includes insects, birds, reptiles, mammals and fishes, etc)"   
+            color:
+              x-name: color
+              type: array
+              description: "Color"  
+            culture:
+              x-name: culture
+              type: array
+              description: "Culture, civilization, or art"  
+            date:
+              x-name: date
+              type: array
+              description: "Expression of a date"   
+            disease:
+              x-name: date
+              type: array
+              description: "Disease or injury" 
+            entertainment:
+              x-name: entertainment
+              type: array
+              description: "Entertainment activity (including shows performed on stage) or objects (including physical or video games)" 
+            event:
+              x-name: event
+              type: array
+              description: "Event, festival, occasion or phenomenon"      
+            email:
+              x-name: email
+              type: array
+              description: "Email address"    
+            facility:
+              x-name: facility
+              type: array
+              description: "Place or building that provides a particular service (including hotels, airports, stations, etc) "    
+            food:
+              x-name: food
+              type: array
+              description: "Food, dish or drink"    
+            financial_product:
+              x-name: financial_product
+              type: array
+              description: "Financial products such as stocks or shares"  
+            geopolitical:
+              x-name: geopolitical
+              type: array
+              description: "Geopolitical entitity (including countries, cities, states, etc)"  
+            identification_number:
+              x-name: identification_number
+              type: array
+              description: "Identification number. These can be personal identification numbers (e.g. passport number, driver’s license number or uniform number) or service identification numbers (e.g. flight number, vehicle number) "  
+            language:
+              x-name: language
+              type: array
+              description: "Language, language family or dialect"  
+            law:
+              x-name: law
+              type: array
+              description: "Law, statute, article or order"  
+            location:
+              x-name: location
+              type: array
+              description: "Place or location (including non-geopolitical entities)"  
+            media:
+              x-name: media
+              type: array
+              description: "Physical media (e.g. print, video record), production (e.g. animation, music video, television advertisement, television show, movie) or broadcast programs (e.g. television & radio)" 
             measurement:
               x-name: measurement
               type: array
@@ -198,7 +251,27 @@ components:
                 - entity: 百経
                   start: 92
                   end: 94
-              description: "Measurement units, as of weight or distance"                   
+              description: "Various measurement units (including length, weight, area, volume, temperature, etc)" 
+            medicine:
+              x-name: medicine
+              type: array
+              description: "Drug used to diagnose, cure and treat"  
+            money:
+              x-name: money
+              type: array
+              description: "Currency or physical representation of money (e.g. bill, banknote, or coin)"  
+            musical_instrument:
+              x-name: musical_instrument
+              type: array
+              description: "Musical instrument"  
+            identity_groups:
+              x-name: identity_groups
+              type: array
+              description: "Nationalities, religious, ethnic and political groups"  
+            natural_object:
+              x-name: natural_object
+              type: array
+              description: "Natural object or material (including chemical compounds, mineral and living things)"   
             ordinal:
               x-name: ordinal
               type: array
@@ -206,7 +279,31 @@ components:
                 - entity: 30弾
                   start: 0
                   end: 3
-              description: "Ordinal numbers found in the text string, e.g 最初, 2番目, etc"                   
+              description: "Expression of order (e.g. "first", "second", etc)" 
+            offense:
+              x-name: offense
+              type: array
+              description: "Act of crime or rap"  
+            organization:
+              x-name: organization
+              type: array
+              example: 
+                - entity: 左成相態
+                  start: 172
+                  end: 176
+              description: "Companies, agencies or institutions" 
+            other:
+              x-name: other
+              type: array
+              example: 
+                - entity: 険所コホ特室りょ
+                  start: 16
+                  end: 24
+              description: "All other miscellaneous classes"  
+            percent:
+              x-name: percent
+              type: array
+              description: "Percentage" 
             person:
               x-name: person
               type: array
@@ -223,9 +320,13 @@ components:
                 - entity: ナユ
                   start: 98
                   end: 100
-              description: "Name of persons, including fictional"                   
-            artefact:
-              x-name: artefact
+              description: "People, including fictional"  
+            phone:
+              x-name: phone
+              type: array
+              description: "Phone or fax number" 
+            product:
+              x-name: product
               type: array
               example: 
                 - entity: 都合ヘラアニ限
@@ -234,15 +335,64 @@ components:
                 - entity: 議帳
                   start: 104
                   end: 106
-              description: "Artefacts found in the text string"                   
-            organization:
-              x-name: organization
+              description: "Thing, object or product produced by human beings"
+            quantity:
+              x-name: quantity
               type: array
               example: 
-                - entity: 左成相態
-                  start: 172
-                  end: 176
-              description: "Companies, agencies, institutions, etc."                   
+                - entity: 2稿
+                  start: 33
+                  end: 35
+                - entity: 8口
+                  start: 79
+                  end: 81
+              description: "Expression of count or quantification" 
+            relationship:
+              x-name: relationship
+              type: array
+              description: "Family lineage, pedigree or blood relationship" 
+            stock_index:
+              x-name: stock_index
+              type: array
+              description: "Stock market index" 
+            technology:
+              x-name: technology
+              type: array
+              description: "Software, computer program, library, web application, or programming language" 
+            time:
+              x-name: time
+              type: array
+              description: "Expression that refers to a point in time or period" 
+            title:
+              x-name: title
+              type: array
+              description: "Name of title, position, occupation or position that indicates person's status" 
+            url:
+              x-name: url
+              type: array
+              description: "Web address or Universal Resource Locator (URL)" 
+            vehicle:
+              x-name: vehicle
+              type: array
+              description: "Vehicle, including train, ship and aircraft" 
+            work_of_art:
+              x-name: work_of_art
+              type: array
+              description: "Music, songs, books, paintings and any other form of written or verbal work" 
+            weapon:
+              x-name: weapon
+              type: array
+              description: "Weapon, arm or armament" 
+            postal_code:
+              x-name: vehicle
+              type: array
+              description: "Postal address that includes a lot number, street number, house number or zip code" 
+                              
+                                              
+                             
+                             
+                               
+                              
         message:
           type: string
           example: Successfully Processed
