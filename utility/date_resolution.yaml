@@ -115,7 +115,7 @@ components:
               message:
                 type: string
                 example: Successfully Processed
-                description: Response message
+                description: Description of the API status
               results:
                 type: object
                 example: {<Json Object>}
