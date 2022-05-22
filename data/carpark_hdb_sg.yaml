@@ -320,14 +320,17 @@ components:
                               example: [570253, 570254]
                               items:
                                 type: integer
+                                format: int32
                                 description: postal code
                                 example: 570253
                             xcoord:
-                              type: string
+                              type: number
+                              format: float
                               description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                               example: 28185.4359
                             ycoord:
-                              type: string
+                              type: number
+                              format: float
                               description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                               example: 39012.6664
                             location:
@@ -336,31 +339,38 @@ components:
                               example: {"lat":1.364299477060462,"lon":103.8350609414261}
                               properties:
                                   lat: 
-                                    type: string
-                                    description: WGS84 (GPS) latitude
+                                    type: Number
+                                    Format: Float
+                                    description: Latitude in the WGS84 coordinate format
                                     example: 1.37179535
                                   lon:
-                                    type: string
-                                    description: WGS84 (GPS) longitude
+                                    type: Number
+                                    Format: Float
+                                    description: Longitude in the WGS84 coordinate format
                                     example: 103.8469821
                             car:
                               type: integer
+                              format: int32
                               description: Number of car parking lots
                               example: 18
                             lorry:
                               type: integer
+                              format: int32
                               description: Number of lorry parking lots
                               example: 6
                             mc:
                               type: integer
+                              format: int32
                               description: Number of motorcycle parking lots
                               example: 0
                             createddate:
                               type: string
+                              format: date
                               description: Record first release date on sentient
                               example: "2019-10-17"
                             lastupdated:
                               type: string
+                              format: date
                               description: Record last updated date on sentient
                               example: "2019-10-17"
         message:
