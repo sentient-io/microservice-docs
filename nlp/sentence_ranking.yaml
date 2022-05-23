@@ -258,6 +258,7 @@ components:
             oneOf:
               - type: string
                 example: Published Date - May 23, 2022
+                x-details: Initial version release
                 description: "Initial version of API."    
     input:
       type: object
