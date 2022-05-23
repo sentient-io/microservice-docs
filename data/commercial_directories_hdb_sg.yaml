@@ -249,10 +249,12 @@ components:
           properties:
             total:
               type: integer
+              format: int32
               example: 986
               description: Total number of records
             max_score:
-              type: float
+              type: number
+              format: float
               example: 1.0
               description: The highest score value
             hits:
@@ -290,14 +292,17 @@ components:
                               example: "pet_specialist"
                             postalcode: 
                               type: integer
+                              format: int32
                               description: Postal code of a block
                               example: 560720
                             unit: 
-                              type: string
+                              type: integer
+                              format: int32
                               description: Unit number
                               example: "4102"
                             level: 
-                              type: string
+                              type: integer
+                              format: int32
                               description: Floor level
                               example: "01"
                             source: 
@@ -370,7 +375,8 @@ components:
                               description: Record type
                               example: "shop"
                             block:
-                              type: string
+                              type: integer
+                              format: int
                               description: Block number
                               example: "720"
                             street:
@@ -380,12 +386,12 @@ components:
                             xcoord:
                               type: number
                               format: float
-                              description: SVY21 X coordinates
+                              description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                               example: 29520.58
                             ycoord:
                               type: number
                               format: float
-                              description: SVY21 Y coordinates
+                              description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                               example: 39311.68
                             location:
                               type: object
