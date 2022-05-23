@@ -126,7 +126,7 @@ components:
         message:
           type: string
           example: Successfully Converted and stored in Google Cloud Storage
-          description: Description on the API status
+          description: Description of the API status
     unauthorized:
       type: object
       properties:
