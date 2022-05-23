@@ -13,10 +13,10 @@ info:
       This Sentence Ranking microservice is useful for extractive summaries, which involves picking up the most important phrases and sentences from the original text input and reusing those to make up the summary. It can be used in text analytics as well.
   x-subscribelink: text_importance_model
 servers:
-  - url: 'https://dev-apis.sentient.io' 
+  - url: 'https://apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 02, 2022"
+  description: "Published Date - May 23, 2022"
 paths:
   /microservices/nlp/sentenceranking/v0/getpredictions:
     post:
@@ -244,7 +244,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - May 02, 2022
+                example: Published Date - May 23, 2022
                 description: "Initial version of API."    
     input:
       type: object
