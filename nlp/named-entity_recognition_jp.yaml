@@ -179,7 +179,11 @@ components:
             animal:
               x-name: animal
               type: array
-              description: "Animals (includes insects, birds, reptiles, mammals and fishes, etc)"   
+              description: "Animals (includes insects, birds, reptiles, mammals and fishes, etc)"
+            character:
+              x-name: character
+              type: array
+              description: "A name of a fictional character. This includes the characters of a story.A name of a fictional animal that appear in more than one work, like \"werewolf\"" is not included here but in natural_object Category. Other fictional animal that only appear in a specific work, like “Pikachu”, is included."    
             color:
               x-name: color
               type: array
@@ -325,6 +329,10 @@ components:
               x-name: phone
               type: array
               description: "Phone or fax number" 
+            postal_code:
+              x-name: vehicle
+              type: array
+              description: "Postal address that includes a lot number, street number, house number or zip code"
             product:
               x-name: product
               type: array
@@ -351,6 +359,10 @@ components:
               x-name: relationship
               type: array
               description: "Family lineage, pedigree or blood relationship" 
+            sports:
+              x-name: sports
+              type: array
+              description: "A name of a sport in which the superiority of the player can be judged."
             stock_index:
               x-name: stock_index
               type: array
@@ -383,10 +395,7 @@ components:
               x-name: weapon
               type: array
               description: "Weapon, arm or armament" 
-            postal_code:
-              x-name: vehicle
-              type: array
-              description: "Postal address that includes a lot number, street number, house number or zip code"              
+                          
                               
         message:
           type: string
