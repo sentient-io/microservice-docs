@@ -95,7 +95,11 @@ nlp:
   sentence_paraphrase:
     title: Sentence Paraphrase
     versions:
-      0.1.0: 'sentence_paraphrase.yaml'      
+      0.1.0: 'sentence_paraphrase.yaml'
+  sentence_ranking:
+    title: Sentence Ranking
+    versions:
+      0.1.0: 'sentence_ranking.yaml'      
   spacy_ner:
     title: spaCy NER
     versions:
