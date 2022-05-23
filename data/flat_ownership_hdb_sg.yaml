@@ -245,7 +245,8 @@ components:
               example: 986
               description: Total number of records
             max_score:
-              type: float
+              type: number
+              format: float
               example: 17.995623
               description: The highest score value
             hits:
