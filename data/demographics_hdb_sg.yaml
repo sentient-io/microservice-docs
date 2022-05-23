@@ -315,7 +315,8 @@ components:
                               description: Number of residents
                               example: 54
                             block:
-                              type: string
+                              type: integer
+                              format: int32
                               description: Address block
                               example: "34"
                             street:
