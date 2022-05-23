@@ -118,6 +118,9 @@ components:
                 description: Latest Version
     input:
       type: object
+      required:
+        - engine_name
+        - event_history
       properties:
         engine_name:
           type: string
