@@ -123,7 +123,7 @@ components:
           properties: 
             output:
               type: array
-              example: [{"bounding box": {"bottom": 513,"left": 65,"right": 311,"top": 377},"confidence": 0.9715367555618286}]
+              example: [{"bounding box": {"top": 377,"right": 311,"bottom": 513,"left": 65},"confidence": 0.9715367555618286}]
               description: List of bounding boxes of the detected objects.
               items:
                 oneOf:
@@ -131,7 +131,7 @@ components:
                     properties:
                       bounding box:
                         description: The bounding boxes of the instances of object of interests.Contains the "top", "left", "bottom", "right". These are the pixel locations of the top-right and bottom-left corners of the bounding box.
-                        example: {"bottom": 513,"left": 65,"right": 311,"top": 377}
+                        example: {"top": 377,"right": 311,"bottom": 513,"left": 65}
                         type: object
                       confidence:
                         description: The "confidence" of the detection.
