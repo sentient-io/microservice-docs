@@ -123,7 +123,7 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: Description on the API status
+          description: Description of the API status
         status:
           type: string
           example: Success
