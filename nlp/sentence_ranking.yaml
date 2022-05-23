@@ -12,6 +12,19 @@ info:
     **Suggested usecases:**
       This Sentence Ranking microservice is useful for extractive summaries, which involves picking up the most important phrases and sentences from the original text input and reusing those to make up the summary. It can be used in text analytics as well.
   x-subscribelink: sentence_ranking
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters and input might be single sentence.
+  x-apidetailsdesc: |+
+    Text blurb and ranks the sentences based on their importance score.  
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
