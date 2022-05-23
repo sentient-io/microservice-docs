@@ -1,0 +1,764 @@
+openapi: 3.0.1
+info:
+  title: Fleet Routing Engine (FRES01) 
+  description: |+
+    Fleet Routing Engine is a set of APIs that will handle vehicle route scheduling. The API will return optimized route for each inputted vehicle.
+  version: '0.1.0'
+  x-additionalinfo: |+
+    - This microservice consists of set of REST APIs to inject data, train data, get recommendations etc. User can also use bulk upload APIs to insert historial data using CSV for both events and items.Dedicated engines are created per primary indicator, after the engine creation the apis can be used to inject the data.
+    
+    - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/recommendation_engine.yaml
+  x-subscribelink: recommendation_engine
+  x-apitype: Subscription
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    Subscription Fee + The API is billed by per request for get recommendations.
+  x-notes: |+
+    File size cannot exceed 10 MB.
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Apr 20, 2022"
+paths:
+  /microservices/analytics/fleetroutingengine/v0/endcustpreprocess:
+    description: |+
+        This API will be used to preprocess the end customer data, especially giving information of the coordinate (latitude and longitude) and the postal district based on the Singapore-registered postal code. This information is required for building the travel matrix and for using the fleet routing engine APIs.
+
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/endcustpreprocesssuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/endcustpreprocessinput'
+        required: true
+  /microservices/analytics/fleetroutingengine/v0/jobpreprocess:
+    description: |+
+        This API is used to preprocess the job data for the fleet routing engine API.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jobpreprocesssuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/jobpreprocessinput'
+        required: true
+  /microservices/analytics/fleetroutingengine/v0/haversinetravelmatrix:
+    description: |+
+        This API is used to generate travel matrix which calculate the distance between each location.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/travelmatrixsuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/travelmatrixinput'
+        required: true
+  /microservices/analytics/fleetroutingengine/v0/fres01:
+    description: |+
+        If client already has the table with the mentioned specification, there is no need to call the previous API.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fresuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/freinput'
+        required: true
+components:
+  schemas:
+    endcustpreprocesssuccess:
+      type: object
+      properties:
+        latitude:
+          type: string
+          description: The latitude of the postal code.
+          example: 1.36925511350953
+        longitude:
+          type: string
+          description: The longitude of the postal code.
+          example: 103.848464053097
+        postal_district:
+          type: string
+          description: The postal district of the postal code.
+          example: 20
+    jobpreprocesssuccess:
+      type: object
+      properties:
+        job_table:
+          type: object
+          description: Preprocessed job table
+          properties:
+            end_customer_id:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: End customer ID
+                  example: C-001
+                1:
+                  type: string
+                  description: End customer ID
+                  example: C-002
+            end_customer_name:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: End customer Name
+                  example: customer-001
+                1:
+                  type: string
+                  description: End customer Name
+                  example: customer-002
+            delivery_or_pickup:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Delivery (D) or pickup (P) option
+                  example: P
+                1:
+                  type: string
+                  description: Delivery (D) or pickup (P) option
+                  example: P
+            postcode:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Postal code
+                  example: 569933
+                1:
+                  type: string
+                  description: Postal code
+                  example: 628588
+            postal_district:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Postal district
+                  example: 20
+                1:
+                  type: string
+                  description: Postal district
+                  example: 22
+            timewindow_start:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: window's start time
+                  example: 10:00:00
+                1:
+                  type: string
+                  description: window's start time
+                  example: 08:00:00
+            timewindow_end:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: window's end time
+                  example: 14:00:00
+                1:
+                  type: string
+                  description: window's end time
+                  example: 14:00:00
+            return_by:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Return by time
+                  example: 17:00:00
+                1:
+                  type: string
+                  description: Return by time
+                  example: 17:00:00
+            customer_priority:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: customer priority
+                  example: low
+                1:
+                  type: string
+                  description: customer priority
+                  example: moderate
+            latitude:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Latitude of the postal code
+                  example: 1.36925511350953
+                1:
+                  type: string
+                  description: Latitude of the postal code
+                  example: 1.3245369061813
+            longitude:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Longitude of the postal code
+                  example: 103.848464053097
+                1:
+                  type: string
+                  description: Longitude of the postal code
+                  example: 103.697241531345
+            dwell_time:
+              type: object
+              properties:
+                0:
+                  type: float
+                  description: Dwell time
+                  example: 15.0
+                1:
+                  type: float
+                  description: Dwell time
+                  example: 17.0
+            quantity:
+              type: object
+              properties:
+                0:
+                  type: integer
+                  description: Quantity
+                  example: 1
+                1:
+                  type: integer
+                  description: Quantity
+                  example: 12
+            total_weight:
+              type: object
+              properties:
+                0:
+                  type: float
+                  description: Total weight
+                  example: 74.0
+                1:
+                  type: float
+                  description: Total weight
+                  example: 18.0
+            total_volume:
+              type: object
+              properties:
+                0:
+                  type: float
+                  description: Total volume
+                  example: 117990.0
+                1:
+                  type: float
+                  description: Total volume
+                  example: 192456.0
+            job_id:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Job ID
+                  example: PO-001
+                1:
+                  type: string
+                  description: Job ID
+                  example: PO-002
+        wg_threshold_status:
+          type: string
+          description: The status of the wg_threshold input
+          example: default_value (500)
+        split_threshold_status:
+          type: string
+          description: The status of the split_threshold input
+          example: default_value (1000)
+    travelmatrixsuccess:
+      type: object
+      properties:
+        travel_matrix_table:
+          type: object
+          properties:
+            start:
+              type: object
+              description: Singapore 6 digits postal code (start point)
+              properties:
+                0:
+                  type: string
+                  description: start value
+                  example: 569871
+                1: 
+                  type: string
+                  description: start value
+                  example: 628588
+                2: 
+                  type: string
+                  description: start value
+                  example: 628588
+            end:
+              type: object
+              description: Singapore 6 digits postal code (end point)
+              properties:
+                0:
+                  type: string
+                  description: End value
+                  example: 628588
+                1:
+                  type: string
+                  description: End value
+                  example: 569933
+                2:
+                  type: string
+                  description: End value
+                  example: 569933
+            min_distance:
+              type: object
+              description: Distance between start and end in meter unit
+              properties:
+                0:
+                  type: float
+                  description: Minimum Distance
+                  example: 19542.0325169279
+                1:
+                  type: float
+                  description: Minimum Distance
+                  example: 2047.8600016832
+                2:
+                  type: float
+                  description: Minimum Distance
+                  example: 17530.5428739106
+    fresuccess:
+      type: object
+      properties:
+        routes:
+          type: object
+          properties:
+            vehicle-9:
+              type: object
+              properties:
+                vehicle_id:
+                  type: string
+                  description: Vehicle ID
+                  example: vehicle-9
+                vehicle_capacity:
+                  type: integer
+                  description: Vehicle Capacity
+                  example: 800
+                vehicle_volumes:
+                  type: float
+                  description: Vehicle Volumes
+                  example: 5.368
+                route:
+                  type: array
+                  description: Routes
+                  example: ["150165", "349314"]
+                  items:
+                    oneOf:
+                      - type: string
+                        example: "150165"
+                      - type: string
+                        example: "349314"
+                job_group_id:
+                  type: array
+                  description: Job group ID
+                  example: ["DDpt", "D21"]
+                  items:
+                    oneOf:
+                      - type: string
+                        example: "DDpt"
+                      - type: string
+                        example: "D21"
+                job_id_list:
+                  type: array
+                  description: Job ID List
+                  example: ["DDpt", "DO-021"]
+                  items:
+                    oneOf:
+                      - type: string
+                        example: "DDpt"
+                      - type: string
+                        example: "DO-021"
+                end_customer_name:
+                  type: array
+                  description: End Customer Name
+                  example: ["DDpt", "customer-021"]
+                  items:
+                    oneOf:
+                      - type: string
+                        example: "DDpt"
+                      - type: string
+                        example: "customer-021"
+                end_customer_id:
+                  type: array
+                  description: End Customer ID
+                  example: ["DDpt", "C-021"]
+                  items:
+                    oneOf:
+                      - type: string
+                        example: "DDpt"
+                      - type: string
+                        example: "C-021"
+                time:
+                  type: array
+                  description: Time
+                  example: [["10:00:00", "10:00:00"], ["10:08:00", "10:25:00"]]
+                  items:
+                    oneOf:
+                      - type: array
+                        example: ["10:00:00", "10:00:00"]
+                      - type: array
+                        example: ["10:08:00", "10:25:00"]
+                service_time:
+                  type: array
+                  description: Service Time
+                  example: [0, 17]
+                  items:
+                    oneOf:
+                      - type: integer
+                        example: 0
+                      - type: integer
+                        example: 17
+                load_weight:
+                  type: array
+                  description: Load Weight
+                  example: [309, 263]
+                  items:
+                    oneOf:
+                      - type: integer
+                        example: 309
+                      - type: integer
+                        example: 263
+                load_volume:
+                  type: array
+                  description: Load Volume
+                  example: [2.521598, 2.245718]
+                  items:
+                    oneOf:
+                      - type: float
+                        example: 2.521598
+                      - type: float
+                        example: 2.245718
+                load_insurance:
+                  type: array
+                  description: Load Insurance
+                  example: [9, 8]
+                  items:
+                    oneOf:
+                      - type: integer
+                        example: 9
+                      - type: integer
+                        example: 8
+                total_time_min:
+                  type: integer
+                  description: Total Time Minimum
+                  example: 343
+                total_distance_m:
+                  type: float
+                  description: Total Distance
+                  example: 36178.0
+                max_load_weight:
+                  type: integer
+                  description: Maximum Load Weight
+                  example: 309
+                weight_utilization:
+                  type: float
+                  description: Weight Utilization
+                  example: 0.38625
+                max_load_volume:
+                  type: float
+                  description: Maximum Load Volume
+                  example: 2.521598
+                volume_utilization:
+                  type: float
+                  description: Volume Utilization
+                  example: 0.4697462742175857
+                centroid_coordinate:
+                  type: array
+                  description: Centroid Coordinate
+                  example: [1.3109918, 103.88885]
+                  items:
+                    oneOf:
+                      - type: float
+                        example: 1.3109918
+                      - type: float
+                        example: 103.88885
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - March 30, 2022
+                x-details: Initial version release
+                description: Latest Version
+    endcustpreprocessinput:
+      type: object
+      required:
+        - postal_code
+      properties:
+        postal_code:
+          type: integer
+          default: true
+          example: 569933
+          description: |+ 
+            Singapore 6 digits postal code
+    jobpreprocessinput:
+      type: object
+      required:
+        - job_table
+        - end_customer_table
+      properties:
+        end_customer_table:
+          type: object
+          default: true
+          example: {"end_customer_id":{"0":"C-001","1":"C-002"},"end_customer_name":{"0":"customer001","1":"customer002"},"postcode":{"0":"569871","1":"628588"},"customer_priority":{"0":"low","1":"moderate"},"dwell_time":{"0":13.0,"1":17.0},"latitude":{"0":"1.37787324453845","1":"1.3245369061813"},"longitude":{"0":"103.864744699759","1":"103.697241531345"},"postal_district":{"0":"20","1":"22"}}
+          description: |+
+            End Customer Table information
+        job_table:
+          type: object
+          default: true
+          description: |+ 
+             Job Table information
+          example: {"job_id":{"0":"PO-001","1":"PO-002"},"end_customer_id":{"0":"C-001","1":"C-002"},"end_customer_name":{"0":"customer-001","1":"customer002"},"delivery_or_pickup":{"0":"P","1":"P"},"timewindow_start":{"0":"10:00:00","1":"08:00:00"},"timewindow_end":{"0":"14:00:00","1":"14:00:00"},"return_by":{"0":"17:00:00","1":"17:00:00"},"quantity":{"0":1,"1":12},"total_weight":{"0":74.0,"1":18.0},"length":{"0":38.0,"1":11.0},"width":{"0":45.0,"1":54.0},"height":{"0":69.0,"1":27.0},"fragility":{"0":"yes","1":"no"},"weight_bearing":{"0":136.0,"1":216.0},"upright_requirement":{"0":"yes","1":"no"}}
+        wg_threshold:
+          type: float
+          description: |+
+            Weight Threshold
+          example: 500.0
+        split_threshold:
+          type: float
+          description: |+
+            Split Threshold
+          example: 1000.0
+    travelmatrixinput:
+      type: object
+      required:
+        - end_customer_table
+        - depot
+      properties:
+        end_customer_table:
+          type: object
+          default: true
+          description: |+ 
+             End customer table information
+          example: {"end_customer_id":{"0":"C-001","1":"C-002"},"end_customer_name":{"0":"customer001","1":"customer002"},"postcode":{"0":"569871","1":"628588"},"customer_priority":{"0":"low","1":"moderate"},"dwell_time":{"0":13.0,"1":17.0},"latitude":{"0":"1.37787324453845","1":"1.3245369061813"},"longitude":{"0":"103.864744699759","1":"103.697241531345"},"postal_district":{"0":"20","1":"22"}}
+        depot:
+          type: integer
+          default: true
+          description: Depot
+          example: 569933
+    freinput:
+      type: object
+      required:
+        - depot
+        - start_op
+        - end_op
+        - job_table
+        - vehicle_table
+        - travel_matrix_table
+      properties:
+        depot:
+          type: integer
+          default: true
+          description: |+
+            Depot Information
+          example: 150165
+        start_op:
+          type: string
+          default: true
+          description: |+
+            Start time of the op
+          example: 08:00:00
+        end_op:
+          type: string
+          default: true
+          description: |+
+            End time of the op
+          example: 18:00:00
+        break_start:
+          type: string
+          description: |+
+            Start time of break
+          example: 12:00:00
+        break_end:
+          type: string
+          description: |+
+            End time of break
+          example: 12:30:00
+        vol_util:
+          type: float
+          description: |+
+            Volume Utilized
+          example: 0.5
+        job_table:
+          type: object
+          default: true
+          description: |+ 
+             Preprocessed job table (result of Job Data Preprocess API)
+          example: {"end_customer_id":{"0":"C-039","1":"C-028","2":"C-004","3":"C-014","4":"C-014","5":"C-047","6":"C-003","7":"C-005","8":"C-039","9":"C-049","10":"C-034","11":"C-016","12":"C-007","13":"C-031","14":"C-024","15":"C-023","16":"C-049","17":"C-010","18":"C-049","19":"C-046","20":"C-032","21":"C-025","22":"C-006","23":"C-040","24":"C-035","25":"C-042","26":"C-035","27":"C-006","28":"C-020","29":"C-032","30":"C-017","31":"C-033","32":"C-047","33":"C-027","34":"C-031","35":"C-049","36":"C-028","37":"C-034","38":"C-038","39":"C-009","40":"C-043","41":"C-017","42":"C-038","43":"C-024","44":"C-003","45":"C-046","46":"C-005","47":"C-017","48":"C-017","49":"C-021","50":"C-024","51":"C-006","52":"C-010","53":"C-019","54":"C-038","55":"C-030","56":"C-022","57":"C-010"},"end_customer_name":{"0":"customer-039","1":"customer-028","2":"customer-004","3":"customer-014","4":"customer-014","5":"customer-047","6":"customer-003","7":"customer-005","8":"customer-039","9":"customer-049","10":"customer-034","11":"customer-016","12":"customer-007","13":"customer-031","14":"customer-024","15":"customer-023","16":"customer-049","17":"customer-010","18":"customer-049","19":"customer-046","20":"customer-032","21":"customer-025","22":"customer-006","23":"customer-040","24":"customer-035","25":"customer-042","26":"customer-035","27":"customer-006","28":"customer-020","29":"customer-032","30":"customer-017","31":"customer-033","32":"customer-047","33":"customer-027","34":"customer-031","35":"customer-049","36":"customer-028","37":"customer-034","38":"customer-038","39":"customer-009","40":"customer-043","41":"customer-017","42":"customer-038","43":"customer-024","44":"customer-003","45":"customer-046","46":"customer-005","47":"customer-017","48":"customer-017","49":"customer-021","50":"customer-024","51":"customer-006","52":"customer-010","53":"customer-019","54":"customer-038","55":"customer-030","56":"customer-022","57":"customer-010"},"delivery_or_pickup":{"0":"P","1":"P","2":"P","3":"P","4":"P","5":"P","6":"P","7":"P","8":"P","9":"P","10":"P","11":"P","12":"P","13":"P","14":"P","15":"P","16":"P","17":"P","18":"P","19":"P","20":"P","21":"P","22":"P","23":"P","24":"P","25":"P","26":"P","27":"P","28":"P","29":"D","30":"D","31":"D","32":"D","33":"D","34":"D","35":"D","36":"D","37":"D","38":"D","39":"D","40":"D","41":"D","42":"D","43":"D","44":"D","45":"D","46":"D","47":"D","48":"D","49":"D","50":"D","51":"D","52":"D","53":"D","54":"D","55":"D","56":"D","57":"D"},"postcode":{"0":"608924","1":"639510","2":"508918","3":"486796","4":"486796","5":"738428","6":"554369","7":"639405","8":"608924","9":"498793","10":"486162","11":"489947","12":"629017","13":"737854","14":"099253","15":"609289","16":"498793","17":"469277","18":"498793","19":"048624","20":"609923","21":"508948","22":"415926","23":"168593","24":"628342","25":"738308","26":"628342","27":"415926","28":"638382","29":"609923","30":"389842","31":"627943","32":"738428","33":"339156","34":"737854","35":"498793","36":"639510","37":"486162","38":"486399","39":"469331","40":"059567","41":"389842","42":"486399","43":"099253","44":"554369","45":"048624","46":"639405","47":"389842","48":"389842","49":"349314","50":"099253","51":"415926","52":"469277","53":"819454","54":"486399","55":"639798","56":"189702","57":"469277"},"postal_district":{"0":"22","1":"22","2":"17","3":"16","4":"16","5":"25","6":"19","7":"22","8":"22","9":"17","10":"16","11":"16","12":"22","13":"25","14":"04","15":"22","16":"17","17":"16","18":"17","19":"01","20":"22","21":"17","22":"14","23":"03","24":"22","25":"25","26":"22","27":"14","28":"22","29":"22","30":"14","31":"22","32":"25","33":"12","34":"25","35":"17","36":"22","37":"16","38":"16","39":"16","40":"01","41":"14","42":"16","43":"04","44":"19","45":"01","46":"22","47":"14","48":"14","49":"13","50":"04","51":"14","52":"16","53":"17","54":"16","55":"22","56":"07","57":"16"},"timewindow_start":{"0":"10:00:00","1":"08:00:00","2":"08:00:00","3":"08:00:00","4":"08:00:00","5":"10:00:00","6":"10:00:00","7":"08:00:00","8":"08:00:00","9":"10:00:00","10":"08:00:00","11":"10:00:00","12":"08:00:00","13":"10:00:00","14":"08:00:00","15":"08:00:00","16":"08:00:00","17":"10:00:00","18":"08:00:00","19":"08:00:00","20":"08:00:00","21":"10:00:00","22":"10:00:00","23":"08:00:00","24":"08:00:00","25":"10:00:00","26":"08:00:00","27":"10:00:00","28":"08:00:00","29":"08:00:00","30":"10:00:00","31":"10:00:00","32":"08:00:00","33":"10:00:00","34":"10:00:00","35":"10:00:00","36":"10:00:00","37":"08:00:00","38":"08:00:00","39":"08:00:00","40":"08:00:00","41":"08:00:00","42":"08:00:00","43":"08:00:00","44":"08:00:00","45":"08:00:00","46":"08:00:00","47":"08:00:00","48":"10:00:00","49":"10:00:00","50":"10:00:00","51":"08:00:00","52":"08:00:00","53":"08:00:00","54":"10:00:00","55":"08:00:00","56":"10:00:00","57":"10:00:00"},"timewindow_end":{"0":"14:00:00","1":"14:00:00","2":"12:00:00","3":"14:00:00","4":"12:00:00","5":"12:00:00","6":"12:00:00","7":"12:00:00","8":"12:00:00","9":"14:00:00","10":"14:00:00","11":"12:00:00","12":"14:00:00","13":"14:00:00","14":"14:00:00","15":"12:00:00","16":"12:00:00","17":"14:00:00","18":"12:00:00","19":"14:00:00","20":"12:00:00","21":"12:00:00","22":"12:00:00","23":"12:00:00","24":"14:00:00","25":"12:00:00","26":"14:00:00","27":"14:00:00","28":"12:00:00","29":"12:00:00","30":"14:00:00","31":"12:00:00","32":"12:00:00","33":"12:00:00","34":"14:00:00","35":"14:00:00","36":"14:00:00","37":"14:00:00","38":"12:00:00","39":"12:00:00","40":"14:00:00","41":"12:00:00","42":"14:00:00","43":"12:00:00","44":"14:00:00","45":"14:00:00","46":"12:00:00","47":"14:00:00","48":"12:00:00","49":"14:00:00","50":"14:00:00","51":"12:00:00","52":"12:00:00","53":"14:00:00","54":"12:00:00","55":"14:00:00","56":"12:00:00","57":"14:00:00"},"return_by":{"0":"17:00:00","1":"17:00:00","2":"18:00:00","3":"17:00:00","4":"17:00:00","5":"18:00:00","6":"18:00:00","7":"18:00:00","8":"18:00:00","9":"18:00:00","10":"18:00:00","11":"17:00:00","12":"18:00:00","13":"17:00:00","14":"18:00:00","15":"18:00:00","16":"17:00:00","17":"18:00:00","18":"18:00:00","19":"18:00:00","20":"17:00:00","21":"18:00:00","22":"17:00:00","23":"18:00:00","24":"17:00:00","25":"18:00:00","26":"18:00:00","27":"17:00:00","28":"17:00:00","29":"18:00:00","30":"18:00:00","31":"18:00:00","32":"18:00:00","33":"17:00:00","34":"18:00:00","35":"17:00:00","36":"18:00:00","37":"17:00:00","38":"18:00:00","39":"18:00:00","40":"17:00:00","41":"18:00:00","42":"17:00:00","43":"18:00:00","44":"17:00:00","45":"17:00:00","46":"18:00:00","47":"17:00:00","48":"18:00:00","49":"18:00:00","50":"18:00:00","51":"17:00:00","52":"18:00:00","53":"17:00:00","54":"17:00:00","55":"18:00:00","56":"18:00:00","57":"18:00:00"},"customer_priority":{"0":"low","1":"high","2":"moderate","3":"moderate","4":"moderate","5":"moderate","6":"low","7":"high","8":"low","9":"high","10":"low","11":"low","12":"high","13":"high","14":"moderate","15":"high","16":"high","17":"high","18":"high","19":"high","20":"low","21":"high","22":"moderate","23":"high","24":"low","25":"low","26":"low","27":"moderate","28":"high","29":"low","30":"high","31":"high","32":"moderate","33":"moderate","34":"high","35":"high","36":"high","37":"low","38":"high","39":"high","40":"low","41":"high","42":"high","43":"moderate","44":"low","45":"high","46":"high","47":"high","48":"high","49":"low","50":"moderate","51":"moderate","52":"high","53":"moderate","54":"high","55":"moderate","56":"moderate","57":"high"},"latitude":{"0":"1.32445127152898","1":"1.32882831911084","2":"1.37539137259918","3":"1.33224655304025","4":"1.33224655304025","5":"1.45092056282249","6":"1.37596775042002","7":"1.31865038310125","8":"1.32445127152898","9":"1.37534764287997","10":"1.33109415279728","11":"1.33778159720442","12":"1.32979799812778","13":"1.43502366194574","14":"1.26408889294438","15":"1.29960142433329","16":"1.37534764287997","17":"1.31814242416478","18":"1.37534764287997","19":"1.28529835587598","20":"1.3269753754609","21":"1.3755707557255","22":"1.33352816003332","23":"1.28491570888524","24":"1.30488667489708","25":"1.44935759194369","26":"1.30488667489708","27":"1.33352816003332","28":"1.33249296696758","29":"1.3269753754609","30":"1.32600649565918","31":"1.33188200324384","32":"1.45092056282249","33":"1.31666461299605","34":"1.43502366194574","35":"1.37534764287997","36":"1.32882831911084","37":"1.33109415279728","38":"1.32996530053405","39":"1.32342409049675","40":"1.28842848666711","41":"1.32600649565918","42":"1.32996530053405","43":"1.26408889294438","44":"1.37596775042002","45":"1.28529835587598","46":"1.31865038310125","47":"1.32600649565918","48":"1.32600649565918","49":"1.3299845016318","50":"1.26408889294438","51":"1.33352816003332","52":"1.31814242416478","53":"1.37304827914816","54":"1.32996530053405","55":"1.34458794516981","56":"1.29615719409665","57":"1.31814242416478"},"longitude":{"0":"103.740998750586","1":"103.652352341819","2":"103.966752524942","3":"103.968298459334","4":"103.968298459334","5":"103.805635393559","6":"103.874112723442","7":"103.656421098319","8":"103.740998750586","9":"104.003218174754","10":"103.951925532409","11":"103.948869426596","12":"103.675841274861","13":"103.804760535791","14":"103.820208766742","15":"103.749057253682","16":"104.003218174754","17":"103.93186323479","18":"104.003218174754","19":"103.851172178481","20":"103.746325536541","21":"103.968061062468","22":"103.903433474527","23":"103.829805974467","24":"103.663280204496","25":"103.811840099082","26":"103.663280204496","27":"103.903433474527","28":"103.641683869148","29":"103.746325536541","30":"103.879166965399","31":"103.705068779355","32":"103.805635393559","33":"103.866270666561","34":"103.804760535791","35":"104.003218174754","36":"103.652352341819","37":"103.951925532409","38":"103.965892384333","39":"103.931244739067","40":"103.84230028531","41":"103.879166965399","42":"103.965892384333","43":"103.820208766742","44":"103.874112723442","45":"103.851172178481","46":"103.656421098319","47":"103.879166965399","48":"103.879166965399","49":"103.878241414675","50":"103.820208766742","51":"103.903433474527","52":"103.93186323479","53":"103.995017106523","54":"103.965892384333","55":"103.682758049858","56":"103.856933604404","57":"103.93186323479"},"dwell_time":{"0":13,"1":12,"2":10,"3":19,"4":19,"5":13,"6":14,"7":10,"8":13,"9":19,"10":19,"11":18,"12":19,"13":13,"14":16,"15":17,"16":19,"17":13,"18":19,"19":19,"20":12,"21":19,"22":16,"23":14,"24":10,"25":20,"26":10,"27":16,"28":14,"29":12,"30":11,"31":11,"32":13,"33":17,"34":13,"35":19,"36":12,"37":19,"38":18,"39":15,"40":11,"41":11,"42":18,"43":16,"44":14,"45":19,"46":10,"47":11,"48":11,"49":17,"50":16,"51":16,"52":13,"53":12,"54":18,"55":17,"56":16,"57":13},"quantity":{"0":1,"1":12,"2":3,"3":15,"4":15,"5":19,"6":5,"7":12,"8":14,"9":13,"10":19,"11":17,"12":17,"13":7,"14":11,"15":10,"16":14,"17":18,"18":10,"19":18,"20":18,"21":14,"22":14,"23":14,"24":4,"25":12,"26":19,"27":6,"28":7,"29":16,"30":10,"31":16,"32":7,"33":4,"34":15,"35":19,"36":4,"37":4,"38":12,"39":5,"40":4,"41":10,"42":1,"43":19,"44":15,"45":16,"46":7,"47":4,"48":7,"49":10,"50":12,"51":14,"52":15,"53":12,"54":13,"55":8,"56":10,"57":17},"total_weight":{"0":74,"1":18,"2":30,"3":64,"4":75,"5":77,"6":39,"7":30,"8":24,"9":8,"10":4,"11":137,"12":31,"13":7,"14":41,"15":59,"16":38,"17":1,"18":17,"19":44,"20":2,"21":12,"22":29,"23":63,"24":66,"25":31,"26":52,"27":62,"28":67,"29":10,"30":9,"31":15,"32":55,"33":21,"34":72,"35":48,"36":74,"37":11,"38":48,"39":39,"40":2,"41":71,"42":63,"43":2,"44":69,"45":35,"46":25,"47":1,"48":12,"49":46,"50":75,"51":25,"52":18,"53":15,"54":76,"55":5,"56":25,"57":66},"total_volume":{"0":117990,"1":192456,"2":22386,"3":76500,"4":1527660,"5":38760,"6":247690,"7":388512,"8":25480,"9":552552,"10":329232,"11":1592100,"12":578340,"13":1012928,"14":870232,"15":127500,"16":2109450,"17":255600,"18":1237600,"19":2814588,"20":2191302,"21":285012,"22":418488,"23":338352,"24":14800,"25":1438632,"26":2171016,"27":430080,"28":154000,"29":240000,"30":456960,"31":626048,"32":42588,"33":488236,"34":863760,"35":2392575,"36":326480,"37":177144,"38":382536,"39":1274400,"40":250800,"41":6600,"42":32802,"43":178296,"44":264600,"45":323994,"46":544726,"47":199920,"48":165242,"49":275880,"50":584640,"51":826728,"52":53820,"53":431148,"54":92664,"55":5920,"56":2028780,"57":601392},"job_id":{"0":"PO-001","1":"PO-002","2":"PO-003","3":"PO-004","4":"PO-005","5":"PO-006","6":"PO-007","7":"PO-008","8":"PO-009","9":"PO-010","10":"PO-011","11":"PO-012 | PO-014","12":"PO-013","13":"PO-015","14":"PO-016","15":"PO-017","16":"PO-018","17":"PO-019","18":"PO-020","19":"PO-021","20":"PO-022","21":"PO-023","22":"PO-024","23":"PO-025","24":"PO-026","25":"PO-027","26":"PO-028","27":"PO-029","28":"PO-030","29":"DO-001","30":"DO-002","31":"DO-003","32":"DO-004","33":"DO-005","34":"DO-006","35":"DO-007","36":"DO-008","37":"DO-009","38":"DO-010","39":"DO-011","40":"DO-012","41":"DO-013","42":"DO-014","43":"DO-015","44":"DO-016","45":"DO-017 | DO-027","46":"DO-018","47":"DO-019","48":"DO-020","49":"DO-021","50":"DO-022","51":"DO-023","52":"DO-024","53":"DO-025","54":"DO-026","55":"DO-028","56":"DO-029","57":"DO-030"}}
+        vehicle_table:
+          type: object
+          default: true
+          description: |+
+            Vehicle Table Information
+          example: {"vehicle_no":{"0":"vehicle-1","1":"vehicle-2","2":"vehicle-3","3":"vehicle-4","4":"vehicle-5","5":"vehicle-6","6":"vehicle-7","7":"vehicle-8","8":"vehicle-9","9":"vehicle-10","10":"vehicle-11","11":"vehicle-12","12":"vehicle-13","13":"vehicle-14","14":"vehicle-15"},"length":{"0":7.3152,"1":4.27,"2":7.3152,"3":7.3152,"4":7.3152,"5":7.3152,"6":7.3152,"7":12.3,"8":3.05,"9":7.3152,"10":3.05,"11":7.3152,"12":7.3152,"13":7.3152,"14":12.3},"breadth":{"0":2.34,"1":2.13,"2":2.34,"3":2.34,"4":2.4,"5":2.34,"6":2.34,"7":2.35,"8":1.6,"9":2.4,"10":1.6,"11":2.34,"12":2.34,"13":2.34,"14":2.35},"height":{"0":2.4,"1":1.98,"2":2.4,"3":2.4,"4":2.44,"5":2.4,"6":2.4,"7":2.39,"8":1.1,"9":2.44,"10":1.1,"11":2.4,"12":2.4,"13":2.4,"14":2.39},"weight_capacity":{"0":4800,"1":3200,"2":4800,"3":4800,"4":8000,"5":4800,"6":4800,"7":20000,"8":800,"9":8000,"10":800,"11":4800,"12":4800,"13":4800,"14":20000},"volume":{"0":41.0821632,"1":18.008298,"2":41.0821632,"3":41.0821632,"4":42.8378112,"5":41.0821632,"6":41.0821632,"7":69.0,"8":5.368,"9":42.8378112,"10":5.368,"11":41.0821632,"12":41.0821632,"13":41.0821632,"14":69.0},"restriction_type":{"0":"no","1":"no","2":"no","3":"no","4":"yes","5":"no","6":"no","7":"yes","8":"no","9":"yes","10":"no","11":"no","12":"no","13":"no","14":"yes"},"operating_cost":{"0":6,"1":4,"2":6,"3":6,"4":10,"5":6,"6":6,"7":20,"8":1,"9":10,"10":1,"11":6,"12":6,"13":6,"14":20},"speed":{"0":58,"1":51,"2":56,"3":50,"4":55,"5":58,"6":46,"7":54,"8":59,"9":55,"10":42,"11":49,"12":41,"13":55,"14":56}}
+        travel_matrix_table:
+          type: object
+          description: |+
+            Travel matrix table (result of Travel Matrix API)
+          example: {"start":{"0":"569871","1":"569871","2":"569871","3":"569871","4":"569871","5":"569871","6":"569871","7":"569871","8":"569871","9":"569871","10":"569871","11":"569871","12":"569871","13":"569871","14":"569871","15":"569871","16":"569871","17":"569871","18":"569871","19":"569871","20":"569871","21":"569871","22":"569871","23":"569871","24":"569871","25":"569871","26":"569871","27":"569871","28":"569871","29":"569871","30":"569871","31":"569871","32":"569871","33":"569871","34":"569871","35":"569871","36":"569871","37":"569871","38":"569871","39":"569871","40":"569871","41":"569871","42":"569871","43":"569871","44":"569871","45":"569871","46":"569871","47":"569871","48":"569871","49":"628588","50":"628588","51":"628588","52":"628588","53":"628588","54":"628588","55":"628588","56":"628588","57":"628588","58":"628588","59":"628588","60":"628588","61":"628588","62":"628588","63":"628588","64":"628588","65":"628588","66":"628588","67":"628588","68":"628588","69":"628588","70":"628588","71":"628588","72":"628588","73":"628588","74":"628588","75":"628588","76":"628588","77":"628588","78":"628588","79":"628588","80":"628588","81":"628588","82":"628588","83":"628588","84":"628588","85":"628588","86":"628588","87":"628588","88":"628588","89":"628588","90":"628588","91":"628588","92":"628588","93":"628588","94":"628588","95":"628588","96":"628588","97":"554369","98":"554369","99":"554369","100":"554369","101":"554369","102":"554369","103":"554369","104":"554369","105":"554369","106":"554369","107":"554369","108":"554369","109":"554369","110":"554369","111":"554369","112":"554369","113":"554369","114":"554369","115":"554369","116":"554369","117":"554369","118":"554369","119":"554369","120":"554369","121":"554369","122":"554369","123":"554369","124":"554369","125":"554369","126":"554369","127":"554369","128":"554369","129":"554369","130":"554369","131":"554369","132":"554369","133":"554369","134":"554369","135":"554369","136":"554369","137":"554369","138":"554369","139":"554369","140":"554369","141":"554369","142":"554369","143":"554369","144":"508918","145":"508918","146":"508918","147":"508918","148":"508918","149":"508918","150":"508918","151":"508918","152":"508918","153":"508918","154":"508918","155":"508918","156":"508918","157":"508918","158":"508918","159":"508918","160":"508918","161":"508918","162":"508918","163":"508918","164":"508918","165":"508918","166":"508918","167":"508918","168":"508918","169":"508918","170":"508918","171":"508918","172":"508918","173":"508918","174":"508918","175":"508918","176":"508918","177":"508918","178":"508918","179":"508918","180":"508918","181":"508918","182":"508918","183":"508918","184":"508918","185":"508918","186":"508918","187":"508918","188":"508918","189":"508918","190":"639405","191":"639405","192":"639405","193":"639405","194":"639405","195":"639405","196":"639405","197":"639405","198":"639405","199":"639405","200":"639405","201":"639405","202":"639405","203":"639405","204":"639405","205":"639405","206":"639405","207":"639405","208":"639405","209":"639405","210":"639405","211":"639405","212":"639405","213":"639405","214":"639405","215":"639405","216":"639405","217":"639405","218":"639405","219":"639405","220":"639405","221":"639405","222":"639405","223":"639405","224":"639405","225":"639405","226":"639405","227":"639405","228":"639405","229":"639405","230":"639405","231":"639405","232":"639405","233":"639405","234":"639405","235":"415926","236":"415926","237":"415926","238":"415926","239":"415926","240":"415926","241":"415926","242":"415926","243":"415926","244":"415926","245":"415926","246":"415926","247":"415926","248":"415926","249":"415926","250":"415926","251":"415926","252":"415926","253":"415926","254":"415926","255":"415926","256":"415926","257":"415926","258":"415926","259":"415926","260":"415926","261":"415926","262":"415926","263":"415926","264":"415926","265":"415926","266":"415926","267":"415926","268":"415926","269":"415926","270":"415926","271":"415926","272":"415926","273":"415926","274":"415926","275":"415926","276":"415926","277":"415926","278":"415926","279":"629017","280":"629017","281":"629017","282":"629017","283":"629017","284":"629017","285":"629017","286":"629017","287":"629017","288":"629017","289":"629017","290":"629017","291":"629017","292":"629017","293":"629017","294":"629017","295":"629017","296":"629017","297":"629017","298":"629017","299":"629017","300":"629017","301":"629017","302":"629017","303":"629017","304":"629017","305":"629017","306":"629017","307":"629017","308":"629017","309":"629017","310":"629017","311":"629017","312":"629017","313":"629017","314":"629017","315":"629017","316":"629017","317":"629017","318":"629017","319":"629017","320":"629017","321":"629017","322":"638996","323":"638996","324":"638996","325":"638996","326":"638996","327":"638996","328":"638996","329":"638996","330":"638996","331":"638996","332":"638996","333":"638996","334":"638996","335":"638996","336":"638996","337":"638996","338":"638996","339":"638996","340":"638996","341":"638996","342":"638996","343":"638996","344":"638996","345":"638996","346":"638996","347":"638996","348":"638996","349":"638996","350":"638996","351":"638996","352":"638996","353":"638996","354":"638996","355":"638996","356":"638996","357":"638996","358":"638996","359":"638996","360":"638996","361":"638996","362":"638996","363":"638996","364":"469331","365":"469331","366":"469331","367":"469331","368":"469331","369":"469331","370":"469331","371":"469331","372":"469331","373":"469331","374":"469331","375":"469331","376":"469331","377":"469331","378":"469331","379":"469331","380":"469331","381":"469331","382":"469331","383":"469331","384":"469331","385":"469331","386":"469331","387":"469331","388":"469331","389":"469331","390":"469331","391":"469331","392":"469331","393":"469331","394":"469331","395":"469331","396":"469331","397":"469331","398":"469331","399":"469331","400":"469331","401":"469331","402":"469331","403":"469331","404":"469331","405":"469277","406":"469277","407":"469277","408":"469277","409":"469277","410":"469277","411":"469277","412":"469277","413":"469277","414":"469277","415":"469277","416":"469277","417":"469277","418":"469277","419":"469277","420":"469277","421":"469277","422":"469277","423":"469277","424":"469277","425":"469277","426":"469277","427":"469277","428":"469277","429":"469277","430":"469277","431":"469277","432":"469277","433":"469277","434":"469277","435":"469277","436":"469277","437":"469277","438":"469277","439":"469277","440":"469277","441":"469277","442":"469277","443":"469277","444":"469277","445":"627935","446":"627935","447":"627935","448":"627935","449":"627935","450":"627935","451":"627935","452":"627935","453":"627935","454":"627935","455":"627935","456":"627935","457":"627935","458":"627935","459":"627935","460":"627935","461":"627935","462":"627935","463":"627935","464":"627935","465":"627935","466":"627935","467":"627935","468":"627935","469":"627935","470":"627935","471":"627935","472":"627935","473":"627935","474":"627935","475":"627935","476":"627935","477":"627935","478":"627935","479":"627935","480":"627935","481":"627935","482":"627935","483":"627935","484":"417942","485":"417942","486":"417942","487":"417942","488":"417942","489":"417942","490":"417942","491":"417942","492":"417942","493":"417942","494":"417942","495":"417942","496":"417942","497":"417942","498":"417942","499":"417942","500":"417942","501":"417942","502":"417942","503":"417942","504":"417942","505":"417942","506":"417942","507":"417942","508":"417942","509":"417942","510":"417942","511":"417942","512":"417942","513":"417942","514":"417942","515":"417942","516":"417942","517":"417942","518":"417942","519":"417942","520":"417942","521":"417942","522":"629174","523":"629174","524":"629174","525":"629174","526":"629174","527":"629174","528":"629174","529":"629174","530":"629174","531":"629174","532":"629174","533":"629174","534":"629174","535":"629174","536":"629174","537":"629174","538":"629174","539":"629174","540":"629174","541":"629174","542":"629174","543":"629174","544":"629174","545":"629174","546":"629174","547":"629174","548":"629174","549":"629174","550":"629174","551":"629174","552":"629174","553":"629174","554":"629174","555":"629174","556":"629174","557":"629174","558":"629174","559":"486796","560":"486796","561":"486796","562":"486796","563":"486796","564":"486796","565":"486796","566":"486796","567":"486796","568":"486796","569":"486796","570":"486796","571":"486796","572":"486796","573":"486796","574":"486796","575":"486796","576":"486796","577":"486796","578":"486796","579":"486796","580":"486796","581":"486796","582":"486796","583":"486796","584":"486796","585":"486796","586":"486796","587":"486796","588":"486796","589":"486796","590":"486796","591":"486796","592":"486796","593":"486796","594":"486796","595":"627540","596":"627540","597":"627540","598":"627540","599":"627540","600":"627540","601":"627540","602":"627540","603":"627540","604":"627540","605":"627540","606":"627540","607":"627540","608":"627540","609":"627540","610":"627540","611":"627540","612":"627540","613":"627540","614":"627540","615":"627540","616":"627540","617":"627540","618":"627540","619":"627540","620":"627540","621":"627540","622":"627540","623":"627540","624":"627540","625":"627540","626":"627540","627":"627540","628":"627540","629":"627540","630":"489947","631":"489947","632":"489947","633":"489947","634":"489947","635":"489947","636":"489947","637":"489947","638":"489947","639":"489947","640":"489947","641":"489947","642":"489947","643":"489947","644":"489947","645":"489947","646":"489947","647":"489947","648":"489947","649":"489947","650":"489947","651":"489947","652":"489947","653":"489947","654":"489947","655":"489947","656":"489947","657":"489947","658":"489947","659":"489947","660":"489947","661":"489947","662":"489947","663":"489947","664":"389842","665":"389842","666":"389842","667":"389842","668":"389842","669":"389842","670":"389842","671":"389842","672":"389842","673":"389842","674":"389842","675":"389842","676":"389842","677":"389842","678":"389842","679":"389842","680":"389842","681":"389842","682":"389842","683":"389842","684":"389842","685":"389842","686":"389842","687":"389842","688":"389842","689":"389842","690":"389842","691":"389842","692":"389842","693":"389842","694":"389842","695":"389842","696":"389842","697":"739114","698":"739114","699":"739114","700":"739114","701":"739114","702":"739114","703":"739114","704":"739114","705":"739114","706":"739114","707":"739114","708":"739114","709":"739114","710":"739114","711":"739114","712":"739114","713":"739114","714":"739114","715":"739114","716":"739114","717":"739114","718":"739114","719":"739114","720":"739114","721":"739114","722":"739114","723":"739114","724":"739114","725":"739114","726":"739114","727":"739114","728":"739114","729":"819454","730":"819454","731":"819454","732":"819454","733":"819454","734":"819454","735":"819454","736":"819454","737":"819454","738":"819454","739":"819454","740":"819454","741":"819454","742":"819454","743":"819454","744":"819454","745":"819454","746":"819454","747":"819454","748":"819454","749":"819454","750":"819454","751":"819454","752":"819454","753":"819454","754":"819454","755":"819454","756":"819454","757":"819454","758":"819454","759":"819454","760":"638382","761":"638382","762":"638382","763":"638382","764":"638382","765":"638382","766":"638382","767":"638382","768":"638382","769":"638382","770":"638382","771":"638382","772":"638382","773":"638382","774":"638382","775":"638382","776":"638382","777":"638382","778":"638382","779":"638382","780":"638382","781":"638382","782":"638382","783":"638382","784":"638382","785":"638382","786":"638382","787":"638382","788":"638382","789":"638382","790":"349314","791":"349314","792":"349314","793":"349314","794":"349314","795":"349314","796":"349314","797":"349314","798":"349314","799":"349314","800":"349314","801":"349314","802":"349314","803":"349314","804":"349314","805":"349314","806":"349314","807":"349314","808":"349314","809":"349314","810":"349314","811":"349314","812":"349314","813":"349314","814":"349314","815":"349314","816":"349314","817":"349314","818":"349314","819":"189702","820":"189702","821":"189702","822":"189702","823":"189702","824":"189702","825":"189702","826":"189702","827":"189702","828":"189702","829":"189702","830":"189702","831":"189702","832":"189702","833":"189702","834":"189702","835":"189702","836":"189702","837":"189702","838":"189702","839":"189702","840":"189702","841":"189702","842":"189702","843":"189702","844":"189702","845":"189702","846":"189702","847":"609289","848":"609289","849":"609289","850":"609289","851":"609289","852":"609289","853":"609289","854":"609289","855":"609289","856":"609289","857":"609289","858":"609289","859":"609289","860":"609289","861":"609289","862":"609289","863":"609289","864":"609289","865":"609289","866":"609289","867":"609289","868":"609289","869":"609289","870":"609289","871":"609289","872":"609289","873":"609289","874":"099253","875":"099253","876":"099253","877":"099253","878":"099253","879":"099253","880":"099253","881":"099253","882":"099253","883":"099253","884":"099253","885":"099253","886":"099253","887":"099253","888":"099253","889":"099253","890":"099253","891":"099253","892":"099253","893":"099253","894":"099253","895":"099253","896":"099253","897":"099253","898":"099253","899":"099253","900":"508948","901":"508948","902":"508948","903":"508948","904":"508948","905":"508948","906":"508948","907":"508948","908":"508948","909":"508948","910":"508948","911":"508948","912":"508948","913":"508948","914":"508948","915":"508948","916":"508948","917":"508948","918":"508948","919":"508948","920":"508948","921":"508948","922":"508948","923":"508948","924":"508948","925":"639798","926":"639798","927":"639798","928":"639798","929":"639798","930":"639798","931":"639798","932":"639798","933":"639798","934":"639798","935":"639798","936":"639798","937":"639798","938":"639798","939":"639798","940":"639798","941":"639798","942":"639798","943":"639798","944":"639798","945":"639798","946":"639798","947":"639798","948":"639798","949":"339156","950":"339156","951":"339156","952":"339156","953":"339156","954":"339156","955":"339156","956":"339156","957":"339156","958":"339156","959":"339156","960":"339156","961":"339156","962":"339156","963":"339156","964":"339156","965":"339156","966":"339156","967":"339156","968":"339156","969":"339156","970":"339156","971":"339156","972":"639510","973":"639510","974":"639510","975":"639510","976":"639510","977":"639510","978":"639510","979":"639510","980":"639510","981":"639510","982":"639510","983":"639510","984":"639510","985":"639510","986":"639510","987":"639510","988":"639510","989":"639510","990":"639510","991":"639510","992":"639510","993":"639510","994":"638429","995":"638429","996":"638429","997":"638429","998":"638429","999":"638429","1000":"638429","1001":"638429","1002":"638429","1003":"638429","1004":"638429","1005":"638429","1006":"638429","1007":"638429","1008":"638429","1009":"638429","1010":"638429","1011":"638429","1012":"638429","1013":"638429","1014":"638429","1015":"737854","1016":"737854","1017":"737854","1018":"737854","1019":"737854","1020":"737854","1021":"737854","1022":"737854","1023":"737854","1024":"737854","1025":"737854","1026":"737854","1027":"737854","1028":"737854","1029":"737854","1030":"737854","1031":"737854","1032":"737854","1033":"737854","1034":"737854","1035":"609923","1036":"609923","1037":"609923","1038":"609923","1039":"609923","1040":"609923","1041":"609923","1042":"609923","1043":"609923","1044":"609923","1045":"609923","1046":"609923","1047":"609923","1048":"609923","1049":"609923","1050":"609923","1051":"609923","1052":"609923","1053":"609923","1054":"627943","1055":"627943","1056":"627943","1057":"627943","1058":"627943","1059":"627943","1060":"627943","1061":"627943","1062":"627943","1063":"627943","1064":"627943","1065":"627943","1066":"627943","1067":"627943","1068":"627943","1069":"627943","1070":"627943","1071":"627943","1072":"486162","1073":"486162","1074":"486162","1075":"486162","1076":"486162","1077":"486162","1078":"486162","1079":"486162","1080":"486162","1081":"486162","1082":"486162","1083":"486162","1084":"486162","1085":"486162","1086":"486162","1087":"486162","1088":"486162","1089":"628342","1090":"628342","1091":"628342","1092":"628342","1093":"628342","1094":"628342","1095":"628342","1096":"628342","1097":"628342","1098":"628342","1099":"628342","1100":"628342","1101":"628342","1102":"628342","1103":"628342","1104":"628342","1105":"318992","1106":"318992","1107":"318992","1108":"318992","1109":"318992","1110":"318992","1111":"318992","1112":"318992","1113":"318992","1114":"318992","1115":"318992","1116":"318992","1117":"318992","1118":"318992","1119":"318992","1120":"369585","1121":"369585","1122":"369585","1123":"369585","1124":"369585","1125":"369585","1126":"369585","1127":"369585","1128":"369585","1129":"369585","1130":"369585","1131":"369585","1132":"369585","1133":"369585","1134":"486399","1135":"486399","1136":"486399","1137":"486399","1138":"486399","1139":"486399","1140":"486399","1141":"486399","1142":"486399","1143":"486399","1144":"486399","1145":"486399","1146":"486399","1147":"608924","1148":"608924","1149":"608924","1150":"608924","1151":"608924","1152":"608924","1153":"608924","1154":"608924","1155":"608924","1156":"608924","1157":"608924","1158":"608924","1159":"168593","1160":"168593","1161":"168593","1162":"168593","1163":"168593","1164":"168593","1165":"168593","1166":"168593","1167":"168593","1168":"168593","1169":"168593","1170":"118523","1171":"118523","1172":"118523","1173":"118523","1174":"118523","1175":"118523","1176":"118523","1177":"118523","1178":"118523","1179":"118523","1180":"738308","1181":"738308","1182":"738308","1183":"738308","1184":"738308","1185":"738308","1186":"738308","1187":"738308","1188":"738308","1189":"059567","1190":"059567","1191":"059567","1192":"059567","1193":"059567","1194":"059567","1195":"059567","1196":"059567","1197":"486361","1198":"486361","1199":"486361","1200":"486361","1201":"486361","1202":"486361","1203":"486361","1204":"460063","1205":"460063","1206":"460063","1207":"460063","1208":"460063","1209":"460063","1210":"048624","1211":"048624","1212":"048624","1213":"048624","1214":"048624","1215":"738428","1216":"738428","1217":"738428","1218":"738428","1219":"629197","1220":"629197","1221":"629197","1222":"498793","1223":"498793","1224":"409030"},"end":{"0":"628588","1":"554369","2":"508918","3":"639405","4":"415926","5":"629017","6":"638996","7":"469331","8":"469277","9":"627935","10":"417942","11":"629174","12":"486796","13":"627540","14":"489947","15":"389842","16":"739114","17":"819454","18":"638382","19":"349314","20":"189702","21":"609289","22":"099253","23":"508948","24":"639798","25":"339156","26":"639510","27":"638429","28":"737854","29":"609923","30":"627943","31":"486162","32":"628342","33":"318992","34":"369585","35":"486399","36":"608924","37":"168593","38":"118523","39":"738308","40":"059567","41":"486361","42":"460063","43":"048624","44":"738428","45":"629197","46":"498793","47":"409030","48":"150165","49":"554369","50":"508918","51":"639405","52":"415926","53":"629017","54":"638996","55":"469331","56":"469277","57":"627935","58":"417942","59":"629174","60":"486796","61":"627540","62":"489947","63":"389842","64":"739114","65":"819454","66":"638382","67":"349314","68":"189702","69":"609289","70":"099253","71":"508948","72":"639798","73":"339156","74":"639510","75":"638429","76":"737854","77":"609923","78":"627943","79":"486162","80":"628342","81":"318992","82":"369585","83":"486399","84":"608924","85":"168593","86":"118523","87":"738308","88":"059567","89":"486361","90":"460063","91":"048624","92":"738428","93":"629197","94":"498793","95":"409030","96":"150165","97":"508918","98":"639405","99":"415926","100":"629017","101":"638996","102":"469331","103":"469277","104":"627935","105":"417942","106":"629174","107":"486796","108":"627540","109":"489947","110":"389842","111":"739114","112":"819454","113":"638382","114":"349314","115":"189702","116":"609289","117":"099253","118":"508948","119":"639798","120":"339156","121":"639510","122":"638429","123":"737854","124":"609923","125":"627943","126":"486162","127":"628342","128":"318992","129":"369585","130":"486399","131":"608924","132":"168593","133":"118523","134":"738308","135":"059567","136":"486361","137":"460063","138":"048624","139":"738428","140":"629197","141":"498793","142":"409030","143":"150165","144":"639405","145":"415926","146":"629017","147":"638996","148":"469331","149":"469277","150":"627935","151":"417942","152":"629174","153":"486796","154":"627540","155":"489947","156":"389842","157":"739114","158":"819454","159":"638382","160":"349314","161":"189702","162":"609289","163":"099253","164":"508948","165":"639798","166":"339156","167":"639510","168":"638429","169":"737854","170":"609923","171":"627943","172":"486162","173":"628342","174":"318992","175":"369585","176":"486399","177":"608924","178":"168593","179":"118523","180":"738308","181":"059567","182":"486361","183":"460063","184":"048624","185":"738428","186":"629197","187":"498793","188":"409030","189":"150165","190":"415926","191":"629017","192":"638996","193":"469331","194":"469277","195":"627935","196":"417942","197":"629174","198":"486796","199":"627540","200":"489947","201":"389842","202":"739114","203":"819454","204":"638382","205":"349314","206":"189702","207":"609289","208":"099253","209":"508948","210":"639798","211":"339156","212":"639510","213":"638429","214":"737854","215":"609923","216":"627943","217":"486162","218":"628342","219":"318992","220":"369585","221":"486399","222":"608924","223":"168593","224":"118523","225":"738308","226":"059567","227":"486361","228":"460063","229":"048624","230":"738428","231":"629197","232":"498793","233":"409030","234":"150165","235":"629017","236":"638996","237":"469331","238":"469277","239":"627935","240":"417942","241":"629174","242":"486796","243":"627540","244":"489947","245":"389842","246":"739114","247":"819454","248":"638382","249":"349314","250":"189702","251":"609289","252":"099253","253":"508948","254":"639798","255":"339156","256":"639510","257":"638429","258":"737854","259":"609923","260":"627943","261":"486162","262":"628342","263":"318992","264":"369585","265":"486399","266":"608924","267":"168593","268":"118523","269":"738308","270":"059567","271":"486361","272":"460063","273":"048624","274":"738428","275":"629197","276":"498793","277":"409030","278":"150165","279":"638996","280":"469331","281":"469277","282":"627935","283":"417942","284":"629174","285":"486796","286":"627540","287":"489947","288":"389842","289":"739114","290":"819454","291":"638382","292":"349314","293":"189702","294":"609289","295":"099253","296":"508948","297":"639798","298":"339156","299":"639510","300":"638429","301":"737854","302":"609923","303":"627943","304":"486162","305":"628342","306":"318992","307":"369585","308":"486399","309":"608924","310":"168593","311":"118523","312":"738308","313":"059567","314":"486361","315":"460063","316":"048624","317":"738428","318":"629197","319":"498793","320":"409030","321":"150165","322":"469331","323":"469277","324":"627935","325":"417942","326":"629174","327":"486796","328":"627540","329":"489947","330":"389842","331":"739114","332":"819454","333":"638382","334":"349314","335":"189702","336":"609289","337":"099253","338":"508948","339":"639798","340":"339156","341":"639510","342":"638429","343":"737854","344":"609923","345":"627943","346":"486162","347":"628342","348":"318992","349":"369585","350":"486399","351":"608924","352":"168593","353":"118523","354":"738308","355":"059567","356":"486361","357":"460063","358":"048624","359":"738428","360":"629197","361":"498793","362":"409030","363":"150165","364":"469277","365":"627935","366":"417942","367":"629174","368":"486796","369":"627540","370":"489947","371":"389842","372":"739114","373":"819454","374":"638382","375":"349314","376":"189702","377":"609289","378":"099253","379":"508948","380":"639798","381":"339156","382":"639510","383":"638429","384":"737854","385":"609923","386":"627943","387":"486162","388":"628342","389":"318992","390":"369585","391":"486399","392":"608924","393":"168593","394":"118523","395":"738308","396":"059567","397":"486361","398":"460063","399":"048624","400":"738428","401":"629197","402":"498793","403":"409030","404":"150165","405":"627935","406":"417942","407":"629174","408":"486796","409":"627540","410":"489947","411":"389842","412":"739114","413":"819454","414":"638382","415":"349314","416":"189702","417":"609289","418":"099253","419":"508948","420":"639798","421":"339156","422":"639510","423":"638429","424":"737854","425":"609923","426":"627943","427":"486162","428":"628342","429":"318992","430":"369585","431":"486399","432":"608924","433":"168593","434":"118523","435":"738308","436":"059567","437":"486361","438":"460063","439":"048624","440":"738428","441":"629197","442":"498793","443":"409030","444":"150165","445":"417942","446":"629174","447":"486796","448":"627540","449":"489947","450":"389842","451":"739114","452":"819454","453":"638382","454":"349314","455":"189702","456":"609289","457":"099253","458":"508948","459":"639798","460":"339156","461":"639510","462":"638429","463":"737854","464":"609923","465":"627943","466":"486162","467":"628342","468":"318992","469":"369585","470":"486399","471":"608924","472":"168593","473":"118523","474":"738308","475":"059567","476":"486361","477":"460063","478":"048624","479":"738428","480":"629197","481":"498793","482":"409030","483":"150165","484":"629174","485":"486796","486":"627540","487":"489947","488":"389842","489":"739114","490":"819454","491":"638382","492":"349314","493":"189702","494":"609289","495":"099253","496":"508948","497":"639798","498":"339156","499":"639510","500":"638429","501":"737854","502":"609923","503":"627943","504":"486162","505":"628342","506":"318992","507":"369585","508":"486399","509":"608924","510":"168593","511":"118523","512":"738308","513":"059567","514":"486361","515":"460063","516":"048624","517":"738428","518":"629197","519":"498793","520":"409030","521":"150165","522":"486796","523":"627540","524":"489947","525":"389842","526":"739114","527":"819454","528":"638382","529":"349314","530":"189702","531":"609289","532":"099253","533":"508948","534":"639798","535":"339156","536":"639510","537":"638429","538":"737854","539":"609923","540":"627943","541":"486162","542":"628342","543":"318992","544":"369585","545":"486399","546":"608924","547":"168593","548":"118523","549":"738308","550":"059567","551":"486361","552":"460063","553":"048624","554":"738428","555":"629197","556":"498793","557":"409030","558":"150165","559":"627540","560":"489947","561":"389842","562":"739114","563":"819454","564":"638382","565":"349314","566":"189702","567":"609289","568":"099253","569":"508948","570":"639798","571":"339156","572":"639510","573":"638429","574":"737854","575":"609923","576":"627943","577":"486162","578":"628342","579":"318992","580":"369585","581":"486399","582":"608924","583":"168593","584":"118523","585":"738308","586":"059567","587":"486361","588":"460063","589":"048624","590":"738428","591":"629197","592":"498793","593":"409030","594":"150165","595":"489947","596":"389842","597":"739114","598":"819454","599":"638382","600":"349314","601":"189702","602":"609289","603":"099253","604":"508948","605":"639798","606":"339156","607":"639510","608":"638429","609":"737854","610":"609923","611":"627943","612":"486162","613":"628342","614":"318992","615":"369585","616":"486399","617":"608924","618":"168593","619":"118523","620":"738308","621":"059567","622":"486361","623":"460063","624":"048624","625":"738428","626":"629197","627":"498793","628":"409030","629":"150165","630":"389842","631":"739114","632":"819454","633":"638382","634":"349314","635":"189702","636":"609289","637":"099253","638":"508948","639":"639798","640":"339156","641":"639510","642":"638429","643":"737854","644":"609923","645":"627943","646":"486162","647":"628342","648":"318992","649":"369585","650":"486399","651":"608924","652":"168593","653":"118523","654":"738308","655":"059567","656":"486361","657":"460063","658":"048624","659":"738428","660":"629197","661":"498793","662":"409030","663":"150165","664":"739114","665":"819454","666":"638382","667":"349314","668":"189702","669":"609289","670":"099253","671":"508948","672":"639798","673":"339156","674":"639510","675":"638429","676":"737854","677":"609923","678":"627943","679":"486162","680":"628342","681":"318992","682":"369585","683":"486399","684":"608924","685":"168593","686":"118523","687":"738308","688":"059567","689":"486361","690":"460063","691":"048624","692":"738428","693":"629197","694":"498793","695":"409030","696":"150165","697":"819454","698":"638382","699":"349314","700":"189702","701":"609289","702":"099253","703":"508948","704":"639798","705":"339156","706":"639510","707":"638429","708":"737854","709":"609923","710":"627943","711":"486162","712":"628342","713":"318992","714":"369585","715":"486399","716":"608924","717":"168593","718":"118523","719":"738308","720":"059567","721":"486361","722":"460063","723":"048624","724":"738428","725":"629197","726":"498793","727":"409030","728":"150165","729":"638382","730":"349314","731":"189702","732":"609289","733":"099253","734":"508948","735":"639798","736":"339156","737":"639510","738":"638429","739":"737854","740":"609923","741":"627943","742":"486162","743":"628342","744":"318992","745":"369585","746":"486399","747":"608924","748":"168593","749":"118523","750":"738308","751":"059567","752":"486361","753":"460063","754":"048624","755":"738428","756":"629197","757":"498793","758":"409030","759":"150165","760":"349314","761":"189702","762":"609289","763":"099253","764":"508948","765":"639798","766":"339156","767":"639510","768":"638429","769":"737854","770":"609923","771":"627943","772":"486162","773":"628342","774":"318992","775":"369585","776":"486399","777":"608924","778":"168593","779":"118523","780":"738308","781":"059567","782":"486361","783":"460063","784":"048624","785":"738428","786":"629197","787":"498793","788":"409030","789":"150165","790":"189702","791":"609289","792":"099253","793":"508948","794":"639798","795":"339156","796":"639510","797":"638429","798":"737854","799":"609923","800":"627943","801":"486162","802":"628342","803":"318992","804":"369585","805":"486399","806":"608924","807":"168593","808":"118523","809":"738308","810":"059567","811":"486361","812":"460063","813":"048624","814":"738428","815":"629197","816":"498793","817":"409030","818":"150165","819":"609289","820":"099253","821":"508948","822":"639798","823":"339156","824":"639510","825":"638429","826":"737854","827":"609923","828":"627943","829":"486162","830":"628342","831":"318992","832":"369585","833":"486399","834":"608924","835":"168593","836":"118523","837":"738308","838":"059567","839":"486361","840":"460063","841":"048624","842":"738428","843":"629197","844":"498793","845":"409030","846":"150165","847":"099253","848":"508948","849":"639798","850":"339156","851":"639510","852":"638429","853":"737854","854":"609923","855":"627943","856":"486162","857":"628342","858":"318992","859":"369585","860":"486399","861":"608924","862":"168593","863":"118523","864":"738308","865":"059567","866":"486361","867":"460063","868":"048624","869":"738428","870":"629197","871":"498793","872":"409030","873":"150165","874":"508948","875":"639798","876":"339156","877":"639510","878":"638429","879":"737854","880":"609923","881":"627943","882":"486162","883":"628342","884":"318992","885":"369585","886":"486399","887":"608924","888":"168593","889":"118523","890":"738308","891":"059567","892":"486361","893":"460063","894":"048624","895":"738428","896":"629197","897":"498793","898":"409030","899":"150165","900":"639798","901":"339156","902":"639510","903":"638429","904":"737854","905":"609923","906":"627943","907":"486162","908":"628342","909":"318992","910":"369585","911":"486399","912":"608924","913":"168593","914":"118523","915":"738308","916":"059567","917":"486361","918":"460063","919":"048624","920":"738428","921":"629197","922":"498793","923":"409030","924":"150165","925":"339156","926":"639510","927":"638429","928":"737854","929":"609923","930":"627943","931":"486162","932":"628342","933":"318992","934":"369585","935":"486399","936":"608924","937":"168593","938":"118523","939":"738308","940":"059567","941":"486361","942":"460063","943":"048624","944":"738428","945":"629197","946":"498793","947":"409030","948":"150165","949":"639510","950":"638429","951":"737854","952":"609923","953":"627943","954":"486162","955":"628342","956":"318992","957":"369585","958":"486399","959":"608924","960":"168593","961":"118523","962":"738308","963":"059567","964":"486361","965":"460063","966":"048624","967":"738428","968":"629197","969":"498793","970":"409030","971":"150165","972":"638429","973":"737854","974":"609923","975":"627943","976":"486162","977":"628342","978":"318992","979":"369585","980":"486399","981":"608924","982":"168593","983":"118523","984":"738308","985":"059567","986":"486361","987":"460063","988":"048624","989":"738428","990":"629197","991":"498793","992":"409030","993":"150165","994":"737854","995":"609923","996":"627943","997":"486162","998":"628342","999":"318992","1000":"369585","1001":"486399","1002":"608924","1003":"168593","1004":"118523","1005":"738308","1006":"059567","1007":"486361","1008":"460063","1009":"048624","1010":"738428","1011":"629197","1012":"498793","1013":"409030","1014":"150165","1015":"609923","1016":"627943","1017":"486162","1018":"628342","1019":"318992","1020":"369585","1021":"486399","1022":"608924","1023":"168593","1024":"118523","1025":"738308","1026":"059567","1027":"486361","1028":"460063","1029":"048624","1030":"738428","1031":"629197","1032":"498793","1033":"409030","1034":"150165","1035":"627943","1036":"486162","1037":"628342","1038":"318992","1039":"369585","1040":"486399","1041":"608924","1042":"168593","1043":"118523","1044":"738308","1045":"059567","1046":"486361","1047":"460063","1048":"048624","1049":"738428","1050":"629197","1051":"498793","1052":"409030","1053":"150165","1054":"486162","1055":"628342","1056":"318992","1057":"369585","1058":"486399","1059":"608924","1060":"168593","1061":"118523","1062":"738308","1063":"059567","1064":"486361","1065":"460063","1066":"048624","1067":"738428","1068":"629197","1069":"498793","1070":"409030","1071":"150165","1072":"628342","1073":"318992","1074":"369585","1075":"486399","1076":"608924","1077":"168593","1078":"118523","1079":"738308","1080":"059567","1081":"486361","1082":"460063","1083":"048624","1084":"738428","1085":"629197","1086":"498793","1087":"409030","1088":"150165","1089":"318992","1090":"369585","1091":"486399","1092":"608924","1093":"168593","1094":"118523","1095":"738308","1096":"059567","1097":"486361","1098":"460063","1099":"048624","1100":"738428","1101":"629197","1102":"498793","1103":"409030","1104":"150165","1105":"369585","1106":"486399","1107":"608924","1108":"168593","1109":"118523","1110":"738308","1111":"059567","1112":"486361","1113":"460063","1114":"048624","1115":"738428","1116":"629197","1117":"498793","1118":"409030","1119":"150165","1120":"486399","1121":"608924","1122":"168593","1123":"118523","1124":"738308","1125":"059567","1126":"486361","1127":"460063","1128":"048624","1129":"738428","1130":"629197","1131":"498793","1132":"409030","1133":"150165","1134":"608924","1135":"168593","1136":"118523","1137":"738308","1138":"059567","1139":"486361","1140":"460063","1141":"048624","1142":"738428","1143":"629197","1144":"498793","1145":"409030","1146":"150165","1147":"168593","1148":"118523","1149":"738308","1150":"059567","1151":"486361","1152":"460063","1153":"048624","1154":"738428","1155":"629197","1156":"498793","1157":"409030","1158":"150165","1159":"118523","1160":"738308","1161":"059567","1162":"486361","1163":"460063","1164":"048624","1165":"738428","1166":"629197","1167":"498793","1168":"409030","1169":"150165","1170":"738308","1171":"059567","1172":"486361","1173":"460063","1174":"048624","1175":"738428","1176":"629197","1177":"498793","1178":"409030","1179":"150165","1180":"059567","1181":"486361","1182":"460063","1183":"048624","1184":"738428","1185":"629197","1186":"498793","1187":"409030","1188":"150165","1189":"486361","1190":"460063","1191":"048624","1192":"738428","1193":"629197","1194":"498793","1195":"409030","1196":"150165","1197":"460063","1198":"048624","1199":"738428","1200":"629197","1201":"498793","1202":"409030","1203":"150165","1204":"048624","1205":"738428","1206":"629197","1207":"498793","1208":"409030","1209":"150165","1210":"738428","1211":"629197","1212":"498793","1213":"409030","1214":"150165","1215":"629197","1216":"498793","1217":"409030","1218":"150165","1219":"498793","1220":"409030","1221":"150165","1222":"409030","1223":"150165","1224":"150165"},"min_distance":{"0":19542.0325169279,"1":1062.7137939046,"2":11342.8521536423,"3":24076.2486506864,"4":6543.0249222828,"5":21669.0116476054,"6":25658.2872161744,"7":9555.3448122029,"8":9989.1158916596,"9":18515.8959932288,"10":6731.789073166,"11":21247.9005973558,"12":12579.8836302035,"13":19498.8440162319,"14":10359.8587425381,"15":5986.0202103388,"16":11862.4700980404,"17":14491.4118494342,"18":25304.5583795345,"19":5532.3226759612,"20":9127.8177361961,"21":15528.6450096293,"22":13586.4159236393,"23":11487.8082967538,"24":20566.0886668501,"25":6808.2123082595,"26":24232.046630447,"27":25431.2089459995,"28":9211.1565442529,"29":14329.0204704572,"30":18472.2232329673,"31":10999.0617621005,"32":23820.8657071756,"33":4191.5270468824,"34":5388.855827937,"35":12442.0849558008,"36":14983.9039299814,"37":11042.0458417991,"38":13510.5640220185,"39":9887.7407264045,"40":10253.9974807869,"41":12683.9570568458,"42":8539.2283536263,"43":10403.8575141138,"44":10447.4222631995,"45":22670.4196512631,"46":15395.686697118,"47":6039.6970635246,"48":11816.8777573633,"49":20476.560430582,"50":30488.959443419,"51":4584.7883784455,"52":22943.1556801506,"53":2449.838307805,"54":6364.1803224487,"55":26013.3530909565,"56":26091.532057298,"57":1091.2968982703,"58":23177.3133140558,"59":1958.680478912,"60":30144.2889735979,"61":549.2705030911,"62":28010.9761743954,"63":20224.4622046409,"64":15923.3701844127,"65":33538.6392877797,"66":6239.1177349038,"67":20130.0127049156,"68":18030.6276867842,"69":6392.7400465666,"70":15232.9901539977,"71":30635.5974793985,"72":2750.1436812278,"73":18810.5946895419,"74":5012.8826216566,"75":6476.6924201925,"76":17140.2637582941,"77":5463.1717128173,"78":1193.3845610679,"79":28321.3907699928,"80":4362.0458530957,"81":17218.1809945153,"82":20988.3615613619,"83":29870.7377958912,"84":4864.2968321693,"85":15381.1613181303,"86":12222.6746275396,"87":18839.3923711294,"88":16617.9626058947,"89":30046.8478040399,"90":24924.7782093434,"91":17659.3816853668,"92":18511.613943089,"93":3195.202586793,"94":34479.7045416767,"95":21455.0632146186,"96":14086.2481695245,"97":10298.3205131063,"98":25024.7537755142,"99":5735.2787034135,"100":22630.6705413391,"101":26627.7467963047,"102":8629.6926691204,"103":9086.105452447,"104":19460.2253365912,"105":5906.7291195158,"106":22204.3482702802,"107":11543.7104824089,"108":20419.1705826136,"109":9332.1845436773,"110":5583.7848608344,"111":12830.8402255216,"112":13444.0241992223,"113":26286.0682416632,"114":5133.6683516649,"115":9077.6918566855,"116":16290.0450064452,"117":13808.3393640705,"118":10443.6749812323,"119":21555.9821810888,"120":6651.5908183073,"121":25202.8981670509,"122":26417.967503582,"123":10126.9557439543,"124":15214.1256971247,"125":19420.4851342169,"126":9985.9709169244,"127":24733.9804241303,"128":4495.868928394,"129":4820.5834604548,"130":11413.0984363029,"131":15867.5955256331,"132":11259.0186088232,"133":13954.2467016104,"134":10701.0988459058,"135":10356.4394194616,"136":11656.9279468765,"137":7647.0772239951,"138":10399.5187985535,"139":11287.3769504801,"140":23588.2898200681,"141":14351.9189964196,"142":5427.6053408684,"143":12139.4054580581,"144":35070.0021778748,"145":8438.8131688342,"146":32733.8658855728,"147":36747.804063986,"148":6997.9632061044,"149":7454.2449445307,"150":29514.8062701449,"151":8266.808566918,"152":32290.2578551947,"153":4800.5686709315,"154":30376.7795982775,"155":4630.4722981857,"156":11178.19393294,"157":22103.1307009968,"158":3152.7622834891,"159":36449.4187423455,"160":11059.0952752193,"161":15055.2121228896,"162":25625.4654104124,"163":20458.6608697236,"164":146.8222355766,"165":31755.1576607935,"166":12938.7619523133,"167":35331.4470642593,"168":36598.6139602937,"169":19189.3300279169,"170":25088.0217656276,"171":29489.394343855,"172":5194.0848661039,"173":34634.3625760352,"174":13363.7092600956,"175":10097.0003259269,"176":5052.0606440181,"177":25727.0362797075,"178":18247.5474914421,"179":21840.6827696249,"180":19083.5763809304,"181":16879.1539811808,"182":5237.5407441397,"183":7445.9095452062,"184":16292.3996575931,"185":19781.3506017475,"186":33515.6080852571,"187":4053.6355864519,"188":9904.364714846,"189":19570.7722245292,"190":27508.9939410497,"191":2489.4071719981,"192":1970.4689373073,"193":30555.5255353776,"194":30619.7545475971,"195":5565.9139686592,"196":27742.2468058592,"197":2851.2068150409,"198":34702.8960102869,"199":4754.6179538779,"200":32579.6033443609,"201":24775.154964777,"202":19352.039665098,"203":38122.7485179085,"204":2247.9201970147,"205":24690.9251401948,"206":22430.0839175919,"207":10513.5761615629,"208":19191.9388188815,"209":35216.6793412746,"210":4109.7339587179,"211":23329.1142835483,"212":1218.7727778589,"213":2599.2534090531,"214":20960.9707214498,"215":10037.0458796215,"216":5604.5041856484,"217":32878.9835251725,"218":1709.8836839167,"219":21801.8086250402,"220":25557.2683866824,"221":34425.4918353175,"222":9424.2173531974,"223":19636.1906302998,"224":16239.2293303211,"225":22577.0755904844,"226":20934.9814113663,"227":34598.4230101603,"228":29473.5918038837,"229":21965.1121798598,"230":22168.6553223845,"231":2021.5902906054,"232":39063.564669958,"233":26014.6448265466,"234":18279.8033143473,"235":25303.6976238043,"236":29299.1724580396,"237":3289.4634259514,"238":3593.7510506665,"239":22052.6424142222,"240":239.9159744107,"241":24834.8791697571,"242":7212.1236915191,"243":22756.7757857137,"244":5072.9771895015,"245":2824.2713458789,"246":18312.4550404744,"247":11088.7326751936,"248":29097.6193454265,"249":2828.061846317,"250":6632.3819606611,"251":17571.0953464637,"252":12050.491719419,"253":8571.3815719014,"254":24562.1268512285,"255":4536.8613901177,"256":27916.3437865013,"257":29287.7559603253,"258":15737.9347291234,"259":17480.1143250871,"260":22051.971341934,"261":5397.4105966524,"262":26886.0776829592,"263":5912.2549917485,"264":1962.1224420088,"265":6954.5408563223,"266":18085.2692125301,"267":9808.7353160807,"268":13427.8443634045,"269":16418.0784282478,"270":8445.9166668096,"271":7146.2722985243,"272":2167.7930421866,"273":7906.5337221511,"274":16987.6794667897,"275":25812.0556071977,"276":12027.7369679859,"277":1529.5583806716,"278":11139.2638414406,"279":4015.6714083125,"280":28400.8413817426,"281":28490.2763244905,"282":3251.1161633702,"283":25539.1791352623,"284":491.8246543934,"285":32512.1655901496,"286":2813.4389557203,"287":30364.1413694339,"288":22606.6762518325,"289":16962.4181206369,"290":35805.3559344896,"291":3808.916950432,"292":22499.8470863771,"293":20475.8776872534,"294":8804.5094398115,"295":17633.7937578347,"296":32880.6612724768,"297":1815.4389189686,"298":21219.4771101879,"299":2613.3761265228,"300":4032.9855264122,"301":18500.8491909825,"302":7841.6804201706,"303":3257.3313350444,"304":30691.273437793,"305":3102.0659709469,"306":19530.7729143958,"307":23344.8474956965,"308":32243.5743073727,"309":7267.6059674031,"310":17828.426888379,"311":14630.5879056612,"312":20131.9277837686,"313":19067.792132474,"314":32423.3033776093,"315":27306.284553906,"316":20109.1423121544,"317":19737.4444826179,"318":2230.7071934555,"319":36743.3173218039,"320":23825.803662831,"321":16527.0126751503,"322":32377.3305348873,"323":32455.2399312244,"324":7257.3930975281,"325":29533.946850077,"326":4470.6611302347,"327":36503.809470824,"328":6604.6639801603,"329":34363.7711142267,"330":26587.4991721896,"331":20198.4487299993,"332":39820.8337165659,"333":819.8158119641,"334":26489.5655854055,"335":24332.931762272,"336":12456.3729511979,"337":21158.7479794319,"338":36894.6081255319,"339":5214.2361030336,"340":25172.2014222542,"341":1427.927556785,"342":1106.6964018883,"343":22006.2531251114,"344":11821.4668457224,"345":7270.4554903796,"346":34681.5344985734,"347":3443.7400986678,"348":23542.18277203,"349":27342.23670741,"350":36231.9070866038,"351":11228.2894492655,"352":21573.2353065402,"353":18201.1471593534,"354":23561.5752664328,"355":22860.2393234869,"356":36409.0306669772,"357":31287.8939623704,"358":23893.5249894477,"359":23110.5312985025,"360":3986.1897233761,"361":40758.6379704126,"362":27815.0566455487,"363":20225.5758930462,"364":591.3062567564,"365":25153.7897991431,"366":3053.3388681935,"367":27926.1919750076,"368":4234.2945719007,"369":25801.4513716057,"370":2527.3350391,"371":5796.3615833175,"372":21412.9562492303,"373":8983.5875444927,"374":32204.8882709396,"375":5937.1148447161,"376":8799.7000054431,"377":20425.5436020746,"378":13996.1732023907,"379":7097.3168041945,"380":27723.0714927708,"381":7261.8817462762,"382":31008.9795599149,"383":32405.5943813907,"384":18753.255291817,"385":20560.398353575,"386":25160.4856553167,"387":2452.0862528608,"388":29859.7320323513,"389":9169.6658771869,"390":5192.8880438615,"391":3919.6908078272,"392":21149.0790614399,"393":12062.1743971337,"394":15829.3346903506,"395":19294.3052079645,"396":10625.7932097277,"397":4067.1362248889,"398":1127.8379249123,"399":9859.3511979791,"400":19898.5779178444,"401":28809.6942514108,"402":9866.5555002143,"403":4622.0948806975,"404":13480.5824860564,"405":25247.5433478503,"406":3366.7824202023,"407":28013.0583093564,"408":4343.3629557185,"409":25868.2224054944,"410":2888.402903429,"411":5922.9123561128,"412":21832.4638977671,"413":9303.8224836254,"414":32297.3296120301,"415":6104.5989010292,"416":8680.9665639976,"417":20426.1333414526,"418":13790.9579477581,"419":7547.8217751837,"420":27847.4882405889,"421":7293.4943837442,"422":31094.6556829201,"423":32503.4432317702,"424":19197.4982972491,"425":20648.7556154596,"426":25257.9319161026,"427":2654.8112849177,"428":29893.6486813143,"429":9390.5565269238,"430":5424.0537968863,"431":4004.7910124048,"432":21229.1423699039,"433":11931.768368406,"434":15714.8037288863,"435":19771.0250837847,"436":10490.2938706594,"437":4119.8518218465,"438":1454.8901537595,"439":9685.097234786,"440":20368.4963434223,"441":28854.0580623757,"442":10167.6039422417,"443":4814.9127008116,"444":13361.8170459459,"445":22288.1683832741,"446":2786.748283763,"447":29261.389493216,"448":1335.4235696976,"449":27113.1180272832,"450":19358.7143823738,"451":14889.3263950776,"452":32576.889433792,"453":7051.103180257,"454":19249.5842689887,"455":17306.154328624,"456":5971.8552573253,"457":14773.0769824656,"458":29661.5449649478,"459":2937.7442742142,"460":17984.2375261925,"461":5864.2277517355,"462":7257.006089383,"463":16062.596337431,"464":4601.2832216864,"465":159.7313901244,"466":27440.7079358927,"467":5446.9126426474,"468":16284.8650443097,"469":20093.7334384902,"470":28993.2953036816,"471":4048.1737540087,"472":14760.6806757613,"473":11757.9401576245,"474":17767.2540575738,"475":15953.6946277842,"476":29173.5287466756,"477":24057.7346201231,"478":16998.7035238164,"479":17447.2381416996,"480":4280.9532178189,"481":33516.2439485485,"482":20575.5796405277,"483":13509.2485305994,"484":25070.0863748661,"485":6975.2739606387,"486":22989.6993393569,"487":4842.2095821241,"488":3039.3252602284,"489":18518.5377259828,"490":10889.4669744107,"491":29333.6467545669,"492":3056.9455052941,"493":6792.3695396306,"494":17792.9152145603,"495":12206.1064123296,"496":8398.1021879337,"497":24800.12956919,"498":4736.39318572,"499":28151.7145025553,"500":29524.2227165103,"501":15933.4564697426,"502":17714.3875524866,"503":22287.8203562385,"504":5159.5152964678,"505":27115.6634882089,"506":6152.1700705255,"507":2200.0053679837,"508":6716.4157624,"509":18318.789900767,"510":9983.8773579808,"511":13617.9817386663,"512":16598.4566627093,"513":8612.6073028666,"514":6907.4902852517,"515":1934.1098898893,"516":8053.6644342768,"517":17171.9882001924,"518":26042.8119145775,"519":11827.0022289128,"520":1749.0507275539,"521":11322.8590899138,"522":32042.0679059273,"523":2325.2408876673,"524":29897.211556808,"525":22132.9346814297,"526":16750.8015323914,"527":35357.3480260642,"528":4291.2598242709,"529":22028.8137815282,"530":19986.7755649517,"531":8315.4759103146,"532":17146.8843595115,"533":32437.0318270186,"534":1808.7146733453,"535":20739.6577579211,"536":3082.9274499296,"537":4520.7444439878,"538":18228.3257966332,"539":7365.8488000037,"540":2802.1717375174,"541":30220.6617396518,"542":3226.2530206973,"543":19071.5339999207,"544":22876.7720925837,"545":31772.3581391624,"546":6786.9038720688,"547":17336.6062653172,"548":14142.5822316258,"549":19874.2950209707,"550":18576.4574709331,"551":31951.2800868203,"552":26832.9398115293,"553":19617.7029693231,"554":19492.5334011093,"555":2227.5466550803,"556":36296.0251258698,"557":23354.6626288862,"558":16035.4624166455,"559":29948.6958509748,"560":2245.8078994423,"561":9932.5824057762,"562":24283.4703955631,"563":5422.7061525187,"564":36308.126678946,"565":10014.3572701282,"566":13014.123483328,"567":24640.9549690005,"568":18123.3534700009,"569":4817.5104754729,"570":31771.676702804,"571":11473.5358991404,"572":35124.2381045062,"573":36499.3840637731,"574":21473.0873687471,"575":24682.6115316537,"576":29261.9634575659,"577":1824.6024321697,"578":34043.7557521777,"579":13085.5779365567,"580":9173.956346677,"581":368.6278053716,"582":25282.6801638146,"583":16270.3797472555,"584":20048.2389403917,"585":21727.1272461186,"586":14829.9641614017,"587":448.14155381,"588":5253.0500973112,"589":14028.0168952715,"590":22385.0856229248,"591":32982.8639081402,"592":6167.4787690133,"593":8689.250147214,"594":17696.6154862413,"595":27828.2168024971,"596":20020.5459189293,"597":16221.4333003584,"598":33412.5968058596,"599":6540.037530896,"600":19937.4594833436,"601":17736.9670190932,"602":5991.1672297672,"603":14821.7721550673,"604":30523.2652769045,"605":3287.9242445089,"606":18579.4529367956,"607":5296.5723461886,"608":6796.0680378129,"609":17360.5659650812,"610":5299.2323164663,"611":1476.0300950867,"612":28124.6915358506,"613":4328.8194976412,"614":17072.8534780644,"615":20806.5419122724,"616":29670.9511186651,"617":4676.2292742229,"618":15036.8107505505,"619":11817.4071927171,"620":19073.4839482208,"621":16293.6064755504,"622":29843.8052449025,"623":24719.0044361987,"624":17332.1583681928,"625":18762.3693349898,"626":3172.134192109,"627":34355.1889552363,"628":21260.8381623647,"629":13723.749828745,"630":7858.3233390635,"631":22113.4264950554,"632":6457.1276874924,"633":34153.3124021274,"634":7899.0840868404,"635":11219.3142514869,"636":22614.3248354904,"637":16483.7640461701,"638":4712.53737531,"639":29591.8492416199,"640":9477.5930456173,"641":32977.3451294217,"642":34339.1084041755,"643":19327.2370020712,"644":22547.8348135599,"645":27110.014031856,"646":817.5419687808,"647":31957.6880683273,"648":10887.5411652407,"649":7022.6853299953,"650":2082.4037857684,"651":23155.4502650975,"652":14482.4846237307,"653":18221.1033559999,"654":19645.7280604043,"655":13056.1902547038,"656":2324.7452794569,"657":3314.7218009287,"658":12329.244017176,"659":20292.4956038592,"660":30884.8976639264,"661":7345.0546273464,"662":6584.4146816729,"663":15883.1504233728,"664":17001.9376879326,"665":13900.1586644942,"666":26409.6966255936,"667":454.1432992765,"668":4138.2565530471,"669":14758.7662726997,"670":9505.7700003443,"671":11314.8217801836,"672":21931.3187245928,"673":1770.4018834466,"674":25215.8542852543,"675":26609.5097768469,"676":14675.1575670712,"677":14767.7477984235,"678":19364.6787748982,"679":8107.9801418535,"680":24113.8464884019,"681":3637.6414844893,"682":1173.4221291001,"683":9650.8942574805,"684":15360.4898057515,"685":7140.5039292077,"686":10663.4733355119,"687":15625.0809587189,"688":5852.8673607283,"689":9823.4428639265,"690":4700.3985849277,"691":5493.1425358433,"692":16116.4752660922,"693":23050.4604291173,"694":14841.3986542481,"695":1296.3724563639,"696":8412.7704602039,"697":25164.1824167452,"698":19548.7218990603,"699":16600.9494510049,"700":18354.1104350006,"701":16174.1777435467,"702":20282.9966825447,"703":22233.6450120095,"704":15242.5073521103,"705":16945.6921546067,"706":18903.3381688608,"707":19508.5787277076,"708":2923.9437259163,"709":13292.9786156101,"710":14757.3728851981,"711":22796.682271166,"712":19963.0533855855,"713":13600.8989994668,"714":16830.5123006663,"715":24182.067902877,"716":13735.1176179637,"717":18331.096121238,"718":18396.8095465694,"719":3704.8869674063,"720":18440.5260491638,"721":24431.4600724037,"722":20378.3268056223,"723":19152.6409104185,"724":3088.96100766,"725":18873.6073968746,"726":25960.1100822508,"727":17516.0360114123,"728":18157.0894059319,"729":39535.9926168742,"730":13836.2895437724,"731":17570.5630881478,"732":28535.7382265633,"733":22900.224717857,"734":3009.6160362157,"735":34855.8668743972,"736":15625.0382355545,"737":38408.0868027467,"738":39690.6287603244,"739":22243.678810116,"740":28116.2815270379,"741":32555.2641288859,"742":6686.5130410761,"743":37648.2425338993,"744":16354.1619436935,"745":12886.283858625,"746":5782.0592419935,"747":28750.1628930586,"748":20816.770479688,"749":24498.7254364476,"750":22059.4256148581,"751":19409.9457296158,"752":5841.0007268331,"753":9704.1416031263,"754":18732.4193393943,"755":22763.1682519842,"756":36538.359947997,"757":946.8305906817,"758":12605.4299480475,"759":22186.8910450713,"760":26298.4147957796,"761":24267.1280360556,"762":12484.0016556354,"763":21253.6506508376,"764":36596.239077125,"765":4759.949816141,"766":25028.23499653,"767":1254.0151790006,"768":362.272296348,"769":21415.0947789322,"770":11648.6734631233,"771":7046.5126190854,"772":34488.378457756,"773":3897.0061146061,"774":23302.6176720124,"775":27137.4448204498,"776":36041.7575769654,"777":11076.51075193,"778":21571.5760325217,"779":18274.2150271824,"780":22948.6316424089,"781":22833.6254334171,"782":36222.974284822,"783":31108.4376207415,"784":23871.9501745107,"785":22484.8803644416,"786":4233.543780747,"787":40471.129189247,"788":27624.4380702482,"789":20245.6592849096,"790":4445.1213288468,"791":14752.9063336189,"792":9762.5820035292,"793":11197.7248763484,"794":21791.4536285084,"795":1991.1118251089,"796":25111.32181594,"797":26493.1780515873,"798":14252.7285140981,"799":14668.2707128241,"800":19251.9063405201,"801":8192.031539955,"802":24058.719044047,"803":3338.9376331396,"804":962.8085109912,"805":9743.7312016315,"806":15269.0160870469,"807":7355.6755277171,"808":10808.1074707504,"809":15187.9920957538,"810":6108.6419399674,"811":9924.8050641158,"812":4822.981234982,"813":5809.0395137417,"814":15683.6548251326,"815":22986.3374803501,"816":14780.2901652763,"817":1326.0241086047,"818":8590.2320590175,"819":11998.3558972719,"820":5420.5936107272,"821":15184.9948686085,"822":20097.2769552153,"823":2505.4441374308,"824":23030.789782124,"825":24507.1086508748,"826":16494.5365497022,"827":12764.4469716617,"828":17343.2453839982,"829":11251.774521637,"830":21549.6308996349,"831":5221.9658340924,"832":5310.9847980463,"833":12682.4651989741,"834":13266.4708763296,"835":3264.4913754395,"836":7034.3946540849,"837":17757.3418009622,"838":1839.7931882207,"839":12800.7317008943,"840":7905.6694760605,"841":1366.802189118,"842":18129.1270445961,"843":20568.3389044085,"844":18492.7383421041,"845":5263.4873167102,"846":4682.5411731087,"847":8840.6340869915,"848":25769.4125830265,"849":8907.4347423422,"850":13167.5710001231,"851":11230.775652654,"852":12758.0722094324,"853":16281.73555257,"854":3058.959395615,"855":6065.9962269197,"856":22822.2702570027,"857":9553.6156166729,"858":12311.9685083605,"859":15680.5031632992,"860":24339.9614060167,"861":2904.7686639044,"862":9123.9000963525,"863":5830.0753799394,"864":18055.5355634521,"865":10439.7101539651,"866":24492.6583482889,"867":19388.8308986729,"868":11462.6599043975,"869":17962.9867937502,"870":8596.7468521837,"871":29482.4398573465,"872":16043.866183018,"873":7769.3916779574,"874":20586.6820558395,"875":17708.6690623514,"876":7771.5965724238,"877":20000.4517282699,"878":21542.3876598501,"879":19084.5261771909,"880":10786.8687155296,"881":14854.5633736909,"882":16429.0918532735,"883":18025.4930318918,"884":9394.8951166485,"885":10675.7022154842,"886":17774.7138780107,"887":11071.949251367,"888":2549.7812383592,"889":3015.4839841161,"890":20621.9621315131,"891":3654.5966168482,"892":17863.1994881258,"893":13197.0959830056,"894":4172.5570063902,"895":20837.832447529,"896":17203.8454003267,"897":23810.5970579114,"898":10676.6210595316,"899":2129.3745758734,"900":31901.9215298313,"901":13074.5269562785,"902":35478.2608811245,"903":36745.4215824228,"904":19319.0591583378,"905":25234.3777421983,"906":29636.1573583087,"907":5260.806350219,"908":34780.5665373051,"909":13509.1357250828,"910":10235.807377519,"911":5076.8294401574,"912":25873.3231781609,"913":18380.0124280585,"914":21976.743659764,"915":19206.4048811479,"916":17009.939541828,"917":5257.181947643,"918":7559.5651720669,"919":16419.5449714867,"920":19904.7392960332,"921":33661.9360793877,"922":3908.2502503534,"923":10039.7533414515,"924":19705.124934622,"925":20635.1323094636,"926":3807.3068545358,"927":4867.3357285489,"928":16883.5243168009,"929":7332.8345963583,"930":2854.3543398679,"931":29959.5374469087,"932":4917.0038619491,"933":18709.7561364131,"934":22600.1334851804,"935":31516.5405635714,"936":6850.5780758255,"937":17642.0315379669,"938":14693.9478367027,"939":18482.7987561409,"940":18802.8781085813,"941":31705.6757952626,"942":26613.9428646365,"943":19848.753220276,"944":18065.8571039407,"945":4010.6344066491,"946":35787.3728402425,"947":23114.8281434456,"948":16414.8597260991,"949":23818.7596543992,"950":25240.9135245002,"951":14831.1804897488,"952":13382.9597442812,"953":17999.7799112836,"954":9656.0947849286,"955":22603.6065568459,"956":3357.744354041,"957":2919.1371352521,"958":11172.8104890664,"959":13952.8116861843,"960":5375.4298870255,"961":8902.5350940381,"962":15947.2455378026,"963":4118.0645593953,"964":11327.8524419614,"965":6222.5050443955,"966":3870.6253691518,"967":16379.7375470406,"968":21560.9332794742,"969":16563.2034546075,"970":3035.5478851231,"971":6642.8987941828,"972":1550.9212396692,"973":20651.2321229336,"974":10448.5823300761,"975":5870.0574787105,"976":33303.0442955674,"977":2926.2637779745,"978":22142.9259292255,"979":25957.7457462182,"980":34854.9553392707,"981":9866.4141977259,"982":20322.1679698445,"983":17020.2875428089,"984":22224.7486973991,"985":21588.331632191,"986":35034.0809078017,"987":29915.867250887,"988":22625.8396269806,"989":21786.3989793274,"990":3058.1460201888,"991":39345.2018466722,"992":26437.21207661,"993":18993.6987126935,"994":21414.4678476144,"995":11858.1492727149,"996":7245.7134457171,"997":34680.8559596933,"998":4257.1834213805,"999":23479.1604530611,"1000":27326.7421009272,"1001":36235.181299336,"1002":11294.3234305438,"1003":21832.6606476466,"1004":18557.9385766592,"1005":22933.112388888,"1006":23086.6313584536,"1007":36417.9434073865,"1008":31306.6769458447,"1009":24126.2752743597,"1010":22460.8284873779,"1011":4570.8856337174,"1012":40624.5202808301,"1013":27819.0999646999,"1014":20513.6640980781,"1015":13658.0410394974,"1016":15948.2015044442,"1017":20029.3966827211,"1018":21371.7029781631,"1019":11478.5988098316,"1020":14380.1831713267,"1021":21384.6414568967,"1022":14191.8470287848,"1023":16921.873899482,"1024":17560.3158839148,"1025":1777.5569741235,"1026":16826.3478678236,"1027":21636.3494240017,"1028":17749.4102132787,"1029":17429.8041536612,"1030":1770.3302627214,"1031":20237.7207190223,"1032":23037.2413109916,"1033":15061.6859959658,"1034":16963.1374340096,"1035":4618.6517223035,"1036":22860.1460623089,"1037":9552.9456372864,"1038":11773.6321329504,"1039":15525.2004070033,"1040":24410.4550208172,"1041":655.3019677334,"1042":10392.0585470236,"1043":7850.9936399531,"1044":15434.5196911534,"1045":11497.9246813853,"1046":24587.9300101278,"1047":19468.0088019124,"1048":12542.9233885912,"1049":15277.8966769394,"1050":8427.8514141178,"1051":29059.3841134084,"1052":15993.6608393558,"1053":9250.4009255404,"1054":27441.984712641,"1055":5530.8887522984,"1056":16273.455163751,"1057":20092.2670049147,"1058":28995.2606975481,"1059":4078.7304666796,"1060":14817.3806530614,"1061":11840.0637019484,"1062":17649.5388726999,"1063":16002.37758831,"1064":29176.5062397949,"1065":24062.7286208588,"1066":17047.7345309413,"1067":17325.6978094867,"1068":4366.727975299,"1069":33494.0390736653,"1070":20577.9290719738,"1071":13573.6112456747,"1072":32219.5063583002,"1073":11287.9172007076,"1074":7359.4456046606,"1075":1557.6921977479,"1076":23459.3546488182,"1077":14514.2012041226,"1078":18280.7349010323,"1079":20381.9737372467,"1080":13077.4937428777,"1081":1759.6636815965,"1082":3433.6210924478,"1083":12303.6246955044,"1084":21023.3860168834,"1085":31158.2821767053,"1086":7531.6418835427,"1087":6866.4854186888,"1088":15932.4371714684,"1089":21294.4170181848,"1090":24950.24491444,"1091":33755.475103681,"1092":8909.332781745,"1093":18644.835311411,"1094":15126.6748379535,"1095":23038.8932052272,"1096":19985.0228413507,"1097":33919.4137977993,"1098":28796.1129610902,"1099":21000.5860167462,"1100":22673.755856476,"1101":1166.9703995017,"1102":38592.7593384971,"1103":25374.8222887765,"1104":17254.4540568651,"1105":3976.8436376456,"1106":12844.7982142847,"1107":12402.4413041922,"1108":6851.0150209675,"1109":9470.1657820904,"1110":12630.3254417278,"1111":6118.2074233198,"1112":13044.5880838419,"1113":8042.3014796498,"1114":6388.3755123249,"1115":13044.7214833771,"1116":20187.3291296803,"1117":17299.0453542768,"1118":4577.9046139925,"1119":7654.5526837215,"1120":8916.4194358505,"1121":16133.0545109703,"1122":8294.3276515988,"1123":11769.2321482051,"1124":15215.1836637668,"1125":7021.7234805327,"1126":9107.0129664295,"1127":4065.7181128274,"1128":6663.7186734313,"1129":15741.6194345733,"1130":23870.8469126437,"1131":13831.0629158882,"1132":685.548362083,"1133":9544.1325056456,"1134":25007.8742104342,"1135":15935.9790944086,"1136":19716.8549913592,"1137":21668.1123316937,"1138":14494.7976861284,"1139":258.1406222912,"1140":4959.430202314,"1141":13686.035352647,"1142":22321.5218061165,"1143":32697.9869336766,"1144":6533.1204207038,"1145":8417.7735194158,"1146":17364.4604375248,"1147":10806.9346365612,"1148":8097.9826278118,"1149":15966.1358666567,"1150":11952.4662765113,"1151":25183.2856785575,"1152":20060.7166909236,"1153":12998.3386157088,"1154":15792.021171123,"1155":7789.2153681063,"1156":29693.7301320927,"1157":16593.5285493446,"1158":9620.1884497667,"1159":3794.7545686982,"1160":18393.8717623524,"1161":1442.8336102613,"1162":16049.4987270638,"1163":11168.1909300931,"1164":2375.6002519707,"1165":18653.4495318155,"1166":17716.2381116098,"1167":21742.4103914367,"1168":8367.6221537781,"1169":1447.334509961,"1170":19205.8919566934,"1171":5236.3054590033,"1172":19834.2654902702,"1173":14907.7426211319,"1174":6139.1808180835,"1175":19330.6397576258,"1176":14266.9222090258,"1177":25431.4650759042,"1178":11937.9947913563,"1179":2353.7366783643,"1180":18212.0670443197,"1181":21923.6306383109,"1182":18341.3198096879,"1183":18759.2274582935,"1184":711.2713278588,"1185":21913.0699441561,"1186":22810.1157171023,"1187":15885.2855238503,"1188":18511.5938777732,"1189":14607.4340312839,"1190":9743.4613526072,"1191":1045.8753434567,"1192":18522.3169824355,"1193":19035.8513999078,"1194":20332.4428438141,"1195":7039.3935324411,"1196":2884.6963509881,"1197":5125.7404726507,"1198":13787.7692964966,"1199":22576.5522368305,"1200":32864.8807603405,"1201":6567.7095643673,"1202":8598.8486544749,"1203":17481.0665044319,"1204":9032.5403286682,"1205":18933.6481076775,"1206":27739.6903115611,"1207":10613.6413821127,"1208":3502.9344098509,"1209":12568.6349241549,"1210":19099.3956007204,"1211":20059.3697757718,"1212":19645.4971713888,"1213":6584.697117913,"1214":3814.9669654075,"1215":21556.8057762957,"1216":23516.2408532249,"1217":16415.7746095937,"1218":18718.9135305026,"1219":37482.200321654,"1220":24305.3039841249,"1221":16343.5542899078,"1222":13546.2085466302,"1223":23116.5060612602,"1224":9669.1399934407}}
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
