@@ -112,7 +112,7 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: Description on the api status
+          description: Description of the api status
         status:
           type: string
           example: Success
