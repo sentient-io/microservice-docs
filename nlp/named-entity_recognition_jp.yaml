@@ -183,7 +183,7 @@ components:
             character:
               x-name: character
               type: array
-              description: "A name of a fictional character. This includes the characters of a story.A name of a fictional animal that appear in more than one work, like \"werewolf\"" is not included here but in natural_object Category. Other fictional animal that only appear in a specific work, like “Pikachu”, is included."    
+              description: "A name of a fictional character. This includes the characters of a story.A name of a fictional animal that appear in more than one work, like \"werewolf\" is not included here but in natural_object Category. Other fictional animal that only appear in a specific work, like \"Pikachu\", is included."    
             color:
               x-name: color
               type: array
