@@ -463,6 +463,12 @@ components:
               example: false
               description: 
                 Specifies whether to add punctuation marks during post-processing. Valid values - True and False. Default value - False.  
+            enable_words:
+              type: boolean
+              default: false
+              example: false
+              description: 
+                Specifies whether to return the information about words. Default value false.                
     uploadinput:
       type: object
       required:
