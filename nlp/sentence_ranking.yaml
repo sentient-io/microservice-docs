@@ -11,7 +11,7 @@ info:
   x-additionalinfo: |+
     **Suggested usecases:**
       This Sentence Ranking microservice is useful for extractive summaries, which involves picking up the most important phrases and sentences from the original text input and reusing those to make up the summary. It can be used in text analytics as well.
-  x-subscribelink: text_importance_model
+  x-subscribelink: sentence_ranking
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
