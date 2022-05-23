@@ -278,11 +278,13 @@ components:
                     description: Content type of the document
                     example: dir_doc
                   _id:  
-                    type: string
+                    type: integer
+                    format: int32
                     description: Document ID
                     example: '750405'
                   _score: 
                     type: integer
+                    format: int32
                     description: The document score for the search request
                     example: 1
                   _source:
@@ -292,66 +294,82 @@ components:
                     properties:
                       postalcode:
                         type: integer
+                        format: int32
                         description: Postal code
                         example: 750405
                       year_completed:
                         type: integer
+                        format: int32
                         description: Completed year of the Building
                         example: 1999
                       total_dwelling_units:
                         type: integer
+                        format: int32
                         description: Total Dwelling units
                         example: 112
                       1room_sold: 
                         type: integer
+                        format: int32
                         description: No. of one room units sold
                         example: 0
                       2room_sold: 
                         type: integer
+                        format: int32
                         description: No. of two room units sold
                         example: 0
                       3room_sold:
                         type: integer
+                        format: int32
                         description: No. of three room units sold
                         example: 0
                       4room_sold: 
                         type: integer
+                        format: int32
                         description: No. of four room units sold
                         example: 112
                       5room_sold: 
                         type: integer
+                        format: int32
                         description: No. of five room units sold
                         example: 0
                       exec_sold: 
                         type: integer
+                        format: int32
                         description: No. of executive units sold
                         example: 0
                       multigen_sold: 
                         type: integer
+                        format: int32
                         description: No. of multi generation units sold
                         example: 0
                       studio_apartment_sold: 
                         type: integer
+                        format: int32
                         description: No. of studio units sold
                         example: 0
                       1room_rental:
                         type: integer
+                        format: int32
                         description: No. of one room units rented
                         example: 0
                       2room_rental: 
                         type: integer
+                        format: int32
                         description: No. of two room units rented
                         example: 0
                       3room_rental: 
                         type: integer
+                        format: int32
                         description: No. of three room units rented
                         example: 0
                       other_room_rental: 
                         type: integer
+                        format: int32
                         description: No. of other units rented
                         example: 0
                       block:
-                        type: string
+                        type: integer
+                        format: int32
                         description: Block Number
                         example: 405
                       street: 
@@ -359,12 +377,14 @@ components:
                         description: Street
                         example: ADMIRALTY LINK
                       xcoord: 
-                        type: string
-                        description: SVY21 X coordinates
+                        type: number
+                        format: float
+                        description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                         example: 26086.0996
                       ycoord: 
-                        type: string
-                        description: SVY21 Y coordinates
+                        type: number
+                        format: float
+                        description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                         example: 48325.8008
                       address: 
                         type: string
@@ -384,12 +404,14 @@ components:
                         example: {"lat":1.350748,"lon":103.872798}                      
                         properties:
                             lat: 
-                              type: string
-                              description: WGS84 latitude
+                              type: number
+                              format: float
+                              description: Latitude in the WGS84 coordinate format
                               example: 1.37179535
                             lon:
-                              type: string
-                              description: WGS84 longitude
+                              type: number
+                              format: float
+                              description: Longitude in the WGS84 coordinate format
                               example: 103.8469821
                       source: 
                         type: string
@@ -398,11 +420,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: The detail description on the status
+          description: Description of the API status
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure
+          description: The status of the API call - Success/Failure
     unauthorized:
       type: object
       properties:
