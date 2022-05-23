@@ -119,6 +119,12 @@ components:
     input:
       type: object
       properties:
+        engine_name:
+          type: string
+          default: true
+          description: |+ 
+            engine name 
+          example: engine name
         event_history:
           type: object
           description: |+ 
