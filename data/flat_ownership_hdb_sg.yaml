@@ -241,6 +241,7 @@ components:
           properties:
             total:
               type: integer
+              format: int
               example: 986
               description: Total number of records
             max_score:
@@ -297,10 +298,12 @@ components:
                         example: "5"
                       no_of_units:
                         type: integer
+                        format: int32
                         description: Ownership units
                         example: "29"
                       block:
-                        type: string
+                        type: integer
+                        format: int32
                         description: Address block
                         example: "533"
                       street:
@@ -308,12 +311,14 @@ components:
                         description: Street Address or building name
                         example: "upper cross street"
                       xcoord:
-                        type: string
-                        description: SVY21 X coordinates
+                        type: number
+                        format: float
+                        description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                         example: 29520.58
                       ycoord:
-                        type: string
-                        description: SVY21 Y coordinates
+                        type: number
+                        format: float
+                        description: SSVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                         example: 39311.68
                       address:
                         type: string
@@ -333,12 +338,14 @@ components:
                         example: {"lat":1.37179535,"lon":103.8469821}                        
                         properties:
                             lat: 
-                              type: string
-                              description: WGS84 latitude
+                              type: number
+                              format: float
+                              description: Latitude in the WGS84 coordinate format
                               example: 1.37179535
                             lon:
-                              type: string
-                              description: WGS84 longitude
+                              type: number
+                              format: float
+                              description: Longitude in the WGS84 coordinate format
                               example: 103.8469821
                       source: 
                           type: string
@@ -347,11 +354,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: The detail description on the status
+          description: Description of the API status
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure
+          description: The status of the API call - Success/Failure
     unauthorized:
       type: object
       properties:
