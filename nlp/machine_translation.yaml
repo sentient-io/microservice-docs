@@ -20,10 +20,10 @@ info:
           NLP microservices provided by sentient.io.
   x-subscribelink: machine_translation
 servers:
-  - url: 'https://dev-apis.sentient.io' 
+  - url: 'https://apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 16, 2022"
+  description: "Published Date - May 23, 2022"
 paths:
   /microservices/nlp/translate/v0/getpredictions:
     post:
@@ -216,7 +216,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - May 16, 2022
+                example: Published Date - May 23, 2022
                 description: Initial version with fixes for bugs raised related to limit not being set and added error handling logic.
     input:
       type: object
