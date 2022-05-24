@@ -12,13 +12,23 @@ info:
         - en - english
         - ms - malay (minangkabau)
         - ta - tamil
-
-
       **Suggested usecases:**
-          
           It can be used to translate text for any applications, and can be augmented to internationalize
           NLP microservices provided by sentient.io.
   x-subscribelink: machine_translation
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 500 characters/Call
+  x-inputfilelimit: |+
+    Process up to 500 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 500 characters and input might be single sentence.
+  x-apidetailsdesc: |+
+    This NLP microservice provides machine translation    
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
@@ -217,6 +227,7 @@ components:
             oneOf:
               - type: string
                 example: Published Date - May 23, 2022
+                x-details: Initial version release
                 description: Initial version with fixes for bugs raised related to limit not being set and added error handling logic.
     input:
       type: object
