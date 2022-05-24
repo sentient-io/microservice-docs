@@ -183,14 +183,32 @@ components:
             animal:
               x-name: animal
               type: array
+              example: 
+              - entity: ミツバチ
+                start: 56
+                end: 60
               description: "Animals (includes insects, birds, reptiles, mammals and fishes, etc)"
             character:
               x-name: character
               type: array
+              example: 
+              - entity: トトロ
+                start: 16
+                end: 19
               description: "A name of a fictional character. This includes the characters of a story.A name of a fictional animal that appear in more than one work, like \"werewolf\" is not included here but in natural_object Category. Other fictional animal that only appear in a specific work, like \"Pikachu\", is included."    
             color:
               x-name: color
               type: array
+              example: 
+              - entity: 赤
+                start: 122
+                end: 123
+              - entity: 青
+                start: 124
+                end: 125
+              - entity: 緑
+                start: 126
+                end: 127
               description: "Color"  
             culture:
               x-name: culture
@@ -199,10 +217,21 @@ components:
             date:
               x-name: date
               type: array
+              example: 
+              - entity: 11日
+                start: 6
+                end: 9
+              - entity: 2019年
+                start: 123
+                end: 128
               description: "Expression of a date"   
             disease:
               x-name: disease
               type: array
+              example: 
+              - entity: 天然痘ウイルス
+                start: 159
+                end: 166
               description: "Disease or injury" 
             entertainment:
               x-name: entertainment
@@ -211,6 +240,10 @@ components:
             event:
               x-name: event
               type: array
+              example:
+              - entity: 世界経済フォーラム
+                start: 222
+                end: 231
               description: "Event, festival, occasion or phenomenon"      
             email:
               x-name: email
@@ -219,10 +252,18 @@ components:
             facility:
               x-name: facility
               type: array
+              example:
+              - entity: 仁王門
+                start: 56
+                end: 60
               description: "Place or building that provides a particular service (including hotels, airports, stations, etc) "    
             food:
               x-name: food
               type: array
+              example:
+              - entity: すし
+                start: 0
+                end: 2
               description: "Food, dish or drink"    
             financial_product:
               x-name: financial_product
@@ -231,6 +272,10 @@ components:
             geopolitical:
               x-name: geopolitical
               type: array
+              example:
+              - entity: 青島
+                start: 193
+                end: 196
               description: "Geopolitical entitity (including countries, cities, states, etc)"  
             identification_number:
               x-name: identification_number
@@ -239,22 +284,45 @@ components:
             identity_groups:
               x-name: identity_groups
               type: array
+              example:
+              - entity: 日本人
+                start: 396
+                end: 399
               description: "Nationalities, religious, ethnic and political groups"  
             language:
               x-name: language
               type: array
+              example:
+              - entity: 英語
+                start: 107
+                end: 109
               description: "Language, language family or dialect"  
             law:
               x-name: law
               type: array
+              example:
+              - entity: 9条
+                start: 137
+                end: 139
               description: "Law, statute, article or order"  
             location:
               x-name: location
               type: array
+              example:
+              - entity: サンフランシスコ
+                start: 349
+                end: 357
+              - entity: ドイツ
+                start: 62
+                end: 65
               description: "Place or location (including non-geopolitical entities)"  
             media:
               x-name: media
               type: array
+              example:
+              - entity: 月組スター
+                start: 0
+                end: 5
               description: "Physical media (e.g. print, video record), production (e.g. animation, music video, television advertisement, television show, movie) or broadcast programs (e.g. television & radio)" 
             measurement:
               x-name: measurement
@@ -271,6 +339,10 @@ components:
             money:
               x-name: money
               type: array
+              example:
+              - entity: 6千万円
+                start: 786
+                end: 790
               description: "Currency or physical representation of money (e.g. bill, banknote, or coin)"  
             musical_instrument:
               x-name: musical_instrument
@@ -279,6 +351,10 @@ components:
             natural_object:
               x-name: natural_object
               type: array
+              example:
+              - entity: 竹
+                start: 282
+                end: 289
               description: "Natural object or material (including chemical compounds, mineral and living things)"   
             ordinal:
               x-name: ordinal
@@ -291,6 +367,10 @@ components:
             offense:
               x-name: offense
               type: array
+              example:
+              - entity: 痴漢
+                start: 0
+                end: 2
               description: "Act of crime or rap"  
             organization:
               x-name: organization
@@ -311,6 +391,10 @@ components:
             percent:
               x-name: percent
               type: array
+              example:
+              - entity: 約半分
+                start: 274
+                end: 277
               description: "Percentage" 
             person:
               x-name: person
@@ -366,6 +450,10 @@ components:
             sports:
               x-name: sports
               type: array
+              example: 
+              - entity: サッカー
+                start: 1
+                end: 5
               description: "A name of a sport in which the superiority of the player can be judged."
             stock_index:
               x-name: stock_index
@@ -378,10 +466,18 @@ components:
             time:
               x-name: time
               type: array
+              example: 
+              - entity: 江戸時代
+                start: 174
+                end: 176
               description: "Expression that refers to a point in time or period" 
             title:
               x-name: title
               type: array
+              example: 
+              - entity: 株主
+                start: 174
+                end: 176
               description: "Name of title, position, occupation or position that indicates person's status" 
             url:
               x-name: url
@@ -390,14 +486,29 @@ components:
             vehicle:
               x-name: vehicle
               type: array
+              example: 
+              - entity: ジャガー
+                start: 232
+                end: 236
+              - entity: ポルシェ
+                start: 237
+                end: 241
               description: "Vehicle, including train, ship and aircraft" 
             work_of_art:
               x-name: work_of_art
               type: array
+              example: 
+              - entity: 天空の城ラピュタ
+                start: 1
+                end: 9
               description: "Music, songs, books, paintings and any other form of written or verbal work" 
             weapon:
               x-name: weapon
               type: array
+              example: 
+              - entity: 核
+                start: 679
+                end: 680
               description: "Weapon, arm or armament" 
                           
                               
