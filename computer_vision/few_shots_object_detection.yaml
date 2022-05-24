@@ -27,10 +27,10 @@ info:
   x-notes: |+
     File size cannot exceed 5 MB.
 servers:
-  - url: 'https://dev-apis.sentient.io' 
+  - url: 'https://apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Mar 23, 2022"
+  description: "Published Date - Mar 24, 2022"
 paths:
   /microservices/cv/fsod/v0/getpredictions:
     post:
@@ -236,7 +236,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Mar 23, 2022
+                example: Published Date - Mar 24, 2022
                 x-details: Initial version release
                 description: Latest Version
     input:
