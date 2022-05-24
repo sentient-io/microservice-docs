@@ -175,6 +175,10 @@ components:
             academia:
               x-name: academia
               type: array
+              example: 
+              - entity: 日本流
+                start: 128
+                end: 131
               description: "Academic field, school, method of art or science"   
             animal:
               x-name: animal
