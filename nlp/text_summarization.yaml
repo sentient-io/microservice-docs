@@ -39,7 +39,7 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/success'
-                example: {"message": "Successfully Processed","results": {"data_index":0,"nb_subword_input":344,"nb_subword_output":54,"output_text":"More than 2,000 Build-To-Order (BTO) Housing Board flats in Bidadari have been completed . More than 70 per cent of residents have moved into their new homes in Alkaff Vista and alkaff LakeView .","score":1.2851651553069523,"time_taken":"8 sec"},"status": "Success"}
+                example: {"message": "Successfully Processed","results": {"score": 2.14511174780278,"text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."},"status": "Success"}
           '401':
             description: Unauthorized
             content:
