@@ -215,6 +215,14 @@
       versions:
         type: object
         properties: 
+          v1.2.0:
+            type: array
+            items:
+             oneOf:
+               - type: string
+                 example: Published Date - May 24, 2022
+                 x-details: Model & Code Upgrade 
+                 description: Latest version
           v0.2.0:
             type: array
             items:
