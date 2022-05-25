@@ -10,8 +10,6 @@ info:
   version: '0.1.0'
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
-  x-tutorial-pdf-doc: 
-    https://storage.googleapis.com/lpdocs/docs/asrsch_prod.pdf
   x-subscribelink: automatic_speech_recognition_chi
   x-apitype: large file
   x-apitypedescription: |+
