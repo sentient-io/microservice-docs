@@ -209,11 +209,7 @@ components:
               - entity: 緑
                 start: 126
                 end: 127
-              description: "Color"  
-            culture:
-              x-name: culture
-              type: array
-              description: "Culture, civilization, or art"  
+              description: "Color" 
             date:
               x-name: date
               type: array
@@ -233,10 +229,6 @@ components:
                 start: 159
                 end: 166
               description: "Disease or injury" 
-            entertainment:
-              x-name: entertainment
-              type: array
-              description: "Entertainment activity (including shows performed on stage) or objects (including physical or video games)" 
             event:
               x-name: event
               type: array
@@ -244,11 +236,7 @@ components:
               - entity: 世界経済フォーラム
                 start: 222
                 end: 231
-              description: "Event, festival, occasion or phenomenon"      
-            email:
-              x-name: email
-              type: array
-              description: "Email address"    
+              description: "Event, festival, occasion or phenomenon"       
             facility:
               x-name: facility
               type: array
@@ -265,10 +253,6 @@ components:
                 start: 0
                 end: 2
               description: "Food, dish or drink"    
-            financial_product:
-              x-name: financial_product
-              type: array
-              description: "Financial products such as stocks or shares"  
             geopolitical:
               x-name: geopolitical
               type: array
@@ -277,10 +261,6 @@ components:
                 start: 193
                 end: 196
               description: "Geopolitical entitity (including countries, cities, states, etc)"  
-            identification_number:
-              x-name: identification_number
-              type: array
-              description: "Identification number. These can be personal identification numbers (e.g. passport number, driver’s license number or uniform number) or service identification numbers (e.g. flight number, vehicle number) "  
             identity_groups:
               x-name: identity_groups
               type: array
@@ -332,10 +312,6 @@ components:
                 start: 92
                 end: 94
               description: "Various measurement units (including length, weight, area, volume, temperature, etc)" 
-            medicine:
-              x-name: medicine
-              type: array
-              description: "Drug used to diagnose, cure and treat"  
             money:
               x-name: money
               type: array
@@ -343,11 +319,7 @@ components:
               - entity: 6千万円
                 start: 786
                 end: 790
-              description: "Currency or physical representation of money (e.g. bill, banknote, or coin)"  
-            musical_instrument:
-              x-name: musical_instrument
-              type: array
-              description: "Musical instrument" 
+              description: "Currency or physical representation of money (e.g. bill, banknote, or coin)" 
             natural_object:
               x-name: natural_object
               type: array
@@ -412,15 +384,7 @@ components:
               - entity: ナユ
                 start: 98
                 end: 100
-              description: "People, including fictional"  
-            phone:
-              x-name: phone
-              type: array
-              description: "Phone or fax number" 
-            postal_code:
-              x-name: vehicle
-              type: array
-              description: "Postal address that includes a lot number, street number, house number or zip code"
+              description: "People, including fictional" 
             product:
               x-name: product
               type: array
@@ -443,10 +407,6 @@ components:
                 start: 79
                 end: 81
               description: "Expression of count or quantification" 
-            relationship:
-              x-name: relationship
-              type: array
-              description: "Family lineage, pedigree or blood relationship" 
             sports:
               x-name: sports
               type: array
@@ -455,14 +415,6 @@ components:
                 start: 1
                 end: 5
               description: "A name of a sport in which the superiority of the player can be judged."
-            stock_index:
-              x-name: stock_index
-              type: array
-              description: "Stock market index" 
-            technology:
-              x-name: technology
-              type: array
-              description: "Software, computer program, library, web application, or programming language" 
             time:
               x-name: time
               type: array
@@ -478,11 +430,7 @@ components:
               - entity: 株主
                 start: 174
                 end: 176
-              description: "Name of title, position, occupation or position that indicates person's status" 
-            url:
-              x-name: url
-              type: array
-              description: "Web address or Universal Resource Locator (URL)" 
+              description: "Name of title, position, occupation or position that indicates person's status"
             vehicle:
               x-name: vehicle
               type: array
