@@ -23,7 +23,7 @@ info:
   x-apidetailsdesc: |+
     Locates and Identifies website visitors by IP  
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.2.0"
   description: "Published Date - Apr 07, 2021"
