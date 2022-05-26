@@ -3,13 +3,13 @@ info:
   title: Named-Entity Recognition JP
   description: |+
   
-  This NLP microservice locates and classifies the named-entity classes from input unstructured Japanese text.
-  
-  The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
-  
-  This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
-  
-  The input text **should not exceed 5000 characters**.
+      This NLP microservice locates and classifies the named-entity classes from input unstructured Japanese text.
+
+      The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
+
+      This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+
+      The input text **should not exceed 5000 characters**.
   
   version: '2.0.0'
   x-additionalinfo: |+
