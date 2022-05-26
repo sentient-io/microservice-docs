@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition ENG
   description: |+
-    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capabilities. The input can be bypassed to asr without passing through vad by setting the optional paramater "vad" to false. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
-    This microservice can be used on generic English or on specific use cases or accents. There are currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case
-    The length of your audio should be **up to 60 seconds**.
+    This Voice microservice transcribes English speech in the input audio stream into text.
+    This microservice can be used on generic English or on specific use cases or accents. Currently, there are additional models available for Singaporean accented audio which is prepared speech (16kHz) and telephony.
+    The length of your audio **should not exceed 60 seconds**.
   version: '2.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
