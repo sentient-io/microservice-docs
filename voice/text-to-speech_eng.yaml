@@ -3,11 +3,9 @@ openapi: 3.0.1
 info:
   title: Text-To-Speech ENG
   description: |+
-        This Voice microservice converts English text to speech in a female voice.
-        User can adjust the pitch and tempo of the the synthesised speech. 
-        The Text-to-Speech AI generated synthesized voice speaks with a Singaporean English accent. 
-
-        The input text should not exceed **3000 characters**.
+      This Voice microservice converts English text to speech in a female voice.
+      User can adjust the pitch and tempo of the the synthesised speech. The Text-to-Speech AI generated synthesized voice speaks with a Singaporean English accent.
+      The input text **should not exceed 2200 characters**.
   version: 1.2.1
   x-subscribelink: text-to-speech_eng
   x-apitype: small file
