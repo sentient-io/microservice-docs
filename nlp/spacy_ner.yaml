@@ -3,10 +3,8 @@ info:
   title: spaCy NER
   description: |+
   
-      This NLP microservice locates and classifies the named-entity classes from input unstructured English text, based on the spaCy model.
-      The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.
-      It can also return the start and end positions of the identified entities in the text by setting the optional parameter "entity_position".
-      This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+      This NLP microservice locates and classifies the named-entity classes from input unstructured English text, based on the spaCy model. The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.
+      It can also return the start and end positions of the identified entities in the text by setting the optional parameter "entity_position". This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
 
       The input text **should not exceed 5000 characters**.
   
