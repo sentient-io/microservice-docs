@@ -2,13 +2,13 @@ openapi: 3.0.1
 info:
   title: Named-Entity Recognition ENG
   description: |+
-    This NLP microservice locates and classifies the named-entities classes from input unstructured English text and also returns the entity start and endpositions.
-    
-    The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.
-    
-    This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
-    
-    Do ensure that your text is within **5000 characters**.
+  This NLP microservice locates and classifies the named-entity classes from input unstructured English text and also returns the entity start and end positions.
+  
+  The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.
+  
+  This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+  
+  The input text **should not exceed 5000 characters**.
   version: '2.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
