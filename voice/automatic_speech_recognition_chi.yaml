@@ -254,13 +254,7 @@ components:
           default: false
           example: false
           description: 
-            Specifies whether to enable voice detection. Valid values - True and False. Default value - False. Note - If voice detection is enabled, the server detects whether the uploaded audio file includes any silent fragment. If the server detects any silent fragment, it removes the silent fragment and the subsequent content without recognizing them. The recognition result varies depending on the model.                   
-        enable_words:
-          type: boolean
-          default: false
-          example: false
-          description: 
-            Specifies whether to return the information about words. Default value false.         
+            Specifies whether to enable voice detection. Valid values - True and False. Default value - False. Note - If voice detection is enabled, the server detects whether the uploaded audio file includes any silent fragment. If the server detects any silent fragment, it removes the silent fragment and the subsequent content without recognizing them. The recognition result varies depending on the model.                          
     versions:
       type: object
       properties: 
