@@ -3,10 +3,8 @@ info:
   title: People Counting
   description: |+
     This Computer Vision microservice tracks and counts people appearing in the input video.
-    
-    This microservice returns the number of people detected in that video, the likelihood of overestimation/underestimation, the first appearance, the duration and confidence of each person detected.
-    
-    The size of your image file should **not exceed 10 MB**, and the image dimension should be **least more than 416x416 pixels**. 
+    This microservice returns the number of people detected in that video, the likelihood of overestimation/underestimation, the first appearance, the duration and confidence of each person detected. 
+    The size of your image file **should not exceed 10 MB**, and the image dimension **should be at least 416x416 pixels**.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Improve visitor experience and optimize operations in retail, leisure, and other sectors - build services to count visitor traffic in venues, measure detailed movements and interactions, and visualize that data to better understand what is happening in within a certain spaces. For example, one can optimize traffic, staff and marketing strategies to increase conversion rates and profits with actionable data. Businesses can use visitor count as a benchmark to figure out the conversion rate for a certain spot to see the real performance. Efficiently allocating the number of staff according to hourly visitor traffic will also create value in terms of revenue, profit and efficiency.
