@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: D&B Business Check Plus (SG)
-  description:  The Data microservice provides key business information, litigation information (High and Subordinate Courts) and Winding Up Trace (winding up records) of a company which includes the Business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholder, litigation information. Updated daily.
+  description:  The Data microservice provides key business information, litigation information (High and Subordinate Courts) and Winding Up Trace (winding up records) of a company which includes the Business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholder. Updated daily.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Software solutions targeted at corporate finance and legal domains, e.g. in cases of mergers, joint ventures or partnerships.
