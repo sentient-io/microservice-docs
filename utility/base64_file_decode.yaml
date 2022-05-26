@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Base64 Decoder
   description: |+
-    This Utility microservice converts a Base64 encoded text string to a binary file.<br><br>For the reverse process (convert binary file to Base64 encoded text string), check out the Base64 File Encode microservice.
+    This Utility microservice converts a Base64 encoded text string to a binary file.<br><br>For the reverse process (convert binary file to Base64 encoded text string), check out the Base64 File Encoder microservice.
   x-additionalinfo: |+
     Suggested Use Cases:
     - As a post-processor for microservices that only outputs Base64 encoded text
