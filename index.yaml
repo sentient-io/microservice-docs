@@ -274,16 +274,18 @@ utility:
   pki_key_generator:
     title: PKI Key Generator
     versions:
-      0.1.0: 'pki_key_generator.yaml'
+      1.0.0: 'pki_key_generator.yaml'
+      0.1.0: 'pki_key_generator_v0.1.yaml'
   encryption_using_pki_key:
     title: Encryption using PKI Key
     versions:
-      0.1.0: 'encryption_using_pki_key.yaml'
+      1.0.0: 'encryption_using_pki_key.yaml'
+      0.1.0: 'encryption_using_pki_key_v0.1.yaml'
   decryption_using_pki_key:
     title: Decryption using PKI Key
     versions:
       1.0.0: 'decryption_for_pki_key.yaml'
-      0.1.0: 'decryption_for_pki_key.yaml'
+      0.1.0: 'decryption_for_pki_key_v0.1.yaml'
   wikipedia:
     title: Wikipedia Retrieval
     versions:
