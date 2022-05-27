@@ -258,8 +258,7 @@ utility:
   video-to-audio_converter:
     title: Video-To-Audio Convertor
     versions:
-      1.0.0: 'video-to-audio_converter.yaml'
-      0.1.0: 'video-to-audio_converter_v0.1.yaml'
+      0.1.0: 'video-to-audio_converter.yaml'
   web_scraper:
     title: Web Scraper
     versions:
@@ -304,7 +303,8 @@ utility:
   audio_processing_utility:
     title: Audio Format Convertor
     versions:
-      0.1.1: 'audio_processing_utility.yaml'
+      1.0.0: 'audio_processing_utility.yaml'
+      0.1.1: 'audio_processing_utility_v0.1.yaml'
   video-to-image_convertor:
     title: Video-to-Image Convertor
     versions:
