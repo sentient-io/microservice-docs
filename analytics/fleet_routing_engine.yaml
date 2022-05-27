@@ -140,7 +140,7 @@ paths:
         required: true
   /microservices/analytics/fleetroutingengine/v0/fres01:
     description: |+
-        This API is a set of APIs that will handle vehicle route scheduling. The API will return optimized route for each inputted vehicle.
+        If client already has the table with the mentioned specification, there is no need to call the previous API.
     post:
       tags:
         - v0.1.0
@@ -324,11 +324,11 @@ components:
               type: object
               properties:
                 0:
-                  type: float
+                  type: number
                   description: Dwell time
                   example: 15.0
                 1:
-                  type: float
+                  type: number
                   description: Dwell time
                   example: 17.0
             quantity:
@@ -346,22 +346,22 @@ components:
               type: object
               properties:
                 0:
-                  type: float
+                  type: number
                   description: Total weight
                   example: 74.0
                 1:
-                  type: float
+                  type: number
                   description: Total weight
                   example: 18.0
             total_volume:
               type: object
               properties:
                 0:
-                  type: float
+                  type: number
                   description: Total volume
                   example: 117990.0
                 1:
-                  type: float
+                  type: number
                   description: Total volume
                   example: 192456.0
             job_id:
@@ -426,15 +426,15 @@ components:
               description: Distance between start and end in meter unit
               properties:
                 0:
-                  type: float
+                  type: number
                   description: Minimum Distance
                   example: 19542.0325169279
                 1:
-                  type: float
+                  type: number
                   description: Minimum Distance
                   example: 2047.8600016832
                 2:
-                  type: float
+                  type: number
                   description: Minimum Distance
                   example: 17530.5428739106
     fresuccess:
@@ -455,7 +455,7 @@ components:
                   description: Vehicle Capacity
                   example: 800
                 vehicle_volumes:
-                  type: float
+                  type: number
                   description: Vehicle Volumes
                   example: 5.368
                 route:
@@ -544,9 +544,9 @@ components:
                   example: [2.521598, 2.245718]
                   items:
                     oneOf:
-                      - type: float
+                      - type: number
                         example: 2.521598
-                      - type: float
+                      - type: number
                         example: 2.245718
                 load_insurance:
                   type: array
@@ -563,7 +563,7 @@ components:
                   description: Total Time Minimum
                   example: 343
                 total_distance_m:
-                  type: float
+                  type: number
                   description: Total Distance
                   example: 36178.0
                 max_load_weight:
@@ -571,15 +571,15 @@ components:
                   description: Maximum Load Weight
                   example: 309
                 weight_utilization:
-                  type: float
+                  type: number
                   description: Weight Utilization
                   example: 0.38625
                 max_load_volume:
-                  type: float
+                  type: number
                   description: Maximum Load Volume
                   example: 2.521598
                 volume_utilization:
-                  type: float
+                  type: number
                   description: Volume Utilization
                   example: 0.4697462742175857
                 centroid_coordinate:
@@ -588,9 +588,9 @@ components:
                   example: [1.3109918, 103.88885]
                   items:
                     oneOf:
-                      - type: float
+                      - type: number
                         example: 1.3109918
-                      - type: float
+                      - type: number
                         example: 103.88885
     forbidden:
       type: object
@@ -669,12 +669,12 @@ components:
              Job Table information
           example: {"job_id":{"0":"PO-001","1":"PO-002"},"end_customer_id":{"0":"C-001","1":"C-002"},"end_customer_name":{"0":"customer-001","1":"customer002"},"delivery_or_pickup":{"0":"P","1":"P"},"timewindow_start":{"0":"10:00:00","1":"08:00:00"},"timewindow_end":{"0":"14:00:00","1":"14:00:00"},"return_by":{"0":"17:00:00","1":"17:00:00"},"quantity":{"0":1,"1":12},"total_weight":{"0":74.0,"1":18.0},"length":{"0":38.0,"1":11.0},"width":{"0":45.0,"1":54.0},"height":{"0":69.0,"1":27.0},"fragility":{"0":"yes","1":"no"},"weight_bearing":{"0":136.0,"1":216.0},"upright_requirement":{"0":"yes","1":"no"}}
         wg_threshold:
-          type: float
+          type: number
           description: |+
             Weight Threshold
           example: 500.0
         split_threshold:
-          type: float
+          type: number
           description: |+
             Split Threshold
           example: 1000.0
@@ -734,7 +734,7 @@ components:
             End time of break
           example: 12:30:00
         vol_util:
-          type: float
+          type: number
           description: |+
             Volume Utilized
           example: 0.5
