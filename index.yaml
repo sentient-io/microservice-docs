@@ -311,7 +311,8 @@ utility:
   newspaper_article_scraper:
     title: Newspaper Article Scraper
     versions:
-      0.1.0: 'newspaper_article_scraper.yaml'
+      1.0.0: 'newspaper_article_scraper.yaml'
+      0.1.0: 'newspaper_article_scraper_v0.1.yaml'
   urls_retrieval:
     title: URLs Retrieval
     versions:
