@@ -228,7 +228,7 @@ components:
     input:
       type: object
       properties:
-        encodeText:
+        encode_text:
           type: string
           default: true
           example: 4bafe80478a11553a69...
