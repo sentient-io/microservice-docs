@@ -266,7 +266,8 @@ utility:
   web_scraper:
     title: Web Scraper
     versions:
-      1.1.1: 'web_scraper.yaml'
+      2.0.0: 'web_scraper.yaml'
+      1.1.1: 'web_scraper_v1.yaml'
   document_convertor_eng:
     title: Document Convertor ENG
     versions:
