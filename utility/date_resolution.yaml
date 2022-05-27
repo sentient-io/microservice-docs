@@ -228,7 +228,7 @@ components:
     versions:
       type: object
       properties:
-         v0.3.0:
+        v0.3.0:
          type: array
          items:
           oneOf:
