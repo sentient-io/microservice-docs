@@ -328,7 +328,7 @@ utility:
   date_resolution:
     title: Date Resolution
     versions:
-      0.2.0: 'date_resolution.yaml'       
+      0.3.0: 'date_resolution.yaml'       
 data:
   commercial_directories_hdb_sg:
     title: HDB Commercial Directories (SG)
