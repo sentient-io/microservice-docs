@@ -465,6 +465,14 @@ analytics:
     title: Content Interest Profile
     versions:
       0.1.0: 'content_interest_profile.yaml'
+  fleet_routing_engine:
+    title: Fleet Routing Engine
+    versions:
+      0.1.0: 'fleet_routing_engine.yaml'
+  load_planning_engine:
+    title: Load Planning Engine
+    versions:
+      0.1.0: 'load_planning_engine.yaml'
 data alliance:
   download_dataset_api:
     title: Download Dataset API
