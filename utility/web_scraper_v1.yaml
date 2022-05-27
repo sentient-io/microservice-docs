@@ -292,6 +292,14 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 08, 2022
+              x-details: Major version update       
+              description: Latest Version
         v1.1.1:
          type: array
          items:
