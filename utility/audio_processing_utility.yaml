@@ -8,7 +8,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Build services related to sound engineering or audio editing as WAV is the format of choice for video and audio editors. WAV files are lossless compared to the lossy MP3 file format, meaning that WAV audio is a high-quality uncompressed file that is excellent for studio recordings and audio mastering.
-  version: '0.1.1'
+  version: '1.0.0'
   x-subscribelink: audio_format_convertor
   x-apitype: small file
   x-apitypedescription: |+
