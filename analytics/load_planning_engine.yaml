@@ -40,7 +40,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/freinterfacesuccess'
               example: 
-                message: Successfully Added
+                message: Successfully Processed
                 status: Success
         '401':
           description: Unauthorized
@@ -118,7 +118,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/lpesuccess'
               example: 
-                message: Successfully Added
+                message: Successfully Processed
                 status: Success
         '401':
           description: Unauthorized
