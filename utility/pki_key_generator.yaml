@@ -39,9 +39,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                keyLength: 1024
-                publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQK...
-                privateKey: MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl....
+                key_length: 1024
+                public_key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQK...
+                private_key: MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl....
         '401':
           description: Unauthorized
           content:
@@ -109,16 +109,16 @@ components:
     success:
       type: object
       properties:
-        keyLength:
+        key_length:
           type: integer
           format: int32
           example: 1024
           description: byte value of generated key
-        publicKey:
+        public_key:
           type: string
           example: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQK...
           description: generated public key for encoding the text
-        privateKey:
+        private_key:
           type: string
           example: MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl....
           description: Used for decoding the text encoded with the corresponding public key.
