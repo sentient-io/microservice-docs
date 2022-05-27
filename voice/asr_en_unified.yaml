@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Automatic Speech Recognition ENG
+  title: ASR EN Unified
   description: |+
     This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.
     
@@ -27,7 +27,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - May 27, 2022"
 paths:
-  /microservice/voice/ASRENUNIFIED/v0/get_transcript:
+  /microservice/voice/asrenunified/v0/get_transcript:
     post:
       tags:
         - v0.1.0
@@ -93,9 +93,9 @@ paths:
         - APIAuthorizer: []
       requestBody:
         content:
-          application/json:
-              schema:
-                $ref: '#/components/schemas/input'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/input'
         required: true
 components:
   schemas:
