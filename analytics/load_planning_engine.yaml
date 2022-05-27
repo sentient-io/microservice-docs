@@ -179,11 +179,11 @@ components:
               type: object
               properties:
                 0:
-                  type: float
+                  type: number
                   description: Total volume
                   example: 0.329232
                 1:
-                  type: float
+                  type: number
                   description: Total volume
                   example: 0.2556
             length:
@@ -295,11 +295,11 @@ components:
                       example: [0, 0, 0]
                       items:
                         oneOf:
-                          - type: float
+                          - type: number
                             example: 0
-                          - type: float
+                          - type: number
                             example: 0
-                          - type: float
+                          - type: number
                             example: 0
                     up_requirement:
                       type: string
@@ -322,11 +322,11 @@ components:
                       example: [62.80142396057187, 0, 0]
                       items:
                         oneOf:
-                          - type: float
+                          - type: number
                             example: 62.80142396057187
-                          - type: float
+                          - type: number
                             example: 0
-                          - type: float
+                          - type: number
                             example: 0
                     up_requirement:
                       type: string
@@ -456,22 +456,22 @@ components:
             Unique vehicle identification code
           example: SG123XX
         vehicle_length:
-          type: float
+          type: number
           description: |+
             The length of the available compartment of the vehicle in meter unit
           example: 2.1
         vehicle_breadth:
-          type: float
+          type: number
           description: |+
             The breadth of the available compartment of the vehicle in meter unit
           example: 2.1
         vehicle_height:
-          type: float
+          type: number
           description: |+
             The height of the available compartment of the vehicle in meter unit
           example: 2.1
         weight_capacity:
-          type: float
+          type: number
           description: |+
             The weight capacity of the vehicle
           example: 5000
