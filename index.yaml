@@ -208,10 +208,10 @@ computer vision:
     title: Masked Face Recognition
     versions:
       0.1.0: 'masked_face_recognition.yaml'
-  people_counting:
-    title: People Counting
+  paddleocr:
+    title: Image Text Detection and Recognition in Wild
     versions:
-      1.0.1: 'people_counting.yaml'
+      0.1.0: 'paddleocr.yaml'
   people_counting:
     title: People Counting
     versions:
