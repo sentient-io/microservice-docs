@@ -3,7 +3,9 @@ openapi: 3.0.1
 info:
   title: Image Text Detection and Recognition in Wild
   description: |+
-    To create a OCR model for recognizing text in wild leveraging paddleocr library. It supports both text detection & text recognition. It recognize text in English, chinese and few more languages. Do ensure that your image file size is within **5MB** size.
+    To create a OCR model for recognizing text in wild leveraging paddleocr library. It supports both text detection & text recognition. It recognize text in English, Chinese, Gereman, French Japanese and some more languages as it's a multi-lingual model.
+    
+    Do ensure that your image file size is within **5MB** size.
   version: v0.1.0
   x-subscribelink: paddleocr
 servers:
