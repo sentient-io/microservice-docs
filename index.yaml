@@ -164,12 +164,12 @@ nlp:
   text_summarization:
     title: Text Summarization
     versions:
-      1.2.0: 'text_summarization.yaml' 
-      0.2.0: 'text_summarization_v0.2.yaml' 
+      1.2.0: 'text_summarization.yaml'
+      0.2.0: 'text_summarization_v0.2.yaml'
   text_summarization_large_file:
     title: Text Summarization (Large File)
     versions:
-      0.1.0: 'text_summarization_large_file.yaml'        
+      0.1.0: 'text_summarization_large_file.yaml'
   sentiment_analysis_and_sarcasm_detection:
     title: Sentiment Analysis and Sarcasm Detection
     versions:
@@ -191,6 +191,10 @@ computer vision:
     title: Image Text Similarity
     versions:
       0.1.0: 'image_text_similarity.yaml'
+  paddleocr:
+    title: Image Text Detection and Recognition in Wild
+    versions:
+      0.1.0: 'paddleocr.yaml'
   object_detection:
     title: Object Detection
     versions:
@@ -208,10 +212,6 @@ computer vision:
     title: Masked Face Recognition
     versions:
       0.1.0: 'masked_face_recognition.yaml'
-  paddleocr:
-    title: Image Text Detection and Recognition in Wild
-    versions:
-      0.1.0: 'paddleocr.yaml'
   people_counting:
     title: People Counting
     versions:
