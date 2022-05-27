@@ -7,6 +7,7 @@ info:
     The Automatic Speech Recognition (ASR) AI model is employed to understand the mapping of sound features to actual words in English.
     
     Use this microservice if the audio file consists of mostly speech with no long pauses in between.
+    This api supports upto 15 secs audio file only.
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
