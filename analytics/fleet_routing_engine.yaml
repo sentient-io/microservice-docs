@@ -6,7 +6,6 @@ info:
   version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of set of REST APIs to pre-process various data like customer, job data and travel matrix before the user can call the Fleet Routing Engine.
-    
     - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/fleet_routing_engine.yaml
   x-subscribelink: fleetroutingengine
   x-apitype: Subscription
@@ -19,7 +18,7 @@ info:
   x-billingmethod: |+
     The API is billed by per request.
   x-notes: |+
-  
+
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
