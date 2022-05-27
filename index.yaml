@@ -327,7 +327,7 @@ utility:
   get_ip:
     title: Get IP
     versions:
-      0.1.0: 'get_ip.yaml'
+      0.2.0: 'get_ip.yaml'
   date_resolution:
     title: Date Resolution
     versions:
