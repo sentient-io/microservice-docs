@@ -42,19 +42,60 @@ paths:
               example: 
                 message: Successfully Added
                 status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
         '419':
           description: Input Field Missing
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-      
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
       requestBody:
@@ -79,19 +120,60 @@ paths:
               example: 
                 message: Successfully Added
                 status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
         '419':
           description: Input Field Missing
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-      
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
       requestBody:
@@ -156,22 +238,22 @@ components:
               type: object
               properties:
                 0:
-                  type: integer
+                  type: number
                   description: Quantity
                   example: 19
                 1:
-                  type: integer
+                  type: number
                   description: Quantity
                   example: 18
             total_weight:
               type: object
               properties:
                 0:
-                  type: integer
+                  type: number
                   description: Total Weight
                   example: 4
                 1:
-                  type: integer
+                  type: number
                   description: Total Weight
                   example: 1
             total_volume:
@@ -189,33 +271,33 @@ components:
               type: object
               properties:
                 0:
-                  type: integer
+                  type: number
                   description: Length
                   example: 6
                 1:
-                  type: integer
+                  type: number
                   description: Length
                   example: 4
             width:
               type: object
               properties:
                 0:
-                  type: integer
+                  type: number
                   description: Width
                   example: 38
                 1:
-                  type: integer
+                  type: number
                   description: Width
                   example: 71
             height:
               type: object
               properties:
                 0:
-                  type: integer
+                  type: number
                   description: Height
                   example: 76
                 1:
-                  type: integer
+                  type: number
                   description: Height
                   example: 50
             fragility:
@@ -233,11 +315,11 @@ components:
               type: object
               properties:
                 0:
-                  type: integer
+                  type: number
                   description: Weight Bearing
                   example: 246
                 1:
-                  type: integer
+                  type: number
                   description: Weight Bearing
                   example: 175
             upright_requirement:
@@ -255,11 +337,11 @@ components:
               type: object
               properties:
                 0:
-                  type: integer
+                  type: number
                   description: Sequence
                   example: 9
                 1:
-                  type: integer
+                  type: number
                   description: Sequence
                   example: 175
     lpesuccess:
@@ -309,7 +391,7 @@ components:
                       description: Fragility
                       example: 0
                     weight_bearing:
-                      type: integer
+                      type: number
                       description: Weight Bearing
                       example: 127
                 PO-019:
@@ -336,7 +418,7 @@ components:
                       description: Fragility
                       example: 0
                     weight_bearing:
-                      type: integer
+                      type: number
                       description: Weight Bearing
                       example: 175
             unfit_box:
@@ -356,7 +438,7 @@ components:
                       description: Fragility
                       example: 1
                     weight_bearing:
-                      type: integer
+                      type: number
                       description: Weight Bearing
                       example: 188
                     unfit_reason:
@@ -377,6 +459,51 @@ components:
         status:
           type: string
           example: Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid input - Error in URL.
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure 
     notfound:
       type: object
       properties:
