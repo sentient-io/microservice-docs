@@ -1,12 +1,11 @@
 openapi: 3.0.1
 info:
-  title: Fleet Routing Engine (FRES01) 
+  title: Fleet Routing Engine
   description: |+
     Fleet Routing Engine is a set of APIs that will handle vehicle route scheduling. The API will return optimized route for each inputted vehicle.
   version: '0.1.0'
   x-additionalinfo: |+
-    - This microservice consists of set of REST APIs to inject data, train data, get recommendations etc. User can also use bulk upload APIs to insert historial data using CSV for both events and items.Dedicated engines are created per primary indicator, after the engine creation the apis can be used to inject the data.
-    
+    - This microservice consists of set of REST APIs to pre-process various data like customer, job data and travel matrix before the user can call the Fleet Routing Engine.
     - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/fleet_routing_engine.yaml
   x-subscribelink: fleetroutingengine
   x-apitype: Subscription
@@ -17,14 +16,14 @@ info:
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
-    Subscription Fee + The API is billed by per request for get recommendations.
+    The API is billed by per request.
   x-notes: |+
-    File size cannot exceed 10 MB.
+    
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 27, 2022"
+  description: "Published Date - Jun 01, 2022"
 paths:
   /microservices/analytics/fleetroutingengine/v0/endcustpreprocess:
     description: |+
@@ -636,7 +635,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - May 27, 2022
+                example: Published Date - Jun 01, 2022
                 x-details: Initial version release
                 description: Latest Version
     endcustpreprocessinput:
