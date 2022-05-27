@@ -102,16 +102,11 @@ components:
     success:
       type: object
       properties:
-              message:
-                x-name: message
+              transcript:
+                x-name: transcript
                 type: string
-                example: Hi there
+                example: i want to apply for a credit faclity
                 description: Converted Text
-              status:
-               x-name: status
-               type: string
-               example: success
-               description: The status of the API call success/failure
     unauthorized:
       type: object
       properties:
@@ -190,7 +185,7 @@ components:
         - wav_file_bytes      
       properties:
         wav_file_bytes:
-          type: string
+          type: file
           format: binary
           default: true
           example: sample.wav
