@@ -282,6 +282,7 @@ utility:
   decryption_using_pki_key:
     title: Decryption using PKI Key
     versions:
+      1.0.0: 'decryption_for_pki_key.yaml'
       0.1.0: 'decryption_for_pki_key.yaml'
   wikipedia:
     title: Wikipedia Retrieval
