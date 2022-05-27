@@ -227,7 +227,7 @@ components:
               - type: string
                 example: 'Published Date - Feb 18,2022'
                 x-details: Model update
-                description: Archived      
+                description: Latest Version      
         v1.2.1:
           type: array
           items:
