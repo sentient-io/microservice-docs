@@ -27,7 +27,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Feb 10, 2022"
 paths:
-  /microservices/utility/rsagetkeys/v0.1/getresults:
+  /microservices/utility/rsagetkeys/v1/getresults:
     post:
       tags:
         - v1.0.0
