@@ -1,0 +1,263 @@
+openapi: 3.0.1
+info:
+  title: Video-to-Image Convertor
+  description: |+
+    This Utility microservice captures the images from the input video file at the frame rate of 1 frame per second. 
+
+    Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
+    The size of your video file should **not exceed 10 MB**.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Can be integrated into video editing software to create a quick preview of the footage the user is editing.
+  version: '1.0.0'
+  x-subscribelink: video-to-image_convertor
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 10 MB of Video file.
+  x-apidetailsdesc: |+
+    Extract Image from video file.
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - Aug 07, 2020"  
+paths:
+  /microservices/utility/videotoimage/v1/getresults:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+              '200':
+                description: Ok
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/success'
+                    example:
+                      results:
+                        fileContent: document text content
+                      message: Successfully Processed
+                      status: Success
+              '401':
+                description: Unauthorized
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/unauthorized'
+              '402':
+                description: Payment Required
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/paymentrequired'
+              '403':
+                description: Forbidden
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/forbidden'
+              '404':
+                description: Not Found
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/notfound'
+              '419':
+                description: Input Field Missing
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/inputfieldmissing'
+              '413':
+                description: Payload Too Large
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/inputlimitexceeded'
+              '415':
+                description: Unsupported Media Type
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/invalidinput'
+              '500':
+                description: Internal Server Error
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/servererror'
+              '504':
+                description: Gateway Timeout
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/gatewaytimeout'
+              '406':
+                description: Not Acceptable
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/notaccceptable'                      
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/input'
+        # required: true                      
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          description: The result of the API call.
+          example:
+            fileContent: document text content
+        message:
+          type: string
+          example: Successfully Processed
+          description: Description of the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call - success/failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure    
+    notaccceptable:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Unable to Convert, Video is Encoded Using Non-H.264 Codec
+        status:
+          type: string
+          example: Failure  
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 08, 2022
+              x-details: Major version release
+              description: Latest Version
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Aug 07, 2020
+              x-details: Initial version release
+              description: Latest Version
+    input:
+      type: object
+      required:
+        - filePath      
+      properties:
+        filePath:
+          type: string
+          format: binary
+          default: true
+          example:  sample.mp4
+          description: The file path that describes the location of the file to be converted.
+          
+          Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
