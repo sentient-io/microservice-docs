@@ -311,7 +311,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 08, 2022
+              x-details: Major version release
+              description: Latest Version
         v0.1.0:
          type: array
          items:
