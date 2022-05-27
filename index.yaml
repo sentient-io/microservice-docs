@@ -308,7 +308,8 @@ utility:
   video-to-image_convertor:
     title: Video-to-Image Convertor
     versions:
-      0.1.0: 'video-to-image_convertor.yaml'
+      1.0.0: 'video-to-image_convertor.yaml'
+      0.1.0: 'video-to-image_convertor_v0.1.yaml'
   newspaper_article_scraper:
     title: Newspaper Article Scraper
     versions:
