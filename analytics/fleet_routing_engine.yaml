@@ -6,6 +6,7 @@ info:
   version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of set of REST APIs to pre-process various data like customer, job data and travel matrix before the user can call the Fleet Routing Engine.
+    
     - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/fleet_routing_engine.yaml
   x-subscribelink: fleetroutingengine
   x-apitype: Subscription
@@ -18,7 +19,7 @@ info:
   x-billingmethod: |+
     The API is billed by per request.
   x-notes: |+
-    
+  
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
@@ -40,21 +41,62 @@ paths:
               schema:
                 $ref: '#/components/schemas/endcustpreprocesssuccess'
               example: 
-                message: Successfully Added
+                message: Successfully Processed
                 status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
         '419':
           description: Input Field Missing
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-      
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
       requestBody:
@@ -77,21 +119,62 @@ paths:
               schema:
                 $ref: '#/components/schemas/jobpreprocesssuccess'
               example: 
-                message: Successfully Added
+                message: Successfully Processed
                 status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
         '419':
           description: Input Field Missing
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-      
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
       requestBody:
@@ -114,21 +197,62 @@ paths:
               schema:
                 $ref: '#/components/schemas/travelmatrixsuccess'
               example: 
-                message: Successfully Added
+                message: Successfully Processed
                 status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
         '419':
           description: Input Field Missing
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-      
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
       requestBody:
@@ -151,21 +275,62 @@ paths:
               schema:
                 $ref: '#/components/schemas/fresuccess'
               example: 
-                message: Successfully Added
+                message: Successfully Processed
                 status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
         '419':
           description: Input Field Missing
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-      
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
       security:
         - APIAuthorizer: []
       requestBody:
@@ -334,11 +499,11 @@ components:
               type: object
               properties:
                 0:
-                  type: integer
+                  type: number
                   description: Quantity
                   example: 1
                 1:
-                  type: integer
+                  type: number
                   description: Quantity
                   example: 12
             total_weight:
@@ -450,7 +615,7 @@ components:
                   description: Vehicle ID
                   example: vehicle-9
                 vehicle_capacity:
-                  type: integer
+                  type: number
                   description: Vehicle Capacity
                   example: 800
                 vehicle_volumes:
@@ -523,9 +688,9 @@ components:
                   example: [0, 17]
                   items:
                     oneOf:
-                      - type: integer
+                      - type: number
                         example: 0
-                      - type: integer
+                      - type: number
                         example: 17
                 load_weight:
                   type: array
@@ -533,9 +698,9 @@ components:
                   example: [309, 263]
                   items:
                     oneOf:
-                      - type: integer
+                      - type: number
                         example: 309
-                      - type: integer
+                      - type: number
                         example: 263
                 load_volume:
                   type: array
@@ -553,12 +718,12 @@ components:
                   example: [9, 8]
                   items:
                     oneOf:
-                      - type: integer
+                      - type: number
                         example: 9
-                      - type: integer
+                      - type: number
                         example: 8
                 total_time_min:
-                  type: integer
+                  type: number
                   description: Total Time Minimum
                   example: 343
                 total_distance_m:
@@ -566,7 +731,7 @@ components:
                   description: Total Distance
                   example: 36178.0
                 max_load_weight:
-                  type: integer
+                  type: number
                   description: Maximum Load Weight
                   example: 309
                 weight_utilization:
@@ -600,6 +765,51 @@ components:
         status:
           type: string
           example: Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid input - Error in URL.
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure 
     notfound:
       type: object
       properties:
@@ -644,7 +854,7 @@ components:
         - postal_code
       properties:
         postal_code:
-          type: integer
+          type: number
           default: true
           example: 569933
           description: |+ 
@@ -690,7 +900,7 @@ components:
              End customer table information
           example: {"end_customer_id":{"0":"C-001","1":"C-002"},"end_customer_name":{"0":"customer001","1":"customer002"},"postcode":{"0":"569871","1":"628588"},"customer_priority":{"0":"low","1":"moderate"},"dwell_time":{"0":13.0,"1":17.0},"latitude":{"0":"1.37787324453845","1":"1.3245369061813"},"longitude":{"0":"103.864744699759","1":"103.697241531345"},"postal_district":{"0":"20","1":"22"}}
         depot:
-          type: integer
+          type: number
           default: true
           description: Depot
           example: 569933
@@ -705,7 +915,7 @@ components:
         - travel_matrix_table
       properties:
         depot:
-          type: integer
+          type: number
           default: true
           description: |+
             Depot Information
