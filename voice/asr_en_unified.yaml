@@ -187,9 +187,9 @@ components:
     input:
       type: object
       required:
-        - file_path      
+        - wav_file_bytes      
       properties:
-        file_path:
+        wav_file_bytes:
           type: string
           format: binary
           default: true
