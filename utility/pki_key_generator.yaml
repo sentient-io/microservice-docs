@@ -6,7 +6,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - This microservice can be used to simplify the deployment, management, and security of one's enterprise PKI with a microservice that helps to automate time-consuming, risky, and error-prone infrastructure tasks, freeing users to focus on higher-value projects.
-  version: '0.1.0'
+  version: '1.0.0'
   x-subscribelink: pki_key_generator
   x-apitype: small file
   x-apitypedescription: |+
@@ -24,13 +24,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v0.1.0"
+- name: "v1.0.0"
   description: "Published Date - Feb 10, 2022"
 paths:
   /microservices/utility/rsagetkeys/v0.1/getresults:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -205,7 +205,15 @@ components:
           example: Failure 
     versions:
       type: object
-      properties: 
+      properties:
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 08, 2022
+              x-details: Major version release
+              description: Latest Version      
         v0.1.1:
          type: array
          items:
