@@ -850,9 +850,9 @@ components:
     endcustpreprocessinput:
       type: object
       required:
-        - postal_code
+        - postcode
       properties:
-        postal_code:
+        postcode:
           type: number
           default: true
           example: 569933
