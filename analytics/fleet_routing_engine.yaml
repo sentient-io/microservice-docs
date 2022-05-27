@@ -140,7 +140,7 @@ paths:
         required: true
   /microservices/analytics/fleetroutingengine/v0/fres01:
     description: |+
-        If client already has the table with the mentioned specification, there is no need to call the previous API.
+        This API is a set of APIs that will handle vehicle route scheduling. The API will return optimized route for each inputted vehicle.
     post:
       tags:
         - v0.1.0
