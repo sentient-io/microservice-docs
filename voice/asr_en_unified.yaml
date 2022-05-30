@@ -25,7 +25,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - May 27, 2022"
 paths:
-  /microservice/voice/asrenunified/v0/get_transcript:
+  /microservices/voice/asrenunified/v0/get_transcript:
     post:
       tags:
         - v0.1.0
