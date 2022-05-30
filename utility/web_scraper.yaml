@@ -3,8 +3,8 @@ info:
   title: Web Scraper
   x-subscribelink: web_scraper
   description: |+
-    This Utility microservice extracts content or specific HTML elements from the input URL. It can extract HTML elements that matches the criteria given in the queryList HTTP request parameter. 
-    For example, to look for all h1 elements in the webpage, one would pass the following queryList parameter: “queryList:[{‘title’:<name_of_element_you_are_looking_for>,’find_type’:’findall’,‘tag’:’h1’ }]”
+    This Utility microservice extracts content or specific HTML elements from the input URL. It can extract HTML elements that matches the criteria given in the query_list HTTP request parameter. 
+    For example, to look for all h1 elements in the webpage, one would pass the following query_list parameter: “query_list:[{‘title’:<name_of_element_you_are_looking_for>,’find_type’:’findall’,‘tag’:’h1’ }]”
     <br>
     The results are returned in JSON format to rapidly retrieve website elements like tables, images, etc. from multiple URLs.
   x-additionalinfo: |+
@@ -18,39 +18,39 @@ info:
     {"url":&lt;URL&gt;}
     
     Returns all element text matches the tag name:
-    <i>{"url":&lt;URL&gt;, queryList:[{"title":<give_your_name_for_the block>,"find_Type":"find_all","tag":"h1"}]}</i><br/><br/>Few queryList Examples:
+    <i>{"url":&lt;URL&gt;, query_list:[{"title":<give_your_name_for_the block>,"find_Type":"find_all","tag":"h1"}]}</i><br/><br/>Few query_list Examples:
     
     Returns all Html matches the tag name:
-    <i>queryList:[{"title":<give_your_name_for_the block>,"find_type":"find_all","tag":"h1", "return_type":"html"}]</i>
+    <i>query_list:[{"title":<give_your_name_for_the block>,"find_type":"find_all","tag":"h1", "return_type":"html"}]</i>
     
     Returns all Image Links:
-    <i>queryList:[{"title":<give_your_name_for_the block>,"find_type":"find_all","tag":"img", "attribute":"src"}]</i>
+    <i>query_list:[{"title":<give_your_name_for_the block>,"find_type":"find_all","tag":"img", "attribute":"src"}]</i>
     
     Returns all Links(URL's):
-    <i>queryList:[{"title":<give_your_name_for_the block>,"find_type":"find_all","tag":"a", "attribute":"href"}]</i>
+    <i>query_list:[{"title":<give_your_name_for_the block>,"find_type":"find_all","tag":"a", "attribute":"href"}]</i>
     
     Returns all links/text/html/images matches the class name:
-    <i>queryList:[{"find_type":"find_all", "class":<class_name>,"tag":"a", "attribute":"href"}],{"find_type":"find_all", "class":<class_name>, "tag":"a"},{"find_type":"find_all", "class":<class_name>, "tag":"a", "return_type":"html"},{"findType":"find_all", "class":<class_name>, "tag":"img", "attribute":"src"}]</i>
+    <i>query_list:[{"find_type":"find_all", "class":<class_name>,"tag":"a", "attribute":"href"}],{"find_type":"find_all", "class":<class_name>, "tag":"a"},{"find_type":"find_all", "class":<class_name>, "tag":"a", "return_type":"html"},{"findType":"find_all", "class":<class_name>, "tag":"img", "attribute":"src"}]</i>
     
     Using select in find_type, either class/tag/id/nested_class_id is mandatory:
-    <i>queryList:[{"find_type":"select", "class_":<class_name>, "tag":<tag_name>}]
-    queryList:[{"find_type":"select", "class_":<class_name>}]
-    queryList:[{"find_type":"select", "tag":<tag_name>}]
-    queryList:[{"find_type":"select", "id":, "tag":<tag_name>}]
-    queryList:[{"find_type":"select", "id":}]
-    queryList:[{"find_type":"select", "tag":<tag_name>}]
-    queryList:[{"find_type":"select", "nested_class_id":<nested class/id/tags>}]
-    queryList:[{"find_type":"select", "nested_class_id":<nested class/id/tags>, "return_type":"html"}]
-    queryList:[{"find_type":"select", "nested_class_id":<nested class/id/tags>, "attribute":"href"}]</i>
-    Example using nested_class_id:<pre>&lt;div&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is heading&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 1&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 3&lt;/h1>&gt;<br>&lt;/div&gt;<br>&lt;div id="div2" class="divclass2"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is another heading 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 4&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 5&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 6&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.google.com"&gt;&lt;/a&gt;Google&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="class3"&gt;&lt;a href="<https://www.facebook.com"&gt;&lt;/a&gt;Facebook&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.twitter.com"&gt;&lt;/a&gt;Twitter&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>&lt;/div&gt;</pre><br>To get tags that match one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"findType":"select", "nestedClassId":"p.strikeout"}]</i>
+    <i>query_list:[{"find_type":"select", "class_":<class_name>, "tag":<tag_name>}]
+    query_list:[{"find_type":"select", "class_":<class_name>}]
+    query_list:[{"find_type":"select", "tag":<tag_name>}]
+    query_list:[{"find_type":"select", "id":, "tag":<tag_name>}]
+    query_list:[{"find_type":"select", "id":}]
+    query_list:[{"find_type":"select", "tag":<tag_name>}]
+    query_list:[{"find_type":"select", "nested_class_id":<nested class/id/tags>}]
+    query_list:[{"find_type":"select", "nested_class_id":<nested class/id/tags>, "return_type":"html"}]
+    query_list:[{"find_type":"select", "nested_class_id":<nested class/id/tags>, "attribute":"href"}]</i>
+    Example using nested_class_id:<pre>&lt;div&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is heading&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 1&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 3&lt;/h1>&gt;<br>&lt;/div&gt;<br>&lt;div id="div2" class="divclass2"&gt;<br>&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is another heading 2&lt;/h1>&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 4&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 5&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;p class="strikeout"&gt;This is paragraph 6&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.google.com"&gt;&lt;/a&gt;Google&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="class3"&gt;&lt;a href="<https://www.facebook.com"&gt;&lt;/a&gt;Facebook&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="<https://www.twitter.com"&gt;&lt;/a&gt;Twitter&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>&lt;/div&gt;</pre><br>To get tags that match one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"query_list":[{"findType":"select", "nestedClassId":"p.strikeout"}]</i>
     To get h1 tags that match one or more class names
-    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"find_type":"select", "nested_class_id":"h1"}]</i>
+    <i>&nbsp;&nbsp;&nbsp;"query_list":[{"find_type":"select", "nested_class_id":"h1"}]</i>
     To get all p tags that matches element id
-    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"find_type":"select", "nested_class_id":"div#div2 p"}]</i>
-    To get all litags that matches the element id<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"find_type":"select", "nested_class_id":"div#div2 ul li"}]</i><br/>To get links from ul list
-    <i>&nbsp;&nbsp;&nbsp;"queryList":[{"find_type":"select", "nested_class_id":"ul li a"}]</i>
-    To get links from ul list that matches one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"find_type":"select", "nested_class_id":"ul li.class3 a"}]</i>
-    To get links a element that matches the element id and class name<br/><i>&nbsp;&nbsp;&nbsp;"queryList":[{"find_type":"select", "nested_class_id":"div#div2 ul li.class3 a"}]</i>
+    <i>&nbsp;&nbsp;&nbsp;"query_list":[{"find_type":"select", "nested_class_id":"div#div2 p"}]</i>
+    To get all litags that matches the element id<br/><i>&nbsp;&nbsp;&nbsp;"query_list":[{"find_type":"select", "nested_class_id":"div#div2 ul li"}]</i><br/>To get links from ul list
+    <i>&nbsp;&nbsp;&nbsp;"query_list":[{"find_type":"select", "nested_class_id":"ul li a"}]</i>
+    To get links from ul list that matches one or more class names<br/><i>&nbsp;&nbsp;&nbsp;"query_list":[{"find_type":"select", "nested_class_id":"ul li.class3 a"}]</i>
+    To get links a element that matches the element id and class name<br/><i>&nbsp;&nbsp;&nbsp;"query_list":[{"find_type":"select", "nested_class_id":"div#div2 ul li.class3 a"}]</i>
     
     <b>Notes:</b>
     title - is an optional parameter, if title is empty the return json key is "values"<br/>find_type - find/find_all/select
@@ -198,7 +198,7 @@ components:
             dataList:
               type: array
               example: [{"imagelinks": ["https://ichef.bbci.co.uk/images/ic/240x135/p08x3gpx.jpg","https://ichef.bbci.co.uk/curationkit-ichef/240x135/cpsprodpb/16FC3/production/_115174149_063942058.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08x2qxp.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08x39pc.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08wsqty.jpg","https://ichef.bbci.co.uk/images/ic/240x135/p08vchc7.jpg"]}]
-              description: Extracted results of queryList in a list format.
+              description: Extracted results of query_list in a list format.
     unauthorized:
       type: object
       properties:
@@ -322,7 +322,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 03, 2020
-              x-details: Improvised search filters using queryList, now you can even navigate down the html tree like get all p tag inside a div class "class":"class_name p"
+              x-details: Improvised search filters using query_list, now you can even navigate down the html tree like get all p tag inside a div class "class":"class_name p"
               description: Depreciating on Oct 29, 2020
         v0.1.0:
          type: array
