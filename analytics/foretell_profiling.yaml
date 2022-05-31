@@ -1,0 +1,560 @@
+openapi: 3.0.1
+info:
+  title: Foretell Profiling
+  description: |+
+    Profiling API will take a time series data and process it to give response of its classification, change point, and predictability score. The period of each data point of the time series data input is to be determined by the client.
+  version: '0.1.0'
+  x-additionalinfo: |+
+    - This microservice consists of set of REST APIs to pre-process FRE data before the user can call the Load Planning Engine. In order to get the FRE data, do check out the Fleet Routing Engine Microservice for more details.
+    - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/foretell_profiling.yaml
+  x-subscribelink: foretellprofiling
+  x-apitype: Subscription
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jun 01, 2022"
+paths:
+  /microservices/analytics/foretellprofiling/v0/classification:
+    description: |+
+        The classification API will return the class of the time series data which are classification by age and classification by characteristics. 
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/classificationsuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/classificationinput'
+        required: true
+  /microservices/analytics/foretellprofiling/v0/cpd:
+    description: |+
+        The change point detection API will return the index of the time series data where the change point is occurred.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cdpsuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cdpinput'
+        required: true
+  /microservices/analytics/foretellprofiling/v0/predictability:
+    description: |+
+        The predictability API will return a predictability score of the time series data which represent by a number between 0 to 1. The higher the number the better the data can be predicted. The API will also give predictability score per change point segment, if the change point index is provided.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/predictsuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/predictinput'
+        required: true
+components:
+  schemas:
+    classificationsuccess:
+      type: object
+      properties:
+        time_series_class:
+          type: array
+          description: |+
+            Classification result of the time series data, by age and by characteristics.
+          example: ["Regular", "Continuous"]
+          items:
+            oneOf:
+              - type: string
+                example: Regular
+              - type: string
+                example: Continuous
+        request_timestamp:
+          type: string
+          description: The timestamp of the API request
+          example: 2022-05-31 17:18:26
+        engine_code:
+          type: string
+          description: Engine Code
+          example: Foretell_Pro_Class
+    cdpsuccess:
+      type: object
+      properties:
+        change_point_index:
+          type: array
+          description: |+
+            The change point detection API will return the index of the time series data where the change point is occurred.
+          example: [2, 6, 8]
+          items:
+            oneOf:
+              - type: number
+                example: 2
+              - type: number
+                example: 6
+              - type: number
+                example: 8
+        request_timestamp:
+          type: string
+          description: The timestamp of the API request
+          example: 2022-05-31 17:28:55
+        engine_code:
+          type: string
+          description: Engine Code
+          example: Foretell_Pro_CPD
+        response_status:
+          type: string
+          description: Indicating if any change point detected
+          example: change point detected
+        penalty:
+          type: number
+          description: |+
+            Penalty (the higher, the more sensitive the detection)
+          example: 41050177.178
+    predictsuccess:
+      type: object
+      properties:
+        predictability_result:
+          type: array
+          description: |+
+            The result of the prediction with its RMSE, MAE, MAPE and the number of used harmonics. The MAPE will not be displayed if there are zeroes in the time series data.
+          example: [{"start_index": 0, "end_index": 9, "predictability": 0.0}]
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  start_index:
+                    type: number
+                    description: Start Index
+                    example: 0
+                  end_index:
+                    type: number
+                    description: End Index
+                    example: 9
+                  predictability:
+                    type: number
+                    description: Predictability
+                    example: 0.0
+        request_timestamp:
+          type: string
+          description: The timestamp of the API request
+          example: 2022-05-31 17:28:32
+        engine_code:
+          type: string
+          description: Engine Code
+          example: Foretell_Pro_Pred
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid input - Error in URL.
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure 
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jun 01, 2022
+                x-details: Initial version release
+                description: Latest Version
+    classificationinput:
+      type: object
+      required:
+        - time_series_data
+      properties:
+        time_series_data:
+          type: array
+          default: true
+          description: |+
+            List of timeseries data in chronological manner
+          example: [351, 264, 430, 839, 415, 2455, 4510, 4295]
+          items:
+            oneOf:
+              - type: number
+                example: 351
+              - type: number
+                example: 264
+              - type: number
+                example: 430
+              - type: number
+                example: 839
+              - type: number
+                example: 415
+              - type: number
+                example: 2455
+              - type: number
+                example: 4510
+              - type: number
+                example: 4295
+    cdpinput:
+      type: object
+      required:
+        - time_series_data
+      properties:
+        time_series_data:
+          type: array
+          default: true
+          description: |+
+            List of timeseries data in chronological manner
+          example: [112000.0, 118000.0, 132000.0, 129000.0, 121000.0, 135000.0, 148000.0, 148000.0, 136000.0, 119000.0]
+          items:
+            oneOf:
+              - type: number
+                example: 112000.0
+              - type: number
+                example: 118000.0
+              - type: number
+                example: 132000.0
+              - type: number
+                example: 129000.0
+              - type: number
+                example: 121000.0
+              - type: number
+                example: 135000.0
+              - type: number
+                example: 148000.0
+              - type: number
+                example: 148000.0
+              - type: number
+                example: 136000.0
+              - type: number
+                example: 119000.0
+        penalty:
+          type: number
+          description: |+ 
+            Penalty (the higher, the more sensitive the detection)
+          example: 41050177.178
+    predictinput:
+      type: object
+      required:
+        - time_series_data
+      properties:
+        time_series_data:
+          type: array
+          default: true
+          description: |+
+            List of timeseries data in chronological manner
+          example: [112000.0, 118000.0, 132000.0, 129000.0, 121000.0, 135000.0, 148000.0, 148000.0, 136000.0, 119000.0]
+          items:
+            oneOf:
+              - type: number
+                example: 112000.0
+              - type: number
+                example: 118000.0
+              - type: number
+                example: 132000.0
+              - type: number
+                example: 129000.0
+              - type: number
+                example: 121000.0
+              - type: number
+                example: 135000.0
+              - type: number
+                example: 148000.0
+              - type: number
+                example: 148000.0
+              - type: number
+                example: 136000.0
+              - type: number
+                example: 119000.0
+        change_point_index:
+          type: array
+          description: |+ 
+            The index number of the time_series_data where the change point is detected
+          example: [10, 50]
+          items:
+            oneOf:
+              - type: number
+                example: 10
+              - type: number
+                example: 50
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
