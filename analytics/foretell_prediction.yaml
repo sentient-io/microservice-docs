@@ -2,12 +2,12 @@ openapi: 3.0.1
 info:
   title: Foretell Prediction
   description: |+
-    Prediction API will return the predicted value of a time series together with the RMSE, MAE, and MAPE of the prediction.
+    Foretell Prediction API will return the predicted value of a time series together with the RMSE, MAE, and MAPE of the prediction.
   version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of set of REST APIs to pre-process FRE data before the user can call the Load Planning Engine. In order to get the FRE data, do check out the Fleet Routing Engine Microservice for more details.
     - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/load_planning_engine.yaml
-  x-subscribelink: loadplanningengine
+  x-subscribelink: foretellprediction
   x-apitype: Subscription
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
