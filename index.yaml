@@ -484,6 +484,10 @@ analytics:
     title: Load Planning Engine
     versions:
       0.1.0: 'load_planning_engine.yaml'
+  foretell_prediction:
+    title: Foretell Prediction
+    versions:
+      0.1.0: 'foretell_prediction.yaml'
 data alliance:
   download_dataset_api:
     title: Download Dataset API
