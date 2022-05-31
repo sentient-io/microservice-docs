@@ -488,6 +488,10 @@ analytics:
     title: Foretell Prediction
     versions:
       0.1.0: 'foretell_prediction.yaml'
+  foretell_profiling:
+    title: Foretell Profiling
+    versions:
+      0.1.0: 'foretell_profiling.yaml'
 data alliance:
   download_dataset_api:
     title: Download Dataset API
