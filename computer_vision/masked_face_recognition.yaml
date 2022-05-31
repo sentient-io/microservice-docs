@@ -162,7 +162,7 @@ components:
           properties: 
             output:
               type: array
-              example: {conf: 0.5590788722038269,identity: Teo Chee Hean,location:[71,19,118,82]}
+              example: {conf: 0.5590788722038269,identity: Teo Chee Hean,location:[19,118,82,71]}
               description: Details of the masked face recognised from the image
               items:
                 oneOf:
@@ -177,8 +177,8 @@ components:
                         example: Teo Chee Hean
                         type: string
                       location:
-                        description: bounding box of the face in pixel coordinates of left, top, right, bottom.
-                        example: [71,19,118,82]
+                        description: bounding box of the face in pixel coordinates of top, right, bottom, left.
+                        example: [19,118,82,71]
                         items:
                           oneOf:
                             - type: integer
