@@ -4,7 +4,7 @@ info:
   description: |+
     This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.
 
-    This api supports upto 15 secs audio file only.
+    This api supports upto 15 seconds audio file only.
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
@@ -23,9 +23,9 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 27, 2022"
+  description: "Published Date - Jun 01, 2022"
 paths:
-  /microservice/voice/asrenunified/v0/get_transcript:
+  /microservices/voice/asrenunified/v0/get_transcript:
     post:
       tags:
         - v0.1.0
@@ -37,8 +37,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                message: Hi there
-                status: success
+                status: Success
+                message: Successfully Processed
+                results:
+                  transcript: 'i want to apply for a credit farslidy to service my hish d v long '
         '401':
           description: Unauthorized
           content:
@@ -100,11 +102,23 @@ components:
     success:
       type: object
       properties:
+        results:
+          type: object
+          example: <<JSON Object>>
+          properties:
               transcript:
                 x-name: transcript
                 type: string
                 example: i want to apply for a credit faclity
                 description: Converted Text
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure                
     unauthorized:
       type: object
       properties:
@@ -180,16 +194,15 @@ components:
     input:
       type: object
       required:
-        - wav_file_bytes      
+        - file_path      
       properties:
-        wav_file_bytes:
+        file_path:
           type: file
           format: binary
           default: true
           example: sample.wav
           description: |+
-            Input file in base64 format and needs to be prefixed by the data type and encoding
-            data:audio/wav;base64,<wav in base64 string>
+            Maximum Limit upto 15 seconds of audio wav file.
     versions:
       type: object
       properties: 
@@ -198,7 +211,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - May 27, 2022
+              example: Published Date - Jun 01, 2022
               x-details: Initial version release
               description: Latest Version
   securitySchemes:
