@@ -104,7 +104,8 @@ components:
       properties:
         results:
           type: object
-          example: <<JSON Object>>
+          example: {<Json Object>}
+          description: Json Object of returned results
           properties:
               transcript:
                 x-name: transcript
