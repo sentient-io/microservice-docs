@@ -857,7 +857,7 @@ components:
         - postcode
       properties:
         postcode:
-          type: number
+          type: string
           default: true
           example: 569933
           description: |+ 
