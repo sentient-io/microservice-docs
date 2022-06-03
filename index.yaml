@@ -367,6 +367,15 @@ data:
     title: Train Stations (SG)
     versions:
       0.1.0: 'train_stations_sg.yaml' 
+analytics:
+  live_crawl:
+    title: Live Crawl
+    versions:
+      0.0.0: 'live_crawl.yaml'
+  fact_check:
+    title: Fact Check
+    versions:
+      0.1.0: 'fact_check.yaml'
 platform functions:
   org_info:
     title: View Organizational Info
