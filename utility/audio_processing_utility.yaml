@@ -114,14 +114,13 @@ components:
       properties:
         results:
           type: object
-          example:
-            audio_content: UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................
+          example: "audio_content: UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA................."
           description: Audio wav file convert to base64 encode string
           properties:
             audio_content:
-            type: string
-            example: UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................
-            description: Audio wav file convert to base64 encode string
+              type: string
+              example: "UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA................."
+              description: Audio wav file convert to base64 encode string
         message:
           type: string
           example: Successfully Processed
