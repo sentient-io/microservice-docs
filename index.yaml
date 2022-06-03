@@ -375,7 +375,7 @@ analytics:
   fact_check:
     title: Fact Check
     versions:
-      0.1.0: 'fact_check.yaml'
+      0.0.0: 'fact_check.yaml'
 platform functions:
   org_info:
     title: View Organizational Info

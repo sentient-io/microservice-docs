@@ -72,12 +72,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-        '413':
-          description: Payload Too Large
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputlimitexceeded'
         '415':
           description: Unsupported Media Type
           content:
@@ -115,27 +109,27 @@ components:
           description: List of items	
           properties:	
             id:	
-              type: int	
+              type: integer	
               example: 0	
               description: Index of the object 	
             claim: 	
               type: string	
               description: Claim that was checked	
-              example: 'Singapore is opening doors to everyone who's vaccinated'
+              example: "Singapore is opening doors to everyone who's vaccinated"
             prediction: 	
               type: string	
               description: The claim result (True or False)	
               example: 'True'
             probability: 	
-              type: float	
+              type: number
               description: The probability of the prediction to be True	
               example: 
             attention: 	
-              type: List of float	
+              type: object
               description: The relevance of the url to the claim made
               example: 0.90
             snippet_rank: 	
-              type: List of float	
+              type: object
               description: The rank of significance of the url in the outcome 	
               example: 1
     unauthorized:
@@ -227,9 +221,8 @@ components:
         - records
       properties:
         records:
-          type: list
+          type: object
           example: [{ "Json Object" },{ "Json Object" },{ "Json Object" }]
-          description: List of Json Object
   securitySchemes:
     APIAuthorizer:
       type: apiKey

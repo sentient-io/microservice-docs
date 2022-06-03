@@ -71,12 +71,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-        '413':
-          description: Payload Too Large
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/inputlimitexceeded'
         '415':
           description: Unsupported Media Type
           content:
@@ -109,18 +103,18 @@ components:
       type: object
       properties:
         records:
-          type: list
+          type: object
           example: [{ "Json Object" },{ "Json Object" },{ "Json Object" }]
           description: List of Json Object
           properties:	
             id:	
-              type: int	
+              type: integer
               example: 0	
               description: Index of the object 	
             claim: 	
               type: string	
               description: Claim to be checked	
-              example: 'Singapore is opening doors to everyone who's vaccinated'
+              example: "Singapore is opening doors to everyone who's vaccinated"
             snippets: 	
               type: string	
               description: Statement related to the claim passed	
@@ -226,7 +220,7 @@ components:
           format: binary
           example: input.txt
           default: true
-          description: The file path that describes the location of the file to be converted.
+          description: The file path that describes the location of the file.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
