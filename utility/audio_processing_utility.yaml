@@ -245,19 +245,19 @@ components:
           example: sample.wav
           description: The file path that describes the location of the audio file to be converted to WAV file. Maximum file size up to 10 MB.
         samplerate:
-          type: integer
+          type: number
           format: int32
           default: false
           example: '16000'
           description: Sample rate of the audio file in Hz
         channel:
-          type: integer
+          type: number
           format: int32
           default: false
           example: '1'
           description: Indicates the type of audio channel. Value must be 1 for mono or 2 for Stereo. Default is 2 (Stereo)
         bitrate:
-          type: integer
+          type: number
           format: int32
           default: false
           example: '2'
@@ -268,13 +268,13 @@ components:
           example: no
           description: A value that indicates whether to normalize the audio or not. Values must be either “yes” or “no”
         trim_start_time:
-          type: integer
+          type: number
           format: int32
           default: false
           example: 1
           description: Indicates the start in seconds between which the audio is extracted
         trim_stop_time:
-          type: integer
+          type: number
           format: int32
           default: false
           example: 5
