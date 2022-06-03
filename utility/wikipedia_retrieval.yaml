@@ -188,7 +188,7 @@ components:
                   format: list
                   example: 1915 Singapore Mutiny
             pageid:
-              type: integer
+              type: number
               format: int32
               example: 27318
               description: The id of the page requested
@@ -203,7 +203,7 @@ components:
               description: URL and dimensions of thumbnail image associated with page, if any.
               properties:
                 height:
-                  type: integer
+                  type: number
                   format: int32
                   example: 333
                   description: Height of the thumbnail image
@@ -212,7 +212,7 @@ components:
                   example: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png
                   description: Source URL of the thumbnail image
                 width:
-                  type: integer
+                  type: number
                   format: int32
                   example: 500
                   description: Width of the thumbnail image
@@ -345,7 +345,7 @@ components:
           default: true
           description: The search term, highest match to the title of the Wikipedia page. Not Mandatory when pageid is given.
         pageid: 
-          type: integer
+          type: number
           format: int32
           default: false
           example: 27318
