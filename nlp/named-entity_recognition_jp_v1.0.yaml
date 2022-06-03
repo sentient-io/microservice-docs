@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: Named-Entity Recognition ENG
+  title: Named-Entity Recognition JP
   description: |+
-    This NLP microservice locates and classifies the named-entities classes from input unstructured English text.
+    This NLP microservice locates and classifies the named-entities classes from input unstructured Japanese text.
     
     The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
     
@@ -12,10 +12,10 @@ info:
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Extracting structured pre-defined information from text.
-    - Gain insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
+    - Extract structured pre-defined information from text.
+    - Insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
     - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
-  x-subscribelink: named-entity_recognition_eng
+  x-subscribelink: named-entity_recognition_jp
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 5000 characters/Call
@@ -28,14 +28,14 @@ info:
   x-notes: |+
     Limit cannot exceed 5000 characters.
   x-apidetailsdesc: |+
-    Locates and Classifies named-entities classes from unstructured English text.
+    Locates and Classifies named-entities classes from unstructured Japanese text.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Depreciation Date - May 31, 2022"
+  description: "Published Date - Sep 30, 2020"
 paths:
-  /microservices/nlp/namedentityrecognition/v1/getpredictions:
+  /microservices/nlp/japanesener/v1/getpredictions:
     post:
       tags:
         - v1.0.0
@@ -46,7 +46,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: {"message":"SuccessfullyProcessed","results":{"loc":["Hubei","Singapore","SINGAPORE","China","Immigration"],"misc":["ICA.They"],"org":["ImmigrationandCheckpointsAuthority","ICA","LOA"]},"status":"Success"}
+              example:
+                message: Successfully Processed
+                results:
+                  age:
+                  - '56'
+                  countx_other:
+                  - 2稿
+                  - 8口
+                  doctrine_method_other:
+                  - 険所コホ特室りょ
+                  n_event:
+                  - 受1
+                  numex_other:
+                  - 百経
+                  ordinal_number:
+                  - 30弾
+                  person:
+                  - くぼ
+                  - 壮
+                  - 琢紫
+                  - ナユ
+                  product_other:
+                  - 都合ヘラアニ限
+                  - 議帳
+                  show_organization:
+                  - 左成相態
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -82,7 +108,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inputlimitexceeded'  
+                $ref: '#/components/schemas/inputlimitexceeded' 
         '415':
           description: Unsupported Media Type
           content:
@@ -101,14 +127,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/gatewaytimeout'
-      security:
-        - APIAuthorizer: []
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/input'
         required: true
+      security:
+        - APIAuthorizer: []
 components:
   schemas:
     success:
@@ -119,40 +145,74 @@ components:
           example: { "<Json": "Object>" }
           description: Json Object of returned results
           properties:
-            loc:
+            age:
               type: array
               items:
                 type: string
               example: 
-                - Hubei
-                - Singapore
-                - Hubei
-                - Hubei
-                - Immigration
-              description: "name of location found in the text string"
-            misc:
+                - 56
+              description: "age details found in the text string"                
+            countx_other:
               type: array
               items:
                 type: string
               example: 
-                - ICA.They
-              description: "name of miscellaneous names found in the text string"
-            org:
+                - 2稿
+                - 8口
+              description: "countx other details found in the text string"                   
+            doctrine_method_other:
               type: array
               items:
                 type: string
               example: 
-                - Immigration and Checkpoints Authority
-                - ICA
-                - LOA
-              description: "name of organizations names found in the text string" 
-            per:
+                - 険所コホ特室りょ
+              description: "doctrine method in the text string"                   
+            n_event:
               type: array
               items:
                 type: string
               example: 
-                - Lee Hsien Loong
-              description: "person names found in the text string"  
+                - 受1
+              description: "n_event in the text string"                   
+            numex_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 受1
+              description: "numex_other details found in the text string"                   
+            ordinal_number:
+              type: array
+              items:
+                type: string
+              example: 
+                -30弾
+              description: "ordinal_number details in the text string"                   
+            person:
+              type: array
+              items:
+                type: string
+              example: 
+                - person
+                - 壮
+                - 琢紫
+                - ナユ
+              description: "person details found in the text string"                   
+            product_other:
+              type: array
+              items:
+                type: string
+              example: 
+                - 都合ヘラアニ限
+                - 議帳
+              description: "product found in the text string"                   
+            show_organization:
+              type: array
+              items:
+                type: string
+              example: 
+                - 左成相態
+              description: "organization details found in the text string"                   
         message:
           type: string
           example: Successfully Processed
@@ -160,7 +220,7 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call success/failure  
     unauthorized:
       type: object
       properties:
@@ -232,7 +292,7 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure  
+          example: Failure 
     invalidinput:
       type: object
       properties:
@@ -250,9 +310,9 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Feb 28, 2022
-              x-details: Merged Spacy ner and change in Output format
-              description: Latest Version
+              example: Published Date - Jun 03, 2022
+              x-details: Updated version release v1.0, entity positions returned
+              description: Latest Version      
         v1.0.0:
          type: array
          items:
@@ -260,14 +320,14 @@ components:
             - type: string
               example: Published Date - Sep 30, 2020
               x-details: Updated version release v1.0
-              description: End-of-life by May 31,2022 
+              description: Latest Version
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25, 2019
-              x-details: Initial version release 
+              example: Published Date - May 15, 2020
+              x-details: Initial version release
               description: Archived
     input:
       type: object
@@ -278,7 +338,7 @@ components:
           x-name: text
           type: string
           default: true
-          example: SINGAPORE - Immigration officers have issued 77 stay-home notices as of noon on Wednesday (Feb 19), 12 hours after the scheme kicked in.These notices were issued to Singapore residents, long-term pass holders and foreign workers who have travelled to mainland China in the last 14 days, said the Immigration and Checkpoints Authority (ICA) in response to queries on Thursday.Travellers from Hubei province are excluded from this scheme, as they are quarantined.Those who are issued the new notices, which took effect at 11.59pm on Tuesday, cannot leave their homes for 14 days./n This is stricter than the leave of absence (LOA), which allowed people to briefly leave their homes for necessities. LOA will no longer be issued.Those who do not observe the stay-home period can be prosecuted under the Infectious Diseases Act, warned the ICA.They could be fined up to $10,000 or jailed for up to six month, or both, for the first offence. For subsequent offences, this could go up to a maximum of $20,000 and up to a year.
+          example: 30弾ソイキ昇機マ了映だ店原いひ険所コホ特室りょくぼ都合ヘラアニ限2稿タチケア迷芸歌セ利講ルねひ詳績めかをぶ観提メエ府木ホフタ分不写ひフ妹検らし器増壮憶クわ。8口アユ琢紫ヨ理特ゆほス見百経イス図退ナユ介精しぜ議帳モテ受1中コハ載北早ぎのりや載裁風力壌ひろふ。運56済ぞ下写報スや来際おっはの学要ヘ手米真社つみよや非央で野館き肉待づぜフ次睡ルをが左成相態万えやろ。
           description: |+
             Input text.
             
