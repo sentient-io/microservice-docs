@@ -7,7 +7,7 @@ info:
     Suggested Use Cases:
     - To get the JSON that serves as an input for Fact Check microservice.
   version: '0.0.0'
-  x-subscribelink: crawl_news
+  x-subscribelink: live_crawl
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 3.5 MB/Call

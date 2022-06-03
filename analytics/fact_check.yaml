@@ -7,7 +7,7 @@ info:
     Suggested Use Cases:
     - To check for the credibility of any statement.
   version: '0.0.0'
-  x-subscribelink: crawl_news
+  x-subscribelink: fact_check
 
   x-apitype: small file
   x-apitypedescription: |+
