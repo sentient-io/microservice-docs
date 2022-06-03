@@ -43,7 +43,7 @@ paths:
                       $ref: '#/components/schemas/success'
                     example:
                       results:
-                        fileContent: document text content
+                        image_1: document text content
                       message: Successfully Processed
                       status: Success
               '401':
@@ -121,9 +121,17 @@ components:
       properties:
         results:
           type: object
-          description: The result of the API call.
-          example:
-            fileContent: document text content
+          description: results with image text content
+          example: "image_1: document text content"
+          properties:
+            image_1:
+              type: string
+              description: Image text content
+              example: document text content
+        no.of images:
+          type: string
+          example: 31
+          description: Total number of images in the list
         message:
           type: string
           example: Successfully Processed
@@ -251,9 +259,7 @@ components:
           format: binary
           default: true
           example:  sample.mp4
-          description: The file path that describes the location of the file to be converted.
-          
-          Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
+          description: The file path that describes the location of the file to be converted. Supported formats are - 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
