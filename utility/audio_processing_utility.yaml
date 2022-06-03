@@ -42,7 +42,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  AudioContent: actual base64 string of input wav
+                  audio_content: actual base64 string of input wav
                 message: Successfully Processed
                 status: Success
         '401':
@@ -113,10 +113,15 @@ components:
       type: object
       properties:
         results:
-          type: string
+          type: object
           example:
-            AudioContent: UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................
+            audio_content: UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................
           description: Audio wav file convert to base64 encode string
+          properties:
+            audio_content:
+            type: string
+            example: UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................
+            description: Audio wav file convert to base64 encode string
         message:
           type: string
           example: Successfully Processed
