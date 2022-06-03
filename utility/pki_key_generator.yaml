@@ -110,7 +110,7 @@ components:
       type: object
       properties:
         key_length:
-          type: integer
+          type: number
           format: int32
           example: 1024
           description: byte value of generated key
@@ -234,7 +234,7 @@ components:
       type: object
       properties:
         bitcode:
-          type: integer
+          type: number
           format: int32
           example: 1
           default: true
