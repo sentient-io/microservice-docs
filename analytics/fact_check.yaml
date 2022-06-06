@@ -231,22 +231,27 @@ components:
             properties:	
               id:	
                 type: number
+                default: true
                 example: 0	
                 description: Index of the object 	
               claim: 	
                 type: string	
+                default: true
                 description: Claim to be checked	
                 example: Singapore is opening doors to everyone who's vaccinated
               snippets: 	
                 type: string	
+                default: true
                 description: Statement related to the claim passed	
                 example: ['Mar 10, 2022  Other countries ','Mar 10, 2022  Other countries ']
               titles: 	
-                type: string	
+                type: string
+                default: true
                 description: 	List of Titles of the URLs passed
                 example: ['Singapore Sets Sights on','Singapore Sets Sights on']
               urls: 	
-                type: string	
+                type: string
+                default: true
                 description: List of URL
                 example: ['https://www.abc.com/index.html','https://www.abc.com/index.html']
   securitySchemes:
