@@ -105,7 +105,7 @@ components:
         records:
           type: array
           description: The Input for the API call.
-          example: List of object
+          example: [{"id":0,"claim":"all","snippets":"h1", "titles":"html","urls":"https://www.abc.com/index.html"}]
           items:
             type: object
             properties:	
