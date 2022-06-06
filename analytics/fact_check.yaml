@@ -230,7 +230,7 @@ components:
             type: object
             properties:	
               id:	
-                type: integer
+                type: number
                 example: 0	
                 description: Index of the object 	
               claim: 	
