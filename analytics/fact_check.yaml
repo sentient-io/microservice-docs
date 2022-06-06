@@ -1,13 +1,13 @@
 openapi: 3.0.1
 info:
-  title: Fact Check
+  title: Fake News Detection
   description: |+
     This Microservice checks the credibility of the claimed statement by reffering the given source and gives the whether the claimed statement is True or False.
   x-additionalinfo: |+
     Suggested Use Cases:
     - To check for the credibility of any statement.
   version: '0.0.0'
-  x-subscribelink: fact_check
+  x-subscribelink: fake_news_detection
 
   x-apitype: small file
   x-apitypedescription: |+
@@ -232,7 +232,7 @@ components:
               id:	
                 type: number
                 default: true
-                example: 0	
+                example: '0'	
                 description: Index of the object 	
               claim: 	
                 type: string	
