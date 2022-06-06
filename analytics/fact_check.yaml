@@ -225,7 +225,7 @@ components:
         records:
           type: array
           description: The Input for the API call.
-          example: [{"id":0,"claim":"all","snippets":['Mar 10, 2022 Other countries ...','Mar 10, 2022 Other countries ...'], "titles":['Singapore Sets Sights on....','Singapore Sets Sights on....'],"urls":['https://www.abc.com/index.html','https://www.abc.com/index.html']}]
+          example: [{"id":0,"claim":"all","snippets":"['Mar 10, 2022 Other countries','Mar 10, 2022 Other countries ']", "titles":"['Singapore Sets Sights on','Singapore Sets Sights on']"","urls":"['https://www.abc.com/index.html','https://www.abc.com/index.html']"}]
           items:
             type: object
             properties:	
@@ -240,15 +240,15 @@ components:
               snippets: 	
                 type: string	
                 description: Statement related to the claim passed	
-                example: ['Mar 10, 2022 ... Other countries ...','Mar 10, 2022 ... Other countries ...']
+                example: "['Mar 10, 2022  Other countries ','Mar 10, 2022  Other countries ']"
               titles: 	
                 type: string	
                 description: 	List of Titles of the URLs passed
-                example: ['Singapore Sets Sights on....','Singapore Sets Sights on....']
+                example: "['Singapore Sets Sights on','Singapore Sets Sights on']"
               urls: 	
                 type: string	
                 description: List of URL
-                example: ['https://www.abc.com/index.html','https://www.abc.com/index.html']
+                example: "['https://www.abc.com/index.html','https://www.abc.com/index.html']"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
