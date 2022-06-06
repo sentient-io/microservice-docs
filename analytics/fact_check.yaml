@@ -104,34 +104,36 @@ components:
       type: object
       properties:
         results:	
-          type: object	
-          example: { "<Json": "Object>" }	
-          description: List of items	
-          properties:	
-            id:	
-              type: integer	
-              example: 0	
-              description: Index of the object 	
-            claim: 	
-              type: string	
-              description: Claim that was checked	
-              example: "Singapore is opening doors to everyone who's vaccinated"
-            prediction: 	
-              type: string	
-              description: The claim result (True or False)	
-              example: 'True'
-            probability: 	
-              type: number
-              description: The probability of the prediction to be True	
-              example: 
-            attention: 	
-              type: object
-              description: The relevance of the url to the claim made
-              example: 0.90
-            snippet_rank: 	
-              type: object
-              description: The rank of significance of the url in the outcome 	
-              example: 1
+          type: array
+          example: List of object	
+          description: Output JSON structure	
+          items:
+            type: object
+            properties:
+              id:	
+                type: integer	
+                example: 0	
+                description: Index of the object 	
+              claim: 	
+                type: string	
+                description: Claim that was checked	
+                example: "Singapore is opening doors to everyone who's vaccinated"
+              prediction: 	
+                type: string	
+                description: The claim result (True or False)	
+                example: 'True'
+              probability: 	
+                type: number
+                description: The probability of the prediction to be True	
+                example: 
+              attention: 	
+                type: string
+                description: The relevance of the url to the claim made
+                example: [0.90,.8,.5]
+              snippet_rank: 	
+                type: string
+                description: The rank of significance of the url in the outcome 	
+                example: [1,2,3]
     unauthorized:
       type: object
       properties:
@@ -221,8 +223,32 @@ components:
         - records
       properties:
         records:
-          type: object
-          example: [{ "Json Object" },{ "Json Object" },{ "Json Object" }]
+          type: array
+          description: The Input for the API call.
+          example: List of object
+          items:
+            type: object
+            properties:	
+              id:	
+                type: integer
+                example: 0	
+                description: Index of the object 	
+              claim: 	
+                type: string	
+                description: Claim to be checked	
+                example: "Singapore is opening doors to everyone who's vaccinated"
+              snippets: 	
+                type: string	
+                description: Statement related to the claim passed	
+                example: ['Mar 10, 2022 ... Other countries  ...','Mar 10, 2022 ... Other countries  ...']
+              titles: 	
+                type: string	
+                description: 	List of Titles of the URLs passed
+                example: ['Singapore Sets Sights on....','Singapore Sets Sights on....']
+              urls: 	
+                type: string	
+                description: List of URL
+                example: ['https://www.abc.com/index.html','https://www.abc.com/index.html']
   securitySchemes:
     APIAuthorizer:
       type: apiKey

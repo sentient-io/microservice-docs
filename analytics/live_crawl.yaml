@@ -103,30 +103,32 @@ components:
       type: object
       properties:
         records:
-          type: object
-          example: [{ "Json Object" },{ "Json Object" },{ "Json Object" }]
-          description: List of Json Object
-          properties:	
-            id:	
-              type: integer
-              example: 0	
-              description: Index of the object 	
-            claim: 	
-              type: string	
-              description: Claim to be checked	
-              example: "Singapore is opening doors to everyone who's vaccinated"
-            snippets: 	
-              type: string	
-              description: Statement related to the claim passed	
-              example: 'Mar 10, 2022 ... Other countries in Southeast Asia are reopening borders ...'
-            titles: 	
-              type: string	
-              description: 'Singapore Sets Sights on....'	
-              example: 
-            urls: 	
-              type: string	
-              description: URL
-              example: 'https://www.abc.com/index.html'
+          type: array
+          description: The Input for the API call.
+          example: List of object
+          items:
+            type: object
+            properties:	
+              id:	
+                type: integer
+                example: 0	
+                description: Index of the object 	
+              claim: 	
+                type: string	
+                description: Claim to be checked	
+                example: "Singapore is opening doors to everyone who's vaccinated"
+              snippets: 	
+                type: string	
+                description: Statement related to the claim passed	
+                example: ['Mar 10, 2022 ... Other countries  ...','Mar 10, 2022 ... Other countries  ...']
+              titles: 	
+                type: string	
+                description: 	List of Titles of the URLs passed
+                example: ['Singapore Sets Sights on....','Singapore Sets Sights on....']
+              urls: 	
+                type: string	
+                description: List of URL
+                example: ['https://www.abc.com/index.html','https://www.abc.com/index.html']
     unauthorized:
       type: object
       properties:
@@ -220,7 +222,7 @@ components:
           format: binary
           example: input.txt
           default: true
-          description: The file path that describes the location of the file.
+          description: The file object.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
