@@ -116,7 +116,7 @@ components:
               claim: 	
                 type: string	
                 description: Claim to be checked	
-                example: "Singapore is opening doors to everyone who's vaccinated"
+                example: Singapore is opening doors to everyone who's vaccinated
               snippets: 	
                 type: string	
                 description: Statement related to the claim passed	

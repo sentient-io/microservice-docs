@@ -117,7 +117,7 @@ components:
               claim: 	
                 type: string	
                 description: Claim that was checked	
-                example: "Singapore is opening doors to everyone who's vaccinated"
+                example: Singapore is opening doors to everyone who's vaccinated
               prediction: 	
                 type: string	
                 description: The claim result (True or False)	
