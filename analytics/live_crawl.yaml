@@ -108,25 +108,25 @@ components:
           example: [{"id":"0","claim":"all","snippets":"h1", "titles":"html","urls":"https://www.abc.com/index.html"}]
           items:
             type: object
-            properties:	
-              id:	
+            properties	
+              id:
                 type: number
-                example: 0	
-                description: Index of the object 	
-              claim: 	
-                type: string	
-                description: Claim to be checked	
+                example: 0
+                description: Index of the object
+              claim:
+                type: string
+                description: Claim to be checked
                 example: Singapore is opening doors to everyone who's vaccinated
-              snippets: 	
-                type: string	
-                description: Statement related to the claim passed	
+              snippets:
+                type: string
+                description: Statement related to the claim passed
                 example: ['Mar 10, 2022 ... Other countries ...','Mar 10, 2022 ... Other countries ...']
-              titles: 	
-                type: string	
+              titles:
+                type: string
                 description: 	List of Titles of the URLs passed
                 example: ['Singapore Sets Sights on....','Singapore Sets Sights on....']
-              urls: 	
-                type: string	
+              urls:
+                type: string
                 description: List of URL
                 example: ['https://www.abc.com/index.html','https://www.abc.com/index.html']
     unauthorized:
@@ -194,15 +194,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
         v0.0.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - June 03, 2022
-              x-details: Initial version release   
-              description: Latest Version        
+              x-details: Initial version release
+              description: Latest Version    
     invalidinput:
       type: object
       properties:
