@@ -452,7 +452,7 @@ paths:
             schema:
               $ref: '#/components/schemas/rebulkuploaditeminput'
         required: true
-  /microservices/analytics/recommendationengine/v0/getselected:
+  /microservices/analytics/recommendationengine/v0/setselected:
     description: |+
         This API is used to update the selected option
     post:
@@ -960,6 +960,12 @@ components:
           default: true
           description: |+
             The id for items that correspond to the indicator name. May be a product-id, category-id, a tag-id, search term, location, anything that the event represents.
+        external_id:
+          type: string
+          example: User 10
+          default: true
+          description: |+
+            This is whatever string you use to identify a unique id.
         item_bias:
           type: number
           example: -1
@@ -1031,6 +1037,12 @@ components:
           default: true
           description: |+
             This is whatever string you use to identify a user.
+        external_id:
+          type: string
+          example: User 10
+          default: true
+          description: |+
+            This is whatever string you use to identify a unique id.
         user_bias:
           type: string
           example: -1
