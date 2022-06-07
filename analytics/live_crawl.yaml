@@ -123,7 +123,7 @@ components:
                 example: ['Mar 10, 2022 ... Other countries ...','Mar 10, 2022 ... Other countries ...']
               titles:
                 type: string
-                description: 	List of Titles of the URLs passed
+                description: List of Titles of the URLs passed
                 example: ['Singapore Sets Sights on....','Singapore Sets Sights on....']
               urls:
                 type: string
