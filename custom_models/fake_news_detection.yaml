@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Fake News Detection
   description: |+
-    This Microservice checks the credibility of the claimed statement by referring the given source and returns whether the claimed statement is True or False.
+    This Microservice checks the credibility of the claimed statement and returns whether the claimed statement is True or False.
   x-additionalinfo: |+
     Suggested Use Cases:
     - To check for the credibility of any statement.
