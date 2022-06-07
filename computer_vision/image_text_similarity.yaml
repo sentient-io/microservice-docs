@@ -248,7 +248,7 @@ components:
           default: True
           example: ["a classroom","a building","a table"]
           description: |+
-            A list of texts or classes to be compared with the input image to check similarity.
+            A list of texts or classes to be compared with the input image to check similarity.The length of list should be greater than 1
         
         
   securitySchemes:
