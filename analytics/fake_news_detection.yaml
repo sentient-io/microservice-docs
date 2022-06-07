@@ -106,33 +106,33 @@ components:
         results:
           type: array
           example: [{\"id\": \"0\", \"claim\": \"claim\", \"prediction\": \"prediction\", \"probability\": \"probability\", \"attention\": [0.90,.8,.5], \"snippet_rank\":[1,2,3]}]
-          description: Output JSON	
+          description: Output JSON
           items:
             type: object
             properties:
               id:	
-                type: integer	
-                example: 0	
-                description: Index of the object 	
-              claim: 	
-                type: string	
-                description: Claim that was checked	
+                type: integer
+                example: 0
+                description: Index of the object
+              claim:
+                type: string
+                description: Claim that was checked
                 example: Singapore is opening doors to everyone who's vaccinated
-              prediction: 	
-                type: string	
-                description: The claim result (True or False)	
+              prediction:
+                type: string
+                description: The claim result (True or False)
                 example: 'True'
-              probability: 	
+              probability:
                 type: number
-                description: The probability of the prediction to be True	
-                example: 
-              attention: 	
+                description: The probability of the prediction to be True
+                example:
+              attention:
                 type: string
                 description: The relevance of the url to the claim made
                 example: [0.90,.8,.5]
-              snippet_rank: 	
+              snippet_rank:
                 type: string
-                description: The rank of significance of the url in the outcome 	
+                description: The rank of significance of the url in the outcome
                 example: [1,2,3]
     unauthorized:
       type: object
