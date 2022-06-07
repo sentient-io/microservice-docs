@@ -22,7 +22,7 @@
 # For Sentient.io API documentation maintenance:
 # There is a yamlPath variable contains the path of where the yaml file is stored
 # The final yaml link will be a combination of {{yamlPath + / + category + / + verions['v1.0']}}
-analytics:
+custom models:
   live_crawl:
     title: Live Crawl
     versions:
