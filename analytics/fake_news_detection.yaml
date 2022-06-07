@@ -105,7 +105,7 @@ components:
       properties:
         results:
           type: array
-          example: [{"id":"0","claim":"claim","prediction":"prediction","probability":"probability","attention":[0.90,.8,.5],"snippet_rank":[1,2,3]}]
+          example: [{\"id\": \"0\", \"claim\": \"claim\", \"prediction\": \"prediction\", \"probability\": \"probability\", \"attention\": [0.90,.8,.5], \"snippet_rank\":[1,2,3]}]
           description: Output JSON	
           items:
             type: object
