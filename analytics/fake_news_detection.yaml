@@ -110,7 +110,7 @@ components:
           items:
             type: object
             properties:
-              id:	
+              id:
                 type: integer
                 example: 0
                 description: Index of the object
