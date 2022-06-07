@@ -30,4 +30,4 @@ analytics:
   fact_check:
     title: Fake News Detection
     versions:
-      0.0.0: 'fact_check.yaml'
+      0.0.0: 'fake_news_detection.yaml'
