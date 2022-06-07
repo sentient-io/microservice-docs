@@ -2,10 +2,10 @@ openapi: 3.0.1
 info:
   title: Live Crawl
   description: |+
-    This Microservice converts the given file to a JSON that serves as an input json for Fact Check microservice.
+    This Microservice converts the given file to a JSON that serves as an input json for Fake News detection microservice.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - To get the JSON that serves as an input for Fact Check microservice.
+    - To get the JSON that serves as an input for Fake News detection microservice.
   version: '0.0.0'
   x-subscribelink: live_crawl
   x-apitype: small file
