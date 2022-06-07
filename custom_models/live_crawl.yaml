@@ -1,0 +1,232 @@
+openapi: 3.0.1
+info:
+  title: Live Crawl
+  description: |+
+    This Microservice converts the given file to a JSON that serves as an input json for Fake News detection microservice.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - To get the JSON that serves as an input for Fake News detection microservice.
+  version: '0.0.0'
+  x-subscribelink: live_crawl
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 3.5 MB/Call
+  x-inputfilelimit: |+
+    Process up to 3.5 MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 3.5 MB.
+  x-apidetailsdesc: |+
+    Converts .txt file to JSON.
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.0.0"
+  description: "Published Date - June 03, 2022"
+paths:
+  /microservices/analytics/tsdsocrawlnews/v0/getresults:
+    post:
+      tags:
+        - v0.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                status: Success 
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        records:
+          type: array
+          description: The Input for the API call.
+          example: [{"id":"0","claim":"all","snippets":"h1", "titles":"html","urls":"https://www.abc.com/index.html"}]
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+                example: 0
+                description: Index of the object
+              claim:
+                type: string
+                description: Claim to be checked
+                example: Singapore is opening doors to everyone who's vaccinated
+              snippets:
+                type: string
+                description: Statement related to the claim passed
+                example: ['Mar 10, 2022 ... Other countries ...','Mar 10, 2022 ... Other countries ...']
+              titles:
+                type: string
+                description: List of Titles of the URLs passed
+                example: ['Singapore Sets Sights on....','Singapore Sets Sights on....']
+              urls:
+                type: string
+                description: List of URL
+                example: ['https://www.abc.com/index.html','https://www.abc.com/index.html']
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v0.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - June 03, 2022
+              x-details: Initial version release
+              description: Latest Version    
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    input:
+      type: object
+      required:
+        - file_path
+      properties:
+        file_path:
+          type: string
+          format: binary
+          example: input.txt
+          default: true
+          description: The file object.
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
