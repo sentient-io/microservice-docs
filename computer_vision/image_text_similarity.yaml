@@ -4,7 +4,7 @@ info:
   title: Image-Text Similarity
   description: |+
     This microservice is used to predict the similarity between an input image and list of text snippets and return a score corresponding to the most relevant text that matches the image.
-    The underlying model is built using a neural network called CLIP (Contrastive Language-Image Pre-Training) that is trained on a variety of (image, text) pairs.
+    The underlying model is built using a neural network called CLIP (Contrastive Language-Image Pre-Training) that is trained on a variety of (image, text) pairs. The image file size cannot exceed 5MB.
   version: v0.1.0
   x-subscribelink: image_text_similarity
   x-apitype: small file
