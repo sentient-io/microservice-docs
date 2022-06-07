@@ -11,15 +11,11 @@ info:
 
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 512 characters/Call
-  x-inputfilelimit: |+
-    Process up to 512 characters of data or chat per API call.
+    Fast | Single-Call 
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
     The API is billed by per request.
-  x-notes: |+
-    Size cannot exceed more than 512 characters.
   x-apidetailsdesc: |+
     Return the credibility of the fact that was passed.
 servers:
