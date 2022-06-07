@@ -27,7 +27,7 @@ analytics:
     title: Live Crawl
     versions:
       0.0.0: 'live_crawl.yaml'
-  fact_check:
+  fake_news_detection:
     title: Fake News Detection
     versions:
       0.0.0: 'fake_news_detection.yaml'
