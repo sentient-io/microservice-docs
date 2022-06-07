@@ -27,7 +27,7 @@ tags:
 - name: "v0.0.0"
   description: "Published Date - June 03, 2022"
 paths:
-  /microservices/analytics/tsdsocrawlnews/v0/getresults:
+  /microservices/custommodels/tsdsocrawlnews/v0/getresults:
     post:
       tags:
         - v0.0.0
