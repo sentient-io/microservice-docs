@@ -108,7 +108,7 @@ components:
           example: [{"id":"0","claim":"all","snippets":"h1", "titles":"html","urls":"https://www.abc.com/index.html"}]
           items:
             type: object
-            properties	
+            properties:
               id:
                 type: number
                 example: 0
