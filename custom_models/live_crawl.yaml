@@ -222,7 +222,7 @@ components:
           format: binary
           example: input.txt
           default: true
-          description: The file object.
+          description: A text file which contains news which are to checked.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
