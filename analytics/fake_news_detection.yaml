@@ -228,28 +228,28 @@ components:
           example: [{"id":0,"claim":"all","snippets":['Mar 10, 2022 Other countries','Mar 10, 2022 Other countries '], "titles":['Singapore Sets Sights on','Singapore Sets Sights on'],"urls":['https://www.abc.com/index.html','https://www.abc.com/index.html']}]
           items:
             type: object
-            properties:	
-              id:	
+            properties:
+              id:
                 type: number
                 default: true
-                example: '0'	
-                description: Index of the object 	
-              claim: 	
-                type: string	
+                example: '0'
+                description: Index of the object
+              claim:
+                type: string
                 default: true
-                description: Claim to be checked	
+                description: Claim to be checked
                 example: Singapore is opening doors to everyone who's vaccinated
-              snippets: 	
-                type: string	
+              snippets:
+                type: string
                 default: true
-                description: Statement related to the claim passed	
+                description: Statement related to the claim passed
                 example: ['Mar 10, 2022  Other countries ','Mar 10, 2022  Other countries ']
-              titles: 	
+              titles:
                 type: string
                 default: true
                 description: 	List of Titles of the URLs passed
                 example: ['Singapore Sets Sights on','Singapore Sets Sights on']
-              urls: 	
+              urls:
                 type: string
                 default: true
                 description: List of URL
