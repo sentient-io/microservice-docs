@@ -23,11 +23,11 @@
 # There is a yamlPath variable contains the path of where the yaml file is stored
 # The final yaml link will be a combination of {{yamlPath + / + category + / + verions['v1.0']}}
 custom models:
-  live_crawl:
-    title: Live Crawl
+  crawlnews:
+    title: Crawl News
     versions:
-      0.0.0: 'live_crawl.yaml'
+      0.1.0: 'crawlnews.yaml'
   fake_news_detection:
     title: Fake News Detection
     versions:
-      0.0.0: 'fake_news_detection.yaml'
+      0.1.0: 'fake_news_detection.yaml'
