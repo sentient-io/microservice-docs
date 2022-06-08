@@ -506,6 +506,23 @@ paths:
               example: 
                 message: Successfully Processed
                 status: Success
+                results:
+                - engine_name: ttap-om-page
+                  id: 23ff3baa-cc41-11ec-b15a-daa7b5082d7b
+                  re_id: 245a06b6-cc41-11ec-b15a-daa7b5082d7b
+                  external_id: fandy
+                  entity_details: Create Shipping Route
+                  entity_type: pagename
+                  input: '{"engineId": "ttap-om-page", "user": "fandy"}'
+                  re_type: ML
+                  options: '14'
+                  org_name: TTAP
+                  user_name: ttap_admin
+                  created_date_time: '2022-05-05T15:01:09'
+                  updated_date_time: null
+                  cus1_name: null
+                  cus2_name: null
+                  cus2_val: null
 
         '419':
           description: Input Field Missing
@@ -570,6 +587,10 @@ components:
           items:
             type: object
             properties:
+              engine_name:
+                type: string
+                description: Unique id for the list
+                example: ttap-om-page
               ID:
                 type: string
                 description: Unique id for the list
@@ -606,37 +627,33 @@ components:
                 type: string
                 description: created date time
                 example: 2022-04-07T18:23:17
-              owner_id:
-                type: string
-                description: Owner id
-                example: 1
-              owner_name:
-                type: string
-                description: Owner name
-                example: ownername
-              org_id:
-                type: string
-                description: org id
-                example: org id
               org_name:
                 type: string
                 description: org name
                 example: org name
-              user_id:
-                type: string
-                description: user id
-                example: 12
               user_name:
                 type: string
                 description: user name
                 example: username
-              api_key:
-                type: string
-                description: Api key
-                example: A2FAAE0499E7...
               updated_date_time:
                 type: string
                 description: updated date time
+                example: null
+              cus1_name:
+                type: string
+                description: custom variable name
+                example: null
+              cus1_val:
+                type: string
+                description: custom variable value
+                example: null
+              cus2_name:
+                type: string
+                description: custom variable name
+                example: null
+              cus2_val:
+                type: string
+                description: custom variable value
                 example: null
     readdeventsuccess:
       type: object
