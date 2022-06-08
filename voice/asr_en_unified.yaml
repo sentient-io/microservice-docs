@@ -72,12 +72,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-        '420':
-          description: Input Limit Exceeded
+        '413':
+          description: Payload Too Large
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server Error
           content:
