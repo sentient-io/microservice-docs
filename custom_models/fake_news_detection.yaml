@@ -6,12 +6,14 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - To check for the credibility of any statement.
-  version: '0.0.0'
+  version: '0.1.0'
   x-subscribelink: fake_news_detection
 
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call 
+    Fast | Single-Call | 10 MB/Call
+  x-inputfilelimit: |+
+    Process up to 10 MB of input file per API call.
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
@@ -21,7 +23,7 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.0.0"
+- name: "v0.1.0"
   description: "Published Date - June 03, 2022"
 paths:
   /microservices/custommodels/tsdsofakenews/v0/getprediction:
