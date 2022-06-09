@@ -905,7 +905,7 @@ components:
           type: string
           default: true
           description: |+ 
-             The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
+             The value must be one the indicators name
           example: pageurl
     rebulkuploaditeminput:
       type: object
@@ -932,7 +932,7 @@ components:
           type: array
           default: true
           description: |+ 
-             The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
+             The value must be array of item properties
           example: ["pagetile","description","pageurl"]
           items:
             oneOf:
