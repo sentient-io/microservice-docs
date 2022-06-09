@@ -29,7 +29,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Jun 10, 2022"
+  description: "Published Date - Aug 30, 2019"
 paths:
   /microservices/utility/rsadecode/v0.1/getresults:
     post:
