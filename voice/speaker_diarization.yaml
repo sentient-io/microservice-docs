@@ -5,7 +5,7 @@ info:
   description: |+
     This Voice microservice takes in an audio stream and partitions it into homogenous segments according to the speaker's identity. 
     Speaker diarization is a process to label audio recordings with classes that correspond to speaker identity, in other words, a task to identify "who spoke when".
-
+    The length of your audio **should not exceed 60 seconds**.
   version: v0.1.0
   x-subscribelink: speaker_diarization
   x-apitypedescription: |+
