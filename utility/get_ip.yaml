@@ -170,7 +170,7 @@ components:
             - type: string
               example: Published Date - Apr 07, 2021
               x-details: Initial version release               
-              description: Old Version
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey
