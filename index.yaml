@@ -190,6 +190,10 @@ nlp:
     title: Google Translate (Large File)
     versions:
       0.1.0: 'google_translate_large_file.yaml'
+  gptj6b:
+    title: Text Generation using GPT-J 6B
+    versions:
+      0.1.0: 'text_generation_gptj6b.yaml'
   machine_translation:
     title: Machine Translation
     versions:
