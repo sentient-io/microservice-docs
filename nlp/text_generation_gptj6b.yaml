@@ -25,7 +25,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  generated: "My name is Teven and I am not your average blogger. I have been blogging for about two years now and"
+                  generated: "My name is Teven and I not an average vlogger. I have been vlogging about 5 years now and"
                 message: Successfully Processed
                 status: Success
 
