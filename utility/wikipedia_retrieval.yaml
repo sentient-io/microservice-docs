@@ -327,7 +327,7 @@ components:
             - type: string
               example: Published Date - Jan 11, 2021
               x-details: Patch Update, Optimization and thumbnail is added as an additional field 
-              description: Latest Version
+              description: Old Version
         v0.1.0:
          type: array
          items:
