@@ -449,25 +449,23 @@ components:
         additional_param:
           x-name: additional_param
           type: object
-          properties:             
-            inverse_text_normalization:
-              type: boolean
-              default: false
-              example: false
-              description: 
-                Specifies whether to enable inverse text normalization (ITN) during post-processing. Valid values - True and False. Default value - False.
-            punctuation_prediction:
-              type: boolean
-              default: false
-              example: false
-              description: 
-                Specifies whether to add punctuation marks during post-processing. Valid values - True and False. Default value - False.  
-            word_level:
-              type: boolean
-              default: false
-              example: false
-              description: 
-                Specifies whether to return the information about words. Default value false.                
+          properties:
+            exact_speaker_count:
+              x-name: exact_speaker_count
+              type: integer
+              format: int32
+              default: False
+              example: 2
+              description: |+
+                Number of speakers in the audio, known in advance by the user.
+            max_speaker_count:
+              x-name: max_speaker_count
+              type: integer
+              format: int32
+              default: False
+              example: 2
+              description: |+
+                Maximum number of speakers in the audio. Default value is 20             
     uploadinput:
       type: object
       required:
