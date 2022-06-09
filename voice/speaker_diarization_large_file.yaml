@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Speaker Diarization (Large File)
   description: |+
-    This Voice microservice takes in an audio stream and partitions it into homogenous segments according to the speaker's identity.
+    This Voice microservice takes in an audio/video stream and partitions it into homogenous segments according to the speaker's identity.
     Speaker diarization is a process to label audio recordings with classes that correspond to speaker identity, in other words, a task to identify "who spoke when".
     
   version: '0.1.0'
