@@ -28,7 +28,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Aug 07, 2020"  
+  description: "Published Date - Jun 10, 2022"  
 paths:
   /microservices/utility/videotoimage/v0.1/getresults:
     post:
@@ -230,7 +230,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 08, 2022
+              example: Published Date - Jun 10, 2022
               x-details: Major version release
               description: Latest Version
         v0.1.0:
@@ -240,7 +240,7 @@ components:
             - type: string
               example: Published Date - Aug 07, 2020
               x-details: Initial version release
-              description: Latest Version
+              description: Archived
     input:
       type: object
       required:
