@@ -24,10 +24,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                results: 
-                  generated: "My name is Teven and I am not your average blogger. I have been blogging for about two years now and though I have grown out of my toddler years now, I still keep it real on my blog and give my take"
+                results:
+                  generated: "My name is Teven and I am not your average blogger. I have been blogging for about two years now and"
                 message: Successfully Processed
                 status: Success
+
         '401':
           description: Unauthorized
           content:
