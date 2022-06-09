@@ -243,7 +243,7 @@ components:
             - type: string
               example: Published Date - Jul 08, 2021
               x-details: Additional output date format options
-              description: Latest Version
+              description: Old Version
         v0.1.0:
          type: array
          items:
