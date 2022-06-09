@@ -132,11 +132,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure
         
     unauthorized:
       type: object
