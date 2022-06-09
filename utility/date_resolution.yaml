@@ -233,7 +233,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 08, 2022
+              example: Published Date - Jun 10, 2022
               x-details: Patch release
               description: Latest Version
         v0.2.0:
