@@ -28,7 +28,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Jun 10, 2022"  
+  description: "Published Date - Aug 07, 2020"  
 paths:
   /microservices/utility/videotoimage/v0.1/getresults:
     post:
