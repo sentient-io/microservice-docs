@@ -5,9 +5,9 @@ info:
     GPT-J 6B is a transformer model trained using Ben Wang's Mesh Transformer JAX. "GPT-J" refers to the class of model, while "6B" represents the number of trainable parameters. 
 
   version: v0.1.0
-  x-subscribelink: gptj6b
+  x-subscribelink: text_generation_gptj6b
 servers:
-  - url: 'https://api.sentient.io' 
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - June 06, 2022"
