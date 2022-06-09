@@ -29,7 +29,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Aug 30, 2019"
+  description: "Published Date - Jun 10, 2022"
 paths:
   /microservices/utility/rsadecode/v0.1/getresults:
     post:
@@ -214,7 +214,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 08, 2022
+              example: Published Date - Jun 10, 2022
               x-details: Major version release
               description: Latest Version
         v0.1.0:
@@ -224,7 +224,7 @@ components:
             - type: string
               example: Published Date - Aug 30, 2019
               x-details: Initial version release
-              description: Latest Version
+              description: Old Version
     input:
       type: object
       properties:
