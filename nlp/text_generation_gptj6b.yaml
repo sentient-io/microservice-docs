@@ -102,10 +102,8 @@ components:
           example: { "<Json": "Object>" }
           properties: 
             generated:
-              description: TO FILL MANUALLY
-              example: "My name is Teven and I am not your average blogger. I\u2019ve been blogging\
-                \ for about two years now and though I\u2019ve grown out of my toddler years now,\
-                \ I still keep it real on my blog and give my take"
+              description: Generated text with GPT-J 6B model
+              example: "My name is Teven and I not an average vlogger. I have been vlogging about 5 years now and"
               type: string
 
         message:
@@ -207,7 +205,7 @@ components:
             oneOf:
               - type: string
                 example: Published Date - June 06, 2022
-                description: TO FILL MANUALLY     
+                description: Initial Version
     input:
       type: object
       required:
