@@ -6,7 +6,7 @@ info:
     
     The output is a time-coded high-quality script.
     
-    Do ensure that your text is within **5000 characters**.
+    The input text **should not exceed 5000 characters**.
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
