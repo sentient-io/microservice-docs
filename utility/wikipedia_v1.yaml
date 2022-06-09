@@ -27,7 +27,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Jun 10, 2022"
+  description: "Published Date - Jan 11, 2021"
 paths:
   /microservices/utility/wikipedia/v1/getresults:
     post:
