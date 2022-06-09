@@ -5,7 +5,7 @@ info:
   description: |+
     This NLP microservice accepts text and returns a response containing the overall sarcasm of the input text as well as the overall sentiment and confidence score for each sentiment label (positive, negative, and neutral). 
     There are no limitations to the number of characters that you can input. However, for the best results, please input short text such as tweets, comments, news, and headlines.
-    Do ensure that your text is within **5000 characters**.
+    The input text **should not exceed 5000 characters**.
   version: '0.1.1'
   x-apitype: small file
   x-apitypedescription: |+

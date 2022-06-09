@@ -6,7 +6,7 @@ info:
     
     If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
     
-    Do ensure that your text is **within 5000 characters**.
+    The input text **should not exceed 5000 characters**.
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
