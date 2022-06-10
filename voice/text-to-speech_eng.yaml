@@ -3,12 +3,10 @@ openapi: 3.0.1
 info:
   title: Text-To-Speech ENG
   description: |+
-        This Voice microservice converts English text to speech in a female voice.
-        User can adjust the pitch and tempo of the the synthesised speech. 
-        The Text-to-Speech AI generated synthesized voice speaks with a Singaporean English accent. 
-
-        The input text should not exceed **3000 characters**.
-  version: 1.3.1
+      This Voice microservice converts English text to speech in a female voice.
+      User can adjust the pitch and tempo of the the synthesised speech. The Text-to-Speech AI generated synthesized voice speaks with a Singaporean English accent.
+      The input text **should not exceed 2200 characters**.
+  version: 1.2.1
   x-subscribelink: text-to-speech_eng
   x-apitype: small file
   x-apitypedescription: |+
@@ -24,15 +22,15 @@ info:
   x-apidetailsdesc: |+
     Converts English text to speech in a female voice.
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://dev-apis.sentient.io' 
 tags:
-- name: "v1.3.1"
+- name: "v1.2.1"
   description: "Published Date - Feb 18, 2022"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
-        - v1.3.1
+        - v1.2.1
       responses:
         '200':
           description: success response
@@ -121,20 +119,22 @@ components:
             sampling_rate:
               description: Sample rate of the output audio. Should come only for female_generic
               example: 16000
-              type: number
+              type: integer
+              format: int32
             wav_base64:
-              description: Base64 string of the generated audio from input text
+              description: Generated audio wav file encoded in base64 format
               example: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
               type: string
+              format: byte
 
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure
         
     unauthorized:
       type: object
@@ -295,7 +295,7 @@ components:
             2. female_singaporean
         pitch_scale:
           x-name: pitch_scale
-          type: float
+          type: number
           format: float
           default: False
           example: 1
@@ -304,15 +304,28 @@ components:
             **used only for the female_singaporean model
         tempo_scale:
           x-name: tempo_scale
-          type: float
+          type: number
           format: float
           default: False
           example: 1
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1. 
-            **used only for the female_singaporean model
-        
-        
+            **used only for the female_singaporean model.
+        ttn_flags:
+          x-name: ttn_flags
+          type: array
+          default: False
+          example: ["ALL"]
+          description: |+
+            Specifies the type of text normalisation to be applied. Accepts both string and list of strings.
+            Accepted string values are either "ALL" or "DEFAULT". Accepted list of strings are "PLAIN", "PUNCT", "DATE", "LETTERS", "CARDINAL", "VERBATIM", "DECIMAL", "MEASURE", "MONEY", "ORDINAL", "TIME", "ELECTRONIC", "DIGIT", "FRACTION", "TELEPHONE", "ADDRESS". No default value
+        wrapper_required:
+          x-name: wrapper_required
+          type: boolean
+          default: True
+          example: true
+          description: |+
+            Parameter to decide whether preprocessing required or not. Default value is True
   securitySchemes:
     APIAuthorizer:
       type: apiKey
