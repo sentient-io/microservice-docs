@@ -7,7 +7,7 @@ info:
 
         User can adjust the pitch and tempo of the the synthesised speech. 
 
-        The input text should not exceed **800 characters**. 
+        The input text **should not exceed 800 characters**. 
   version: v0.1.0
   x-subscribelink: text-to-speech_jp
   x-apitype: small file
