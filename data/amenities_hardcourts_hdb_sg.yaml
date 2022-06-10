@@ -44,6 +44,9 @@ info:
       > {"bool":{"must":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
       > {"bool":{"should":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
 
+
+    **Pagination with scroll_id:** - We face a major issue of handling the hits, i.e., whenever the hits returned are more than 10,000 hits Elasticsearch will only return till 10k hits. For query more than 10K records scroll id need to add in query as like below.
+      > {"limit":10000,"scroll_id": "DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAAwsWZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==","filter":[]}
   version: '2.0.0'
   x-apitype: small file
   x-apitypedescription: |+
@@ -96,12 +99,13 @@ paths:
                         inc_crc: 1FA9077473E138ED
                         lvl: GROUND LEVEL
                         quality: FULLY VISIBLE
-                        type: HARDCOURT
+                        type: FITNESS STATION / PLAYGROUND
                     _type: _doc
                   max_score: 0
                   total:
                     relation: eq
                     value: 3118
+                scroll_id: FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoBRZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCAWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCEWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCIWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCMWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCQWdjVWcXJXaVhRaXVaQzBma19Jckthdw==
                 status: Success
 
         '401':
@@ -174,24 +178,29 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: The detail description on the status
+          description: Description of the API status.
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure        
+          description: The status of the API call - Success/Failure.
+        scroll_id: 
+          type: string
+          example: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
+          description: Pagination id        
         results:
           type: object
           example: {<Json Object>}
-          description: Json Object of returned results
+          description: Json object of the returned results.
           properties:
             max_score:
-              type: float
+              type: number
+              format: float
               example: 0.9
-              description: The highest score value
+              description: The highest score value.
             total: 
               type: object
               example: {<Json Object>}
-              description: Json Object of returned total
+              description: Json object of returned total.
               properties:
                 relation:
                   type: string
@@ -199,40 +208,42 @@ components:
                   description: Relation between total counts and display result count.
                 value:
                   type: integer
+                  format: int32
                   example: 1
-                  description: Total number of records             
+                  description: Total number of records.            
             hits:
               type: array
               example: [{<JSON result Object}]
-              description: The list of Json result object
+              description: The list of Json result objects.
               items:
                 type: object
                 properties:
                   _index:
                     type: string
-                    description: Index group of the document
+                    description: Index group of the document.
                     example: "hdb_map_index"
                   _type: 
                     type: string
-                    description: Content type of the document
+                    description: Content type of the document.
                     example: "_doc"
                   _id: 
                     type: string
                     description: Document ID
                     example: "156edd775b13856fc71"
                   _score: 
-                    type: float
-                    description: The document score for the search request
+                    type: number
+                    type: format
+                    description: The document score for the search request.
                     example: 0.5
                   _source: 
                     type: object
                     example: {<Json Object>}
-                    description: Json Object of returned hits
+                    description: Json object of returned hits.
                     properties:
                       properties:
                         type: object
                         example: {<Json Object>}
-                        description: Json Object of returned results
+                        description: Json object of returned results.
                         properties:
                           featid:
                             type: integer
@@ -245,11 +256,11 @@ components:
                           quality:
                             type: string
                             example: "FULLY VISIBLE"
-                            description: Quality of Properties
+                            description: Quality of Properties.
                           type:
                             type: string
                             example: "HARDCOURT"
-                            description: Property Types
+                            description: Property Types.
                           inc_crc:
                             type: string
                             example: "6CBA10726FCF8D23"
@@ -260,7 +271,7 @@ components:
                             description: fmel_upd_d
                       geometry:
                         type: geo_shape
-                        description: Location coordinates and its type
+                        description: Location coordinates and its type.
                         example: {"type": "Polygon", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}
                       lastupdated:
                         type: string
@@ -268,7 +279,7 @@ components:
                         example: "2021-07-26T04:24:16.409Z"
                       geometry_type:
                         type: string
-                        description: Type of Geometry Coordinates
+                        description: Type of Geometry Coordinates.
                         example: "Polygon"                         
     unauthorized:
       type: object
@@ -369,7 +380,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized release
-              description: Old Version
+              description: Archived
         v0.1.0:
          type: array
          items:

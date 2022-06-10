@@ -255,43 +255,44 @@ components:
         results:
           type: object
           example: { "<Json": "Object>" }
-          description: Json Object of returned results
+          description: Json object of returned results.
           properties: 
             total:
               type: integer
               example: 986
-              description: Total number of records
+              description: Total number of records.
             max_score:
               type: integer
               example: 1
-              description: The highest score value
+              description: The highest score value.
             hits:
               type: array
               example: [ { "<JSON": "result Object" } ]
-              description: The list of Json result object
+              description: The list of Json result object.
               items:
                 type: object
                 properties:
                   _index:
                     type: string
-                    description: Index group of the document
+                    description: Index group of the document.
                     example: "sentient_directory_index"
                   _type: 
                     type: string
-                    description: Content type of the document
+                    description: Content type of the document.
                     example: "dir_doc"
                   _id: 
                     type: string
                     description: Document ID
                     example: "TrrmAWgBv3dNEHq24P-C"
                   _score: 
-                    type: string
-                    description: The document score for the search request
+                    type: integer
+                    format: int32
+                    description: The document score for the search request.
                     example: 1
                   _source: 
                     type: string
                     example: { "<Json": "Object>" }
-                    description: Json Object of returned hits
+                    description: Json object of returned hits.
                     properties:
                             type: 
                               type: string
@@ -307,7 +308,7 @@ components:
                               example: singapore
                             createddate: 
                               type: string
-                              description: Record first release date on sentient
+                              description: Record first release date on sentient.
                               example: '2018-12-31'
                             name: 
                               type: string
@@ -316,7 +317,7 @@ components:
                             logo:
                               type: object
                               example: { "<Json": "Object>" }
-                              description: List of logo from various content providers like f6s, e27, techinasia
+                              description: List of logo from various content providers like f6s, e27, techinasia.
                               properties:
                                 <contentprovider>: 
                                   type: string
@@ -330,7 +331,7 @@ components:
                                 <contentprovider>:
                                   type: object
                                   example: { "<Json": "Object>" }
-                                  description: Directory details from the content provider like f6s, e27, techinasia
+                                  description: Directory details from the content provider like f6s, e27, techinasia.
                                   properties:
                                     sourceurl: 
                                       type: string

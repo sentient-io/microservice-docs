@@ -249,10 +249,12 @@ components:
           properties:
             total:
               type: integer
+              format: int32
               example: 986
               description: Total number of records
             max_score:
-              type: float
+              type: number
+              format: float
               example: 1.0
               description: The highest score value
             hits:
@@ -275,7 +277,8 @@ components:
                     description: Document ID
                     example: "pet_specialist"
                   _score: 
-                    type: float
+                    type: number
+                    format: float
                     description: The document score for the search request
                     example: 1.0
                   _source: 
@@ -289,14 +292,17 @@ components:
                               example: "pet_specialist"
                             postalcode: 
                               type: integer
+                              format: int32
                               description: Postal code of a block
                               example: 560720
                             unit: 
-                              type: string
+                              type: integer
+                              format: int32
                               description: Unit number
                               example: "4102"
                             level: 
-                              type: string
+                              type: integer
+                              format: int32
                               description: Floor level
                               example: "01"
                             source: 
@@ -308,7 +314,8 @@ components:
                               description: Business name
                               example: "Pets"
                             phonenumber:
-                              type: string
+                              type: integer
+                              format: int32
                               description: Contact number
                               example: "63553000"
                             email:
@@ -360,6 +367,7 @@ components:
                               example: "shop/retail"
                             lastupdated:
                               type: string
+                              format: date
                               description: Record created date
                               example: "2019-02-01"
                             type:
@@ -367,7 +375,8 @@ components:
                               description: Record type
                               example: "shop"
                             block:
-                              type: string
+                              type: integer
+                              format: int
                               description: Block number
                               example: "720"
                             street:
@@ -375,12 +384,14 @@ components:
                               description: Full street name
                               example: "ang mo kio avenue 6"
                             xcoord:
-                              type: string
-                              description: SVY21 X coordinates
+                              type: number
+                              format: float
+                              description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                               example: 29520.58
                             ycoord:
-                              type: string
-                              description: SVY21 Y coordinates
+                              type: number
+                              format: float
+                              description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                               example: 39311.68
                             location:
                               type: object
@@ -388,21 +399,23 @@ components:
                               example: {"lat":1.364299477060462,"lon":103.8350609414261}                            
                               properties:
                                   lat: 
-                                    type: string
-                                    description: WGS84 latitude
+                                    type: number
+                                    format: float
+                                    description: Latitude in the WGS84 coordinate format
                                     example: 1.37179535
                                   lon:
-                                    type: string
-                                    description: WGS84 longitude
+                                    type: number
+                                    format: float 
+                                    description: Longitude in the WGS84 coordinate format
                                     example: 103.8469821
         message:
           type: string
           example: Successfully Processed
-          description: The detail description on the status
+          description: Description of the API status.
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure
+          description: The status of the API call - success/failure.
     unauthorized:
       type: object
       properties:

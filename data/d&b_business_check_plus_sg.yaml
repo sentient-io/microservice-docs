@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: D&B Business Check Plus (SG)
-  description:  The Data microservice provides key business information, litigation information (High and Subordinate Courts) and Winding Up Trace (winding up records) of a company which includes the Business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholder, litigation information. Updated daily.
+  description:  The Data microservice provides key business information, litigation information (High and Subordinate Courts) and Winding Up Trace (winding up records) of a company which includes the Business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholder. Updated daily.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Software solutions targeted at corporate finance and legal domains, e.g. in cases of mergers, joint ventures or partnerships.
@@ -982,7 +982,7 @@ components:
                       example: "Employee Size"
                     AMOUNT:
                       type: integer
-                      description: Number of employee
+                      description: Number of employees
                       example: 300
                 LIST_BIZ_BRANCH :
                   type: array
@@ -2460,8 +2460,9 @@ components:
       properties:
         total_items:
           type: integer
+          format: int32
           example: 1
-          description: Number of subjects being enquired relating to the Run
+          description: Number of subjects being enquired relating to the search.
           default: false
         subject_idno:
           type: string
@@ -2471,7 +2472,7 @@ components:
         subject_name:
           type: string
           example: GPS INDUSTRIES PTE LTD
-          description: Subjects Name as captured in DDP
+          description: Subject's name as captured in DDP.
           default: false
     versions:
       type: object

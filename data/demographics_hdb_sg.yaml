@@ -241,14 +241,16 @@ components:
         results:
           type: object
           example: {<Json Object>}
-          description: Json Object of returned results 
+          description: Json Object in the returned results 
           properties:
             total:
               type: integer
+              format: int32
               example: 986
               description: Total number of records
             max_score:
-              type: float
+              type: number
+              format: float
               example: 17.995623
               description: The highest score value
             hits:
@@ -271,7 +273,8 @@ components:
                     description: Document ID
                     example: "K7scqWgBv3dNEHq2WvMo"
                   _score: 
-                    type: float
+                    type: number
+                    type: format
                     description: The document score for the search request
                     example: 17.995623
                   _source: 
@@ -281,6 +284,7 @@ components:
                     properties:
                             postalcode: 
                               type: integer
+                              format: int32
                               description: Postal code of a block
                               example: 560720
                             gender: 
@@ -293,6 +297,7 @@ components:
                               example: "50 to 59"
                             age_group_id:
                               type: integer
+                              format: int32
                               description: |+
                                 Age group ID represents a certain age range&#58;
                                 1 (<10 years)
@@ -306,10 +311,12 @@ components:
                               example: 6
                             residents:
                               type: integer
+                              format: int32
                               description: Number of residents
                               example: 54
                             block:
-                              type: string
+                              type: integer
+                              format: int32
                               description: Address block
                               example: "34"
                             street:
@@ -317,12 +324,14 @@ components:
                               description: Street Address or building name
                               example: "upper cross street"
                             xcoord:
-                              type: string
-                              description: SVY21 X coordinates
+                              type: number
+                              format: float
+                              description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object).
                               example: 29520.58
                             ycoord:
-                              type: string
-                              description: SVY21 Y coordinates
+                              type: number
+                              format: float
+                              description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object).
                               example: 39311.68
                             address:
                               type: string
@@ -342,12 +351,14 @@ components:
                               example: {"lat":1.37179535,"lon":103.8469821}                                  
                               properties:
                                   lat: 
-                                    type: string
-                                    description: WGS84 latitude
+                                    type: number
+                                    format: float
+                                    description: Latitude in the WGS84 coordinate format
                                     example: 1.37179535
                                   lon:
-                                    type: string
-                                    description: WGS84 longitude
+                                    type: number
+                                    format: float
+                                    description: Longitude in the WGS84 coordinate format
                                     example: 103.8469821
                             source: 
                               type: string
@@ -356,11 +367,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: The detail description on the status
+          description:  Description of the API the status
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure
+          description: The status of the API call - success/failure
     unauthorized:
       type: object
       properties:

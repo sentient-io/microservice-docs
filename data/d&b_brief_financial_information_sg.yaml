@@ -1574,8 +1574,9 @@ components:
       properties:
         total_items:
           type: integer
+          format: int32
           example: 1
-          description: Number of subjects being enquired relating to the Run
+          description: Number of subjects being enquired relating to the search.
           default: false
         subject_idno:
           type: string

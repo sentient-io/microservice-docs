@@ -294,27 +294,31 @@ components:
                               example: "Y"
                             car_park_availability: 
                               type: integer
+                              format: int32
                               description: Car Park Availability
                               example: 15
                             postalcode: 
-                              type: array
+                              type: integer
+                              format: int32
                               description: Postal code
                               example: 552506
                             block: 
-                              type: array
+                              type: string
                               description: Block
                               example: "506B"
                             street: 
-                              type: array
+                              type: string
                               description: street
                               example: "serangoon north avenue 4"                              
                             xcoord:
-                              type: string
-                              description: SVY21 X coordinates
+                              type: number
+                              format: float
+                              description: SVY21 X coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                               example: 32714.002
                             ycoord:
-                              type: string
-                              description: SVY21 Y coordinates
+                              type: number
+                              format: float
+                              description: SVY21 Y coordinates (Note, SVY21 is a localised plane coordinate system used specifically by Singapore. For global GPS lat/long coordinates, refer to "location" object)
                               example: 39399.7461
                             address:
                               type: string
@@ -330,12 +334,14 @@ components:
                               example: {"lat":1.37259145,"lon":103.8756772}
                               properties:
                                   lat: 
-                                    type: string
-                                    description: WGS84 latitude
+                                    type: number
+                                    format: float
+                                    description: Latitude in the WGS84 coordinate format
                                     example: 1.37259145
                                   lon:
-                                    type: string
-                                    description: WGS84 longitude
+                                    type: number
+                                    format: float
+                                    description: Longitude in the WGS84 coordinate format
                                     example: 103.8756772
                             createddate:
                               type: string
@@ -348,11 +354,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: The detail description on the status
+          description: Description of the API status
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure
+          description: The status of the API call - Success/Failure
     unauthorized:
       type: object
       properties:
