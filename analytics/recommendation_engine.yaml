@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Recommendation Engine
   description: |+
-    Recommendation Engine is a new type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm (CCO), which can use data from a wide variety of sources to tune and make recommendations better.
+    This Analytics microservice is a new type of collaborative filtering recommender based on the Correlated Cross-Occurrence algorithm (CCO), which can use data from a wide variety of sources to tune and make recommendations better.
   version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of set of REST APIs to inject data, train data, get recommendations etc. User can also use bulk upload APIs to insert historial data using CSV for both events and items.Dedicated engines are created per primary indicator, after the engine creation the apis can be used to inject the data.
@@ -21,7 +21,7 @@ info:
   x-notes: |+
     File size cannot exceed 10 MB.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Apr 20, 2022"
@@ -452,7 +452,7 @@ paths:
             schema:
               $ref: '#/components/schemas/rebulkuploaditeminput'
         required: true
-  /microservices/analytics/recommendationengine/v0/getselected:
+  /microservices/analytics/recommendationengine/v0/setselected:
     description: |+
         This API is used to update the selected option
     post:
@@ -506,6 +506,23 @@ paths:
               example: 
                 message: Successfully Processed
                 status: Success
+                results:
+                - engine_name: ttap-om-page
+                  id: 23ff3baa-cc41-11ec-b15a-daa7b5082d7b
+                  re_id: 245a06b6-cc41-11ec-b15a-daa7b5082d7b
+                  external_id: fandy
+                  entity_details: Create Shipping Route
+                  entity_type: pagename
+                  input: '{"engineId": "ttap-om-page", "user": "fandy"}'
+                  re_type: ML
+                  options: '14'
+                  org_name: TTAP
+                  user_name: ttap_admin
+                  created_date_time: '2022-05-05T15:01:09'
+                  updated_date_time: null
+                  cus1_name: null
+                  cus2_name: null
+                  cus2_val: null
 
         '419':
           description: Input Field Missing
@@ -570,6 +587,10 @@ components:
           items:
             type: object
             properties:
+              engine_name:
+                type: string
+                description: Unique id for the list
+                example: ttap-om-page
               ID:
                 type: string
                 description: Unique id for the list
@@ -606,37 +627,33 @@ components:
                 type: string
                 description: created date time
                 example: 2022-04-07T18:23:17
-              owner_id:
-                type: string
-                description: Owner id
-                example: 1
-              owner_name:
-                type: string
-                description: Owner name
-                example: ownername
-              org_id:
-                type: string
-                description: org id
-                example: org id
               org_name:
                 type: string
                 description: org name
                 example: org name
-              user_id:
-                type: string
-                description: user id
-                example: 12
               user_name:
                 type: string
                 description: user name
                 example: username
-              api_key:
-                type: string
-                description: Api key
-                example: A2FAAE0499E7...
               updated_date_time:
                 type: string
                 description: updated date time
+                example: null
+              cus1_name:
+                type: string
+                description: custom variable name
+                example: null
+              cus1_val:
+                type: string
+                description: custom variable value
+                example: null
+              cus2_name:
+                type: string
+                description: custom variable name
+                example: null
+              cus2_val:
+                type: string
+                description: custom variable value
                 example: null
     readdeventsuccess:
       type: object
@@ -888,7 +905,7 @@ components:
           type: string
           default: true
           description: |+ 
-             The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
+             The value must be one the indicators name
           example: pageurl
     rebulkuploaditeminput:
       type: object
@@ -913,12 +930,13 @@ components:
           example: sentient engine
         properties:
           type: array
-          items:
-            type: string
-          example: ["pagetile","description","pageurl"]
           default: true
-          description: |+
-            The value must be one the "name"s in the "indicators" array from the UR engine's JSON config.
+          description: |+ 
+             The value must be array of item properties
+          example: ["pagetile","description","pageurl"]
+          items:
+            oneOf:
+              - type: object
     retraineventinput:
       type: object
       required:
@@ -959,6 +977,12 @@ components:
           default: true
           description: |+
             The id for items that correspond to the indicator name. May be a product-id, category-id, a tag-id, search term, location, anything that the event represents.
+        external_id:
+          type: string
+          example: User 10
+          default: true
+          description: |+
+            This is whatever string you use to identify a unique id.
         item_bias:
           type: number
           example: -1
@@ -1030,6 +1054,12 @@ components:
           default: true
           description: |+
             This is whatever string you use to identify a user.
+        external_id:
+          type: string
+          example: User 10
+          default: true
+          description: |+
+            This is whatever string you use to identify a unique id.
         user_bias:
           type: string
           example: -1

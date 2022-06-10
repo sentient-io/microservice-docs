@@ -1,0 +1,1967 @@
+openapi: 3.0.1
+info:
+  title: Content Interest Profiling
+  x-subscribelink: content_interesr_profiling
+  description: |+
+    This Analytics microservice helps profile the content and interest from the web page traffic. Content profiler would profile given text documents and Interest profiler would profile an entity (a human being/Internet session/Cookie/etc.) based on the history of documents it has accessed over time and the profile of those documents.
+    Upon subscription, a javascript is sent to the user to place it within the web page. This will capture the web page traffic and auto profile the content as well as the user. If required, users can also pass in user ID to identify the user using the external_id field. 
+    Only English language texts will be addressed.
+    In addition to the Content Interest Profiling microservices, we are also releasing a few analytics overview microservice namely, traffic overview, page overview, and external id analytics.
+  x-additionalinfo : |+
+  
+    Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/content_interest_profile.yaml
+    
+    Filters are applicable only for Content and Interest Profiling APIs.
+    
+    **Match Types:**
+    A match type is a match operator nested within a filter that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"content_categories":"news/business news/construction"}}     
+    * **match** - Search within a full text field for a single word
+      > {"match":{"content_categories":"news"}}
+    * **range** - Returns results that contain terms within a stipulated range
+      > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
+      > {"range":{"lastupdated":{"lte":"now/d"}}}
+      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"content_categories"}}
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"content_categories":"news"}}]}}
+      > {"bool":{"must":[{"match":{"content_categories":"news"}}]}}
+      > {"bool":{"should":[{"match":{"content_categories":"news"}},{"match":{"content_ngrams":"solutions"}}]}}
+      
+    **Sample Queries Based on Use Cases for Content and Interest Profiling APIs.**
+    
+    1. **Search for the profiles matching categories news/business news/construction.**
+      
+      > {"match_phrase":{"content_categories":"news/business news/construction"}}
+      
+    2. **Get for the content profile matching page url**
+      
+      > {"match_phrase":{"content.articleUrl"="https://www.sentient.io/team"}}
+      
+    3. **Get for the interest profile matching page External ID (custom user ID from the web)**
+      
+      > {"match_phrase":{"external_id":"user1"}}
+      
+    4. **Search for the profiles matching the primary top category**
+      
+      > {"match_phrase":{"content_groupcategories":"technology"}}
+  version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    Subscription Fee + The API is billed per request to get a profile.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Upon subscription, a javascript is send to the user to place it within the web page. This will capture the web page traffic and auto profile the content as well the user. If required user can also pass in user ID in order to identify the user using the external_id field.
+    It would address English language texts only.
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Apr 20, 2022"
+paths:
+  /microservices/analytics/ciprofile/v0/getinterestprofile:
+    description: |+
+        This API is used to get interest profile of the unique user to the website.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successinterestprofile'
+              example:
+                results:
+                  total: 1
+                  max_score: null
+                  hits:
+                    - _index: cip_interest_profiler
+                      _type: cip
+                      _id: interest_profiles/interest_profile_a4bbe6221f51f0d9.json
+                      _score: null
+                      _source:
+                        createdDate: '2022-03-23T11:10:37+00:00'
+                        objectKey: interest_profiles/interest_profile_a4bbe6221f51f0d9.json
+                        content_type: text/plain
+                        content_length: 27955
+                        content: >-
+                          {"uid": "a4bbe6221f51f0d9", "type": "interest_profile",
+                          "last_updated": 1648033836, "categories": [{"name":
+                          "technology/business technology/business intelligence", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_category": true}, {"name": "lifestyle/Social Media and
+                          Blogging", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_category": true}, {"name":
+                          "news/international/news", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_category": true},
+                          {"name": "technology/business technology/systems/software", "score":
+                          0, "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_category": true}, {"name": "technology/software", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_category": true}, {"name": "news/local/news", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_category": true}, {"name": "news/domestic/news", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_category": true}], "groupCategories": [{"name": "news",
+                          "node_level": 1, "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_category": true}, {"name":
+                          "technology", "node_level": 1, "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_category": true},
+                          {"name": "lifestyle", "node_level": 1, "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_category": true}, {"name": "lifestyle/Social Media and
+                          Blogging", "node_level": 2, "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_category": true},
+                          {"name": "technology/business technology", "node_level": 2, "score":
+                          0, "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_category": true}, {"name": "news/domestic", "node_level": 2,
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_category": true}, {"name": "technology/software",
+                          "node_level": 2, "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_category": true}, {"name":
+                          "news/international", "node_level": 2, "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_category": true}, {"name": "news/local", "node_level": 2,
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_category": true}], "n-grams": [{"name": "Nat",
+                          "entity_type": "person", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "tagging", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Entity", "entity_type": "misc", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "software", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "developers", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "successful launch", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "trial AI solutions", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name": "top
+                          microservices", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "speech input", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name": "help
+                          developers", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name": "key
+                          entities", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "pre-trained and industry-proven models", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "gent", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Technology Partners", "entity_type":
+                          "misc", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name": "AI
+                          Co-lab AI Clinic Use", "entity_type": "misc", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "text", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "PRODUCTS AI", "entity_type": "misc",
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_ngram": true}, {"name": "AI solutions", "score":
+                          0, "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "models", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "curated public and private datasets",
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_ngram": true}, {"name": "AI", "entity_type":
+                          "misc", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "convert text input", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "together upon successful launch", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "Discover", "entity_type": "misc", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "input", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "human speech", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "trial AI", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Advocates", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Recognition", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "status", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "convert text", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "microservice", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Identify key entities", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "datasets", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Sentient.io AI & Data Cloud
+                          Platform", "entity_type": "organization", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Fusionopolis Place", "entity_type":
+                          "organization", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Recognition Accurately convert speech input", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "u2014", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Sentient.io", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Heartland", "entity_type": "misc",
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_ngram": true}, {"name": "Automatic Speech
+                          Recognition", "entity_type": "misc", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "138523 enquiry@sentient.io", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "business", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Accurately convert speech input",
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_ngram": true}, {"name": "ura", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Heartland About Our Team Newsroom",
+                          "entity_type": "organization", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "launch", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Clients", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "u672c", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Text-to-Speech", "entity_type": "misc", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "speech", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "entities", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Learn", "entity_type": "misc",
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_ngram": true}, {"name": "Recognition Accurately
+                          convert speech", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Easily convert text", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "solutions together upon successful launch", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "trial", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "microservices", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Copyright", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "public and private datasets",
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_ngram": true}, {"name": "138523
+                          enquiry@sentient.io Copyright", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "Galaxis Work Lofts", "entity_type": "misc", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Team Newsroom Blog", "entity_type":
+                          "misc", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "solutions", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "APIs", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name": "text
+                          input", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name": "AI
+                          Solutions", "entity_type": "misc", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "Automatic Speech", "entity_type": "misc", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "htmltext", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Home Products AI", "entity_type":
+                          "misc", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "better categorization", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "success", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name": "upon
+                          successful launch", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name": "Data
+                          Partners", "entity_type": "misc", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "Us", "entity_type": "misc", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "convert speech", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "convert speech input", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Singapore", "entity_type":
+                          "location", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "enquiry@sentient.io", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "HDB", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "content", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "enquiry@sentient.io Copyright", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "platform", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name": "Us
+                          Privacy Policy CONTACT", "entity_type": "misc", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Recognition Identify key entities",
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_ngram": true}, {"name": "public", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "provider", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Easily convert text input", "score":
+                          0, "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "Data AI Co-lab COMPANY",
+                          "entity_type": "misc", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "curated public", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Accurately convert speech", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "Blog", "entity_type": "misc", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "industry-proven models", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "existing software", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "u8a9e Login Join", "entity_type":
+                          "misc", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "capabilities", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "categorization", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Pulse", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "lli", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Data", "entity_type": "misc", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "message", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "TeamSpaces People Counting Object Detection Named Entity Recognition
+                          Automated Speech Recognition Text-to-Speech", "entity_type":
+                          "organization", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "View", "entity_type": "misc", "score": 0, "last_accessed_time":
+                          1648006846, "last_updated_time": 1648033836, "is_new_ngram": true},
+                          {"name": "u65e5", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Contact", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "Investors", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "private datasets", "score": 0, "last_accessed_time": 1648006846,
+                          "last_updated_time": 1648033836, "is_new_ngram": true}, {"name":
+                          "English English", "entity_type": "misc", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "microservice provider", "score": 0,
+                          "last_accessed_time": 1648006846, "last_updated_time": 1648033836,
+                          "is_new_ngram": true}, {"name": "AI API", "entity_type": "misc",
+                          "score": 0, "last_accessed_time": 1648006846, "last_updated_time":
+                          1648033836, "is_new_ngram": true}]}
+                        content_ngrams:
+                          - Nat
+                          - tagging
+                          - Entity
+                          - software
+                          - developers
+                          - successful launch
+                          - trial AI solutions
+                          - top microservices
+                          - speech input
+                          - help developers
+                          - key entities
+                          - pre-trained and industry-proven models
+                          - gent
+                          - Technology Partners
+                          - AI Co-lab AI Clinic Use
+                          - text
+                          - PRODUCTS AI
+                          - AI solutions
+                          - models
+                          - curated public and private datasets
+                          - AI
+                          - convert text input
+                          - together upon successful launch
+                          - Discover
+                          - input
+                          - human speech
+                          - trial AI
+                          - Advocates
+                          - Recognition
+                          - status
+                          - convert text
+                          - microservice
+                          - Identify key entities
+                          - datasets
+                          - Sentient.io AI & Data Cloud Platform
+                          - Fusionopolis Place
+                          - Recognition Accurately convert speech input
+                          - u2014
+                          - Sentient.io
+                          - Heartland
+                          - Automatic Speech Recognition
+                          - 138523 enquiry@sentient.io
+                          - business
+                          - Accurately convert speech input
+                          - ura
+                          - Heartland About Our Team Newsroom
+                          - launch
+                          - Clients
+                          - u672c
+                          - Text-to-Speech
+                          - speech
+                          - entities
+                          - Learn
+                          - Recognition Accurately convert speech
+                          - Easily convert text
+                          - solutions together upon successful launch
+                          - trial
+                          - microservices
+                          - Copyright
+                          - public and private datasets
+                          - 138523 enquiry@sentient.io Copyright
+                          - Galaxis Work Lofts
+                          - Team Newsroom Blog
+                          - solutions
+                          - APIs
+                          - text input
+                          - AI Solutions
+                          - Automatic Speech
+                          - htmltext
+                          - Home Products AI
+                          - better categorization
+                          - success
+                          - upon successful launch
+                          - Data Partners
+                          - Us
+                          - convert speech
+                          - convert speech input
+                          - Singapore
+                          - enquiry@sentient.io
+                          - HDB
+                          - content
+                          - enquiry@sentient.io Copyright
+                          - platform
+                          - Us Privacy Policy CONTACT
+                          - Recognition Identify key entities
+                          - public
+                          - provider
+                          - Easily convert text input
+                          - Data AI Co-lab COMPANY
+                          - curated public
+                          - Accurately convert speech
+                          - Blog
+                          - industry-proven models
+                          - existing software
+                          - u8a9e Login Join
+                          - capabilities
+                          - categorization
+                          - Pulse
+                          - lli
+                          - Data
+                          - message
+                          - >-
+                            TeamSpaces People Counting Object Detection Named Entity Recognition
+                            Automated Speech Recognition Text-to-Speech
+                          - View
+                          - u65e5
+                          - Contact
+                          - Investors
+                          - private datasets
+                          - English English
+                          - microservice provider
+                          - AI API
+                        content_categories:
+                          - technology/business technology/business intelligence
+                          - lifestyle/Social Media and Blogging
+                          - news/international/news
+                          - technology/business technology/systems/software
+                          - technology/software
+                          - news/local/news
+                          - news/domestic/news
+                        content_groupcategories:
+                          - news
+                          - technology
+                          - lifestyle
+                          - lifestyle/Social Media and Blogging
+                          - technology/business technology
+                          - news/domestic
+                          - technology/software
+                          - news/international
+                          - news/local
+                        external_id: 'null'
+                      sort:
+                        - 1648033837000
+                message: Successfully Processed
+                status: Success
+
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+  /microservices/analytics/ciprofile/v0/getcontentprofile:
+    description: |+
+        This API is used to get content profile
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successcontentprofile'
+              example:
+                results:
+                  total: 95
+                  max_score: null
+                  hits:
+                    - _index: cip_content_profiler
+                      _type: cip
+                      _id: >-
+                        content_profiles/1_www.sentient.io_sentient.io-general-microservices.json
+                      _score: null
+                      _source:
+                        createdDate: '2022-03-23T11:10:12+00:00'
+                        objectKey: >-
+                          content_profiles/1_www.sentient.io_sentient.io-general-microservices.json
+                        content_type: text/plain
+                        content_length: 49781
+                        content_format: url
+                        content_ngrams:
+                          - Recognition
+                          - microservice
+                          - feature
+                          - Recognition capabilities
+                          - capabilities
+                          - detects speech
+                          - speech
+                          - audio file
+                          - file
+                          - wav
+                          - wav format
+                          - format
+                          - speech content
+                          - content
+                          - audio stream
+                          - stream
+                          - text
+                          - transcript
+                          - transcript  
+                          - utterance
+                          - continuous piece
+                          - piece
+                          - speech beginning
+                          - beginning
+                          - clear pause
+                          - pause
+                          - free account
+                          - account
+                          - array
+                          - different language
+                          - different language and voices
+                          - language
+                          - language and voices
+                          - voices
+                          - speech platform
+                          - platform
+                          - best suit
+                          - suit
+                          - application
+                          - requirements
+                          - Enable natural communication
+                          - natural communication
+                          - communication
+                          - users
+                          - devices
+                          - speak humanlike voices
+                          - humanlike voices
+                          - end-to-end voice
+                          - end-to-end voice user
+                          - end-to-end voice user interface
+                          - voice
+                          - voice user
+                          - voice user interface
+                          - user
+                          - user interface
+                          - interface
+                          - interface together and improve user
+                          - together and improve user
+                          - together and improve user experience
+                          - improve user
+                          - improve user experience
+                          - user experience
+                          - experience
+                          - easy and engaging interactions
+                          - engaging interactions
+                          - interactions
+                          - free Named Entity
+                          - free Named Entity Recognition
+                          - Named Entity
+                          - Named Entity Recognition
+                          - Entity
+                          - Entity Recognition
+                          - named-entities
+                          - named-entities classes
+                          - classes
+                          - input
+                          - named-entity
+                          - named-entity classes
+                          - persons
+                          - locations
+                          - organisations
+                          - microservice automatically extracts structured information
+                          - automatically extracts structured information
+                          - structured information
+                          - information
+                          - unstructured text
+                          - unstructured text data
+                          - text data
+                          - data
+                          - chatlogs
+                          - emails
+                          - news
+                          - news articles
+                          - articles
+                          - claim free 50 API
+                          - free 50 API
+                          - 50 API
+                          - business
+                          - business challenges
+                          - challenges
+                          - use
+                          - use case
+                          - case
+                          - catalogue
+                          - pre-trained AI
+                          - pre-trained AI microservices
+                          - AI microservices
+                          - microservices
+                          - quickly and easily Straightforward API
+                          - easily Straightforward API
+                          - easily Straightforward API implementation
+                          - Straightforward API
+                          - Straightforward API implementation
+                          - API implementation
+                          - implementation
+                          - detailed documentation
+                          - documentation
+                          - documentation and responsive technical support
+                          - responsive technical support
+                          - technical support
+                          - support
+                          - per-API-call pricing
+                          - pricing
+                          - short video
+                          - video
+                          - shares
+                          - informational video
+                          - applications
+                          - ways
+                          - reality
+                          - systems
+                          - team
+                          - experts
+                          - ai clinic
+                          - clinic
+                          - free consultation
+                          - consultation
+                          - co-lab programme
+                          - programme
+                          - structured programme
+                          - discover and trial
+                          - discover and trial AI
+                          - discover and trial AI solutions
+                          - trial
+                          - trial AI
+                          - trial AI solutions
+                          - AI solutions
+                          - solutions
+                          - platform Sign
+                          - Sign
+                          - microservices and demo
+                          - microservices and demo apps
+                          - demo
+                          - demo apps
+                          - apps
+                          - prime time
+                          - time
+                          - companies
+                          - industries
+                          - businesses
+                          - businesses using Sentient.io
+                          - using Sentient.io
+                          - Sentient.io
+                          - Contact
+                          - Sentient.io AI
+                          - Sentient.io AI journey
+                          - AI journey
+                          - journey
+                          - Clients
+                          - 138523 enquiry@sentient.io
+                          - 138523 enquiry@sentient.io Copyright
+                          - enquiry@sentient.io
+                          - enquiry@sentient.io Copyright
+                          - Copyright
+                          - message
+                          - status
+                          - success
+                          - htmltext
+                          - HDB
+                          - Pulse
+                          - step
+                        content_categories:
+                          - technology/business technology/business intelligence
+                          - careers/courses and program/language
+                          - careers/job by industry/telco
+                          - news/business news/telco
+                          - news/domestic/news
+                          - news/international/news
+                          - news/local/news
+                          - technology/business technology/systems
+                          - careers/job by industry/healthcare
+                          - news/business news/healthcare
+                          - technology/mobile phones & accessories/apps
+                          - news/business news/general
+                          - news/sport/general
+                        content_groupcategories:
+                          - technology
+                          - careers
+                          - news
+                          - technology/business technology
+                          - careers/courses and program
+                          - careers/job by industry
+                          - news/business news
+                          - news/domestic
+                          - news/international
+                          - news/local
+                          - technology/mobile phones & accessories
+                          - news/sport
+                        site_id: '1'
+                      sort:
+                        - 1648033812000
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+  /microservices/analytics/ciprofile/v0/getvisitsdetails:
+    description: |+
+        This API is used to get visitors details
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successvisitdetails'
+              example:
+                message: Successfully Processed
+                status: Success
+                results:
+                  nb_uniq_visitors: 72
+                  nb_users: 0
+                  nb_visits: 77
+                  nb_actions: 159
+                  nb_visits_converted: 0
+                  bounce_count: 44
+                  sum_visit_length: 6618
+                  max_actions: 12
+                  bounce_rate: 57%
+                  nb_actions_per_visit: 2.1
+                  avg_time_on_site: 86
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/visitdetailsinput'
+        required: true
+  /microservices/analytics/ciprofile/v0/getpagedetails:
+    description: |+
+        This API is used to get page details
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successpagedetails'
+              example:
+                message: Successfully Processed
+                status: Success
+                results:
+                  - label: en
+                    nb_visits: 6
+                    nb_hits: 8
+                    sum_time_spent: 203
+                    nb_hits_with_time_network: 8
+                    min_time_network: 0
+                    max_time_network: 0.315
+                    nb_hits_with_time_server: 8
+                    min_time_server: 0.049
+                    max_time_server: 2.065
+                    nb_hits_with_time_transfer: 8
+                    min_time_transfer: 0
+                    max_time_transfer: 0.031
+                    nb_hits_with_time_dom_processing: 6
+                    min_time_dom_processing: 0.227
+                    max_time_dom_processing: 2.73
+                    entry_nb_visits: 5
+                    entry_nb_actions: 18
+                    entry_sum_visit_length: 1377
+                    entry_bounce_count: 0
+                    avg_time_network: 0.058
+                    avg_time_server: 0.387
+                    avg_time_transfer: 0.011
+                    avg_time_dom_processing: 0.79
+                    avg_page_load_time: 1.246
+                    avg_time_on_page: 25
+                    bounce_rate: 0%
+                    exit_rate: 0%
+                    segment: pageUrl=^https%253A%252F%252Fsentient.io%252Fen
+                    idsubdatatable: 1
+                  - label: /team
+                    nb_visits: 5
+                    nb_uniq_visitors: 5
+                    nb_hits: 8
+                    sum_time_spent: 247
+                    nb_hits_with_time_network: '8'
+                    min_time_network: '0.0000'
+                    max_time_network: '0.1720'
+                    nb_hits_with_time_server: '8'
+                    min_time_server: '0.0460'
+                    max_time_server: '2.1780'
+                    nb_hits_with_time_transfer: '8'
+                    min_time_transfer: '0.0010'
+                    max_time_transfer: '0.1240'
+                    nb_hits_with_time_dom_processing: '8'
+                    min_time_dom_processing: '0.0430'
+                    max_time_dom_processing: '4.4150'
+                    entry_nb_uniq_visitors: '1'
+                    entry_nb_visits: '1'
+                    entry_nb_actions: '5'
+                    entry_sum_visit_length: '115'
+                    entry_bounce_count: '0'
+                    avg_time_network: 0.022
+                    avg_time_server: 0.966
+                    avg_time_transfer: 0.024
+                    avg_time_dom_processing: 1.09
+                    avg_page_load_time: 2.1020000000000003
+                    avg_time_on_page: 31
+                    bounce_rate: 0%
+                    exit_rate: 0%
+                    url: https://www.sentient.io/team
+                    segment: pageUrl==https%253A%252F%252Fwww.sentient.io%252Fteam
+                  - label: /ai-colab
+                    nb_visits: 2
+                    nb_uniq_visitors: 2
+                    nb_hits: 2
+                    sum_time_spent: 1035
+                    nb_hits_with_time_network: '2'
+                    min_time_network: '0.0000'
+                    max_time_network: '0.0000'
+                    nb_hits_with_time_server: '2'
+                    min_time_server: '2.0050'
+                    max_time_server: '2.5210'
+                    nb_hits_with_time_transfer: '2'
+                    min_time_transfer: '0.0020'
+                    max_time_transfer: '0.0040'
+                    nb_hits_with_time_dom_processing: '2'
+                    min_time_dom_processing: '0.3000'
+                    max_time_dom_processing: '0.3200'
+                    avg_time_network: 0
+                    avg_time_server: 2.263
+                    avg_time_transfer: 0.003
+                    avg_time_dom_processing: 0.31
+                    avg_page_load_time: 2.576
+                    avg_time_on_page: 518
+                    bounce_rate: 0%
+                    exit_rate: 0%
+                    url: https://www.sentient.io/ai-colab
+                    segment: pageUrl==https%253A%252F%252Fwww.sentient.io%252Fai-colab
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/pagedetailsinput'
+        required: true
+  /microservices/analytics/ciprofile/v0/getexternaliddetails:
+    description: |+
+        This API is used to get external id details
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successcustomdimension'
+              example:
+                message: Successfully Processed
+                status: Success
+                results:
+                  - label: user2
+                    nb_uniq_visitors: 8
+                    nb_visits: 9
+                    nb_actions: 29
+                    max_actions: 7
+                    sum_visit_length: 1295
+                    bounce_count: 0
+                    nb_visits_converted: 0
+                    avg_time_on_site: 144
+                    bounce_rate: 0%
+                    nb_actions_per_visit: 3.2
+                    segment: dimension1==user2
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/customdimensioninput'
+        required: true
+components:
+  schemas:
+    successcontentprofile:
+      type: object
+      properties:
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            total:
+              type: number
+              example: 95
+              description: Total number of records
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "cip_content_profiler"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "cip"
+                  _id: 
+                    type: string
+                    description: Content ID
+                    example: "content_profiles/1_www.sentient.io_sentient.io-general-microservices.json"
+                  _score: 
+                    type: number
+                    description: The content score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      createdDate:
+                        type: string
+                        example: 2022-03-23T11:10:12+00:00
+                        description: Created date of the content profile
+                      objectKey:
+                        type: string
+                        example: content_profiles/1_www.sentient.io_sentient.io-general-microservices.json
+                        description: object key of the content profile
+                      content_type:
+                        type: string
+                        example: text/plain
+                        description: Content type of the content profile
+                      content_length:
+                        type: number
+                        example: 49781
+                        description: length of the content profile
+                      content_format:
+                        type: string
+                        example: url
+                        description: format of the content profile  
+                      content_ngrams:
+                        type: array
+                        example: [
+                        "Recognition",
+                        "microservice",
+                        "feature",
+                        "Recognition capabilities",
+                        "capabilities",
+                        "detects speech",
+                        "speech",
+                        "audio file"]
+                        description: list of content ngrams 
+                        items:
+                          oneOf:
+                            - type: string
+                      content_categories:
+                        type: array
+                        description: list of content categories
+                        example: ["technology/business technology/business intelligence","careers/courses and program/language","careers/job by industry/telco","news/business news/telco","news/domestic/news","news/international/news","news/local/news","technology/business technology/systems","careers/job by industry/healthcare","news/business news/healthcare","technology/mobile phones & accessories/apps","news/business news/general","news/sport/general"] 
+                        items:
+                          oneOf:
+                            - type: string
+                      content_groupcategories: 
+                        type: string
+                        description: list of content group categories
+                        example: [
+                        "technology",
+                        "careers",
+                        "news",
+                        "technology/business technology",
+                        "careers/courses and program",
+                        "careers/job by industry",
+                        "news/business news",
+                        "news/domestic",
+                        "news/international",
+                        "news/local",
+                        "technology/mobile phones & accessories",
+                        "news/sport"]
+                      site_id:
+                        type: array
+                        example: 1
+                        description: site id of the content profile
+                        items:
+                          oneOf:
+                            - type: string
+                        
+                  sort:
+                    type: array
+                    example: 1648033812000
+                    description: list of sort
+                    items:
+                      oneOf:
+                        - type: string
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+    successvisitdetails:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+        results:
+          type: object
+          example: {<JSON result Object}
+          description: The list of Json result object
+          properties:
+            nb_uniq_visitors:
+              type: number
+              description: Number of unique visitors
+              example: 7
+            nb_users: 
+              type: number
+              description: Number of unique active users
+              example: 0
+            nb_visits: 
+              type: number
+              description: Number of Visits
+              example: 7
+            nb_actions: 
+              type: number
+              description: Number of actions
+              example: 35
+            nb_visits_converted: 
+              type: number
+              description: Number of visits that converted a goal
+              example: 0
+            bounce_count: 
+              type: number
+              description: Number of visits that bounced
+              example: 0
+            sum_visit_length: 
+              type: number
+              description: Total time spent, in seconds
+              example: 2308
+            max_actions: 
+              type: number
+              description: Maximum number of actions in a visit
+              example: 12
+            bounce_rate: 
+              type: number
+              description: Ratio of visits leaving the website after landing on this page
+              example: 0%
+            nb_actions_per_visit: 
+              type: number
+              description: Number of actions per visits
+              example: 5
+            avg_time_on_site: 
+              type: number
+              description: Average time spent on website
+              example: 330
+    successcustomdimension:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+        results:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of Json result object
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: This is used to search only for the row matching
+                example: ai-data
+              nb_uniq_visitors: 
+                type: number
+                description: Number of unique visitors
+                example: 9
+              nb_visits: 
+                type: number
+                description: Number of Visits
+                example: 10
+              nb_actions: 
+                type: number
+                description: Number of actions
+                example: 61
+              max_actions: 
+                type: number
+                description: Maximum number of actions in a visit
+                example: 14
+              sum_visit_length: 
+                type: number
+                description: Total time spent, in seconds
+                example: 5092
+              bounce_count: 
+                type: number
+                description: Number of visits that bounced
+                example: 1
+              max_time_server: 
+                type: number
+                description: Maxmimum time in the server
+                example: 2.1600
+              nb_visits_converted: 
+                type: number
+                description: Number of visits that converted a goal
+                example: 0
+              avg_time_on_site: 
+                type: number
+                description: Average time spent
+                example: 509
+              bounce_rate: 
+                type: number
+                description: Ratio of visits leaving the website after landing on this page
+                example: 10%
+              nb_actions_per_visit: 
+                type: number
+                description: Number of actions per visit
+                example: 6.1
+              segment: 
+                type: string
+                description: defines the Custom Segment you wish to filter your reports.
+                example: dimension1==user2
+    successpagedetails:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+        results:
+          type: array
+          example: [{<JSON result Object}]
+          description: The list of Json result object
+          items:
+            type: object
+            properties:
+              label:
+                type: string
+                description: This is used to search only for the row matching
+                example: ai-data
+              nb_visits: 
+                type: number
+                description: Number of Visits
+                example: 7
+              nb_uniq_visitors: 
+                type: number
+                description: Number of unique visitors
+                example: 7
+              nb_hits: 
+                type: number
+                description: Number of views on this page
+                example: 11
+              sum_time_spent: 
+                type: number
+                description: Total time spent on this page, in seconds
+                example: 619
+              nb_hits_with_time_server: 
+                type: number
+                description: Number of views on this page with time server
+                example: 11
+              min_time_server: 
+                type: number
+                description: Minimum time in the server
+                example: 0.0390
+              max_time_server: 
+                type: number
+                description: Maxmimum time in the server
+                example: 2.1600
+              nb_hits_with_time_transfer: 
+                type: number
+                description: Number of views on this page with time transfer
+                example: 11
+              min_time_transfer: 
+                type: number
+                description: Minimum time transfer
+                example: 0.0000
+              max_time_transfer: 
+                type: number
+                description: Maximum time transfer
+                example: 0.0120
+              nb_hits_with_time_dom_processing: 
+                type: number
+                description: Number of views on this page with time and dom processing
+                example: 3
+              min_time_dom_processing: 
+                type: number
+                description: Minimum time and dom processing
+                example: 0.1200
+              max_time_dom_processing: 
+                type: number
+                description: Maximum time and dom processing
+                example: 1.3060
+              exit_nb_uniq_visitors: 
+                type: number
+                description: Number of unique visitors that ended their visit on this page
+                example: 3
+              exit_nb_visits: 
+                type: number
+                description: Number of visits that finished on this page
+                example: 3
+              avg_time_server: 
+                type: number
+                description: Average time server
+                example: 0.939
+              avg_time_transfer: 
+                type: number
+                description: Average time transfer
+                example: 0.005
+              avg_time_dom_processing: 
+                type: number
+                description: Average time with dom processing
+                example: 0.499
+              avg_page_load_time: 
+                type: number
+                description: Average page load time
+                example: 1.443
+              bounce_rate: 
+                type: number
+                description: Ratio of visits leaving the website after landing on this page
+                example: 0%
+              exit_rate: 
+                type: number
+                description: Ratio of visits that do not view any other page after this page
+                example: 43%
+              url: 
+                type: string
+                description: Page url
+                example: https:\/\/www.sentient.io\/ai-data\
+              segment: 
+                type: string
+                description: records with filtered by
+                example: pageUrl==https%253A%252F%252Fwww.sentient.io%252Fai-data\
+    successinterestprofile:
+      type: object
+      properties:
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            total:
+              type: number
+              example: 1
+              description: Total number of records
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "cip_interest_profiler"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "cip"
+                  _id: 
+                    type: string
+                    description: Content ID
+                    example: "interest_profiles/interest_profile_a4bbe6221f51f0d9.json"
+                  _score: 
+                    type: number
+                    description: The content score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      createdDate:
+                        type: string
+                        example: 2022-03-23T11:10:37+00:00
+                        description: Created date of the interest profile
+                      objectKey:
+                        type: string
+                        example: interest_profiles/interest_profile_a4bbe6221f51f0d9.json
+                        description: object key of the interest profile
+                      content_type:
+                        type: string
+                        example: text/plain
+                        description: Content type of the interest profile
+                      content_length:
+                        type: number
+                        example: 27955
+                        description: length of the interest profile
+                      content_format:
+                        type: string
+                        example: url
+                        description: format of the interest profile
+                      content:
+                        type: string
+                        example: "{\"uid\": \"a4bbe6221f51f0d9\", \"type\": \"interest_profile\", \"last_updated\": 1648033836, \"categories\": [{\"name\": \"technology/business technology/business intelligence\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"lifestyle/Social Media and Blogging\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"news/international/news\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"technology/business technology/systems/software\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"technology/software\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"news/local/news\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"news/domestic/news\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}], \"groupCategories\": [{\"name\": \"news\", \"node_level\": 1, \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"technology\", \"node_level\": 1, \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"lifestyle\", \"node_level\": 1, \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"lifestyle/Social Media and Blogging\", \"node_level\": 2, \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"technology/business technology\", \"node_level\": 2, \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"news/domestic\", \"node_level\": 2, \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"technology/software\", \"node_level\": 2, \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"news/international\", \"node_level\": 2, \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}, {\"name\": \"news/local\", \"node_level\": 2, \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_category\": true}], \"n-grams\": [{\"name\": \"Nat\", \"entity_type\": \"person\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"tagging\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Entity\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"software\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"developers\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"successful launch\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"trial AI solutions\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"top microservices\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"speech input\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"help developers\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"key entities\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"pre-trained and industry-proven models\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"gent\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Technology Partners\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"AI Co-lab AI Clinic Use\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"text\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"PRODUCTS AI\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"AI solutions\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"models\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"curated public and private datasets\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"AI\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"convert text input\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"together upon successful launch\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Discover\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"input\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"human speech\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"trial AI\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Advocates\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Recognition\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"status\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"convert text\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"microservice\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Identify key entities\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"datasets\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Sentient.io AI & Data Cloud Platform\", \"entity_type\": \"organization\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Fusionopolis Place\", \"entity_type\": \"organization\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Recognition Accurately convert speech input\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"u2014\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Sentient.io\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Heartland\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Automatic Speech Recognition\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"138523 enquiry@sentient.io\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"business\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Accurately convert speech input\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"ura\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Heartland About Our Team Newsroom\", \"entity_type\": \"organization\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"launch\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Clients\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"u672c\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Text-to-Speech\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"speech\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"entities\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Learn\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Recognition Accurately convert speech\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Easily convert text\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"solutions together upon successful launch\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"trial\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"microservices\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Copyright\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"public and private datasets\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"138523 enquiry@sentient.io Copyright\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Galaxis Work Lofts\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Team Newsroom Blog\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"solutions\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"APIs\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"text input\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"AI Solutions\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Automatic Speech\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"htmltext\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Home Products AI\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"better categorization\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"success\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"upon successful launch\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Data Partners\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Us\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"convert speech\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"convert speech input\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Singapore\", \"entity_type\": \"location\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"enquiry@sentient.io\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"HDB\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"content\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"enquiry@sentient.io Copyright\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"platform\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Us Privacy Policy CONTACT\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Recognition Identify key entities\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"public\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"provider\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Easily convert text input\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Data AI Co-lab COMPANY\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"curated public\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Accurately convert speech\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Blog\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"industry-proven models\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"existing software\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"u8a9e Login Join\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"capabilities\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"categorization\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Pulse\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"lli\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Data\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"message\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"TeamSpaces People Counting Object Detection Named Entity Recognition Automated Speech Recognition Text-to-Speech\", \"entity_type\": \"organization\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"View\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"u65e5\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Contact\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"Investors\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"private datasets\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"English English\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"microservice provider\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}, {\"name\": \"AI API\", \"entity_type\": \"misc\", \"score\": 0, \"last_accessed_time\": 1648006846, \"last_updated_time\": 1648033836, \"is_new_ngram\": true}]}"
+                        description: content of interest profile  
+                      content_ngrams:
+                        type: array
+                        example: [
+                        "Nat",
+                        "tagging",
+                        "Entity",
+                        "software",
+                        "developers",
+                        "successful launch",
+                        "trial AI solutions",
+                        "top microservices",
+                        "speech input",
+                        "help developers",
+                        "key entities",
+                        "pre-trained and industry-proven models",
+                        "gent",
+                        "Technology Partners",
+                        "AI Co-lab AI Clinic Use",
+                        "text",
+                        "PRODUCTS AI",
+                        "AI solutions",
+                        "models",
+                        "curated public and private datasets",
+                        "AI",
+                        "convert text input",
+                        "together upon successful launch",
+                        "Discover",
+                        "input",
+                        "human speech",
+                        "trial AI",
+                        "Advocates",
+                        "Recognition",
+                        "status",
+                        "convert text"]
+                        description: list of content ngrams 
+                        items:
+                          oneOf:
+                            - type: string
+                      content_categories:
+                        type: array
+                        description: list of content categories
+                        example: ["technology/business technology/business intelligence",
+                        "lifestyle/Social Media and Blogging",
+                        "news/international/news",
+                        "technology/business technology/systems/software",
+                        "technology/software",
+                        "news/local/news",
+                        "news/domestic/news"] 
+                        items:
+                          oneOf:
+                            - type: string
+                      content_groupcategories: 
+                        type: string
+                        description: list of content group categories
+                        example: ["news",
+                        "technology",
+                        "lifestyle",
+                        "lifestyle/Social Media and Blogging",
+                        "technology/business technology",
+                        "news/domestic",
+                        "technology/software",
+                        "news/international",
+                        "news/local"]
+                      external_id:
+                        type: array
+                        example: 0
+                        description: external id of the interest profile
+                        items:
+                          oneOf:
+                            - type: string
+                        
+                  sort:
+                    type: array
+                    example: 1648033837000
+                    description: list of sort
+                    items:
+                      oneOf:
+                        - type: string
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 01, 2022
+              x-details: Initial version release
+              description: Latest Version
+    input:
+      type: object
+      required:
+        - site_id
+      properties:
+        site_id:
+          type: number
+          default: true
+          example: 1
+          description: |+
+            The ID of the website we're tracking a visit/action for.
+            - can also specify a list of idSites comma separated, eg. site_id=1,4,5,6
+            - if you want to get data for all websites, set site_id=all
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: Optional. The max records to return for the request. Default - 0, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: Optional. The offset of the record list ie the starting index . Default - 0
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match":{"content_ngrams":"solutions"}}]
+          description: |+
+            Optional. Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * match_phrase
+    pagedetailsinput:
+      type: object
+      required:
+        - site_id
+        - period
+        - date
+      properties:
+        site_id:
+          type: number
+          default: true
+          example: 1
+          description: |+
+            The ID of the website we're tracking a visit/action for.
+            - can also specify a list of idSites comma separated, eg. site_id=1,4,5,6
+            - if you want to get data for all websites, set site_id=all
+        period:
+          type: string
+          default: true
+          example: day
+          description: |+
+            The period you request the statistics for.
+            - It can be day, week, month, year or range
+            - If you want to get report for the specific period the here is the example 
+              --  period=range and date=2022-01-01,2022-02-15
+        date:
+          type: string
+          default: true
+          example: '2022-03-29'
+          description: |+
+            The date you request the statistic for.
+            - standard format = YYYY-MM-DD
+            - It can be also using magic keywords = today, yesterday, lastWeek, lastMonth or lastYear
+            - range of dates
+              -- lastX for the last X periods including today
+              -- previousX returns the last X periods before today
+              -- YYYY-MM-DD,YYYY-MM-DD for every period
+        limit:
+          type: number
+          default: false
+          example: 3
+          description: |+
+            Optional. By default, only the top 100 rows are returned.
+            Set to -1 to return all rows.
+        offset:
+          type: number
+          default: false
+          example: 1
+          description: |+
+            Optional. By default, only the top 100 rows are returned.
+            Set to -1 to return all rows.
+        page_url:
+          type: string
+          default: false
+          example: https://www.sentient.io/ai-data
+          description: |+
+            Optional. It defines the Custom Segment you wish to filter your reports to.
+    customdimensioninput:
+      type: object
+      required:
+        - site_id
+        - period
+        - date
+      properties:
+        site_id:
+          type: number
+          default: true
+          example: 1
+          description: |+
+            The ID of the website we're tracking a visit/action for.
+            - can also specify a list of idSites comma separated, eg. site_id=1,4,5,6
+            - if you want to get data for all websites, set site_id=all
+        period:
+          type: string
+          default: true
+          example: day
+          description: |+
+            The period you request the statistics for.
+            - It can be day, week, month, year or range
+            - If you want to get report for the specific period the here is the example 
+              --  period=range and date=2022-01-01,2022-02-15
+        limit:
+          type: number
+          default: false
+          example: 3
+          description: |+
+            Optional. By default, only the top 100 rows are returned.
+            Set to -1 to return all rows.
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: |+
+            Optional. By default, only the top 100 rows are returned.
+            Set to -1 to return all rows.
+        date:
+          type: string
+          default: true
+          example: '2022-03-29'
+          description: |+
+            The date you request the statistic for.
+            - standard format = YYYY-MM-DD
+            - It can be also using magic keywords = today, yesterday, lastWeek, lastMonth or lastYear
+            - range of dates
+              -- lastX for the last X periods including today
+              -- previousX returns the last X periods before today
+              -- YYYY-MM-DD,YYYY-MM-DD for every period
+    visitdetailsinput:
+      type: object
+      required:
+        - site_id
+        - period
+        - date
+      properties:
+        site_id:
+          type: number
+          default: true
+          example: 1
+          description: |+
+            The ID of the website we're tracking a visit/action for.
+            - can also specify a list of idSites comma separated, eg. site_id=1,4,5,6
+            - if you want to get data for all websites, set site_id=all
+        period:
+          type: string
+          default: true
+          example: day
+          description: |+
+            The period you request the statistics for.
+            - It can be day, week, month, year or range
+            - If you want to get report for the specific period the here is the example 
+              --  period=range and date=2022-01-01,2022-02-15
+        date:
+          type: string
+          default: true
+          example: '2022-03-29'
+          description: |+
+            The date you request the statistic for.
+            - standard format = YYYY-MM-DD
+            - It can be also using magic keywords = today, yesterday, lastWeek, lastMonth or lastYear
+            - range of dates
+              -- lastX for the last X periods including today
+              -- previousX returns the last X periods before today
+              -- YYYY-MM-DD,YYYY-MM-DD for every period
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
