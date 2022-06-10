@@ -21,7 +21,7 @@ info:
   x-apidetailsdesc: |+
     Returns overall sentiment and confidence score for each sentiment label.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.1"
   description: "Published Date - Mar 28, 2022"
