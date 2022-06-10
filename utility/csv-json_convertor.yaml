@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: CSV-JSON Convertor
   description: |+
-    This Utility microservice converts the input CSV to JSON format. The headers should be the keywords and columns should be the value of proper keywords.
+    This Utility microservice converts the input CSV file to JSON format. The headers should be the keywords and columns should be the value of proper keywords.
     
-    The size of your file should **not exceed 3.5 MB**.
+    The size of your file **should not exceed 3.5 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
     - For users who would like to combine data into useful spreadsheets for others to analyze, update, or refer to. This microservice can convert a collection of CSV spreadsheets like Google Sheets or Excel into JSON to analyze data without programming.
@@ -114,7 +114,7 @@ components:
       properties:
         message:
           type: string
-          description: Successfully Converted and stored in Google Cloud Storage
+          description: Description of the API status
           example: Successfully Converted and stored in Google Cloud Storage
         results:
           type: object
@@ -128,7 +128,7 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call. success/failure
+          description: The status of the API call - success/failure
     unauthorized:
       type: object
       properties:
@@ -247,7 +247,7 @@ components:
           format: binary
           example: sample.csv
           default: true
-          description: The file object.
+          description: The file path that describes the location of the file to be converted.
   securitySchemes:
     APIAuthorizer:
       type: apiKey

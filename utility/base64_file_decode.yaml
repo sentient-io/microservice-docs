@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Base64 Decoder
   description: |+
-    This Utility microservice converts a Base64 encoded text string to a binary file.<br><br>For the reverse process (convert binary file to Base64 encoded text string), check out the Base64 File Encode microservice.
+    This Utility microservice converts a Base64 encoded text string to a binary file.<br><br>For the reverse process (convert binary file to Base64 encoded text string), check out the Base64 File Encoder microservice.
   x-additionalinfo: |+
     Suggested Use Cases:
     - As a post-processor for microservices that only outputs Base64 encoded text
@@ -112,11 +112,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the api status
+          description: Description of the api status
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure
         url:
           type: string
           example: https://storage.googleapis.com/base64decode/24f03729131e469181a2fc22eb3a627a.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20201015%2Fauto%2Fstora...
