@@ -448,7 +448,7 @@ components:
     uploadinput:
       type: object
       required:
-        - file      
+        - filePath      
       properties:
         file:
           type: string

@@ -7,7 +7,7 @@ info:
     This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction. Users can further filter the results by countries, profession or even down to the individual names.  
 
     Help us grow this microservice! [Let us know](https://www.sentient.io/contact) which other public figures you would like this microservice to recognise (e.g. a new country or a new category). We will expand the capability of this microservices based on user feedback and demand.
-    The size of your image file should **not exceed 10 MB**
+    The size of your image file **should not exceed 10 MB**
   version: '1.0.1'
   x-additionalinfo: |+
     **Full List of Filters**
@@ -77,7 +77,7 @@ info:
   x-apidetailsdesc: |+
     Recognises faces of Singaporean and Japanese public figures.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date - Jan 11, 2021"
@@ -179,7 +179,8 @@ components:
                   - type: object 
                     properties:
                       conf:
-                        type: float
+                        type: number
+                        format: float
                         example: 0.6588699206768599
                         description: 0.0 to 1.0. Confidence score of identification. Higher is more confidence.
                       identity:
@@ -197,11 +198,11 @@ components:
             message:
               type: string
               example: Successfully Processed
-              description: Detail description on the API status
+              description: Description of the API status
             status:
               type: string
               example: Success
-              description: The status of the API call success/failure
+              description: The status of the API call - success/failure
                     
     unauthorized:
       type: object
@@ -324,7 +325,6 @@ components:
     input:
       type: object
       required:
-        - model
         - image_base64
       properties:
         image_base64:
@@ -334,6 +334,13 @@ components:
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
             Input image file in base64 format.
+        model:
+          x-name: model
+          type: string
+          default: false
+          example: ntu
+          description: |+
+           Name of model.
         file_type:
           x-name: file_type
           type: string
