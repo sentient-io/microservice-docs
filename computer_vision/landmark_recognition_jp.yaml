@@ -24,7 +24,7 @@ info:
   x-apidetailsdesc: |+
     Identifies Japan landmarks from multiple input images.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Depreciation Date - May 31, 2022"
