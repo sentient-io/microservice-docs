@@ -2,11 +2,9 @@
   info:
     title: Page Profiler JP
     description: |+
-      This NLP microservice retrieves web content in Japanese from the input URL. From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output. 
-      
-      The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
-      
-      This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+        This NLP microservice retrieves web content in Japanese from the input URL. From the web content, the microservice then applies natural language processing to extract named-entities and return the output. 
+        The named-entity classes extracted are people's names, locations, organisations and miscellaneous. This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+        
     x-additionalinfo: |+
       Suggested Use Cases:
       - Insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
@@ -15,18 +13,18 @@
     version: '1.1.0'
     x-subscribelink: page_profiler_jp
     x-apitype: small file
-    x-apitypedescription: |+
-      Fast | Single-Call | One URL /Call
-    x-inputfilelimit: |+
-      Process One URL per API call.
-    x-responsetime: |+
-      Response rate is fast due to small data transfer per call made.
-    x-billingmethod: |+
-      The API is billed by per request.
-    x-notes: |+
-      API allows to retrieve from One URL per request.
-    x-apidetailsdesc: |+
-      Retrieves web content in Japanese from the input URL.
+  x-apitypedescription: |+
+    Fast | Single-Call | One URL /Call
+  x-inputfilelimit: |+
+    Process One URL per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    API allows to retrieve from One URL per request.
+  x-apidetailsdesc: |+
+    Retrieves web content in Japanese from the input URL.
   servers:
     - url: 'https://apis.sentient.io'
   tags:
@@ -149,7 +147,7 @@
                   type: string
                 example: 
                   - 56
-                description: "age details found in the text string"                
+                description: "Age details found in the text string"                
               countx_other:
                 type: array
                 items:
@@ -157,35 +155,35 @@
                 example: 
                   - 2稿
                   - 8口
-                description: "countx other details found in the text string"                   
+                description: "Counts remaining unidentified entities found in the text string"                  
               doctrine_method_other:
                 type: array
                 items:
                   type: string
                 example: 
                   - 険所コホ特室りょ
-                description: "doctrine method in the text string"                   
+                description: "Details doctrine methods in the text string"                   
               n_event:
                 type: array
                 items:
                   type: string
                 example: 
                   - 受1
-                description: "n_event in the text string"                   
+                description: "Counts number of events in the text string"                   
               numex_other:
                 type: array
                 items:
                   type: string
                 example: 
                   - 受1
-                description: "numex_other details found in the text string"                   
+                description: "Details of numerical counts found in the text string"                   
               ordinal_number:
                 type: array
                 items:
                   type: string
                 example: 
                   -30弾
-                description: "ordinal_number details in the text string"                   
+                description: "Details of ordinal numbers found in the text string, e.g. first, second, etc."                   
               person:
                 type: array
                 items:
@@ -195,7 +193,7 @@
                   - 壮
                   - 琢紫
                   - ナユ
-                description: "person details found in the text string"                   
+                description: "Details persons found in the text string"                   
               product_other:
                 type: array
                 items:
@@ -203,22 +201,22 @@
                 example: 
                   - 都合ヘラアニ限
                   - 議帳
-                description: "product found in the text string"                   
+                description: "Details products found in the text string"                   
               show_organization:
                 type: array
                 items:
                   type: string
                 example: 
                   - 左成相態
-                description: "organization details found in the text string"                   
+                description: "Details organisations found in the text string"                   
           message:
             type: string
             example: Successfully Processed
-            description: Detail description on the API status
+            description: Description of the API status
           status:
             type: string
             example: Success
-            description: The status of the API call success/failure  
+            description: The status of the API call - success/failure  
             
       unauthorized:
         type: object

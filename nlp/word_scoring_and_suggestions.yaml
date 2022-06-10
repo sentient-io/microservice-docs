@@ -131,7 +131,7 @@ components:
           example: { "<Json": "Object>" }
           properties: 
             result:
-              description: Array of dictionaries, each dictionary containing a word from the input text and its probability
+              description: Array of dictionaries, each dictionary containing a word from the input text and its probability.
               example:
                 conf: 0.1
                 word: how
@@ -139,15 +139,16 @@ components:
                 oneOf:
                   - properties:
                       conf:
-                        description: The probability of the word in the input text
+                        description: The probability of the word in the input text.
                         example: 0.1
-                        type: float
+                        type: number
+                        format: float
                       word:
-                        description: The word in the input text
+                        description: The word in the input text.
                         example: how
                         type: string
                       suggestions:
-                        description: The dictionary of suggested words
+                        description: The dictionary of suggested words.
                         example: {"where": 0.7936621904373169,"who": 0.14036813378334045}
                         type: object
                     type: object
@@ -160,11 +161,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status.
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure.
         
     unauthorized:
       type: object
@@ -208,6 +209,15 @@ components:
         message:
           type: string
           example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -265,11 +275,12 @@ components:
         
         suggestions:
           x-name: suggestions
-          type: number
+          type: integer
+          format: int32
           default: False
           example: 2
           description: |+
-            Number of suggested words to be provided by the model.Default value is 2
+            Number of suggested words to be provided by the model. Default value is 2.
         
         
   securitySchemes:

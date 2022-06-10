@@ -5,7 +5,7 @@ info:
   description: |+
     This NLP microservice accepts text and returns a response containing the overall sarcasm of the input text as well as the overall sentiment and confidence score for each sentiment label (positive, negative, and neutral). 
     There are no limitations to the number of characters that you can input. However, for the best results, please input short text such as tweets, comments, news, and headlines.
-    Do ensure that your text is within **5000 characters**.
+    The input text **should not exceed 5000 characters**.
   version: '0.1.1'
   x-apitype: small file
   x-apitypedescription: |+
@@ -21,7 +21,7 @@ info:
   x-apidetailsdesc: |+
     Returns overall sentiment and confidence score for each sentiment label.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.1"
   description: "Published Date - Mar 28, 2022"
@@ -117,18 +117,19 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: The detail description on the status
+          description: Description of the API status.
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure
+          description: The status of the API call - Success/Failure.
         results:
           type: object
           example: {<Json Object>}
-          description: Json Object of returned results
+          description: Json Object in the returned results
           properties:
             anger:
               type: number
+              format: float
               example: 0.42
               description: |+ 
                 Range 0-1
@@ -140,6 +141,7 @@ components:
                 Values between 0.48 and 0.52 are considered neutral.     
             fear (or Anxiety):
               type: number
+              format: float
               example: 0.352
               description: |+
                 Range 0-1
@@ -151,6 +153,7 @@ components:
                 Values between 0.48 and 0.52 are considered neutral.
             sadness:
               type: number
+              format: float 
               example: 0.371
               description: |+
                 Range 0-1
@@ -162,6 +165,7 @@ components:
                 Values between 0.48 and 0.52 are considered neutral. 
             joy:
               type: number
+              format: float
               example: 0.371
               description: |+
                 Range 0-1
@@ -173,6 +177,7 @@ components:
                 Values between 0.48 and 0.52 are considered neutral.
             valence (overall sentiment):
               type: number
+              format: float
               example: 0.584
               description: |+
                 Range 0-1
@@ -182,6 +187,7 @@ components:
                 Values between 0.48 and 0.52 are considered neutral. 
             sarcasm_result:
               type: number
+              format: float 
               example: 0.584
               description: |+
                 Range 0-1

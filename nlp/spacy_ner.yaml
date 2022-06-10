@@ -2,19 +2,19 @@ openapi: 3.0.1
 info:
   title: spaCy NER
   description: |+
-      This NLP microservice locates and classifies the named-entities classes from input unstructured English text, based on the spaCy model. 
-      The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals. 
-      It can also return the start and end positions of the identified entities in the text by setting the optional parameter "entity_position".
-      This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
-      
-      Do ensure that your text is **within 5000 characters**.
+  
+      This NLP microservice locates and classifies the named-entity classes from input unstructured English text, based on the spaCy model. The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.
+      It can also return the start and end positions of the identified entities in the text by setting the optional parameter "entity_position". This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+
+      The input text **should not exceed 5000 characters**.
+  
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning -e.g. tokenization, Parts-of-Speech (PoS) Tagging, Text Classification and Named Entity Recognition.
   version: '1.0.0'
   x-subscribelink: spacy_ner
   x-apitype: small file
-  x-apitypedescription: |+
+  x-apitypedescription: |+ 
     Fast | Single-Call | 5000 characters/Call
   x-inputfilelimit: |+
     Process up to 5000 characters per API call.
@@ -114,7 +114,7 @@ components:
         results:
           type: object
           example: { "<Json": "Object>" }
-          description: Json Object of returned results
+          description: Json object in the returned results
           properties:
             person:
               x-name: person
@@ -210,13 +210,13 @@ components:
           x-name: message
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status.
           
         status:
           x-name: status
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure.
     invalidinput:
       type: object
       properties:

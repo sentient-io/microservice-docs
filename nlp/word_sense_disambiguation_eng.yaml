@@ -6,7 +6,7 @@ info:
     
     If the word is determined to be a noun within the sentence context, the microservice returns the potential hypernym, definition, and score. Otherwise, no result will be returned for that context.
     
-    Do ensure that your text is **within 5000 characters**.
+    The input text **should not exceed 5000 characters**.
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
@@ -140,12 +140,12 @@ components:
             sentence_index:
                 type: object
                 example: {"4": "But our genius for creative storytelling , combined with our inability to detect our own ignorance , can sometimes lead to situations that are embarrassing , unfortunate , or downright dangerous \u2013 especially in a technologically advanced , complex democratic society that occasionally invests mistaken popular beliefs with immense destructive power ( See : crisis , financial ; war , Iraq ) .","7": "The society of extraordinary gentlemen has a natural way of overcoming difficulties in tough times to come out stronger , saving society from itself ."}
-                description: Is a mapping from an index of the sentence in the presented text (say, 0, 1, 2...) to the text of the sentence itself.
+                description: The index of the sentence in the presented text [say 0,1,2,3] mapped to the sentence itself.
                 properties:
                   4:
                     type: string
                     example: { 4:But our genius for creative storytelling , combined with our inability to detect our own ignorance , can sometimes lead to situations that are embarrassing , unfortunate , or downright dangerous \u2013 especially in a technologically advanced , complex democratic society that occasionally invests mistaken popular beliefs with immense destructive power}
-                    description: mapping value 
+                    description: The mapping value. 
             tokens:
                 type: object
                 example: {"4": {"society": [{"hypernyms": [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}],"synset_definition": "an extended social group having a distinctive cultural and economic organization","synset_name": "society.n.01","synset_score": 0.9870249032974243,"token_index": 40}]}}
@@ -159,7 +159,7 @@ components:
                       <target_word>:
                         type: array
                         example: [{"hypernyms": [{"hypernym_definition": "people sharing some social relation","hypernym_name": "social_group.n.01","potential_candidate_score": 1.0}],"synset_definition": "an extended social group having a distinctive cultural and economic organization","synset_name": "society.n.01","synset_score": 0.9870249032974243,"token_index": 40}]
-                        description: Details about the target word given as input
+                        description: Details about the target word given as input.
                         items:
                           properties:      
                             hypernyms:
@@ -171,15 +171,15 @@ components:
                                   hypernym_definition:
                                     type: string
                                     example: people sharing some social relation
-                                    description: Definition of the hypernym
+                                    description: Definition of the hypernym.
                                   hypernym_name:
                                     type: string
                                     example: social_group.n.01
-                                    description: Describes the category in which the target word belongs to. Eg:car is a transport. car is the target word and transport is the category(hypernym) 
+                                    description: Describes the category in which the target word belongs to. For example, car is a transport. Car is the target word and transport is the category (hypernym.
                                   potential_candidate_score:
                                     type: number
                                     example: 1   
-                                    description: Is the confidence score from the network  
+                                    description: The confidence score from the network.  
                             synset_definition:
                               type: string
                               example: An extended social group having a distinctive cultural and economic organization
@@ -187,24 +187,24 @@ components:
                             synset_name:
                               type: string
                               example: society.n.01 
-                              description: The target word name in wordnet library
+                              description: The target word name in wordnet library.
                             synset_score:
-                              type: float
+                              type: number
                               format : float
                               example: 0.9870249032974243  
-                              description: Is the confidence score from the network
+                              description: The confidence score from the network.
                             token_index:
                               type: number
                               example: 40    
-                              description: Is the target word position in the sentence  
+                              description: The target word position in the sentence. 
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status.
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure                           
+          description: The status of the API call - success/failure.                           
     unauthorized:
       type: object
       properties:

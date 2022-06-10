@@ -2,13 +2,13 @@ openapi: 3.0.1
 info:
   title: Named-Entity Recognition ENG
   description: |+
-    This NLP microservice locates and classifies the named-entities classes from input unstructured English text and also returns the entity start and endpositions.
-    
-    The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.
-    
-    This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
-    
-    Do ensure that your text is within **5000 characters**.
+      This NLP microservice locates and classifies the named-entity classes from input unstructured English text and also returns the entity start and end positions.
+
+      The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.
+
+      This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+
+      The input text **should not exceed 5000 characters**.
   version: '2.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
@@ -117,18 +117,18 @@ components:
         results:
           type: object
           example: { "<Json": "Object>" }
-          description: Json Object of returned results
+          description: Json object in returned results
           properties:
             person:
               x-name: person
               type: array
               example: [{"end": 3,"entity": "Donald Trump","start": 1}]
-              description: People, including fictional.
+              description: Name of persons, including fictional
             other:
               x-name: other
               type: array
               example: [{"entity":"Chinese","start": 1,"end": 2},{"entity":Singaporean,"start": 4,"end": 5},{"entity": Malay,"start": 6,"end": 7}]
-              description: Other miscellaneous classes.
+              description: Other miscellaneous classes
             facility:
               x-name: facility
               type: array
@@ -148,7 +148,7 @@ components:
               x-name: location
               type: array
               example: [{"entity":"Asia","start": 42,"end": 43}]
-              description: Non-GPE locations, mountain ranges, bodies of water.
+              description: Non-GPE locations, mountain ranges, bodies of water
             product:
               x-name: product
               type: array
@@ -168,7 +168,7 @@ components:
               x-name: law
               type: array
               example: [{"entity":the Penal Code,"start": 1,"end": 4}]
-              description: Named documents made into laws.
+              description: Named documents made into laws
             language:
               x-name: language
               type: array
@@ -178,45 +178,45 @@ components:
               x-name: date
               type: array
               example: [{"entity": Tuesday,"start": 1,"end": 2}]
-              description: Absolute or relative dates or periods.
+              description: Absolute or relative dates or periods
             time:
               x-name: time
               type: array
               example: [{"entity": twenty-four hours,"start": 1,"end": 5}]
-              description: Times smaller than a day.
+              description: Times smaller than a day
             percent:
               x-name: percent
               type: array
               example: [{"entity": 91%,"start": 1,"end": 2},{"entity": 25%,"start": 2,"end": 3},{"entity": 61%,"start": 4,"end": 5}]
-              description: Percentage, including ”%“.
+              description: Percentage, including ”%“
             money:
               x-name: money
               type: array
               example: [{"entity": up to $1000,"start": 1,"end": 4}]
-              description: Monetary values, including unit.
+              description: Monetary values, including unit
             quantity:
               x-name: quantity
               type: array
               example: [{"entity": about one degree,85 miles,137 kilometres,"start": 1,"end": 8}]
-              description: Measurements, as of weight or distance.
+              description: Measurement units, as of weight or distance
             ordinal:
               x-name: ordinal
               type: array
               example: [{"entity": ninth,"start": 1,"end": 2},{"entity": seventh,"start": 3,"end": 4},{"entity": second,"start": 5,"end": 6}]
-              description: “first”, “second”, etc.
+              description: Ordinal numbers found in the text string, e.g “first”, “second”, etc
             cardinal:
               x-name: cardinal
               type: array
               example: [{"entity": four,"start": 1,"end": 2}]
-              description: Numerals that do not fall under another type.  
+              description: Numerals that do not fall under another type. 
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure
     unauthorized:
       type: object
       properties:

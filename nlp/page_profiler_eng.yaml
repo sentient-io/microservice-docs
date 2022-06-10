@@ -2,32 +2,29 @@
   info:
     title: Page Profiler ENG
     description: |+
-      This NLP microservice retrieves web content in English from the input URL. 
-      
-      From the web content, the microservice then applies natural language processing to extracts named-entities and returns the output.
-      
-      The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
-
-      This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+    
+        This NLP microservice retrieves web content in English from the input URL. From the web content, the microservice then applies natural language processing to extract named-entities and return the output.
+        The named-entity classes extracted are people's names, locations, organisations and miscellaneous. This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
+    
     x-subscribelink: page_profiler_eng
     x-additionalinfo: |+
       Suggested Use Cases:
       - Gain insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
       - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
     version: '2.1.1'
-    x-apitype: small file
-    x-apitypedescription: |+
-      Fast | Single-Call | One URL /Call
-    x-inputfilelimit: |+
-      Process One URL per API call.
-    x-responsetime: |+
-      Response rate is fast due to small data transfer per call made.
-    x-billingmethod: |+
-      The API is billed by per request.
-    x-notes: |+
-      API allows to retrieve from One URL per request.
-    x-apidetailsdesc: |+
-      Retrieves web content in English from the input URL.
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | One URL /Call
+  x-inputfilelimit: |+
+    Process One URL per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    API allows to retrieve from One URL per request.
+  x-apidetailsdesc: |+
+    Retrieves web content in English from the input URL.
   servers:
     - url: 'https://apis.sentient.io'
   tags:
@@ -116,24 +113,24 @@
           results:
             type: object
             example: { "<Json": "Object>" }
-            description: Json Object of returned results
+            description: Json object in the returned results
             properties:
               loc:
                type: array
                example: ["Nat","Sentient.io","Home","Inte","CONTACT","Join"]
-               description: "name of location found in the text string"
+               description: Name of locations found in the text string
               misc:
                type: array
                example: ["Sentient.io","English"]
-               description: "name of misc found in the text string"    
+               description: Name of miscellaneous entities found in the text string    
               org:
                type: array
                example: ["Our Clients","AI","APIs","Sentient.io","Our Technology Partners","Named Entity Recognition","Our Investors"]
-               description: "name of org found in the text string"   
+               description: Name of organizations found in the text string   
               per:
                type: array
                example: ["Sentient.io","Speech","LinkedIn"]
-               description: "name of persons found in the text string"                 
+               description: Name of persons found in the text string                
           message:
             type: string
             example: Successfully Processed
@@ -141,7 +138,7 @@
           status:
             type: string
             example: Success
-            description: The status of the API call success/failure 
+            description: The status of the API call - success/failure 
       unauthorized:
         type: object
         properties:
