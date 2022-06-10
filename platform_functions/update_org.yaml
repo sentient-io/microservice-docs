@@ -5,7 +5,7 @@ info:
   version: v0.1.0
   x-subscribelink: edit_org_info
 servers:
-  - url: 'https://dev-microserviceapi-org.sentient.io' 
+  - url: 'https://microserviceapi-org.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - May 12, 2021"
