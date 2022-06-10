@@ -22,7 +22,7 @@ info:
   x-apidetailsdesc: |+
     Converts English text to speech in a female voice.
 servers:
-  - url: 'https://dev-apis.sentient.io' 
+  - url: 'https://apis.sentient.io' 
 tags:
 - name: "v1.2.1"
   description: "Published Date - Feb 18, 2022"
