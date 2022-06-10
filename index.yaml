@@ -259,7 +259,7 @@ computer vision:
     versions:
       0.2.1: 'thumbnail_generation.yaml'
   thumbnail_generation_large_file:
-    title: Thumbnail_generation (Large File)
+    title: Thumbnail Generation (Large File)
     versions:
       0.2.1: 'thumbnail_generation_large_file.yaml'      
   invoice_scanner:
