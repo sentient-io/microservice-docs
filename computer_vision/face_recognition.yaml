@@ -77,7 +77,7 @@ info:
   x-apidetailsdesc: |+
     Recognises faces of Singaporean and Japanese public figures.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date - Jan 11, 2021"
