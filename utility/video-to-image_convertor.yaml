@@ -252,7 +252,7 @@ components:
     input:
       type: object
       required:
-        - filePath      
+        - file_path      
       properties:
         file_path:
           type: string
