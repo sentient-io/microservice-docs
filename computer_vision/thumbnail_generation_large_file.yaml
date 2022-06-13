@@ -461,7 +461,7 @@ components:
               description: |+
                 Number of output thumbnail images. Between 1 and 20. Default value is 1.
             file_type:
-              x-name: output_thumbnails
+              x-name: file_type
               type: string
               default: False
               example: mp4
