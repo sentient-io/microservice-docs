@@ -422,7 +422,7 @@ components:
           x-name: file_name
           type: string
           default: true
-          format: binary
+          format: string
           example: '4 test.m4v'
           description: |+
             Name of file to be upload.
