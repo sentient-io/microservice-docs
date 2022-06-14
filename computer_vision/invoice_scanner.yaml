@@ -110,7 +110,8 @@ components:
                 description: The details of documents
                 properties:
                   docId:
-                    type: number
+                    type: integer
+                    format: int32
                     example: 102581
                     description: Document ID
                   status:
@@ -120,12 +121,12 @@ components:
                   data:
                     type: object
                     example: { "<Json": "Object>" }
-                    description: The details scan document data
+                    description: The details scan of document data
                     properties:
                       docsize:
                         type: array
                         example: [[1990,1490]]
-                        description: An array contain the size info of tempalte
+                        description: An array contain the size info of template
                         items:
                           oneOf:
                             - type: number
@@ -133,25 +134,26 @@ components:
                             - type: number
                               example: 1490  
                       num_pages:
-                        type: number
+                        type: integer
+                        format: int32
                         example: 1
-                        description: Total pages
+                        description: Total Pages
                       customer:
                         type: string
                         example: XYZ Buyer
-                        description: Customer name
+                        description: Customer Name
                       supplier:
                         type: string
                         example: ABC Supplier
-                        description: Supplier name
+                        description: Supplier Name
                       type:
                         type: string
                         example: invoice
-                        description: Type of document
+                        description: Type of Document
                       invoicenumber:
                         type: string
                         example: INV-4412
-                        description: Invoice number
+                        description: Invoice Number
                       tabledetected:
                         type: boolean
                         example: True
@@ -159,7 +161,7 @@ components:
                       total:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: Invoice Total amount     
+                        description: Invoice Total Amount     
                       subtotal:
                         type: object
                         example: { "<Json": "Object>" }
@@ -171,7 +173,7 @@ components:
                       servicecharge:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: ServiceCharge     
+                        description: Service Charge     
                       currency:
                         type: object
                         example: { "<Json": "Object>" }
@@ -179,7 +181,7 @@ components:
                       billingdddress:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: Billing to Address  
+                        description: Billing Address  
                       email:
                         type: object
                         example: { "<Json": "Object>" }
@@ -191,15 +193,15 @@ components:
                       ponumber:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: PONumber   
+                        description: Purchase Order Number   
                       accountnumber:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: AccountNumber   
+                        description: Account Number   
                       accountname:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: AccountName   
+                        description: Account Name   
                       swiftcode:
                         type: object
                         example: { "<Json": "Object>" }
@@ -207,7 +209,7 @@ components:
                       iban:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: IBAN   
+                        description: International Bank Account Number   
                       freight:
                         type: object
                         example: { "<Json": "Object>" }
@@ -215,43 +217,43 @@ components:
                       shippingaddress:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: ShippingAddress   
+                        description: Shipping Address   
                       companyname:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: CompanyName   
+                        description: Company Name   
                       senderaddress:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: SenderAddress   
+                        description: Sender Address   
                       otheraddress:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: OtherAddress   
+                        description: Other Address   
                       invoicedate:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: InvoiceDate   
+                        description: Invoice Date   
                       paymentdate:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: PaymentDate   
+                        description: Payment Date   
                       otherdate:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: OtherDate   
+                        description: Other Date   
                       lineitems_standardheader:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: LineItems_standardHeader                           
+                        description: Line items standard header                           
           message:
             type: string
             example: Successfully Processed
-            description: Detail description on the API status
+            description: Description of the API status
           status:
             type: string
             example: Success
-            description: The status of the API call success/failure 
+            description: The status of the API call - success/failure
     unauthorized:
       type: object
       properties:
@@ -339,16 +341,15 @@ components:
       type: object
       required:
         - file
-        - endpointUrl
       properties:
         file:
           type: string
           format: binary
           default: true
           example:  upload file
-          description: The receipt document
+          description: The file path that describes the location of the receipt document.
         handwritten:
-          type: string
+          type: boolean
           example:  'false'
           description: Specify handwritten true or false. Default is false  
   securitySchemes:
