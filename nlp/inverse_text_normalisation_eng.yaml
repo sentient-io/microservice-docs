@@ -6,7 +6,7 @@ info:
     
     It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case. 
     
-    The input text should be a maximum of 400 words.
+    The input text **should not exceed 5000 characters**.
   version: '2.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
@@ -123,15 +123,15 @@ components:
               x-name: output
               type: string
               example: Apple said the project-financing fund was the first of its kind. Real estate developers often secure bonds for affordable housing development, but must service the debt during construction until the houses are built and start to generate revenue. Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders.
-              description: Corrected input text
+              description: The corrected version of the input text
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status.
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure.
     unauthorized:
       type: object
       properties:
@@ -255,11 +255,40 @@ components:
           default: True
           example: apple said the project-financing fund was the first of its kind real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
           description: |+
-            Input text
+            The input text to be corrected.
+
+        text2digits_normalised:
+          x-name: text2digits_normalised
+          type: boolean
+          default: False
+          example: false
+          description: |+
+            Convert digits(in words) to digits(in number). Default is False.
+        datetime_normalised:
+          x-name: datetime_normalised
+          type: boolean
+          default: False
+          example: false
+          description: |+
+            Normalize the datetime. Default is False.
+        convert_ordinals:
+          x-name: convert_ordinals
+          type: boolean
+          default: False
+          example: false
+          description: |+
+            Convert text to ordinals only if text2digits_normalised parameter is True. Default is False.
+        threshold:
+          x-name: threshold
+          type: integer
+          default: False
+          example: 3000
+          description: |+
+            Set a threshold for text2digits. Only convert number lower than the threshold. Default is 0.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
       name: x-api-key
       in: header
       x-amazon-apigateway-authtype: custom
-      description: Authentication is done using the x-api-key in the request header
+      description: Authentication is done using the x-api-key in the request header.
