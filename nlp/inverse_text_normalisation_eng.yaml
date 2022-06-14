@@ -14,15 +14,15 @@ info:
   x-subscribelink: inverse_text_normalisation_eng
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 400 words/Call
+    Fast | Single-Call | 5000 characters/Call
   x-inputfilelimit: |+
-    Process up to 400 words per API call.
+    Process up to 5000 characters per API call.
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
     The API is billed by per request.
   x-notes: |+
-    Limit cannot exceed 400 words.
+    Limit cannot exceed 5000 characters.
   x-apidetailsdesc: |+
     Recovers Normalized text from input text.
 servers:
