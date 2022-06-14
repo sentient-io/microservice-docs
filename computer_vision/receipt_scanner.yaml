@@ -2,9 +2,8 @@ openapi: 3.0.1
 info:
   title: Receipt Scanner
   description: |+
-      This Computer Vision microservice takes in receipts and extracts meaningful and structured data, including the total amount, tax amount, date and merchant name.
-
-      The API will return a JSON containing all data the could be extracted, along with details of where that information was on the page, confidence values, and the coordinates containing the data field in the original document. This API is optimized for computer generated PDFs but also supports pdf scans, png, jpeg, tiff, jfif, and docx files.
+      This Computer Vision microservice takes in receipts and extracts meaningful and structured data, including the total amount, tax amount, date, and merchant name. 
+      The API will return a JSON containing all the extracted data, along with details of where that information was on the page, confidence values, and the coordinates containing the data field in the original document. This API is optimized for computer-generated PDFs but also supports pdf scans, png, jpeg, tiff, jfif, and docx files.
   version: '0.1.0'
   x-subscribelink: receipt_scanner
   x-apitype: small file
@@ -1460,7 +1459,8 @@ components:
                 description: The details of documents
                 properties:
                   docId:
-                    type: number
+                    type: integer
+                    format: int32
                     example: 102581
                     description: Document ID
                   status:
@@ -1475,7 +1475,7 @@ components:
                       docsize:
                         type: array
                         example: [[1990,1490]]
-                        description: An array contain the size info of tempalte
+                        description: An array contain the size info of template
                         items:
                           oneOf:
                             - type: number
@@ -1483,21 +1483,22 @@ components:
                             - type: number
                               example: 1490  
                       num_pages:
-                        type: number
+                        type: integer
+                        format: int32
                         example: 1
-                        description: Total pages
+                        description: Total Pages
                       customer:
                         type: string
                         example: XYZ Buyer
-                        description: Customer name
+                        description: Customer Name
                       supplier:
                         type: string
                         example: ABC Supplier
-                        description: Supplier name                        
+                        description: Supplier Name                        
                       type:
                         type: string
                         example: receipt
-                        description: Type of document     
+                        description: Type of Document     
                       tabledetected:
                         type: boolean
                         example: True
@@ -1505,7 +1506,7 @@ components:
                       total:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: Invoice Total amount     
+                        description: Invoice Total Amount     
                       subtotal:
                         type: object
                         example: { "<Json": "Object>" }
@@ -1517,7 +1518,7 @@ components:
                       servicecharge:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: ServiceCharge     
+                        description: Service Charge     
                       currency:
                         type: object
                         example: { "<Json": "Object>" }
@@ -1525,7 +1526,7 @@ components:
                       billingdddress:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: Billing to Address  
+                        description: Billing Address  
                       email:
                         type: object
                         example: { "<Json": "Object>" }
@@ -1537,31 +1538,31 @@ components:
                       uennumber:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: UENNumber
+                        description: UEN Number
                       gstnumber:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: GSTNumber     
+                        description: GST Number     
                       senderaddress:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: SenderAddress     
+                        description: Sender Address     
                       otherdate:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: OtherDate   
+                        description: Other Date   
                       lineitems_standardheader:
                         type: object
                         example: { "<Json": "Object>" }
-                        description: LineItems_standardHeader                          
+                        description: Line items standard header                          
           message:
             type: string
             example: Successfully Processed
-            description: Detail description on the API status
+            description: Description of the API status
           status:
             type: string
             example: Success
-            description: The status of the API call success/failure 
+            description: The status of the API call - success/failure 
     unauthorized:
       type: object
       properties:
@@ -1649,16 +1650,15 @@ components:
       type: object
       required:
         - file
-        - endpointUrl
       properties:
         file:
           type: string
           format: binary
           default: true
           example:  upload file
-          description: The receipt document
+          description: The file path that describes the location of the receipt document.
         handwritten:
-          type: string
+          type: boolean
           example:  'false'
           description: Specify handwritten true or false. Default is false       
   securitySchemes:
