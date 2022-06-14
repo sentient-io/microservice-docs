@@ -5,7 +5,7 @@ info:
   description: |+
     This Voice microservice takes in an audio stream and partitions it into homogenous segments according to the speaker's identity. 
     Speaker diarization is a process to label audio recordings with classes that correspond to speaker identity, in other words, a task to identify "who spoke when".
-
+    The length of your audio **should not exceed 60 seconds**.
   version: v0.1.0
   x-subscribelink: speaker_diarization
   x-apitypedescription: |+
@@ -124,20 +124,22 @@ components:
             start:
               description: Start time in seconds
               example: 0.4
-              type: float
+              type: number
+              format: float
             stop:
               description: Stop time in seconds
               example: 2.62
-              type: float
+              type: number
+              format: float
 
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure
         
     unauthorized:
       type: object
@@ -232,26 +234,27 @@ components:
         wav_base64:
           x-name: wav_base64
           type: string
+          format: byte
           default: True
           example: UklGRkbiBABXQVZFZm10IBAAAAABA...
           description: |+
             Base64 string of the input audio
         exact_speaker_count:
           x-name: exact_speaker_count
-          type: number
+          type: integer
+          format: int32
           default: False
           example: 2
           description: |+
             Number of speakers in the audio, known in advance by the user.
         max_speaker_count:
           x-name: max_speaker_count
-          type: number
+          type: integer
+          format: int32
           default: False
           example: 2
           description: |+
             Maximum number of speakers in the audio. Default value is 20
-        
-        
   securitySchemes:
     APIAuthorizer:
       type: apiKey
