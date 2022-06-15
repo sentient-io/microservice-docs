@@ -1,3 +1,4 @@
+
 openapi: 3.0.1
 info:
   title: Sentence Paraphrase
@@ -19,7 +20,7 @@ info:
   x-notes: |+
     Limit cannot exceed 50 words.
   x-apidetailsdesc: |+
-    English sentences in informal / colloquial tone and rewrites it in a formal tone. 
+    English sentences in informal / colloquial tone and rewrites it in a formal tone.  
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
@@ -123,11 +124,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure
         
     unauthorized:
       type: object
