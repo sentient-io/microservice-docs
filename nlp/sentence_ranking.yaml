@@ -6,7 +6,7 @@ info:
 
    This Sentence Ranking microservice is useful for extractive summaries, which involves picking up the most important phrases and sentences from the original text input and reusing those to make up the summary. In this case, the microservice will only consider sentences with a score above the mean score (of all other sentences scores) as being significant and return those sentences only. Do note that the sentences are also returned on the order of appearance within the original text. 
 
-   Do ensure that your text is within **5000 characters**.
+   The input text **should not exceed 5000 characters**.
   version: v0.1.0
   x-additionalinfo: |+
     **Suggested usecases:**
@@ -162,11 +162,11 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: Detail description on the API status
+          description: Description of the API status
         status:
           type: string
           example: Success
-          description: The status of the API call success/failure
+          description: The status of the API call - success/failure
         
     unauthorized:
       type: object
