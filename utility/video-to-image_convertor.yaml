@@ -5,7 +5,7 @@ info:
     This Utility microservice captures the images from the input video file at the frame rate of 1 frame per second. 
 
     Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
-    The size of your video file should **not exceed 10 MB**.
+    The size of your video file **should not exceed 10 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be integrated into video editing software to create a quick preview of the footage the user is editing.
