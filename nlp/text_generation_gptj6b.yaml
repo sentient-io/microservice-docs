@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: gptj6b
+  title: Text Generation using GPT-J 6B
   description: |+
     GPT-J 6B is a transformer model trained using Ben Wang's Mesh Transformer JAX. "GPT-J" refers to the class of model, while "6B" represents the number of trainable parameters. 
 
