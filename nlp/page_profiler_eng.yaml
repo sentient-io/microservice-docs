@@ -134,7 +134,7 @@
           message:
             type: string
             example: Successfully Processed
-            description: Detail description on the API status
+            description: Description of the API status
           status:
             type: string
             example: Success
