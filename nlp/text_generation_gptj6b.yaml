@@ -4,9 +4,9 @@ info:
   description: |+
     GPT-J 6B is a transformer model trained using Ben Wang's Mesh Transformer JAX. "GPT-J" refers to the class of model, while "6B" represents the number of trainable parameters. 
 
-Language: English
+    Language: English
 
-The model has token_length limit of atmost 100. 
+    The model has token_length limit of maximum 100.
   version: v0.1.0
   x-subscribelink: text_generation_gptj6b
 servers:
@@ -220,9 +220,8 @@ components:
           example: 60
           description: |+
             The model using GPTJ model tokenizer, converts the input text to sentences, and token_length describes the maximum length of tokens in input. 
-
-Default value is 50
-Recommended range is between 20 and 100.
+            Default value is 50
+            Recommended range is between 20 and 100.
         num_beams:
           x-name: num_beams
           type: number
@@ -231,13 +230,11 @@ Recommended range is between 20 and 100.
           description: |+
             This parameter will determine how many nodes to search at each level.
 
-The bigger the number is the more time it takes to complete.
+            The bigger the number is the more time it takes to complete.
 
-Default value is 5.
+            Default value is 5.
 
-Recommended range is between 2-5.
-        
-        
+            Recommended range is between 2-5.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
