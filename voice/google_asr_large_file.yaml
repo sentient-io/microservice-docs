@@ -1,0 +1,719 @@
+openapi: 3.0.1
+info:
+  title: Google ASR (Large File)
+  description: |+
+    This Voice microservice takes in the input audio file  and supports recognizing a short speech .
+    The server returns the recognition result in a JSON format as a response. 
+      - Supports the following audio coding formats: WAV, MP3
+    For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
+  x-additionalinfo: |+
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
+    * **Supported Languages:**
+    
+    |                 **Name**                    |       **Code**       | **Automatic punctuation** | **Profanity filter** | **Spoken punctuation** | **Spoken emojis** |
+    |:-------------------------------------------:|:--------------------:|:-------------------------:|:--------------------:|:----------------------:|:-----------------:|
+    | Afrikaans (South Africa)                    |       af-ZA          |           No              |          Yes         |           No           |         No        |
+    | Albanian (Albania)                          |       sq-AL          |           No              |          Yes         |           No           |         No        |
+    | Amharic (Ethiopia)	                        |       am-ET          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Algeria)	                          |       ar-DZ          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Bahrain)	                          |       ar-BH          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Egypt)	                            |       ar-EG          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Iraq)	                              |       ar-IQ          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Israel)	                            |       ar-IL          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Jordan)	                            |       ar-JO          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Kuwait)	                            |       ar-KW          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Lebanon)	                          |       ar-LB          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Morocco)	                          |       ar-MA          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Oman)	                              |       ar-OM          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Qatar)	                            |       ar-QA          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Saudi Arabia)	                      |       ar-SA          |           No              |          Yes         |           No           |         No        |
+    | Arabic (State of Palestine)                 |       ar-PS          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Tunisia)	                          |       ar-TN          |           No              |          Yes         |           No           |         No        |
+    | Arabic (United Arab Emirates)	              |       ar-AE          |           No              |          Yes         |           No           |         No        |
+    | Arabic (Yemen)	                            |       ar-YE          |           No              |          Yes         |           No           |         No        |
+    | Armenian (Armenia)	                        |       hy-AM          |           No              |          Yes         |           No           |         No        |
+    | Azerbaijani (Azerbaijan)	                  |       az-AZ          |           No              |          Yes         |           No           |         No        |
+    | Basque (Spain)	                            |       eu-ES          |           No              |          Yes         |           No           |         No        |
+    | Bengali (Bangladesh)	                      |       bn-BD          |           No              |          Yes         |           No           |         No        |
+    | Bengali (India)	                            |       bn-IN          |           No              |          Yes         |           No           |         No        |
+    | Bosnian (Bosnia and Herzegovina)            |       bs-BA          |           No              |          Yes         |           No           |         No        |
+    | Bulgarian (Bulgaria)	                      |       bg-BG          |           No              |          Yes         |           No           |         No        |
+    | Burmese (Myanmar)	                          |       my-MM          |           No              |          Yes         |           No           |         No        |
+    | Catalan (Spain)	                            |       ca-ES          |           No              |          Yes         |           No           |         No        |
+    | Chinese, Cantonese (Traditional Hong Kong)  |	    yue-Hant-HK      |           No              |          Yes         |           No           |         No        |
+    | Chinese, Mandarin (Simplified, China)       |         zh           |           Yes             |          Yes         |           No           |         No        |
+    | Chinese, Mandarin (Traditional, Taiwan)	    |       zh-TW          |           Yes             |          Yes         |           No           |         No        |
+    | Croatian (Croatia)	                        |       hr-HR          |           No              |          Yes         |           No           |         No        |
+    | Czech (Czech Republic)	                    |       cs-CZ          |           Yes             |          Yes         |           Yes          |         No        |
+    | Danish (Denmark)	                          |       da-DK          |           Yes             |          Yes         |           Yes          |         No        |
+    | Dutch (Belgium)	                            |       nl-BE          |           No              |          Yes         |           Yes          |         No        |
+    | Dutch (Netherlands)	                        |       nl-NL          |           No              |          Yes         |           Yes          |         No        |
+    | English (Australia)                         |       en-AU          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | English (Canada)	                          |       en-CA          |           No              |          Yes         |           No           |         No        |
+    | English (Ghana)	                            |       en-GH          |           No              |          Yes         |           Yes          |         No        |
+    | English (Hong Kong)	                        |       en-HK          |           No              |          Yes         |           Yes          |         Yes       |
+    | English (India)                             |       en-IN          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | English (Ireland)                   	      |       en-IE          |           No              |          Yes         |           Yes          |         Yes       |
+    | English (Kenya)	                            |       en-KE          |           No              |          Yes         |           Yes          |         No        |
+    | English (New Zealand)     	                |       en-NZ          |           No              |          Yes         |           Yes          |         Yes       |
+    | English (Nigeria)                           |       en-NG          |           No              |          Yes         |           Yes          |         No        |
+    | English (Pakistan)	                        |       en-PK          |           No              |          Yes         |           Yes          |         Yes       |
+    | English (Philippines)	                      |       en-PH          |           No              |          Yes         |           No           |         No        |
+    | English (Singapore)                         |       en-SG          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | English (South Africa)	                    |       en-ZA          |           No              |          Yes         |           Yes          |         No        |
+    | English (Tanzania)	                        |       en-TZ          |           No              |          Yes         |           Yes          |         No        |
+    | English (United Kingdom)                    |       en-GB          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | English (United States)                     |       en-US          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | Estonian (Estonia)	                        |       et-EE          |           No              |          Yes         |           No           |         No        |
+    | Filipino (Philippines)	                    |       fil-PH         |           No              |          Yes         |           No           |         No        |
+    | Finnish (Finland)	                          |       fi-FI          |           No              |          Yes         |           No           |         No        |
+    | French (Belgium)	                          |       fr-BE          |           No              |          Yes         |           Yes          |         Yes       |
+    | French (Canada)	                            |       fr-CA          |           No              |          Yes         |           Yes          |         No        |
+    | French (France)                             |       fr-FR          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | French (Switzerland)	                      |       fr-CH          |           No              |          Yes         |           Yes          |         Yes       |
+    | Galician (Spain)	                          |       gl-ES          |           No              |          Yes         |           No           |         No        |
+    | Georgian (Georgia)	                        |       ka-GE          |           No              |          Yes         |           No           |         No        |
+    | German (Austria)	                          |       de-AT          |           No              |          Yes         |           Yes          |         No        |
+    | German (Germany)	                          |       de-DE          |           Yes             |          Yes         |           Yes          |         No        |
+    | German (Switzerland)	                      |       de-CH          |           No              |          Yes         |           Yes          |         No        |
+    | Greek (Greece)	                            |       el-GR          |           No              |          Yes         |           No           |         No        |
+    | Gujarati (India)	                          |       gu-IN          |           No              |          Yes         |           No           |         No        |
+    | Hebrew (Israel)	                            |       iw-IL          |           No              |          Yes         |           Yes          |         No        |
+    | Hindi (India)	                              |       hi-IN          |           No              |          Yes         |           Yes          |         No        |
+    | Hungarian (Hungary)	                        |       hu-HU          |           No              |          Yes         |           No           |         No        |
+    | Icelandic (Iceland)	                        |       is-IS          |           No              |          Yes         |           No           |         No        |
+    | Indonesian (Indonesia)	                    |       id-ID          |           Yes             |          Yes         |           Yes          |         No        |
+    | Italian (Italy)	                            |       it-IT          |           Yes             |          Yes         |           Yes          |         No        |
+    | Italian (Switzerland)	                      |       it-CH          |           No              |          Yes         |           Yes          |         No        |
+    | Japanese (Japan)	                          |       ja-JP          |           Yes             |          Yes         |           Yes          |         No        |
+    | Javanese (Indonesia)	                      |       jv-ID          |           No              |          Yes         |           No           |         No        |
+    | Kannada (India)	                            |       kn-IN          |           No              |          Yes         |           No           |         No        |
+    | Kazakh (Kazakhstan)	                        |       kk-KZ          |           No              |          Yes         |           No           |         No        |
+    | Khmer (Cambodia)	                          |       km-KH          |           No              |          Yes         |           No           |         No        |
+    | Korean (South Korea)	                      |       ko-KR          |           Yes             |          Yes         |           Yes          |         Yes       |
+    | Lao (Laos)	                                |       lo-LA          |           No              |          Yes         |           No           |         No        |
+    | Latvian (Latvia)	                          |       lv-LV          |           No              |          Yes         |           No           |         No        |
+    | Lithuanian (Lithuania)	                    |       lt-LT          |           No              |          Yes         |           No           |         No        |
+    | Macedonian (North Macedonia)	              |       mk-MK          |           No              |          Yes         |           No           |         No        |
+    | Malay (Malaysia)	                          |       ms-MY          |           No              |          Yes         |           No           |         No        |
+    | Malayalam (India)	                          |       ml-IN          |           No              |          Yes         |           No           |         No        |
+    | Marathi (India)                             |       mr-IN          |           No              |          Yes         |           No           |         No        |
+    | Mongolian (Mongolia)	                      |       mn-MN          |           No              |          Yes         |           No           |         No        |
+    | Nepali (Nepal)	                            |       ne-NP          |           No              |          Yes         |           No           |         No        |
+    | Norwegian Bokmål (Norway)	                  |       no-NO          |           No              |          Yes         |           Yes          |         No        |
+    | Persian (Iran)	                            |       fa-IR          |           No              |          Yes         |           No           |         No        |
+    | Polish (Poland)	                            |       pl-PL          |           No              |          Yes         |           Yes          |         No        |
+    | Portuguese (Brazil)	                        |       pt-BR          |           No              |          Yes         |           Yes          |         No        |
+    | Portuguese (Portugal)	                      |       pt-PT          |           No              |          Yes         |           Yes          |         No        |
+    | Punjabi (Gurmukhi India)	                  |     pa-Guru-IN       |           No              |          Yes         |           Yes          |         No        |
+    | Romanian (Romania)	                        |       ro-RO          |           No              |          Yes         |           No           |         No        |
+    | Russian (Russia)	                          |       ru-RU          |           No              |          Yes         |           Yes          |         No        |
+    | Serbian (Serbia)	                          |       sr-RS          |           No              |          Yes         |           No           |         No        |
+    | Sinhala (Sri Lanka)	                        |       si-LK          |           No              |          Yes         |           No           |         No        |
+    | Slovak (Slovakia)	                          |       sk-SK          |           No              |          Yes         |           No           |         No        |
+    | Slovenian (Slovenia)	                      |       sl-SI          |           No              |          Yes         |           No           |         No        |
+    | Spanish (Argentina)	                        |       es-AR          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Bolivia)	                          |       es-BO          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Chile)	                            |       es-CL          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Colombia)	                        |       es-CO          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Costa Rica)	                      |       es-CR          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Dominican Republic)	              |       es-DO          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Ecuador)	                          |       es-EC          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (El Salvador)	                      |       es-SV          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Guatemala)	                        |       es-GT          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Honduras)	                        |       es-HN          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Mexico)	                          |       es-MX          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Nicaragua)	                        |       es-NI          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Panama)	                          |       es-PA          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Paraguay)	                        |       es-PY          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Peru)	                            |       es-PE          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Puerto Rico)	                      |       es-PR          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Spain)	                            |       es-ES          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (United States)	                    |       es-US          |           Yes             |          Yes         |           Yes          |         No        |
+    | Spanish (Uruguay)	                          |       es-UY          |           No              |          Yes         |           Yes          |         No        |
+    | Spanish (Venezuela)	                        |       es-VE          |           No              |          Yes         |           Yes          |         No        |
+    | Sundanese (Indonesia)                       |       su-ID          |           No              |          Yes         |           No           |         No        |
+    | Swahili (Kenya)	                            |       sw-KE          |           No              |          Yes         |           No           |         No        |
+    | Swahili (Tanzania)	                        |       sw-TZ          |           No              |          Yes         |           No           |         No        |
+    | Swedish (Sweden)	                          |       sv-SE          |           Yes             |          Yes         |           Yes          |         No        |
+    | Tamil (India)	                              |       ta-IN          |           No              |          Yes         |           No           |         No        |
+    | Tamil (Malaysia)	                          |       ta-MY          |           No              |          Yes         |           No           |         No        |
+    | Tamil (Singapore)	                          |       ta-SG          |           No              |          Yes         |           No           |         No        |
+    | Tamil (Sri Lanka)	                          |       ta-LK          |           No              |          Yes         |           No           |         No        |
+    | Telugu (India)                              |       te-IN          |           No              |          Yes         |           No           |         No        |
+    | Thai (Thailand)	                            |       th-TH          |           No              |          Yes         |           No           |         No        |
+    | Turkish (Turkey)	                          |       tr-TR          |           Yes             |          Yes         |           Yes          |         No        |
+    | Ukrainian (Ukraine)	                        |       uk-UA          |           No              |          Yes         |           No           |         No        |
+    | Urdu (India)	                              |       ur-IN          |           No              |          Yes         |           No           |         No        |
+    | Urdu (Pakistan)	                            |       ur-PK          |           No              |          Yes         |           No           |         No        |
+    | Uzbek (Uzbekistan)	                        |       uz-UZ          |           No              |          Yes         |           No           |         No        |
+    | Vietnamese (Vietnam)	                      |       vi-VN          |           No              |          Yes         |           No           |         No        |
+    | Zulu (South Africa)                         |       zu-ZA          |           No              |          Yes         |           No           |         No        |
+  version: '1.0.0'
+  x-subscribelink: google_asr
+  x-apitype: large file
+  x-apitypedescription: |+
+    Asyncronous | Batch | 1GB/File.
+  x-inputfilelimit: |+
+    Process up to 1 GB of File Size.
+  x-responsetime: |+
+    The response rate is slower than the small file API due to large data.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Size cannot exceed 1 GB.
+  x-apidetailsdesc: |+
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - Jun 20, 2022"
+paths:
+  /async/microservices/voice/googleasr/v1/getuploadurl:
+    description: |+
+      Get the pre-signed url to upload the file.
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  fields:
+                    content-type: audio/wav
+                    key: >-
+                      309/495/lp-googleasr/input/4test_e4ff367c93664fb9acfa40d9a4c6e43f.wav
+                    policy: >-
+                      eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhdWRpby93YXYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDQ3NTIyNjRdLHsiY29udGVudC10eXBlIjoiYXVkaW8vd2F2In0seyJ4LWdvb2ctbWV0YS1hZGRpdGlvbmFsX3BhcmFtIjoiTm9uZSJ9LHsieC1nb29nLW1ldGEtb2lkIjoiMzA5In0seyJ4LWdvb2ctbWV0YS11aWQiOiI0OTUifSx7IngtZ29vZy1tZXRhLXVwbG9hZGVyIjoiNGI4MjE1MWQzMWUwNDI5YmEyOGYzYWQxNTI1YzNhYTYifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJlNGZmMzY3YzkzNjY0ZmI5YWNmYTQwZDlhNGM2ZTQzZiJ9LHsiYnVja2V0IjoidXNlcl9zcGFjZV9kZXYifSx7ImtleSI6IjMwOS80OTUvbHAtZ29vZ2xlYXNyL2lucHV0LzR0ZXN0X2U0ZmYzNjdjOTM2NjRmYjlhY2ZhNDBkOWE0YzZlNDNmLndhdiJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIyMFQwNDQxMzVaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMjAvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMS0xMi0yMFQwNTo0MTozNS4xNDMxOTJaIn0=
+                    x-goog-algorithm: GOOG4-RSA-SHA256
+                    x-goog-credential: >-
+                      sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211220/auto/storage/goog4_request
+                    x-goog-date: 20211220T044135Z
+                    x-goog-meta-additional_param: None
+                    x-goog-meta-oid: '309'
+                    x-goog-meta-uid: '495'
+                    x-goog-meta-uploader: 4b82151d31e0429ba28f3ad1525c3aa6
+                    x-goog-meta-uuid: e4ff367c93664fb9acfa40d9a4c6e43f
+                    x-goog-signature: >-
+                      53976156d99fe7521e373c45d9e5056a420d257c78f32b5fdbeac77954bf435da9e8bb8fc3c3848818a2f5c4d30f474cf5bd05de87c45422ad620384cc3ee3e708919328f61285d90f7423635f3cc393eba66092ca15e0db1faed29839dc3246e04d0a983ede3da2ae7adca0c97d745e28780b2fe6270cbd6e52ca21ed2995e1037210a42e92207244929748443d233e7088438f7bb9c03678f8e1512e17feecb7dd15342c0d6fb0fab1d9754c037b8de6071b87bef86b20721cd7678ef6aa07a98f01eb7e9661aeba1d7ead8003f501224e515bc88f3287a9ec047ec27a22f909907eeb60288ab805fcf8850cb29a2412c138dfd68082f47d942a6725e701d3
+                  jid: e4ff367c93664fb9acfa40d9a4c6e43f
+                  request_cost: 0.3323
+                  url: 'https://storage.googleapis.com/lp_user_space_prod/'
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+  /upload:
+    description: |+
+      Upload your file to start processing.
+    post:
+      servers:
+        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
+          description: Override base path for the GET /ping operation    
+      tags:
+        - v0.1.0
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/uploadinput'
+        required: true          
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example: 
+                message: Successfully Processed         
+  /async/microservices/voice/googleasr/v1/getstatus:
+    description: |+
+      Query for processing status.
+    get:
+      tags:
+        - v0.1.0
+      parameters:
+        - in: query
+          name: jid
+          schema:
+            type: string
+          example: 36d075917dcd481e9daf858a2549f3b1
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getsuccess'
+              example:
+                last_updated: 'Dec 20, 2021'
+                message: Successfully Processed
+                output_url: https://storage.googleapis.com/user_space_dev/309/495/lp-googleasr/output/4test_e4ff367c93664fb9acfa40d9a4c6e43f.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20211220%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211220T044341Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=2f0c7f17542780ba14c1b384ff5f82f27c5b3cf71eaa7abc0c720dbde37ab16123be9e9e42c16eaa6ac7390df9e98cd94884759622c78a7b85f06103220cff40ff8f1af74671e3aa9ee281fabfa7cf1f7a20acd598a488a0e6ad1d58f5a96b950671a7e685329f7f6b365e2c908fa77480515bcecc5624e611f41a41362bb81c5cb8c9649fdea0a427e30675266dd667d3805b4516d1eb1e80ead107ce521555d166a0688b3682336dcb1103a8125cabf92c30fdd111de9f5944832e3d6aa4a9f695b6fc6aa6dc342ac573f1c9c44064e2fe75618b5df25b82c43d27bb55027c9f4cdf09f340980d118851e005aca354fa8410584cc004d9bd621e41c0bf260c
+                request_cost: 0.3323
+                status: Success
+
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    getsuccess:
+      type: object
+      properties:
+        last_updated:
+          type: string
+          example: 2021-07-06 12:50:30
+          description: Last updated
+        message:
+          type: string
+          example: File Processing Successfully Started
+          description: Detail description on the API status
+        request_cost:
+          type: string
+          example: 0.086
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Processing
+          description: Detail description on the API status
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        results:
+          type: object
+          example: { "<Json": "Object>" }
+          description: Json Object of returned results
+          properties:   
+            fields:
+              type: object
+              example: { "<Json": "Object>" }
+              description: Json Object of returned results
+              properties:
+                content-type:
+                  type: string
+                  example: text/plain
+                  description: Content type of the document
+                policy:
+                  type: string
+                  example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ...
+                  description: Content type of the document
+                x-goog-algorithm:
+                  type: string
+                  example: GOOG4-RSA-SHA256
+                  description: Google algorithm
+                x-goog-credential:
+                  type: string
+                  example: sentient-dev-bigqu...
+                  description: Google algorithm
+                x-goog-date:
+                  type: string
+                  example: 20211123T105846Z
+                  description: Google algorithm
+                x-goog-meta-additional_param:
+                  type: string
+                  example: None
+                  description: Google algorithm
+                x-goog-meta-oid:
+                  type: string
+                  example: 1
+                  description: Google algorithm
+                x-goog-meta-uid:
+                  type: string
+                  example: 2
+                  description: Google algorithm
+                x-goog-meta-uuid:
+                  type: string
+                  example: 1991d4936ddb4728afaa06cb260b0253
+                  description: Google algorithm
+                x-goog-signature:
+                  type: string
+                  example: 3d882f0762743e39146aae926435bf0b15e844836dbcf...
+                  description: Google algorithm
+            jid:
+              type: string
+              example: 1991d4936ddb4728afaa06cb260b0253...
+              description: Google algorithm 
+            request_cost:
+              type: string
+              example: 0
+              description: Google algorithm 
+            url:
+              type: string
+              example: https://storage.googleapis.com/lp_user_space_prod/
+              description: Google algorithm 
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure                  
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid input - Error in URL.
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure 
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 20, 2022
+              x-details: Initial version release  
+              description: Latest Version      
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 11, 2022
+              x-details: Initial version release  
+              description: Old Version
+    input:
+      type: object
+      required:
+        - file_name
+      properties:
+        file_name:
+          x-name: file_name
+          type: string
+          default: true
+          format: binary
+          example: '4 test.wav'
+          description: |+
+            Name of file to be upload.
+        file_size:
+          x-name: file_size
+          type: integer
+          default: true
+          example: 4746636
+          description: |+
+            Size of the file. Maximum size should be 1 GB.
+        content_type:
+          x-name: content_type
+          type: string
+          default: true
+          example: 'audio/wav'
+          description: |+
+            Specify the content-type. Pick any one from below list based on input file type.
+            ["audio/wav","audio/mpeg"]
+        additional_param:
+          x-name: additional_param
+          type: object
+          default: true
+          properties:                     
+            language_code:
+              x-name: language_code
+              type: string
+              default: true
+              example: en-US
+              description: |+
+                Specify the language code of the input audio.
+            word_level:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to enable word time offsets during post-processing. Valid values - True and False. Default value - False.                
+            automatic_punctuation:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to enable automatic punctuation during post-processing. Valid values - True and False. Default value - False.
+            profanity_filter:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to add profanity filter during post-processing. Valid Values - True and False. Default value - False.
+            spoken_punctuation:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to enable spoken punctuation during post-processing, which is valid only for english language. Valid values - True and False. Default value - False.
+            spoken_emojis:
+              type: boolean
+              default: false
+              example: false
+              description: |+
+                Specifies whether to enable spoken emojis during post-processing, which is valid only for english language. Valid values - True and False. Default value - False.
+    uploadinput:
+      type: object
+      required:
+        - filePath      
+      properties:
+        file:
+          type: string
+          format: binary
+          default: true
+          example: sample.wav
+          description: file
+        content-type:
+          type: string
+          default: false
+          example: audio/wav
+          description: Fields
+        key:
+          type: string
+          default: false
+          example: 309/495/lp-vadasr/input/4test_c1d5428e080540d69a56e4dda2f7a9e8.wav
+          description: Fields
+        policy:
+          type: string
+          default: false
+          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhcHBsaWNhdGlvbi9wZGYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDE0MDczMjYxXSx7ImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9uL3BkZiJ9LHsieC1nb29nLW1ldGEtYWRkaXRpb25hbF9wYXJhbSI6IntcInBhc3N3b3JkXCI6IFwiZmZmZmZcIn0ifSx7IngtZ29vZy1tZXRhLW9pZCI6IjEifSx7IngtZ29vZy1tZXRhLXVpZCI6IjIifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJjZjNkMzI5YmQ5ZGY0Y2VmOTE5NjZjMzM2Mzg2ZWVhMyJ9LHsiYnVja2V0IjoidXNlcl9zcGFjZV9kZXYifSx7ImtleSI6IjEvMi9scC10ZXh0c3VtbWFyaXNhdGlvbi9pbnB1dC9QZGZfNm1iX2NmM2QzMjliZDlkZjRjZWY5MTk2NmMzMzYzODZlZWEzLnBkZiJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIwOVQwOTU1MDdaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMDkvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMS0xMi0wOVQxMDo1NTowNy41MDYwNDBaIn0=
+          description: Fields
+        x-goog-algorithm:
+          type: string
+          default: false
+          example: GOOG4-RSA-SHA256
+          description: Fields
+        x-goog-credential:
+          type: string
+          default: false
+          example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
+          description: Fields
+        x-goog-date:
+          type: string
+          default: false
+          example: 20220224T045625Z
+          description: Fields          
+        x-goog-meta-additional_param:
+          type: string
+          default: false
+          example: "{\"model\": \"prepared_speech\", \"threshold\": 0.4}"
+          description: Fields
+        x-goog-meta-oid:
+          type: string
+          default: false
+          example: 309
+          description: Fields
+        x-goog-meta-uid:
+          type: string
+          default: false
+          example: 495
+          description: Fields
+        x-goog-meta-uploader:
+          type: string
+          default: false
+          example: 01832842d1774e4fb711d31b30fa9431
+          description: Fields           
+        x-goog-meta-uuid:
+          type: string
+          default: false
+          example: cf3d329bd9df4cef91966c336386eea3
+          description: Fields
+        x-goog-signature:
+          type: string
+          default: false
+          example: 7970619677c2a0dc26af460a7d62f883528af9e1e8a1459aa09671ee0fbf15f7a611b7bd8c382fd8d39f74fe212a7e3db1768535f0c1ccff062239627ebe49195cc2c42c2238eb5e268ecaca49e647eb244eb023f3d4ba97922fd1228aab677a7176b9f84fef1c909897ccf0e1e8f9e3d030dbfc9892c7c026060dcf20b4ad4598f346de478b0f8495d9bce292b83a5b3bfa13c7dc08a2ce162f652c3bce91191167eeee3019b6b196e4271f5e3a6a1fe067f70acdaa082e6091c2f3ac8182bca8be41afc90600fc32dcdb3072acb43aaf90910a38c4aec9e3a42fdd21deb5ce936d8269e9ed011377ef058cac20d336218a35858753bd99b4ffdb1db171f0f4
+          description: Fields         
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
