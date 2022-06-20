@@ -8,7 +8,7 @@ info:
   x-additionalinfo : |+
     Suggested Use Cases:
       - Use this microservice to get public IP of user.
-  version: '0.1.0'
+  version: '0.2.0'
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | One IP /Call
@@ -25,13 +25,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Apr 07, 2021"
+- name: "v0.2.0"
+  description: "Published Date - Jun 20, 2022"
 paths:
   /microservices/utility/getip/v0/getresults:
     get:
       tags:
-        - v0.1.0
+        - v0.2.0
       responses:
         '200':
           description: Ok
@@ -89,7 +89,7 @@ components:
         message:
           type: string
           example: Successfully Processed
-          description: Response message
+          description: Description of the API status
         results:
           type: string
           example: '123.123.123.123'
@@ -97,7 +97,7 @@ components:
         status:
           type: string
           example: Success
-          description: API success call.
+          description: The status of the API call - success/failure
     unauthorized:
       type: object
       properties:
@@ -155,6 +155,14 @@ components:
     versions:
       type: object
       properties: 
+        v0.2.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 20, 2022
+              x-details: Patch release               
+              description: Latest Version
         v0.1.0:
          type: array
          items:
@@ -162,7 +170,7 @@ components:
             - type: string
               example: Published Date - Apr 07, 2021
               x-details: Initial version release               
-              description: Latest Version
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

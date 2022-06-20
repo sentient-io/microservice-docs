@@ -5,11 +5,11 @@ info:
     This Utility microservice captures the images from the input video file at the frame rate of 1 frame per second. 
 
     Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
-    The size of your video file **should not exceed 10 MB**.
+    The size of your video file should **not exceed 10 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be integrated into video editing software to create a quick preview of the footage the user is editing.
-  version: '1.0.0'
+  version: '0.1.0'
   x-subscribelink: video-to-image_convertor
   x-apitype: small file
   x-apitypedescription: |+
@@ -27,13 +27,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Jun 20, 2022"  
+- name: "v0.1.0"
+  description: "Published Date - Aug 07, 2020"  
 paths:
-  /microservices/utility/videotoimage/v1/getresults:
+  /microservices/utility/videotoimage/v0.1/getresults:
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
               '200':
                 description: Ok
@@ -43,7 +43,7 @@ paths:
                       $ref: '#/components/schemas/success'
                     example:
                       results:
-                        image_1: document text content
+                        fileContent: document text content
                       message: Successfully Processed
                       status: Success
               '401':
@@ -121,17 +121,9 @@ components:
       properties:
         results:
           type: object
-          description: results with image text content
-          example: "image_1: document text content"
-          properties:
-            image_1:
-              type: string
-              description: Image text content
-              example: document text content
-        no.of images:
-          type: string
-          example: 31
-          description: Total number of images in the list
+          description: The result of the API call.
+          example:
+            fileContent: document text content
         message:
           type: string
           example: Successfully Processed
@@ -238,7 +230,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 20, 2022
+              example: Published Date - Jun 10, 2022
               x-details: Major version release
               description: Latest Version
         v0.1.0:
@@ -252,14 +244,16 @@ components:
     input:
       type: object
       required:
-        - file_path      
+        - filePath      
       properties:
-        file_path:
+        filePath:
           type: string
           format: binary
           default: true
           example:  sample.mp4
-          description: The file path that describes the location of the file to be converted. Supported formats are - 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
+          description: The file path that describes the location of the file to be converted.
+          
+          Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
   securitySchemes:
     APIAuthorizer:
       type: apiKey

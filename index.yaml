@@ -218,7 +218,8 @@ utility:
   web_scraper:
     title: Web Scraper
     versions:
-      1.1.1: 'web_scraper.yaml'
+      2.0.0: 'web_scraper.yaml'
+      1.1.1: 'web_scraper_v1.yaml'
   document_convertor_eng:
     title: Document Convertor ENG
     versions:
@@ -230,19 +231,23 @@ utility:
   pki_key_generator:
     title: PKI Key Generator
     versions:
-      0.1.1: 'pki_key_generator.yaml'
+      1.0.0: 'pki_key_generator.yaml'
+      0.1.0: 'pki_key_generator_v0.1.yaml'
   encryption_using_pki_key:
     title: Encryption using PKI Key
     versions:
-      0.1.0: 'encryption_using_pki_key.yaml'
+      1.0.0: 'encryption_using_pki_key.yaml'
+      0.1.0: 'encryption_using_pki_key_v0.1.yaml'
   decryption_using_pki_key:
     title: Decryption using PKI Key
     versions:
-      0.1.0: 'decryption_for_pki_key.yaml'
+      1.0.0: 'decryption_for_pki_key.yaml'
+      0.1.0: 'decryption_for_pki_key_v0.1.yaml'
   wikipedia:
     title: Wikipedia Retrieval
     versions:
-      1.0.0: 'wikipedia.yaml'
+      2.0.0: 'wikipedia_retrieval.yaml'
+      1.0.0: 'wikipedia_v1.yaml'
   json-csv_convertor:
     title: JSON-CSV Convertor
     versions:
@@ -256,15 +261,18 @@ utility:
   audio_processing_utility:
     title: Audio Format Convertor
     versions:
-      0.1.1: 'audio_processing_utility.yaml'
+      1.0.0: 'audio_processing_utility.yaml'
+      0.1.1: 'audio_processing_utility_v0.1.yaml'
   video-to-image_convertor:
     title: Video-to-Image Convertor
     versions:
-      0.1.0: 'video-to-image_convertor.yaml'
+      1.0.0: 'video-to-image_convertor.yaml'
+      0.1.0: 'video-to-image_convertor_v0.1.yaml'
   newspaper_article_scraper:
     title: Newspaper Article Scraper
     versions:
-      0.1.0: 'newspaper_article_scraper.yaml'
+      1.0.0: 'newspaper_article_scraper.yaml'
+      0.1.0: 'newspaper_article_scraper_v0.1.yaml'
   urls_retrieval:
     title: URLs Retrieval
     versions:
@@ -280,11 +288,11 @@ utility:
   get_ip:
     title: Get IP
     versions:
-      0.1.0: 'get_ip.yaml'
+      0.2.0: 'get_ip.yaml'
   date_resolution:
     title: Date Resolution
     versions:
-      0.2.0: 'date_resolution.yaml'       
+      0.3.0: 'date_resolution.yaml'       
 data:
   commercial_directories_hdb_sg:
     title: HDB Commercial Directories (SG)

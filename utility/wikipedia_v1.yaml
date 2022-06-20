@@ -8,7 +8,7 @@ info:
     - Access topics within Wikipedia with great specificity. Can be used for research/study-related solutions by using information from this microservice to compare articles, revisions and more.
 
     - Extract the most relevant content from Wikipedia’s categories to provide a text analysis service to ascertain what any text is in reference to.
-  version: '2.0.0'
+  version: '1.0.0'
   x-subscribelink: wikipedia_retrieval
   x-apitype: small file
   x-apitypedescription: |+
@@ -26,13 +26,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Jun 20, 2022"
+- name: "v1.0.0"
+  description: "Published Date - Jan 11, 2021"
 paths:
-  /microservices/utility/wikipedia/v2/getresults:
+  /microservices/utility/wikipedia/v1/getresults:
     post:
       tags:
-        - v2.0.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -188,7 +188,7 @@ components:
                   format: list
                   example: 1915 Singapore Mutiny
             pageid:
-              type: number
+              type: integer
               format: int32
               example: 27318
               description: The id of the page requested
@@ -203,7 +203,7 @@ components:
               description: URL and dimensions of thumbnail image associated with page, if any.
               properties:
                 height:
-                  type: number
+                  type: integer
                   format: int32
                   example: 333
                   description: Height of the thumbnail image
@@ -212,7 +212,7 @@ components:
                   example: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/500px-Flag_of_Singapore.svg.png
                   description: Source URL of the thumbnail image
                 width:
-                  type: number
+                  type: integer
                   format: int32
                   example: 500
                   description: Width of the thumbnail image
@@ -311,13 +311,13 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
         v2.0.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 20, 2022
+              example: Published Date - Jun 10, 2022
               x-details: Major version update
               description: Latest Version
         v1.0.0:
@@ -345,7 +345,7 @@ components:
           default: true
           description: The search term, highest match to the title of the Wikipedia page. Not Mandatory when pageid is given.
         pageid: 
-          type: number
+          type: integer
           format: int32
           default: false
           example: 27318
