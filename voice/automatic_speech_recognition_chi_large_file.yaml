@@ -415,7 +415,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jun 20, 2022
-              x-details: Latest Version 
+              x-details: Output Parameters Aligned 
               description: Latest Version      
         v0.1.1:
          type: array
@@ -423,7 +423,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jun 10, 2022
-              x-details: Archived 
+              x-details: New Parameter Added
               description: Archived     
         v0.1.0:
          type: array
