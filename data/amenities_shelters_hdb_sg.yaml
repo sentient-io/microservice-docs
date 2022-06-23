@@ -43,7 +43,7 @@ info:
 
     **Pagination with scroll_id:** - We face a major issue of handling the hits, i.e., whenever the hits returned are more than 10,000 hits Elasticsearch will only return till 10k hits. For query more than 10K records scroll id need to add in query as like below.
       > {"limit":10000,"scroll_id": "DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAAwsWZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==","filter":[]}
-  version: '2.0.0'
+  version: '2.1.0'
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
@@ -58,15 +58,15 @@ info:
   x-apidetailsdesc: |+
     Provides returns all road works being / to be carried out.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Apr 08, 2022"
+- name: "v2.1.0"
+  description: "Published Date - Jun 30, 2022"
 paths:
    /microservices/data/shelter/v2/getdata:
     post:
       tags:
-        - v2.0.0
+        - v2.1.0
       responses:
         '200':
           description: Ok
@@ -364,7 +364,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v2.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 30, 2022
+              x-details: Data structure changed
+              description: Latest Version
         v2.0.0:
          type: array
          items:
@@ -372,7 +380,7 @@ components:
             - type: string
               example: Published Date - Apr 08, 2022
               x-details: Data structure changed
-              description: Latest Version
+              description: Archived
         v1.0.0:
          type: array
          items:
