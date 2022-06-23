@@ -1,23 +1,23 @@
 openapi: 3.0.1
 info:
-  title: SER
+  title: Speaker Emotion Recognition
   description: |+
     This Voice microservice takes in an audio file (in WAV format at 16kHz) and return the emotional feeling of voice.
 
     This api supports upto 30 seconds audio file only.
   version: '0.1.0'
   x-apitype: small file
-  x-subscribelink: asr_en_unified
+  x-subscribelink: speaker_emotion_recognition
   x-apitypedescription: |+
-    Fast | Single-Call | 15 sec/Call
+    Fast | Single-Call | 30 sec/Call
   x-inputfilelimit: |+
-    Process up to  15 seconds (1 minute) of audio file.
+    Process up to  30 seconds (1 minute) of audio file.
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
     The API is billed by per request.
   x-notes: |+
-    Limit cannot exceed  15 seconds (1 minute).
+    Limit cannot exceed  30 seconds (1 minute).
   x-apidetailsdesc: |+
     Transcribes Singaporean-accented English speech content for audio file (in WAV format at 16kHz).
 servers:
