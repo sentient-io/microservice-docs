@@ -1479,7 +1479,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized and Standardized results in Json Format
-              description: Archived
+              description: Older version
         v0.1.0:
          type: array
          items:
