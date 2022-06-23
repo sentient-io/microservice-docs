@@ -259,7 +259,7 @@ components:
           default: true
           example: sample.wav
           description: |+
-            Maximum Limit upto 15 seconds of audio wav file.
+            Maximum Limit upto 30 seconds of audio wav file.
     versions:
       type: object
       properties: 
@@ -270,7 +270,7 @@ components:
             - type: string
               example: Published Date - Jun 23, 2022
               x-details: Initial version release
-              description: Latest Version
+              description: Initial Version
   securitySchemes:
     APIAuthorizer:
       type: apiKey
