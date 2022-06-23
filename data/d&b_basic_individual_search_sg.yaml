@@ -1,0 +1,1426 @@
+openapi: 3.0.1
+info:
+  title: D&B Basic Individual Search (SG)
+  description:  |+
+    This Data microservice provides the information on the business interest and involvement of an individual residing in Singapore. It includes the individual’s actual name, residential address, business and shareholding in businesses, current & previous ownership, litigation against individual and businesses, bankruptcy record and number of times this individual has been searched on. Updated daily.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Software solutions that require personal checks, e.g. in the appointment of Board Members, Directorship or C-suite level hiring, where the appointee’s background is paramount to the Company and its reputation.
+    - Swift pre-employment screening solution - information provided by the microservice can be used to protect one's company's reputation from potential negative publicity by conducting background checks on individuals prior to hiring.
+  version: '1.1.0'
+  x-subscribelink: d&b_basic_individual_search_sg
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Retrieves information on the business interest and involvement of an individual residing in Singapore.
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v1.1.0"
+  description: "Published Date - Jun 30, 2022
+paths:
+   /microservices/data/sbis/v1/getdata:
+    post:
+      tags:
+        - v1.1.0
+      summary: Adds a new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                  REPORT:
+                    META_INFO:
+                      SERVICE: BIS
+                      SYSTEM_ID: DDP
+                      CREATION_DATE: 25/02/2009 17:31:44.678
+                      USER_ID: plcust102
+                    BASIC_INFO:
+                      PA_REG_NO:
+                        "@type": String
+                        "#text": '00091'
+                      ADDRESS1: 137, BEDOK RESERVOIR ROAD, 06 - 1451
+                      ADDRESS2: "-"
+                      ADDRESS3: 470137, SINGAPORE
+                    LIT_SEARCH_INFO:
+                      COMP_NAME: ENG YICK HOLDINGS PTE LTD
+                      REG_NO: 197803191K
+                      REPORT_TYPE: BIS
+                      REQ_DATE: 25/02/2009 17:31:44
+                      REQ_REG_NO: 197803191K
+                      REQ_NAME: LOY KOK TOON
+                      REQ_DATE_STR: 25/02/2009 15:04:14
+                    LIST_CURRENT_COMP:
+                      CURRENT_COMP:
+                        POSITION: OWNER
+                        APPOINTMENT_DATE: 01/09/1971
+                        COMP_NAME: BAN HOE LEONG COMPANY
+                        SEQ_NO: 03647300J
+                        SHARE_VALUE1: '15.00'
+                        COMP_STATUS: LIVE
+                        PROFIT_VALUE1: 2008 = -
+                        PROFIT_VALUE2: 2007 = -
+                        PROFIT_VALUE3: 2006 = -
+                        SHARE_VALUE: '150000'
+                        TEL: '62994842'
+                        FAX: '62992797'
+                        SIC: '5012'
+                        SIC_DESC: Automobiles and other Motor Vehicles
+                    LIST_PREVIOUS_COMP:
+                      PREVIOUS_COMP:
+                        POSITION: SHAREHOLDER
+                        APPOINTMENT_DATE: 30/06/1988
+                        COMP_NAME: ENG YICK INDUSTRIES PTE LTD
+                        SEQ_NO: 198101820Z
+                        SHARE_VALUE1: '100.00'
+                        COMP_STATUS: DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)
+                        CESSATION_DATE: 22/09/1992
+                        SHARE_VALUE: '390002'
+                        TEL: '62994842'
+                        FAX: '67467646'
+                        SIC: '2325'
+                        SIC_DESC: Menâ€TMs and Boysâ€TM Separate Trousers and Slacks
+                    LIST_BANKRUPTCY:
+                      BANKRUPTCY:
+                        SUBJECT_NAME: "-"
+                        COURT_CODE: CWU
+                        CASE_CODE: '381'
+                        CASE_YEAR: '2000'
+                        ACTION_DATE: 22/12/2000
+                        BANKRUPTCY_ACT: Petition for Winding Up
+                        HEARING_DATE: 26/03/2009
+                        CURRENCY1: "-"
+                        AMOUNT1: '334,616.00'
+                        CURRENCY2: "-"
+                        AMOUNT2: '0.00'
+                        CURRENCY3: "-"
+                        AMOUNT3: '0.00'
+                        BANKRUPTCY_TYPE: COMPANY WINDING UP PETITION
+                        LIST_PLAINTIFF:
+                          PLAINTIFF:
+                            PLA_NAME: B 2003 P1
+                            PLA_SOLICITOR: PATRICK KHOO ENG HOCK
+                            PLA_SOLICITOR_ID: "-"
+                            PLA_FILE_REF: RSP/292668/1
+                    LIST_LIT:
+                      LIT:
+                        SUBJECT_NAME: ENG YICK HOLDINGS PTE LTD
+                        SEQ_NO: '1'
+                        FORMATTED_ID: 197803191K
+                    LIST_LIT_DTL:
+                      LIT_DTL:
+                        NATURE_OF_CLAIM: CONTRACTS-WORK DONE & SERVICES RENDERED
+                        STATUS_DATE: 13/08/2001
+                        CASE_NO: MC 23631 / 2001
+                        FORMATTED_ID: 197803191K
+                        DOC_REMARKS: WRIT OF SUMMONS
+                        CURRENCY1: SIN
+                        CURRENCY2: "-"
+                        CURRENCY3: "-"
+                        CURRENCY4: "-"
+                        CURRENCY5: "-"
+                        CASE_STATUS: PENDING AS AT STATUS DATE
+                        AMOUNT1: '36,196.00'
+                        AMOUNT2: '0.00'
+                        AMOUNT3: '0.00'
+                        AMOUNT4: '0.00'
+                        AMOUNT5: '0.00'
+                        LIST_PLAINTIFF:
+                          PLAINTIFF:
+                          - PLA_NAME: ROTARY PILING PTE LTD
+                            LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
+                            WRITE_DATE: 13/08/2001
+                            PLA_SOLICITOR: HOO JOSEPH
+                            PLA_SOLICITOR_ID: ORS
+                            PLA_FILE_REF: CHH 6253 D27
+                            PLA_STATUS: "-"
+                            PLA_STATUS_DATE: "-"
+                            PLA_ID: S7250163B
+                          - PLA_NAME: ABC PTE LTD
+                            LAW_FIRM: JAMES & JOE
+                            WRITE_DATE: 13/08/2001
+                            PLA_SOLICITOR: KHOO JAMES
+                            PLA_SOLICITOR_ID: ORS
+                            PLA_FILE_REF: CHH 6253 X10
+                            PLA_STATUS: "-"
+                            PLA_STATUS_DATE: "-"
+                            PLA_ID: S7250163B
+                        LIST_DEFENDANT:
+                          DEFENDANT:
+                            DEF_SOLICITOR: "-"
+                            DEF_SOLICITOR_ID: N/A
+                            DEF_LAW_FIRM: "-"
+                            DEF_FILE_REF: "-"
+                    LIST_Ddrptcount:
+                      Ddrptcount:
+                      - Rcjan: '1'
+                        Rcfeb: '1'
+                        Rcmar: '1'
+                        Rcapr: '1'
+                        Rcmay: '1'
+                        Rcjun: '1'
+                        Rcjul: '1'
+                        Rcaug: '1'
+                        Rcsep: '1'
+                        Rcoct: '1'
+                        Rcnov: '1'
+                        Rcdec: '1'
+                        Rcyear: '2017'
+                        Rcsecflag: '1'
+                      - Rcjan: '0'
+                        Rcfeb: '0'
+                        Rcmar: '0'
+                        Rcapr: '0'
+                        Rcmay: '0'
+                        Rcjun: '0'
+                        Rcjul: '0'
+                        Rcaug: '0'
+                        Rcsep: '0'
+                        Rcoct: '0'
+                        Rcnov: '0'
+                        Rcdec: '0'
+                        Rcyear: '2016'
+                        Rcsecflag: '1'
+                      - Rcjan: '0'
+                        Rcfeb: '0'
+                        Rcmar: '0'
+                        Rcapr: '0'
+                        Rcmay: '0'
+                        Rcjun: '0'
+                        Rcjul: '0'
+                        Rcaug: '0'
+                        Rcsep: '0'
+                        Rcoct: '0'
+                        Rcnov: '0'
+                        Rcdec: '0'
+                        Rcyear: '2015'
+                        Rcsecflag: '1'
+                      - Rcjan: '0'
+                        Rcfeb: '0'
+                        Rcmar: '0'
+                        Rcapr: '0'
+                        Rcmay: '0'
+                        Rcjun: '0'
+                        Rcjul: '0'
+                        Rcaug: '0'
+                        Rcsep: '0'
+                        Rcoct: '0'
+                        Rcnov: '0'
+                        Rcdec: '0'
+                        Rcyear: '2017'
+                        Rcsecflag: '0'
+                      - Rcjan: '0'
+                        Rcfeb: '0'
+                        Rcmar: '0'
+                        Rcapr: '0'
+                        Rcmay: '0'
+                        Rcjun: '0'
+                        Rcjul: '0'
+                        Rcaug: '0'
+                        Rcsep: '0'
+                        Rcoct: '0'
+                        Rcnov: '0'
+                        Rcdec: '0'
+                        Rcyear: '2016'
+                        Rcsecflag: '0'
+                      - Rcjan: '0'
+                        Rcfeb: '0'
+                        Rcmar: '0'
+                        Rcapr: '0'
+                        Rcmay: '0'
+                        Rcjun: '0'
+                        Rcjul: '0'
+                        Rcaug: '0'
+                        Rcsep: '0'
+                        Rcoct: '0'
+                        Rcnov: '0'
+                        Rcdec: '0'
+                        Rcyear: '2015'
+                        Rcsecflag: '0'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'    
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+        type: object
+        properties:
+            REPORT:
+              type: object
+              example:
+              description:  |+
+                Report details with following children&#58;
+                [META_INFO]
+                [BASIC_INFO]
+                [LIT_SEARCH_INFO]
+                [LIST_CURRENT_COMP]
+                [LIST_PREVIOUS_COMP]
+                [LIST_BANKRUPTCY]
+                [LIST_LIT]
+                [LIST_LIT_DTL]
+              properties:
+                META_INFO:
+                  type: object
+                  example:
+                      META_INFO:
+                        SERVICE: BIS
+                        SYSTEM_ID: DDP
+                        CREATION_DATE: 25/02/2009 17:31:44.678
+                        USER_ID: plcust102
+                  description:  |+
+                    Meta Information details with following children&#58;
+                    SERVICE
+                    SYSTEM_ID
+                    CREATION_DATE
+                    USER_ID
+                  properties:
+                    SERVICE:
+                      type: string
+                      example: "BIS"
+                      description: Report Requested
+                    SYSTEM_ID :
+                      type: string
+                      example: "DDP"
+                      description: System ID
+                    CREATION_DATE:
+                      type: datetime
+                      example: "25/02/2009 17:31:44.678"
+                      description: Report Request Date
+                    USER_ID :
+                      type: string
+                      example: N/A
+                      description: Valid user id in DDP system. It is for (For internal use)
+                BASIC_INFO :
+                  type: object
+                  description: |+
+                    Basic Information with following children&#58;
+                    PA_REG_NO
+                    ADDRESS1
+                    ADDRESS2
+                    ADDRESS3
+                  example:
+                      BASIC_INFO:
+                        PA_REG_NO:
+                          "@type": String
+                          "#text": '00091'
+                        ADDRESS1: 137, BEDOK RESERVOIR ROAD, 06 - 1451
+                        ADDRESS2: "-"
+                        ADDRESS3: 470137, SINGAPORE
+                  properties:
+                    PA_REG_NO:
+                      type: string
+                      description: Public Accountant Registration No.
+                      example: "00091"
+                    ADDRESS1:
+                      type: string
+                      description: Address 1
+                      example: "137"
+                    ADDRESS2:
+                      type: string
+                      description: Address 2
+                      example: "vvvvv"
+                    ADDRESS3:
+                      type: string
+                      description: Address 3
+                      example: "470137, SINGAPORE"
+                LIT_SEARCH_INFO :
+                  type: object
+                  example:
+                      LIT_SEARCH_INFO:
+                        COMP_NAME: ENG YICK HOLDINGS PTE LTD
+                        REG_NO: 197803191K
+                        REPORT_TYPE: BIS
+                        REQ_DATE: 25/02/2009 17:31:44
+                        REQ_REG_NO: 197803191K
+                        REQ_NAME: LOY KOK TOON
+                        REQ_DATE_STR: 25/02/2009 15:04:14
+                  description: |+
+                    Litigation search information with following children&#58;
+                    COMP_NAME
+                    REG_NO
+                    REPORT_TYPE
+                    REQ_DATE
+                    REQ_REG_NO
+                    REQ_NAME
+                    REQ_DATE_STR
+                  properties:
+                    COMP_NAME:
+                      type: string
+                      description: Company Name
+                      example: "ENG YICK HOLDINGS PTE LTD"
+                    REG_NO:
+                      type: string
+                      description: Company Registration No
+                      example: "197803191K"
+                    REPORT_TYPE:
+                      type: string
+                      description: Report Type
+                      example: "BIS"
+                    REQ_DATE:
+                      type: datetime
+                      description: Requested Date
+                      example: "25/02/2009 17:31:44"
+                    REQ_REG_NO:
+                      type: string
+                      description: Request Registration Number
+                      example: "197803191K"
+                    REQ_NAME:
+                      type: string
+                      description: Request Name
+                      example: "LOY KOK TOON"
+                    REQ_DATE_STR:
+                      type: string
+                      description: Request Date String
+                      example: "25/02/2009 15:04:14"
+                LIST_CURRENT_COMP :
+                  type: array
+                  description:  |+
+                    List of current companies with following children&#58;
+                    [CURRENT_COMP]
+                  example:
+                      LIST_CURRENT_COMP:
+                        CURRENT_COMP:
+                          POSITION: OWNER
+                          APPOINTMENT_DATE: 01/09/1971
+                          COMP_NAME: BAN HOE LEONG COMPANY
+                          SEQ_NO: 03647300J
+                          SHARE_VALUE1: '15.00'
+                          COMP_STATUS: LIVE
+                          PROFIT_VALUE1: 2008 = -
+                          PROFIT_VALUE2: 2007 = -
+                          PROFIT_VALUE3: 2006 = -
+                          SHARE_VALUE: '150000'
+                          TEL: '62994842'
+                          FAX: '62992797'
+                          SIC: '5012'
+                          SIC_DESC: Automobiles and other Motor Vehicles
+                  items:
+                    properties:
+                      CURRENT_COMP:
+                        type: object
+                        description: |+
+                          Current companies detail with following children&#58;
+                          POSITION
+                          APPOINTMENT_DATE
+                          COMP_NAME
+                          SEQ_NO
+                          SHARE_VALUE1
+                          COMP_STATUS
+                          PROFIT_VALUE
+                          SHARE_VALUE
+                          TEL
+                          FAX
+                          SIC
+                          SIC_DESC
+                        example:
+                            CURRENT_COMP:
+                              POSITION: OWNER
+                              APPOINTMENT_DATE: 01/09/1971
+                              COMP_NAME: BAN HOE LEONG COMPANY
+                              SEQ_NO: 03647300J
+                              SHARE_VALUE1: '15.00'
+                              COMP_STATUS: LIVE
+                              PROFIT_VALUE1: 2008 = -
+                              PROFIT_VALUE2: 2007 = -
+                              PROFIT_VALUE3: 2006 = -
+                              SHARE_VALUE: '150000'
+                              TEL: '62994842'
+                              FAX: '62992797'
+                              SIC: '5012'
+                              SIC_DESC: Automobiles and other Motor Vehicles
+                        properties:
+                          POSITION:
+                            type: string
+                            description: Position
+                            example: "OWNER"
+                          APPOINTMENT_DATE:
+                            type: string
+                            description: Appointment Date
+                            example: "01/09/1971"
+                          COMP_NAME:
+                            type: string
+                            description: Company Name
+                            example: "BAN HOE LEONG COMPANY"
+                          SEQ_NO:
+                            type: string
+                            description: Company Registration No.
+                            example: "03647300J"
+                          SHARE_VALUE1:
+                            type: string
+                            description: Share Percentage
+                            example: "15.00"
+                          COMP_STATUS:
+                            type: string
+                            description: Company Status
+                            example: "LIVE"
+                          PROFIT_VALUE1:
+                            type: string
+                            description: Profit Making 1
+                            example: "2008 = -"
+                          PROFIT_VALUE2:
+                            type: string
+                            description: Profit Making 2
+                            example: "2007 = -"
+                          PROFIT_VALUE3:
+                            type: string
+                            description: Profit Making 3
+                            example: "2006 = -"
+                          SHARE_VALUE:
+                            type: string
+                            description: Number Of Shares
+                            example: "150000"
+                          TEL:
+                            type: string
+                            description: Telephone Number
+                            example: "62994842"
+                          FAX:
+                            type: string
+                            description: Fax Number
+                            example: "62992797"
+                          SIC:
+                            type: string
+                            description: SIC Code
+                            example: "5012"
+                          SIC_DESC:
+                            type: string
+                            description: SIC Description
+                            example: "Automobiles and other Motor Vehicles"
+                LIST_PREVIOUS_COMP:
+                  type: array
+                  example:
+                      LIST_PREVIOUS_COMP:
+                        PREVIOUS_COMP:
+                          POSITION: SHAREHOLDER
+                          APPOINTMENT_DATE: 30/06/1988
+                          COMP_NAME: ENG YICK INDUSTRIES PTE LTD
+                          SEQ_NO: 198101820Z
+                          SHARE_VALUE1: '100.00'
+                          COMP_STATUS: DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)
+                          CESSATION_DATE: 22/09/1992
+                          SHARE_VALUE: '390002'
+                          TEL: '62994842'
+                          FAX: '67467646'
+                          SIC: '2325'
+                          SIC_DESC: Menâ€™s and Boysâ€™ Separate Trousers and Slacks
+                  description:  |+
+                    List of previous companies with following children&#58;
+                    [PREVIOUS_COMP]
+                  items:
+                    properties:
+                      PREVIOUS_COMP :
+                        type: object
+                        description:  |+
+                          Previous companies detail with following children&#58;
+                          POSITION
+                          APPOINTMENT_DATE
+                          COMP_NAME
+                          SEQ_NO
+                          SHARE_VALUE1
+                          COMP_STATUS
+                          CESSATION_DATE
+                          SHARE_VALUE
+                          TEL
+                          FAX
+                          SIC
+                          SIC_DESC
+                        example:
+                            PREVIOUS_COMP:
+                              POSITION: SHAREHOLDER
+                              APPOINTMENT_DATE: 30/06/1988
+                              COMP_NAME: ENG YICK INDUSTRIES PTE LTD
+                              SEQ_NO: 198101820Z
+                              SHARE_VALUE1: '100.00'
+                              COMP_STATUS: DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)
+                              CESSATION_DATE: 22/09/1992
+                              SHARE_VALUE: '390002'
+                              TEL: '62994842'
+                              FAX: '67467646'
+                              SIC: '2325'
+                              SIC_DESC: Menâ€™s and Boysâ€™ Separate Trousers and Slacks
+                        properties:
+                          POSITION :
+                            type: string
+                            description: Position
+                            example: "SHAREHOLDER"
+                          APPOINTMENT_DATE:
+                            type: string
+                            description: Appointment Date 
+                            example: "30/06/1988"
+                          COMP_NAME:
+                            type: string
+                            description: Company Name
+                            example: "ENG YICK INDUSTRIES PTE LTD"
+                          SEQ_NO:
+                            type: string
+                            description: Company Registration No.
+                            example: "198101820Z"
+                          SHARE_VALUE1:
+                            type: string
+                            description: Share Value Percentage
+                            example: "100.00"
+                          COMP_STATUS:
+                            type: string
+                            description: Company Status
+                            example: "DISSOLVED - COMPULSORY WINDING UP (INSOLVENCY)"
+                          CESSATION_DATE :
+                            type: string
+                            description: Cessation Date 
+                            example: "22/09/1992"
+                          SHARE_VALUE:
+                            type: string
+                            description: Number Of Shares 
+                            example: "390002"
+                          TEL:
+                            type: string
+                            description: Telephone Number
+                            example: "62994842"
+                          FAX:
+                            type: string
+                            description: Fax Number
+                            example: "67467646"
+                          SIC:
+                            type: string
+                            description: SIC Code 
+                            example: "2325"
+                          SIC_DESC:
+                            type: string
+                            description: SIC Description 
+                            example: "Menâ€™s and Boysâ€™ Separate Trousers and Slacks"
+                LIST_BANKRUPTCY:
+                  type: array
+                  description:  |+
+                    Bankruptcy/ Winding up with following children&#58;
+                    [BANKRUPTCY]
+                  example:
+                      LIST_BANKRUPTCY:
+                        BANKRUPTCY:
+                          SUBJECT_NAME: "-"
+                          COURT_CODE: CWU
+                          CASE_CODE: '381'
+                          CASE_YEAR: '2000'
+                          ACTION_DATE: 22/12/2000
+                          BANKRUPTCY_ACT: Petition for Winding Up
+                          HEARING_DATE: 26/03/2009
+                          CURRENCY1: "-"
+                          AMOUNT1: '334,616.00'
+                          CURRENCY2: "-"
+                          AMOUNT2: '0.00'
+                          CURRENCY3: "-"
+                          AMOUNT3: '0.00'
+                          BANKRUPTCY_TYPE: COMPANY WINDING UP PETITION
+                          LIST_PLAINTIFF:
+                            PLAINTIFF:
+                              PLA_NAME: B 2003 P1
+                              PLA_SOLICITOR: PATRICK KHOO ENG HOCK
+                              PLA_SOLICITOR_ID: "-"
+                              PLA_FILE_REF: RSP/292668/1
+                  items:
+                    properties:
+                      BANKRUPTCY :
+                        type: object
+                        description:  |+
+                          Bankruptcy/Winding up detail with following children&#58;
+                          SUBJECT_NAME
+                          COURT_CODE
+                          CASE_CODE
+                          CASE_YEAR
+                          ACTION_DATE
+                          BANKRUPTCY_ACT
+                          HEARING_DATE
+                          CURRENCY1
+                          AMOUNT1
+                          CURRENCY2
+                          AMOUNT2
+                          CURRENCY3
+                          AMOUNT3
+                          BANKRUPTCY_TYPE
+                          [LIST_PLAINTIFF]
+                        example:
+                            BANKRUPTCY:
+                              SUBJECT_NAME: "-"
+                              COURT_CODE: CWU
+                              CASE_CODE: '381'
+                              CASE_YEAR: '2000'
+                              ACTION_DATE: 22/12/2000
+                              BANKRUPTCY_ACT: Petition for Winding Up
+                              HEARING_DATE: 26/03/2009
+                              CURRENCY1: "-"
+                              AMOUNT1: '334,616.00'
+                              CURRENCY2: "-"
+                              AMOUNT2: '0.00'
+                              CURRENCY3: "-"
+                              AMOUNT3: '0.00'
+                              BANKRUPTCY_TYPE: COMPANY WINDING UP PETITION
+                              LIST_PLAINTIFF:
+                                PLAINTIFF:
+                                  PLA_NAME: B 2003 P1
+                                  PLA_SOLICITOR: PATRICK KHOO ENG HOCK
+                                  PLA_SOLICITOR_ID: "-"
+                                  PLA_FILE_REF: RSP/292668/1
+                        properties:
+                          SUBJECT_NAME :
+                            type: string
+                            description:  Subject Name  
+                            example:
+                          COURT_CODE:
+                            type: string
+                            description: Court Code
+                            example: "CWU"
+                          CASE_CODE:
+                            type: string
+                            description: Case Code
+                            example: "381"
+                          CASE_YEAR:
+                            type: string
+                            description: Case Year
+                            example: "2000"
+                          ACTION_DATE:
+                            type: string
+                            description: Action Date 
+                            example: "22/12/2000"
+                          BANKRUPTCY_ACT:
+                            type: string
+                            description: Act of Bankruptcy
+                            example: "Petition for Winding Up"
+                          HEARING_DATE :
+                            type: string
+                            description: Hearing Date
+                            example: "26/03/2009"
+                          CURRENCY1:
+                            type: string
+                            description: Currency
+                            example:
+                          AMOUNT1:
+                            type: string
+                            description: Amount
+                            example: "334,616.00"
+                          CURRENCY2:
+                            type: string
+                            description: Currency
+                            example:
+                          AMOUNT2:
+                            type: string
+                            description: Amount
+                            example: "0.00"
+                          CURRENCY3:
+                            type: string
+                            description: Currency
+                            example:
+                          AMOUNT3:
+                            type: string
+                            description: Amount
+                            example: "0.00"
+                          BANKRUPTCY_TYPE:
+                            type: string
+                            description: Bankruptcy Type 
+                            example: "COMPANY WINDING UP PETITION"
+                LIST_PLAINTIFF:
+                   type: array
+                   description:  |+
+                      List of Plaintiff with following children&#58;
+                      [PLAINTIFF]
+                   example:
+                      LIST_PLAINTIFF:
+                        PLAINTIFF:
+                          PLA_NAME: B 2003 P1
+                          PLA_SOLICITOR: PATRICK KHOO ENG HOCK
+                          PLA_SOLICITOR_ID: "-"
+                          PLA_FILE_REF: RSP/292668/1
+                   items:
+                      properties:
+                        PLAINTIFF:
+                          type: object
+                          description:  |+
+                            Plaintiff detail with following children&#58;
+                            PLA_NAME
+                            PLA_SOLICITOR
+                            PLA_SOLICITOR_ID
+                            PLA_FILE_REF
+                          example:
+                              PLAINTIFF:
+                                PLA_NAME: B 2003 P1
+                                PLA_SOLICITOR: PATRICK KHOO ENG HOCK
+                                PLA_SOLICITOR_ID: "-"
+                                PLA_FILE_REF: RSP/292668/1
+                          properties:
+                            PLA_NAME:
+                              type: string
+                              description: Pla. Name
+                              example: "B 2003 P1"
+                            PLA_SOLICITOR:
+                              type: string
+                              description: Pla. Solicitor
+                              example: "PATRICK KHOO ENG HOCK"
+                            PLA_SOLICITOR_ID:
+                              type: string
+                              description: Pla. Solicitor ID 
+                              example:
+                            PLA_FILE_REF:
+                              type: string
+                              description: Pla. File Ref.
+                              example: "RSP/292668/1"
+                LIST_LIT:
+                  type: array
+                  description:  |+
+                    List of litigation with following children&#58;
+                    [LIT]
+                  example:
+                      LIST_LIT:
+                        LIT:
+                          SUBJECT_NAME: ENG YICK HOLDINGS PTE LTD
+                          SEQ_NO: '1'
+                          FORMATTED_ID: 197803191K
+                  items:
+                    properties:
+                      LIT:
+                        type: object
+                        description:   |+
+                          Basic litigation info with following children&#58;
+                          SUBJECT_NAME
+                          SEQ_NO
+                          FORMATTED_ID
+                          [LIST_LIT_DTL]
+                        example:
+                            LIT:
+                              SUBJECT_NAME: ENG YICK HOLDINGS PTE LTD
+                              SEQ_NO: '1'
+                              FORMATTED_ID: 197803191K
+                        properties:                      
+                          SUBJECT_NAME:
+                            type: string
+                            description: Name
+                            example: "ENG YICK HOLDINGS PTE LTD"
+                          SEQ_NO:
+                            type: integer
+                            description: Sequence No.
+                            example: 1
+                          FORMATTED_ID:
+                            type: string
+                            description: Formatted ID
+                            example: "197803191K"
+                LIST_LIT_DTL:
+                  type: array
+                  description:  |+
+                    List of litigation detail with following children&#58;
+                    [LIT_DTL]
+                  example: 
+                      LIST_LIT_DTL:
+                        LIT_DTL:
+                          NATURE_OF_CLAIM: CONTRACTS-WORK DONE & SERVICES RENDERED
+                          STATUS_DATE: 13/08/2001
+                          CASE_NO: MC 23631 / 2001
+                          FORMATTED_ID: 197803191K
+                          DOC_REMARKS: WRIT OF SUMMONS
+                          CURRENCY1: SIN
+                          CURRENCY2: "-"
+                          CURRENCY3: "-"
+                          CURRENCY4: "-"
+                          CURRENCY5: "-"
+                          CASE_STATUS: PENDING AS AT STATUS DATE
+                          AMOUNT1: '36,196.00'
+                          AMOUNT2: '0.00'
+                          AMOUNT3: '0.00'
+                          AMOUNT4: '0.00'
+                          AMOUNT5: '0.00'
+                          LIST_PLAINTIFF:
+                            PLAINTIFF:
+                            - PLA_NAME: ROTARY PILING PTE LTD
+                              LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
+                              WRITE_DATE: 13/08/2001
+                              PLA_SOLICITOR: HOO JOSEPH
+                              PLA_SOLICITOR_ID: ORS
+                              PLA_FILE_REF: CHH 6253 D27
+                              PLA_STATUS: "-"
+                              PLA_STATUS_DATE: "-"
+                              PLA_ID: S7250163B
+                            - PLA_NAME: ABC PTE LTD
+                              LAW_FIRM: JAMES & JOE
+                              WRITE_DATE: 13/08/2001
+                              PLA_SOLICITOR: KHOO JAMES
+                              PLA_SOLICITOR_ID: ORS
+                              PLA_FILE_REF: CHH 6253 X10
+                              PLA_STATUS: "-"
+                              PLA_STATUS_DATE: "-"
+                              PLA_ID: S7250163B
+                          LIST_DEFENDANT:
+                            DEFENDANT:
+                              DEF_SOLICITOR: "-"
+                              DEF_SOLICITOR_ID: N/A
+                              DEF_LAW_FIRM: "-"
+                              DEF_FILE_REF: "-"
+                  items:
+                    properties:
+                      LIT_DTL:
+                        type: object
+                        description:  |+
+                          Litigation detail with following children&#58;
+                          NATURE_OF_CLAIM
+                          STATUS_DATE
+                          CASE_NO
+                          FORMATTED_ID
+                          DOC_REMARKS
+                          CURRENCY1
+                          CURRENCY2
+                          CURRENCY3
+                          CURRENCY4
+                          CURRENCY5
+                          CASE_STATUS
+                          AMOUNT1
+                          AMOUNT2
+                          AMOUNT3
+                          AMOUNT4
+                          AMOUNT5
+                          [LIST_PLAINTIFF]
+                          [LIST_DEFENDANT]
+                        example: 
+                            LIT_DTL:
+                              NATURE_OF_CLAIM: CONTRACTS-WORK DONE & SERVICES RENDERED
+                              STATUS_DATE: 13/08/2001
+                              CASE_NO: MC 23631 / 2001
+                              FORMATTED_ID: 197803191K
+                              DOC_REMARKS: WRIT OF SUMMONS
+                              CURRENCY1: SIN
+                              CURRENCY2: "-"
+                              CURRENCY3: "-"
+                              CURRENCY4: "-"
+                              CURRENCY5: "-"
+                              CASE_STATUS: PENDING AS AT STATUS DATE
+                              AMOUNT1: '36,196.00'
+                              AMOUNT2: '0.00'
+                              AMOUNT3: '0.00'
+                              AMOUNT4: '0.00'
+                              AMOUNT5: '0.00'
+                              LIST_PLAINTIFF:
+                                PLAINTIFF:
+                                - PLA_NAME: ROTARY PILING PTE LTD
+                                  LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
+                                  WRITE_DATE: 13/08/2001
+                                  PLA_SOLICITOR: HOO JOSEPH
+                                  PLA_SOLICITOR_ID: ORS
+                                  PLA_FILE_REF: CHH 6253 D27
+                                  PLA_STATUS: "-"
+                                  PLA_STATUS_DATE: "-"
+                                  PLA_ID: S7250163B
+                                - PLA_NAME: ABC PTE LTD
+                                  LAW_FIRM: JAMES & JOE
+                                  WRITE_DATE: 13/08/2001
+                                  PLA_SOLICITOR: KHOO JAMES
+                                  PLA_SOLICITOR_ID: ORS
+                                  PLA_FILE_REF: CHH 6253 X10
+                                  PLA_STATUS: "-"
+                                  PLA_STATUS_DATE: "-"
+                                  PLA_ID: S7250163B
+                              LIST_DEFENDANT:
+                                DEFENDANT:
+                                  DEF_SOLICITOR: "-"
+                                  DEF_SOLICITOR_ID: N/A
+                                  DEF_LAW_FIRM: "-"
+                                  DEF_FILE_REF: "-"
+                        properties:                      
+                          NATURE_OF_CLAIM:
+                            type: string
+                            description: Nature of Claim 
+                            example: "CONTRACTS-WORK DONE & SERVICES RENDERED"
+                          STATUS_DATE:
+                            type: string
+                            description: Status Date
+                            example: "13/08/2001"
+                          CASE_NO:
+                            type: string
+                            description: Case No.
+                            example: "MC 23631 / 2001"
+                          FORMATTED_ID:
+                            type: string
+                            description: Formatted ID 
+                            example: "197803191K"
+                          DOC_REMARKS:
+                            type: string
+                            description: Document Remark
+                            example: "WRIT OF SUMMONS"
+                          CURRENCY1:
+                            type: string
+                            description: Currency 1 
+                            example: "SIN"
+                          CURRENCY2:
+                            type: string
+                            description: Currency 2
+                            example:
+                          CURRENCY3:
+                            type: string
+                            description: Currency 3
+                            example:
+                          CURRENCY4:
+                            type: string
+                            description: Currency 4
+                            example:
+                          CURRENCY5:
+                            type: string
+                            description: Currency 5
+                            example:
+                          CASE_STATUS:
+                            type: string
+                            description: Status
+                            example: "PENDING AS AT STATUS DATE"
+                          AMOUNT1:
+                            type: string
+                            description: Amount 1 
+                            example: "36,196.00"
+                          AMOUNT2:
+                            type: string
+                            description: Amount 2
+                            example: "0.00"
+                          AMOUNT3:
+                            type: string
+                            description: Amount 3
+                            example: "0.00"
+                          AMOUNT4:
+                            type: string
+                            description: Amount 4
+                            example: "0.00"
+                          AMOUNT5:
+                            type: string
+                            description: Amount 5
+                            example: "0.00"
+                          LIST_PLAINTIFF:
+                            type: array
+                            description:  |+
+                              List of plaintiff with following children&#58;
+                              [PLAINTIFF]
+                            example: 
+                                LIST_PLAINTIFF:
+                                  PLAINTIFF:
+                                    PLA_NAME: ROTARY PILING PTE LTD
+                                    LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
+                                    WRITE_DATE: 13/08/2001
+                                    PLA_SOLICITOR: HOO JOSEPH
+                                    PLA_SOLICITOR_ID: ORS
+                                    PLA_FILE_REF: CHH 6253 D27
+                                    PLA_STATUS: "-"
+                                    PLA_STATUS_DATE: "-"
+                                    PLA_ID: S7250163B
+                            items:
+                              properties:
+                                PLAINTIFF:
+                                  type: object
+                                  description:   |+
+                                    Plaintiff detail with following children&#58;
+                                    PLA_NAME
+                                    LAW_FIRM
+                                    WRITE_DATE
+                                    PLA_SOLICITOR
+                                    PLA_SOLICITOR_ID
+                                    PLA_FILE_REF
+                                    PLA_STATUS
+                                    PLA_STATUS_DATE
+                                    PLA_ID
+                                  example:
+                                      PLAINTIFF:
+                                        PLA_NAME: ROTARY PILING PTE LTD
+                                        LAW_FIRM: JOSEPH HOO MORRIS & KUMAR
+                                        WRITE_DATE: 13/08/2001
+                                        PLA_SOLICITOR: HOO JOSEPH
+                                        PLA_SOLICITOR_ID: ORS
+                                        PLA_FILE_REF: CHH 6253 D27
+                                        PLA_STATUS: "-"
+                                        PLA_STATUS_DATE: "-"
+                                        PLA_ID: S7250163B
+                                  properties:
+                                    PLA_NAME:
+                                      type: string
+                                      description: Plaintiff Name 
+                                      example: "ROTARY PILING PTE LTD"
+                                    LAW_FIRM:
+                                      type: string
+                                      description: Pla. Law Firm 
+                                      example: "JOSEPH HOO MORRIS & KUMAR"
+                                    WRITE_DATE:
+                                      type: string
+                                      description: Writ date
+                                      example: "13/08/2001"
+                                    PLA_SOLICITOR:
+                                      type: string
+                                      description: Plaintiff Solicitor
+                                      example: "HOO JOSEPH"
+                                    PLA_SOLICITOR_ID:
+                                      type: string
+                                      description: Plaintiff Solicitor ID
+                                      example: "ORS"
+                                    PLA_FILE_REF:
+                                      type: string
+                                      description: Pla. File Ref.
+                                      example: "CHH 6253 D27"
+                                    PLA_STATUS:
+                                      type: string
+                                      description: Plaintiff Status
+                                      example:
+                                    PLA_STATUS_DATE:
+                                      type: string
+                                      description: Plaintiff Status Date 
+                                      example:
+                                    PLA_ID:
+                                      type: string
+                                      description: Plaintiff ID
+                                      example: "S7250163B"
+                          LIST_DEFENDANT:
+                            type: array
+                            description:  |+
+                              List of defendant with following children&#58;
+                              [DEFENDANT]
+                            example: 
+                                LIST_DEFENDANT:
+                                  DEFENDANT:
+                                    DEF_SOLICITOR: "-"
+                                    DEF_SOLICITOR_ID: N/A
+                                    DEF_LAW_FIRM: "-"
+                                    DEF_FILE_REF: "-"
+                            items:
+                              properties:
+                                DEFENDANT:
+                                  type: object
+                                  description:  |+
+                                    Defendant detail with following children&#58;
+                                    DEF_SOLICITOR
+                                    DEF_SOLICITOR_ID
+                                    DEF_LAW_FIRM
+                                    DEF_FILE_REF
+                                  example: 
+                                      DEFENDANT:
+                                        DEF_SOLICITOR: "-"
+                                        DEF_SOLICITOR_ID: N/A
+                                        DEF_LAW_FIRM: "-"
+                                        DEF_FILE_REF: "-"
+                                  properties:
+                                    DEF_SOLICITOR:
+                                      type: string
+                                      description: Def. Solicitor
+                                      example:
+                                    DEF_SOLICITOR_ID:
+                                      type: string
+                                      description: Def. Solicitor ID 
+                                      example: N/A
+                                    DEF_LAW_FIRM:
+                                      type: string
+                                      description: Def. Law Firm 
+                                      example:
+                                    DEF_FILE_REF:
+                                      type: string
+                                      description: Def. File Ref. 
+                                      example:
+                LIST_Ddrptcount:
+                  type: array
+                  description:  |+
+                    List of Search By Financial Sectors and Search By Non-Financial Sectors with following children&#58;
+                    [Ddrptcount]
+                  example: 
+                      LIST_Ddrptcount:
+                        Ddrptcount:
+                          Rcjan: '1'
+                          Rcfeb: '1'
+                          Rcmar: '1'
+                          Rcapr: '1'
+                          Rcmay: '1'
+                          Rcjun: '1'
+                          Rcjul: '1'
+                          Rcaug: '1'
+                          Rcsep: '1'
+                          Rcoct: '1'
+                          Rcnov: '1'
+                          Rcdec: '1'
+                          Rcyear: '2017'
+                          Rcsecflag: '1'
+                  items:
+                    properties:
+                      Ddrptcount:
+                        type: object
+                        description:  |+
+                          6 XML tags (open then close) displays Search By Financial Sectors (counts for 3 recent years).Search By Non-Financial Sectors (counts for 3 recent years) with following children&#58;
+                          Rcjan
+                          Rcfeb
+                          Rcmar
+                          Rcapr
+                          Rcmay
+                          Rcjun
+                          Rcjul
+                          Rcaug
+                          Rcsep
+                          Rcoct
+                          Rcnov
+                          Rcdec
+                          Rcyear
+                          Rcsecflag
+                        example: 
+                            Ddrptcount:
+                              Rcjan: '1'
+                              Rcfeb: '1'
+                              Rcmar: '1'
+                              Rcapr: '1'
+                              Rcmay: '1'
+                              Rcjun: '1'
+                              Rcjul: '1'
+                              Rcaug: '1'
+                              Rcsep: '1'
+                              Rcoct: '1'
+                              Rcnov: '1'
+                              Rcdec: '1'
+                              Rcyear: '2017'
+                              Rcsecflag: '1'
+                        properties:                      
+                          Rcjan:
+                            type: integer
+                            description: Count for January
+                            example: "1"
+                          Rcfeb:
+                            type: integer
+                            description: Count for February
+                            example: "1"
+                          Rcmar:
+                            type: integer
+                            description: Count for March
+                            example: "1"
+                          Rcapr:
+                            type: integer
+                            description: Count for April
+                            example: "1"
+                          Rcmay:
+                            type: integer
+                            description: Count for May
+                            example: "1"
+                          Rcjun:
+                            type: integer 
+                            description: Count for June
+                            example: "1"
+                          Rcjul:
+                            type: integer
+                            description: Count for July
+                            example: "1"
+                          Rcaug:
+                            type: integer
+                            description: Count for August
+                            example: "1"
+                          Rcsep:
+                            type: integer 
+                            description: Count for September
+                            example: "1"
+                          Rcoct:
+                            type: integer
+                            description: Count for October
+                            example: "1"
+                          Rcnov:
+                            type: integer
+                            description: Count for November
+                            example: "1"
+                          Rcdec:
+                            type: integer 
+                            description: Count for December
+                            example: "1"
+                          Rcyear:
+                            type: integer
+                            description: To show the year
+                            example: "1"
+                          Rcsecflag:
+                            type: integer
+                            description: Differentiate Search By Financial Sectors and Search By Non-Financial Sectors
+                            example: "1"
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    input:
+      type: object
+      properties:
+        total_items:
+          type: integer
+          example: 1
+          description: Number of subjects being enquired relating to the Run
+          default: false
+        subject_idno:
+          type: string
+          example: 199707714C
+          description: "Subject’s ID Number (individual) or Registration Number (company/business) as captured in DDP"
+          default: true
+        subject_name:
+          type: string
+          example: GPS INDUSTRIES PTE LTD
+          description: Subjects Name as captured in DDP
+          default: false
+    versions:
+      type: object
+      properties:
+        v1.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 30, 2022
+              x-details: Optimized and Standardized results in Json Format
+              description: Latest Version
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 15, 2021
+              x-details: Optimized and Standardized results in Json Format
+              description: Archived
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Aug 15, 2019
+              x-details: Initial version release
+              description: Archived
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
