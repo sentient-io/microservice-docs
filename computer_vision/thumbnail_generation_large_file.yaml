@@ -457,7 +457,7 @@ components:
               x-name: output_thumbnails
               type: number
               default: False
-              example: 1
+              example: 45
               description: |+
                 Number of output thumbnail images. Between 1 and 20. Default value is 1.
             file_type:
