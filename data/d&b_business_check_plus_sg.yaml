@@ -25,7 +25,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.1.0"
-  description: "Published Date - Jun 30, 2021"
+  description: "Published Date - Jun 30, 2022"
 paths:
    /microservices/data/sbcp/v1/getdata:
     post:
