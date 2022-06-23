@@ -102,7 +102,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.1.0"
-  description: "Published Date - Jun 30, 2021"
+  description: "Published Date - Jun 30, 2022"
 paths:
    /microservices/data/carpark/v1/getdata:
     get:
@@ -470,7 +470,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 30,2021
+              example: Published Date - Jun 30,2022
               x-details: Optimized release
               description: Latest Version
         v1.0.0:
