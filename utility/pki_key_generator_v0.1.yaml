@@ -22,7 +22,7 @@ info:
   x-apidetailsdesc: |+
     Generates a Public and Private key pair based on byte-length [1 to 5]
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Feb 10, 2022"
