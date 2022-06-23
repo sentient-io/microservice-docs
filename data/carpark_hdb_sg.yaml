@@ -480,7 +480,7 @@ components:
             - type: string
               example: Published Date - May 21,2021
               x-details: Optimized release
-              description: Latest Version
+              description: Older Version
         v0.2.0:
          type: array
          items:
@@ -491,7 +491,7 @@ components:
                 The following additional fields are added&#58;
                 1. postalcode - list of postal code
                 2. location - lat / log of the carpark park
-              description: Depreciating on May 20, 2021
+              description: Archived
         v0.1.0:
          type: array
          items:
