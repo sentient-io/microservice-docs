@@ -374,7 +374,7 @@ components:
             - type: string
               example: Published Date - Apr 08, 2022
               x-details: Data structure changed
-              description: Archived
+              description: Older Version
         v1.0.0:
          type: array
          items:
