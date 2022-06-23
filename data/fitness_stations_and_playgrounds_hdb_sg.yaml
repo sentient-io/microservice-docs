@@ -1,0 +1,448 @@
+openapi: 3.0.1
+info:
+  title: HDB Fitness Stations and Playgrounds (SG)
+  x-subscribelink: fitness_stations_and_playgrounds_hdb_sg
+  description: >
+    Returns information on the map data including: coordinates, type and the
+    details of the location.This Data microservice captures the indicative
+    outline of fitness stations/playgrounds for all Housing Development Board of
+    Singapore (HDB) Towns, HDB Estates and on HDB Land.
+  x-additionalinfo: >
+    **Match types:**
+
+    A match type is a match operator. The supported match types are&#58;
+
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"properties.quality":"FULLY VISIBLE"}}    
+    * **match** - Search within a full text field for a single word
+      > {"match":{"properties.quality":"FULLY VISIBLE"}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"properties.featid"}}
+    * **geo_distance** - Returns the geo search based on the distance and
+    location lat/long
+      > {"geo_distance": {"distance": "11km","geometry": "1.349439786854645,103.75736216302658"}}
+    * **geo_shape** - Returns the geo search based on the type and coordinates.
+        relation should be anyone based on requirement.
+          > INTERSECTS - (default) Return all documents whose geo_shape field intersects the query geometry.
+          > DISJOINT - Return all documents whose geo_shape field has nothing in common with the query geometry.
+          > WITHIN - Return all documents whose geo_shape field is within the query geometry.   
+        type should be
+          > polygon - defined by a list of a list of points. The first and last points in each (outer) list must be the same (the polygon must be closed)
+          > points  - single geographic coordinate, such as the location of a building or the current position given by a smartphone’s Geolocation API.          
+      > {
+        "geo_shape": {
+          "geometry": {
+            "shape": {
+              "type": "polygon",
+              "coordinates":[ [ [103.69907590788098,1.341790133926203],[ 103.6990219038758,
+                                    1.341868809532727],[103.69919264733477,1.341893585818229],
+                                    [103.69919936085681,1.341886273517502],[103.69907590788098,
+                                    1.341790133926203 ]]]
+            },
+            "relation": "intersects"
+          }
+        }
+      }   
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
+      > {"bool":{"must":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
+      > {"bool":{"should":[{"match":{"properties.quality":"FULLY VISIBLE"}}]}}
+      
+  version: 2.1.0
+  x-apitype: small file
+  x-apitypedescription: |
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |
+    The API is billed by per request.
+  x-notes: |
+    Process up to 10,000 records.
+  x-apidetailsdesc: |
+    Provides returns all road works being / to be carried out.
+servers:
+  - url: https://dev-apis.sentient.io
+tags:
+  - name: v2.1.0
+    description: Published Date - Jun 30, 2022
+paths:
+  /microservices/data/fitnessstationplaygrnd/v2/getdata:
+    post:
+      tags:
+        - v2.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  hits:
+                    - _id: 3161fa9077473e138ed
+                      _index: hdb_map_index
+                      _score: 0
+                      _source:
+                        geometry:
+                          coordinates:
+                              - 103.70325637102218
+                                1.340288655171077
+                              - 103.70324988930291
+                                1.340330798101515
+                              - 103.7033615141859
+                                1.340351217328143
+                              - 103.70336972380933
+                                1.34030944346928
+                              - 103.70325637102218
+                                1.340288655171077
+                          type: Polygon
+                        geometry_type: Polygon
+                        lastupdated: '2022-04-05T16:05:00.644Z'
+                        properties:
+                          featid: 316
+                          fmel_upd_d: '2018-06-29'
+                          inc_crc: 1FA9077473E138ED
+                          lvl: GROUND LEVEL
+                          quality: FULLY VISIBLE
+                          type: FITNESS STATION / PLAYGROUND
+                      _type: _doc
+                  max_score: 0
+                  total:
+                    relation: eq
+                    value: 3118
+                scroll_id: >-
+                  FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoBRZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHUWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHcWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHYWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHkWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABHgWdjVWcXJXaVhRaXVaQzBma19Jckthdw==
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: Description of the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call - Success/Failure  
+        scroll_id: 
+          type: string
+          example: DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAADZ0WZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==
+          description: Pagination id        
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            max_score:
+              type: float
+              example: 0.0
+              description: The highest score value
+            total: 
+              type: object
+              example: {<Json Object>}
+              description: Json Object of returned total
+              properties:
+                relation:
+                  type: string
+                  example: eq
+                  description: Realtion between total counts and display result count.
+                value:
+                  type: integer
+                  example: 1
+                  description: Total number of records             
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "hdb_map_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "156edd775b13856fc71"
+                  _score: 
+                    type: float
+                    description: The document score for the search request
+                    example: 0.0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      properties:
+                        type: object
+                        example: {<Json Object>}
+                        description: Json Object of returned results
+                        properties:
+                          featid:
+                            type: integer
+                            example: 128
+                            description: Properties FEATID
+                          lvl:
+                            type: string
+                            example: "GROUND LEVEL"
+                            description: Properties Level
+                          quality:
+                            type: string
+                            example: "FULLY VISIBLE"
+                            description: Quality of Properties
+                          type:
+                            type: string
+                            example: "FITNESS STATION / PLAYGROUND"
+                            description: Property Types
+                          inc_crc:
+                            type: string
+                            example: "6CBA10726FCF8D23"
+                            description: INC_CRC
+                          fmel_upd_d:
+                            type: string
+                            example: "2018-06-29"
+                            description: fmel_upd_d
+                      geometry:
+                        type: geo_shape
+                        description: Location coordinates and its type
+                        example: {"type": "FITNESS STATION / PLAYGROUND", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2021-07-26T04:24:16.409Z"
+                      geometry_type:
+                        type: string
+                        description: Type of Geometry Coordinates
+                        example: "Polygon" 
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v2.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jun 30, 2022
+                x-details: Data structure changed
+                description: Latest Version
+        v2.0.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Apr 08, 2022
+                x-details: Data structure changed
+                description: Older Version
+        v1.0.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Apr 15, 2021
+                x-details: Optimized release
+                description: Archived
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Mar 24, 2020
+                x-details: Initial version release
+                description: Archived
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 10, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index . Default - 0
+        filter:
+          type: array
+          default: false
+          items:
+            type: object
+          example:
+            - match_phrase:
+                properties.quality: FULLY VISIBLE
+          description: >+
+            Its a list of filters to refine the search further. Default it
+            returns the today's latest record. Each filter consists of a match
+            type, the field and the value. The possible match types are&#58;
+
+            * match
+
+            * match_phrase
+
+            * geo_distance
+
+            * geo_shape
+
+            * exists
+
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
