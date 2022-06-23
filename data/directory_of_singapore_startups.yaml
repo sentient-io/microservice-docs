@@ -1,0 +1,570 @@
+openapi: 3.0.1
+info:
+  title: Directory of Singapore Startups
+  x-subscribelink: directory_of_singapore_startups
+  description: |+
+    This Data microservice retrieves a list of all Singapore startup companies found on the internet through web scraping. Updated quarterly.
+  x-additionalinfo: |+
+    Suggested Use Cases:
+    - Build solutions related to startups in Singapore. For example, investors interested in industry analysis can use this microservice to identify the trends and patterns in Singapore's startup scene.
+    
+    **Refining queries in the filterdata field using filter types and match types**
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+  
+    **Filter Types:**
+    A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
+    
+    * **must** - All of the stated conditions must match. Equivalent to an AND operator.
+      > {"must":[{"match":{"name":"technology"}}]}
+    * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
+      > {"must_not":[{"match":{"yearestablished.e27":"2016"}}]}
+    
+    * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
+      > {"should":[{"match":{"status.e27":"active"}}]}
+    
+    * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
+      > {"filter":[{"exists":{"field":"company.e27"}}]}
+      
+    For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
+    
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    **Match Types:**
+    A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+    
+    * **match** - Search within a full text field for a single word
+    
+      > {"match":{"name":"technology"}}
+    
+    * **match_phrase** - Search within a full text field
+    
+      > {"match_phrase":{"name":"nextwave partners"}}
+    
+    * **match_phrase_prefix** - Search within a full text field with prefix
+    
+      > {"match_phrase_prefix":{"name":"nextwave partners"}}
+    
+    * **term** - Returns results that contain an exact term in a provided field
+    
+      > {"term":{"employeecount.techinasia":"11"}}
+    
+    * **terms** - Returns results that contain one or more exact terms in a provided field
+    
+      > {"terms":{"employeecount.techinasia":["11","15"]}}
+      
+    * **range** - Returns results that contain terms within a stipulated range
+    
+      > {"range":{"company.techinasia.funding.amount":{"gte":10000000}}}
+      > {"range":{"company.techinasia.funding.amount":{"lte":50000000}}}
+      > {"range":{"company.techinasia.funding.amount":{"gte":10000000,"lte":50000000}}}
+      
+    * **exists** - Returns results that contain any indexed value for a field
+    
+      > {"exists":{"field":"company.e27"}}
+    
+    **Sample filterdata JSON:**
+      > {
+      > "must":[{"match":{"name":"technology"}}],
+      > "filter":[{"exists":{"field":"company.e27"}}],
+      > "should":[{"match":{"status.e27":"active"}}],
+      > "must_not":[{"match":{"yearestablished.e27":"2016"}}]
+      > }
+  version: '1.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides a list of all Singapore startup companies found on the internet through web scraping.
+servers:
+  - url: 'https://dev-apis.sentient.io'
+tags:
+- name: "v1.1.0"
+  description: "Published Date -Jun 30, 2022"
+paths:
+   /microservices/data/directories_searchdir/v1/getdata:
+    get:
+      tags:
+        - v1.1.0
+      parameters:
+        - in: query
+          name: querystring
+          schema:
+            type: string
+          description: |+ 
+            Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
+            
+            If this field is set to null, by default the microservice will return all start ups (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
+            
+          example: "technology"
+          default: false
+        - in: query
+          name: offset
+          schema:
+            type: integer
+          description: The offset of the record list ie the starting index
+          example: "0"
+          default: false
+        - in: query
+          name: limit
+          schema:
+            type: integer
+          description: The max records to return for the request. Default - 10, Max - 10000
+          example: "10"
+          default: false
+        - in: query
+          name: filterdata
+          schema:
+            type: string
+          description: |+
+            Refine the search further on any of the possible through the 4 filter types &#58;
+            * must
+            * must_not
+            * should
+            * filter
+          default: false
+          example: |+
+              {"must":[{"match":{"name":"technology"}}],"filter":[{"exists":{"field":"company.e27"}}],"should":[{"match":{"status.e27":"active"}}],"must_not":[{"match":{"yearestablished.e27":"2016"}}]}
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                results:
+                  total: 986
+                  max_score: 1
+                  hits:
+                  - _index: sentient_directory_index
+                    _type: dir_doc
+                    _id: TrrmAWgBv3dNEHq24P-C
+                    _score: 1
+                    _source:
+                      type: company
+                      source: sentient
+                      address: singapore
+                      createddate: '2018-12-31'
+                      name: AAR Consultancy
+                      logo:
+                        e27: https://e27.co/img/startups/11448/logo.png
+                      company:
+                        e27:
+                          sourceurl: https://e27.co/startup/aar-consultancy
+                          type: startup
+                          technology:
+                          - Enterprise Solution
+                          - Big Data
+                          - E-commerce
+                          - Education
+                          - Internet of Things
+                      socialmedia:
+                        e27:
+                          linkedin: https://sg.linkedin.com/in/soumikch
+                      descshort:
+                        e27: Google Certified Professionals. Providing with Consultation, Implementation
+                          Strategy and Training of various online platforms, methods and campaigns,
+                          including eComm launches.
+                      desclong:
+                        e27: 'My name is Soumik and I am founder of AAR Consultancy, a registered
+                          business in Singapore. I provide online consultancy, implementation strategy
+                          development and Training.I offer various online services, which you can
+                          see from my attached company profile. I am an MBA with 11+ years experience
+                          helping manage digital / online marketing for various industries. Been guest
+                          speakers at seminars and conferences and provided corporate training to
+                          SMEs and MNCs alike. I have worked with Streetdirectory, MDIS, Ogilvy and
+                          Mather, American Express and Mothercare and has helped clients such as IBM,
+                          Unilever, Nestle, SingTel, Guinness amongst others. SMEs, MNCs : B2B and
+                          B2C.Have launched eCommerce Platforms, websites, strategies, technologies,
+                          apps, and more.Trained and implemented, SEO, AdWords - ppc, media ads, social,
+                          community management and more.'
+                      website:
+                        e27: http://ww.aaronline.sg
+                      status:
+                        e27: active
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'    
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          example: { "<Json": "Object>" }
+          description: Json object of returned results.
+          properties: 
+            total:
+              type: integer
+              example: 986
+              description: Total number of records.
+            max_score:
+              type: integer
+              example: 1
+              description: The highest score value.
+            hits:
+              type: array
+              example: [ { "<JSON": "result Object" } ]
+              description: The list of Json result object.
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document.
+                    example: "sentient_directory_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document.
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "TrrmAWgBv3dNEHq24P-C"
+                  _score: 
+                    type: integer
+                    format: int32
+                    description: The document score for the search request.
+                    example: 1
+                  _source: 
+                    type: string
+                    example: { "<Json": "Object>" }
+                    description: Json object of returned hits.
+                    properties:
+                            type: 
+                              type: string
+                              description: Directory type
+                              example: company
+                            source: 
+                              type: string
+                              description: Dataset source
+                              example: sentient
+                            address: 
+                              type: string
+                              description: Full address
+                              example: singapore
+                            createddate: 
+                              type: string
+                              description: Record first release date on sentient.
+                              example: '2018-12-31'
+                            name: 
+                              type: string
+                              description: Business name
+                              example: AAR Consultancy
+                            logo:
+                              type: object
+                              example: { "<Json": "Object>" }
+                              description: List of logo from various content providers like f6s, e27, techinasia.
+                              properties:
+                                <contentprovider>: 
+                                  type: string
+                                  description: logo url
+                                  example: 'https://e27.co/img/startups/11448/logo.png'
+                            company:
+                              type: object
+                              example: { "<Json": "Object>" }
+                              description: Full details about the company from various content providers like f6s, e27, techinasia
+                              properties:
+                                <contentprovider>:
+                                  type: object
+                                  example: { "<Json": "Object>" }
+                                  description: Directory details from the content provider like f6s, e27, techinasia.
+                                  properties:
+                                    sourceurl: 
+                                      type: string
+                                      description: Directory source url
+                                      example: 'https://e27.co/startup/tech-in-asia'
+                                    type: 
+                                      type: string
+                                      description: Type of Directory 
+                                      example: startup
+                                    technology:
+                                      type: array
+                                      items:
+                                        oneOf:
+                                        - type: string
+                                          format: list
+                                          example: Enterprise Solution
+                                        - type: string
+                                          format: list
+                                          example: Big Data
+                                        - type: string
+                                          format: list
+                                          example: E-commerce
+                                        - type: string
+                                          format: list
+                                          example: Education
+                                        - type: string
+                                          format: list
+                                          example: Internet of Things
+                                      funding:
+                                        type: array
+                                        example: [ { "<JSON": "result Object" } ]
+                                        description: The list of company funding
+                                        items:
+                                          type: object
+                                          properties:
+                                            logo:
+                                              type: string
+                                              description: Logo of the funding organization
+                                              example: "https://e27.co/img/startups/28287/logo-1508911709_thumb.png"
+                                            name: 
+                                              type: string
+                                              description: Funding company name
+                                              example: "Hanwha Investment South Korea"
+                                            location: 
+                                              type: string
+                                              description: Funding round/stage
+                                              example: "Venture Round"
+                                            amount: 
+                                              type: string
+                                              description: Funding amount
+                                              example: "US$6.6M"
+                                            date: 
+                                              type: string
+                                              description: Funding date
+                                              example: "Nov 2017"
+                            socialmedia:
+                              type: object
+                              example: { "<Json": "Object>" }
+                              description: Various Social media details from various content providers like f6s, e27, techinasia
+                              properties:
+                                <contentprovider>:
+                                  type: string
+                                  description: Social media  information of the record
+                                  example: 'https://www.linkedin.com/company/tech-in-asia'
+                                  properties:
+                                    linkedin: 
+                                      type: string
+                                      description: Social media - Linkedin url
+                                      example: 'https://www.linkedin.com/company/tech-in-asia'
+                                    facebook: 
+                                      type: string
+                                      description: Social media - Facebook url
+                                      example: 'https://www.facebook.com/techinasia'
+                                    twitter: 
+                                      type: string
+                                      description: Social media - twitter url
+                                      example: 'https://www.twitter.com/Techinasia'
+                            descshort:
+                              type: object
+                              example: { "<Json": "Object>" }
+                              description: Short description
+                              properties:
+                                <contentprovider>: 
+                                  type: string
+                                  description: Short description from various content providers like f6s, e27, techinasia
+                                  example: 'Tech in Asia (YC W15) is the go-to online platform for Asia’s tech community, with annual conferences hosted in Singapore, Tokyo, and Jakarta.'
+                            desclong:
+                              type: object
+                              example: { "<Json": "Object>" }
+                              description: Long description
+                              properties:
+                                <contentprovider>: 
+                                  type: string
+                                  description: Long description from various content providers like f6s, e27, techinasia
+                                  example: 'Tech in Asia (YC W15) is the go-to online platform for Asia’s tech community, with annual conferences hosted in Singapore, Tokyo, and Jakarta. Right here is where you can keep abreast of Asia’s tech industry, share your thoughts alongside ours, and connect with startups and investors alike.With an ever-growing team of close to 100 based all across Asia and the US, spanning editorial, events and database functions, they are fully dedicated to bringing Asia’s tech ecosystem closer together.Above all, they want to give you a voice with their platform and facilitate meaningful discussions that would otherwise only take place offline. Anyone willing to add value to Asia’s tech community and ecosystem is able and welcome to join in the conversation.Tech in Asia counts Softbank, Y Combinator, Walden International, East Ventures, Facebook co-founder Eduardo Saverin, and more amongst its list of investors. Their statement of ethics governs their principles regarding full disclosure and conflicts of interest.'
+                            website:
+                              type: object
+                              example: { "<Json": "Object>" }
+                              description: Website details from various content providers like f6s, e27, techinasia
+                              properties:
+                                <contentprovider>:
+                                  type: string
+                                  description: Website address
+                                  example: 'https://www.techinasia.com'
+                            status:
+                              type: object
+                              example: { "<Json": "Object>" }
+                              description: Company status from various content providers like f6s, e27, techinasia
+                              properties:
+                                <contentprovider>:
+                                  type: string
+                                  description: Company status
+                                  example: active
+        message:
+          type: string
+          example: Successfully Processed
+          description: Description of the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call - success/failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 30, 2022
+              x-details: Optimized release
+              description: Latest Version
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - May 21, 2021
+              x-details: Optimized release
+              description: Archived
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Dec 26, 2018
+              x-details: Initial version release
+              description: Archived
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header.
