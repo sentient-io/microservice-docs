@@ -65,7 +65,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Jun 30, 2022"
+  description: "Published Date - Apr 08, 2022"
 paths:
    /microservices/data/hardcourt/v2/getdata:
     post:
