@@ -367,7 +367,7 @@ data:
     title: HDB Block Coordinates (SG)
     versions:
       1.1.0: 'building_addresses_hdb_sg.yaml'
-      1.0.0: 'building_addresses_hdb_sg.yaml'
+      1.0.0: 'building_addresses_hdb_sg_v1.yaml'
   residential_sales_and_rental_hdb_sg:
     title: HDB Residential Occupancy Status (SG)
     versions:
@@ -375,7 +375,8 @@ data:
   carpark_hdb_sg:
     title: HDB Carpark Locations (SG)
     versions:
-      1.0.0: 'carpark_hdb_sg.yaml'
+      1.1.0: 'carpark_hdb_sg.yaml'
+      1.0.0: 'carpark_hdb_sg_v1.yaml'
   demographics_hdb_sg:
     title: HDB Demographics (SG)
     versions:
@@ -396,25 +397,25 @@ data:
     title: HDB Fitness Stations and Playgrounds (SG)
     versions:
       2.1.0: 'fitness_stations_and_playgrounds_hdb_sg.yaml'
-      2.0.0: 'fitness_stations_and_playgrounds_hdb_sg.yaml'
+      2.0.0: 'fitness_stations_and_playgrounds_hdb_sg_v2.yaml'
       1.0.0: 'fitness_stations_and_playgrounds_hdb_sg_v1.yaml'
   amenities_lamp_posts_hdb_sg:
     title: HDB Lamp Posts Locations (SG)
     versions:
       2.1.0: 'amenities_lamp_posts_hdb_sg.yaml'
-      2.0.0: 'amenities_lamp_posts_hdb_sg.yaml'
+      2.0.0: 'amenities_lamp_posts_hdb_sg_v2.yaml'
       1.0.0: 'amenities_lamp_posts_hdb_sg_v1.yaml'
   amenities_hardcourts_hdb_sg:
     title: HDB Hardcourts Locations (SG)
     versions:
       2.1.0: 'amenities_hardcourts_hdb_sg.yaml'
-      2.0.0: 'amenities_hardcourts_hdb_sg.yaml'
+      2.0.0: 'amenities_hardcourts_hdb_sg_v2.yaml'
       1.0.0: 'amenities_hardcourts_hdb_sg_v1.yaml'
   amenities_shelters_hdb_sg:
     title: HDB Shelters Locations (SG)
     versions:
       2.1.0: 'amenities_shelters_hdb_sg.yaml'
-      2.0.0: 'amenities_shelters_hdb_sg.yaml'
+      2.0.0: 'amenities_shelters_hdb_sg_v2.yaml'
       1.0.0: 'amenities_shelters_hdb_sg_v1.yaml'
   d&b_business_check_plus_sg:
     title: D&B Business Check Plus (SG)
