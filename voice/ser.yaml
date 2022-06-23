@@ -4,7 +4,7 @@ info:
   description: |+
     This Voice microservice takes in an audio file (in WAV format at 16kHz) and return the emotional feeling of voice.
 
-    This api supports upto 15 seconds audio file only.
+    This api supports upto 30 seconds audio file only.
   version: '0.1.0'
   x-apitype: small file
   x-subscribelink: asr_en_unified
