@@ -101,10 +101,10 @@ voice:
     title: ASR EN Unified
     versions:
       0.1.0: 'asr_en_unified.yaml' 
-  ser:
+  speaker_emotion_recognition:
     title: SER
     versions:
-      0.1.0: 'ser.yaml'      
+      0.1.0: 'speaker_emotion_recognition.yaml'      
 nlp:
   kyc:
     title: KYC
