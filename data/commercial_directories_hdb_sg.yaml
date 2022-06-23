@@ -515,7 +515,7 @@ components:
             - type: string
               example: Published Date - May 21,2021
               x-details: Optimized release
-              description: Archived
+              description: Older Version
         v0.1.0:
          type: array
          items:
