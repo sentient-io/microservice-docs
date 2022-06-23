@@ -362,7 +362,8 @@ data:
   commercial_directories_hdb_sg:
     title: HDB Commercial Directories (SG)
     versions:
-      1.0.0: 'commercial_directories_hdb_sg.yaml'
+      1.1.0: 'commercial_directories_hdb_sg.yaml'
+      1.0.0: 'commercial_directories_hdb_sg_v1.yaml'
   building_addresses_hdb_sg:
     title: HDB Block Coordinates (SG)
     versions:
@@ -371,7 +372,8 @@ data:
   residential_sales_and_rental_hdb_sg:
     title: HDB Residential Occupancy Status (SG)
     versions:
-      1.0.0: 'residential_sales_and_rental_hdb_sg.yaml'
+      1.1.0: 'residential_sales_and_rental_hdb_sg.yaml
+      1.0.0: 'residential_sales_and_rental_hdb_sg_v1.yaml'
   carpark_hdb_sg:
     title: HDB Carpark Locations (SG)
     versions:
@@ -380,19 +382,23 @@ data:
   demographics_hdb_sg:
     title: HDB Demographics (SG)
     versions:
-      1.0.0: 'demographics_hdb_sg.yaml'
+      1.1.0: 'demographics_hdb_sg.yaml'
+      1.0.0: 'demographics_hdb_sg_v1.yaml'
   flat_ownership_hdb_sg:
     title: HDB Flat Ownership Duration (SG)
     versions:
-      1.0.0: 'flat_ownership_hdb_sg.yaml'
+      1.1.0: 'flat_ownership_hdb_sg.yaml'
+      1.0.0: 'flat_ownership_hdb_sg_v1.yaml'
   season_parking_availability_hdb_sg:
     title: HDB Season Parking Availability (SG)
     versions:
-      1.0.0: 'season_parking_availability_hdb_sg.yaml'
+      1.1.0: 'season_parking_availability_hdb_sg.yaml'
+      1.0.0: 'season_parking_availability_hdb_sg_v1.yaml'
   directory_of_singapore_startups:
     title: Directory of Singapore Startups
     versions:
       1.0.0: 'directory_of_singapore_startups.yaml'
+      1.0.0: 'directory_of_singapore_startups_v1.yaml'
   fitness_stations_and_playgrounds_hdb_sg:
     title: HDB Fitness Stations and Playgrounds (SG)
     versions:
@@ -420,20 +426,24 @@ data:
   d&b_business_check_plus_sg:
     title: D&B Business Check Plus (SG)
     versions:
-      1.0.0: 'd&b_business_check_plus_sg.yaml'
+      1.1.0: 'd&b_business_check_plus_sg.yaml'
+      1.0.0: 'd&b_business_check_plus_sg_v1.yaml'
   d&b_basic_individual_search_sg:
     title: D&B Basic Individual Search (SG)
     versions:
-      1.0.0: 'd&b_basic_individual_search_sg.yaml'
+      1.1.0: 'd&b_basic_individual_search_sg.yaml'
+      1.0.0: 'd&b_basic_individual_search_sg_v1.yaml'
       0.1.0: 'd&b_basic_individual_search_sg_v0.1.yaml'
   d&b_business_check_sg:
     title: D&B Business Check (SG)
     versions:
-      1.0.0: 'd&b_business_check_sg.yaml'
+      1.1.0: 'd&b_business_check_sg.yaml'
+      1.0.0: 'd&b_business_check_sg_v1.yaml'
   d&b_brief_financial_information_sg:
     title: D&B Brief Financial Information (SG)
     versions:
-      1.0.0: 'd&b_brief_financial_information_sg.yaml'
+      1.1.0: 'd&b_brief_financial_information_sg.yaml'
+      1.0.0: 'd&b_brief_financial_information_sg_v1.yaml'
   hdb_amenities_score:
     title: HDB Amenities Score
     versions:
@@ -441,51 +451,63 @@ data:
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
-      0.1.0: 'trajectory_clustering.yaml' 
+      0.1.1: 'trajectory_clustering.yaml'
+      0.1.0: 'trajectory_clustering_v0.yaml' 
   lta_road_works:
     title: LTA Road Works
     versions:
-      0.1.1: 'lta_road_works.yaml' 
+      0.1.2: 'lta_road_works.yaml'
+      0.1.1: 'lta_road_works_v0.yaml' 
   lta_car_park_availability_historical:
     title: LTA Carpark Availability Historical
     versions:
-      0.1.1: 'lta_car_park_availability_historical.yaml'      
+      0.1.2: 'lta_car_park_availability_historical.yaml'
+      0.1.1: 'lta_car_park_availability_historical_v0.yaml'      
   lta_traffic_images:
     title: LTA Traffic Images
     versions:
-      0.1.1: 'lta_traffic_images.yaml'       
+      0.1.2: 'lta_traffic_images.yaml'
+      0.1.1: 'lta_traffic_images_v0.yaml'       
   lta_traffic_incidents:
     title: LTA Traffic Incidents
     versions:
-      0.1.1: 'lta_traffic_incidents.yaml'      
+      0.1.2: 'lta_traffic_incidents.yaml'
+      0.1.1: 'lta_traffic_incidents_v0.yaml'      
   lta_traffic_speed_bands_historical:
     title: LTA Traffic Speed Bands Historical
     versions:
-      0.1.1: 'lta_traffic_speed_bands_historical.yaml'       
+      0.1.2: 'lta_traffic_speed_bands_historical.yaml'
+      0.1.1: 'lta_traffic_speed_bands_historical_v0.yaml'       
   lta_vms:
     title: LTA VMS
     versions:
-      0.1.1: 'lta_vms.yaml'      
+      0.1.2: 'lta_vms.yaml'
+      0.1.1: 'lta_vms_v0.yaml'      
   lta_faulty_traffic_lights:
     title: LTA Faulty Traffic Lights
     versions:
-      0.1.1: 'lta_faulty_traffic_lights.yaml'
+      0.1.2: 'lta_faulty_traffic_lights.yaml'
+      0.1.1: 'lta_faulty_traffic_lights_v0.yaml'
   lta_pv_bus:
     title: LTA Passenger Volume by Bus Stops
     versions:
-      0.1.1: 'lta_pv_bus.yaml'       
+      0.1.2: 'lta_pv_bus.yaml'
+      0.1.1: 'lta_pv_bus_v0.yaml'       
   realtime_weather:
     title: Realtime Weather
     versions:
-      0.1.0: 'realtime_weather.yaml' 
+      0.1.1: 'realtime_weather.yaml'
+      0.1.0: 'realtime_weather_v0.yaml' 
   lidar_trajectory_data:
     title: LiDAR Trajectory Data
     versions:
-      0.1.0: 'lidar_trajectory_data.yaml'     
+      0.1.1: 'lidar_trajectory_data.yaml'
+      0.1.0: 'lidar_trajectory_data_v0.yaml'     
   train_stations_sg:
     title: Train Stations (SG)
     versions:
-      0.1.0: 'train_stations_sg.yaml' 
+      0.1.1: 'train_stations_sg.yaml'
+      0.1.0: 'train_stations_sg_v0.yaml' 
 analytics:
   recommendation_engine:
     title: Recommendation Engine
