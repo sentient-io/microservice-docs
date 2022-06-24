@@ -238,6 +238,14 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 06, 2020
+              x-details: Input parameter standard and fast api conversion
+              description: Latest Version
         v0.1.0:
          type: array
          items:
