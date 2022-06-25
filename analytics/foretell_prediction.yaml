@@ -5,7 +5,7 @@ info:
     Foretell Prediction API will return the predicted value of a time series together with the RMSE, MAE, and MAPE of the prediction.
   version: '0.1.0'
   x-additionalinfo: |+
-    - This microservice consists of different types of Fortell Pridication APIs.
+    - This microservice consists of different types of Fortell Prediction APIs.
     - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/foretell_prediction.yaml
   x-subscribelink: foretellprediction
   x-apitype: Subscription
