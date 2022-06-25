@@ -5,7 +5,7 @@ info:
     Foretell Prediction API will return the predicted value of a time series together with the RMSE, MAE, and MAPE of the prediction.
   version: '0.1.0'
   x-additionalinfo: |+
-    - This microservice consists of set of REST APIs to pre-process FRE data before the user can call the Load Planning Engine. In order to get the FRE data, do check out the Fleet Routing Engine Microservice for more details.
+    - This microservice consists of different types of Fortell Pridication APIs.
     - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/foretell_prediction.yaml
   x-subscribelink: foretellprediction
   x-apitype: Subscription
@@ -544,7 +544,7 @@ components:
         num_harmonics:
           type: number
           description: |+
-            Harmonic number (parameter tuning for FFT). Optional parameter. The default value is 10.
+            Harmonic number (parameter tuning for FFT). Optional parameter. The default number of the harmonics will be calculated based on the number of time series data and will be returned after the successful API request to the user.
           example: 10
     arimainput:
       type: object
