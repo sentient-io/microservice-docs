@@ -5,7 +5,7 @@ info:
     Foretell Profiling API will take a time series data and process it to give response of its classification, change point, and predictability score. The period of each data point of the time series data input is to be determined by the client.
   version: '0.1.0'
   x-additionalinfo: |+
-    - This microservice consists of set of REST APIs to pre-process FRE data before the user can call the Load Planning Engine. In order to get the FRE data, do check out the Fleet Routing Engine Microservice for more details.
+    - This microservice consists of different types of Fortell Profiling APIs.
     - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/foretell_profiling.yaml
   x-subscribelink: foretellprofiling
   x-apitype: Subscription
