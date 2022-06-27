@@ -103,7 +103,7 @@ paths:
             schema:
               $ref: '#/components/schemas/classificationinput'
         required: true
-  /microservices/analytics/foretellprofiling/v0/cpd:
+  /microservices/analytics/foretellprofiling/v0/changepoint:
     description: |+
         The change point detection API will return the index of the time series data where the change point is occurred.
     post:
