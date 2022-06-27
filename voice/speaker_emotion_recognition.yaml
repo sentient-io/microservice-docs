@@ -4,27 +4,27 @@ info:
   description: |+
     This Voice microservice takes in an audio file and return the emotional feeling of voice.
 
-    This api supports upto 30 seconds audio file only.
+    This api supports upto 50 seconds audio file only.
   version: '0.1.0'
   x-apitype: small file
   x-subscribelink: speaker_emotion_recognition
   x-apitypedescription: |+
-    Fast | Single-Call | 30 sec/Call
+    Fast | Single-Call | 50 sec/Call
   x-inputfilelimit: |+
-    Process up to  30 seconds (1 minute) of audio file.
+    Process up to  50 seconds (1 minute) of audio file.
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
     The API is billed by per request.
   x-notes: |+
-    Limit cannot exceed  30 seconds (1 minute).
+    Limit cannot exceed  50 seconds (1 minute).
   x-apidetailsdesc: |+
     Transcribes Singaporean-accented English speech content for audio file (in WAV format at 16kHz).
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Jun 23, 2022"
+  description: "Published Date - Jun 27, 2022"
 paths:
   /microservices/voice/speakeremotion/v0/get_emotion:
     post:
@@ -259,7 +259,7 @@ components:
           default: true
           example: sample.wav
           description: |+
-            Maximum Limit upto 30 seconds of audio wav file.
+            Maximum Limit upto 50 seconds of audio wav file.
     versions:
       type: object
       properties: 
@@ -268,7 +268,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 23, 2022
+              example: Published Date - Jun 27, 2022
               x-details: Initial version release
               description: Initial Version
   securitySchemes:
