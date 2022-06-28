@@ -146,7 +146,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed         
-  /async/microservices/voice/asrsch/v0/getstatus:
+  /async/microservices/cv/thumbnailgeneration/v0/getstatus:
     description: |+
       Query for processing status.
     get:
