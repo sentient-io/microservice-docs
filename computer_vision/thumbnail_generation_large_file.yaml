@@ -436,7 +436,7 @@ components:
           x-name: content_type
           type: string
           default: true
-          example: 'audio/wav'
+          example: 'video/x-m4v'
           description: |+
             Specify the content-type. Pick any one from below list based on input file type.
             video - ["video/x-m4v", "video/mp4", 
