@@ -24,7 +24,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Jun 09, 2022"
+  description: "Published Date - Jun 30, 2022"
 paths:
   /async/microservices/cv/thumbnailgeneration/v0/getuploadurl:
     description: |+
@@ -409,7 +409,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 06, 2022
+              example: Published Date - Jun 30, 2022
               x-details: Initial version release  
               description: Latest Version
     input:
@@ -431,7 +431,7 @@ components:
           default: true
           example: 4746636
           description: |+
-            Size of the file. Maximum size should be 1 GB.
+            Size of the file. Maximum size should be 2 GB.
         content_type:
           x-name: content_type
           type: string
