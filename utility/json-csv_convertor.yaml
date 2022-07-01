@@ -7,7 +7,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - For users who would like to combine data into useful spreadsheets for others to analyze, update, or refer to. This microservice can convert a collection of JSON into CSV spreadsheets like Google Sheets or Excel to analyze data without programming.
-  version: '2.1.0'
+  version: '2.0.0'
   x-subscribelink: json-csv_convertor
   x-apitype: small file
   x-apitypedescription: |+
@@ -25,13 +25,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v2.1.0"
+- name: "v2.0.0"
   description: "Published Date - Jun 30, 2022"
 paths:
   /microservices/utility/jsontocsv/v2/getresults:
     post:
       tags:
-        - v2.1.0
+        - v2.0.0
       responses:
         '200':
           description: Ok
