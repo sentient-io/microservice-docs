@@ -177,7 +177,7 @@ nlp:
   text_summarization:
     title: Text Summarization
     versions:
-      1.2.0: 'text_summarization.yaml'
+      1.0.0: 'text_summarization.yaml'
       0.2.0: 'text_summarization_v0.2.yaml'
   text_summarization_large_file:
     title: Text Summarization (Large File)
