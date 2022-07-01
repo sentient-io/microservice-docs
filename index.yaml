@@ -280,6 +280,7 @@ utility:
     title: Video-To-Audio Convertor
     versions:
       1.0.0: 'video-to-audio_converter.yaml'
+      0.1.0: 'video-to-audio_converter_v0.1.yaml'
   web_scraper:
     title: Web Scraper
     versions:
@@ -346,7 +347,8 @@ utility:
   base64_file_encode:
     title: Base64 Encoder
     versions:
-      0.1.0: 'base64_file_encode.yaml'
+      1.0.0: 'base64_file_encode.yaml'
+      0.1.0: 'base64_file_encode_v0.1.yaml'
   base64_file_decode:
     title: Base64 Decoder
     versions:
