@@ -279,7 +279,7 @@ utility:
   video-to-audio_converter:
     title: Video-To-Audio Convertor
     versions:
-      0.1.0: 'video-to-audio_converter.yaml'
+      1.0.0: 'video-to-audio_converter.yaml'
   web_scraper:
     title: Web Scraper
     versions:
@@ -288,7 +288,8 @@ utility:
   document_convertor_eng:
     title: Document Convertor ENG
     versions:
-      1.0.0: 'document_conversion_eng.yaml'
+      2.0.0: 'document_conversion_eng.yaml'
+      1.0.0: 'document_conversion_eng_v1.0.yaml'
   pdf_extractor:
     title: PDF Extractor
     versions:
@@ -349,7 +350,7 @@ utility:
   base64_file_decode:
     title: Base64 Decoder
     versions:
-      0.1.0: 'base64_file_decode.yaml'    
+      1.0.0: 'base64_file_decode.yaml'    
   get_ip:
     title: Get IP
     versions:
