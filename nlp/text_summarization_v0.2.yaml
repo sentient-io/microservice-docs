@@ -7,7 +7,7 @@
       The input text should be a minimum of 100 words and a maximum of 512 words. 
 
       For longer text, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective summarization.
-    version: '1.2.0'
+    version: '0.2.0'
     x-subscribelink: text_summarization
     x-apitype: small file
     x-apitypedescription: |+
@@ -23,12 +23,12 @@
     x-apidetailsdesc: |+
       Input text blurb and generates a summary of up to a maximum of 168 words.
   servers:
-    - url: 'https://dev-apis.sentient.io'
+    - url: 'https://apis.sentient.io'
   tags:
-  - name: "v1.2.0"
-    description: "Published Date - May 24, 2022"
+  - name: "v0.2.0"
+    description: Published Date - Aug 11, 2021"
   paths:
-    /microservices/nlp/textsummarisation/v1/getpredictions:
+    /microservices/nlp/textsummarisation/v0/getpredictions:
       post:
         tags:
           - v0.2.0
