@@ -26,7 +26,7 @@
     - url: 'https://dev-apis.sentient.io'
   tags:
   - name: "v1.0.0"
-    description: "Published Date - May 24, 2022"
+    description: "Published Date - Jul 8 , 2022"
   paths:
     /microservices/nlp/textsummarisation/v1/getpredictions:
       post:
@@ -220,7 +220,7 @@
             items:
              oneOf:
                - type: string
-                 example: Published Date - May 24, 2022
+                 example: Published Date - Jul 8, 2022
                  x-details: Model & Code Upgrade 
                  description: Latest version
           v0.2.0:
