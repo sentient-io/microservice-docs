@@ -319,6 +319,13 @@ components:
           description: |+
             Specifies the type of text normalisation to be applied. Accepts both string and list of strings.
             Accepted string values are either "ALL" or "DEFAULT". Accepted list of strings are "PLAIN", "PUNCT", "DATE", "LETTERS", "CARDINAL", "VERBATIM", "DECIMAL", "MEASURE", "MONEY", "ORDINAL", "TIME", "ELECTRONIC", "DIGIT", "FRACTION", "TELEPHONE", "ADDRESS". No default value
+        map_only_flag:
+          x-name: map_only_flag
+          type: boolean
+          default: False
+          example: false
+          description: |+
+            Parameter to activate Singlish mapping 
         wrapper_required:
           x-name: wrapper_required
           type: boolean
