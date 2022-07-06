@@ -211,7 +211,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 30, 2020
+              x-details: Input parameter standarization and fast api conversion
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -219,7 +227,7 @@ components:
             - type: string
               example: Published Date - Jul 30, 2020
               x-details: Change libary for PDF reader
-              description: Latest Version
+              description: Old Version
         v0.1.0:
          type: array
          items:
