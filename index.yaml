@@ -222,8 +222,7 @@ utility:
   document_convertor_eng:
     title: Document Convertor ENG
     versions:
-      2.0.0: 'document_conversion_eng.yaml'
-      1.0.0: 'document_conversion_eng_v1.0.yaml'
+      1.0.0: 'document_conversion_eng.yaml'
   pdf_extractor:
     title: PDF Extractor
     versions:
