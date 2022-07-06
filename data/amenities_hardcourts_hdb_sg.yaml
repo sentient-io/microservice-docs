@@ -232,7 +232,6 @@ components:
                     example: "156edd775b13856fc71"
                   _score: 
                     type: number
-                    type: format
                     description: The document score for the search request.
                     example: 0.5
                   _source: 
@@ -270,7 +269,7 @@ components:
                             example: "2018-06-29"
                             description: fmel_upd_d
                       geometry:
-                        type: geo_shape
+                        type: object
                         description: Location coordinates and its type.
                         example: {"type": "Polygon", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}
                       lastupdated:
