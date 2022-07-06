@@ -112,23 +112,21 @@ paths:
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
             If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
-            
+          required: false
           example: "tampines"
-          default: false
         - in: query
           name: offset
           schema:
             type: integer
           description: The offset of the record list ie the starting index
           example: "0"
-          default: false
         - in: query
           name: limit
           schema:
             type: integer
           description: The max records to return for the request. Default - 10, Max - 10000
+          required: false
           example: "10"
-          default: false
         - in: query
           name: filterdata
           schema:
@@ -139,7 +137,7 @@ paths:
             * must_not
             * should
             * filter
-          default: false
+          required: false
           example: |+
             {"filter":[{"match":{"age_group_id":7}},{"match":{"gender":"male"}},{"match":{"postalcode":520423}}]}
       responses:
@@ -274,7 +272,6 @@ components:
                     example: "K7scqWgBv3dNEHq2WvMo"
                   _score: 
                     type: number
-                    type: format
                     description: The document score for the search request
                     example: 17.995623
                   _source: 
