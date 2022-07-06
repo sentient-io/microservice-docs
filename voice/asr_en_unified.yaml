@@ -214,7 +214,7 @@ components:
         - file_path      
       properties:
         file_path:
-          type: file
+          type: string
           format: binary
           default: true
           example: sample.wav
