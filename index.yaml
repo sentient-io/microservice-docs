@@ -78,8 +78,7 @@ voice:
   voice_activity_detection_eng:
     title: Voice Activity Detection ENG
     versions:
-      1.0.1: 'voice_activity_detection_eng.yaml'
-      0.1.0: 'voice_activity_detection_eng_v0.1.yaml'    
+      1.0.1: 'voice_activity_detection_eng.yaml'  
   google_asr_large_file:
     title: Google ASR (Large File)
     versions:
@@ -132,7 +131,6 @@ nlp:
     title: spaCy NER
     versions:
       1.0.0: 'spacy_ner.yaml'
-      0.1.0: 'spacy_ner_v0.1.yaml'
   page_profiler_eng:
     title: Page Profiler ENG
     versions:
@@ -149,12 +147,10 @@ nlp:
     title: Taxonomy Matcher ENG
     versions:
       1.0.1: 'taxonomy_matcher_eng.yaml'
-      0.1.0: 'taxonomy_matcher_eng_v0.1.yaml'
   word_sense_disambiguation_eng:
     title: Word Sense Disambiguation ENG
     versions:
       1.0.0: 'word_sense_disambiguation_eng.yaml'
-      0.1.0: 'word_sense_disambiguation_eng_v0.1.yaml'
   named-entity_recognition_jp:
     title: Named-Entity Recognition JP
     versions:
@@ -169,7 +165,6 @@ nlp:
     title: Script Alignment
     versions:
       1.0.0: 'script_alignment.yaml'
-      0.1.0: 'script_alignment_v0.1.yaml'
   word_scoring_and_suggestions:
     title: Word Scoring and Suggestions
     versions:
@@ -220,7 +215,6 @@ computer vision:
     title: Face Recognition
     versions:
       1.0.1: 'face_recognition.yaml'
-      0.1.0: 'face_recognition_v0.1.yaml'
   few_shots_object_detection:
     title: Few Shots Object Detection
     versions:
@@ -254,7 +248,6 @@ computer vision:
     title: Landmark Detection (JP)
     versions:
       1.0.0: 'landmark_recognition_jp.yaml'
-      0.1.0: 'landmark_recognition_jp_v0.1.yaml'
   demographics_classification:
     title: Demographics Classification
     versions:
