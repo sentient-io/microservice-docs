@@ -241,7 +241,7 @@ components:
               - type: string
                 example: Published Date - Oct 30, 2020
                 x-details: Standardizing Output JSON
-                description: Depreciating on May 11, 2021
+                description: Depreciated on May 11, 2021
         v0.1.0:
           type: array
           items:
