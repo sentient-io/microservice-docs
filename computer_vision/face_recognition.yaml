@@ -312,7 +312,7 @@ components:
             - type: string
               example: Published Date - Dec 09, 2020
               x-details: Standardizing Output JSON and model update
-              description: Depreciating on Jan 10, 2021
+              description: Depreciated on Jan 10, 2021
 
         v0.1.0:
           type: array
