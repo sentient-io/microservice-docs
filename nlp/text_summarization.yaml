@@ -39,7 +39,7 @@
               application/json:
                 schema:
                   $ref: '#/components/schemas/success'
-                example: {"message": "Successfully Processed","results": {"score": 2.14511174780278,"text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."},"status": "Success"}
+                example: {"message": "Successfully Processed","results": {"text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."},"status": "Success"}
           '401':
             description: Unauthorized
             content:
@@ -112,11 +112,6 @@
             example: { "<Json": "Object>" }
             description: Json object in the returned results
             properties:   
-              score:
-                type: number
-                format: float
-                example: 2.2100781633414535
-                description: The confidence score of the summary.
               text:
                 type: string
                 example: more than 2,000 build-to-orders have been completed by the hdb in 2015. more than 70 per cent of residents have moved into their new homes in alk by 50 per cent in bidadari .y greenrise will be the last bto to be
@@ -267,16 +262,6 @@
             example: "More than 2,000 Build-To-Order (BTO) Housing Board flats in Singapore's newest large estate, Bidadari, have been completed, with families progressively moving into their new homes.These flats are spread across three projects - Alkaff Vista, Alkaff LakeView and Alkaff CourtView - which were launched for sale by the HDB in 2015.More than 70 per cent of residents have moved into their new homes in Alkaff Vista and Alkaff LakeView, said the HDB in an update yesterday.About 50 per cent of residents have done the same at Alkaff CourtView, where works on community spaces are still in progress. All 12 public housing developments in Bidadari have been rolled out, with the final three projects - Bartley GreenRise, ParkEdge @ Bidadari and Alkaff Breeze - launched in this month's BTO sales exercise.Bartley GreenRise will be the last BTO site to be ready, and is estimated to be completed in the second quarter of 2025. The BTO flats in the 93ha Bidadari estate have been highly sought after by home seekers. The five-room flats typically drew more applicants than there were available units.This is despite Bidadari's past as a grave site, with some drawing similarities between the estate and the mature town of Bishan, which was also once a cemetery.Most of the units in Alkaff LakeView and Alkaff CourtView have been designed with structural columns tucked to the edges to allow residents greater flexibility in configuring their home layouts."
             description: |+
               Input text
-          max_input_len:
-            x-name: max_input_len
-            type: integer
-            default: False
-            example: 1024
-            description: |+
-              The model will accept up to max_input_len of subword.
-              If the input length is higher than max_input_len, the input will be truncated. 
-              Default value is 1024.
-              Recommended range is between 512 and 1024.
           beam_size:
             x-name: beam_size
             type: integer
