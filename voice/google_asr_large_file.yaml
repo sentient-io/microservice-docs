@@ -165,10 +165,10 @@ info:
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Jun 20, 2022"
+  description: "Published Date - Jul 08, 2022"
 paths:
   /async/microservices/voice/googleasr/v1/getuploadurl:
     description: |+
@@ -274,10 +274,10 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/user_space_dev/'
+        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
           description: Override base path for the GET /ping operation    
       tags:
-        - v0.1.0
+        - v1.0.0
       requestBody:
         content:
           multipart/form-data:
@@ -298,7 +298,7 @@ paths:
       Query for processing status.
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: jid
@@ -558,7 +558,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 20, 2022
+              example: Published Date - Jul 08, 2022
               x-details: Initial version release  
               description: Latest Version      
         v0.1.0:
