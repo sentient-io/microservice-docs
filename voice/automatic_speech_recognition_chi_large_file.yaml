@@ -7,35 +7,35 @@ info:
     - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.
     - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
     - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.    
-  version: '0.1.1'
+  version: '0.1.2'
   x-additionalinfo: |+
-    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need the file upload form https://sentient.io/upload/form.html
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
   x-subscribelink: automatic_speech_recognition_chi
   x-apitype: large file
   x-apitypedescription: |+
-    Asyncronous | Batch | 1GB/File.
+    Asyncronous | Batch | 2GB/File.
   x-inputfilelimit: |+
-    Process up to 1 GB of File Size.
+    Process up to 2 GB of File Size.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data.
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
-    Size cannot exceed 1 GB.
+    Size cannot exceed 2 GB.
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.1"
-  description: "Published Date - Jun 10, 2022"
+- name: "v0.1.2"
+  description: "Published Date - Jul 08, 2022"
 paths:
   /async/microservices/voice/asrsch/v0/getuploadurl:
     description: |+
       Get the pre-signed url to upload the file.
     post:
       tags:
-        - v0.1.1
+        - v0.1.2
       responses:
         '200':
           description: Ok
@@ -409,14 +409,22 @@ components:
     versions:
       type: object
       properties: 
+        v0.1.2:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 08, 2022
+              x-details: Output Parameters Aligned 
+              description: Latest Version      
         v0.1.1:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jun 10, 2022
-              x-details: Latest Version 
-              description: Latest Version      
+              x-details: New Parameter Added
+              description: Archived     
         v0.1.0:
          type: array
          items:
