@@ -319,7 +319,7 @@ components:
               description: Google algorithm 
             url:
               type: string
-              example: https://storage.googleapis.com/user_space_dev/
+              example: https://storage.googleapis.com/lp_user_space_prod/
               description: Google algorithm 
         status:
           type: string
