@@ -153,15 +153,15 @@ info:
   x-subscribelink: google_asr
   x-apitype: large file
   x-apitypedescription: |+
-    Asyncronous | Batch | 1GB/File.
+    Asyncronous | Batch | 2GB/File.
   x-inputfilelimit: |+
-    Process up to 1 GB of File Size.
+    Process up to 2 GB of File Size.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data.
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
-    Size cannot exceed 1 GB.
+    Size cannot exceed 2 GB.
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
@@ -463,7 +463,7 @@ components:
               description: Google algorithm 
             url:
               type: string
-              example: https://storage.googleapis.com/user_space_dev/
+              example: https://storage.googleapis.com/lp_user_space_prod/
               description: Google algorithm 
         status:
           type: string
