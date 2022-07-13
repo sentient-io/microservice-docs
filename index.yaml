@@ -365,7 +365,7 @@ data:
   lta_pv_bus:
     title: LTA Passenger Volume by Bus Stops
     versions:
-      0.1.2: 'lta_pv_bus.yaml
+      0.1.2: 'lta_pv_bus.yaml'
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
