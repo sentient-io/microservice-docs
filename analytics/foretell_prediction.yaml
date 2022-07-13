@@ -23,7 +23,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Jun 01, 2022"
+  description: "Published Date - Jul 13, 2022"
 paths:
   /microservices/analytics/foretellprediction/v0/fourierprediction:
     description: |+
@@ -502,7 +502,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Jun 01, 2022
+                example: Published Date - Jul 13, 2022
                 x-details: Initial version release
                 description: Latest Version
     fftinput:
