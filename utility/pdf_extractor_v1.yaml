@@ -222,7 +222,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13, 2022
+              x-details: Initial version release
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -230,7 +238,7 @@ components:
             - type: string
               example: Published Date - Jul 30, 2020
               x-details: Initial version release
-              description: Latest Version
+              description: Old Version
     input:
       type: object
       required:
