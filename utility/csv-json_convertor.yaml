@@ -24,10 +24,10 @@ info:
   x-apidetailsdesc: |+
     Converts CSV file to JSON format.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v2.0.0"
-  description: "Published Date - Jun 30, 2022"
+  description: "Published Date - Jul 13, 2022"
 paths:
   /microservices/utility/csvtojson/v2/getresults:
     post:
@@ -209,7 +209,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 30, 2022
+              example: Published Date - Jul 13, 2022
               x-details: Fast api conversion.   
               description: Latest Version  
         v2.0.0:
