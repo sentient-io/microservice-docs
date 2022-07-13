@@ -278,7 +278,7 @@ components:
                       description: System ID
                       example: "DDP"
                     CREATION_DATE:
-                      type: datetime
+                      type: string
                       description: Report request date
                       example: "Wed Apr 08 11:37:51 MYT 2009"
                     USER_ID :
@@ -567,7 +567,15 @@ components:
                   example: 
                       LIST_BIZ_BRANCH:
                         "@className": com.technodex.ddp.report.bean.CommercialBizBranchBean
-                        BIZ_BRANCH:
+                      items:
+                      oneOf:
+                        - type: string
+                          example: LIST_BIZ_BRANCH
+                        - type: string
+                          example: com.technodex.ddp.report.bean.CommercialBizBranchBean
+                      BIZ_BRANCH:
+                        type: array
+                        example:
                           ADDR_BUILDING:
                             "@type": String
                             "#text": "-"
@@ -576,7 +584,21 @@ components:
                             "#text": '289848'
                           ADDR_ADDRESS1:
                             "@type": String
-                            "#text": 251A ARCADIA ROAD , - - -
+                            "#text": 251A ARCADIA ROAD
+                  items:
+                    oneOf:
+                      - type: string
+                        example: ADDR_BUILDING
+                      - type: string
+                        example: "-"
+                      - type: string
+                        example: ADDR_POSTCODE
+                      - type: string
+                        example: "289848"
+                      - type: string
+                        example: ADDR_ADDRESS1
+                      - type: string
+                        example: 251A ARCADIA ROAD
                   properties:
                     BIZ_BRANCH :
                       type: object
@@ -861,11 +883,11 @@ components:
                         example: 
                             NAME_CHANGE:
                               PREV_NAME:
-                              "@type": String
-                              "#text": HUA XI EATING HOUSE
+                                "@type": String
+                                "#text": HUA XI EATING HOUSE
                               EFFECT_DATE:
-                              "@type": String
-                              "#text": 25/10/1997 00:00:00
+                                "@type": String
+                                "#text": 25/10/1997 00:00:00
                         properties:
                           PREV_NAME :
                             type: string
