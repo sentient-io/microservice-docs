@@ -20,7 +20,7 @@ info:
   x-notes: |+
     
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Jun 01, 2022"
