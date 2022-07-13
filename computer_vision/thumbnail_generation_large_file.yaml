@@ -1,31 +1,30 @@
 openapi: 3.0.1
 info:
-  title: Thumbnail_generation (Large File)
+  title: Thumbnail Generation (Large File)
   description: |+
     This Computer Vision microservice automatically selects appropriate frames as thumbnails representative of an input video. Thumbnails are selected based on visual quality and aesthetics (e.g. no dark, blurry or transitioning frames) and relevance to the video content based on clustering analysis.
-    The size of your video file should not exceed 10MB
     
   version: '0.1.0'
 
-  x-subscribelink: speaker_diarization
+  x-subscribelink: thumbnail_generation
   x-apitype: large file
   x-apitypedescription: |+
-    Asyncronous | Batch | 1GB/File.
+    Asyncronous | Batch | 2GB/File.
   x-inputfilelimit: |+
-    Process up to 1 GB of File Size.
+    Process up to 2 GB of File Size.
   x-responsetime: |+
     The response rate is slower than the small file API due to large data.
   x-billingmethod: |+
     The API is billed by the amount of data transferred.
   x-notes: |+
-    Size cannot exceed 1 GB.
+    Size cannot exceed 2 GB.
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Jun 09, 2022"
+  description: "Published Date - Jul 13, 2022"
 paths:
   /async/microservices/cv/thumbnailgeneration/v0/getuploadurl:
     description: |+
@@ -50,7 +49,7 @@ paths:
                     x-goog-algorithm: GOOG4-RSA-SHA256
                     x-goog-credential: sentient-bigquery@sentient-207310.iam.gserviceaccount.com/20220224/auto/storage/goog4_request
                     x-goog-date: 20220224T062321Z
-                    x-goog-meta-additional_param: "{\"output_type\": \"jpeg\", \"output_thumbnails\": 1, \"file_type\": \"m4v\", \"output_width\": 360}"
+                    x-goog-meta-additional_param: "{\"output_type\": \"jpeg\", \"output_thumbnails\": 4, \"file_type\": \"m4v\", \"output_width\": 360}"
                     x-goog-meta-oid: '309'
                     x-goog-meta-uid: '495'
                     x-goog-meta-uploader: 95969a80c9a448ff8980e78d9cc8acc9
@@ -58,7 +57,7 @@ paths:
                     x-goog-signature: 0c6a91c113411ab8216727721f2add220b2daeeb6a284954ec2b0de1d76529ce8da90c41366f0fcd8de37cf819c2ed3878b9985f705690d1689d1fb6f37be63b4329b38a3f96e1bce9a6580b45f7522e31274b5eb0ca23a23c9267a02536deb7c0a4779e8e7268be42cf9a8863c1dc2ce3dbb14c6d83cfde0333e8729cc7507edd8537931145fbcbec74561001e1b7068b104abcdfe4c9b1b213f52f542bc16e6570574d5097624d3ca949ec5df4af6e35cee02cf2df773cdae3656e1873544036b00e35813ebeaa5a6367e73356745c06165b09a730e2490555ec7c8f0153792d20e6cc4add87fbd521577f630d2b151661bd93b52cabe9331ab40942b8b976
                   jid: 5292a71b45184424826c9089c103fb78
                   request_cost: 1.2675
-                  url: https://storage.googleapis.com/user_space_dev/
+                  url: https://storage.googleapis.com/lp_user_space_prod/
                 status: Success
         '401':
           description: Unauthorized
@@ -127,7 +126,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/user_space_dev/'
+        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
@@ -146,7 +145,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed         
-  /async/microservices/voice/asrsch/v0/getstatus:
+  /async/microservices/cv/thumbnailgeneration/v0/getstatus:
     description: |+
       Query for processing status.
     get:
@@ -315,7 +314,7 @@ components:
               description: Google algorithm 
             url:
               type: string
-              example: https://storage.googleapis.com/user_space_dev/
+              example: https://storage.googleapis.com/lp_user_space_prod/
               description: Google algorithm 
         status:
           type: string
@@ -410,7 +409,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 06, 2022
+              example: Published Date - Jul 13, 2022
               x-details: Initial version release  
               description: Latest Version
     input:
@@ -422,7 +421,7 @@ components:
           x-name: file_name
           type: string
           default: true
-          format: binary
+          format: string
           example: '4 test.m4v'
           description: |+
             Name of file to be upload.
@@ -432,12 +431,12 @@ components:
           default: true
           example: 4746636
           description: |+
-            Size of the file. Maximum size should be 1 GB.
+            Size of the file. Maximum size should be 2 GB.
         content_type:
           x-name: content_type
           type: string
           default: true
-          example: 'audio/wav'
+          example: 'video/x-m4v'
           description: |+
             Specify the content-type. Pick any one from below list based on input file type.
             video - ["video/x-m4v", "video/mp4", 
@@ -457,11 +456,11 @@ components:
               x-name: output_thumbnails
               type: number
               default: False
-              example: 1
+              example: 45
               description: |+
                 Number of output thumbnail images. Between 1 and 20. Default value is 1.
             file_type:
-              x-name: output_thumbnails
+              x-name: file_type
               type: string
               default: False
               example: mp4
@@ -477,7 +476,7 @@ components:
     uploadinput:
       type: object
       required:
-        - filePath      
+        - file      
       properties:
         file:
           type: string
