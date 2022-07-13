@@ -31,7 +31,7 @@ info:
       
     **Last Updated Data in Time Limit:**
       > {"limit":10,"offset":0,"collapse":true,"filter":[{"range": {"lastupdated": {"gte": "2021-11-26T17:00:00","lte": "2021-11-26T18:00:00"}}}]}      
-  version: '0.1.0'
+  version: '0.1.2'
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
@@ -48,13 +48,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Feb 01, 2022"
+- name: "v0.1.2"
+  description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/ltacarparkhistorical/v0/getdata:
     post:
       tags:
-        - v0.1.0
+        - v0.1.2
       responses:
         '200':
           description: Ok
@@ -412,7 +412,23 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v0.1.2:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13, 2022
+              x-details: Default limit changed
+              description: Latest Version  
+        v0.1.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - May 05, 2022
+              x-details: Default limit changed
+              description: Older Version      
         v0.1.0:
          type: array
          items:
@@ -420,7 +436,7 @@ components:
             - type: string
               example: Published Date - Feb 01, 2022
               x-details: Initial version release
-              description: Latest Version
+              description: Archived
     input:
       type: object
       properties:
@@ -428,12 +444,17 @@ components:
           type: number
           default: false
           example: 10
-          description: The max records to return for the request. Default - 0, Max - 10000
+          description: |+ 
+              The max records to return for the request. Default - 10, Max - 10000.
+              If aggregation is enabled we can set limit Default - 0, Max - 10000.
+              Negative values or non numeric values should return Default 10 results.
         offset:
           type: number
           default: false
           example: 0
-          description: The offset of the record list ie the starting index       
+          description: |+
+              The offset of the record list ie the starting index.    
+              Negative values or non numeric values should return Default 10 results.
         aggregation:
           type: boolean
           default: false
