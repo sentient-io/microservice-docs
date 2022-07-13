@@ -219,9 +219,12 @@ components:
           default: False
           example: 60
           description: |+
-            The model using GPTJ model tokenizer, converts the input text to sentences, and token_length describes the maximum length of tokens in input. 
-            Default value is 50
+            token_length is the number of tokens in the output sequence. token_length is the number of tokens in input sequence + number of tokens generated. 
+
+            Default value is 50.
+
             Recommended range is between 20 and 100.
+
         num_beams:
           x-name: num_beams
           type: number
