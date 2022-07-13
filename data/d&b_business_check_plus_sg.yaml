@@ -703,7 +703,7 @@ components:
                       description: System ID
                       example: "DDP"
                     CREATION_DATE:
-                      type: datetime
+                      type: string
                       description: Report request date
                       example: Wed Apr 08 11:37:51 MYT 2009
                     USER_ID :
@@ -950,7 +950,7 @@ components:
                       description: Subject’s ID Number (individual) or Registration Number (company/business)
                       example: "197401835M"
                     REQ_DATE:
-                      type: datetime
+                      type: string
                       description: Report Requested Date
                       example: 2009-04-08 11:36:03.611
                     REQ_REG_NO:
@@ -2371,7 +2371,7 @@ components:
                             description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
                             example: 1
                           LastUpdateDate :
-                            type: datetime
+                            type: string
                             description: Last update date
                             example: YYYY-MM-DD 00:00:00.0
     unauthorized:
