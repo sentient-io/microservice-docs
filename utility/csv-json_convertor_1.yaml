@@ -208,7 +208,15 @@ components:
           example: Failure    
     versions:
       type: object
-      properties: 
+      properties:
+        v2.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13, 2022
+              x-details: Fast api conversion.   
+              description: Latest Version
         v2.0.0:
          type: array
          items:
