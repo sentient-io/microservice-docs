@@ -94,10 +94,10 @@ info:
   x-apidetailsdesc: |+
     Provides information on Housing Development Board (HDB) estates.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.1.0"
-  description: "Published Date -Jun 30, 2022"
+  description: "Published Date -Jul 13, 2022"
 paths:
   /microservices/data/demographics/v1/getdata:
     get:
@@ -458,7 +458,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 30,2022
+              example: Published Date - Jul 13,2022
               x-details: Optimized release
               description: Latest Version
         v1.0.0:
