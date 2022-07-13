@@ -243,7 +243,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 30, 2022
+              example: Published Date - Jul 13, 2022
               x-details: Input parameter standard and fast api conversion
               description: Latest Version
         v0.1.0:
