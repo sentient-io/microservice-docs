@@ -437,7 +437,7 @@ components:
                       description: Company Registration No
                       example: "200003058W"
                     REQ_DATE :
-                      type: datetime
+                      type: string
                       description: Requested Date
                       example: "2009-04-21 10:56:06.716"
                     REQ_REG_NO :
