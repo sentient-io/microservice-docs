@@ -287,7 +287,8 @@ utility:
   pdf_extractor:
     title: PDF Extractor
     versions:
-      1.0.0: 'pdf_extractor.yaml'
+      2.0.0: 'pdf_extractor.yaml'
+      1.0.0: 'pdf_extractor_v1.yaml'
   pki_key_generator:
     title: PKI Key Generator
     versions:
