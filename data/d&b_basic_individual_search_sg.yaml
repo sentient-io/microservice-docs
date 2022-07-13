@@ -353,7 +353,7 @@ components:
                       example: "DDP"
                       description: System ID
                     CREATION_DATE:
-                      type: datetime
+                      type: string
                       example: "25/02/2009 17:31:44.678"
                       description: Report Request Date
                     USER_ID :
@@ -427,7 +427,7 @@ components:
                       description: Report Type
                       example: "BIS"
                     REQ_DATE:
-                      type: datetime
+                      type: string
                       description: Requested Date
                       example: "25/02/2009 17:31:44"
                     REQ_REG_NO:
