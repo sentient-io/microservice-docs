@@ -24,20 +24,25 @@
 # The final yaml link will be a combination of {{yamlPath + / + category + / + verions['v1.0']}}
 
 voice:
+  asr_en_unified:
+    title: ASR EN Unified
+    versions:
+      0.1.0: 'asr_en_unified.yaml'
   automatic_speech_recognition_eng:
     title: Automatic Speech Recognition ENG
     versions:
       2.0.0: 'automatic_speech_recognition_eng.yaml'
-      1.2.0: 'automatic_speech_recognition_eng_v1.2.yaml'   
+      1.2.0: 'automatic_speech_recognition_eng_v1.2.yaml'
   automatic_speech_recognition_chi:
     title: Automatic Speech Recognition CHI
     versions:
       2.0.0: 'automatic_speech_recognition_chi.yaml'
       1.0.0: 'automatic_speech_recognition_chi_1.0.yaml'
-  automatic_speech_recognition_eng_large_file:
-    title: Automatic Speech Recognition ENG (Large File)
+  google_asr_large_file:
+    title: Google ASR (Large File)
     versions:
-      0.1.0: 'automatic_speech_recognition_eng_large_file.yaml'      
+      1.0.0: 'google_asr_large_file.yaml'  
+      0.1.0: 'google_asr_large_file_v0.yaml'
   online_automatic_speech_recognition_eng:
     title: Online Automatic Speech Recognition ENG
     versions:
@@ -46,6 +51,10 @@ voice:
     title: Online Command Automatic Speech Recognition ENG
     versions:
       0.1.0: 'online_command_automatic_speech_recognition_eng.yaml'
+  speaker_diarization:
+    title: Speaker Diarization
+    versions:
+      0.1.0: 'speaker_diarization.yaml'	 
   text-to-speech_eng:
     title: Text-To-Speech ENG
     versions:
@@ -57,104 +66,15 @@ voice:
   text-to-speech_jp:
     title: Text-To-Speech JP
     versions:
-      0.1.0: 'text_to_speech_jp.yaml'      
-  asr_with_voice_activity_detection_eng:
-    title: ASR with Voice Activity Detection ENG
-    versions:
-      1.2.1: 'asr_with_voice_activity_detection_eng.yaml'
-  asr_with_voice_activity_detection_eng_large_file:
-    title: ASR with Voice Activity Detection ENG (Large File)
-    versions:
-      0.1.0: 'asr_with_voice_activity_detection_eng_large_file.yaml'      
+      0.1.0: 'text_to_speech_jp.yaml'	
   voice_activity_detection_eng:
     title: Voice Activity Detection ENG
     versions:
-      1.0.1: 'voice_activity_detection_eng.yaml'          
-  speaker_diarization:
-    title: Speaker Diarization
+      1.0.1: 'voice_activity_detection_eng.yaml'	  
+  azure_tts:
+    title: Azure TTS
     versions:
-      0.1.0: 'speaker_diarization.yaml'   
-  speaker_diarization_large_file:
-    title: Speaker Diarization (Large File)
-    versions:
-      0.1.0: 'speaker_diarization_large_file.yaml'      
-  automatic_speech_recognition_chi_large_file:
-    title: Automatic Speech Recognition CHI (Large File)
-    versions:
-      0.1.2: 'automatic_speech_recognition_chi_large_file.yaml'           
-nlp:
-  inverse_text_normalisation_eng:
-    title: Inverse Text Normalisation ENG
-    versions:
-      2.0.0: 'inverse_text_normalisation_eng.yaml'
-      1.0.0: 'inverse_text_normalisation_eng_v1.0.yaml'
-  named-entity_recognition_eng:
-    title: Named-Entity Recognition ENG
-    versions:
-      2.0.0: 'named-entity_recognition_eng.yaml'
-      1.0.0: 'named-entity_recognition_eng_v1.0.yaml'
-  sentence_paraphrase:
-    title: Sentence Paraphrase
-    versions:
-      0.1.0: 'sentence_paraphrase.yaml'
-  sentence_ranking:
-    title: Sentence Ranking
-    versions:
-      0.1.0: 'sentence_ranking.yaml'      
-  spacy_ner:
-    title: spaCy NER
-    versions:
-      1.0.0: 'spacy_ner.yaml'
-  page_profiler_eng:
-    title: Page Profiler ENG
-    versions:
-      2.1.1: 'page_profiler_eng.yaml'
-  page_profiler_jp:
-    title: Page Profiler JP
-    versions:
-      1.1.0: 'page_profiler_jp.yaml'
-  page_profiler_thai:
-    title: Page Profiler THAI
-    versions:
-      1.1.0: 'page_profiler_thai.yaml'
-  taxonomy_matcher_eng:
-    title: Taxonomy Matcher ENG
-    versions:
-      1.0.1: 'taxonomy_matcher_eng.yaml'
-  word_sense_disambiguation_eng:
-    title: Word Sense Disambiguation ENG
-    versions:
-      1.0.0: 'word_sense_disambiguation_eng.yaml'
-  named-entity_recognition_jp:
-    title: Named-Entity Recognition JP
-    versions:
-      2.0.0: 'named-entity_recognition_jp.yaml'
-      1.0.0: 'named-entity_recognition_jp_v1.0.yaml'
-  named-entity_recognition_thai:
-    title: Named Entity Recognition THAI
-    versions:
-      2.0.0: 'named-entity_recognition_thai.yaml'
-      1.0.0: 'named-entity_recognition_thai_v1.0.yaml'
-  script_alignment:
-    title: Script Alignment
-    versions:
-      1.0.0: 'script_alignment.yaml'
-  word_scoring_and_suggestions:
-    title: Word Scoring and Suggestions
-    versions:
-      0.1.0: 'word_scoring_and_suggestions.yaml'
-  text_summarization:
-    title: Text Summarization
-    versions:
-      0.2.0: 'text_summarization.yaml' 
-  text_summarization_large_file:
-    title: Text Summarization (Large File)
-    versions:
-      0.1.0: 'text_summarization_large_file.yaml'        
-  sentiment_analysis_and_sarcasm_detection:
-    title: Sentiment Analysis and Sarcasm Detection
-    versions:
-      0.1.1: 'sentiment_analysis_and_sarcasm_detection.yaml'       
+      0.1.0: 'azure_tts.yaml'
 computer vision:
   object_detection:
     title: Object Detection
@@ -177,10 +97,6 @@ computer vision:
     title: Person Reidentification
     versions:
       0.1.0: 'person_reidentification.yaml'
-  landmark_detection:
-    title: Landmark Detection
-    versions:
-      1.0.0: 'landmark_detection.yaml'      
   landmark_recognition_sg:
     title: Landmark Detection (SG)
     versions:
@@ -197,10 +113,6 @@ computer vision:
     title: Thumbnail Generation
     versions:
       0.2.1: 'thumbnail_generation.yaml'      
-  thumbnail_generation_large_file:
-    title: Thumbnail Generation (Large File)
-    versions:
-      0.1.0: 'thumbnail_generation_large_file.yaml'      
   invoice_scanner:
     title: Invoice Scanner
     versions:
@@ -208,7 +120,7 @@ computer vision:
   receipt_scanner:
     title: Receipt Scanner
     versions:
-      0.1.0: 'receipt_scanner.yaml'       
+      0.1.0: 'receipt_scanner.yaml'
 utility:
   video-to-audio_converter:
     title: Video-To-Audio Convertor
@@ -291,81 +203,169 @@ utility:
   date_resolution:
     title: Date Resolution
     versions:
-      0.3.0: 'date_resolution.yaml'       
+      0.3.0: 'date_resolution.yaml'
+nlp:	  
+  google_translate:
+    title: Google Translate
+    versions:
+      0.1.0: 'google_translate.yaml'
+  machine_translation:
+    title: Machine Translation
+    versions:
+      0.1.0: 'machine_translation.yaml'
+  script_alignment:
+    title: Script Alignment
+    versions:
+      1.0.0: 'script_alignment.yaml'
+  sentence_paraphrase:
+    title: Sentence Paraphrase
+    versions:
+      0.1.0: 'sentence_paraphrase.yaml'
+  sentence_ranking:
+    title: Sentence Ranking
+    versions:
+      0.1.0: 'sentence_ranking.yaml' 
+  inverse_text_normalisation_eng:
+    title: Inverse Text Normalisation ENG
+    versions:
+      2.0.0: 'inverse_text_normalisation_eng.yaml'
+      1.0.0: 'inverse_text_normalisation_eng_v1.0.yaml'
+  sentiment_analysis_and_sarcasm_detection:
+    title: Sentiment Analysis and Sarcasm Detection
+    versions:
+      0.1.1: 'sentiment_analysis_and_sarcasm_detection.yaml'
+  taxonomy_matcher_eng:
+    title: Taxonomy Matcher ENG
+    versions:
+      1.0.1: 'taxonomy_matcher_eng.yaml'
+  text_summarization:
+    title: Text Summarization
+    versions:
+      0.2.0: 'text_summarization.yaml'
+  word_sense_disambiguation_eng:
+    title: Word Sense Disambiguation ENG
+    versions:
+      1.0.0: 'word_sense_disambiguation_eng.yaml'
+  word_scoring_and_suggestions:
+    title: Word Scoring and Suggestions
+    versions:
+      0.1.0: 'word_scoring_and_suggestions.yaml'
+  page_profiler_eng:
+    title: Page Profiler ENG
+    versions:
+      2.1.1: 'page_profiler_eng.yaml'
+  page_profiler_jp:
+    title: Page Profiler JP
+    versions:
+      1.1.0: 'page_profiler_jp.yaml'
+  page_profiler_thai:
+    title: Page Profiler THAI
+    versions:
+      1.1.0: 'page_profiler_thai.yaml'
+  named-entity_recognition_jp:
+    title: Named-Entity Recognition JP
+    versions:
+      2.0.0: 'named-entity_recognition_jp.yaml'
+      1.0.0: 'named-entity_recognition_jp_v1.0.yaml'
+  named-entity_recognition_thai:
+    title: Named Entity Recognition THAI
+    versions:
+      2.0.0: 'named-entity_recognition_thai.yaml'
+      1.0.0: 'named-entity_recognition_thai_v1.0.yaml'
+  named-entity_recognition_eng:
+    title: Named-Entity Recognition ENG
+    versions:
+      2.0.0: 'named-entity_recognition_eng.yaml'
+      1.0.0: 'named-entity_recognition_eng_v1.0.yaml'
 data:
-  commercial_directories_hdb_sg:
-    title: HDB Commercial Directories (SG)
-    versions:
-      1.0.0: 'commercial_directories_hdb_sg.yaml'
-  building_addresses_hdb_sg:
-    title: HDB Block Coordinates (SG)
-    versions:
-      1.0.0: 'building_addresses_hdb_sg.yaml'
-  residential_sales_and_rental_hdb_sg:
-    title: HDB Residential Occupancy Status (SG)
-    versions:
-      1.0.0: 'residential_sales_and_rental_hdb_sg.yaml'
-  carpark_hdb_sg:
-    title: HDB Carpark Locations (SG)
-    versions:
-      1.0.0: 'carpark_hdb_sg.yaml'
-  demographics_hdb_sg:
-    title: HDB Demographics (SG)
-    versions:
-      1.0.0: 'demographics_hdb_sg.yaml'
-  flat_ownership_hdb_sg:
-    title: HDB Flat Ownership Duration (SG)
-    versions:
-      1.0.0: 'flat_ownership_hdb_sg.yaml'
-  season_parking_availability_hdb_sg:
-    title: HDB Season Parking Availability (SG)
-    versions:
-      1.0.0: 'season_parking_availability_hdb_sg.yaml'
   directory_of_singapore_startups:
     title: Directory of Singapore Startups
     versions:
-      1.0.0: 'directory_of_singapore_startups.yaml'
-  fitness_stations_and_playgrounds_hdb_sg:
-    title: HDB Fitness Stations and Playgrounds (SG)
-    versions:
-      2.0.0: 'fitness_stations_and_playgrounds_hdb_sg.yaml'
-      1.0.0: 'fitness_stations_and_playgrounds_hdb_sg_v1.yaml'
-  amenities_lamp_posts_hdb_sg:
-    title: HDB Lamp Posts Locations (SG)
-    versions:
-      2.0.0: 'amenities_lamp_posts_hdb_sg.yaml'
-      1.0.0: 'amenities_lamp_posts_hdb_sg_v1.yaml'
-  amenities_hardcourts_hdb_sg:
-    title: HDB Hardcourts Locations (SG)
-    versions:
-      2.0.0: 'amenities_hardcourts_hdb_sg.yaml'
-      1.0.0: 'amenities_hardcourts_hdb_sg_v1.yaml'
-  amenities_shelters_hdb_sg:
-    title: HDB Shelters Locations (SG)
-    versions:
-      2.0.0: 'amenities_shelters_hdb_sg.yaml'
-      1.0.0: 'amenities_shelters_hdb_sg_v1.yaml'
-  d&b_business_check_plus_sg:
-    title: D&B Business Check Plus (SG)
-    versions:
-      1.0.0: 'd&b_business_check_plus_sg.yaml'
-  d&b_basic_individual_search_sg:
-    title: D&B Basic Individual Search (SG)
-    versions:
-      1.0.0: 'd&b_basic_individual_search_sg.yaml'
-      0.1.0: 'd&b_basic_individual_search_sg_v0.1.yaml'
-  d&b_business_check_sg:
-    title: D&B Business Check (SG)
-    versions:
-      1.0.0: 'd&b_business_check_sg.yaml'
-  d&b_brief_financial_information_sg:
-    title: D&B Brief Financial Information (SG)
-    versions:
-      1.0.0: 'd&b_brief_financial_information_sg.yaml'
+      1.1.0: 'directory_of_singapore_startups.yaml'
   hdb_amenities_score:
     title: HDB Amenities Score
     versions:
       0.1.0: 'hdb_amenities_score.yaml'
+  building_addresses_hdb_sg:
+    title: HDB Block Coordinates (SG)
+    versions:
+      1.1.0: 'building_addresses_hdb_sg.yaml'
+  carpark_hdb_sg:
+    title: HDB Carpark Locations (SG)
+    versions:
+      1.1.0: 'carpark_hdb_sg.yaml'
+  commercial_directories_hdb_sg:
+    title: HDB Commercial Directories (SG)
+    versions:
+      1.1.0: 'commercial_directories_hdb_sg.yaml'
+  demographics_hdb_sg:
+    title: HDB Demographics (SG)
+    versions:
+      1.1.0: 'demographics_hdb_sg.yaml'
+  fitness_stations_and_playgrounds_hdb_sg:
+    title: HDB Fitness Stations and Playgrounds (SG)
+    versions:
+      2.1.0: 'fitness_stations_and_playgrounds_hdb_sg.yaml'
+      1.0.0: 'fitness_stations_and_playgrounds_hdb_sg_v1.yaml'
+  flat_ownership_hdb_sg:
+    title: HDB Flat Ownership Duration (SG)
+    versions:
+      1.1.0: 'flat_ownership_hdb_sg.yaml'
+  amenities_hardcourts_hdb_sg:
+    title: HDB Hardcourts Locations (SG)
+    versions:
+      2.1.0: 'amenities_hardcourts_hdb_sg.yaml'
+      1.0.0: 'amenities_hardcourts_hdb_sg_v1.yaml'
+  amenities_lamp_posts_hdb_sg:
+    title: HDB Lamp Posts Locations (SG)
+    versions:
+      2.1.0: 'amenities_lamp_posts_hdb_sg.yaml'
+      1.0.0: 'amenities_lamp_posts_hdb_sg_v1.yaml'
+  residential_sales_and_rental_hdb_sg:
+    title: HDB Residential Occupancy Status (SG)
+    versions:
+      1.1.0: 'residential_sales_and_rental_hdb_sg.yaml'
+  season_parking_availability_hdb_sg:
+    title: HDB Season Parking Availability (SG)
+    versions:
+      1.1.0: 'season_parking_availability_hdb_sg.yaml'
+  amenities_shelters_hdb_sg:
+    title: HDB Shelters Locations (SG)
+    versions:
+      2.1.0: 'amenities_shelters_hdb_sg.yaml'
+      1.0.0: 'amenities_shelters_hdb_sg_v1.yaml'
+  lta_road_works:
+    title: LTA Road Works
+    versions:
+      0.1.2: 'lta_road_works.yaml'
+  lta_car_park_availability_historical:
+    title: LTA Carpark Availability Historical
+    versions:
+      0.1.2: 'lta_car_park_availability_historical.yaml'   
+  lta_traffic_images:
+    title: LTA Traffic Images
+    versions:
+      0.1.2: 'lta_traffic_images.yaml'      
+  lta_traffic_incidents:
+    title: LTA Traffic Incidents
+    versions:
+      0.1.2: 'lta_traffic_incidents.yaml'     
+  lta_traffic_speed_bands_historical:
+    title: LTA Traffic Speed Bands Historical
+    versions:
+      0.1.2: 'lta_traffic_speed_bands_historical.yaml'      
+  lta_vms:
+    title: LTA VMS
+    versions:
+      0.1.2: 'lta_vms.yaml'    
+  lta_faulty_traffic_lights:
+    title: LTA Faulty Traffic Lights
+    versions:
+      0.1.2: 'lta_faulty_traffic_lights.yaml'
+  lta_pv_bus:
+    title: LTA Passenger Volume by Bus Stops
+    versions:
+      0.1.2: 'lta_pv_bus.yaml
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
@@ -373,151 +373,35 @@ data:
   train_stations_sg:
     title: Train Stations (SG)
     versions:
-      0.1.0: 'train_stations_sg.yaml' 
-platform functions:
-  org_info:
-    title: View Organizational Info
-    urlkey: org_info
+      0.1.0: 'train_stations_sg.yaml'	  
+  d&b_business_check_plus_sg:
+    title: D&B Business Check Plus (SG)
     versions:
-      0.1.0: 'org_info.yaml'
-  update_org:
-    title: Edit Organizational Info
-    urlkey: update_org
+      1.1.0: 'd&b_business_check_plus_sg.yaml'
+  d&b_basic_individual_search_sg:
+    title: D&B Basic Individual Search (SG)
     versions:
-      0.1.0: 'update_org.yaml'
-  user_list:
-    title: User List
-    urlkey: user_list
+      1.1.0: 'dnb_basic_individual_search_sg.yaml'
+      0.1.0: 'd&b_basic_individual_search_sg_v0.1.yaml'
+  d&b_business_check_sg:
+    title: D&B Business Check (SG)
     versions:
-      0.1.0: 'user_list.yaml'
-  user_info:
-    title: View User Details
-    urlkey: user_info
+      1.1.0: 'd&b_business_check_sg.yaml'
+  d&b_brief_financial_information_sg:
+    title: D&B Brief Financial Information (SG)
     versions:
-      0.1.0: 'user_info.yaml'
-  activate_user:
-    title: Activate Users
-    urlkey: activate_user
+      1.1.0: 'd&b_brief_financial_information_sg.yaml'
+analytics:
+  content_interest_profile:
+    title: Content Interest Profile
     versions:
-      0.1.0: 'activate_user.yaml'
-  add_user_to_group:
-    title: Add Group To User
-    urlkey: add_user_to_group
+      0.1.0: 'content_interest_profile.yaml'
+  rule_engine:
+    title: Rule Engine
     versions:
-      0.1.0: 'add_user_to_group.yaml'
-  delete_user_info:
-    title: Delete User
-    urlkey: delete_user_info
+      0.1.0: 'rule_engine.yaml'
+  recommendation_engine:
+    title: Recommendation Engine
     versions:
-      0.1.0: 'delete_user_info.yaml'
-  refresh_api_key:
-    title: Refresh API Key
-    urlkey: refresh_api_key
-    versions:
-      0.1.0: 'refresh_api_key.yaml'
-  add_user:
-    title: Add User
-    urlkey: add_user
-    versions:
-      0.1.0: 'add_user.yaml'
-  update_user_info:
-    title: Edit User
-    urlkey: update_user_info
-    versions:
-      0.1.0: 'update_user_info.yaml'
-  group_info:
-    title: View Group Details
-    urlkey: group_info
-    versions:
-      0.1.0: 'group_info.yaml'
-  org_group_list:
-    title: Group List
-    urlkey: org_group_list
-    versions:
-      0.1.0: 'org_group_list.yaml'
-  
-  subscribed_microservices:
-    title: Subscribed Microservices
-    urlkey: subscribed_microservices
-    versions:
-      0.1.0: 'subscribed_microservices.yaml'
-  api_metering:
-    title: API Metering
-    urlkey: api_metering
-    versions:
-      0.1.0: 'api_metering.yaml'
-  api_metering_error_details:
-    title: API Metering Error Details
-    urlkey: api_metering_error_details
-    versions:
-      0.1.0: 'api_metering_error_details.yaml'
-  add_function_to_group:
-    title: Add Function To Group
-    urlkey: add_function_to_group
-    versions:
-      0.1.0: 'add_function_to_group.yaml'
-  remove_function_from_group:
-    title: Remove Function From Group
-    urlkey: remove_function_from_group
-    versions:
-      0.1.0: 'remove_function_from_group.yaml'
-  subscription:
-    title: Subscribe To Microservice
-    urlkey: subscription
-    versions:
-      0.1.0: 'subscription.yaml'
-  unsubscription:
-    title: Unsubscribe From Microservice
-    urlkey: unsubscription
-    versions:
-      0.1.0: 'unsubscription.yaml'
-  add_user_to_function:
-    title: Add User To Function
-    urlkey: add_user_to_function
-    versions:
-      0.1.0: 'add_user_to_function.yaml'
-  remove_user_from_function:
-    title: Remove User From Function
-    urlkey: remove_user_from_function
-    versions:
-      0.1.0: 'remove_user_from_function.yaml'
-  delete_group:
-    title: Delete Group
-    urlkey: delete_group
-    versions:
-      0.1.0: 'delete_group.yaml'
-  get_deleted_user_list:
-    title: List Deleted Users
-    urlkey: get_deleted_user_list
-    versions:
-      0.1.0: 'get_deleted_user_list.yaml'
-#   get_function_list:
-#     title: List Functions
-#     urlkey: get_function_list
-#     versions:
-#       0.1.0: 'get_function_list.yaml' 
-  get_org_assign_functions:
-    title: Assigned Functions
-    urlkey: get_org_assign_functions
-    versions:
-      0.1.0: 'get_org_assign_functions.yaml'
-  microservices_list:
-    title: Microservices List
-    urlkey: microservices_list
-    versions:
-      0.1.0: 'microservices_list.yaml'
-  update_password:
-    title: Update Password
-    urlkey: update_password
-    versions:
-      0.1.0: 'update_password.yaml'
-  add_group:
-    title: Add Group
-    urlkey: add_group
-    versions:
-      0.1.0: 'add_group.yaml'
-  remove_group_from_user:
-    title: Remove Group From User
-    urlkey: remove_group_from_user
-    versions:
-      0.1.0: 'remove_group_from_user.yaml'
+      0.1.0: 'recommendation_engine.yaml'	  
+	 
