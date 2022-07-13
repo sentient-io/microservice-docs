@@ -43,7 +43,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.2"
-  description: "Published Date - Jun 30, 2022"
+  description: "Published Date - Jul 13, 2022"
 paths:
   /microservices/data/ltavms/v0/getdata:
     post:
