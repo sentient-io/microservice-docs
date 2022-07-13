@@ -630,7 +630,7 @@ components:
           type: number
           description: |+
             Optional parameter. The default value is 7. The number of data points that is required for it to complete one seasonal cycle, e.g., the value will be 7 if the data is daily and the seasonal cycle happens weekly; the value will be 12 if the data is monthly and the seasonal cycle happens every year.
-          example: 7
+          example: 2
   securitySchemes:
     APIAuthorizer:
       type: apiKey
