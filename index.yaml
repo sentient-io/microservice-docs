@@ -414,7 +414,7 @@ data:
   d&b_basic_individual_search_sg:
     title: D&B Basic Individual Search (SG)
     versions:
-      1.1.0: 'd&b_basic_individual_search_sg.yaml'
+      1.1.0: 'dnb_basic_individual_search_sg.yaml'
       0.1.0: 'd&b_basic_individual_search_sg_v0.1.yaml'
   d&b_business_check_sg:
     title: D&B Business Check (SG)
