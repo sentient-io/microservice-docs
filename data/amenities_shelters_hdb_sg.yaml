@@ -58,10 +58,10 @@ info:
   x-apidetailsdesc: |+
     Provides returns all road works being / to be carried out.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v2.1.0"
-  description: "Published Date - Jun 30, 2022"
+  description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/shelter/v2/getdata:
     post:
@@ -370,7 +370,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jun 30, 2022
+              example: Published Date - Jul 13, 2022
               x-details: Data structure changed
               description: Latest Version
         v2.0.0:
