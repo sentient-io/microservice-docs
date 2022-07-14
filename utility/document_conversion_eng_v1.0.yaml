@@ -10,7 +10,7 @@ info:
     - Used for pre/post processing of documents so that the output can paired with another microservice to address a specific solution. For example, text extracted from the document can be used with a Voice microservice such as Text-to-Speech.
 
     - Can be used for solutions related to processing workflows that are document-heavy so that the user can focus on the more value-added decisions. Documents in a variety of formats can be taken in to return cleanly structured data. Examples included mortgage processing, procurement data etc.
-  version: '2.0.0'
+  version: '1.0.0'
   x-subscribelink: document_convertor_eng
   x-apitype: small file
   x-apitypedescription: |+
@@ -28,13 +28,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Jul 13, 2022"
+- name: "v1.0.0"
+  description: "Published Date - Jul 30, 2020"
 paths:
-  /microservices/utility/docconversion/v2/getresults:
+  /microservices/utility/docconversion/v1.0/getresults:
     post:
       tags:
-        - v2.0.0
+        - v1.0.0
       responses:
               '200':
                 description: Ok
@@ -211,14 +211,14 @@ components:
           example: Failure
     versions:
       type: object
-      properties:
+      properties: 
         v2.0.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jul 13, 2022
-              x-details: Input paramater changes to standard and fast api conversion
+              x-details: Input parameter standard and fast api conversion
               description: Latest Version
         v1.0.0:
          type: array
@@ -227,7 +227,7 @@ components:
             - type: string
               example: Published Date - Jul 30, 2020
               x-details: Change libary for PDF reader
-              description: Old Version
+              description: Latest Version
         v0.1.0:
          type: array
          items:
@@ -239,9 +239,9 @@ components:
     input:
       type: object
       required:
-        - file_path
+        - filePath
       properties:
-        file_path:
+        filePath:
           type: string
           format: binary
           default: true

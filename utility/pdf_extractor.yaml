@@ -34,13 +34,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Jul 30, 2020"  
+- name: "v2.0.0"
+  description: "Published Date - Jul 13, 2022"  
 paths:
-  /microservices/utility/pdfextractor/v1.0/getresults:
+  /microservices/utility/pdfextractor/v2/getresults:
     post:
       tags:
-        - v1.0.0
+        - v2.0.0
       responses:
               '200':
                 description: Ok
@@ -222,7 +222,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13, 2022
+              x-details: Initial version release
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -230,47 +238,47 @@ components:
             - type: string
               example: Published Date - Jul 30, 2020
               x-details: Initial version release
-              description: Latest Version
+              description: Old Version
     input:
       type: object
       required:
-        - filePath
+        - file_path
       properties:
-        filePath:
+        file_path:
           type: string
           format: binary
           default: true
           example: sample.pdf
           description: The file path that describes the location of the file to be converted. Text-only PDF files are supported. Image or mixed PDF files are not recommended.
-        pageNumbers:
+        page_numbers:
           type: string
           default: false
           example: "1,3,6"
           description: Page numbers, example 1,3,6. Default all pages
-        maxPages:
+        max_pages:
           type: integer
           format: int32
           default: false
           example: "3"
           description: Maximum number of pages. Default all pages
-        startPage:
+        start_page:
           type: integer
           format: int32
           default: false
           example: "1"
           description: Starting page number, if used endPage parameter is mandatory
-        endPage:
+        end_page:
           type: integer
           format: int32
           default: false
           example: "5"
           description: End of page number, if used startPage parameter is mandatory
-        convertType:
+        convert_type:
           type: string
           default: false
           example: "txt"
           description: Convertion type (txt / html). Default type is txt
-        passWord:
+        password:
           type: string
           default: false
           example: "xxxxxxxx"

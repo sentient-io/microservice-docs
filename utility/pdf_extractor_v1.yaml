@@ -1,17 +1,23 @@
 openapi: 3.0.1
 info:
-  title: Document Convertor ENG
+  title: PDF Extractor
   description: |+
-    This Utility microservice extracts the English text content of either an input of Microsoft Word, HTML or PDF document and outputs into a plain text format.
+    This Utility microservice extracts the text content of the input PDF document  with the option to extract specific pages.
     
-    The size of your document file **should not exceed 7 MB**.
+    It also extracts from password-protected PDFs, if the correct password is provided.
+        
+    Output format supported: plain text or HTML.
+    
+    Supported languages: Hindi, German, Spanish, Portuguese, French, Turkish, Italian, Russian, Arabic, Indonesian, Chinese, Japanese and Korean.
+    
+    The size of your PDF file should **not exceed 7 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Used for pre/post processing of documents so that the output can paired with another microservice to address a specific solution. For example, text extracted from the document can be used with a Voice microservice such as Text-to-Speech.
+    - Used for pre/post processing of documents so that the output can paired with another microservice to address a specific solution. For example, text extracted from the PDF document can be used with a Voice microservice such as Text-to-Speech.
 
     - Can be used for solutions related to processing workflows that are document-heavy so that the user can focus on the more value-added decisions. Documents in a variety of formats can be taken in to return cleanly structured data. Examples included mortgage processing, procurement data etc.
-  version: '2.0.0'
-  x-subscribelink: document_convertor_eng
+  version: '1.0.0'
+  x-subscribelink: pdf_extractor
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 7MB/Call
@@ -24,17 +30,17 @@ info:
   x-notes: |+
     File size cannot exceed 7 MB.
   x-apidetailsdesc: |+
-    Extracts text content from docx/text/pdf docs.  
+    Extracts text content from pdf docs.  
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Jul 13, 2022"
+- name: "v1.0.0"
+  description: "Published Date - Jul 30, 2020"  
 paths:
-  /microservices/utility/docconversion/v2/getresults:
+  /microservices/utility/pdfextractor/v1.0/getresults:
     post:
       tags:
-        - v2.0.0
+        - v1.0.0
       responses:
               '200':
                 description: Ok
@@ -50,6 +56,7 @@ paths:
                         \ territories  whose  supervisory  and  regulatory  requirements"
                       message: Successfully Processed
                       status: Success
+                      extracted_details: "[1, 3] pages are Extracted...."
               '401':
                 description: Unauthorized
                 content:
@@ -110,7 +117,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/input'
+              $ref: '#/components/schemas/input'                     
 components:
   schemas:
     success:
@@ -128,6 +135,10 @@ components:
           type: string
           example: Success
           description: The status of the API call - success/failure
+        extracted_details:
+          type: string
+          example: "[1, 3] pages are Extracted...."
+          description: Extracted page and file details          
     unauthorized:
       type: object
       properties:
@@ -143,6 +154,15 @@ components:
         message:
           type: string
           example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
         status:
           type: string
           example: Failure
@@ -200,15 +220,6 @@ components:
         status:
           type: string
           example: Failure
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
-        status:
-          type: string
-          example: Failure
     versions:
       type: object
       properties:
@@ -218,7 +229,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 13, 2022
-              x-details: Input paramater changes to standard and fast api conversion
+              x-details: Initial version release
               description: Latest Version
         v1.0.0:
          type: array
@@ -226,28 +237,52 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 30, 2020
-              x-details: Change libary for PDF reader
-              description: Old Version
-        v0.1.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Apr 16, 2018
               x-details: Initial version release
-              description: Archived
+              description: Old Version
     input:
       type: object
       required:
-        - file_path
+        - filePath
       properties:
-        file_path:
+        filePath:
           type: string
           format: binary
           default: true
-          example: sample.txt
-          description: The file path that describes the location of the file to be converted. 
-          Supported formats: docx, pdf, txt.
+          example: sample.pdf
+          description: The file path that describes the location of the file to be converted. Text-only PDF files are supported. Image or mixed PDF files are not recommended.
+        pageNumbers:
+          type: string
+          default: false
+          example: "1,3,6"
+          description: Page numbers, example 1,3,6. Default all pages
+        maxPages:
+          type: integer
+          format: int32
+          default: false
+          example: "3"
+          description: Maximum number of pages. Default all pages
+        startPage:
+          type: integer
+          format: int32
+          default: false
+          example: "1"
+          description: Starting page number, if used endPage parameter is mandatory
+        endPage:
+          type: integer
+          format: int32
+          default: false
+          example: "5"
+          description: End of page number, if used startPage parameter is mandatory
+        convertType:
+          type: string
+          default: false
+          example: "txt"
+          description: Convertion type (txt / html). Default type is txt
+        passWord:
+          type: string
+          default: false
+          example: "xxxxxxxx"
+          description: Password for protected pdf
   securitySchemes:
     APIAuthorizer:
       type: apiKey

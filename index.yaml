@@ -213,7 +213,8 @@ utility:
   video-to-audio_converter:
     title: Video-To-Audio Convertor
     versions:
-      0.1.0: 'video-to-audio_converter.yaml'
+      1.0.0: 'video-to-audio_converter.yaml'
+      0.1.0: 'video-to-audio_converter_v0.1.yaml'
   web_scraper:
     title: Web Scraper
     versions:
@@ -222,11 +223,13 @@ utility:
   document_convertor_eng:
     title: Document Convertor ENG
     versions:
-      1.0.0: 'document_conversion_eng.yaml'
+      2.0.0: 'document_conversion_eng.yaml'
+      1.0.0: 'document_conversion_eng_v1.0.yaml'
   pdf_extractor:
     title: PDF Extractor
     versions:
-      1.0.0: 'pdf_extractor.yaml'
+      2.0.0: 'pdf_extractor.yaml'
+      1.0.0: 'pdf_extractor_v1.yaml'
   pki_key_generator:
     title: PKI Key Generator
     versions:
@@ -250,12 +253,12 @@ utility:
   json-csv_convertor:
     title: JSON-CSV Convertor
     versions:
-      2.0.0: 'json-csv_convertor.yaml'
+      2.1.0: 'json-csv_convertor.yaml'
       1.0.0: 'json-csv_convertor_1.yaml'
   csv-json_convertor:
     title: CSV-JSON Convertor
     versions:
-      2.0.0: 'csv-json_convertor.yaml'
+      2.1.0: 'csv-json_convertor.yaml'
       1.0.0: 'csv-json_convertor_1.yaml'
   audio_processing_utility:
     title: Audio Format Convertor
@@ -279,11 +282,12 @@ utility:
   base64_file_encode:
     title: Base64 Encoder
     versions:
-      0.1.0: 'base64_file_encode.yaml'
+      1.0.0: 'base64_file_encode.yaml'
+      0.1.0: 'base64_file_encode_v0.1.yaml'
   base64_file_decode:
     title: Base64 Decoder
     versions:
-      0.1.0: 'base64_file_decode.yaml'    
+      1.0.0: 'base64_file_decode.yaml'    
   get_ip:
     title: Get IP
     versions:
@@ -370,6 +374,38 @@ data:
     title: Trajectory Clustering
     versions:
       0.1.0: 'trajectory_clustering.yaml' 
+  lta_road_works:
+    title: LTA Road Works
+    versions:
+      0.1.2: 'lta_road_works.yaml'
+  lta_car_park_availability_historical:
+    title: LTA Carpark Availability Historical
+    versions:
+      0.1.2: 'lta_car_park_availability_historical.yaml'   
+  lta_traffic_images:
+    title: LTA Traffic Images
+    versions:
+      0.1.2: 'lta_traffic_images.yaml'      
+  lta_traffic_incidents:
+    title: LTA Traffic Incidents
+    versions:
+      0.1.2: 'lta_traffic_incidents.yaml'     
+  lta_traffic_speed_bands_historical:
+    title: LTA Traffic Speed Bands Historical
+    versions:
+      0.1.2: 'lta_traffic_speed_bands_historical.yaml'      
+  lta_vms:
+    title: LTA VMS
+    versions:
+      0.1.2: 'lta_vms.yaml'    
+  lta_faulty_traffic_lights:
+    title: LTA Faulty Traffic Lights
+    versions:
+      0.1.2: 'lta_faulty_traffic_lights.yaml'
+  lta_pv_bus:
+    title: LTA Passenger Volume by Bus Stops
+    versions:
+      0.1.2: 'lta_pv_bus.yaml'
   train_stations_sg:
     title: Train Stations (SG)
     versions:
