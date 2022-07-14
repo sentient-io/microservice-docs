@@ -8,7 +8,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - As a pre-processor for microservices that only takes in Base64 inputs 
-  version: '0.1.0'
+  version: '1.0.0'
   x-subscribelink: base64_encoder
   x-apitype: small file
   x-apitypedescription: |+
@@ -26,13 +26,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Jan 17, 2022"
+- name: "v1.0.0"
+  description: "Published Date - Jun 13, 2022"
 paths:
-  /microservices/utility/base64encode/v0/getresults:
+  /microservices/utility/base64encode/v1/getresults:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
       responses:
         '200':
           description: success response
@@ -214,9 +214,9 @@ components:
     input:
       type: object
       required:
-        - filePath
+        - file_path
       properties:
-        filePath:
+        file_path:
           type: string
           format: binary
           example: sample.txt
@@ -235,7 +235,15 @@ components:
               5. xml
     versions:
       type: object
-      properties: 
+      properties:
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13, 2022
+              x-details: Input field update and fast conversion   
+              description: Latest Version
         v0.1.0:
          type: array
          items:
@@ -243,7 +251,7 @@ components:
             - type: string
               example: Published Date - Jan 17, 2022
               x-details: On Prem Setup Added   
-              description: Latest Version      
+              description: Old Version      
         v0.0.1:
          type: array
          items:
