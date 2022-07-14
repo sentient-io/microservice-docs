@@ -34,13 +34,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Jul 13, 2022"  
+- name: "v1.0.0"
+  description: "Published Date - Jul 30, 2020"  
 paths:
-  /microservices/utility/pdfextractor/v2/getresults:
+  /microservices/utility/pdfextractor/v1.0/getresults:
     post:
       tags:
-        - v2.0.0
+        - v1.0.0
       responses:
               '200':
                 description: Ok
@@ -242,43 +242,43 @@ components:
     input:
       type: object
       required:
-        - file_path
+        - filePath
       properties:
-        file_path:
+        filePath:
           type: string
           format: binary
           default: true
           example: sample.pdf
           description: The file path that describes the location of the file to be converted. Text-only PDF files are supported. Image or mixed PDF files are not recommended.
-        page_numbers:
+        pageNumbers:
           type: string
           default: false
           example: "1,3,6"
           description: Page numbers, example 1,3,6. Default all pages
-        max_pages:
+        maxPages:
           type: integer
           format: int32
           default: false
           example: "3"
           description: Maximum number of pages. Default all pages
-        start_page:
+        startPage:
           type: integer
           format: int32
           default: false
           example: "1"
           description: Starting page number, if used endPage parameter is mandatory
-        end_page:
+        endPage:
           type: integer
           format: int32
           default: false
           example: "5"
           description: End of page number, if used startPage parameter is mandatory
-        convert_type:
+        convertType:
           type: string
           default: false
           example: "txt"
           description: Convertion type (txt / html). Default type is txt
-        password:
+        passWord:
           type: string
           default: false
           example: "xxxxxxxx"
