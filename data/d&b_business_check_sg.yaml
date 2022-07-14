@@ -10,7 +10,7 @@ info:
     - It can also be used to simplify the due diligence process, by identify risk issues using a range of reports that meet different compliance requirements.
     - It can also be used to protect your business – safeguard against reputational risk by avoiding those involved in financial crime.
     - It can also be used for finance-related domains such as vehicle leasing, loans, enterprise credit terms and so on. Updated daily.
-  version: '1.0.0'
+  version: '1.1.0'
   x-subscribelink: d&b_business_check_sg
   x-apitype: small file
   x-apitypedescription: |+
@@ -28,13 +28,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Apr 15, 2021"
+- name: "v1.1.0"
+  description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/sbc/v1/getdata:
     post:
       tags:
-        - v1.0.0
+        - v1.1.0
       summary: Adds a new user
       requestBody:
         content:
@@ -278,7 +278,7 @@ components:
                       description: System ID
                       example: "DDP"
                     CREATION_DATE:
-                      type: datetime
+                      type: string
                       description: Report request date
                       example: "Wed Apr 08 11:37:51 MYT 2009"
                     USER_ID :
@@ -567,7 +567,15 @@ components:
                   example: 
                       LIST_BIZ_BRANCH:
                         "@className": com.technodex.ddp.report.bean.CommercialBizBranchBean
-                        BIZ_BRANCH:
+                      items:
+                      oneOf:
+                        - type: string
+                          example: LIST_BIZ_BRANCH
+                        - type: string
+                          example: com.technodex.ddp.report.bean.CommercialBizBranchBean
+                      BIZ_BRANCH:
+                        type: array
+                        example:
                           ADDR_BUILDING:
                             "@type": String
                             "#text": "-"
@@ -576,7 +584,21 @@ components:
                             "#text": '289848'
                           ADDR_ADDRESS1:
                             "@type": String
-                            "#text": 251A ARCADIA ROAD , - - -
+                            "#text": 251A ARCADIA ROAD
+                  items:
+                    oneOf:
+                      - type: string
+                        example: ADDR_BUILDING
+                      - type: string
+                        example: "-"
+                      - type: string
+                        example: ADDR_POSTCODE
+                      - type: string
+                        example: "289848"
+                      - type: string
+                        example: ADDR_ADDRESS1
+                      - type: string
+                        example: 251A ARCADIA ROAD
                   properties:
                     BIZ_BRANCH :
                       type: object
@@ -861,11 +883,11 @@ components:
                         example: 
                             NAME_CHANGE:
                               PREV_NAME:
-                              "@type": String
-                              "#text": HUA XI EATING HOUSE
+                                "@type": String
+                                "#text": HUA XI EATING HOUSE
                               EFFECT_DATE:
-                              "@type": String
-                              "#text": 25/10/1997 00:00:00
+                                "@type": String
+                                "#text": 25/10/1997 00:00:00
                         properties:
                           PREV_NAME :
                             type: string
@@ -1463,7 +1485,15 @@ components:
           default: false
     versions:
       type: object
-      properties: 
+      properties:
+        v1.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13, 2022
+              x-details: Optimized and Standardized results in Json Format
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -1471,7 +1501,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized and Standardized results in Json Format
-              description: Latest Version
+              description: Older version
         v0.1.0:
          type: array
          items:

@@ -6,7 +6,7 @@ info:
     Suggested Use Cases:
     - Software solutions targeted at corporate finance and legal domains, e.g. in cases of mergers, joint ventures or partnerships.
     - Aside from being able to protect your business via litigation checks to safeguard against reputational risk by avoiding companies potentially involved in financial crimes, the information from this microservice can serve as a quick solution for analysts or lawyers in a company whom are looking to draft documents related to cooperate finance or legal domains with one quick search.
-  version: '1.0.0'
+  version: '1.1.0'
   x-subscribelink: d&b_business_check_plus_sg
   x-apitype: small file
   x-apitypedescription: |+
@@ -24,13 +24,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Apr 15, 2021"
+- name: "v1.1.0"
+  description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/sbcp/v1/getdata:
     post:
       tags:
-        - v1.0.0
+        - v1.1.0
       summary: Adds a new user
       requestBody:
         content:
@@ -703,7 +703,7 @@ components:
                       description: System ID
                       example: "DDP"
                     CREATION_DATE:
-                      type: datetime
+                      type: string
                       description: Report request date
                       example: Wed Apr 08 11:37:51 MYT 2009
                     USER_ID :
@@ -950,7 +950,7 @@ components:
                       description: Subject’s ID Number (individual) or Registration Number (company/business)
                       example: "197401835M"
                     REQ_DATE:
-                      type: datetime
+                      type: string
                       description: Report Requested Date
                       example: 2009-04-08 11:36:03.611
                     REQ_REG_NO:
@@ -2371,7 +2371,7 @@ components:
                             description: Differentiate Search By Financial Sectors and Search By Non- Financial Sectors
                             example: 1
                           LastUpdateDate :
-                            type: datetime
+                            type: string
                             description: Last update date
                             example: YYYY-MM-DD 00:00:00.0
     unauthorized:
@@ -2476,7 +2476,15 @@ components:
           default: false
     versions:
       type: object
-      properties: 
+      properties:
+        v1.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13, 2022
+              x-details: Optimized and Standardized results in Json Format
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -2484,7 +2492,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized and Standardized results in Json Format
-              description: Latest Version
+              description: Older Version
         v0.1.0:
          type: array
          items:

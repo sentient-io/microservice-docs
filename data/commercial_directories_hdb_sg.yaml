@@ -81,7 +81,7 @@ info:
          
          > filterdata = {"filter":[{"match_phrase": {"trade":"cake shop"}},{"match": {"block":"122"}},{"match_phrase": {"street":"bukit merah lane 1"}}]}
   
-  version: '1.0.0'
+  version: '1.1.0'
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
@@ -98,13 +98,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - May 21, 2021"
+- name: "v1.1.0"
+  description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/hdb_searchdir/v1/getdata:
     get:
       tags:
-        - v1.0.0
+        - v1.1.0
       parameters:
         - in: query
           name: querystring
@@ -499,7 +499,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v1.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13,2022
+              x-details: Optimized release
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -507,7 +515,7 @@ components:
             - type: string
               example: Published Date - May 21,2021
               x-details: Optimized release
-              description: Latest Version
+              description: Older Version
         v0.1.0:
          type: array
          items:

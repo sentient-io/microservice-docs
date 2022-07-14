@@ -84,7 +84,7 @@ info:
       
        > querystring = "bishan street 22"
        > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
-  version: '1.0.0'
+  version: '1.1.0'
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
@@ -101,13 +101,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - May 21, 2021"
+- name: "v1.1.0"
+  description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/carpark/v1/getdata:
     get:
       tags:
-        - v1.0.0
+        - v1.1.0
       parameters:
         - in: query
           name: querystring
@@ -464,7 +464,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v1.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13,2022
+              x-details: Optimized release
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -472,7 +480,7 @@ components:
             - type: string
               example: Published Date - May 21,2021
               x-details: Optimized release
-              description: Latest Version
+              description: Older Version
         v0.2.0:
          type: array
          items:
@@ -483,7 +491,7 @@ components:
                 The following additional fields are added&#58;
                 1. postalcode - list of postal code
                 2. location - lat / log of the carpark park
-              description: Depreciating on May 20, 2021
+              description: Archived
         v0.1.0:
          type: array
          items:

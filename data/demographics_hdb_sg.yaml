@@ -79,7 +79,7 @@ info:
       Using a filterdata only&#58;
       
       > {"filter":[{"terms":{"postalcode":[560720,560721]}},{"match":{"gender":"female"}},{"terms":{"age_group_id":[6]}}]}
-  version: '1.0.0'
+  version: '1.1.0'
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
@@ -96,13 +96,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - May 21, 2021"
+- name: "v1.1.0"
+  description: "Published Date -Jul 13, 2022"
 paths:
   /microservices/data/demographics/v1/getdata:
     get:
       tags:
-        - v1.0.0
+        - v1.1.0
       parameters:
         - in: query
           name: querystring
@@ -112,23 +112,21 @@ paths:
             Simple keyword search for matches in all searchable fields. Keywords separated by spaces will return results containing any of those keywords. For exact phrase match, put entire phrase in double quotes (" ").
             
             If this field is set to null, by default the microservice will return all buildings (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
-            
+          required: false
           example: "tampines"
-          default: false
         - in: query
           name: offset
           schema:
             type: integer
           description: The offset of the record list ie the starting index
           example: "0"
-          default: false
         - in: query
           name: limit
           schema:
             type: integer
           description: The max records to return for the request. Default - 10, Max - 10000
+          required: false
           example: "10"
-          default: false
         - in: query
           name: filterdata
           schema:
@@ -139,7 +137,7 @@ paths:
             * must_not
             * should
             * filter
-          default: false
+          required: false
           example: |+
             {"filter":[{"match":{"age_group_id":7}},{"match":{"gender":"male"}},{"match":{"postalcode":520423}}]}
       responses:
@@ -274,7 +272,6 @@ components:
                     example: "K7scqWgBv3dNEHq2WvMo"
                   _score: 
                     type: number
-                    type: format
                     description: The document score for the search request
                     example: 17.995623
                   _source: 
@@ -455,7 +452,15 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v1.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13,2022
+              x-details: Optimized release
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -463,7 +468,7 @@ components:
             - type: string
               example: Published Date - May 21,2021
               x-details: Optimized release
-              description: Latest Version
+              description: Older Version
         v0.1.0:
          type: array
          items:

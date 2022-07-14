@@ -7,7 +7,7 @@ info:
     Suggested Use Cases:
     - Software solutions that require personal checks, e.g. in the appointment of Board Members, Directorship or C-suite level hiring, where the appointee’s background is paramount to the Company and its reputation.
     - Swift pre-employment screening solution - information provided by the microservice can be used to protect one's company's reputation from potential negative publicity by conducting background checks on individuals prior to hiring.
-  version: '1.0.0'
+  version: '1.1.0'
   x-subscribelink: d&b_basic_individual_search_sg
   x-apitype: small file
   x-apitypedescription: |+
@@ -25,13 +25,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Apr 15, 2021"
+- name: "v1.1.0"
+  description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/sbis/v1/getdata:
     post:
       tags:
-        - v1
+        - v1.1.0
       summary: Adds a new user
       requestBody:
         content:
@@ -353,7 +353,7 @@ components:
                       example: "DDP"
                       description: System ID
                     CREATION_DATE:
-                      type: datetime
+                      type: string
                       example: "25/02/2009 17:31:44.678"
                       description: Report Request Date
                     USER_ID :
@@ -427,7 +427,7 @@ components:
                       description: Report Type
                       example: "BIS"
                     REQ_DATE:
-                      type: datetime
+                      type: string
                       description: Requested Date
                       example: "25/02/2009 17:31:44"
                     REQ_REG_NO:
@@ -1392,7 +1392,15 @@ components:
           default: false
     versions:
       type: object
-      properties: 
+      properties:
+        v1.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13, 2022
+              x-details: Optimized and Standardized results in Json Format
+              description: Latest Version
         v1.0.0:
          type: array
          items:
@@ -1400,7 +1408,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized and Standardized results in Json Format
-              description: Latest Version
+              description: Older Version
         v0.1.0:
          type: array
          items:
