@@ -12,6 +12,7 @@ info:
         - en - english
         - ms - malay (minangkabau)
         - ta - tamil
+
       **Suggested usecases:**
           It can be used to translate text for any applications, and can be augmented to internationalize
           NLP microservices provided by sentient.io.
