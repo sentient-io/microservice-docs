@@ -235,6 +235,22 @@ components:
     versions:
       type: object
       properties:
+        v2.0.1:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jul 13, 2022
+              x-details: Data structure changed
+              description: Latest Version
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 08, 2022
+              x-details: Data structure changed
+              description: Archived
         v1.0.0:
          type: array
          items:
@@ -242,7 +258,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized release
-              description: Latest Version
+              description: Archived
         v0.1.0:
          type: array
          items:
@@ -250,7 +266,7 @@ components:
             - type: string
               example: Published Date - Mar 24, 2020
               x-details: Initial version release
-              description: Archived
+              description: Archived   
   securitySchemes:
     APIAuthorizer:
       type: apiKey
