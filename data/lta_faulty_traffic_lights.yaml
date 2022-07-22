@@ -321,7 +321,7 @@ components:
             - type: string
               example: Published Date - May 05, 2022
               x-details: Default limit changed
-              description: Older Version        
+              description: Archived       
         v0.1.0:
          type: array
          items:

@@ -6,7 +6,7 @@ info:
     Suggested Use Cases:
     - Software solutions with functions for personal credit checks, e.g. for parties who have a vested interest (e.g. banks, investors) in the company’s performance and to evaluate the company’s gearing and acid ratios.
     - Information from this microservice can be used for financial analysis - one can build models based on historical behavior. Continually update fraud patterns and compare with real-time transactions. Store and consolidate market data, trade activity, and other data, such as social and transactional data.
-  version: '1.1.0'
+  version: '1.0.1'
   x-subscribelink: d&b_brief_financial_information_sg
   x-apitype: small file
   x-apitypedescription: |+
@@ -24,13 +24,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.1.0"
+- name: "v1.0.1"
   description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/sbfe/v1/getdata:
     post:
       tags:
-        - v1.1.0
+        - v1.0.1
       summary: Adds a new user
       requestBody:
         content:
@@ -1591,7 +1591,7 @@ components:
     versions:
       type: object
       properties:
-        v1.1.0:
+        v1.0.1:
          type: array
          items:
           oneOf:
@@ -1606,7 +1606,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized and Standardized results in Json format
-              description: Older Version
+              description: Archived
         v0.1.0:
          type: array
          items:

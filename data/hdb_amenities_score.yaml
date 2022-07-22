@@ -4,7 +4,7 @@ info:
   title: HDB Amenities Score
   description: |+
     This Data microservice returns amenity scores for various amenity types with an input of a Singapore postal code.  
-  version: v0.1.0
+  version: v0.2.0
   x-subscribelink: hdb_amenities_score
   x-apitype: small file
   x-apitypedescription: |+
@@ -22,13 +22,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
-- name: "v0.1.0"
-  description: "Published Date - May 12, 2021"
+- name: "v0.2.0"
+  description: "Published Date - Jul 13, 2022"
 paths:
   /microservices/data/fetchamenityscore/v0/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v0.2.0
       responses:
         '200':
           description: success response
@@ -281,6 +281,14 @@ components:
     versions:
       type: object
       properties: 
+        v0.2.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jul 13, 2022
+                x-details: Fast conversion   
+                description: Latest Version
         v0.1.0:
           type: array
           items:
@@ -288,7 +296,7 @@ components:
               - type: string
                 example: Published Date - May 12, 2021
                 x-details: Initial Release    
-                description: Latest Version
+                description: Archived
     input:
       type: object
       required:

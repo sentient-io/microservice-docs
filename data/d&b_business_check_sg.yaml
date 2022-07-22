@@ -10,7 +10,7 @@ info:
     - It can also be used to simplify the due diligence process, by identify risk issues using a range of reports that meet different compliance requirements.
     - It can also be used to protect your business – safeguard against reputational risk by avoiding those involved in financial crime.
     - It can also be used for finance-related domains such as vehicle leasing, loans, enterprise credit terms and so on. Updated daily.
-  version: '1.1.0'
+  version: '1.0.1'
   x-subscribelink: d&b_business_check_sg
   x-apitype: small file
   x-apitypedescription: |+
@@ -28,13 +28,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.1.0"
+- name: "v1.0.1"
   description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/sbc/v1/getdata:
     post:
       tags:
-        - v1.1.0
+        - v1.0.1
       summary: Adds a new user
       requestBody:
         content:
@@ -1486,7 +1486,7 @@ components:
     versions:
       type: object
       properties:
-        v1.1.0:
+        v1.0.1:
          type: array
          items:
           oneOf:
@@ -1501,7 +1501,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized and Standardized results in Json Format
-              description: Older version
+              description: Archived
         v0.1.0:
          type: array
          items:

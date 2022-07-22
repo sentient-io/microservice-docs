@@ -398,7 +398,7 @@ components:
             - type: string
               example: Published Date - Feb 28, 2021
               x-details: Initial version release
-              description: Older Version
+              description: Archived
     input:
       type: object
       required:
