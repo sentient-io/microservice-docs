@@ -340,7 +340,7 @@ components:
             - type: string
               example: Published Date - Oct 29, 2021
               x-details: Initial version release
-              description: Older Version
+              description: Archived
     input:
       type: object
       properties:
