@@ -359,76 +359,76 @@ data:
   commercial_directories_hdb_sg:
     title: HDB Commercial Directories (SG)
     versions:
-      1.1.0: 'commercial_directories_hdb_sg.yaml'
+      1.0.1: 'commercial_directories_hdb_sg.yaml'
   building_addresses_hdb_sg:
     title: HDB Block Coordinates (SG)
     versions:
-      1.1.0: 'building_addresses_hdb_sg.yaml'
+      1.0.1: 'building_addresses_hdb_sg.yaml'
   residential_sales_and_rental_hdb_sg:
     title: HDB Residential Occupancy Status (SG)
     versions:
-      1.1.0: 'residential_sales_and_rental_hdb_sg.yaml'
+      1.0.1: 'residential_sales_and_rental_hdb_sg.yaml'
   carpark_hdb_sg:
     title: HDB Carpark Locations (SG)
     versions:
-      1.1.0: 'carpark_hdb_sg.yaml'
+      1.0.1: 'carpark_hdb_sg.yaml'
   demographics_hdb_sg:
     title: HDB Demographics (SG)
     versions:
-      1.1.0: 'demographics_hdb_sg.yaml'
+      1.0.1: 'demographics_hdb_sg.yaml'
   flat_ownership_hdb_sg:
     title: HDB Flat Ownership Duration (SG)
     versions:
-      1.1.0: 'flat_ownership_hdb_sg.yaml'
+      1.0.1: 'flat_ownership_hdb_sg.yaml'
   season_parking_availability_hdb_sg:
     title: HDB Season Parking Availability (SG)
     versions:
-      1.1.0: 'season_parking_availability_hdb_sg.yaml'
+      1.0.1: 'season_parking_availability_hdb_sg.yaml'
   directory_of_singapore_startups:
     title: Directory of Singapore Startups
     versions:
-      1.1.0: 'directory_of_singapore_startups.yaml'
+      1.0.1: 'directory_of_singapore_startups.yaml'
   fitness_stations_and_playgrounds_hdb_sg:
     title: HDB Fitness Stations and Playgrounds (SG)
     versions:
-      2.1.0: 'fitness_stations_and_playgrounds_hdb_sg.yaml'
+      2.0.1: 'fitness_stations_and_playgrounds_hdb_sg.yaml'
       1.0.0: 'fitness_stations_and_playgrounds_hdb_sg_v1.yaml'
   amenities_lamp_posts_hdb_sg:
     title: HDB Lamp Posts Locations (SG)
     versions:
-      2.1.0: 'amenities_lamp_posts_hdb_sg.yaml'
+      2.0.1: 'amenities_lamp_posts_hdb_sg.yaml'
       1.0.0: 'amenities_lamp_posts_hdb_sg_v1.yaml'
   amenities_hardcourts_hdb_sg:
     title: HDB Hardcourts Locations (SG)
     versions:
-      2.1.0: 'amenities_hardcourts_hdb_sg.yaml'
+      2.0.1: 'amenities_hardcourts_hdb_sg.yaml'
       1.0.0: 'amenities_hardcourts_hdb_sg_v1.yaml'
   amenities_shelters_hdb_sg:
     title: HDB Shelters Locations (SG)
     versions:
-      2.1.0: 'amenities_shelters_hdb_sg.yaml'
+      2.0.1: 'amenities_shelters_hdb_sg.yaml'
       1.0.0: 'amenities_shelters_hdb_sg_v1.yaml'
   d&b_business_check_plus_sg:
     title: D&B Business Check Plus (SG)
     versions:
-      1.1.0: 'd&b_business_check_plus_sg.yaml'
+      1.0.1: 'd&b_business_check_plus_sg.yaml'
   d&b_basic_individual_search_sg:
     title: D&B Basic Individual Search (SG)
     versions:
-      1.1.0: 'dnb_basic_individual_search_sg.yaml'
+      1.0.1: 'dnb_basic_individual_search_sg.yaml'
       0.1.0: 'd&b_basic_individual_search_sg_v0.1.yaml'
   d&b_business_check_sg:
     title: D&B Business Check (SG)
     versions:
-      1.1.0: 'd&b_business_check_sg.yaml'
+      1.0.1: 'd&b_business_check_sg.yaml'
   d&b_brief_financial_information_sg:
     title: D&B Brief Financial Information (SG)
     versions:
-      1.1.0: 'd&b_brief_financial_information_sg.yaml'
+      1.0.1: 'd&b_brief_financial_information_sg.yaml'
   hdb_amenities_score:
     title: HDB Amenities Score
     versions:
-      0.1.0: 'hdb_amenities_score.yaml'
+      0.2.0: 'hdb_amenities_score.yaml'
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
