@@ -7,7 +7,7 @@ info:
     Suggested Use Cases:
     - Software solutions that require personal checks, e.g. in the appointment of Board Members, Directorship or C-suite level hiring, where the appointee’s background is paramount to the Company and its reputation.
     - Swift pre-employment screening solution - information provided by the microservice can be used to protect one's company's reputation from potential negative publicity by conducting background checks on individuals prior to hiring.
-  version: '1.1.0'
+  version: '1.0.1'
   x-subscribelink: d&b_basic_individual_search_sg
   x-apitype: small file
   x-apitypedescription: |+
@@ -25,13 +25,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.1.0"
+- name: "v1.0.1"
   description: "Published Date - Jul 13, 2022"
 paths:
    /microservices/data/sbis/v1/getdata:
     post:
       tags:
-        - v1.1.0
+        - v1.0.1
       summary: Adds a new user
       requestBody:
         content:
@@ -1393,7 +1393,7 @@ components:
     versions:
       type: object
       properties:
-        v1.1.0:
+        v1.0.1:
          type: array
          items:
           oneOf:
@@ -1408,7 +1408,7 @@ components:
             - type: string
               example: Published Date - Apr 15, 2021
               x-details: Optimized and Standardized results in Json Format
-              description: Older Version
+              description: Archived
         v0.1.0:
          type: array
          items:
