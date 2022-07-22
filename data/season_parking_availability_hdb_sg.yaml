@@ -78,7 +78,7 @@ info:
       
        > filterdata = {"filter":[{"match":{"street":"serangoon north avenue 4"}},{"match":{"block":"503"}},{"match":{"vehicle_type":"H"}}]}
        
-  version: '1.1.0'
+  version: '1.0.1'
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
@@ -95,13 +95,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.1.0"
+- name: "v1.0.1"
   description: "Published Date - Jul 13,2022"
 paths:
    /microservices/data/carparkavailability/v1/getdata:
     get:
       tags:
-        - v1.1.0
+        - v1.0.1
       parameters:
         - in: query
           name: querystring
@@ -443,7 +443,7 @@ components:
     versions:
       type: object
       properties:
-        v1.1.0:
+        v1.0.1:
          type: array
          items:
           oneOf:
@@ -458,7 +458,7 @@ components:
             - type: string
               example: Published Date - May 21,2021
               x-details: Optimized release
-              description: Older Version
+              description: Archived
         v0.1.0:
          type: array
          items:
