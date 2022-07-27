@@ -20,10 +20,10 @@ info:
   x-notes: |+
     Payload size cannot exceed 10 MB.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Nov 25, 2019"
+  description: "Published Date - Aug 15, 2022"
 paths:
   /microservices/utility/downloadyoutubevideos/v0.2/getresults:
     post:
