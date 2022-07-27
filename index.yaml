@@ -261,7 +261,7 @@ computer vision:
       0.1.0: 'receipt_scanner.yaml'       
 utility:
   youtube_video_downloader:
-    title: Video-To-Audio Convertor
+    title: Youtube Video Downloader
     versions:
       1.0.0: 'youtube_video_downloader.yaml'
   video-to-audio_converter:
