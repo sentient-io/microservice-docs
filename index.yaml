@@ -83,7 +83,6 @@ nlp:
     title: Inverse Text Normalisation ENG
     versions:
       2.0.0: 'inverse_text_normalisation_eng.yaml'
-      1.0.0: 'inverse_text_normalisation_eng_v1.0.yaml'
   named-entity_recognition_eng:
     title: Named-Entity Recognition ENG
     versions:
