@@ -68,7 +68,7 @@ info:
       > }
       **Sample Queries Based on Use Cases**
     
-      1. **Search for all commercial directories around ang mo kio street 21**
+      1. **Search for all commercial directories around clementi+west+street+1**
          Using a querystring only&#58;
          > querystring = "clementi+west+street+1"
       2. **Search for all commercial directories within a 1KM radius from Tampines Mall**
