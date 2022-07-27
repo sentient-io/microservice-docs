@@ -263,7 +263,7 @@ utility:
   youtube_video_downloader:
     title: Youtube Video Downloader
     versions:
-      1.0.0: 'youtube_video_downloader.yaml'
+      0.2.0: 'youtube_video_downloader.yaml'
   video-to-audio_converter:
     title: Video-To-Audio Convertor
     versions:
