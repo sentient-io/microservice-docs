@@ -20,16 +20,16 @@ info:
       
       A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
       * **must** - All of the stated conditions must match. Equivalent to an AND operator.
-        > {"must":[{"match_phrase":{"street":"CLEMENTI WEST STREET 1"}}]}
+        > {"must":[{"match_phrase":{"street":"clementi+west+street+1"}}]}
       * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
       
-        > {"must_not":[{"match":{"programme":"HIP"}}]}
+        > {"must_not":[{"match":{"programme":"hip"}}]}
       * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
       
-        > {"should":[{"match":{"postal_code":120604}}]}
+        > {"should":[{"match":{"postalcode":120604}}]}
       * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
         
-        > {"filter":[{"match":{"programme":"HIP"}}]}
+        > {"filter":[{"match":{"programme":"hip"}}]}
       For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
       Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
       
@@ -37,34 +37,34 @@ info:
       
       A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
       * **match** - Search within a full text field for a single word
-        > {"match":{"street":"CLEMENTI WEST STREET 1"}}
+        > {"match":{"street":"clementi+west+street+1"}}
       * **match_phrase** - Search within a full text field
-        > {"match_phrase":{ "street":CLEMENTI WEST STREET 1"}}
+        > {"match_phrase":{ "street":"clementi+west+street+1"}}
       * **match_phrase_prefix** - Search within a full text field with prefix
-        > {"match_phrase_prefix":{"street":"CLEMENTI WEST STREET 1"}}
+        > {"match_phrase_prefix":{"street":"clementi+west+street+1"}}
       * **term** - Returns results that contain an exact term in a provided field
-        > {"term":{"postal_code":120604}}
+        > {"term":{"postalcode":120604}}
       * **terms** - Returns results that contain one or more exact terms in a provided field
-        > {"terms":{"postal_code":[120604,120605]}}
+        > {"terms":{"postalcode":[120604,120605]}}
         
       * **range** - Returns results that contain terms within a stipulated range
       
-        > {"range":{"postal_code":{"lte":120604}}}
-        > {"range":{"postal_code":{"gte":120604}}}
-        > {"range":{"postal_code":{"gte":120604,"lte":760716}}}
+        > {"range":{"postalcode":{"lte":120604}}}
+        > {"range":{"postalcode":{"gte":120604}}}
+        > {"range":{"postalcode":{"gte":120604,"lte":760716}}}
         
       * **exists** - Returns results that contain any indexed value for a field
       
-        > {"exists":{ "field": "postal_code"}}
+        > {"exists":{ "field": "postalcode"}}
   
       For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
       **Forming sophisticated queries using combinations of filter types (in JSON)**
       Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
       > {
-      > "must":[{"match_phrase":{"street":"CLEMENTI WEST STREET 1"}}],
-      > "filter":[{"match":{"programme":"HIP"}}],
-      > "should":[{"match":{"postal_code":120604}}],
-      > "must_not":[{"match":{"programme":"LUP"}}]
+      > "must":[{"match_phrase":{"street":"clementi+west+street+1"}}],
+      > "filter":[{"match":{"programme":"hip"}}],
+      > "should":[{"match":{"postalcode":120604}}],
+      > "must_not":[{"match":{"programme":"lup"}}]
       > }
       **Sample Queries Based on Use Cases**
     
@@ -78,7 +78,7 @@ info:
       3. **Search for all HIP programme at Blk 604, CLEMENTI WEST STREET 1**
          Using a filterdata only&#58;
          
-         > filterdata = {"filter":[{"match_phrase": {"programme":"HIP"}},{"match": {"block":"604"}},{"match_phrase": {"street":"CLEMENTI WEST STREET 1"}}]}
+         > filterdata = {"filter":[{"match_phrase": {"programme":"hip"}},{"match": {"block":"604"}},{"match_phrase": {"street":"clementi+west+street+1"}}]}
   
   version: '0.1.0'
   x-apitype: small file
@@ -114,7 +114,7 @@ paths:
             
             If this field is set to null, by default the microservice will return all retail shops (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "CLEMENTI WEST STREET 1"
+          example: "clementi+west+street+1"
           required: false
         - in: query
           name: offset
@@ -142,7 +142,7 @@ paths:
             * filter
           required: false
           example: |+
-              {"must":[{"match_phrase":{"street":"CLEMENTI WEST STREET 1"}}],"filter":[{"match":{"programme":"HIP"}}],"should":[{"match":{"postal_code":120604}}],"must_not":[{"match":{"programme":"LUP"}}]}
+              {"must":[{"match_phrase":{"street":"clementi+west+street+1"}}],"filter":[{"match":{"programme":"hip"}}],"should":[{"match":{"postalcode":120604}}],"must_not":[{"match":{"programme":"lup"}}]}
       responses:
         '200':
           description: Ok
