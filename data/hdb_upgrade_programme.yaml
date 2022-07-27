@@ -176,16 +176,16 @@ paths:
                     _id: ofywPYIBJPcGcTBZClcI
                     _score: 18.239067
                     _source:
-                      programme: "HIP"
+                      programme: "hip"
                       batch_no: "001"
                       postal_code: "120604"
-                      precinct_code: "CLM01"
+                      precinct_code: "clm01"
                       announcement_date: "2008-02-19"
-                      development_status: "COMPLETED"
+                      development_status: "completed"
                       actual_start_of_construction: "2008-09-18"
                       actual_end_of_construction: "2010-06-14"
                       block: " 604 "
-                      street: "CLEMENTI WEST STREET 1"
+                      street: "clementi west street 1"
                       xcoord: "20677.0996"
                       ycoord: "31967.5996"
                       location:
@@ -304,7 +304,7 @@ components:
                             programme: 
                               type: string
                               description: Programme
-                              example: "HIP"
+                              example: "hip"
                             batch_no: 
                               type: string
                               description: Batch Number
@@ -317,7 +317,7 @@ components:
                             precinct_code: 
                               type: string
                               description: Precinct Code
-                              example: "CLM01"
+                              example: "clm01"
                             source: 
                               type: string
                               description: Dataset source
@@ -329,7 +329,7 @@ components:
                             development_status:
                               type: string
                               description: Development Status
-                              example: "COMPLETED"
+                              example: "completed"
                             actual_start_of_construction:
                               type: string
                               description: Actual Start of Construction
@@ -356,7 +356,7 @@ components:
                             street:
                               type: string
                               description: Full street name
-                              example: "CLEMENTI WEST STREET 1"
+                              example: "clementi west street 1"
                             xcoord:
                               type: number
                               format: float
