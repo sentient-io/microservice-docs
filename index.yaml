@@ -96,10 +96,6 @@ nlp:
     title: Sentence Ranking
     versions:
       0.1.0: 'sentence_ranking.yaml'      
-  spacy_ner:
-    title: spaCy NER
-    versions:
-      1.0.0: 'spacy_ner.yaml'
   page_profiler_eng:
     title: Page Profiler ENG
     versions:
