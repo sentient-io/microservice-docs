@@ -3,24 +3,19 @@ info:
   title: HDB Upgrade Programme (SG)
   x-subscribelink: commercial_directories_hdb_sg
   description: |+
-   This Data microservice list information of HDB Upgrading and Estate Renewal Programmes which includes:
+   This Data microservice retrieves information on Housing Development Board (HDB) Upgrading and Estate Renewal Programmes in Singapore which includes:
    - Lift Upgrading Programme
    - Home Improvement Programme
    - Neighbourhood Renewal Programme
    - Interim Upgrading Programme or Interim Upgrading Programme Plus
    - Main Upgrading Programme
    - Selective En bloc Redevelopment Scheme <br>
-   Information on HDB’s Upgrading Programmes:
-   - Announcement date
-   - Completion date
-   - Name of upgrading programme
-   - Latest status
-   - Precinct name/code
-   - Block
-   - Street
-   - XCOORD
-   - YCOORD
-   - Location
+   
+   Information on update programmes are announcement date, completion date, name of upgrading programme, latest status, precinct name/code, block, street, postal code, latitude and longitude 
+   coordinates. The information is updated quaterly. A successful call will return the results of the query in JSON format.<br/>
+   The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to 
+   benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
+   
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
