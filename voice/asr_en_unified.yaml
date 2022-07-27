@@ -223,15 +223,7 @@ components:
     versions:
       type: object
       properties: 
-        v0.1.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Jun 01, 2022
-              x-details: Initial version release
-              description: Initial Version
-         v0.1.1:
+        v0.1.1:
           type: array
           items:
            oneOf:
@@ -239,6 +231,15 @@ components:
                example: Published Date - Jul 27, 2022
                x-details: Patch version release
                description: Initial Version Patch Release
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 01, 2022
+              x-details: Initial version release
+              description: Archived
+         
   securitySchemes:
     APIAuthorizer:
       type: apiKey
