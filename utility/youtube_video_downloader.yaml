@@ -6,7 +6,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be integrated into apps used to download and watch videos when the user wants to save limited data.
-  version: '1.0.0'
+  version: '0.2.0'
   x-subscribelink: youtube_video_downloader
   x-apitype: small file
   x-apitypedescription: |+
@@ -22,13 +22,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.2.0"
   description: "Published Date - Aug 15, 2022"
 paths:
   /microservices/utility/downloadyoutubevideos/v0.2/getresults:
     post:
       tags:
-        - v1.0.0
+        - v0.2.0
       responses:
         '200':
           description: Ok
@@ -218,7 +218,7 @@ components:
     versions:
       type: object
       properties: 
-        v1.0.0:
+        v0.2.0:
          type: array
          items:
           oneOf:
