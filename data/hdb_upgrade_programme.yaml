@@ -10,8 +10,7 @@ info:
        
   x-additionalinfo : |+
       Suggested Use Cases:
-      - Build a resident community mobile app with e-commerce collection and estate directory features. To illustrate, the app can:
-        Name retail shops in HDBs based on their GPS location.
+      - This microservice can help companies such as Property Agencies, HDB Heartlanders and any person who wants to know HDB Upgrading & Estate Renewal Programmes.
       
       **Refining queries in the filterdata field using filter types and match types**
       
@@ -52,7 +51,7 @@ info:
       
         > {"range":{"postal_code":{"lte":120604}}}
         > {"range":{"postal_code":{"gte":120604}}}
-        > {"range":{"postal_code":{"gte":120604,"lte":760415}}}
+        > {"range":{"postal_code":{"gte":120604,"lte":760716}}}
         
       * **exists** - Returns results that contain any indexed value for a field
       
@@ -143,7 +142,7 @@ paths:
             * filter
           required: false
           example: |+
-              {"must":[{"match_phrase":{"STREET":"CLEMENTI WEST STREET 1"}}],"filter":[{"match":{"Programme":"HIP"}}],"should":[{"match":{"Postal Code":120604}}],"must_not":[{"match":{"Programme":"LUP"}}]}
+              {"must":[{"match_phrase":{"street":"CLEMENTI WEST STREET 1"}}],"filter":[{"match":{"programme":"HIP"}}],"should":[{"match":{"postal_code":120604}}],"must_not":[{"match":{"programme":"LUP"}}]}
       responses:
         '200':
           description: Ok
