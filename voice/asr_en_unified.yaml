@@ -230,7 +230,7 @@ components:
              - type: string
                example: Published Date - Jul 27, 2022
                x-details: Patch version release
-               description: Initial Version Patch Release
+               description: Patch Release
         v0.1.0:
          type: array
          items:
