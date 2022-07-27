@@ -231,14 +231,6 @@ components:
               example: Published Date - Jun 01, 2022
               x-details: Initial version release
               description: Initial Version
-         v0.1.1:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Jul 27, 2022
-              x-details: Patch release
-              description: Latest Version
   securitySchemes:
     APIAuthorizer:
       type: apiKey
