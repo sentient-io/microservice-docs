@@ -70,7 +70,7 @@ info:
     
       1. **Search for all commercial directories around ang mo kio street 21**
          Using a querystring only&#58;
-         > querystring = "ang mo kio street 21"
+         > querystring = "clementi+west+street+1"
       2. **Search for all commercial directories within a 1KM radius from Tampines Mall**
          Using a filterdata only&#58;
          > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.3525,103.9447"}}]}
