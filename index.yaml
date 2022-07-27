@@ -57,7 +57,7 @@ voice:
   text-to-speech_jp:
     title: Text-To-Speech JP
     versions:
-      0.1.0: 'text_to_speech_jp.yaml'
+      0.1.1: 'text_to_speech_jp.yaml'
   text-to-speech_eng_ncs:
     title: Text-To-Speech ENG NCS
     versions:

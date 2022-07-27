@@ -8,7 +8,7 @@ info:
         User can adjust the pitch and tempo of the the synthesised speech. 
 
         The input text **should not exceed 800 characters**. 
-  version: v0.1.0
+  version: v0.1.1
   x-subscribelink: text-to-speech_jp
   x-apitype: small file
   x-apitypedescription: |+
@@ -26,13 +26,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
-- name: "v0.1.0"
+- name: "v0.1.1"
   description: "Published Date - Jul 27, 2022"
 paths:
   /microservices/voice/ttsjp/v0/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v0.1.1
       responses:
         '200':
           description: success response
