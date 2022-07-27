@@ -109,7 +109,6 @@ nlp:
     title: Inverse Text Normalisation ENG
     versions:
       2.0.0: 'inverse_text_normalisation_eng.yaml'
-      1.0.0: 'inverse_text_normalisation_eng_v1.0.yaml'
   named-entity_recognition_eng:
     title: Named-Entity Recognition ENG
     versions:
@@ -123,10 +122,6 @@ nlp:
     title: Sentence Ranking
     versions:
       0.1.0: 'sentence_ranking.yaml'
-  spacy_ner:
-    title: spaCy NER
-    versions:
-      1.0.0: 'spacy_ner.yaml'
   page_profiler_eng:
     title: Page Profiler ENG
     versions:
