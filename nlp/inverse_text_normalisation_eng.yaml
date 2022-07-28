@@ -299,14 +299,14 @@ components:
           default: False
           example: 0
           description: |+
-            	Optional. Default = Negative Infinity. Ignored if text2digits_normalised is False. Lower limit of number to be converted. E.g. If set to 10, "ten" => "ten" and "eleven" => "11"
+            Optional. Default = Negative Infinity. Ignored if text2digits_normalised is False. Lower limit of number to be converted. E.g. If set to 10, "ten" => "ten" and "eleven" => "11"
         capitalised:
           x-name: capitalised
           type: array
           default: False
           example: ["FY", "FYI"]
           description: |+
-            	Optional. Default = []. Convert strings in list to ALL CAPs. E.g. ['FY', 'FYI']
+            Optional. Default = []. Convert strings in list to ALL CAPs. E.g. ['FY', 'FYI']
   securitySchemes:
     APIAuthorizer:
       type: apiKey
