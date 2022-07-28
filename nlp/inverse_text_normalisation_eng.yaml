@@ -7,7 +7,7 @@ info:
     It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case. 
     
     The input text **should not exceed 5000 characters**.
-  version: '2.0.0'
+  version: '2.0.1'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be integrated into services or apps that offer digital writing assistance to make writing clear and effective.
@@ -28,13 +28,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Apr 13, 2022"
+- name: "v2.0.1"
+  description: "Published Date - Jul 28, 2022"
 paths:
   /microservices/nlp/inversenorm/v2/getpredictions:
     post:
       tags:
-        - v2.0.0
+        - v2.0.1
       responses:
         '200':
           description: Ok
@@ -216,6 +216,14 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jul 28, 2022
+                x-details: Optional input parameter threshold replaced with 2 new optional parameters upper_threshold,lower_threshold. Also introducing a new optional parameter capitalised.
+                description: Optional input parameter threshold replaced with 2 new optional parameters upper_threshold,lower_threshold. Also introducing a new optional parameter capitalised.
         v2.0.0:
           type: array
           items:
@@ -278,13 +286,27 @@ components:
           example: false
           description: |+
             Convert text to ordinals only if text2digits_normalised parameter is True. Default is False.
-        threshold:
-          x-name: threshold
+        upper_threshold:
+          x-name: upper_threshold
           type: integer
           default: False
           example: 3000
           description: |+
-            Set a threshold for text2digits. Only convert number lower than the threshold. Default is 0.
+            Optional. Default = Infinity. Ignored if text2digits_normalised is False. Upper limit of number to be converted. E.g. If set to 3000, "three thousands" => "3000" and "three thousand and one" => "three thousand and one"
+        lower_threshold:
+          x-name: lower_threshold
+          type: integer
+          default: False
+          example: 0
+          description: |+
+            	Optional. Default = Negative Infinity. Ignored if text2digits_normalised is False. Lower limit of number to be converted. E.g. If set to 10, "ten" => "ten" and "eleven" => "11"
+        capitalised:
+          x-name: capitalised
+          type: array
+          default: False
+          example: ["FY", "FYI"]
+          description: |+
+            	Optional. Default = []. Convert strings in list to ALL CAPs. E.g. ['FY', 'FYI']
   securitySchemes:
     APIAuthorizer:
       type: apiKey
