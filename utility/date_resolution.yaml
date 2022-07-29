@@ -19,7 +19,7 @@ info:
   x-apidetailsdesc: |+
     Generate Date from String.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.3.0"
   description: "Published Date - Jun 20, 2022"
