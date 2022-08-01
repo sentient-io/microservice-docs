@@ -4,9 +4,9 @@ info:
   description: |+
     GPT-J 6B is a transformer model trained using Ben Wang's Mesh Transformer JAX. "GPT-J" refers to the class of model, while "6B" represents the number of trainable parameters. 
 
-    Language: English
+    **Language: English**
 
-    The model has token_length limit of maximum 100.
+    Note: The model has token_length limit of maximum 100.
   version: v0.1.0
   x-subscribelink: text_generation_gptj6b
 servers:
@@ -72,7 +72,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/invalidinput'       
+                $ref: '#/components/schemas/invalidinput'
         '500':
           description: Internal Server error
           content:
@@ -102,7 +102,7 @@ components:
           type: object
           description: The result of the API call.
           example: { "<Json": "Object>" }
-          properties: 
+          properties:
             generated:
               description: Generated text with GPT-J 6B model
               example:  "My name is Teven and I not an average vlogger. I have been vlogging about 5 years now and"
@@ -116,7 +116,7 @@ components:
           type: string
           example: Success
           description: The status of the API call success/failure
-        
+
     unauthorized:
       type: object
       properties:
@@ -191,20 +191,18 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
-                example: Published Date - June 15, 2022
-                description: Initial Version     
+                example: Published Date - August 1, 2022
+                description: Initial Version
     input:
       type: object
       required:
-      
         - text
-      
       properties:
         text:
           x-name: text
