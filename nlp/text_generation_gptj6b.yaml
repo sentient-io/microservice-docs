@@ -13,7 +13,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - June 15, 2022"
+  description: "Published Date - August 1, 2022"
 paths:
   /microservices/nlp/gptj/v0/getpredictions:
     post:
