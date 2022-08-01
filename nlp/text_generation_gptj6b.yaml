@@ -6,7 +6,7 @@ info:
 
     **Language: English**
 
-    Note: The model has token_length limit of maximum 100.
+    Do ensure you **token_length limit is within 100**.
   version: v0.1.0
   x-subscribelink: text_generation_gptj6b
 servers:
