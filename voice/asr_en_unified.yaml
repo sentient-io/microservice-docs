@@ -211,7 +211,8 @@ components:
     input:
       type: object
       required:
-        - file_path      
+        - file_path   
+        - model
       properties:
         file_path:
           type: string
@@ -220,9 +221,27 @@ components:
           example: sample.wav
           description: |+
             Maximum Limit upto 15 seconds of audio wav file.
+        model:
+          x-name: model
+          type: string
+          default: True
+          example: generic
+          description: |+
+            Model selection. For best performance, select the model which best matches the use-case&#58;
+            The default model is female_singaporean
+            1. generic
+            2. sg-unified
     versions:
       type: object
       properties: 
+        v0.1.1_ft_nsc:
+          type: array
+          items:
+           oneOf:
+             - type: string
+               example: Published Date - Aug 04, 2022
+               x-details: Minor release
+               description: Minor with new model addition
         v0.1.1:
           type: array
           items:
