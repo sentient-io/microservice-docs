@@ -2,7 +2,20 @@ openapi: 3.0.1
 info:
   title: Text Generation using GPT-J 6B
   description: |+
-    GPT-J 6B is a transformer model trained using Ben Wang's Mesh Transformer JAX. "GPT-J" refers to the class of model, while "6B" represents the number of trainable parameters. 
+    This microservice is used for text generation using a [language model](https://en.wikipedia.org/wiki/Language_model) with GPT-J 6B model. 
+    A language model just predicts what is the next word based on probabilities.
+    Given an input text like: "Hello my name is Lee Hsien Loong and I am"
+
+    and it will recognize who it is and generate the following text:
+
+    "Hello my name is Lee Hsien Loong and I am the Prime Minister of the Republic of Singapore.\n\nI would like to talk to you today about the importance of education and the role it plays in building a strong and prosperous nation. Education is the key to unlocking Singapore’s economic potential. It is also the best way to ensure that our people are equipped with the knowledge and skills they need to succeed in the 21st century. In fact, education is so important that it"
+
+    You can use these models for code-generation, calculating arithemetic, language translation etc.
+
+    **About the model**
+    
+    GPT-J 6B is a transformer model trained using Ben Wang's Mesh Transformer JAX and is considered as an `6B parameter open-source version of GPT-3`.
+    "GPT-J" refers to the class of model, while "6B" represents the number of trainable parameters.
 
     **Language: English**
 
