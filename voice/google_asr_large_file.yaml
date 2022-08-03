@@ -640,6 +640,19 @@ components:
               example: false
               description: |+
                 Specifies whether to enable spoken emojis during post-processing, which is valid only for english language. Valid values - True and False. Default value - False.
+            model:
+              type: string
+              default: default
+              example: default
+              description: |+
+                Speech-to-Text detects words in an audio clip by comparing input to one of many machine learning models. Each model has been trained by analyzing millions of examples—in this case, many, many audio recordings of people speaking.
+                1. latest_long - 	Use this model for any kind of long form content such as media or spontaneous speech and conversations. Consider using this model in place of the video model, especially if the video model is not available in your target language. You can also use this in place of the default model.
+                2. latest_short - Use this model for short utterances that are a few seconds in length. It is useful for trying to capture commands or other single shot directed speech use cases. Consider using this model instead of the command and search model.
+                3. command_and_search - Best for short or single-word utterances like voice commands or voice search.     
+                4. phone_call - 	Best for audio that originated from a phone call (typically recorded at an 8khz sampling rate).
+                5. medical_dictation - Use this model to transcribe notes dictated by a medical professional.
+                6. medical_conversation - Use this model to transcribe a conversation between a medical professional and a patient.
+                7. default - Best for audio that does not fit the other audio models, like long-form audio or dictation. The default model will produce transcription results for any type of audio, including audio such as video clips that have a separate model specifically tailored to it. However, recognizing video clip audio using the default model will likely yield lower-quality results than using the video model. Ideally the audio is high-fidelity, recorded at a 16khz or greater sampling rate.
     uploadinput:
       type: object
       required:
