@@ -256,7 +256,7 @@ components:
 
             Default value is 5.
 
-            Recommended range is between 1-5.
+            Recommended range is between 2-5.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
