@@ -20,7 +20,7 @@ info:
   x-notes: |+
     Payload size cannot exceed 10 MB.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.2.0"
   description: "Published Date - Jul 29, 2022"
