@@ -30,6 +30,19 @@ info:
      The model is trained on the Pile dataset is a 825 GiB, diverse, open source language modelling data set developed by EleutherAI.
 
   x-subscribelink: text_generation_gptj6b
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10 MB/Call
+  x-inputfilelimit: |+
+    Process up to 10 MB per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 10 MB.
+  x-apidetailsdesc: |+
+    You can use these models for code-generation, calculating arithmetic, language translation etc.
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
