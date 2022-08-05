@@ -25,7 +25,7 @@ info:
   x-apidetailsdesc: |+
     Supports recognizing short speech and returns the recognition for Small Files.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v2.0.0"
   description: "Published Date - Feb 18, 2022"
