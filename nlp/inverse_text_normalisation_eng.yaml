@@ -7,7 +7,7 @@ info:
     It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case. 
     
     The input text **should not exceed 5000 characters**.
-  version: '2.1.0'
+  version: '2.2.0'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be integrated into services or apps that offer digital writing assistance to make writing clear and effective.
@@ -28,13 +28,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v2.1.0"
-  description: "Published Date - Jul 28, 2022"
+- name: "v2.2.0"
+  description: "Published Date - Aug 08, 2022"
 paths:
   /microservices/nlp/inversenorm/v2/getpredictions:
     post:
       tags:
-        - v2.1.0
+        - v2.2.0
       responses:
         '200':
           description: Ok
@@ -216,6 +216,14 @@ components:
     versions:
       type: object
       properties: 
+        v2.2.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Aug 08, 2022
+                x-details: Rename input parameters as convert_date_time from datetime_normalised, convert_digits from text2digits_normalised, capitalized from capitalised.
+                description: Rename input parameters as convert_date_time from datetime_normalised, convert_digits from text2digits_normalised, capitalized from capitalised.
         v2.1.0:
           type: array
           items:
@@ -265,15 +273,15 @@ components:
           description: |+
             The input text to be corrected.
 
-        text2digits_normalised:
-          x-name: text2digits_normalised
+        convert_digits:
+          x-name: convert_digits
           type: boolean
           default: False
           example: false
           description: |+
             Convert digits(in words) to digits(in number). Default is False.
-        datetime_normalised:
-          x-name: datetime_normalised
+        convert_date_time:
+          x-name: convert_date_time
           type: boolean
           default: False
           example: false
@@ -285,23 +293,23 @@ components:
           default: False
           example: false
           description: |+
-            Convert text to ordinals only if text2digits_normalised parameter is True. Default is False.
+            Convert text to ordinals only if convert_digits parameter is True. Default is False.
         upper_threshold:
           x-name: upper_threshold
           type: integer
           default: False
           example: 3000
           description: |+
-            Optional. Default = Infinity. Ignored if text2digits_normalised is False. Upper limit of number to be converted. E.g. If set to 3000, "three thousands" => "3000" and "three thousand and one" => "three thousand and one"
+            Optional. Default = Infinity. Ignored if convert_digits is False. Upper limit of number to be converted. E.g. If set to 3000, "three thousands" => "3000" and "three thousand and one" => "three thousand and one"
         lower_threshold:
           x-name: lower_threshold
           type: integer
           default: False
           example: 0
           description: |+
-            Optional. Default = Negative Infinity. Ignored if text2digits_normalised is False. Lower limit of number to be converted. E.g. If set to 10, "ten" => "ten" and "eleven" => "11"
-        capitalised:
-          x-name: capitalised
+            Optional. Default = Negative Infinity. Ignored if convert_digits is False. Lower limit of number to be converted. E.g. If set to 10, "ten" => "ten" and "eleven" => "11"
+        capitalized:
+          x-name: capitalized
           type: array
           default: False
           example: ["FY", "FYI"]
