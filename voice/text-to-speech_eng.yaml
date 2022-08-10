@@ -322,8 +322,8 @@ components:
         map_only_flag:
           x-name: map_only_flag
           type: boolean
-          default: False
-          example: false
+          default: True
+          example: true
           description: |+
             Parameter to activate Singlish mapping 
         wrapper_required:
