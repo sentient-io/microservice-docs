@@ -315,7 +315,7 @@ components:
           x-name: ttn_flags
           type: array
           default: False
-          example: ["ALL"]
+          example: ["DEFAULT"]
           description: |+
             Specifies the type of text normalisation to be applied. Accepts both string and list of strings.
             Accepted string values are either "ALL" or "DEFAULT". Accepted list of strings are "PLAIN", "PUNCT", "DATE", "LETTERS", "CARDINAL", "VERBATIM", "DECIMAL", "MEASURE", "MONEY", "ORDINAL", "TIME", "ELECTRONIC", "DIGIT", "FRACTION", "TELEPHONE", "ADDRESS". No default value
