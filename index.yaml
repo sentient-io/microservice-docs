@@ -302,7 +302,7 @@ utility:
   wikipedia:
     title: Wikipedia Retrieval
     versions:
-      2.0.0: 'wikipedia_retrieval.yaml'
+      2.0.1: 'wikipedia_retrieval.yaml'
       1.0.0: 'wikipedia_v1.yaml'
   json-csv_convertor:
     title: JSON-CSV Convertor
