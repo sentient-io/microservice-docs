@@ -234,6 +234,14 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.0:
+          type: array
+          items:
+           oneOf:
+             - type: string
+               example: Published Date - Aug 17, 2022
+               x-details: Major release
+               description: Input Parameter Changed to wav_base64 String       
         v0.2.0:
           type: array
           items:
