@@ -272,8 +272,8 @@
               The bigger the number is the more time it takes to complete.
               Default value is 4.
               Recommended range is between 2-4.
-          no_repeating_N_grams:
-            x-name: no_repeating_N_grams
+          repeating_chunk_size:
+            x-name: repeating_chunk_size
             type: integer
             default: False
             example: 3
