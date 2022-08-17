@@ -26,7 +26,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Aug 04, 2022"
 paths:
-  /microservices/voice/asrenunified/v0/get_transcript:
+  /microservices/voice/asrenunified/v1/get_transcript:
     post:
       tags:
         - v1.0.0
