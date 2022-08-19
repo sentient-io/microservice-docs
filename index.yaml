@@ -147,6 +147,10 @@ nlp:
     versions:
       0.1.1: 'sentiment_analysis_and_sarcasm_detection.yaml'       
 computer vision:
+  image_text_similarity:
+    title: Image Text Similarity
+    versions:
+      0.1.0: 'image_text_similarity.yaml'
   object_detection:
     title: Object Detection
     versions:
