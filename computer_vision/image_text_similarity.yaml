@@ -19,10 +19,10 @@ info:
   x-notes: |+
     File size cannot exceed 5 MB.
 servers:
-  - url: 'https://dev-apis.sentient.io' 
+  - url: 'https://apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Mar 25, 2022"
+  description: "Published Date - Aug 19, 2022"
 paths:
   /microservices/cv/clip/v0/getpredictions:
     post:
@@ -227,7 +227,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - Mar 25, 2022
+                example: Published Date - Aug 19, 2022
                 description: Initial version release     
     input:
       type: object
