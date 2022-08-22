@@ -96,7 +96,6 @@ voice:
     title: ASR EN Unified
     versions:
       1.0.0: 'asr_en_unified.yaml'
-      0.2.0: 'asr_en_unified_v0.yaml'
   speaker_emotion_recognition:
     title: Speaker Emotion Recognition
     versions:
