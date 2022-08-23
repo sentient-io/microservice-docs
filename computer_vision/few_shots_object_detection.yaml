@@ -271,7 +271,7 @@ components:
 
         increase_sensitivity:
           x-name: file_type
-          type: list
+          type: array
           default: false
           example: ["all"]
           description: |+
