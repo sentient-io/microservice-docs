@@ -271,9 +271,9 @@ components:
 
         increase_sensitivity:
           x-name: file_type
-          type: string
+          type: list
           default: false
-          example: all
+          example: ["all"]
           description: |+
             List of enhancements to apply: 'color', 'scale', 'all'
   securitySchemes:
