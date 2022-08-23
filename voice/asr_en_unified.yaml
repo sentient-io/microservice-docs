@@ -24,7 +24,7 @@ servers:
   - url: 'https://dev-ms-apis.huawei.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Aug 04, 2022"
+  description: "Published Date - Aug 17, 2022"
 paths:
   /microservices/voice/asrenunified/v1/get_transcript:
     post:
