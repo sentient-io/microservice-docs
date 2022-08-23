@@ -27,7 +27,7 @@ info:
   x-notes: |+
     File size cannot exceed 5 MB.
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://dev-apis.sentient.io/' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - Mar 24, 2022"
@@ -268,7 +268,14 @@ components:
           example: jpeg
           description: |+
             The file format of the input image. Optional parameter with default value as jpeg.
-        
+
+        increase_sensitivity:
+          x-name: file_type
+          type: string
+          default: false
+          example: all
+          description: |+
+            List of enhancements to apply: 'color', 'scale', 'all'
   securitySchemes:
     APIAuthorizer:
       type: apiKey
