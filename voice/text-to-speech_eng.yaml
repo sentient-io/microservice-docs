@@ -311,28 +311,28 @@ components:
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1. 
             **used only for the female_singaporean model.
-        text_normalization:
-          x-name: text_normalization
-          type: array
-          default: False
-          example: ["DEFAULT"]
-          description: |+
-            Specifies the type of text normalisation to be applied. Accepts both string and list of strings.
-            Accepted string values are either "ALL" or "DEFAULT". Accepted list of strings are "PLAIN", "PUNCT", "DATE", "LETTERS", "CARDINAL", "VERBATIM", "DECIMAL", "MEASURE", "MONEY", "ORDINAL", "TIME", "ELECTRONIC", "DIGIT", "FRACTION", "TELEPHONE", "ADDRESS". No default value
-        dictionary_mapping:
-          x-name: dictionary_mapping
-          type: boolean
-          default: True
-          example: true
-          description: |+
-            Dictionary-based mapping to enhance pronunciation for Singlish, Organisation Names, Brands, and correct some mispronunciations. Default value is True.
-        pre-processor:
-          x-name: pre-processor
-          type: boolean
-          default: True
-          example: true
-          description: |+
-            Enable or disable pre-processor. Note, if set to false, ALL pre-processors including Text Normalization and Dictionary Mapping will be automatically disabled. Default value is True
+        # text_normalization:
+        #   x-name: text_normalization
+        #   type: array
+        #   default: False
+        #   example: ["DEFAULT"]
+        #   description: |+
+        #     Specifies the type of text normalisation to be applied. Accepts both string and list of strings.
+        #     Accepted string values are either "ALL" or "DEFAULT". Accepted list of strings are "PLAIN", "PUNCT", "DATE", "LETTERS", "CARDINAL", "VERBATIM", "DECIMAL", "MEASURE", "MONEY", "ORDINAL", "TIME", "ELECTRONIC", "DIGIT", "FRACTION", "TELEPHONE", "ADDRESS". No default value
+        # dictionary_mapping:
+        #   x-name: dictionary_mapping
+        #   type: boolean
+        #   default: True
+        #   example: true
+        #   description: |+
+        #     Dictionary-based mapping to enhance pronunciation for Singlish, Organisation Names, Brands, and correct some mispronunciations. Default value is True.
+        # pre-processor:
+        #   x-name: pre-processor
+        #   type: boolean
+        #   default: True
+        #   example: true
+        #   description: |+
+        #     Enable or disable pre-processor. Note, if set to false, ALL pre-processors including Text Normalization and Dictionary Mapping will be automatically disabled. Default value is True
   securitySchemes:
     APIAuthorizer:
       type: apiKey
