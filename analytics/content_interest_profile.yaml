@@ -8,9 +8,6 @@ info:
     Only English language texts will be addressed.
     In addition to the Content Interest Profiling microservices, we are also releasing a few analytics overview microservice namely, traffic overview, page overview, and external id analytics.
   x-additionalinfo : |+
-  
-    Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/content_interest_profile.yaml
-    
     Filters are applicable only for Content and Interest Profiling APIs.
     
     **Match Types:**
