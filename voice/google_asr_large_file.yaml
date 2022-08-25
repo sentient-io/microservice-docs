@@ -605,19 +605,19 @@ components:
           properties:    
             sampling_rate:
               x-name: sampling_rate
-              type: string
-              default: true
-              example: en-US
-              description: |+
-                Specify required sampling rate.         
-            language_code:
-              x-name: language_code
               type: number
               format: integer
               default: true
               example: 16000
               description: |+
-                Specify sampling rate. 
+                Specify required sampling rate.         
+            language_code:
+              x-name: language_code
+              type: string
+              default: true
+              example: en-US
+              description: |+
+                Specify the language code of the input audio.
             word_level:
               type: boolean
               default: false
