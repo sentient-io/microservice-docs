@@ -602,14 +602,22 @@ components:
           x-name: additional_param
           type: object
           default: true
-          properties:                     
-            language_code:
-              x-name: language_code
+          properties:    
+            sampling_rate:
+              x-name: sampling_rate
               type: string
               default: true
               example: en-US
               description: |+
-                Specify the language code of the input audio.
+                Specify required sampling rate.         
+            language_code:
+              x-name: language_code
+              type: number
+              format: integer
+              default: true
+              example: 16000
+              description: |+
+                Specify sampling rate. 
             word_level:
               type: boolean
               default: false
