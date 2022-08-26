@@ -10,8 +10,7 @@ info:
     - Users can now define custom phonetic pronunciations using ARPABET notation enclosed within curly brackets { }. For example, note the difference in how “tomatoes” is pronounced using the following 2 inputs:
     - plain text: I like to eat tomatoes
     - text with ARPABET: I like to eat {T AH0 M AE1 T OW0 Z}
-
-    See https://en.wikipedia.org/wiki/ARPABET for full list of ARPABET notation.  
+      See https://en.wikipedia.org/wiki/ARPABET for full list of ARPABET notation.  
   version: 1.4.0
   x-subscribelink: text-to-speech_eng
   x-apitype: small file
