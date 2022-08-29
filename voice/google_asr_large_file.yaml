@@ -168,7 +168,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Jul 08, 2022"
+  description: "Published Date - Aug 25, 2022"
 paths:
   /async/microservices/voice/googleasr/v1/getuploadurl:
     description: |+
@@ -553,6 +553,14 @@ components:
     versions:
       type: object
       properties: 
+        v1.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Aug 25, 2022
+              x-details: sample rate added as input parameter  
+              description: Latest Version      
         v1.0.0:
          type: array
          items:
@@ -560,7 +568,7 @@ components:
             - type: string
               example: Published Date - Jul 08, 2022
               x-details: Initial version release  
-              description: Latest Version      
+              description: Archived      
         v0.1.0:
          type: array
          items:
@@ -602,7 +610,16 @@ components:
           x-name: additional_param
           type: object
           default: true
-          properties:                     
+          properties:    
+            sampling_rate:
+              x-name: sampling_rate
+              type: string
+              default: true
+              example: default
+              description: |+
+                Specify required sampling rate.   
+                "default" - Microservice will process the input file in its native sampling rate.
+                 When the value is set to a numeric digit, then the input file will be converted to whatever is the number stated (e.g. "16000")
             language_code:
               x-name: language_code
               type: string
