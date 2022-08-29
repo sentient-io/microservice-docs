@@ -275,7 +275,7 @@ components:
           default: false
           example: ["all"]
           description: |+
-            List of enhancements to apply: 'color', 'scale', 'all'
+            List of enhancements to apply: 'color', 'scale', 'all', 'none'
   securitySchemes:
     APIAuthorizer:
       type: apiKey
