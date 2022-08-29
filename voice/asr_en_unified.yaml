@@ -228,10 +228,9 @@ components:
           default: True
           example: generic
           description: |+
-            Model selection. For best performance, select the model which best matches the use-case&#58;
-            The default model is generic
-            1. generic
-            2. sg-unified
+            Model selection. For best performance, select the model which best matches the use-case:
+            1. generic - for non-accent specific speech (default)
+            2. en-SG - for Singaporean-accented English speech
     versions:
       type: object
       properties: 
