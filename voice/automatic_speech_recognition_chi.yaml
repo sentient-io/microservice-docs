@@ -265,7 +265,7 @@ components:
           default: false
           example: simplified
           description:
-            Specifies the output type of the transcript. There are four different values, they are&#58;
+            Specifies the output type of the transcript. There are four different values, they are
               * simplified
               * traditional
               * pinyin_tone_marks
