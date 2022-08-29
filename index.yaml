@@ -36,7 +36,7 @@ voice:
   automatic_speech_recognition_chi:
     title: Automatic Speech Recognition CHI
     versions:
-      2.0.0: 'automatic_speech_recognition_chi.yaml'
+      2.1.0: 'automatic_speech_recognition_chi.yaml'
       1.0.0: 'automatic_speech_recognition_chi_1.0.yaml'
   online_automatic_speech_recognition_eng:
     title: Online Automatic Speech Recognition ENG
@@ -91,7 +91,7 @@ voice:
   automatic_speech_recognition_chi_large_file:
     title: Automatic Speech Recognition CHI (Large File)
     versions:
-      0.1.2: 'automatic_speech_recognition_chi_large_file.yaml'
+      0.2.0: 'automatic_speech_recognition_chi_large_file.yaml'
   asr_en_unified:
     title: ASR EN Unified
     versions:
