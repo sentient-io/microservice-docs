@@ -9,7 +9,7 @@ info:
       - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), and 16-bit mono.
       - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
       - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.
-  version: '2.1.0'
+  version: '2.0.0'
   x-subscribelink: automatic_speech_recognition_chi
   x-apitype: small file
   x-apitypedescription: |+
@@ -27,13 +27,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v2.1.0"
-  description: "Published Date - Sep 01, 2022"
+- name: "v2.0.0"
+  description: "Published Date - Feb 18, 2022"
 paths:
   /microservices/voice/asrsch/v2/getpredictions:
     post:
       tags:
-        - v2.1.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -45,7 +45,6 @@ paths:
                 message: Successfully Processed
                 results:
                   output: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不
-                  output_type: "simplified"
                 status: Success
         '401':
           description: Unauthorized
@@ -126,10 +125,6 @@ components:
                 type: string
                 example: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不
                 description: The speech recognition result.
-              output_type:
-                type: string
-                example: "simplified"
-                description: Specifies the output type of the transcript.
           status:
             type: string
             example: Success
@@ -259,29 +254,10 @@ components:
           default: false
           example: false
           description: 
-            Specifies whether to enable voice detection. Valid values - True and False. Default value - False. Note - If voice detection is enabled, the server detects whether the uploaded audio file includes any silent fragment. If the server detects any silent fragment, it removes the silent fragment and the subsequent content without recognizing them. The recognition result varies depending on the model.    
-        output_type:
-          type: string
-          default: false
-          example: simplified
-          description:
-            Specifies the output type of the transcript. There are four different values, they are
-              - simplified
-              - traditional
-              - pinyin_tone_marks
-              - pinyin_numerals.
-            Default Value - simplified
+            Specifies whether to enable voice detection. Valid values - True and False. Default value - False. Note - If voice detection is enabled, the server detects whether the uploaded audio file includes any silent fragment. If the server detects any silent fragment, it removes the silent fragment and the subsequent content without recognizing them. The recognition result varies depending on the model.                          
     versions:
       type: object
       properties: 
-        v2.1.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Sep 01, 2022
-              x-details: Upgrading with Samplerate, Encoding etc..
-              description: Latest Version    
         v2.0.0:
          type: array
          items:
@@ -289,7 +265,7 @@ components:
             - type: string
               example: Published Date - Feb 18, 2022
               x-details: Upgrading with Samplerate, Encoding etc..
-              description: Old Version 
+              description: Latest Version      
         v1.0.0:
          type: array
          items:
