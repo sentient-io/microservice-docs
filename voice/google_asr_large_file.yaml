@@ -613,10 +613,9 @@ components:
           properties:    
             sampling_rate:
               x-name: sampling_rate
-              type: number
-              format: integer
+              type: string
               default: true
-              example: 16000
+              example: default
               description: |+
                 Specify required sampling rate.         
             language_code:
