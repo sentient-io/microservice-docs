@@ -237,7 +237,7 @@ components:
             oneOf:
               - type: string
                 example: 'Published Date - Aug 30,2022'
-                x-details: |+
+                description: |+
                   New Features:
                     - Improved pronunciation for abbreviations, units, measurements and currency
                     - Corrected pronunciation for words in UK English spelling
@@ -247,29 +247,29 @@ components:
 
                     - Resolved cases of stuttering when there is a special character between ARPABET notations
                     - Reolved cases of stuttering when there is an ARPABET notation in sentence endings
-                description: Latest Version
+                #description: Latest Version
         v1.3.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Feb 18,2022'
-                x-details: |+
+                description: |+
                   New Features:
                     - Added SSML support for more precise phonetic level pronunciations in the ARPABET notation
                     - Improved pronunciation for names and organizations"
-                description: Archived     
+                #description: Archived     
         v1.2.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Dec 25,2021'
-                x-details: |+
+                description: |+
                   Optimizations:
                     - Further improvements to the speech waveform resulting in improvements in synthesis quality
                     - Higher concurrency user support
-                description: Archived
+                #description: Archived
         v1.1.1:
           type: array
           items:
