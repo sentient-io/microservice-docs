@@ -275,7 +275,7 @@ components:
           default: false
           example: ["all"]
           description: |+
-            List of enhancements to apply: 'color', 'scale', 'all', 'none'
+            Enhancement to apply to the image. The valid list of enhancements available are: 'color', 'scale', 'all', 'none'. Note: all implies= both color + scale and it's ideal to pass just one enhancement.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
