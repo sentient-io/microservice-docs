@@ -276,7 +276,7 @@ components:
             oneOf:
               - type: string
                 example: 'Published Date - Nov 09,2021'
-                x-details: |+
+                description: |+
                   Optimizations:
                     - Improve synthesis quality
                     - More consistent volume across audio generations
@@ -284,31 +284,31 @@ components:
                     - Improved Latency
                     - Sentence ending pause generation
                     - Higher character limit
-                description: Archived
+                #description: Archived
         v1.0.1:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Oct 13,2021'
-                x-details: |+
+                description: |+
                   Bug fixes - Reduce missing words occurences
-                description: Depreciated on Nov 08, 2021
+                #description: Depreciated on Nov 08, 2021
         v1.0.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Jun 7,2021'
-                x-details: Stable release. Added the "female_singaporean" model with pitch and speed control.
-                description: Depreciated on Oct 12, 2021
+                description: Stable release. Added the "female_singaporean" model with pitch and speed control.
+                #description: Depreciated on Oct 12, 2021
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Sep 28,2018'
-                x-details: Initial version release    
+                x-details: Initial version release
                 description: Depreciated - Initial release
     input:
       type: object
