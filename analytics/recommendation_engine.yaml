@@ -929,14 +929,16 @@ components:
              Recommendation engine name
           example: sentient engine
         properties:
+          x-name: properties
           type: object
-          default: true
-          description: |+ 
-             The value must be array of item properties
+          default: False
           example: ["pagetile","description","pageurl"]
+          description: |+
+            The value must be array of item properties
           items:
             oneOf:
               - type: object
+          
     retraineventinput:
       type: object
       required:
