@@ -935,10 +935,6 @@ components:
           example: ["pagetile","description","pageurl"]
           description: |+
             The value must be array of item properties
-          items:
-            oneOf:
-              - type: object
-          
     retraineventinput:
       type: object
       required:
