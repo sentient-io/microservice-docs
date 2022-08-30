@@ -1,0 +1,291 @@
+  openapi: 3.0.1
+  info:
+    title: Text Summarization
+    description: |+
+      This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words.
+
+      The input text should be a minimum of 100 words and a maximum of 1024 words.
+
+      For longer text, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective summarization.
+    version: '1.0.0'
+    x-subscribelink: text_summarization
+    x-apitype: small file
+    x-apitypedescription: |+
+      Fast | Single-Call | 512 words/Call
+    x-inputfilelimit: |+
+      Process up to 512 words per API call.
+    x-responsetime: |+
+      Response rate is fast due to small data transfer per call made.
+    x-billingmethod: |+
+      The API is billed by the amount of data transferred.
+    x-notes: |+
+      Size cannot exceed more than 512 words.
+    x-apidetailsdesc: |+
+      Input text blurb and generates a summary of up to a maximum of 168 words.
+  servers:
+    - url: 'https://apis.sentient.io'
+  tags:
+  - name: "v1.0.0"
+    description: "Published Date - Aug 30 , 2022"
+  paths:
+    /microservices/nlp/textsummarisation/v1/getpredictions:
+      post:
+        tags:
+          - v0.2.0
+        responses:
+          '200':
+            description: Ok
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/success'
+                example: {"message": "Successfully Processed","results": {"text": "50 per cent of residents have moved into their new homes in alkaff lakeview , singapore . this is despite bidadari 's past as a grave site , with some drawing similarities between the estate and the alks ."},"status": "Success"}
+          '401':
+            description: Unauthorized
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/unauthorized'
+          '402':
+            description: Payment Required
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/paymentrequired'
+          '403':
+            description: Forbidden
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/forbidden'
+          '404':
+            description: Not Found
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/notfound'
+          '419':
+            description: Input Field Missing
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/inputfieldmissing'
+          '413':
+            description: Payload Too Large
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/inputlimitexceeded'
+          '415':
+            description: Unsupported Media Type
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/invalidinput'
+          '500':
+            description: Internal Server Error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/servererror'
+          '504':
+            description: Gateway Timeout
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/gatewaytimeout'
+        security:
+          - APIAuthorizer: []
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+          required: true
+  components:
+    schemas:
+      success:
+        type: object
+        properties: 
+          results:
+            type: object
+            example: { "<Json": "Object>" }
+            description: Json object in the returned results
+            properties:   
+              text:
+                type: string
+                example: more than 2,000 build-to-orders have been completed by the hdb in 2015. more than 70 per cent of residents have moved into their new homes in alk by 50 per cent in bidadari .y greenrise will be the last bto to be
+                description: The summarised version of the input text.
+              
+
+          message:
+            type: string
+            example: Successfully Processed
+            description: Description of the API status.
+          status:
+            type: string
+            example: Success
+            description: The status of the API call - success/failure.                  
+      unauthorized:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Missing Authentication Token
+          status:
+            type: string
+            example: Failure
+      forbidden:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Access Denied Unauthorized User
+          status:
+            type: string
+            example: Failure
+      paymentrequired:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Insufficient Credits Kindly Top Up
+          status:
+            type: string
+            example: Failure
+      notfound:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Invalid Request URL
+          status:
+            type: string
+            example: Failure
+      invalidinput:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Invalid input - Error in URL.
+          status:
+            type: string
+            example: Failure
+      servererror:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Internal Server Error
+          status:
+            type: string
+            example: Failure
+      gatewaytimeout:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Request Timeout
+          status:
+            type: string
+            example: Failure
+      inputfieldmissing:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Input Field Missing
+          status:
+            type: string
+            example: Failure
+      inputlimitexceeded:
+        type: object
+        properties:
+          message:
+            type: string
+            example: Input Limit Exceeded
+          status:
+            type: string
+            example: Failure 
+      versions:
+        type: object
+        properties: 
+          v1.0.0:
+            type: array
+            items:
+             oneOf:
+               - type: string
+                 example: Published Date - Aug 30, 2022
+                 x-details: Model & Code Upgrade 
+                 description: Latest version
+          v0.2.0:
+            type: array
+            items:
+             oneOf:
+               - type: string
+                 example: Published Date - Aug 11, 2021
+                 x-details: Model Upgrade
+                 description: Latest version
+          v0.1.2:
+            type: array
+            items:
+             oneOf:
+               - type: string
+                 example: Published Date - Jun 07, 2021
+                 x-details: Deeper Postprocessing of Summarised text
+                 description: Depreciating on Aug 10,2021
+          v0.1.1:
+            type: array
+            items:
+             oneOf:
+               - type: string
+                 example: Published Date - May 12, 2021
+                 x-details: Postprocessing of Summarised text
+                 description: Depreciating on Jun 06,2021
+          v0.1.0:
+           type: array
+           items:
+            oneOf:
+              - type: string
+                example: Published Date - Apr 07, 2021
+                x-details: Initial version release  
+                description: Archived
+      input:
+        type: object
+        required:
+          - text
+        properties:
+          text:
+            x-name: text
+            type: string
+            default: true
+            example: "More than 2,000 Build-To-Order (BTO) Housing Board flats in Singapore's newest large estate, Bidadari, have been completed, with families progressively moving into their new homes.These flats are spread across three projects - Alkaff Vista, Alkaff LakeView and Alkaff CourtView - which were launched for sale by the HDB in 2015.More than 70 per cent of residents have moved into their new homes in Alkaff Vista and Alkaff LakeView, said the HDB in an update yesterday.About 50 per cent of residents have done the same at Alkaff CourtView, where works on community spaces are still in progress. All 12 public housing developments in Bidadari have been rolled out, with the final three projects - Bartley GreenRise, ParkEdge @ Bidadari and Alkaff Breeze - launched in this month's BTO sales exercise.Bartley GreenRise will be the last BTO site to be ready, and is estimated to be completed in the second quarter of 2025. The BTO flats in the 93ha Bidadari estate have been highly sought after by home seekers. The five-room flats typically drew more applicants than there were available units.This is despite Bidadari's past as a grave site, with some drawing similarities between the estate and the mature town of Bishan, which was also once a cemetery.Most of the units in Alkaff LakeView and Alkaff CourtView have been designed with structural columns tucked to the edges to allow residents greater flexibility in configuring their home layouts."
+            description: |+
+              Input text
+          beam_size:
+            x-name: beam_size
+            type: integer
+            default: False
+            example: 4
+            description: |+
+              This parameter will determine how many nodes to search at each level.
+              The bigger the number is the more time it takes to complete.
+              Default value is 4.
+              Recommended range is between 2-4.
+          repeating_chunk_size:
+            x-name: repeating_chunk_size
+            type: integer
+            default: False
+            example: 3
+            description: |+
+              Stop the decoding algorithm from generating the same N grams.
+              Default value is 3.
+              Recommended value is 3.
+            
+    securitySchemes:
+      APIAuthorizer:
+        type: apiKey
+        name: x-api-key
+        in: header
+        x-amazon-apigateway-authtype: custom
+        description: Authentication is done using the x-api-key in the request header
