@@ -929,7 +929,7 @@ components:
              Recommendation engine name
           example: sentient engine
         properties:
-          type: array
+          type: object
           default: true
           description: |+ 
              The value must be array of item properties
