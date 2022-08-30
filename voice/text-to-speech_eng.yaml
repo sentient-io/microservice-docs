@@ -4,7 +4,9 @@ info:
   title: Text-To-Speech ENG
   description: |+
     This Voice microservice converts English text to speech in a female voice.
-    User can adjust the pitch and tempo of the the synthesised speech. The Text-to-Speech AI generated synthesized voice speaks with a Singaporean English accent. Where necessary, the user can also fine-tune the pronunciation of specific words by using ARPABET notation (see Additional Details section below).
+    User can adjust the pitch and tempo of the the synthesised speech. 
+    The Text-to-Speech AI generated synthesized voice speaks with a Singaporean English accent. Where necessary, the user can also fine-tune the pronunciation of specific words by using ARPABET notation (see Additional Details section below).
+    
     The input text **should not exceed 3000 characters**.
   x-additionalinfo : |+
     - Users can now define custom phonetic pronunciations using ARPABET notation enclosed within curly brackets { }. For example, note the difference in how “tomatoes” is pronounced using the following 2 inputs:
