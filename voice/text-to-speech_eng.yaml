@@ -4,15 +4,19 @@ info:
   title: Text-To-Speech ENG
   description: |+
     This Voice microservice converts English text to speech in a female voice.
+    
     User can adjust the pitch and tempo of the the synthesised speech. 
+    
     The Text-to-Speech AI generated synthesized voice speaks with a Singaporean English accent. Where necessary, the user can also fine-tune the pronunciation of specific words by using ARPABET notation (see Additional Details section below).
     
     The input text **should not exceed 3000 characters**.
   x-additionalinfo : |+
-    - Users can now define custom phonetic pronunciations using ARPABET notation enclosed within curly brackets { }. For example, note the difference in how “tomatoes” is pronounced using the following 2 inputs:
-    - plain text: I like to eat tomatoes
-    - text with ARPABET: I like to eat {T AH0 M AE1 T OW0 Z}
-      See https://en.wikipedia.org/wiki/ARPABET for full list of ARPABET notation.  
+    Users can now define custom phonetic pronunciations using ARPABET notation enclosed within curly brackets { }. For example, note the difference in how “tomatoes” is pronounced using the following 2 inputs:
+    
+    plain text: I like to eat tomatoes\n
+    text with ARPABET: I like to eat {T AH0 M AE1 T OW0 Z}
+    
+    See https://en.wikipedia.org/wiki/ARPABET for full list of ARPABET notation.  
   version: 1.4.0
   x-subscribelink: text-to-speech_eng
   x-apitype: small file
@@ -32,7 +36,7 @@ servers:
   - url: 'https://apis.sentient.io' 
 tags:
 - name: "v1.4.0"
-  description: "Published Date - Aug 29, 2022"
+  description: "Published Date - Aug 30, 2022"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
@@ -232,7 +236,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Aug 29,2022'
+                example: 'Published Date - Aug 30,2022'
                 x-details: |+
                   New Features:
                     - Improved pronunciation for abbreviations, units, measurements and currency
