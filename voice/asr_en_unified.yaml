@@ -211,7 +211,7 @@ components:
     input:
       type: object
       required:
-        - file_path   
+        - wav_base64   
         - model
       properties:
         wav_base64:
