@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: HDB Social Communal (SG)
+  title: HDB Social Communal Facilities (SG)
   x-subscribelink: hdb_social_communal
   description: |+
       The Existing Social Communal Facilities layer shows the HDB blocks with existing social communal facilities (up to 10 units per block). It excludes social communal facilities in HDB sold units, standalone buildings, and also terminated units.
