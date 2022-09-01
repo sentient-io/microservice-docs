@@ -13,7 +13,7 @@ info:
     - ensure that the support images are of the same orientation as how it should appear in the query image
     - crop out all unnecessary elements (such as a busy background) from the support images
     - ensure that the support images are variations of the same object, and not images of multiple (different) objects.
-  version: v0.1.0
+  version: v0.1.1
   x-subscribelink: few_shots_object_detection
   x-apitype: small file
   x-apitypedescription: |+
@@ -29,13 +29,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
-- name: "v0.1.0"
+- name: "v0.1.1"
   description: "Published Date - Mar 24, 2022"
 paths:
   /microservices/cv/fsod/v0/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v0.1.1
       responses:
         '200':
           description: success response
@@ -230,7 +230,14 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
+        v0.1.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - August 30, 2022
+                description: Add new API parameter increase_sensitivity
         v0.1.0:
           type: array
           items:
@@ -242,10 +249,8 @@ components:
     input:
       type: object
       required:
-      
         - image_base64
         - support_images
-      
       properties:
         image_base64:
           x-name: image_base64

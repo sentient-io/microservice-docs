@@ -209,7 +209,7 @@ computer vision:
   few_shots_object_detection:
     title: Few Shots Object Detection
     versions:
-      v0.1.0: few_shots_object_detection.yaml
+      v0.1.1: few_shots_object_detection.yaml
   masked_face_recognition:
     title: Masked Face Recognition
     versions:
