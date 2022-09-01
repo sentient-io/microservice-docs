@@ -364,7 +364,7 @@ data:
     versions:
       0.1.0: 'hdb_covered_linkways.yaml'
   hdb_town_estates:
-    title: HDB Town and Estates (SG)
+    title: HDB Town and Estates Boundaries (SG)
     versions:
       0.1.0: 'hdb_town_estates.yaml'
   hdb_land_ownership:
@@ -372,7 +372,7 @@ data:
     versions:
       0.1.0: 'hdb_land_ownership.yaml'
   hdb_social_communal:
-    title: HDB Social Communal (SG)
+    title: HDB Social Communal Facilities (SG)
     versions:
       0.1.0: 'hdb_social_communal.yaml'
   hdb_building_outlines:
