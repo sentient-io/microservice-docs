@@ -100,7 +100,7 @@ paths:
         - APIAuthorizer: []
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               $ref: '#/components/schemas/input'
         required: true
@@ -251,15 +251,17 @@ components:
     input:
       type: object
       required:
-        - file_path      
+        - wav_base64   
+        - model
       properties:
-        file_path:
+        wav_base64:
+          x-name: wav_base64
           type: string
-          format: binary
+          format: byte
           default: true
-          example: sample.wav
-          description: |+
-            Maximum Limit upto 50 seconds of audio wav file.
+          example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+          description: 
+            Input audio wav file in base64 format.
     versions:
       type: object
       properties: 
