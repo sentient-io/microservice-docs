@@ -359,6 +359,26 @@ data:
     title: HDB Upgrade Programme (SG)
     versions:
       0.1.0: 'hdb_upgrade_programme.yaml'
+  hdb_covered_linkways:
+    title: HDB Covered Linkways (SG)
+    versions:
+      0.1.0: 'hdb_covered_linkways.yaml'
+  hdb_town_estates:
+    title: HDB Town and Estates (SG)
+    versions:
+      0.1.0: 'hdb_town_estates.yaml'
+  hdb_land_ownership:
+    title: HDB Land Ownership (SG)
+    versions:
+      0.1.0: 'hdb_land_ownership.yaml'
+  hdb_social_communal:
+    title: HDB Social Communal (SG)
+    versions:
+      0.1.0: 'hdb_social_communal.yaml'
+  hdb_building_outlines:
+    title: HDB Building Outlines (SG)
+    versions:
+      0.1.0: 'hdb_building_outlines.yaml'
   building_addresses_hdb_sg:
     title: HDB Block Coordinates (SG)
     versions:
