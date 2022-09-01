@@ -67,7 +67,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 01, 2022"
 paths:
-   /microservices/data/coveredlinkways/v0/getdata:
+   /microservices/data/coveredlinkway/v0/getdata:
     post:
       tags:
         - v0.1.0
