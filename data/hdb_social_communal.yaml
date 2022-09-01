@@ -71,7 +71,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 01, 2022"
 paths:
-   /microservices/data/socialcommunal/v0/getdata:
+   /microservices/data/hdbsocialcommunalfacilities/v0/getdata:
     post:
       tags:
         - v0.1.0
