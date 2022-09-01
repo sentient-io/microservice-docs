@@ -468,7 +468,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"match_phrase":{"properties.nme_bndry": "YISHUN"}}]
+          example: [{"match_phrase":{"type": "existing"}}]
           description: |+
             There are three different types for HDB building outlines. They are&#58;
             * existing
