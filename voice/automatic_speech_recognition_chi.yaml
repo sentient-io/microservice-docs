@@ -2,7 +2,8 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition CHI
   description: |+
-    This Voice microservice transcribes Chinese speech in the input audio stream into text. The microservice requires the input audio file to be in WAV format at 16 kHz and works best when the audio file consists mostly of speech with no long pauses in between. The server returns the recognition result in a JSON format as a response.
+    This Voice microservice transcribes Chinese speech in the input audio stream into text. </br>
+    The microservice requires the input audio file to be in WAV format at 16 kHz and works best when the audio file consists mostly of speech with no long pauses in between. The server returns the recognition result in a JSON format as a response.</br>
     The length of your audio **should not exceed 60 seconds**.
   x-additionalinfo: |+
     Suggested Use Cases:
