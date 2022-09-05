@@ -4,7 +4,7 @@ info:
   x-subscribelink: commercial_directories_hdb_sg
   description: |+
    This Data microservice retrieves the list of all retail shops within Housing Development Board (HDB) and allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates and type of business. The returned dataset offers useful information like the shop operating hours and contact number. Updated weekly.</br>
-   The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br>
+   The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br></br>
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
@@ -13,9 +13,9 @@ info:
       - Build a resident community mobile app with e-commerce collection and estate directory features. To illustrate, the app can:
         Name retail shops in HDBs based on their GPS location.
       
-      **Refining queries in the filterdata field using filter types and match types**</br>
+      **Refining queries in the filterdata field using filter types and match types**
       
-      The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries.</br>
+      The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries.</br></br>
       
       **Filter Types:**
       
@@ -59,7 +59,7 @@ info:
         > {"exists":{ "field": "postalcode"}}
   
       For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).</br>
-      **Forming sophisticated queries using combinations of filter types (in JSON)**</br>
+      **Forming sophisticated queries using combinations of filter types (in JSON)**
       Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
       > {
       > "must":[{"match_phrase":{"street":"ang mo kio avenue 6"}}],
