@@ -12,9 +12,9 @@ info:
    - Selective En bloc Redevelopment Scheme <br>
    
    Information on update programmes are announcement date, completion date, name of upgrading programme, latest status, precinct name/code, block, street, postal code, latitude and longitude 
-   coordinates. The information is updated quaterly. A successful call will return the results of the query in JSON format.<br/>
+   coordinates. The information is updated quaterly. A successful call will return the results of the query in JSON format.</br>
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to 
-   benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
+   benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br>
    
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
@@ -25,7 +25,7 @@ info:
       
       **Refining queries in the filterdata field using filter types and match types**
       
-      The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+      The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. </br></br>
       
       **Filter Types:**
       
@@ -68,7 +68,7 @@ info:
       
         > {"exists":{ "field": "postalcode"}}
   
-      For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).
+      For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).</br>
       **Forming sophisticated queries using combinations of filter types (in JSON)**
       Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
       > {
