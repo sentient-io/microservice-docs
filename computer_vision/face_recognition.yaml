@@ -8,12 +8,12 @@ info:
     The size of your image file **should not exceed 10 MB**
   version: '1.0.1'
   x-additionalinfo: |+
-    **Full List of Filters**</br>
-    Users may choose to filter the output using any of these filters below. 
+    **Full List of Filters**
+    Users may choose to filter the output using any of these filters below. </br>
     
     1. Countries&#58;
     - Japan
-    - Singapore</br></br>
+    - Singapore</br>
     
     2. Categories&#58;
     - Olympic_medalist
@@ -51,10 +51,10 @@ info:
     - television_actors
     - television_actresses
     - television_personalities
-    - television_presenters</br></br>
+    - television_presenters</br>
 
     3. Individual Names
-    If you happen to know the individual names of the faces you hope to recognise, you may also put in the individual names as a filter. </br></br>
+    If you happen to know the individual names of the faces you hope to recognise, you may also put in the individual names as a filter. </br>
     
     **Suggested Use Cases**
     - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to a person that is a Singaporean politician, or a Singaporean/Japanese public figure.
