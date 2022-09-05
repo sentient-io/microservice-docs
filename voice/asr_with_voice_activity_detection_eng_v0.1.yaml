@@ -2,10 +2,9 @@ openapi: 3.0.1
 info:
   title: ASR with Voice Activity Detection ENG
   description: |+
-    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
-
-    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k.
-    
+    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capability. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. </br></br>
+    The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.</br></br>
+    This Voice microservice performs well on Singapore-accented English speech. For best performance, select the model which best matches the use-case: news_parliament, nsc_parliament, nscfull_8k.</br></br>
     The length of your audio should be **upto 60 seconds**.
   version: '0.1.0'
   x-additionalinfo: |+
