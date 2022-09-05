@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Receipt Scanner
   description: |+
-      This Computer Vision microservice takes in receipts and extracts meaningful and structured data, including the total amount, tax amount, date, and merchant name. 
+      This Computer Vision microservice takes in receipts and extracts meaningful and structured data, including the total amount, tax amount, date, and merchant name. </br>
       The API will return a JSON containing all the extracted data, along with details of where that information was on the page, confidence values, and the coordinates containing the data field in the original document. This API is optimized for computer-generated PDFs but also supports pdf scans, png, jpeg, tiff, jfif, and docx files.
   version: '0.2.0'
   x-subscribelink: receipt_scanner
