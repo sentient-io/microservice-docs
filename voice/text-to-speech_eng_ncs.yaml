@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
-  title: Text-To-Speech ENG
+  title: Text-To-Speech ENG NCS
   description: |+
-        This Voice microservice converts English text into natural-sounding English speech in a female voice.
-        User can adjust the pitch and tempo of the the synthesised speech. Both are optional and used only for the female_singaporean model.
+        This Voice microservice converts English text into natural-sounding English speech in a female voice.</br>
+        User can adjust the pitch and tempo of the the synthesised speech. Both are optional and used only for the female_singaporean model.</br>
         The input text should not exceed **2000 characters**.
   version: 1.0.0
   x-subscribelink: text-to-speech_eng
@@ -19,6 +19,7 @@ info:
     Limit cannot exceed 3000 characters.
   x-apidetailsdesc: |+
     Converts English text to speech in a female voice.
+servers:
   - url: 'http://tts.sentient.io:5000' 
 tags:
 - name: "v1.0.0"
