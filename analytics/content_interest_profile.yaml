@@ -7,10 +7,7 @@ info:
     Upon subscription, a javascript is sent to the user to place it within the web page. This will capture the web page traffic and auto profile the content as well as the user. If required, users can also pass in user ID to identify the user using the external_id field. 
     Only English language texts will be addressed.
     In addition to the Content Interest Profiling microservices, we are also releasing a few analytics overview microservice namely, traffic overview, page overview, and external id analytics.
-  x-additionalinfo : |+
-  
-    Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/content_interest_profile.yaml
-    
+  x-additionalinfo : |+   
     Filters are applicable only for Content and Interest Profiling APIs.
     
     **Match Types:**
