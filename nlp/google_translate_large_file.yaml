@@ -5,10 +5,10 @@ info:
     This microservice takes in the input as file and translates the text and return the output as file.
       - Supports the following file formats: .pdf, .txt, .docx
   x-additionalinfo: |+
-    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:</br></br>
       
-      - Detailed reference to the additional parameters https://dev-docs.sentient.io/#/nlp/google_translate_large_file
-      - The file upload form https://sentient.io/upload/form.html
+      - Detailed reference to the additional parameters https://dev-docs.sentient.io/#/nlp/google_translate_large_file</br></br>
+      - The file upload form https://sentient.io/upload/form.html</br></br>
      **Supported languages are:**
         - af - afrikaans
         - sq - albanian
