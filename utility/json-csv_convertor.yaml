@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: JSON-CSV Convertor
   description: |+
-    This Utility microservice converts the input JSON file to CSV file. It will convert nested json upto key and value should be in dictionary format.
+    This Utility microservice converts the input JSON file to CSV file. It will convert nested json upto key and value should be in dictionary format.</br> 
     The size of your file should **not exceed 3.5 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
