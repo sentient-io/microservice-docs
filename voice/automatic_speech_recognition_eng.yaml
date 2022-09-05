@@ -4,7 +4,7 @@ info:
   description: |+
     This Voice microservice transcribes English speech in the input audio stream into text.
     This microservice can be used on generic English or on specific use cases or accents.
-    Currently, there are additional models available for Singaporean accented audio which is prepared speech (16kHz) and telephony.</br></br>
+    Currently, there are additional models available for Singaporean accented audio which is prepared speech (16kHz) and telephony.</br>
     The length of your audio **should not exceed 60 seconds**.
   version: '2.0.0'
   x-additionalinfo: |+
