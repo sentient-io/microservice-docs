@@ -2,13 +2,11 @@ openapi: 3.0.1
 info:
   title: Document Convertor ENG
   description: |+
-    This Utility microservice extracts the English text content of either an input of Microsoft Word, HTML or PDF document and outputs into a plain text format.
-    
+    This Utility microservice extracts the English text content of either an input of Microsoft Word, HTML or PDF document and outputs into a plain text format.</br>
     The size of your document file **should not exceed 7 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Used for pre/post processing of documents so that the output can paired with another microservice to address a specific solution. For example, text extracted from the document can be used with a Voice microservice such as Text-to-Speech.
-
+    - Used for pre/post processing of documents so that the output can paired with another microservice to address a specific solution. For example, text extracted from the document can be used with a Voice microservice such as Text-to-Speech.<br>
     - Can be used for solutions related to processing workflows that are document-heavy so that the user can focus on the more value-added decisions. Documents in a variety of formats can be taken in to return cleanly structured data. Examples included mortgage processing, procurement data etc.
   version: '2.0.0'
   x-subscribelink: document_convertor_eng
