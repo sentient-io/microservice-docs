@@ -2,8 +2,8 @@ openapi: 3.0.1
 info:
   title: Voice Activity Detection ENG
   description: |+
-    This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.</br></br>
-    An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.</br></br>
+    This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.</br>
+    An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.</br>
     The length of your audio should be **up to 60 seconds**.
   version: '1.0.1'
   x-additionalinfo: |+
