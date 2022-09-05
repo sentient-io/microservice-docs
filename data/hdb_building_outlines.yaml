@@ -3,9 +3,9 @@ info:
   title: HDB Building Outlines (SG)
   x-subscribelink: hdb_building_outlines
   description: |+
-      The Data Microservice is used to maintain the HDB Buildings information.
+      The Data Microservice is used to maintain the HDB Buildings information.</br>
       
-      A successful call will return the results of the query in JSON format.
+      A successful call will return the results of the query in JSON format.</br>
       
       The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.
 
@@ -21,7 +21,7 @@ info:
     * **geo_distance** - Returns the geo search based on the distance and location lat/long
       > {"geo_distance": {"distance": "11km","geometry": "1.3988989594249674, 103.92241145388847"}}
     * **geo_shape** - Returns the geo search based on the type and coordinates.
-        relation should be anyone based on requirement.
+        relation should be anyone based on requirement.</br>
           > INTERSECTS - (default) Return all documents whose geo_shape field intersects the query geometry.
           > DISJOINT - Return all documents whose geo_shape field has nothing in common with the query geometry.
           > WITHIN - Return all documents whose geo_shape field is within the query geometry. 
