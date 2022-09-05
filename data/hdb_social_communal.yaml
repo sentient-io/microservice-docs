@@ -3,13 +3,13 @@ info:
   title: HDB Social Communal Facilities (SG)
   x-subscribelink: hdb_social_communal
   description: |+
-      The Existing Social Communal Facilities layer shows the HDB blocks with existing social communal facilities (up to 10 units per block). It excludes social communal facilities in HDB sold units, standalone buildings, and also terminated units.</br>
+      The Existing Social Communal Facilities layer shows the HDB blocks with existing social communal facilities (up to 10 units per block). It excludes social communal facilities in HDB sold units, standalone buildings, and also terminated units.</br></br>
       
-      The Social Communal Facilities Under Construction layer shows the pre-built social communal facilities in HDB BTO projects that are under construction. Data comprises HDB BTO projects which are launched from 2015 onwards.</br>
+      The Social Communal Facilities Under Construction layer shows the pre-built social communal facilities in HDB BTO projects that are under construction. Data comprises HDB BTO projects which are launched from 2015 onwards.</br></br>
       
-      The future social communal facilities (FSCF) space set aside in HDB Built-To-Order (BTO) projects launched from year 2015 onwards which are under construction at the point of update. Some of the FSCF spaces have been reserved by government agencies for a future use.</br>
+      The future social communal facilities (FSCF) space set aside in HDB Built-To-Order (BTO) projects launched from year 2015 onwards which are under construction at the point of update. Some of the FSCF spaces have been reserved by government agencies for a future use.</br></br>
       
-      A successful call will return the results of the query in JSON format.</br>
+      A successful call will return the results of the query in JSON format.</br></br>
       
       The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.
 
