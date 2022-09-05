@@ -7,9 +7,9 @@ info:
     The length of your audio **should not exceed 60 seconds**.
   x-additionalinfo: |+
     Suggested Use Cases:
-      - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), and 16-bit mono.</br>
-      - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.</br>
-      - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.</br>
+      - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), and 16-bit mono.</br></br>
+      - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.</br></br>
+      - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.</br></br>
   version: '2.1.0'
   x-subscribelink: automatic_speech_recognition_chi
   x-apitype: small file
