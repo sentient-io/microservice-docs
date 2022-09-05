@@ -8,15 +8,15 @@ info:
     The length of your audio should be **up to 20 seconds**.
   x-additionalinfo: |+
     Suggested Use Cases:
-      - Extraction of text from Mandarin speech from audio files.</br>
+      - Extraction of text from Mandarin speech from audio files.</br></br>
 
-      - Extraction of text from Mandarin speech from videos.</br>
+      - Extraction of text from Mandarin speech from videos.</br></br>
 
-      - Improve customer service - empower a customer service system by adding IVR (interactive voice response) and agent conversations to call centers. Perform analytics on conversation data to gain more insights into the calls and customers.</br>
+      - Improve customer service - empower a customer service system by adding IVR (interactive voice response) and agent conversations to call centers. Perform analytics on conversation data to gain more insights into the calls and customers.</br></br>
 
-      - Enable voice control services - e.g. implement voice commands such as “turn the volume up,” and voice search such as saying “what is the temperature in Paris?”</br>
+      - Enable voice control services - e.g. implement voice commands such as “turn the volume up,” and voice search such as saying “what is the temperature in Paris?”</br></br>
 
-      - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.</br>
+      - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.</br></br>
   version: '1.0.0'
   x-subscribelink: automatic_speech_recognition_chi
   x-apitype: small file
