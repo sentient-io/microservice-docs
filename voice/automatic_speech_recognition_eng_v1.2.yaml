@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition ENG
   description: |+
-    This Voice microservice transcribes the input audio stream into text.
-    This microservice can be used on generic English or on specific use cases or accents. There's currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case
-    
+    This Voice microservice transcribes the input audio stream into text.</br>
+    This microservice can be used on generic English or on specific use cases or accents.</br> 
+    There's currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case</br>
     The length of your audio should be **upto 60 seconds**.
   version: '1.2.0'
   x-additionalinfo: |+
