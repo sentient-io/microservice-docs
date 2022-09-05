@@ -2,10 +2,8 @@
   info:
     title: Text Summarization
     description: |+
-      This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words.
-
-      The input text should be a minimum of 100 words and a maximum of 1024 words.
-
+      This NLP microservice takes in any given input text blurb and generates a summary of up to a maximum of 168 words.</br>
+      The input text should be a minimum of 100 words and a maximum of 1024 words.</br>
       For longer text, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective summarization.
     version: '1.0.0'
     x-subscribelink: text_summarization
