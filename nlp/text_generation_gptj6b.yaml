@@ -2,31 +2,30 @@ openapi: 3.0.1
 info:
   title: Text Generation using GPT-J 6B
   description: |+
-    This microservice is used for text generation using a [language model](https://en.wikipedia.org/wiki/Language_model) with GPT-J 6B model. 
+    This microservice is used for text generation using a [language model](https://en.wikipedia.org/wiki/Language_model) with GPT-J 6B model. </br>
     A language model predicts what is the next words based on probabilities. For example given an:
     **input text like**: "Hello my name is Lee Hsien Loong and I am"
-    **generated output**: "Hello my name is Lee Hsien Loong and I am the Prime Minister of the Republic of Singapore.\n\nI would like to talk to you today about the importance of education"
-
-    You can use these models for code-generation, calculating arithmetic, language translation etc.
+    **generated output**: "Hello my name is Lee Hsien Loong and I am the Prime Minister of the Republic of Singapore.\n\nI would like to talk to you today about the importance of education"</br>
+    You can use these models for code-generation, calculating arithmetic, language translation etc.</br>
 
     **About the model**
 
     `GPT-J 6B` is a transformer model trained using Ben Wang's Mesh Transformer JAX and is considered as an 6B parameter open-source version of `GPT-3`.
-    `GPT-J` refers to the class of model, while `6B` represents the number of trainable parameters.
+    `GPT-J` refers to the class of model, while `6B` represents the number of trainable parameters.</br>
 
     Do ensure you **token_length limit is within 100**.
   version: v0.1.0
   x-additionalinfo: |+
-    Suitable input text(also know as prompt) for generating Text for various use cases can be found below:
+    Suitable input text(also know as prompt) for generating Text for various use cases can be found below:</br></br>
     1. Code Generation
-    **prompt**: "program: print fibonaci series of n numbers using C++"
+    **prompt**: "program: print fibonaci series of n numbers using C++"</br></br>
     2. Calculating Arithmetic
-    **prompt**: "what is 1033 + 37"
+    **prompt**: "what is 1033 + 37"</br></br>
     3. Translation
     **prompt**: "English: Good morning french:"
 
-     **Supported languages are:**
-        - English
+     **Supported languages are:**</br></br>
+        - English</br></br>
      The model is trained on the Pile dataset is a 825 GiB, diverse, open source language modelling data set developed by EleutherAI.
 
   x-subscribelink: text_generation_gptj6b
