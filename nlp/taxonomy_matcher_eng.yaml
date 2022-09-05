@@ -3,16 +3,14 @@ openapi: 3.0.1
 info:
   title: Taxonomy Matcher ENG
   description: |+
-    This NLP microservice matches the input word with the name of a leaf node in the predefined English taxonomy. The entire branch from the matched leaf node to the root of the corresponding taxonomy tree is returned.
-    
-    The full taxonomy consists of major categories (for e.g. retail, cars, etc.). Each category is stored as a separate taxonomy tree within the Taxonomy instance. Each node in a taxonomy tree is identified using a node_id. It has attributes: name (a human readable string), level (how far it is from the root node) and type (whether it is a root node, leaf node or body node).
-    
+    This NLP microservice matches the input word with the name of a leaf node in the predefined English taxonomy. The entire branch from the matched leaf node to the root of the corresponding taxonomy tree is returned.</br>
+    The full taxonomy consists of major categories (for e.g. retail, cars, etc.). Each category is stored as a separate taxonomy tree within the Taxonomy instance. Each node in a taxonomy tree is identified using a node_id. It has attributes: name (a human readable string), level (how far it is from the root node) and type (whether it is a root node, leaf node or body node).</br>
     This microservice helps to identify the types of concept that are frequently mentioned in an article.
     
   version: '1.0.1'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Categorise a particular word to pre-built taxonomy tree.
+    - Categorise a particular word to pre-built taxonomy tree.</br></br>
     - This microservice can be used to manage taxonomies, such as a hierarchy of product categories used for an eCommerce site. The information in a taxonomy is meta-information about the categories used to classify a set of things. For an eCommerce site, the set of things are items in the product catalog. Users can use this meta-information to enhance search.
   x-subscribelink: taxonomy_matcher_eng
   x-apitype: small file
