@@ -3,9 +3,9 @@ info:
   title: HDB Town and Estate Boundaries (SG)
   x-subscribelink: hdb_town_estate
   description: |+
-      The HDB towns/estates boundary is defined to facilitate planning and development of HDB towns/estates. It defines the areas that HDB will carry out the landuse planning to facilitate development of the HDB towns/estates. The boundary is used for planning purposes (eg planning of HDB’s Building Plan and planning for provision of facilities within HDB towns by relevant agencies) and for reporting of HDB statistics (eg. HDB flats under management by towns as in HDB’s annual report). The boundary is digitised mainly following the URA’s DGP/Planning boundary or road/drain as physical boundary. The boundary will be updated as and when new areas are earmarked by URA for public housing development.
+      The HDB towns/estates boundary is defined to facilitate planning and development of HDB towns/estates. It defines the areas that HDB will carry out the landuse planning to facilitate development of the HDB towns/estates. The boundary is used for planning purposes (eg planning of HDB’s Building Plan and planning for provision of facilities within HDB towns by relevant agencies) and for reporting of HDB statistics (eg. HDB flats under management by towns as in HDB’s annual report). The boundary is digitised mainly following the URA’s DGP/Planning boundary or road/drain as physical boundary. The boundary will be updated as and when new areas are earmarked by URA for public housing development.</br>
       
-      A successful call will return the results of the query in JSON format.
+      A successful call will return the results of the query in JSON format.</br>
       
       The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.
 
@@ -21,7 +21,7 @@ info:
     * **geo_distance** - Returns the geo search based on the distance and location lat/long
       > {"geo_distance": {"distance": "11km","geometry": "1.4250001817500824, 103.85405924302191"}}
     * **geo_shape** - Returns the geo search based on the type and coordinates.
-        relation should be anyone based on requirement.
+        relation should be anyone based on requirement.</br>
           > INTERSECTS - (default) Return all documents whose geo_shape field intersects the query geometry.
           > DISJOINT - Return all documents whose geo_shape field has nothing in common with the query geometry.
           > WITHIN - Return all documents whose geo_shape field is within the query geometry. 
