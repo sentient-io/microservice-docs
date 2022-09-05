@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: URLs Retrieval
   description: |+
-   This Utility microservice crawls and retrieves content from the input URLs, up to the specified depth. The specified depth refers to the index of the page away from the original landing page. i.e Depth = 1 is one click away from the input URL.
+   This Utility microservice crawls and retrieves content from the input URLs, up to the specified depth. The specified depth refers to the index of the page away from the original landing page. i.e Depth = 1 is one click away from the input URL.</br> 
    The default depth is 0 and the maximum number of URLs retrieved is 500.
    
   x-additionalinfo: |+
