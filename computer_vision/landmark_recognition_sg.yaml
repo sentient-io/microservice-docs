@@ -2,8 +2,8 @@ openapi: 3.0.1
 info:
   title: Landmark Detection (SG)
   description: |+
-    This Computer Vision microservice identifies Singaporean landmarks from multiple input images.
-    This microservice returns the detected landmark and confidence score.
+    This Computer Vision microservice identifies Singaporean landmarks from multiple input images.</br>
+    This microservice returns the detected landmark and confidence score.</br>
     The size of your image file **should not exceed 5 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
