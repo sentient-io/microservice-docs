@@ -2,10 +2,11 @@ openapi: 3.0.1
 info:
   title: Google Translate
   description: |+
-    This document describes how to use the Cloud Translation - Basic (v2) to translate text. 
-    The input text can be plain text or HTML. Cloud Translation - Basic does not translate any HTML tags in the input, only text that appears between the tags. The output retains the (untranslated) HTML tags, with the translated text between the tags to the extent possible due to differences between the source and target languages. The order of HTML tags in the output may differ from the order in the input text due to word order changes in the translation.
+    This document describes how to use the Cloud Translation - Basic (v2) to translate text.</br>
+    The input text can be plain text or HTML. Cloud Translation - Basic does not translate any HTML tags in the input, only text that appears between the tags.</br> 
+    The output retains the (untranslated) HTML tags, with the translated text between the tags to the extent possible due to differences between the source and target languages. The order of HTML tags in the output may differ from the order in the input text due to word order changes in the translation.
   x-additionalinfo: |+
-     **Supported languages are:**
+     **Supported languages are:**</br></br>
         - af - afrikaans
         - sq - albanian
         - am - amharic
