@@ -20,7 +20,7 @@ info:
   x-apidetailsdesc: |+
     Extracts to meaningful and structured data from Receipt docs.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 11, 2021"
