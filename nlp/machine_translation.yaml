@@ -2,18 +2,18 @@ openapi: 3.0.1
 info:
   title: Machine Translation
   description: |+
-    This NLP microservice provides machine translation for the four official languages in Singapore (English, Malay, Chinese, Tamil). Additional language pair models can be added on. This model can also be deployed on-prem and used for future custom training.
-    
+    This NLP microservice provides machine translation for the four official languages in Singapore (English, Malay, Chinese, Tamil). </br>
+    Additional language pair models can be added on. This model can also be deployed on-prem and used for future custom training.</br>
     Do ensure that your text is within **500 characters**.
   version: v0.1.0
   x-additionalinfo: |+
-     **Supported languages are:**
+     **Supported languages are:**</br></br>
         - zh - chinese
         - en - english
         - ms - malay (minangkabau)
         - ta - tamil
 
-      **Suggested usecases:**
+      **Suggested usecases:**</br></br>
           It can be used to translate text for any applications, and can be augmented to internationalize
           NLP microservices provided by sentient.io.
   x-subscribelink: machine_translation
