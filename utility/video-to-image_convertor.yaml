@@ -2,9 +2,8 @@ openapi: 3.0.1
 info:
   title: Video-to-Image Convertor
   description: |+
-    This Utility microservice captures the images from the input video file at the frame rate of 1 frame per second. 
-
-    Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.
+    This Utility microservice captures the images from the input video file at the frame rate of 1 frame per second. </br> 
+    Supported formats are : 3g2, avi, flv, mkv, mov, mp4, ogv, webm, wmv, m4v with H.264 codec encoded.</br> 
     The size of your video file **should not exceed 10 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
