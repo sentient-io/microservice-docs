@@ -6,7 +6,6 @@ info:
   version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of different types of Fortell Prediction APIs.
-    - Tryitout by clicking the link here https://editor.swagger.io/?url=https://storage.googleapis.com/analytics_docs/foretell_prediction.yaml
   x-subscribelink: foretellprediction
   x-apitype: Subscription
   x-apitypedescription: |+
