@@ -3,9 +3,9 @@ info:
   title: HDB Building Outlines (SG)
   x-subscribelink: hdb_building_outlines
   description: |+
-      The Data Microservice is used to maintain the HDB Buildings information.</br>
+      The Data Microservice is used to maintain the HDB Buildings information.</br></br>
       
-      A successful call will return the results of the query in JSON format.</br>
+      A successful call will return the results of the query in JSON format.</br></br>
       
       The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.
 
