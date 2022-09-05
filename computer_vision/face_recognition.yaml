@@ -2,20 +2,18 @@ openapi: 3.0.1
 info:
   title: Face Recognition
   description: |+
-    This Computer Vision microservice recognises faces of Singaporean and Japanese public figures (e.g. athletes, business leaders, celebrities, politicians, TV personalities, etc). 
-
-    This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction. Users can further filter the results by countries, profession or even down to the individual names.  
-
-    Help us grow this microservice! [Let us know](https://www.sentient.io/contact) which other public figures you would like this microservice to recognise (e.g. a new country or a new category). We will expand the capability of this microservices based on user feedback and demand.
+    This Computer Vision microservice recognises faces of Singaporean and Japanese public figures (e.g. athletes, business leaders, celebrities, politicians, TV personalities, etc). </br>
+    This microservice returns the identity of the person, the bounding box in image coordinates, and the confidence of the prediction. Users can further filter the results by countries, profession or even down to the individual names.</br>
+    Help us grow this microservice! [Let us know](https://www.sentient.io/contact) which other public figures you would like this microservice to recognise (e.g. a new country or a new category). We will expand the capability of this microservices based on user feedback and demand.</br>
     The size of your image file **should not exceed 10 MB**
   version: '1.0.1'
   x-additionalinfo: |+
-    **Full List of Filters**
+    **Full List of Filters**</br>
     Users may choose to filter the output using any of these filters below. 
     
     1. Countries&#58;
     - Japan
-    - Singapore
+    - Singapore</br></br>
     
     2. Categories&#58;
     - Olympic_medalist
@@ -53,10 +51,10 @@ info:
     - television_actors
     - television_actresses
     - television_personalities
-    - television_presenters
+    - television_presenters</br></br>
 
     3. Individual Names
-    If you happen to know the individual names of the faces you hope to recognise, you may also put in the individual names as a filter. 
+    If you happen to know the individual names of the faces you hope to recognise, you may also put in the individual names as a filter. </br></br>
     
     **Suggested Use Cases**
     - For solutions related to identifying the speaker for auto-tagging, or matching the transcription to a person that is a Singaporean politician, or a Singaporean/Japanese public figure.
