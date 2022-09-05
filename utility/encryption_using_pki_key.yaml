@@ -2,10 +2,8 @@ openapi: 3.0.1
 info:
   title: Encryption using PKI Key
   description: |+
-    This Utility microservice encrypts the input text using the input key string.
-    
-    This can be used with the PKI Key Generator microservice.
-    
+    This Utility microservice encrypts the input text using the input key string.</br> 
+    This can be used with the PKI Key Generator microservice.</br> 
     Do ensure that your text is **within 512 characters**.
   x-additionalinfo: |+
     Suggested Use Cases:
