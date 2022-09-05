@@ -14,7 +14,7 @@ info:
    Information on update programmes are announcement date, completion date, name of upgrading programme, latest status, precinct name/code, block, street, postal code, latitude and longitude 
    coordinates. The information is updated quaterly. A successful call will return the results of the query in JSON format.</br>
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to 
-   benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br>
+   benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br></br>
    
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
