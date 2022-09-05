@@ -2,10 +2,9 @@ openapi: 3.0.1
 info:
   title: Sentence Ranking
   description: |+
-   This NLP microservice takes in a text blurb and ranks the sentences based on their importance score. The sentence’s score is computed by the frequency of every each word in the sentence being mentioned in other sentences (using term frequency–inverse document frequency and TextRank algorithms).
-
-   This Sentence Ranking microservice is useful for extractive summaries, which involves picking up the most important phrases and sentences from the original text input and reusing those to make up the summary. In this case, the microservice will only consider sentences with a score above the mean score (of all other sentences scores) as being significant and return those sentences only. Do note that the sentences are also returned on the order of appearance within the original text. 
-
+   This NLP microservice takes in a text blurb and ranks the sentences based on their importance score.</br> 
+   The sentence’s score is computed by the frequency of every each word in the sentence being mentioned in other sentences (using term frequency–inverse document frequency and TextRank algorithms).</br>
+   This Sentence Ranking microservice is useful for extractive summaries, which involves picking up the most important phrases and sentences from the original text input and reusing those to make up the summary. In this case, the microservice will only consider sentences with a score above the mean score (of all other sentences scores) as being significant and return those sentences only. Do note that the sentences are also returned on the order of appearance within the original text. </br>
    The input text **should not exceed 5000 characters**.
   version: v0.1.0
   x-additionalinfo: |+
