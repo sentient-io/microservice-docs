@@ -2,8 +2,8 @@ openapi: 3.0.1
 info:
   title: Landmark Detection
   description: |+
-    This Computer Vision microservice identifies Singaporean and Japanese landmarks from multiple input images based on the location parameter. The default location is Singapore.
-    The microservice returns the detected landmark and confidence score.
+    This Computer Vision microservice identifies Singaporean and Japanese landmarks from multiple input images based on the location parameter. The default location is Singapore.</br>
+    The microservice returns the detected landmark and confidence score.</br>
     The size of your image file **should not exceed 5 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
