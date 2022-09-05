@@ -3,7 +3,8 @@ info:
   title: Get IP
   x-subscribelink: get_ip
   description: |+
-        This Utility microservice locates and identifies website visitors by IP (Internet Protocol) address. Know where your customers access your website from and customize user experiences based on IP address.
+        This Utility microservice locates and identifies website visitors by IP (Internet Protocol) address. </br> 
+        Know where your customers access your website from and customize user experiences based on IP address.
        
   x-additionalinfo : |+
     Suggested Use Cases:
