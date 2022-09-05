@@ -2,8 +2,7 @@ openapi: 3.0.1
 info:
   title: ASR EN Unified
   description: |+
-    This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.
-
+    This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.</br></br>
     This api supports upto 15 seconds audio file only.
   version: '1.0.0'
   x-apitype: small file
