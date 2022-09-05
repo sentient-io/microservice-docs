@@ -3,8 +3,7 @@ openapi: 3.0.1
 info:
   title: Azure TTS
   description: |+
-        The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale.
-
+        The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale.</br></br>
         The input text should not exceed **60000 characters**.
   x-additionalinfo: |+
     Other than English, it is mandatory to mention the voice name.
