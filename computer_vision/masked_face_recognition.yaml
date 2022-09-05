@@ -2,8 +2,8 @@ openapi: 3.0.1
 info:
   title: Masked Face Recognition
   description: |+
-    This microservice is used to recognise faces of identities behind a mask. The model has been trained on Singapore Politicians Data.
-    The size of your image file should **not exceed 5 MB**. Minimum image resolution for a perfect face detectiona and recognition should be 250X250 pixels.
+    This microservice is used to recognise faces of identities behind a mask. The model has been trained on Singapore Politicians Data.</br>
+    The size of your image file should **not exceed 5 MB**. Minimum image resolution for a perfect face detectiona and recognition should be 250X250 pixels.</br>
     The model works well for frontal masked faces.
   version: v0.1.0
   x-additionalinfo: |+
