@@ -3,13 +3,13 @@ info:
   title: HDB Social Communal Facilities (SG)
   x-subscribelink: hdb_social_communal
   description: |+
-      The Existing Social Communal Facilities layer shows the HDB blocks with existing social communal facilities (up to 10 units per block). It excludes social communal facilities in HDB sold units, standalone buildings, and also terminated units.
+      The Existing Social Communal Facilities layer shows the HDB blocks with existing social communal facilities (up to 10 units per block). It excludes social communal facilities in HDB sold units, standalone buildings, and also terminated units.</br>
       
-      The Social Communal Facilities Under Construction layer shows the pre-built social communal facilities in HDB BTO projects that are under construction. Data comprises HDB BTO projects which are launched from 2015 onwards.
+      The Social Communal Facilities Under Construction layer shows the pre-built social communal facilities in HDB BTO projects that are under construction. Data comprises HDB BTO projects which are launched from 2015 onwards.</br>
       
-      The future social communal facilities (FSCF) space set aside in HDB Built-To-Order (BTO) projects launched from year 2015 onwards which are under construction at the point of update. Some of the FSCF spaces have been reserved by government agencies for a future use.
+      The future social communal facilities (FSCF) space set aside in HDB Built-To-Order (BTO) projects launched from year 2015 onwards which are under construction at the point of update. Some of the FSCF spaces have been reserved by government agencies for a future use.</br>
       
-      A successful call will return the results of the query in JSON format.
+      A successful call will return the results of the query in JSON format.</br>
       
       The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.
 
@@ -25,7 +25,7 @@ info:
     * **geo_distance** - Returns the geo search based on the distance and location lat/long
       > {"geo_distance": {"distance": "11km","geometry": "1.3403652573087654, 103.87206960611273"}}
     * **geo_shape** - Returns the geo search based on the type and coordinates.
-        relation should be anyone based on requirement.
+        relation should be anyone based on requirement.</br>
           > INTERSECTS - (default) Return all documents whose geo_shape field intersects the query geometry.
           > DISJOINT - Return all documents whose geo_shape field has nothing in common with the query geometry.
           > WITHIN - Return all documents whose geo_shape field is within the query geometry. 
