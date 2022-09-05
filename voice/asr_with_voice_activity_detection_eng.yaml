@@ -2,8 +2,10 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recongition with Voice Activity Detection ENG
   description: |+
-      This Voice microservice combines Automatic Speech Recognition Capabilities (ASR) with Voice Activity Detection (VAD) capabilities. VAD, also known as speech detection, detects speech in an audio file while ASR transcribes English speech content from the audio stream into text. 
-      The transcript text is timestamped for each utterance (i.e. a continuous piece of speech beginning and ending with a clear pause). This microservice can be used on generic English or on specific use cases or accents. Currently, there are additional models available for Singaporean-accented audio - prepared speech (16kHz) and telephony (8kHz). For best performance, select the model which best matches the use case.
+      This Voice microservice combines Automatic Speech Recognition Capabilities (ASR) with Voice Activity Detection (VAD) capabilities.</br></br>
+      VAD, also known as speech detection, detects speech in an audio file while ASR transcribes English speech content from the audio stream into text.</br></br> 
+      The transcript text is timestamped for each utterance (i.e. a continuous piece of speech beginning and ending with a clear pause).</br></br> 
+      This microservice can be used on generic English or on specific use cases or accents. Currently, there are additional models available for Singaporean-accented audio - prepared speech (16kHz) and telephony (8kHz). For best performance, select the model which best matches the use case.</br></br>
       The length of your audio **should not exceed 60 seconds**.
   version: '1.2.2'
   x-additionalinfo: |+
