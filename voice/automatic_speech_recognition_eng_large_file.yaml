@@ -2,14 +2,16 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition ENG (Large File)
   description: |+
-    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capabilities. The input can be bypassed to asr without passing through vad by setting the optional paramater "vad" to false. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
-    This microservice can be used on generic English or on specific use cases or accents. There are currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case
+    This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capabilities.</br> 
+    The input can be bypassed to asr without passing through vad by setting the optional paramater "vad" to false.</br>
+    It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text.</br>
+    The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.</br>
+    This microservice can be used on generic English or on specific use cases or accents. There are currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case</br>
     For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
   version: '0.1.0'
   x-additionalinfo: |+
-    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:
-      
-      - Detailed reference to the additional parameters https://docs.sentient.io/#/voice/automatic_speech_recognition_eng
+    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing. The guide below provides detailed steps to try out processing a large file without any coding. You may also need:</br></br>
+      - Detailed reference to the additional parameters https://docs.sentient.io/#/voice/automatic_speech_recognition_eng</br>
       - The file upload form https://sentient.io/upload/form.html
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/asr_prod.pdf
