@@ -2,7 +2,8 @@ openapi: 3.0.1
 info:
   title: Thumbnail Generation (Large File)
   description: |+
-    This Computer Vision microservice automatically selects appropriate frames as thumbnails representative of an input video. Thumbnails are selected based on visual quality and aesthetics (e.g. no dark, blurry or transitioning frames) and relevance to the video content based on clustering analysis.
+    This Computer Vision microservice automatically selects appropriate frames as thumbnails representative of an input video. </br>
+    Thumbnails are selected based on visual quality and aesthetics (e.g. no dark, blurry or transitioning frames) and relevance to the video content based on clustering analysis.
     
   version: '0.1.0'
 
