@@ -23,7 +23,7 @@ info:
     location lat/long
       > {"geo_distance": {"distance": "11km","geometry": "1.349439786854645,103.75736216302658"}}
     * **geo_shape** - Returns the geo search based on the type and coordinates.
-        relation should be anyone based on requirement.</br>
+        relation should be anyone based on requirement.
           > INTERSECTS - (default) Return all documents whose geo_shape field intersects the query geometry.
           > DISJOINT - Return all documents whose geo_shape field has nothing in common with the query geometry.
           > WITHIN - Return all documents whose geo_shape field is within the query geometry.   
