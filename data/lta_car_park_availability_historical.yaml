@@ -3,7 +3,7 @@ info:
   title: LTA Carpark Availability Historical
   x-subscribelink: lta_car_park_availability_historical
   description: |+
-          This Data microservice returns the historical no. of available lots for Housing Development Board (HDB), Land Transport Authority (LTA) and Urban Redevelopment Authority (URA) carpark data in 1 minute intervals.
+          This Data microservice returns the historical no. of available lots for Housing Development Board (HDB), Land Transport Authority (LTA) and Urban Redevelopment Authority (URA) carpark data in 1 minute intervals.</br>
           The LTA carpark data consists of major shopping malls and developments within Orchard, Marina, HarbourFront, Jurong Lake District.
           Updates every 1 minute.
   x-additionalinfo : |+
