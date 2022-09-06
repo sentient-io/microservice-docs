@@ -3,8 +3,7 @@ info:
   title: Realtime Weather
   x-subscribelink: realtime_weather
   description: |+
-    Current weather or realtime weather API method allows a user to get up to date current weather information. The data is returned as a Current Object.
-
+    Current weather or realtime weather API method allows a user to get up to date current weather information. The data is returned as a Current Object.</br>
     Current object contains current or realtime weather information for a given city.
 
   version: '0.1.1'
