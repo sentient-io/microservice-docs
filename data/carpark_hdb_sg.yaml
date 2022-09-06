@@ -14,7 +14,7 @@ info:
     - Can also be integrated into apps related to maps or parking for more detailed carpark information within Singapore HDB estates
     
     **Refining queries in the filterdata field using filter types and match types**
-    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries.</br>
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries.</br></br>
   
     **Filter Types:**
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
