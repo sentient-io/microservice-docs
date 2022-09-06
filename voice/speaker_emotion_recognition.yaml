@@ -4,7 +4,7 @@ info:
   description: |+
     This Voice microservice takes in an audio file and return the emotional feeling of voice.</br>
     This api supports upto 50 seconds audio file only.
-  version: '0.1.0'
+  version: '0.2.0'
   x-apitype: small file
   x-subscribelink: speaker_emotion_recognition
   x-apitypedescription: |+
@@ -22,13 +22,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Jun 27, 2022"
+- name: "v0.2.0"
+  description: "Published Date - Sep 01, 2022"
 paths:
   /microservices/voice/speakeremotion/v0/get_emotion:
     post:
       tags:
-        - v0.1.0
+        - v0.2.0
       responses:
         '200':
           description: success response
@@ -264,6 +264,14 @@ components:
     versions:
       type: object
       properties: 
+        v0.2.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 01, 2022
+              x-details: Initial version release
+              description: Input changed to wav_base64
         v0.1.0:
          type: array
          items:
@@ -271,7 +279,7 @@ components:
             - type: string
               example: Published Date - Jun 27, 2022
               x-details: Initial version release
-              description: Initial Version
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey
