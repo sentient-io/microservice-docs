@@ -3,10 +3,8 @@ info:
   title: HDB Hardcourts Locations (SG)
   x-subscribelink: amenities_hardcourts_hdb_sg
   description: |+
-      This Data microservice returns the indicative outline of hardcourts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB land. The output includes map data such as: coordinates, type and the details of the location. The features were captured by the Singapore Land Authority (SLA) in 2014 using high-definition ortho-rectified aerial imagery and manually digitised. Objects that are largely obscured by trees, structures and / or shadows are likely not captured in this data set. The outlines of partially obstructed objects were estimated where possible and may not accurately represent the actual shape of the object. 
-      
-      A successful call will return the results of the query in JSON format.
-      
+      This Data microservice returns the indicative outline of hardcourts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB land. The output includes map data such as: coordinates, type and the details of the location. The features were captured by the Singapore Land Authority (SLA) in 2014 using high-definition ortho-rectified aerial imagery and manually digitised. Objects that are largely obscured by trees, structures and / or shadows are likely not captured in this data set. The outlines of partially obstructed objects were estimated where possible and may not accurately represent the actual shape of the object.</br>
+      A successful call will return the results of the query in JSON format.</br>
       The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.
 
   x-additionalinfo : |+
@@ -21,7 +19,7 @@ info:
     * **geo_distance** - Returns the geo search based on the distance and location lat/long
       > {"geo_distance": {"distance": "11km","geometry": "1.349439786854645,103.75736216302658"}}
     * **geo_shape** - Returns the geo search based on the type and coordinates.
-        relation should be anyone based on requirement.
+        relation should be anyone based on requirement.</br>
           > INTERSECTS - (default) Return all documents whose geo_shape field intersects the query geometry.
           > DISJOINT - Return all documents whose geo_shape field has nothing in common with the query geometry.
           > WITHIN - Return all documents whose geo_shape field is within the query geometry. 
