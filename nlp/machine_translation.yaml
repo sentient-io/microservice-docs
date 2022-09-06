@@ -2,9 +2,8 @@ openapi: 3.0.1
 info:
   title: Machine Translation
   description: |+
-    This NLP microservice provides machine translation for the four official languages in Singapore (English, Malay, Chinese, Tamil). Additional language pair models can be added on. This model can also be deployed on-prem and used for future custom training.
-    
-    Do ensure that your text is within **500 characters**.
+    This NLP microservice provides machine translation for the four official languages in Singapore (English, Malay, Chinese, Tamil). Additional language pair models can be added on. This model can also be deployed on-prem and used for future custom training.</br>
+    The input text **should not exceed 500 characters**.
   version: v0.1.0
   x-additionalinfo: |+
      **Supported languages are:**
