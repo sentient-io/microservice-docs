@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Audio Format Convertor
   description: >-
-    This Utility microservice converts the audio format to the WAV format.</br><
+    This Utility microservice converts the audio format to the WAV format.</br>
     The encoding scheme, bitrate, sample rate of the output WAV are to be specified.</br>
     The size of your audio file should **not exceed 10 MB**.
   x-additionalinfo: |+
