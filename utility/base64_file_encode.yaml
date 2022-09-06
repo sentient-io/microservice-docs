@@ -2,8 +2,8 @@ openapi: 3.0.1
 info:
   title: Base64 Encoder
   description: |+
-    This Utility microservice converts an uploaded file to Base64 encoded text (also known as a binary file to text converter). This microservice supports most documents, images, audio, video, archive, and font files. See documentation for the detailed list of supported file formats.
-    User can choose the output base64 text string in 5 different formats (plain text, JSON, hyperlink, datauri, XML).
+    This Utility microservice converts an uploaded file to Base64 encoded text (also known as a binary file to text converter). This microservice supports most documents, images, audio, video, archive, and font files. See documentation for the detailed list of supported file formats.</br>
+    User can choose the output base64 text string in 5 different formats (plain text, JSON, hyperlink, datauri, XML).</br>
     For the reverse process (converting Base64 string back to binary file), check out the Base 64 File Decoder microservice.
   x-additionalinfo: |+
     Suggested Use Cases:
