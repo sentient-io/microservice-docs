@@ -2,10 +2,10 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition CHI (Large File)
   description: |+
-    This Voice microservice takes in the input audio file  and supports recognizing a speech.The server returns the recognition result in a JSON format as a response. 
-    For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.
-    - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.
-    - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
+    This Voice microservice takes in the input audio file  and supports recognizing a speech.The server returns the recognition result in a JSON format as a response.</br> 
+    For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.</br>
+    - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.</br>
+    - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.</br>
     - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.    
   version: '0.1.2'
   x-additionalinfo: |+
