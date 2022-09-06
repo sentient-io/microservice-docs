@@ -3,7 +3,7 @@ info:
   title: Web Scraper
   x-subscribelink: web_scraper
   description: |+
-    This Utility microservice extracts content or specific HTML elements from the input URL. It can extract HTML elements that matches the criteria given in the queryList HTTP request parameter. 
+    This Utility microservice extracts content or specific HTML elements from the input URL. It can extract HTML elements that matches the criteria given in the queryList HTTP request parameter. </br>
     For example, to look for all h1 elements in the webpage, one would pass the following queryList parameter: “queryList:[{‘title’:<name_of_element_you_are_looking_for>,’findType’:’findall’,‘tag’:’h1’ }]”
     <br>
     The results are returned in JSON format to rapidly retrieve website elements like tables, images, etc. from multiple URLs.
