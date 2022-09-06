@@ -3,7 +3,8 @@ info:
   title: ASR EN Unified
   description: |+
     This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.</br>
-    This api supports upto 15 seconds audio file only.
+    This microservice can be effective for audio files with mixed English accents, as well as audio files that are noisy.</br>
+    Do ensure that your audio file length is less than 15 seconds.
   version: '1.0.0'
   x-apitype: small file
   x-subscribelink: asr_en_unified
