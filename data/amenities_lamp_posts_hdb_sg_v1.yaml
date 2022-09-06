@@ -3,8 +3,8 @@ info:
   title: HDB Lamp Posts Locations (SG)
   x-subscribelink: amenities_lamp_posts_hdb_sg
   description: |+
-   This Data microservice returns the indicative location of lamp posts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from a high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset. 
-   A successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
+   This Data microservice returns the indicative location of lamp posts for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from a high definition ortho-rectified aerial imagery and manually digitised. The imagery was obtained from Singapore Land Authority (SLA) (captured in 2014). Objects largely obstructed by trees, structures and / or shadow are likely not captured in this dataset.</br>
+   A successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.</br>
    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
   x-additionalinfo: |+
     Suggested Use Cases:
