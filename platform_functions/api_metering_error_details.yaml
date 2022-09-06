@@ -1,7 +1,9 @@
 openapi: 3.0.1
 info:
   title: API Metering Error Details
-  description: This API provides detail insight into errors that may occur while performing an API call. This API shows the aspects including but limited to the number of invalid inputs, authentication failures, number of invalid requests, and API key errors for any given microservice within a specific period of time (i.e. monthly, yearly, etc.).
+  description: |+
+    This API provides detail insight into errors that may occur while performing an API call. </br>
+    This API shows the aspects including but limited to the number of invalid inputs, authentication failures, number of invalid requests, and API key errors for any given microservice within a specific period of time (i.e. monthly, yearly, etc.).
   version: v0.1.0
   x-subscribelink: api_metering_error_details
 servers:
