@@ -1,7 +1,13 @@
 openapi: 3.0.1
 info:
   title: API Metering
-  description: This API provides detail usage metrics that helps you as an organization to 1. Track and understand your usage of Sentient APIs 2. Monitor performance of your applications and Sentient APIs 3. Discover problems that may be happening between your application and Sentient APIs. By using this API you can dramatically speed up resolution time while troubleshooting problems or are in need of technical support from Sentient. The metrics provided throught this API include request counts, total latencies, error rates, request sizes, and response rates. You can view API metrics in administrator user dashboard.  
+  description: |+
+    This API provides detail usage metrics that helps you as an organization to </br>
+    - 1. Track and understand your usage of Sentient APIs 
+    - 2. Monitor performance of your applications and Sentient APIs 
+    - 3. Discover problems that may be happening between your application and Sentient APIs. </br>
+    By using this API you can dramatically speed up resolution time while troubleshooting problems or are in need of technical support from Sentient. </br>
+    The metrics provided throught this API include request counts, total latencies, error rates, request sizes, and response rates. You can view API metrics in administrator user dashboard.  
   version: v0.1.0
   x-subscribelink: api_metering
 servers:
