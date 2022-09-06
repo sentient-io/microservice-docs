@@ -3,7 +3,7 @@ info:
   title: LTA Road Works
   x-subscribelink: lta_road_works
   description: |+
-    This Data microservice returns all road works being / to be carried out. Updates every 24 hours or whenever there is new data.
+    This Data microservice returns all road works being / to be carried out. Updates every 24 hours or whenever there is new data.</br>
     This microservice contains information from LTA Datamall's Road Works dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
   x-additionalinfo : |+
     **Match Types:**
