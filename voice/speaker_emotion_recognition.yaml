@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Speaker Emotion Recognition
   description: |+
-    This Voice microservice takes in an audio file(wav file in base64 format) and return the emotional feeling of voice.</br>
+    This Voice microservice takes in an audio file(base64 format) and return the emotional feeling of voice.</br>
     This api supports upto 50 seconds audio file only.
   version: '0.2.0'
   x-apitype: small file
