@@ -3,7 +3,7 @@ info:
   title: LTA Traffic Images
   x-subscribelink: lta_traffic_images
   description: |+
-    This Data microservice returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 2 minutes.
+    This Data microservice returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. Updates every 2 minutes.</br>
     This microservice contains information from LTA Datamall's Traffic Images dataset which is made available under the terms of the[Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
   x-additionalinfo : |+
     **Match Types:**
