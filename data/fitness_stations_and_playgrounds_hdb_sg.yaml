@@ -4,7 +4,7 @@ info:
   x-subscribelink: fitness_stations_and_playgrounds_hdb_sg
   description: >
     Returns information on the map data including: coordinates, type and the
-    details of the location.</br>
+    details of the location.</br></br>
     This Data microservice captures the indicative
     outline of fitness stations/playgrounds for all Housing Development Board of
     Singapore (HDB) Towns, HDB Estates and on HDB Land.
