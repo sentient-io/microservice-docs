@@ -5,10 +5,10 @@ info:
     This Data microservice provides key business information of a Singapore-registered company that includes the business name, registration number, registered address and date of change, company status, registered activities, shareholders details (i.e. date of commencement, residing address) capital amount and shares allocated to each shareholders. Updated daily.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - For software solutions that require general background checks of a company. This microservice can provide a high level of scrutiny of potential business associates, and throw light on the risks that cannot be detected by geopolitical analysis or batch screening levels.
-    - For example, this microservice can be used to check if a Singapore-registered company meets regulations, such as if the company complies with anti-money laundering, anti-bribery, and corruption regulations by looking at registered activities, shareholders details, and more.
-    - It can also be used to simplify the due diligence process, by identify risk issues using a range of reports that meet different compliance requirements.
-    - It can also be used to protect your business – safeguard against reputational risk by avoiding those involved in financial crime.
+    - For software solutions that require general background checks of a company. This microservice can provide a high level of scrutiny of potential business associates, and throw light on the risks that cannot be detected by geopolitical analysis or batch screening levels.</br></br>
+    - For example, this microservice can be used to check if a Singapore-registered company meets regulations, such as if the company complies with anti-money laundering, anti-bribery, and corruption regulations by looking at registered activities, shareholders details, and more.</br></br>
+    - It can also be used to simplify the due diligence process, by identify risk issues using a range of reports that meet different compliance requirements.</br></br>
+    - It can also be used to protect your business – safeguard against reputational risk by avoiding those involved in financial crime.</br></br>
     - It can also be used for finance-related domains such as vehicle leasing, loans, enterprise credit terms and so on. Updated daily.
   version: '1.0.1'
   x-subscribelink: d&b_business_check_sg
