@@ -3,9 +3,9 @@ info:
   title: LTA Passenger Volume by Bus Stops
   x-subscribelink: lta_pv_bus
   description: |+
-      Returns tap in and tap out passenger volume by weekdays and weekends for individual bus stop.
+      Returns tap in and tap out passenger volume by weekdays and weekends for individual bus stop.</br>
       This microservice contains information from LTA Datamall's VBS dataset which is made available under the terms of the 
-      [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+      [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).</br>
       By 15th of every month, the passenger volume for previous month data will be generated. If current date is below 15 default return 
       should be 2nd month data from current month, if date is after 15 return should be the last month data.
   x-additionalinfo : |+
