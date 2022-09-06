@@ -99,7 +99,7 @@ voice:
   speaker_emotion_recognition:
     title: Speaker Emotion Recognition
     versions:
-      0.1.0: 'speaker_emotion_recognition.yaml'      
+      0.2.0: 'speaker_emotion_recognition.yaml'      
 nlp:
   kyc:
     title: KYC
