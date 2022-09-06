@@ -4,9 +4,9 @@ info:
   description: |+
     Fleet Routing Engine is a set of APIs that will handle vehicle route scheduling. The API will return optimized route for each inputted vehicle. </br>
     There are limitations on the payload that can be posted to the API, which are: </br>
-      1. The number of maximum jobs is 60.
-      2. The number of unique end customer is 50.
-      3. The number of vehicles in the fleet is 15.
+          1. The number of maximum jobs is 60.
+          2. The number of unique end customer is 50.
+          3. The number of vehicles in the fleet is 15.
   version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of set of REST APIs to pre-process various data like customer, job data and travel matrix before the user can call the Fleet Routing Engine.
