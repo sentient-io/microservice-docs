@@ -3,7 +3,7 @@ info:
   title: Named-Entity Recognition THAI
   description: |+
       This NLP microservice locates and classifies the named-entity classes from input unstructured Thai text and also returns the entity start and end positions.</br>
-      The named-entity classes extracted are people's names, locations, organisations and miscellaneous.</br>
+      The named-entity classes extracted are laws, locations, measurements, money, organizations, people, phone numnbers, time, URLs and zip codes.</br>
       This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.</br>
       The input text **should not exceed 5000 characters**.
   version: '2.0.0'
