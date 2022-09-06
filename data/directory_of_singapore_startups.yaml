@@ -9,7 +9,7 @@ info:
     - Build solutions related to startups in Singapore. For example, investors interested in industry analysis can use this microservice to identify the trends and patterns in Singapore's startup scene.
     
     **Refining queries in the filterdata field using filter types and match types**
-    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries.</br>
   
     **Filter Types:**
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
@@ -27,7 +27,7 @@ info:
       
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
-    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.</br>
     **Match Types:**
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
