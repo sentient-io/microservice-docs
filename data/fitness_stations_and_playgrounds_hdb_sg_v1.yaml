@@ -3,8 +3,8 @@ info:
   title: HDB Fitness Stations and Playgrounds (SG)
   x-subscribelink: fitness_stations_and_playgrounds_hdb_sg
   description: |+
-    This Data microservice captures the indicative outline of fitness stations/playgrounds for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from a high definition ortho-rectified aerial imagery (2014) and manually digitized. Objects largely obstructed by trees, structures and/or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were estimated where possible and may not accurately represent the actual shape of the actual object.
-    A successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.
+    This Data microservice captures the indicative outline of fitness stations/playgrounds for all Housing Development Board of Singapore (HDB) Towns, HDB Estates and on HDB Land. The features were identified visually from a high definition ortho-rectified aerial imagery (2014) and manually digitized. Objects largely obstructed by trees, structures and/or shadow are likely not captured in this dataset. The outlines of partially obstructed objects were estimated where possible and may not accurately represent the actual shape of the actual object.</br>
+    A successful call will return a pre-signed URL where the entire dataset can be downloaded as a CSV file.</br>
     The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.
   x-additionalinfo: |+
    Suggested Use Cases:
