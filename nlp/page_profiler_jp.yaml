@@ -2,9 +2,8 @@
   info:
     title: Page Profiler JP
     description: |+
-        This NLP microservice retrieves web content in Japanese from the input URL. From the web content, the microservice then applies natural language processing to extract named-entities and return the output. 
+        This NLP microservice retrieves web content in Japanese from the input URL. From the web content, the microservice then applies natural language processing to extract named-entities and return the output. </br>
         The named-entity classes extracted are people's names, locations, organisations and miscellaneous. This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
-        
     x-additionalinfo: |+
       Suggested Use Cases:
       - Insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
