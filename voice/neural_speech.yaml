@@ -44,8 +44,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                results: 
-                  sampling_rate: 22050
+                results:
                   wav_base64: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
                   message: Successfully Processed
                   status: Success
