@@ -5,7 +5,7 @@ info:
     This Data microservice provides the information on the business interest and involvement of an individual residing in Singapore. It includes the individual’s actual name, residential address, business and shareholding in businesses, current & previous ownership, litigation against individual and businesses, bankruptcy record and number of times this individual has been searched on. Updated daily.
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Software solutions that require personal checks, e.g. in the appointment of Board Members, Directorship or C-suite level hiring, where the appointee’s background is paramount to the Company and its reputation.</br>
+    - Software solutions that require personal checks, e.g. in the appointment of Board Members, Directorship or C-suite level hiring, where the appointee’s background is paramount to the Company and its reputation.</br></br>
     - Swift pre-employment screening solution - information provided by the microservice can be used to protect one's company's reputation from potential negative publicity by conducting background checks on individuals prior to hiring.
   version: '1.0.1'
   x-subscribelink: d&b_basic_individual_search_sg
