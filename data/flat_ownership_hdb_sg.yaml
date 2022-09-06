@@ -3,7 +3,7 @@ info:
   title: HDB Flat Ownership Duration (SG)
   x-subscribelink: flat_ownership_hdb_sg
   description: |+
-   This Data microservice returns information on flat ownership within Housing Development Board of Singapore (HDB) estates which includes the location address, postal code, length of ownership and their quantity in units. The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme."
+   This Data microservice returns information on flat ownership within Housing Development Board of Singapore (HDB) estates which includes the location address, postal code, length of ownership and their quantity in units. The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme."</br></br>
    
    **Note:** As this microservice uses the GET method, developers using this microservice must rememberinformation on flat ownership within Housing Development Board of Singapor to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
@@ -12,7 +12,7 @@ info:
     - Real estate services - for example, this microservice can be used for services that are related to HDB ownership transfer (i.e. when one transfer, include, withdraw and/or substitute owners for a flat), such as when drafting up related legal documents.
     
     **Refining queries in the filterdata field using filter types and match types**
-    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. 
+    The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries.</br></br>
   
     **Filter Types:**
     A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
@@ -32,7 +32,7 @@ info:
       
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
-    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.</br>
     **Match Types:**
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
