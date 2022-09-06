@@ -2,8 +2,8 @@ openapi: 3.0.1
 info:
   title: Landmark Detection (JP)
   description: |+
-    This Computer Vision microservice identifies Japanese landmarks from multiple input images.
-    The microservice returns the detected landmark and confidence score.
+    This Computer Vision microservice identifies Japanese landmarks from multiple input images.</br>
+    The microservice returns the detected landmark and confidence score.</br>
     The size of your image file **should not exceed 5 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
