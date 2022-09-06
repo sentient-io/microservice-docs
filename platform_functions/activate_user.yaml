@@ -1,7 +1,9 @@
 openapi: 3.0.1
 info:
   title: Activate Users
-  description: This is an organization function and this API is used to activate a user from the deleted user list. Only active users can access specified restricted features and content set by the Admin.
+  description: |+
+    This is an organization function and this API is used to activate a user from the deleted user list.</br> 
+    Only active users can access specified restricted features and content set by the Admin.
   version: v0.1.0
   x-subscribelink: 
 servers:
