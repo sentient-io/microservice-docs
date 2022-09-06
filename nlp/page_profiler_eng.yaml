@@ -2,9 +2,10 @@
   info:
     title: Page Profiler ENG
     description: |+
-        This NLP microservice retrieves web content in English from the input URL. From the web content, the microservice then applies natural language processing to extract named-entities and return the output.</br>
-        The named-entity classes extracted are people's names, locations, organisations and miscellaneous. This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
-    
+        This NLP microservice retrieves web content in English from the input URL.</br>
+        From the web content, the microservice then applies natural language processing to extract named-entities and return the output.</br>
+        The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.</br>
+        This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.</br>
     x-subscribelink: page_profiler_eng
     x-additionalinfo: |+
       Suggested Use Cases:
