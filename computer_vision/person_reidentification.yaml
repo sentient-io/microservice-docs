@@ -6,7 +6,7 @@ info:
     This Computer Vision microservice returns a similarity score (confidence) between two cropped images of people in the same scene. The images are captured across different camera views in a multi-camera system, or across different time in a single camera system. </br>
     The size of your image **should not exceed 5MB**.
   x-additionalinfo: |+
-    The algorithm is tested on varying conditions with single and multiple surveillance camera setups. However, external conditions like lighting, occlusions, and unexpected change of appearance (e.g. removal of jacket, hatwear) may result in lower confidence than expected. A threshold of 0.8 confidence has been experimentally tested as a good value for many scenarios for determining if the two input images are of the same person.
+    The algorithm is tested on varying conditions with single and multiple surveillance camera setups. However, external conditions like lighting, occlusions, and unexpected change of appearance (e.g. removal of jacket, hatwear) may result in lower confidence than expected. A threshold of 0.8 confidence has been experimentally tested as a good value for many scenarios for determining if the two input images are of the same person.</br>
     Supported File Formats
     - .blp
     - .bmp
