@@ -1,7 +1,9 @@
 openapi: 3.0.1
 info:
   title: Edit User
-  description: This API provides operations to manage users in your organization. As an admin you are able to edit and update any user details by using admistrator user dashboard.
+  description: |+
+    This API provides operations to manage users in your organization.</br> 
+    As an admin you are able to edit and update any user details by using admistrator user dashboard.
   version: v0.1.0
   x-subscribelink: update_user_info
 servers:
