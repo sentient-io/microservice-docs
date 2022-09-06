@@ -3,7 +3,7 @@ info:
   title: LTA VMS
   x-subscribelink: lta_vms
   description: |+
-      This Data microservice returns traffic advisories (via variable message services) concerning current traffic conditions that are displayed on EMAS signboards along expressways and arterial roads. Updates every 2 minutes or whenever there is new data.
+      This Data microservice returns traffic advisories (via variable message services) concerning current traffic conditions that are displayed on EMAS signboards along expressways and arterial roads. Updates every 2 minutes or whenever there is new data.</br>
       This microservice contains information from LTA Datamall's VMS dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
   x-additionalinfo : |+
     **Match Types:**
