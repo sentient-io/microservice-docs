@@ -2,8 +2,7 @@ openapi: 3.0.1
 info:
   title: CSV-JSON Convertor
   description: |+
-    This Utility microservice converts the input CSV file to JSON format. The headers should be the keywords and columns should be the value of proper keywords.
-    
+    This Utility microservice converts the input CSV file to JSON format. The headers should be the keywords and columns should be the value of proper keywords.</br>
     The size of your file **should not exceed 3.5 MB**.
   x-additionalinfo: |+
     Suggested Use Cases:
