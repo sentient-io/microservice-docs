@@ -3,7 +3,7 @@ info:
   title: LTA Faulty Traffic Lights
   x-subscribelink: lta_faulty_traffic_lights
   description: |+
-    This Data microservice returns alerts of traffic lights that are currently faulty, or undergoing scheduled maintenance. Updates every 2 minutes or whenever there is new data.
+    This Data microservice returns alerts of traffic lights that are currently faulty, or undergoing scheduled maintenance. Updates every 2 minutes or whenever there is new data.</br>
     This microservice contains information from LTA Datamall's Faulty Traffic Lights dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
   x-additionalinfo : |+
     **Match Types:**
