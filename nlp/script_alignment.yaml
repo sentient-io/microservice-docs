@@ -2,10 +2,8 @@ openapi: 3.0.1
 info:
   title: Script Alignment
   description: |+
-    This NLP microservice aligns the input time-coded transcript with high-quality script. 
-    
-    The output is a time-coded high-quality script.
-    
+    This NLP microservice aligns the input time-coded transcript with high-quality script. </br>
+    The output is a time-coded high-quality script.</br>
     The input text **should not exceed 5000 characters**.
   version: '1.0.0'
   x-additionalinfo: |+
