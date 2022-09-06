@@ -2,11 +2,9 @@ openapi: 3.0.1
 info:
   title: Few Shots Object Detection
   description: |+
-    This Computer Vision microservice detects a single user-defined object class in the input  query image and returns detected objects and their bounding boxes in the image coordinates.
-    
-    The object class is defined by the user with a set of support images. Each support image should be tightly cropped to the relevant part of the objects. E.g. To detect car tyres, cropped away other parts of the car; with only the tyre visible.
-    
-    The size of your image files should not exceed 5 MB, and the image dimension should be at least 416x416 pixels.  
+    This Computer Vision microservice detects a single user-defined object class in the input query image and returns detected objects and their bounding boxes in the image coordinates.</br>
+    The object class is defined by the user with a set of support images. Each support image should be tightly cropped to the relevant part of the objects. E.g. To detect car tyres, cropped away other parts of the car; with only the tyre visible.</br>
+    The size of your image file **should not exceed 5 MB**.
   x-additionalinfo: |+
     To improve object detection accuracy:
 
