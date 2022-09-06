@@ -3,8 +3,7 @@ openapi: 3.0.1
 info:
   title: Sentence Paraphrase
   description: |+
-    This NLP microservice takes in English sentences in informal / colloquial tone and rewrites it in a formal tone. It helps to smooth out sentences that contains irregularities (profanities, grammatical errors, awkward sentence structures) that can be typically found in informal dialogues or conversations.
-    
+    This NLP microservice takes in English sentences in informal / colloquial tone and rewrites it in a formal tone. It helps to smooth out sentences that contains irregularities (profanities, grammatical errors, awkward sentence structures) that can be typically found in informal dialogues or conversations.</br>
     The input text sentence should have less than 60 sub-words. Any excess words in the sentence beyond that limit will be ignored. As a word may often consist of 2 or more sub-words (e.g. “thumbnail” consists of the sub-words “thumb” and “nail”), generally, we suggest keeping the input sentence to around 30 to 50 words to be safe.
   version: v0.1.0
   x-subscribelink: sentence_paraphrase
