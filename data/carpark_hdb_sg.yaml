@@ -4,7 +4,7 @@ info:
   x-subscribelink: carpark_hdb_sg
   description: |+
     This Data microservice retrieves the Housing Development Board (HDB) carpark information within HDB estates and includes the location address, postal code and parking lot capacity for different types of vehicle by carpark location. Updated monthly.</br>
-    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br></br>
+    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br>
     **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
   
   x-additionalinfo : |+
@@ -32,7 +32,7 @@ info:
       
     For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
     
-    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.</br></br>
+    Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.</br>
     **Match Types:**
     A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
     
