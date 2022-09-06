@@ -2,7 +2,9 @@ openapi: 3.0.1
 info:
   title: Load Planning Engine
   description: |+
-    Load Planning Engine API will give the client recommendation on how to arrange cargoes inside a vehicle. The input for the API is one vehicle with its assigned cargoes.
+    This Analytics microservice will provide recommendations on how to load cargoes within a vehicle.</br>
+    The LPE API can be used together with the Fleet Routing Engine API. The API will also give the client visualization of the load plan in 6 different viewing angles. </br>
+    If the payload includes pickup and delivery types of jobs, the load plan will be separated. All the cargo will be treated as a box shape and all cargoes inside a same job ID will be grouped into one big box.
   version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of set of REST APIs to pre-process FRE data before the user can call the Load Planning Engine. In order to get the FRE data, do check out the Fleet Routing Engine Microservice for more details.
