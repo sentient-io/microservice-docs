@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Foretell Profiling
   description: |+
-    Foretell Profiling API will take a time series data and process it to give response of its classification, change point, and predictability score. The period of each data point of the time series data input is to be determined by the client.
+    This Analytics microservice will take a time series data and process it to give response of its classification, change point, and predictability score. The period of each data point of the time series data input is to be determined by the client.
   version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of different types of Fortell Profiling APIs.
