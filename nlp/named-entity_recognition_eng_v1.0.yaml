@@ -2,18 +2,15 @@ openapi: 3.0.1
 info:
   title: Named-Entity Recognition ENG
   description: |+
-    This NLP microservice locates and classifies the named-entities classes from input unstructured English text.
-    
-    The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
-    
-    This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
-    
+    This NLP microservice locates and classifies the named-entities classes from input unstructured English text.</br>
+    The named-entity classes extracted are people's names, locations, organisations and miscellaneous.</br>
+    This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.</br>
     Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Extracting structured pre-defined information from text.
-    - Gain insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
+    - Extracting structured pre-defined information from text.</br>
+    - Gain insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.</br>
     - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
   x-subscribelink: named-entity_recognition_eng
   x-apitype: small file
