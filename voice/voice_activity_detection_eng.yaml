@@ -2,16 +2,15 @@ openapi: 3.0.1
 info:
   title: Voice Activity Detection ENG
   description: |+
-    This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.
-    
-    An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.
+    This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.</br>
+    An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.</br>
     The length of your audio should be **up to 60 seconds**.
   version: '1.0.1'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Narrate a blurb or chunk of text in English
-    - Improve customer service - empower a customer service system by adding IVR (interactive voice response) and agent conversations to call centers. Perform analytics on conversation data to gain more insights into the calls and customers.
-    - Enable voice control - implement voice commands such as “turn the volume up,” and voice search such as saying “what is the temperature in Paris?”
+    - Narrate a blurb or chunk of text in English</br>
+    - Improve customer service - empower a customer service system by adding IVR (interactive voice response) and agent conversations to call centers. Perform analytics on conversation data to gain more insights into the calls and customers.</br>
+    - Enable voice control - implement voice commands such as “turn the volume up,” and voice search such as saying “what is the temperature in Paris?”</br>
     - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.
   x-subscribelink: voice_activity_detection_eng
   x-apitype: small file
