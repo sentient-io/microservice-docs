@@ -3,10 +3,8 @@ info:
   title: Content Interest Profiling
   x-subscribelink: content_interesr_profiling
   description: |+
-    This Analytics microservice helps profile the content and interest from the web page traffic. Content profiler would profile given text documents and Interest profiler would profile an entity (a human being/Internet session/Cookie/etc.) based on the history of documents it has accessed over time and the profile of those documents.</br>
-    Upon subscription, a javascript is sent to the user to place it within the web page. This will capture the web page traffic and auto profile the content as well as the user. If required, users can also pass in user ID to identify the user using the external_id field. </br>
-    Only English language texts will be addressed.</br>
-    In addition to the Content Interest Profiling microservices, we are also releasing a few analytics overview microservice namely, traffic overview, page overview, and external id analytics.
+    This Analytics microservice helps profile the content and interest from the web page traffic. Content profiler would profile given text documents and Interest profiler would profile an entity (a human being/Internet session/cookie) based on the history of documents it has accessed over time and the profile of those documents. </br>
+    Upon subscription, a javascript is sent to the user to place it within the web page. This will capture the web page traffic and auto profile the content as well as the user. If required, users can also pass in user ID to identify the user using the external_id field. Only English language texts will be addressed. In addition to the Content Interest Profiling microservices, we are also releasing a few analytics overview microservice namely, traffic overview, page overview, and external id analytics.
   x-additionalinfo : |+
     Filters are applicable only for Content and Interest Profiling APIs.</br>
     **Match Types:**
