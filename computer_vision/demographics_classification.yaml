@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Demographics Classification
   description: |+
-    This Computer Vision microservice identifies faces within an input image and predicts the demographics of each face (age, gender and race). 
+    This Computer Vision microservice identifies faces within an input image and predicts the demographics of each face (age, gender and race).</br>
     The image is processed as an input encoded using base64. The results will then be returned back to the user as a JSON output together with bounding box coordinates for each face. Races include: Asian, Indian, White, Black, Middle Eastern and Latino Hispanic</br>
     The size of your image file should **not exceed 10 MB**, and the image dimension should be **at least 416x416 pixels**.
   x-additionalinfo: |+
