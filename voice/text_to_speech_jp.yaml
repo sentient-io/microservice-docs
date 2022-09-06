@@ -3,10 +3,8 @@ openapi: 3.0.1
 info:
   title: Text-To-Speech JP 
   description: |+
-        This Voice microservice converts Japanese text into natural-sounding Japanese speech in a female voice. 
-
-        User can adjust the pitch and tempo of the the synthesised speech. 
-
+        This Voice microservice converts Japanese text into natural-sounding Japanese speech in a female voice. </br>
+        User can adjust the pitch and tempo of the the synthesised speech. </br>
         The input text **should not exceed 800 characters**. 
   version: v0.1.1
   x-subscribelink: text-to-speech_jp
