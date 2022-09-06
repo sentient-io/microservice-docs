@@ -2,10 +2,8 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition ENG
   description: |+
-    This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.
-    
-    The Automatic Speech Recognition (ASR) AI model is employed to understand the mapping of sound features to actual words in English.
-    
+    This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.</br>
+    The Automatic Speech Recognition (ASR) AI model is employed to understand the mapping of sound features to actual words in English.</br>
     Use this microservice if the audio file consists of mostly speech with no long pauses in between.
   version: '0.1'
   x-apitype: small file
