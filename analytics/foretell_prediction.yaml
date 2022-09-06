@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Foretell Prediction
   description: |+
-    Foretell Prediction API will return the predicted value of a time series together with the RMSE, MAE, and MAPE of the prediction.
+    This Analytics microservice will return the predicted value of a time series together with the Root Mean Square Error (RMSE), Mean Absolute Error (MAE) and Mean Absolute Percentage Error (MAPE) of the prediction.
   version: '0.1.0'
   x-additionalinfo: |+
     - This microservice consists of different types of Fortell Prediction APIs.
