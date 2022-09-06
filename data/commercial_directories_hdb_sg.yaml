@@ -4,7 +4,7 @@ info:
   x-subscribelink: commercial_directories_hdb_sg
   description: |+
    This Data microservice retrieves the list of all retail shops within Housing Development Board (HDB) and allows you to search for a shop by its name, address, building name, postal code, latitude and longitude coordinates and type of business. The returned dataset offers useful information like the shop operating hours and contact number. Updated weekly.</br>
-   The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br>
+   The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br></br>
    
    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
