@@ -1,7 +1,9 @@
 openapi: 3.0.1
 info:
   title: Microservices List
-  description: This API provides microservices list based on class type. It can categorize the microservice listing from ascending, descending, newest, oldest and provider type based.
+  description: |+
+    This API provides microservices list based on class type.</br>
+    It can categorize the microservice listing from ascending, descending, newest, oldest and provider type based.
   version: v0.1.0
   x-subscribelink: microservices_list
 servers:
