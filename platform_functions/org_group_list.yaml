@@ -1,7 +1,9 @@
 openapi: 3.0.1
 info:
   title: Group List
-  description: This API provides collection of API Metering graphs that lets you as an admin read and create group list data. By using this API, a group admin can grant access to specific group list content and allow to publish content to the group list on behalf of the admin.
+  description: |+
+    This API provides collection of API Metering graphs that lets you as an admin read and create group list data. </br>
+    By using this API, a group admin can grant access to specific group list content and allow to publish content to the group list on behalf of the admin.
   x-subscribelink: org_group_list
   version: '0.1.0'
 servers:
