@@ -1,7 +1,9 @@
 openapi: 3.0.1
 info:
   title: Subscribed Microservices
-  description: This API provides operations to manage subscribed microservices in your organization. The organizational subscribed microservices can be adjusted by using the admistrator user dashboard.
+  description: |+
+    This API provides operations to manage subscribed microservices in your organization. </br>
+    The organizational subscribed microservices can be adjusted by using the admistrator user dashboard.
   version: v0.1.0
   x-subscribelink: subscribed_microservices
 servers:
