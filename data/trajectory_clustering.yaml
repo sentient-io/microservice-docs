@@ -2,8 +2,8 @@
   info:
     title: Trajectory Clustering
     description: |+
-      This Data Analytics microservice groups the input trajectories of objects into clusters based on positions and velocity. A target object can be anything mobile that is continuously tracked or "pinged-back" (e.g. vehicles, mobile phones). 
-      The clustering algorithm requires a set of trajectories. Each trajectory has a unique id (e.g. t1, t2) and a sequence of 2D points (X-Y coordinates and corresponding timestamps).
+      This Data Analytics microservice groups the input trajectories of objects into clusters based on positions and velocity. A target object can be anything mobile that is continuously tracked or "pinged-back" (e.g. vehicles, mobile phones).</br>
+      The clustering algorithm requires a set of trajectories. Each trajectory has a unique id (e.g. t1, t2) and a sequence of 2D points (X-Y coordinates and corresponding timestamps).</br>
       See additional information for relationship of target objects and their trajectories.
     version: '0.1.0'
     x-additionalinfo: |+
