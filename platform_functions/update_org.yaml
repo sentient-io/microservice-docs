@@ -1,7 +1,9 @@
 openapi: 3.0.1
 info:
   title: Edit Organizational Info
-  description: This API allows an admin to manage organizational data and information. By using this API, an orgonization admin can edit, update, and create orgonizational/groups/group lists information.
+  description: |+
+    This API allows an admin to manage organizational data and information. </br>
+    By using this API, an orgonization admin can edit, update, and create orgonizational/groups/group lists information.
   version: v0.1.0
   x-subscribelink: edit_org_info
 servers:
