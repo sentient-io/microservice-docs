@@ -934,8 +934,8 @@ components:
         properties:
               description: "The value must be array of item properties"
               default: false
-              type: object
-              example: ["pagetile","description","pageurl"]
+              type: string
+              example: '["pagetile","description","pageurl"]'
     retraineventinput:
       type: object
       required:
