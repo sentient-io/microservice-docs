@@ -2,10 +2,10 @@ openapi: 3.0.1
 info:
   title: ASR EN Unified
   description: |+
-    This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.
-
-    This api supports upto 15 seconds audio file only.
-  version: '0.1.0'
+    This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.</br>
+    This microservice can be effective for audio files with mixed English accents, as well as audio files that are noisy.</br>
+    Do ensure that your audio file length is less than 15 seconds.
+  version: '1.0.0'
   x-apitype: small file
   x-subscribelink: asr_en_unified
   x-apitypedescription: |+
@@ -21,15 +21,15 @@ info:
   x-apidetailsdesc: |+
     Transcribes Singaporean-accented English speech content for audio file (in WAV format at 16kHz).
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://ms-apis.huawei.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Jun 01, 2022"
+- name: "v1.0.0"
+  description: "Published Date - Sep 09, 2022"
 paths:
-  /microservices/voice/asrenunified/v0/get_transcript:
+  /microservices/voice/asrenunified/v1/get_transcript:
     post:
       tags:
-        - v0.1.0
+        - v1.0.0
       responses:
         '200':
           description: success response
@@ -100,7 +100,7 @@ paths:
         - APIAuthorizer: []
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               $ref: '#/components/schemas/input'
         required: true
@@ -211,18 +211,45 @@ components:
     input:
       type: object
       required:
-        - file_path      
+        - wav_base64   
+        - model
       properties:
-        file_path:
+        wav_base64:
+          x-name: wav_base64
           type: string
-          format: binary
+          format: byte
           default: true
-          example: sample.wav
+          example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+          description: 
+            Input audio wav file in base64 format.
+        model:
+          x-name: model
+          type: string
+          default: True
+          example: generic
           description: |+
-            Maximum Limit upto 15 seconds of audio wav file.
+            Model selection. For best performance, select the model which best matches the use-case:
+            1. generic - for non-accent specific speech (default)
+            2. en-SG - for Singaporean-accented English speech
     versions:
       type: object
       properties: 
+        v1.0.0:
+          type: array
+          items:
+           oneOf:
+             - type: string
+               example: Published Date - Sep 09, 2022
+               x-details: Major release
+               description: Input Parameter Changed to wav_base64 String 
+        v0.2.0:
+          type: array
+          items:
+           oneOf:
+             - type: string
+               example: Published Date - Aug 04, 2022
+               x-details: Minor release
+               description: Patch fixes to generic and new model addition - sg-unified
         v0.1.0:
          type: array
          items:
@@ -230,7 +257,8 @@ components:
             - type: string
               example: Published Date - Jun 01, 2022
               x-details: Initial version release
-              description: Latest Version
+              description: Archived
+         
   securitySchemes:
     APIAuthorizer:
       type: apiKey
