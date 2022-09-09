@@ -33,7 +33,7 @@ info:
   x-apidetailsdesc: |+
     Converts English text to speech in a female voice.
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v1.4.0"
   description: "Published Date - Aug 30, 2022"
@@ -137,6 +137,10 @@ components:
               example: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
               type: string
               format: byte
+            normalisedtext:
+              description: Normalised text
+              example: I want a credit card.
+              type: string
 
         message:
           type: string
@@ -353,6 +357,13 @@ components:
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1. 
             **used only for the female_singaporean model.
+        normalisedtext:
+          x-name: normalisedtext
+          type: string
+          default: False
+          example: I want a credit card.
+          description: |+
+            Normalised text
   securitySchemes:
     APIAuthorizer:
       type: apiKey
