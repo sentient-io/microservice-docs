@@ -7,14 +7,14 @@ info:
     The size of your image file **should not exceed 5 MB**.
   x-additionalinfo: |+
     For best results, try to adhere to the ideal characteristics for each image type:</br>
-    *Query Image*</br>
+    <b>Query Image</b></br>
     - High definition
     - 300x300 image size
     - Instance in the foreground and proportionally big
     - 8 instance in an image
     - Instances are spread out within same image</br></br>
     
-    *Support Image*</br>
+    <b>Support Image</b></br>
     - White Background
     - Tightly cropped
     - Single Instance
