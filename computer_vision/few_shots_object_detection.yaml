@@ -6,11 +6,19 @@ info:
     The object class is defined by the user with a set of support images. Each support image should be tightly cropped to the relevant part of the objects. E.g. To detect car tyres, cropped away other parts of the car; with only the tyre visible.</br>
     The size of your image file **should not exceed 5 MB**.
   x-additionalinfo: |+
-    To improve object detection accuracy:
-
-    - ensure that the support images are of the same orientation as how it should appear in the query image</br></br>
-    - crop out all unnecessary elements (such as a busy background) from the support images</br></br>
-    - ensure that the support images are variations of the same object, and not images of multiple (different) objects.
+    For best results, try to adhere to the ideal characteristics for each image type:</br>
+    *Query Image*</br>
+    - High definition
+    - 300x300 image size
+    - Instance in the foreground and proportionally big
+    - 8 instance in an image
+    - Instances are spread out within same image</br>
+    *Support Image*</br>
+    - White Background
+    - Tightly cropped
+    - Single Instance
+    - 3 - 5 images, more varied for items with variation
+    - Pure outline for simple image
   version: v0.1.1
   x-subscribelink: few_shots_object_detection
   x-apitype: small file
