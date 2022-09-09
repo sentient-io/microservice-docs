@@ -359,9 +359,9 @@ components:
             **used only for the female_singaporean model.
         show_normalized_output:
           x-name: show_normalized_output
-          type: string
+          type: boolean
           default: False
-          example: I want a credit card.
+          example: False
           description: |+
             Normalised text
   securitySchemes:
