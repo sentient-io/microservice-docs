@@ -10,13 +10,13 @@ info:
   x-apitypedescription: |+
     Fast | Single-Call | 50 sec/Call
   x-inputfilelimit: |+
-    Process up to  50 seconds (1 minute) of audio file.
+    Process up to  50 seconds of audio file.
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
     The API is billed by per request.
   x-notes: |+
-    Limit cannot exceed  50 seconds (1 minute).
+    Limit cannot exceed  50 seconds.
   x-apidetailsdesc: |+
     Transcribes Singaporean-accented English speech content for audio file (in WAV format at 16kHz).
 servers:
