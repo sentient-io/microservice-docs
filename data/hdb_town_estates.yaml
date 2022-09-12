@@ -43,10 +43,6 @@ info:
       > {"bool":{"must_not":[{"match":{"properties.nme_bndry": "YISHUN"}}]}}
       > {"bool":{"must":[{"match":{"properties.nme_bndry": "YISHUN"}}]}}
       > {"bool":{"should":[{"match":{"properties.nme_bndry": "YISHUN"}}]}}
-
-
-    **Pagination with scroll_id:** - We face a major issue of handling the hits, i.e., whenever the hits returned are more than 10,000 hits Elasticsearch will only return till 10k hits. For query more than 10K records scroll id need to add in query as like below.
-      > {"limit":10000,"scroll_id": "DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAAwsWZmRaTFNoaWhTOS0zcHl1Sm9MTEJ4UQ==","filter":[]}
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
@@ -107,7 +103,6 @@ paths:
                   total:
                     relation: eq
                     value: 2
-                scroll_id: FGluY2x1ZGVfY29udGV4dF91dWlkDnF1ZXJ5VGhlbkZldGNoBRZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCAWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCEWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCIWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCMWdjVWcXJXaVhRaXVaQzBma19JckthdxZBUDF4Mkk3alJqV3ZRSU02ZWtNNmtnAAAAAAAABCQWdjVWcXJXaVhRaXVaQzBma19Jckthdw==
                 status: Success
 
         '401':
