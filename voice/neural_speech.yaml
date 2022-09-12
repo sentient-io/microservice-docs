@@ -30,7 +30,7 @@ servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - sep 31, 2022"
+  description: "Published Date - sep 12, 2022"
 paths:
   /microservices/voice/nse/v0/getpredictions:
     post:
@@ -224,7 +224,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Sep 31,2022'
+                example: 'Published Date - Sep 12,2022'
                 x-details: Initial version release
                 description: Latest Version
     input:
