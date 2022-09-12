@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Speaker Emotion Recognition
   description: |+
-      This Voice microservice takes in an audio file and tags the output by 7 emotions: angry, disgust, sad, fear, happy, surprise and neutral.
+      This Voice microservice takes in an audio file and tags the output by 7 emotions: angry, disgust, sad, fear, happy, surprise and neutral.</br>
       The length of your audio file **should not exceed 50 seconds**.
   version: '0.2.0'
   x-apitype: small file
