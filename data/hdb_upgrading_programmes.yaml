@@ -3,20 +3,27 @@ info:
   title: HDB Upgrading Programmes (SG)
   x-subscribelink: commercial_directories_hdb_sg
   description: |+
-   This Data microservice retrieves information on Housing Development Board (HDB) Upgrading and Estate Renewal Programmes in Singapore which includes:
-   - Lift Upgrading Programme
-   - Home Improvement Programme
-   - Neighbourhood Renewal Programme
-   - Interim Upgrading Programme or Interim Upgrading Programme Plus
-   - Main Upgrading Programme
-   - Selective En bloc Redevelopment Scheme <br>
+    This Data microservice retrieves information on HDB Upgrading and Estate Renewal Programmes which includes:
+    - Lift Upgrading Programme
+    - Home Improvement Programme
+    - Neighbourhood Renewal Programme
+    - Interim Upgrading Programme or Interim Upgrading Programme Plus
+    - Main Upgrading Programme
+    - Selective En bloc Redevelopment Scheme</br></br>
+
+    Additional information on these programmes include:
+    - Announcement date
+    - Completion date
+    - Name of upgrading programme
+    - Latest status
+    - Precinct name/code</br></br>
+    
+    Information is updated quarterly. A successful call will return the results of the query in JSON format.</br></br>
+    
+    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme."</br></br>
    
-   Information on update programmes are announcement date, completion date, name of upgrading programme, latest status, precinct name/code, block, street, postal code, latitude and longitude 
-   coordinates. The information is updated quaterly. A successful call will return the results of the query in JSON format.</br>
-   The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH Programme.</br></br>
    
-   
-   **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
   x-additionalinfo : |+
       Suggested Use Cases:
