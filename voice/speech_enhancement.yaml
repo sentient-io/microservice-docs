@@ -1,18 +1,18 @@
 
 openapi: 3.0.1
 info:
-  title: Neural Speech Enhancement (NSE)
+  title: Speech Enhancement
   description: |+
     Enhance speech signal by removing background noise.</br>
     Most recorded conversational speech signal contains some form of noise that hinders intelligibility, such as background noise, reverb, music, keyboard typing, etc.</br> 
-    Thus NSE can be a useful microservice for many applications.</br>
+    Thus speech enchancement can be a useful microservice for many applications.</br>
     The length of your audio **should not exceed 180 seconds**.
   x-additionalinfo : |+
     Suggested Use Cases:
       - Supports the following audio coding formats: WAV files and 16-bit mono.</br></br>
       - Supports the following audio sampling rates: 16,000 Hz.</br></br> 
   version: 1.4.0
-  x-subscribelink: nueral_speech_enhancement
+  x-subscribelink: speech_enhancement
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 180sec/Call
