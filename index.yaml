@@ -359,10 +359,10 @@ data:
     title: HDB Commercial Directories (SG)
     versions:
       1.0.1: 'commercial_directories_hdb_sg.yaml'
-  hdb_upgrade_programme:
-    title: HDB Upgrade Programme (SG)
+  hdb_upgrading_programmes:
+    title: HDB Upgrading Programmes (SG)
     versions:
-      0.1.0: 'hdb_upgrade_programme.yaml'
+      0.1.0: 'hdb_upgrading_programmes.yaml'
   hdb_covered_linkways:
     title: HDB Covered Linkways (SG)
     versions:
