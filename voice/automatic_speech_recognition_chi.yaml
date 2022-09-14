@@ -285,7 +285,7 @@ components:
             - type: string
               example: Published Date - Feb 18, 2022
               x-details: Upgrading with Samplerate, Encoding etc..
-              description: Old Version 
+              description: Archived 
         v1.0.0:
          type: array
          items:
