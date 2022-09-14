@@ -9,19 +9,18 @@ info:
     - Neighbourhood Renewal Programme
     - Interim Upgrading Programme or Interim Upgrading Programme Plus
     - Main Upgrading Programme
-    - Selective En bloc Redevelopment Scheme</br></br>
+    - Selective En bloc Redevelopment Scheme</br>
 
     Additional information on these programmes include:
     - Announcement date
     - Completion date
     - Name of upgrading programme
     - Latest status
-    - Precinct name/code</br></br>
+    - Precinct name/code</br>
     
-    Information is updated quarterly. A successful call will return the results of the query in JSON format.</br></br>
+    Information is updated quarterly. A successful call will return the results of the query in JSON format.</br>
     
-    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme."</br></br>
-   
+    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme."</br>
    
     **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
        
