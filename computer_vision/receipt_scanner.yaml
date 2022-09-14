@@ -1412,6 +1412,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/notfound'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'                  
         '419':
           description: Input Field Missing
           content:
