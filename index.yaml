@@ -96,10 +96,10 @@ voice:
     title: ASR EN Unified
     versions:
       1.0.0: 'asr_en_unified.yaml'
-  neural_speech_enhancement:
-    title: Neural Speech Enhancement (NSE)
+  speech_enhancement:
+    title: Speech Enhancement
     versions:
-      0.1.0: 'neural_speech_enhancement.yaml'
+      0.1.0: 'speech_enhancement.yaml'
   speaker_emotion_recognition:
     title: Speaker Emotion Recognition
     versions:
