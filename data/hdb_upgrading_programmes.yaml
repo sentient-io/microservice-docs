@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: HDB Upgrade Programme (SG)
+  title: HDB Upgrading Programmes (SG)
   x-subscribelink: commercial_directories_hdb_sg
   description: |+
    This Data microservice retrieves information on Housing Development Board (HDB) Upgrading and Estate Renewal Programmes in Singapore which includes:
