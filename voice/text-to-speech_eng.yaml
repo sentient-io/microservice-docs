@@ -360,7 +360,7 @@ components:
         text_normalization:
           x-name: text_normalization
           type: array
-          default: ["DEFAULT"]
+          default: False
           example: ["DEFAULT"]
           description: |+
             Flags for text normalisation
