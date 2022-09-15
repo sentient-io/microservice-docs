@@ -114,7 +114,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Aug 01, 2022"
+  description: "Published Date - Sep 15, 2022"
 paths:
    /microservices/data/hdb_upgrade_programme/v0/getdata:
     post:
@@ -448,7 +448,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 24, 2020
+              example: Published Date - Sep 15, 2022
               x-details: Initial version release
               description: Latest Version              
     input:
