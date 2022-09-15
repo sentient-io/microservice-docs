@@ -364,6 +364,13 @@ components:
           example: False
           description: |+
             Normalised text
+        text_normalization:
+          x-name: text_normalization
+          type: array
+          default: false
+          example: ["DEFAULT"]
+          description: |+
+             "Flags for text normalisation"
   securitySchemes:
     APIAuthorizer:
       type: apiKey

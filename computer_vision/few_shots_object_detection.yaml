@@ -281,13 +281,13 @@ components:
           description: |+
             Optional. The file format of the input image. Optional parameter with default value as jpeg.
 
-        text_normalization:
-          x-name: text_normalization
+        increase_sensitivity:
+          x-name: increase_sensitivity
           type: array
           default: false
-          example: ["DEFAULT"]
+          example: ["all"]
           description: |+
-             "Flags for text normalisation"
+             Optional. Enhancement to apply to the image. The valid list of enhancements available are: 'color', 'scale', 'all', 'none'. Note: all implies= both color + scale and it's ideal to pass just one enhancement.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
