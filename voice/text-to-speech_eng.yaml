@@ -357,13 +357,6 @@ components:
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1. 
             **used only for the female_singaporean model.
-        text_normalization:
-          x-name: text_normalization
-          type: array
-          default: False
-          example: ["DEFAULT"]
-          description: |+
-            Flags for text normalisation
         show_normalized_output:
           x-name: show_normalized_output
           type: boolean
