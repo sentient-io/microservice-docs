@@ -148,6 +148,10 @@ nlp:
     versions:
       0.1.1: 'sentiment_analysis_and_sarcasm_detection.yaml'       
 computer vision:
+  few_shots_object_detection:
+    title: Few Shots Object Detection
+    versions:
+      v0.1.1: few_shots_object_detection.yaml
   image_text_similarity:
     title: Image Text Similarity
     versions:
