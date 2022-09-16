@@ -3,11 +3,13 @@ info:
   title: HDB Covered Linkway (SG)
   x-subscribelink: hdb_covered_linkway
   description: |+
-      This Data Microservice captures the indicative center path of covered linkways for all HDB Towns and Estates and mainly on HDB Land (excluding leased land). The “Center Line” was created manually from the “HDB COVERED LINKWAY” surface (polygon) dataset and is therefore only an estimate of the center path of the real object.</br></br>
-      
+      "This Data microservice returns the indicative center path of covered linkways for all HDB Towns and Estates and mainly on HDB Land (excluding leased land).  The ""Center Line"" was created manually from the actual linkway surface (polygon) and is therefore only an estimate of the center path of the real object. The quality/accuracy of the linkway polygon section's coordinates is also indicated by whether the section was Fully Visible, Partially Visible or Extrapolated at the point of the image capture.</br></br>
+
+      Offset can be expected for linkways captured above ground level due to geometric distortion common with remote sensing such as aerial imagery.</br></br>
+    
       A successful call will return the results of the query in JSON format.</br></br>
-      
-      The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.</br>
+    
+      The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme."
 
   x-additionalinfo : |+
     **Match Types:**
