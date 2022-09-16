@@ -367,10 +367,10 @@ data:
     title: HDB Covered Linkways (SG)
     versions:
       0.1.0: 'hdb_covered_linkways.yaml'
-  hdb_town_estates:
+  hdb_town_estates_boundaries:
     title: HDB Town and Estates Boundaries (SG)
     versions:
-      0.1.0: 'hdb_town_estates.yaml'
+      0.1.0: 'hdb_town_estates_boundaries.yaml'
   hdb_land_ownership:
     title: HDB Land Ownership (SG)
     versions:
