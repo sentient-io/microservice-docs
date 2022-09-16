@@ -13,7 +13,7 @@ info:
     `GPT-J 6B` is a transformer model trained using Ben Wang's Mesh Transformer JAX and is considered as an 6B parameter open-source version of `GPT-3`.
     `GPT-J` refers to the class of model, while `6B` represents the number of trainable parameters.</br></br>
 
-    Do ensure you **token_length limit is within 100**.
+    Do ensure you **token_length limit is within 200**.
   version: v0.1.0
   x-additionalinfo: |+
     Suitable input text(also know as prompt) for generating Text for various use cases can be found below:</br></br>
@@ -260,7 +260,7 @@ components:
           x-name: num_beams
           type: number
           default: False
-          example: 5
+          example: 2
           description: |+
             This parameter will determine how many nodes to search at each level.
 
