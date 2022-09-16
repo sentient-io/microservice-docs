@@ -259,7 +259,7 @@ components:
 
             The bigger the number is the more time it takes to complete.
 
-            Default value is 5 and range is between 2-5.
+            Default value is 2 and range is between 2-4.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
