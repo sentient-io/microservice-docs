@@ -3,7 +3,7 @@ info:
   title: HDB Town and Estate Boundaries (SG)
   x-subscribelink: hdb_town_estate
   description: |+
-      "This Data microservice returns the (polygon) coordinates of the boundaries of HDB towns/estates.</br>
+      This Data microservice returns the (polygon) coordinates of the boundaries of HDB towns/estates.</br>
 
       These boundaries:
       
@@ -15,7 +15,7 @@ info:
       
       A successful call will return the results of the query in JSON format.</br>
       
-      The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme. "
+      The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.
 
   x-additionalinfo : |+
     **Match Types:**
