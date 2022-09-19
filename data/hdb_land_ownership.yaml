@@ -61,7 +61,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Sep 01, 2022"
+  description: "Published Date - Sep 19, 2022"
 paths:
    /microservices/data/hdblandownership/v0/getdata:
     post:
@@ -375,7 +375,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Sep 01, 2022
+              example: Published Date - Sep 19, 2022
               x-details: Initial version release
               description: Latest Version              
     input:
