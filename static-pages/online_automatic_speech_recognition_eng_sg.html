@@ -249,6 +249,50 @@
               </tr>
               <tr>
                 <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>look_ahead</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>integer</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p><span class="code">“Optional Specifies the number of bytes to look ahead for merging of utterances. A larger number will result in longer utterances, higher threshold for pauses before breaking into new utterances. Default value is 0.”</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>command_word_sensitivity</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>boolean</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p><span class="code">“Optional. Force convert single word utterances to a couple of common command words. Default is false.”</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
+                  <p><strong>inverse_text_normalization</strong></p>
+                </td>
+                <td colspan="1" data-colwidth="105" rowspan="1">
+                  <p>array</p>
+                </td>
+                <td colspan="1" data-colwidth="434" rowspan="1">
+                  <p>Optional. Capitalize and insert punctations to the ASR raw output. Default is [] (no normalization).One or more of the strings:<br>
+                  <span class="code">"normalized - apply default normalization"</span>
+				  &nbsp;<strong>OR</strong>&nbsp;
+				  <span class="code">"convert_digits - convert text to digits"</span>
+				  &nbsp;<strong>OR</strong>&nbsp;
+				  <span class="code">"convert_date_time - convert text to normalized date_time"</span>
+				  &nbsp;<strong>OR</strong>&nbsp;
+				  <span class="code">"convert_ordinals - convert text to normalized ordinals"</span>
+				  &nbsp;<strong>OR</strong>&nbsp;
+				  <span class="code">"spoken_punctuation" - add commas between pauses"</span></p>
+          &nbsp;<strong>OR</strong>&nbsp;
+				  <span class="code">"all - turn on all flags."</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1" data-colwidth="140" rowspan="1">
                   <p><strong>sampling-rate</strong></p>
                 </td>
                 <td colspan="1" data-colwidth="105" rowspan="1">
@@ -310,6 +354,9 @@
   "model": "en-SG",
   "sampling-rate": 8000,
   "diarization": {"type": "seminar", "nspk": 3}
+  "look_ahead": 16000,
+  "command_word_sensitivity": true,
+  "inverse_text_normalization": ["convert_digits", "convert_date_time", "convert_ordinals", "spoken_punctuation"]
 }</code></span>
 
           <p>Server returns json:</p>
@@ -521,7 +568,8 @@
               {"word": "IS", "start": 4.14, "end": 4.26, "conf": 0.9976},
               {"word": "A", "start": 4.26, "end": 4.439, "conf": 0.838751},
               {"word": "TEST", "start": 4.47, "end": 4.92, "conf": 0.96717}],
-   "text": "HELLO WORLD THIS IS A TEST"
+   "raw_text": "HELLO WORLD THIS IS A TEST"
+   "text": "Hello World! This is a test."
   }</code></span>
 
           <br><br><br>
@@ -646,7 +694,8 @@
 </span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">2
 </span><span class="react-syntax-highlighter-line-number" style="opacity: 1;">3
 </span></code><code class="code" style="font-size: 12px; line-height: 1.66667; padding: 8px;">{
-  "text": "GOOD JOB",
+  "text": "Good job."
+  "raw_text": "GOOD JOB",
   "spkSeq": [0, 2, 1, 1],
   "result": [{"word": "GOOD", "start": 3.42, "end": 3.63, "conf": 1},
             {"word": "JOB", "start": 3.63, "end": 4.02, "conf": 1}]
