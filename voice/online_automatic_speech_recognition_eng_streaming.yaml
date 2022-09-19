@@ -85,6 +85,18 @@ components:
             type: string
             example: 8000
             description: Optional. Sampling rate of the input wave file. 8000 or 16000 (Default).
+          look_ahead:
+            type: integer
+            example: 0
+            description: Optional Specifies the number of bytes to look ahead for merging of utterances. A larger number will result in longer utterances, higher threshold for pauses before breaking into new utterances. Default value is 0.
+          command_word_sensitivity:
+            type: boolean
+            example: False
+            description: Optional. Force convert single word utterances to a couple of common command words. Default is false.   
+          inverse_text_normalization:
+            type: array
+            example: []
+            description: Optional. Capitalize and insert punctations to the ASR raw output. Default is [] (no normalization).One or more of the strings:"normalized" - apply default normalization;"convert_digits" - convert text to digits;"convert_date_time" - convert text to normalized date_time;"convert_ordinals" - convert text to normalized ordinals;"spoken_punctuation" - add commas between pauses;"all" - turn on all flags.
           diarization:
             type: object
             example: {"type": "seminar", "nspk": 3}
