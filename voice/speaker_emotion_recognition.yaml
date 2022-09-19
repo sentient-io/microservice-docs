@@ -23,7 +23,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.2.0"
-  description: "Published Date - Sep 01, 2022"
+  description: "Published Date - Sep 19, 2022"
 paths:
   /microservices/voice/speakeremotion/v0/get_emotion:
     post:
@@ -269,7 +269,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Sep 01, 2022
+              example: Published Date - Sep 19, 2022
               x-details: Initial version release
               description: Input changed to wav_base64
         v0.1.0:
