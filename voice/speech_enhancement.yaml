@@ -32,7 +32,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 12, 2022"
 paths:
-  /microservices/voice/speech_enchancement/v0/getpredictions:
+  /microservices/voice/speechenchancement/v0/getpredictions:
     post:
       tags:
         - v0.1.0
