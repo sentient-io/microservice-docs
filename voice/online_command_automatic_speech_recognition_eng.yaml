@@ -1,6 +1,6 @@
 info:
   title: Online Command Automatic Speech Recognition ENG
-  version: '0.1.1'
+  version: '0.1.0'
   x-apitypedescription: |+
     Fast | Single-Call | 60 mins/socket
   x-inputfilelimit: |+
@@ -17,8 +17,8 @@ servers:
   - url: 'wss://onlinecommandasr.sentient.io'
 # tags must include in to the documentation, to read the description text for published date
 tags:
-- name: "v0.1.1"
-  description: "Published Date - Sep 10, 2022"
+- name: "v0.1.0"
+  description: "Published Date - Aug 31, 2020"
 html: |+
      <iframe src="https://docs.sentient.io/static/online_command_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
      </iframe>
@@ -26,7 +26,7 @@ paths:
   /:
     post:
       tags:
-        - v0.1.1
+        - v0.1.0
 components:
   schemas:
     versions:
@@ -36,11 +36,7 @@ components:
           type: array
           items:
             oneOf:
-            type: string
-              example: Published Date - Sep 10, 2022
-              x-details: Optional Parameters introduced
-              description: Latest Version
             - type: string
               example: Published Date - Aug 31, 2020
               x-details: Initial version release
-              description: Initial version release
+              description: Latest version
