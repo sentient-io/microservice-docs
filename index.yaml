@@ -208,11 +208,11 @@ computer vision:
   invoice_scanner:
     title: Invoice Scanner
     versions:
-      0.1.0: 'invoice_scanner.yaml'
+      0.2.0: 'invoice_scanner.yaml'
   receipt_scanner:
     title: Receipt Scanner
     versions:
-      0.1.0: 'receipt_scanner.yaml'       
+      0.2.0: 'receipt_scanner.yaml'       
 utility:
   video-to-audio_converter:
     title: Video-To-Audio Convertor
