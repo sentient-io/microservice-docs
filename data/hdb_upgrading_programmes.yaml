@@ -1,0 +1,486 @@
+openapi: 3.0.1
+info:
+  title: HDB Upgrading Programmes (SG)
+  x-subscribelink: commercial_directories_hdb_sg
+  description: |+
+    This Data microservice retrieves information on HDB Upgrading and Estate Renewal Programmes which includes:
+    - Lift Upgrading Programme
+    - Home Improvement Programme
+    - Neighbourhood Renewal Programme
+    - Interim Upgrading Programme or Interim Upgrading Programme Plus
+    - Main Upgrading Programme
+    - Selective En bloc Redevelopment Scheme</br>
+
+    Additional information on these programmes include:
+    - Announcement date
+    - Completion date
+    - Name of upgrading programme
+    - Latest status
+    - Precinct name/code</br>
+    
+    Information is updated quarterly. A successful call will return the results of the query in JSON format.</br>
+    
+    The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme."</br></br>
+   
+    **Note:** As this microservice uses the GET method, developers using this microservice must remember to have their app encode all the input values to be URL friendly (i.e. all spaces and special characters must be replaced). Here’s a reference on [URL encoding](https://www.w3schools.com/tags/ref_urlencode.ASP).
+       
+  x-additionalinfo : |+
+      Suggested Use Cases:
+      - This microservice can help companies such as Property Agencies, HDB Heartlanders and any person who wants to know HDB Upgrading & Estate Renewal Programmes.
+      
+      **Refining queries in the filterdata field using filter types and match types**
+      
+      The filterdata fields use elasticsearch’s syntax (specifically filter types and match types) to help further refine search results and provide greater flexibility in structuring more sophisticated queries. </br></br>
+      
+      **Filter Types:**
+      
+      A filter type is a logic operator to which the search results must fulfill certain logical conditions to be returned. The supported match types are&#58;
+      * **must** - All of the stated conditions must match. Equivalent to an AND operator.
+        > {"must":[{"match_phrase":{"street":"clementi+west+street+1"}}]}
+      * **must_not** - All of the stated conditions must not match. Equivalent to a NOT operator.
+      
+        > {"must_not":[{"match":{"programme":"hip"}}]}
+      * **should** - At least one of the stated conditions should match. Equivalent to an OR operator. 
+      
+        > {"should":[{"match":{"postalcode":120604}}]}
+      * **filter** - All of the stated conditions that must match. However, results are not scored unlike the other filter types which returns results based on how well the conditions are met.
+        
+        > {"filter":[{"match":{"programme":"hip"}}]}
+      For a more detailed guide on filter types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html).
+      Filter types cannot be used alone and must be used in conjunction with a match type to complete the query.
+      
+      **Match Types:**
+      
+      A match type is a match operator nested within a filter type that fine-tunes the matching condition of the text search. The supported match types are&#58;
+      * **match** - Search within a full text field for a single word
+        > {"match":{"street":"clementi+west+street+1"}}
+      * **match_phrase** - Search within a full text field
+        > {"match_phrase":{ "street":"clementi+west+street+1"}}
+      * **match_phrase_prefix** - Search within a full text field with prefix
+        > {"match_phrase_prefix":{"street":"clementi+west+street+1"}}
+      * **term** - Returns results that contain an exact term in a provided field
+        > {"term":{"postalcode":120604}}
+      * **terms** - Returns results that contain one or more exact terms in a provided field
+        > {"terms":{"postalcode":[120604,120605]}}
+        
+      * **range** - Returns results that contain terms within a stipulated range
+      
+        > {"range":{"postalcode":{"lte":120604}}}
+        > {"range":{"postalcode":{"gte":120604}}}
+        > {"range":{"postalcode":{"gte":120604,"lte":760716}}}
+        
+      * **exists** - Returns results that contain any indexed value for a field
+      
+        > {"exists":{ "field": "postalcode"}}
+  
+      For a more detailed guide to match types, [refer to this](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/term-level-queries.html).</br>
+      **Forming sophisticated queries using combinations of filter types (in JSON)**
+      Multiple filter types can be combined together in one query (written in JSON format) to form a very sophisticated query. Here’s one example below&#58;
+      > {
+      > "must":[{"match_phrase":{"street":"clementi+west+street+1"}}],
+      > "filter":[{"match":{"programme":"hip"}}],
+      > "should":[{"match":{"postalcode":120604}}],
+      > "must_not":[{"match":{"programme":"lup"}}]
+      > }
+      **Sample Queries Based on Use Cases**
+    
+      1. **Search for all commercial directories around clementi+west+street+1**
+         Using a querystring only&#58;
+         > querystring = "clementi+west+street+1"
+      2. **Search for all Upgrade Programmes within a 1KM radius**
+         Using a filterdata only&#58;
+         > filterdata = {"filter":[{"geo_distance": {"distance": "1km","location": "1.30537726474036,103.7675188978672"}}]}
+         
+      3. **Search for all HIP programme at Blk 604, CLEMENTI WEST STREET 1**
+         Using a filterdata only&#58;
+         
+         > filterdata = {"filter":[{"match_phrase": {"programme":"hip"}},{"match": {"block":"604"}},{"match_phrase": {"street":"clementi+west+street+1"}}]}
+  
+  version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Retrieves the list of all retail shops within Housing Development Board.   
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Sep 19, 2022"
+paths:
+   /microservices/data/hdb_upgrade_programme/v0/getdata:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                status: success
+                results:
+                  total:
+                    value: 15
+                    relation: eq
+                  max_score: 0.0
+                  hits:
+                    _id: "uI3DbYIBoibkNqd3C8OS"
+                    _index: "sentient_hdb_upgrade_prog_index"
+                    _score: 0.0
+                    _source:
+                      id: "120604hip001"
+                      programme: "hip"
+                      batch_no: "001"
+                      postalcode: "120604"
+                      precinct_code: "clm01"
+                      announcement_date: "2008-02-19"
+                      development_status: "completed"
+                      actual_start_of_construction: "2008-09-18"
+                      actual_end_of_construction: "2010-06-14"
+                      block: " 604 "
+                      street: "clementi west street 1"
+                      xcoord: "20677.0996"
+                      ycoord: "31967.5996"
+                      location:
+                        lat: "1.30537726474036"
+                        lon: "103.7675188978672"
+                      createddate: "2022-08-05T19:27:55.295Z"
+                      lastupdated: "2022-08-05T19:27:55.295Z"
+                      source: "hdb"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results          
+          properties:
+            total:
+              type: integer
+              format: int32
+              example: 39
+              description: Total number of records
+            max_score:
+              type: number
+              format: float
+              example: 18.239067
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object              
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "sentient_hdb_upgrade_prog_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "dir_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "ofywPYIBJPcGcTBZClcI"
+                  _score: 
+                    type: number
+                    format: float
+                    description: The document score for the search request
+                    example: 18.239067
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits                  
+                    properties:
+                            programme: 
+                              type: string
+                              description: Programme
+                              example: "hip"
+                            batch_no: 
+                              type: string
+                              description: Batch Number
+                              example: 001
+                            postal_code: 
+                              type: integer
+                              format: int32
+                              description: Postal Code
+                              example: "120604"
+                            precinct_code: 
+                              type: string
+                              description: Precinct Code
+                              example: "clm01"
+                            source: 
+                              type: string
+                              description: Dataset source
+                              example: "hdb"
+                            announcement_date: 
+                              type: string
+                              description: Announcement Date
+                              example: "2008-02-19"
+                            development_status:
+                              type: string
+                              description: Development Status
+                              example: "completed"
+                            actual_start_of_construction:
+                              type: string
+                              description: Actual Start of Construction
+                              example: "2008-09-18"
+                            actual_end_of_construction:
+                              type: string
+                              description: Actual End of Construction
+                              example: "2010-06-14"
+                            block:
+                              type: integer
+                              format: int
+                              description: Block Number
+                              example: "604"
+                            lastupdated:
+                              type: string
+                              format: date
+                              description: Record last updated date
+                              example: "2022-07-27"
+                            createddate:
+                              type: string
+                              format: date
+                              description: Record created date
+                              example: "2022-07-27"
+                            street:
+                              type: string
+                              description: Full street name
+                              example: "clementi west street 1"
+                            xcoord:
+                              type: number
+                              format: float
+                              description: X - coordinates
+                              example: 20677.0996
+                            ycoord:
+                              type: number
+                              format: float
+                              description: Y - Coordinates
+                              example: 31967.5996
+                            location:
+                              type: object
+                              description: Lat/Lon
+                              example: {"lat":1.30537726474036,"lon":103.7675188978672}
+                              properties:
+                                  lat: 
+                                    type: number
+                                    format: float
+                                    description: Latitude
+                                    example: 1.30537726474036
+                                  lon:
+                                    type: number
+                                    format: float 
+                                    description: Longitude
+                                    example: 103.7675188978672
+        message:
+          type: string
+          example: Successfully Processed
+          description: Description of the API status.
+        status:
+          type: string
+          example: Success
+          description: The status of the API call - success/failure.
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 19, 2022
+              x-details: Initial version release
+              description: Latest Version              
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 10, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index . Default - 0
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match_phrase":{"programme":"hip"}}]
+          description: |+
+            A list of filters to refine the search further. Default response returns the latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * match_phrase
+            * geo_distance
+            * geo_shape
+            * exists
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
