@@ -186,7 +186,7 @@ nlp:
     versions:
       0.1.0: 'google_translate_large_file.yaml'
   text_generation_gptj6b:
-    title: Text Generation using GPT-J 6B
+    title: GPT-J 6B Text Generator
     versions:
       0.1.0: 'text_generation_gptj6b.yaml'
   machine_translation:
