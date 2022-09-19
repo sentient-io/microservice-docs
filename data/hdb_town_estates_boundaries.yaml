@@ -1,0 +1,416 @@
+openapi: 3.0.1
+info:
+  title: HDB Town and Estate Boundaries (SG)
+  x-subscribelink: hdb_town_estate
+  description: |+
+      This Data microservice returns the (polygon) coordinates of the boundaries of HDB towns/estates.</br>
+
+      These boundaries:
+      
+      - define areas for carrying out landuse planning to facilitate development of the HDB towns/estates
+      - are used for planning and development within HDB towns/estates (e.g. HDB’s Building Plan and provision of facilities within HDB towns by relevant agencies) 
+      - are used for reporting of HDB statistics (eg. HDB flats under management by towns as in HDB’s annual report).</br>
+      
+      The boundaries are digitised mainly following the URA’s DGP/Planning boundary or road/drain as physical boundary. The boundary will be updated as and when new areas are earmarked by URA for public housing development.</br>
+      
+      A successful call will return the results of the query in JSON format.</br>
+      
+      The HDB POTH programme makes selected public and non-public datasets available to developers and companies to improve their service offerings to benefit the lives of Singapore citizens. Sentient.io is proud to partner with HDB to manage and facilitate the sharing of data for the POTH programme.
+
+  x-additionalinfo : |+
+    **Match Types:**
+    A match type is a match operator. The supported match types are&#58;
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"properties.nme_bndry": "YISHUN"}}
+    * **match** - Search within a full text field for a single word
+      > {"match":{"properties.nme_bndry": "YISHUN"}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"properties.object_id"}}
+    * **geo_distance** - Returns the geo search based on the distance and location lat/long
+      > {"geo_distance": {"distance": "11km","geometry": "1.4250001817500824, 103.85405924302191"}}
+    * **geo_shape** - Returns the geo search based on the type and coordinates.
+        relation should be anyone based on requirement.</br>
+          > INTERSECTS - (default) Return all documents whose geo_shape field intersects the query geometry.
+          > DISJOINT - Return all documents whose geo_shape field has nothing in common with the query geometry.
+          > WITHIN - Return all documents whose geo_shape field is within the query geometry. 
+        type should be
+          > polygon - defined by a list of a list of points. The first and last points in each (outer) list must be the same (the polygon must be closed)
+          > points  - single geographic coordinate, such as the location of a building or the current position given by a smartphone’s Geolocation API.
+      > {
+        "geo_shape": {
+          "geometry": {
+            "shape": {
+              "type": "Polygon",
+              "coordinates":[ [[ 103.85405924302191, 1.4250001817500824 ], [ 103.85405925200878, 1.4250002902736583 ], [ 103.85406981206873, 1.4251805931889445 ], [ 103.85406982105562, 1.4251807017125202 ] ]]
+            },
+            "relation": "intersects"
+          }
+        }
+      }   
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"properties.nme_bndry": "YISHUN"}}]}}
+      > {"bool":{"must":[{"match":{"properties.nme_bndry": "YISHUN"}}]}}
+      > {"bool":{"should":[{"match":{"properties.nme_bndry": "YISHUN"}}]}}
+  version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides returns all road works being / to be carried out.
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Sep 19, 2022"
+paths:
+   /microservices/data/hdbtownestateboundaries/v0/getdata:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  hits:
+                    _index: sentient_hdb_town_estate_index
+                    _type: _doc
+                    _id: l4kztIIBkH3Kd1ejZDow
+                    _score: 0.0
+                    _source:
+                      type: Feature
+                      geometry:
+                        coordinates:
+                            - 103.85405924302191
+                            - 1.4250001817500824
+                        type: Polygon
+                      name: "HDB_TOWNESTATE_P"
+                      geometry_type: Polygon
+                      lastupdated: '2022-08-19T11:44:01.917Z'
+                      properties:
+                        object_id: 653
+                        nme_bndry: "YISHUN"
+                        inc_crc: '0E7093AEEA28DBDE'
+                        fmel_upd_d: '20201007153219'
+                        shape_area: 7770149.43849932
+                        shape_len: 12466.1353215185
+                  max_score: 0.0
+                  total:
+                    relation: eq
+                    value: 2
+                status: Success
+
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: Description of the API status.
+        status:
+          type: string
+          example: Success
+          description: The status of the API call - Success/Failure.
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json object of the returned results.
+          properties:
+            max_score:
+              type: number
+              format: float
+              example: 0.0
+              description: The highest score value.
+            total: 
+              type: object
+              example: {<Json Object>}
+              description: Json object of returned total.
+              properties:
+                relation:
+                  type: string
+                  example: eq
+                  description: Relation between total counts and display result count.
+                value:
+                  type: integer
+                  format: int32
+                  example: 2
+                  description: Total number of records.            
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result objects.
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document.
+                    example: "sentient_hdb_town_estate_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document.
+                    example: "_doc"
+                  _id: 
+                    type: string
+                    description: Document ID
+                    example: "l4kztIIBkH3Kd1ejZDow"
+                  _score: 
+                    type: number
+                    description: The document score for the search request.
+                    example: 0.0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json object of returned hits.
+                    properties:
+                      type:
+                        type: string
+                        example: "Feature"
+                        description: Captures the type of object.
+                      properties:
+                        type: object
+                        example: {<Json Object>}
+                        description: Json object of returned results.
+                        properties:
+                          object_id:
+                            type: integer
+                            example: 653
+                            description: Object ID of the property.
+                          nme_bndry:
+                            type: string
+                            example: "YISHUN"
+                            description: The name of HDB towns and estates.
+                          inc_crc:
+                            type: string
+                            example: "0E7093AEEA28DBDE"
+                            description: INC_CRC
+                          fmel_upd_d:
+                            type: string
+                            example: "20201007153219"
+                            description: fmel_upd_d
+                          shape_area:
+                            type: float
+                            example: 7770149.43849932
+                            description: Shape area of the property.
+                          shape_len:
+                            type: float
+                            example: 12466.1353215185
+                            description: Shape length of the property.
+                      geometry:
+                        type: object
+                        description: Location coordinates and its type.
+                        example: {"type": "Polygon", "coordinates": [[103.85405924302191, 1.4250001817500824], [103.85405925200878, 1.4250002902736583]]}
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2022-08-19T11:44:01.917Z"
+                      geometry_type:
+                        type: string
+                        description: Type of Geometry Coordinates.
+                        example: "Polygon"
+                      name:
+                        type: string
+                        description: Name of the HDB.
+                        example: "HDB_TOWNESTATE_P"
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Sep 19, 2022
+              x-details: Initial version release
+              description: Latest Version              
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 10, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index . Default - 0
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match_phrase":{"properties.nme_bndry": "YISHUN"}}]
+          description: |+
+            A list of filters to refine the search further. Default response returns the latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * match_phrase
+            * geo_distance
+            * geo_shape
+            * exists
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
