@@ -26,10 +26,10 @@ info:
   x-apidetailsdesc: |+
     Supports recognizing short speech and returns the recognition for Small Files.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v2.1.0"
-  description: "Published Date - Sep 01, 2022"
+  description: "Published Date - Sep 19, 2022"
 paths:
   /microservices/voice/asrsch/v2/getpredictions:
     post:
@@ -275,7 +275,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Sep 01, 2022
+              example: Published Date - Sep 19, 2022
               x-details: Upgrading with Samplerate, Encoding etc..
               description: Latest Version    
         v2.0.0:
