@@ -26,7 +26,7 @@ tags:
   description: "Published Date - Sep 10, 2022"
 html: |+
      <div id="iframe-container">
-     <iframe src="https://docs.sentient.io/static/online_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
+     <iframe src="https://dev-docs.sentient.io/static-pages/online_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
      </iframe>
      </div>
 paths:
