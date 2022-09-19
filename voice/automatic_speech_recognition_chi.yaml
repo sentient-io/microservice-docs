@@ -276,7 +276,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Sep 19, 2022
-              x-details: Upgrading with Samplerate, Encoding etc..
+              x-details: Added Output type parameter.
               description: Latest Version    
         v2.0.0:
          type: array
