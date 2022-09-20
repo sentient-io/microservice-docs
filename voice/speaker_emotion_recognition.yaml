@@ -270,7 +270,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Sep 19, 2022
-              x-details: Initial version release
+              x-details: Input parameter type change.
               description: Input changed to wav_base64
         v0.1.0:
          type: array
