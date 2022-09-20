@@ -21,10 +21,10 @@ info:
   x-apidetailsdesc: |+
     Transcribes Singaporean-accented English speech content for audio file (in WAV format at 16kHz).
 servers:
-  - url: 'https://ms-apis.huawei.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Sep 09, 2022"
+  description: "Published Date - Sep 20, 2022"
 paths:
   /microservices/voice/asrenunified/v1/get_transcript:
     post:
@@ -239,7 +239,7 @@ components:
           items:
            oneOf:
              - type: string
-               example: Published Date - Sep 09, 2022
+               example: Published Date - Sep 20, 2022
                x-details: Major release
                description: Input Parameter Changed to wav_base64 String 
         v0.2.0:
