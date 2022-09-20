@@ -24,22 +24,22 @@ info:
   x-subscribelink: text_generation_gptj6b
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 10 MB/Call
+    Fast | Single-Call | token_length limit is within 170/Call
   x-inputfilelimit: |+
-    Process up to 10 MB per API call.
+    Process up to token_length limit is within 170 per API call.
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
-    The API is billed by per request.
+    The API is billed by the amount of data transferred.
   x-notes: |+
-    Limit cannot exceed 10 MB.
+    Size cannot exceed more than token_length limit is within 170.
   x-apidetailsdesc: |+
-    You can use these models for code-generation, calculating arithmetic, language translation etc.
+    Input text blurb and generates a summary of up to a maximum of 168 words.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - September 16, 2022"
+  description: "Published Date - September 20, 2022"
 paths:
   /microservices/nlp/gptj/v0/getpredictions:
     post:
@@ -223,7 +223,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - September 16, 2022
+                example: Published Date - September 20, 2022
                 description: Initial Version
     input:
       type: object
