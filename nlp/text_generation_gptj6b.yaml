@@ -1,0 +1,267 @@
+openapi: 3.0.1
+info:
+  title: GPT-J 6B Text Generator
+  description: |+
+    This NLP microservice is a transformer model trained using Ben Wang's Mesh Transformer JAX. "GPT-J" refers to the class of model, while "6B" represents the number of trainable parameters.
+
+    The model is currently trained using English language only.
+
+    Do ensure you **token_length limit is within 170**.
+  version: v0.1.0
+  x-additionalinfo: |+
+    Suitable input text(also know as prompt) for generating Text for various use cases can be found below:</br></br>
+    1. Code Generation
+    **prompt**: "program: print fibonaci series of n numbers using C++"</br></br>
+    2. Calculating Arithmetic
+    **prompt**: "what is 1033 + 37"</br></br>
+    3. Translation
+    **prompt**: "English: Good morning french:"</br></br>
+
+     **Supported languages are:**</br>
+        - English</br></br>
+     The model is trained on the Pile dataset is a 825 GiB, diverse, open source language modelling data set developed by EleutherAI.
+
+  x-subscribelink: text_generation_gptj6b
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | token_length limit is within 170/Call
+  x-inputfilelimit: |+
+    Process up to token_length limit is within 170 per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by the amount of data transferred.
+  x-notes: |+
+    Size cannot exceed more than token_length limit is within 170.
+  x-apidetailsdesc: |+
+    Input text blurb and generates a summary of up to a maximum of 168 words.
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - September 20, 2022"
+paths:
+  /microservices/nlp/gptj/v0/getpredictions:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                results: 
+                  generated:  "My name is Teven and I not an average vlogger. I have been vlogging about 5 years now and"
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties:
+            generated:
+              description: Generated text with GPT-J 6B model
+              example:  "My name is Teven and I not an average vlogger. I have been vlogging about 5 years now and"
+              type: string
+
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - September 20, 2022
+                description: Initial Version
+    input:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          x-name: text
+          type: string
+          default: True
+          example: My name is Teven and I am
+          description: |+
+            The input text prompt to be passed for models to generate output. It can generate code, fill in arbitrary sentences etc..
+        token_length:
+          x-name: token_length
+          type: number
+          default: False
+          example: 50
+          description: |+
+            token_length is the number of tokens in the output sequence. token_length is the number of tokens in input sequence + number of tokens generated by the model.
+
+            Default value is 50 and recommended range is between 20 and 170.
+
+        num_beams:
+          x-name: num_beams
+          type: number
+          default: False
+          example: 2
+          description: |+
+            This parameter will determine how many nodes to search at each level.
+
+            The bigger the number is the more time it takes to complete.
+
+            Default value is 2 and range is between 2-5.
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
