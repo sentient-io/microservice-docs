@@ -273,7 +273,7 @@ components:
                   Optimizations:
                     - Further improvements to the speech waveform resulting in improvements in synthesis quality
                     - Higher concurrency user support
-                #description: Archived
+                 x-details: Optimizations
         v1.1.1:
           type: array
           items:
