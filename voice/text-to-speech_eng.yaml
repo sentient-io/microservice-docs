@@ -251,7 +251,7 @@ components:
 
                     - Resolved cases of stuttering when there is a special character between ARPABET notations
                     - Reolved cases of stuttering when there is an ARPABET notation in sentence endings
-                #description: Latest Version
+                x-details: New Features
         v1.3.0:
           type: array
           items:
@@ -262,7 +262,7 @@ components:
                   New Features:
                     - Added SSML support for more precise phonetic level pronunciations in the ARPABET notation
                     - Improved pronunciation for names and organizations"
-                #description: Archived     
+                x-details: New Features     
         v1.2.0:
           type: array
           items:
@@ -288,7 +288,7 @@ components:
                     - Improved Latency
                     - Sentence ending pause generation
                     - Higher character limit
-                #description: Archived
+                x-details: Optimizations
         v1.0.1:
           type: array
           items:
@@ -297,7 +297,7 @@ components:
                 example: 'Published Date - Oct 13,2021'
                 description: |+
                   Bug fixes - Reduce missing words occurences
-                #description: Depreciated on Nov 08, 2021
+                x-details: Bug fixes
         v1.0.0:
           type: array
           items:
@@ -305,7 +305,7 @@ components:
               - type: string
                 example: 'Published Date - Jun 7,2021'
                 description: Stable release. Added the "female_singaporean" model with pitch and speed control.
-                #description: Depreciated on Oct 12, 2021
+                x-details: Stable release
         v0.1.0:
           type: array
           items:
