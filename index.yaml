@@ -396,6 +396,22 @@ data:
     versions:
       1.1.0: 'd&b_brief_financial_information_sg.yaml'
 analytics:
+  fleet_routing_engine:
+    title: Fleet Routing Engine
+    versions:
+      0.1.0: 'fleet_routing_engine.yaml'
+  load_planning_engine:
+    title: Load Planning Engine
+    versions:
+      0.1.0: 'load_planning_engine.yaml'
+  foretell_prediction:
+    title: Foretell Prediction
+    versions:
+      0.1.0: 'foretell_prediction.yaml'
+  foretell_profiling:
+    title: Foretell Profiling
+    versions:
+      0.1.0: 'foretell_profiling.yaml'
   content_interest_profile:
     title: Content Interest Profile
     versions:
