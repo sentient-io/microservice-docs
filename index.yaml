@@ -185,10 +185,10 @@ nlp:
     title: Google Translate (Large File)
     versions:
       0.1.0: 'google_translate_large_file.yaml'
-  text_generation_gptj6b:
+  gptj6b_text_generator:
     title: GPT-J 6B Text Generator
     versions:
-      0.1.0: 'text_generation_gptj6b.yaml'
+      0.1.0: 'gptj6b_text_generator.yaml'
   machine_translation:
     title: Machine Translation
     versions:
