@@ -76,6 +76,10 @@ voice:
     versions:
       0.1.0: 'azure_tts.yaml'
 computer vision:
+  masked_face_recognition:
+    title: Masked Face Recognition
+    versions:
+      0.1.0: 'masked_face_recognition.yaml'
   object_detection:
     title: Object Detection
     versions:
