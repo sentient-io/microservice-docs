@@ -209,10 +209,6 @@ utility:
     versions:
       0.3.0: 'date_resolution.yaml'
 nlp:	  
-  google_translate_large_file:
-    title: Google Translate (Large File)
-    versions:
-      0.1.0: 'google_translate_large_file.yaml'
   google_translate:
     title: Google Translate
     versions:
