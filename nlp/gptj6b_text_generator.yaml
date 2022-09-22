@@ -21,7 +21,7 @@ info:
         - English</br></br>
      The model is trained on the Pile dataset is a 825 GiB, diverse, open source language modelling data set developed by EleutherAI.
 
-  x-subscribelink: text_generation_gptj6b
+  x-subscribelink: gptj6b_text_generator
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | token_length limit is within 170/Call
