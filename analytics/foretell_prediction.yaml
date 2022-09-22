@@ -1,0 +1,639 @@
+openapi: 3.0.1
+info:
+  title: Foretell Prediction
+  description: |+
+    This Analytics microservice will return the predicted value of a time series together with the Root Mean Square Error (RMSE), Mean Absolute Error (MAE) and Mean Absolute Percentage Error (MAPE) of the prediction.
+  version: '0.1.0'
+  x-additionalinfo: |+
+    - This microservice consists of different types of Fortell Prediction APIs.
+  x-subscribelink: foretellprediction
+  x-apitype: Subscription
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jul 13, 2022"
+paths:
+  /microservices/analytics/foretellprediction/v0/fourierprediction:
+    description: |+
+        The fast Fourier transform (FFT) API will return the predicted value of a time series together with the RMSE, MAE, and MAPE of the prediction. The API uses FFT algorithm to predict.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fftsuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fftinput'
+        required: true
+  /microservices/analytics/foretellprediction/v0/arima:
+    description: |+
+        The Auto ARIMA API will return the predicted value of a time series together with the RMSE, MAE, and MAPE of the prediction. The API uses ARIMA algorithm to predict.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/arimasuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/arimainput'
+        required: true
+  /microservices/analytics/foretellprediction/v0/holtwinters:
+    description: |+
+        The Holt Winters Prediction API will return the predicted value of a time series together with the RMSE, MAE, and MAPE of the prediction. The API uses Holt Winters algorithm to predict. The API will automatically decide which is the best Holt Winters method to be used.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/holtsuccess'
+              example: 
+                message: Successfully Added
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/holtinput'
+        required: true
+components:
+  schemas:
+    fftsuccess:
+      type: object
+      properties:
+        prediction_result:
+          type: object
+          description: |+
+            The result of the prediction with its RMSE, MAE, MAPE and the number of used harmonics. The MAPE will not be displayed if there are zeroes in the time series data.
+          properties:
+            predicted_value:
+              type: array
+              description: Predicted Value
+              example: [5540.428571428572, 5453.428571428572, 5619.428571428571, 6028.428571428573, 5604.428571428572, 7644.4285714285725]
+              items:
+                oneOf:
+                  - type: number
+                    example: 5540.428571428572
+                  - type: number
+                    example: 5453.428571428572
+                  - type: number
+                    example: 5619.428571428571
+                  - type: number
+                    example: 6028.428571428573
+                  - type: number
+                    example: 5604.428571428572
+                  - type: number
+                    example: 7644.4285714285725
+            RMSE:
+              type: number
+              description: RMSE
+              example: 1725.8486231416707
+            MAE:
+              type: number
+              example: 1603.65
+            MAPE:
+             type: number
+             example: 0.7543808084464082
+            num_harmonics_used:
+              type: number
+              description: Number of Harmonics Used
+              example: 10
+        request_timestamp:
+          type: string
+          description: The timestamp of the API request
+          example: 2022-05-31 12:41:59
+        engine_code:
+          type: string
+          description: Engine Code
+          example: Foretell_Pred_FFT
+    arimasuccess:
+      type: object
+      properties:
+        prediction_result:
+          type: object
+          description: |+
+            The result of the prediction with its RMSE, MAE, MAPE and the number of used harmonics. The MAPE will not be displayed if there are zeroes in the time series data.
+          properties:
+            predicted_value:
+              type: array
+              description: Predicted Value
+              example: [114628.97971901932, 120039.43041737839, 125549.01414134393, 127999.19084135264, 128094.22984685091, 127381.1904239618, 126809.23819011671, 126603.39683132197]
+              items:
+                oneOf:
+                  - type: number
+                    example: 114628.97971901932
+                  - type: number
+                    example: 120039.43041737839
+                  - type: number
+                    example: 125549.01414134393
+                  - type: number
+                    example: 127999.19084135264
+                  - type: number
+                    example: 128094.22984685091
+                  - type: number
+                    example: 127381.1904239618
+                  - type: number
+                    example: 126809.23819011671
+                  - type: number
+                    example: 126603.39683132197
+            RMSE:
+             type: number
+             description: RMSE
+             example: 14950.904632152795
+            MAE:
+              type: number
+              description: MAE
+              example: 12732.142857142859
+            MAPE:
+              type: number
+              description: MAPE
+              example: 0.09103596105919762
+        request_timestamp:
+          type: string
+          description: The timestamp of the API request
+          example: 2022-05-31 12:48:30
+        engine_code:
+          type: string
+          description: Engine Code
+          example: Foretell_Pred_Auto_ARIMA
+    holtsuccess:
+      type: object
+      properties:
+        prediction_result:
+          type: object
+          description: |+
+            The result of the prediction with its RMSE, MAE, MAPE and the number of used harmonics. The MAPE will not be displayed if there are zeroes in the time series data.
+          properties:
+            predicted_value:
+              type: array
+              description: Predicted Value
+              example: [119085.29999183137, 119085.29999183137, 119085.29999183137, 119085.29999183137, 119085.29999183137, 119085.29999183137, 119085.29999183137, 119085.29999183137]
+              items:
+                oneOf:
+                  - type: number
+                    example: 119085.29999183137
+                  - type: number
+                    example: 119085.29999183137
+                  - type: number
+                    example: 119085.29999183137
+                  - type: number
+                    example: 119085.29999183137
+                  - type: number
+                    example: 119085.29999183137
+                  - type: number
+                    example: 119085.29999183137
+                  - type: number
+                    example: 119085.29999183137
+                  - type: number
+                    example: 119085.29999183137
+            RMSE:
+             type: number
+             description: RMSE
+             example: 15492.776612163581
+            MAE:
+              type: number
+              description: MAE
+              example: 12320.00029197186
+            MAPE:
+              type: number
+              description: MAPE
+              example: 0.09503279348527888
+            best_model:
+              type: string
+              description: Best Model
+              example: single_exp
+        request_timestamp:
+          type: string
+          description: The timestamp of the API request
+          example: 2022-05-31 12:55:05
+        engine_code:
+          type: string
+          description: Engine Code
+          example: Foretell_Pred_Holt_Winters
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid input - Error in URL.
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure 
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jul 13, 2022
+                x-details: Initial version release
+                description: Latest Version
+    fftinput:
+      type: object
+      required:
+        - time_series_data
+        - num_predict
+      properties:
+        time_series_data:
+          type: array
+          default: true
+          description: |+
+            List of timeseries data in chronological manner (sorted), the length of the data must be > 5, without null value.
+          example: [351, 264, 430, 839, 415, 2455, 4510, 4295]
+          items:
+            oneOf:
+              - type: number
+                example: 351
+              - type: number
+                example: 264
+              - type: number
+                example: 430
+              - type: number
+                example: 839
+              - type: number
+                example: 415
+              - type: number
+                example: 2455
+              - type: number
+                example: 4510
+              - type: number
+                example: 4295
+        num_predict:
+          type: number
+          default: true
+          description: |+ 
+            Number of prediction (in time unit), e.g., to predict for the next 7 days. The maximum number is 20% of the length of the time_series_data.
+          example: 7
+        num_harmonics:
+          type: number
+          description: |+
+            Harmonic number (parameter tuning for FFT). Optional parameter. The default number of the harmonics will be calculated based on the number of time series data and will be returned after the successful API request to the user.
+          example: 10
+    arimainput:
+      type: object
+      required:
+        - time_series_data
+        - num_predict
+      properties:
+        time_series_data:
+          type: array
+          default: true
+          description: |+
+            List of timeseries data in chronological manner (sorted), the length of the data must be > 5, without null value.
+          example: [112000.0, 118000.0, 132000.0, 129000.0, 121000.0, 135000.0, 148000.0, 148000.0, 136000.0, 119000.0]
+          items:
+            oneOf:
+              - type: number
+                example: 112000.0
+              - type: number
+                example: 118000.0
+              - type: number
+                example: 132000.0
+              - type: number
+                example: 129000.0
+              - type: number
+                example: 121000.0
+              - type: number
+                example: 135000.0
+              - type: number
+                example: 148000.0
+              - type: number
+                example: 148000.0
+              - type: number
+                example: 136000.0
+              - type: number
+                example: 119000.0
+        num_predict:
+          type: number
+          default: true
+          description: |+ 
+            Number of prediction (in time unit), e.g., to predict for the next 7 days. The maximum number is 20% of the length of the time_series_data.
+          example: 24
+    holtinput:
+      type: object
+      required:
+        - time_series_data
+        - num_predict
+      properties:
+        time_series_data:
+          type: array
+          default: true
+          description: |+
+            List of timeseries data in chronological manner (sorted), the length of the data must be > 5, without null value.
+          example: [112000.0, 118000.0, 132000.0, 129000.0, 121000.0, 135000.0, 148000.0, 148000.0, 136000.0, 119000.0]
+          items:
+            oneOf:
+              - type: number
+                example: 112000.0
+              - type: number
+                example: 118000.0
+              - type: number
+                example: 132000.0
+              - type: number
+                example: 129000.0
+              - type: number
+                example: 121000.0
+              - type: number
+                example: 135000.0
+              - type: number
+                example: 148000.0
+              - type: number
+                example: 148000.0
+              - type: number
+                example: 136000.0
+              - type: number
+                example: 119000.0
+        num_predict:
+          type: number
+          default: true
+          description: |+ 
+            Number of prediction (in time unit), e.g., to predict for the next 7 days. The maximum number is 20% of the length of the time_series_data.
+          example: 24
+        seasonal_cycle:
+          type: number
+          description: |+
+            Optional parameter. The default value is 7. The number of data points that is required for it to complete one seasonal cycle, e.g., the value will be 7 if the data is daily and the seasonal cycle happens weekly; the value will be 12 if the data is monthly and the seasonal cycle happens every year.
+          example: 2
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
