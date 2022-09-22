@@ -155,10 +155,10 @@ nlp:
     title: Sentiment Analysis and Sarcasm Detection
     versions:
       0.1.1: 'sentiment_analysis_and_sarcasm_detection.yaml'       
-  text_generation_gptj6b:
+  gptj6b_text_generator:
     title: GPT-J 6B Text Generator
     versions:
-      0.1.0: 'text_generation_gptj6b.yaml'      
+      0.1.0: 'gptj6b_text_generator.yaml'      
 computer vision:
   few_shots_object_detection:
     title: Few Shots Object Detection
