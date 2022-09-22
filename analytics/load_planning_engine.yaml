@@ -1,0 +1,611 @@
+openapi: 3.0.1
+info:
+  title: Load Planning Engine
+  description: |+
+    This Analytics microservice will provide recommendations on how to load cargoes within a vehicle.</br>
+    The LPE API can be used together with the Fleet Routing Engine API. The API will also give the client visualization of the load plan in 6 different viewing angles. </br>
+    If the payload includes pickup and delivery types of jobs, the load plan will be separated. All the cargo will be treated as a box shape and all cargoes inside a same job ID will be grouped into one big box.
+  version: '0.1.0'
+  x-additionalinfo: |+
+    - This microservice consists of set of REST APIs to pre-process FRE data before the user can call the Load Planning Engine. In order to get the FRE data, do check out the Fleet Routing Engine Microservice for more details.
+  x-subscribelink: loadplanningengine
+  x-apitype: Subscription
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jul 13, 2022"
+paths:
+  /microservices/analytics/loadplanningengine/v0/freinterface:
+    description: |+
+        FRE Interface API is an API to interface between the Fleet Routing Engine and the Load Planning Engine. This API will process the response of the Fleet Routing Engine API an transform it into a format that is accepted by the LPE API.
+
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/freinterfacesuccess'
+              example: 
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/freinterfaceinput'
+        required: true
+  /microservices/analytics/loadplanningengine/v0/lpe :
+    description: |+
+        Load Planning Engine API is to give client recommendation on how to load cargoes inside a vehicle. The LPE API can be used together with the Fleet Routing Engine API. The API will also give the client visualization of the load plan in 6 different viewing angles. If the payload includes pickup and delivery types of jobs, the load plan will be separated. All the cargo wil be treated as a box shape and all cargoes inside a same job ID will be grouped into one big box.
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lpesuccess'
+              example: 
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lpeinput'
+        required: true
+components:
+  schemas:
+    freinterfacesuccess:
+      type: object
+      properties:
+        vehicle-9:
+          type: object
+          properties:
+            job_id:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Job ID
+                  example: PO-011
+                1:
+                  type: string
+                  description: Job ID
+                  example: PO-019
+            end_customer_id:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: End customer ID
+                  example: C-034
+                1:
+                  type: string
+                  description: End customer ID
+                  example: C-010
+            end_customer_name:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: End customer Name
+                  example: customer-034
+                1:
+                  type: string
+                  description: End customer Name
+                  example: customer-010
+            delivery_or_pickup:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Delivery(D) or pickup(P) option
+                  example: P
+                1:
+                  type: string
+                  description: Delivery(D) or pickup(P) option
+                  example: P
+            quantity:
+              type: object
+              properties:
+                0:
+                  type: number
+                  description: Quantity
+                  example: 19
+                1:
+                  type: number
+                  description: Quantity
+                  example: 18
+            total_weight:
+              type: object
+              properties:
+                0:
+                  type: number
+                  description: Total Weight
+                  example: 4
+                1:
+                  type: number
+                  description: Total Weight
+                  example: 1
+            total_volume:
+              type: object
+              properties:
+                0:
+                  type: number
+                  description: Total volume
+                  example: 0.329232
+                1:
+                  type: number
+                  description: Total volume
+                  example: 0.2556
+            length:
+              type: object
+              properties:
+                0:
+                  type: number
+                  description: Length
+                  example: 6
+                1:
+                  type: number
+                  description: Length
+                  example: 4
+            width:
+              type: object
+              properties:
+                0:
+                  type: number
+                  description: Width
+                  example: 38
+                1:
+                  type: number
+                  description: Width
+                  example: 71
+            height:
+              type: object
+              properties:
+                0:
+                  type: number
+                  description: Height
+                  example: 76
+                1:
+                  type: number
+                  description: Height
+                  example: 50
+            fragility:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Fragility
+                  example: yes
+                1:
+                  type: string
+                  description: Fragility
+                  example: no
+            weight_bearing:
+              type: object
+              properties:
+                0:
+                  type: number
+                  description: Weight Bearing
+                  example: 246
+                1:
+                  type: number
+                  description: Weight Bearing
+                  example: 175
+            upright_requirement:
+              type: object
+              properties:
+                0:
+                  type: string
+                  description: Upright requirement
+                  example: yes
+                1:
+                  type: string
+                  description: Upright requirement
+                  example: no
+            sequence:
+              type: object
+              properties:
+                0:
+                  type: number
+                  description: Sequence
+                  example: 9
+                1:
+                  type: number
+                  description: Sequence
+                  example: 175
+    lpesuccess:
+      type: object
+      properties:
+        vehicle_id:
+          type: string
+          description: The unique vehicle id
+          example: SG123XX
+        engine_code:
+          type: string
+          description: Engine code (FRES01)
+          example: LPE
+        plan_timestamp:
+          type: string
+          description: The timestamp of the plan
+        lpe_results:
+          type: object
+          description: The load plan for the vehicle
+          properties:
+            fit_box:
+              type: object
+              description: |+
+                JSON String of the description of the fitted cargoes with job_id of as the key
+              properties:
+                PO-007:
+                  type: object
+                  properties:
+                    position:
+                      type: array
+                      description: Position
+                      example: [0, 0, 0]
+                      items:
+                        oneOf:
+                          - type: number
+                            example: 0
+                          - type: number
+                            example: 0
+                          - type: number
+                            example: 0
+                    up_requirement:
+                      type: string
+                      description: Up requirement
+                      example: 1
+                    fragility:
+                      type: string
+                      description: Fragility
+                      example: 0
+                    weight_bearing:
+                      type: number
+                      description: Weight Bearing
+                      example: 127
+                PO-019:
+                  type: object
+                  properties:
+                    position:
+                      type: array
+                      description: Position
+                      example: [62.80142396057187, 0, 0]
+                      items:
+                        oneOf:
+                          - type: number
+                            example: 62.80142396057187
+                          - type: number
+                            example: 0
+                          - type: number
+                            example: 0
+                    up_requirement:
+                      type: string
+                      description: Up requirement
+                      example: 0
+                    fragility:
+                      type: string
+                      description: Fragility
+                      example: 0
+                    weight_bearing:
+                      type: number
+                      description: Weight Bearing
+                      example: 175
+            unfit_box:
+              type: object
+              description: |+
+                JSON String of the description of the unfitted cargoes with job_id of as the key
+              properties:
+                PO-016:
+                  type: object
+                  properties:
+                    up_requirement:
+                      type: string
+                      description: Up requirement
+                      example: 1
+                    fragility:
+                      type: string
+                      description: Fragility
+                      example: 1
+                    weight_bearing:
+                      type: number
+                      description: Weight Bearing
+                      example: 188
+                    unfit_reason:
+                      type: string
+                      description: Reason for unfit
+                      example: Unfit because of not enough avaliable space
+            url:
+              type: string
+              description: |+
+                The url to download the cargo loading visualization, the visualization is from 6 different viewing angles in one zipped file. The file will be deleted in 30 minutes; therefore, client must download the file as soon as possible.
+              example: https://uc87016abfd5b6d8e52fd19e5dc2.dl.dropboxusercontent.com/cd/0/get/Blx24MenVrP5DM4wayypAid6e2kv1Uj2taw89ifJVwFe92KoRjWVrMG1XioFwJbziux8e--dGfoZviI8_iu8IJ8AxmpGxN1kGMkEGs_qLPgI2iqaJCnNry3ng7HqhOF6Q6xyDgRvUD3OHoMwAnbAjwXmahkFioZ-1lfH6bvwx_Nr4vDmMUPIpwX-PiCxQTSVquY/file
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid input - Error in URL.
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure 
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jun 01, 2022
+                x-details: Initial version release
+                description: Latest Version
+    freinterfaceinput:
+      type: object
+      required:
+        - fre_response
+        - job_table
+      properties:
+        fre_response:
+          type: object
+          default: true
+          example: {"routes":{"vehicle-9": {"vehicle_id": "vehicle-9", "vehicle_capacity": 800, "vehicle_volumes": 5.368, "route": ["150165", "349314", "389842", "389842", "389842", "389842", "469277", "469277", "469277", "486162", "486162", "099253", "150165"], "job_group_id": ["DDpt", "D21", "D19", "D20", "D13", "D2", "D24", "D29", "P18", "P11", "D9", "D22", "Dpt"], "job_id_list": ["DDpt", "DO-021", "DO-019", "DO-020", "DO-013", "DO-002", "DO-024", "DO-030", "PO-019", "PO-011", "DO-009", "DO-022", "Dpt"], "end_customer_name": ["DDpt", "customer-021", "customer-017", "customer-017", "customer-017", "customer-017", "customer-010", "customer-010", "customer-010", "customer-034", "customer-034", "customer-024", "Dpt"], "end_customer_id": ["DDpt", "C-021", "C-017", "C-017", "C-017", "C-017", "C-010", "C-010", "C-010", "C-034", "C-034", "C-024", "Dpt"], "time": [["10:00:00", "10:00:00"], ["10:08:00", "10:25:00"], ["10:25:00", "10:36:00"], ["10:36:00", "10:47:00"], ["10:47:00", "10:58:00"], ["10:58:00", "11:09:00"], ["11:15:00", "11:28:00"], ["11:28:00", "11:41:00"], ["11:41:00", "11:54:00"], ["12:31:00", "12:50:00"], ["12:50:00", "13:09:00"], ["13:25:00", "13:41:00"], ["13:43:00", "13:43:00"]], "service_time": [0, 17, 11, 11, 11, 11, 13, 13, 13, 19, 19, 16, 0], "load_weight": [309, 309, 263, 262, 250, 179, 170, 152, 86, 87, 91, 80, 5], "load_volume": [2.521598, 2.521598, 2.245718, 2.045798, 1.880556, 1.873956, 1.416996, 1.363176, 0.761784, 1.017384, 1.346616, 1.169472, 0.584832], "load_insurance": [9, 9, 8, 7, 6, 5, 4, 3, 2, 3, 4, 3, 2], "total_time_min": 343, "total_distance_m": 36178.0, "max_load_weight": 309, "weight_utilization": 0.38625, "max_load_volume": 2.521598, "volume_utilization": 0.4697462742175857, "centroid_coordinate": [1.3109918, 103.88885]}, "vehicle-11": {"vehicle_id": "vehicle-11", "vehicle_capacity": 800, "vehicle_volumes": 5.368, "route": ["150165", "609289", "627943", "629017", "639405", "639405", "638382", "639510", "639510", "639798", "150165"], "job_group_id": ["DDpt", "P16", "D3", "P13", "D18", "P8", "P29", "D8", "P2", "D27", "Dpt"], "job_id_list": ["DDpt", "PO-017", "DO-003", "PO-013", "DO-018", "PO-008", "PO-030", "DO-008", "PO-002", "DO-028", "Dpt"], "end_customer_name": ["DDpt", "customer-023", "customer-033", "customer-007", "customer-005", "customer-005", "customer-020", "customer-028", "customer-028", "customer-030", "Dpt"], "end_customer_id": ["DDpt", "C-023", "C-033", "C-007", "C-005", "C-005", "C-020", "C-028", "C-028", "C-030", "Dpt"], "time": [["10:00:00", "10:00:00"], ["10:11:00", "10:28:00"], ["10:36:00", "10:47:00"], ["10:52:00", "11:11:00"], ["11:14:00", "11:24:00"], ["11:24:00", "11:34:00"], ["11:36:00", "11:50:00"], ["12:31:00", "12:43:00"], ["12:43:00", "12:55:00"], ["13:00:00", "13:17:00"], ["13:40:00", "13:40:00"]], "service_time": [0, 17, 11, 19, 10, 10, 14, 12, 12, 17, 0], "load_weight": [119, 119, 178, 163, 194, 169, 199, 266, 192, 210, 205], "load_volume": [1.503174, 1.503174, 1.630674, 1.004626, 1.582966, 1.03824, 1.426752, 1.580752, 1.254272, 1.446728, 1.440808], "load_insurance": [4, 4, 5, 4, 5, 4, 5, 6, 5, 6, 5], "total_time_min": 340, "total_distance_m": 43302.0, "max_load_weight": 266, "weight_utilization": 0.3325, "max_load_volume": 1.630674, "volume_utilization": 0.303776825633383, "centroid_coordinate": [1.3259244, 103.67465]}, "vehicle-2": {"vehicle_id": "vehicle-2", "vehicle_capacity": 3200, "vehicle_volumes": 18.008298, "route": ["150165", "469331", "486399", "486399", "486399", "508918", "508948", "498793", "498793", "737854", "737854", "150165"], "job_group_id": ["DDpt", "D11", "D14", "D10", "D26", "P3", "P22", "P10", "D7", "P14", "D6", "Dpt"], "job_id_list": ["DDpt", "DO-011", "DO-014", "DO-010", "DO-026", "PO-003", "PO-023", "PO-010", "DO-007", "PO-015", "DO-006", "Dpt"], "end_customer_name": ["DDpt", "customer-009", "customer-038", "customer-038", "customer-038", "customer-004", "customer-025", "customer-049", "customer-049", "customer-031", "customer-031", "Dpt"], "end_customer_id": ["DDpt", "C-009", "C-038", "C-038", "C-038", "C-004", "C-025", "C-049", "C-049", "C-031", "C-031", "Dpt"], "time": [["10:00:00", "10:00:00"], ["10:15:00", "10:30:00"], ["10:34:00", "10:52:00"], ["10:52:00", "11:10:00"], ["11:10:00", "11:28:00"], ["11:33:00", "11:43:00"], ["11:43:00", "12:02:00"], ["12:31:00", "12:50:00"], ["12:50:00", "13:09:00"], ["13:36:00", "13:49:00"], ["13:49:00", "14:02:00"], ["14:22:00", "14:22:00"]], "service_time": [0, 15, 18, 18, 18, 10, 19, 19, 19, 13, 13, 0], "load_weight": [346, 346, 307, 244, 196, 120, 150, 162, 170, 122, 129, 57], "load_volume": [5.038737, 5.038737, 3.764337, 3.731535, 3.348999, 3.256335, 3.278721, 3.563733, 4.116285, 1.72371, 2.736638, 1.872878], "load_insurance": [6, 6, 5, 4, 3, 2, 3, 4, 5, 4, 5, 4], "total_time_min": 382, "total_distance_m": 66507.0, "max_load_weight": 346, "weight_utilization": 0.108125, "max_load_volume": 5.038737, "volume_utilization": 0.27980084514372205, "centroid_coordinate": [1.3696433, 103.94885]}, "vehicle-1": {"vehicle_id": "vehicle-1", "vehicle_capacity": 4800, "vehicle_volumes": 41.0821632, "route": ["150165", "099253", "099253", "486796", "486796", "498793", "498793", "819454", "489947", "415926", "415926", "415926", "150165"], "job_group_id": ["DDpt", "D15", "P15", "P4", "P5", "P19", "P17", "D25", "P12", "P28", "D23", "P23", "Dpt"], "job_id_list": ["DDpt", "DO-015", "PO-016", "PO-004", "PO-005", "PO-020", "PO-018", "DO-025", "PO-012 | PO-014", "PO-029", "DO-023", "PO-024", "Dpt"], "end_customer_name": ["DDpt", "customer-024", "customer-024", "customer-014", "customer-014", "customer-049", "customer-049", "customer-019", "customer-016", "customer-006", "customer-006", "customer-006", "Dpt"], "end_customer_id": ["DDpt", "C-024", "C-024", "C-014", "C-014", "C-049", "C-049", "C-019", "C-016", "C-006", "C-006", "C-006", "Dpt"], "time": [["08:00:00", "08:00:00"], ["08:02:00", "08:18:00"], ["08:18:00", "08:34:00"], ["08:52:00", "09:11:00"], ["09:11:00", "09:30:00"], ["09:36:00", "09:55:00"], ["09:55:00", "10:14:00"], ["10:15:00", "10:27:00"], ["10:33:00", "10:51:00"], ["10:56:00", "11:12:00"], ["11:12:00", "11:28:00"], ["11:28:00", "11:44:00"], ["12:31:00", "12:31:00"]], "service_time": [0, 16, 16, 19, 19, 19, 19, 12, 18, 16, 16, 16, 0], "load_weight": [42, 42, 40, 81, 145, 220, 237, 275, 260, 397, 459, 434, 463], "load_volume": [1.436172, 1.436172, 1.257876, 2.128108, 2.204608, 3.732268, 4.969868, 7.079318, 6.64817, 8.24027, 8.67035, 7.843622, 8.26211], "load_insurance": [3, 3, 2, 3, 4, 5, 6, 7, 6, 7, 8, 7, 8], "total_time_min": 271, "total_distance_m": 50035.666666666664, "max_load_weight": 463, "weight_utilization": 0.09645833333333333, "max_load_volume": 8.67035, "volume_utilization": 0.21104901311525875, "centroid_coordinate": [1.3335403, 103.93316]}, "vehicle-3": {"vehicle_id": "vehicle-3", "vehicle_capacity": 4800, "vehicle_volumes": 41.0821632, "route": ["150165", "189702", "339156", "150165"], "job_group_id": ["DDpt", "D28", "D5", "Dpt"], "job_id_list": ["DDpt", "DO-029", "DO-005", "Dpt"], "end_customer_name": ["DDpt", "customer-022", "customer-027", "Dpt"], "end_customer_id": ["DDpt", "C-022", "C-027", "Dpt"], "time": [["10:00:00", "10:00:00"], ["10:04:00", "10:20:00"], ["10:22:00", "10:39:00"], ["10:45:00", "10:45:00"]], "service_time": [0, 16, 17, 0], "load_weight": [46, 46, 21, 0], "load_volume": [2.517016, 2.517016, 0.488236, 0.0], "load_insurance": [2, 2, 1, 0], "total_time_min": 165, "total_distance_m": 13830.666666666666, "max_load_weight": 46, "weight_utilization": 0.009583333333333333, "max_load_volume": 2.517016, "volume_utilization": 0.06126785456127102, "centroid_coordinate": [1.3064109, 103.8616]}, "vehicle-4": {"vehicle_id": "vehicle-4", "vehicle_capacity": 4800, "vehicle_volumes": 41.0821632, "route": ["150165", "168593", "048624", "048624", "059567", "609923", "609923", "608924", "608924", "554369", "554369", "738308", "738428", "738428", "628342", "628342", "150165"], "job_group_id": ["DDpt", "P24", "D17", "P20", "D12", "P21", "D1", "P9", "P1", "D16", "P7", "P26", "P6", "D4", "P25", "P27", "Dpt"], "job_id_list": ["DDpt", "PO-025", "DO-017 | DO-027", "PO-021", "DO-012", "PO-022", "DO-001", "PO-009", "PO-001", "DO-016", "PO-007", "PO-027", "PO-006", "DO-004", "PO-026", "PO-028", "Dpt"], "end_customer_name": ["DDpt", "customer-040", "customer-046", "customer-046", "customer-043", "customer-032", "customer-032", "customer-039", "customer-039", "customer-003", "customer-003", "customer-042", "customer-047", "customer-047", "customer-035", "customer-035", "Dpt"], "end_customer_id": ["DDpt", "C-040", "C-046", "C-046", "C-043", "C-032", "C-032", "C-039", "C-039", "C-003", "C-003", "C-042", "C-047", "C-047", "C-035", "C-035", "Dpt"], "time": [["08:00:00", "08:00:00"], ["08:01:00", "08:15:00"], ["08:18:00", "08:37:00"], ["08:37:00", "08:56:00"], ["08:57:00", "09:08:00"], ["09:21:00", "09:33:00"], ["09:33:00", "09:45:00"], ["09:45:00", "09:58:00"], ["10:00:00", "10:13:00"], ["10:32:00", "10:46:00"], ["10:46:00", "11:00:00"], ["11:12:00", "11:32:00"], ["11:32:00", "11:45:00"], ["11:45:00", "11:58:00"], ["12:31:00", "12:41:00"], ["12:41:00", "12:51:00"], ["13:12:00", "13:12:00"]], "service_time": [0, 14, 19, 19, 11, 12, 12, 13, 13, 14, 14, 20, 13, 13, 10, 10, 0], "load_weight": [171, 171, 234, 199, 243, 241, 243, 233, 257, 331, 262, 301, 332, 409, 354, 420, 472], "load_volume": [1.121982, 1.121982, 1.460334, 1.13634, 3.950928, 3.700128, 5.89143, 5.65143, 5.67691, 5.7949, 5.5303, 5.77799, 7.216622, 7.255382, 7.212794, 7.227594, 9.39861], "load_insurance": [5, 5, 6, 5, 6, 5, 6, 5, 6, 7, 6, 7, 8, 9, 8, 9, 10], "total_time_min": 312, "total_distance_m": 84229.33333333333, "max_load_weight": 472, "weight_utilization": 0.09833333333333333, "max_load_volume": 9.39861, "volume_utilization": 0.22877592774861477, "centroid_coordinate": [1.3439802, 103.7898]}},"deployed_vehicle":6,"total_cost":1234082,"volume_util":0.5,"dropped_jobs":"{}","solver_status":"ROUTING_SUCCESS: Problem solved successfully.","total_jobs":{"total": 58, "pickup_jobs": 29, "delivery_jobs": 29},"plan_timestamp":"2022-05-17 11:48:58","output_status":"Success! All jobs can be served!","engine_code":"FRES01"}
+          description: |+
+            Fleet Routing Engine response
+        job_table:
+          type: object
+          default: true
+          example: {"job_id":{"0":"PO-001","1":"PO-002","2":"PO-003","3":"PO-004","4":"PO-005","5":"PO-006","6":"PO-007","7":"PO-008","8":"PO-009","9":"PO-010","10":"PO-011","11":"PO-012","12":"PO-013","13":"PO-014","14":"PO-015","15":"PO-016","16":"PO-017","17":"PO-018","18":"PO-019","19":"PO-020","20":"PO-021","21":"PO-022","22":"PO-023","23":"PO-024","24":"PO-025","25":"PO-026","26":"PO-027","27":"PO-028","28":"PO-029","29":"PO-030","30":"DO-001","31":"DO-002","32":"DO-003","33":"DO-004","34":"DO-005","35":"DO-006","36":"DO-007","37":"DO-008","38":"DO-009","39":"DO-010","40":"DO-011","41":"DO-012","42":"DO-013","43":"DO-014","44":"DO-015","45":"DO-016","46":"DO-017","47":"DO-018","48":"DO-019","49":"DO-020","50":"DO-021","51":"DO-022","52":"DO-023","53":"DO-024","54":"DO-025","55":"DO-026","56":"DO-027","57":"DO-028","58":"DO-029","59":"DO-030"},"end_customer_id":{"0":"C-039","1":"C-028","2":"C-004","3":"C-014","4":"C-014","5":"C-047","6":"C-003","7":"C-005","8":"C-039","9":"C-049","10":"C-034","11":"C-016","12":"C-007","13":"C-016","14":"C-031","15":"C-024","16":"C-023","17":"C-049","18":"C-010","19":"C-049","20":"C-046","21":"C-032","22":"C-025","23":"C-006","24":"C-040","25":"C-035","26":"C-042","27":"C-035","28":"C-006","29":"C-020","30":"C-032","31":"C-017","32":"C-033","33":"C-047","34":"C-027","35":"C-031","36":"C-049","37":"C-028","38":"C-034","39":"C-038","40":"C-009","41":"C-043","42":"C-017","43":"C-038","44":"C-024","45":"C-003","46":"C-046","47":"C-005","48":"C-017","49":"C-017","50":"C-021","51":"C-024","52":"C-006","53":"C-010","54":"C-019","55":"C-038","56":"C-046","57":"C-030","58":"C-022","59":"C-010"},"end_customer_name":{"0":"customer-039","1":"customer-028","2":"customer-004","3":"customer-014","4":"customer-014","5":"customer-047","6":"customer-003","7":"customer-005","8":"customer-039","9":"customer-049","10":"customer-034","11":"customer-016","12":"customer-007","13":"customer-016","14":"customer-031","15":"customer-024","16":"customer-023","17":"customer-049","18":"customer-010","19":"customer-049","20":"customer-046","21":"customer-032","22":"customer-025","23":"customer-006","24":"customer-040","25":"customer-035","26":"customer-042","27":"customer-035","28":"customer-006","29":"customer-020","30":"customer-032","31":"customer-017","32":"customer-033","33":"customer-047","34":"customer-027","35":"customer-031","36":"customer-049","37":"customer-028","38":"customer-034","39":"customer-038","40":"customer-009","41":"customer-043","42":"customer-017","43":"customer-038","44":"customer-024","45":"customer-003","46":"customer-046","47":"customer-005","48":"customer-017","49":"customer-017","50":"customer-021","51":"customer-024","52":"customer-006","53":"customer-010","54":"customer-019","55":"customer-038","56":"customer-046","57":"customer-030","58":"customer-022","59":"customer-010"},"delivery_or_pickup":{"0":"P","1":"P","2":"P","3":"P","4":"P","5":"P","6":"P","7":"P","8":"P","9":"P","10":"P","11":"P","12":"P","13":"P","14":"P","15":"P","16":"P","17":"P","18":"P","19":"P","20":"P","21":"P","22":"P","23":"P","24":"P","25":"P","26":"P","27":"P","28":"P","29":"P","30":"D","31":"D","32":"D","33":"D","34":"D","35":"D","36":"D","37":"D","38":"D","39":"D","40":"D","41":"D","42":"D","43":"D","44":"D","45":"D","46":"D","47":"D","48":"D","49":"D","50":"D","51":"D","52":"D","53":"D","54":"D","55":"D","56":"D","57":"D","58":"D","59":"D"},"timewindow_start":{"0":"10:00:00","1":"8:00:00","2":"8:00:00","3":"8:00:00","4":"8:00:00","5":"10:00:00","6":"10:00:00","7":"8:00:00","8":"8:00:00","9":"10:00:00","10":"8:00:00","11":"10:00:00","12":"8:00:00","13":"10:00:00","14":"10:00:00","15":"8:00:00","16":"8:00:00","17":"8:00:00","18":"10:00:00","19":"8:00:00","20":"8:00:00","21":"8:00:00","22":"10:00:00","23":"10:00:00","24":"8:00:00","25":"8:00:00","26":"10:00:00","27":"8:00:00","28":"10:00:00","29":"8:00:00","30":"8:00:00","31":"10:00:00","32":"10:00:00","33":"8:00:00","34":"10:00:00","35":"10:00:00","36":"10:00:00","37":"10:00:00","38":"8:00:00","39":"8:00:00","40":"8:00:00","41":"8:00:00","42":"8:00:00","43":"8:00:00","44":"8:00:00","45":"8:00:00","46":"8:00:00","47":"8:00:00","48":"8:00:00","49":"10:00:00","50":"10:00:00","51":"10:00:00","52":"8:00:00","53":"8:00:00","54":"8:00:00","55":"10:00:00","56":"8:00:00","57":"8:00:00","58":"10:00:00","59":"10:00:00"},"timewindow_end":{"0":"14:00:00","1":"14:00:00","2":"12:00:00","3":"14:00:00","4":"12:00:00","5":"12:00:00","6":"12:00:00","7":"12:00:00","8":"12:00:00","9":"14:00:00","10":"14:00:00","11":"12:00:00","12":"14:00:00","13":"12:00:00","14":"14:00:00","15":"14:00:00","16":"12:00:00","17":"12:00:00","18":"14:00:00","19":"12:00:00","20":"14:00:00","21":"12:00:00","22":"12:00:00","23":"12:00:00","24":"12:00:00","25":"14:00:00","26":"12:00:00","27":"14:00:00","28":"14:00:00","29":"12:00:00","30":"12:00:00","31":"14:00:00","32":"12:00:00","33":"12:00:00","34":"12:00:00","35":"14:00:00","36":"14:00:00","37":"14:00:00","38":"14:00:00","39":"12:00:00","40":"12:00:00","41":"14:00:00","42":"12:00:00","43":"14:00:00","44":"12:00:00","45":"14:00:00","46":"14:00:00","47":"12:00:00","48":"14:00:00","49":"12:00:00","50":"14:00:00","51":"14:00:00","52":"12:00:00","53":"12:00:00","54":"14:00:00","55":"12:00:00","56":"14:00:00","57":"14:00:00","58":"12:00:00","59":"14:00:00"},"return_by":{"0":"17:00:00","1":"17:00:00","2":"18:00:00","3":"17:00:00","4":"17:00:00","5":"18:00:00","6":"18:00:00","7":"18:00:00","8":"18:00:00","9":"18:00:00","10":"18:00:00","11":"17:00:00","12":"18:00:00","13":"17:00:00","14":"17:00:00","15":"18:00:00","16":"18:00:00","17":"17:00:00","18":"18:00:00","19":"18:00:00","20":"18:00:00","21":"17:00:00","22":"18:00:00","23":"17:00:00","24":"18:00:00","25":"17:00:00","26":"18:00:00","27":"18:00:00","28":"17:00:00","29":"17:00:00","30":"18:00:00","31":"18:00:00","32":"18:00:00","33":"18:00:00","34":"17:00:00","35":"18:00:00","36":"17:00:00","37":"18:00:00","38":"17:00:00","39":"18:00:00","40":"18:00:00","41":"17:00:00","42":"18:00:00","43":"17:00:00","44":"18:00:00","45":"17:00:00","46":"17:00:00","47":"18:00:00","48":"17:00:00","49":"18:00:00","50":"18:00:00","51":"18:00:00","52":"17:00:00","53":"18:00:00","54":"17:00:00","55":"17:00:00","56":"17:00:00","57":"18:00:00","58":"18:00:00","59":"18:00:00"},"quantity":{"0":1,"1":12,"2":3,"3":15,"4":15,"5":19,"6":5,"7":12,"8":14,"9":13,"10":19,"11":12,"12":17,"13":5,"14":7,"15":11,"16":10,"17":14,"18":18,"19":10,"20":18,"21":18,"22":14,"23":14,"24":14,"25":4,"26":12,"27":19,"28":6,"29":7,"30":16,"31":10,"32":16,"33":7,"34":4,"35":15,"36":19,"37":4,"38":4,"39":12,"40":5,"41":4,"42":10,"43":1,"44":19,"45":15,"46":2,"47":7,"48":4,"49":7,"50":10,"51":12,"52":14,"53":15,"54":12,"55":13,"56":14,"57":8,"58":10,"59":17},"total_weight":{"0":74,"1":18,"2":30,"3":64,"4":75,"5":77,"6":39,"7":30,"8":24,"9":8,"10":4,"11":70,"12":31,"13":67,"14":7,"15":41,"16":59,"17":38,"18":1,"19":17,"20":44,"21":2,"22":12,"23":29,"24":63,"25":66,"26":31,"27":52,"28":62,"29":67,"30":10,"31":9,"32":15,"33":55,"34":21,"35":72,"36":48,"37":74,"38":11,"39":48,"40":39,"41":2,"42":71,"43":63,"44":2,"45":69,"46":9,"47":25,"48":1,"49":12,"50":46,"51":75,"52":25,"53":18,"54":15,"55":76,"56":26,"57":5,"58":25,"59":66},"length":{"0":38,"1":11,"2":14,"3":17,"4":54,"5":34,"6":31,"7":8,"8":70,"9":23,"10":6,"11":3,"12":27,"13":72,"14":34,"15":44,"16":10,"17":41,"18":4,"19":52,"20":73,"21":79,"22":58,"23":12,"24":53,"25":1,"26":39,"27":72,"28":64,"29":11,"30":50,"31":34,"32":67,"33":6,"34":49,"35":59,"36":75,"37":53,"38":11,"39":14,"40":60,"41":55,"42":33,"43":6,"44":23,"45":7,"46":18,"47":26,"48":34,"49":74,"50":22,"51":15,"52":42,"53":2,"54":31,"55":18,"56":17,"57":1,"58":78,"59":67},"width":{"0":45,"1":54,"2":41,"3":10,"4":41,"5":12,"6":34,"7":71,"8":1,"9":77,"10":38,"11":75,"12":35,"13":55,"14":76,"15":31,"16":17,"17":49,"18":71,"19":34,"20":63,"21":23,"22":13,"23":47,"24":76,"25":50,"26":58,"27":23,"28":16,"29":40,"30":20,"31":64,"32":8,"33":78,"34":47,"35":61,"36":23,"37":77,"38":61,"39":33,"40":72,"41":15,"42":20,"43":71,"44":8,"45":63,"46":67,"47":41,"48":42,"49":29,"50":66,"51":58,"52":19,"53":39,"54":61,"55":22,"56":15,"57":20,"58":51,"59":44},"height":{"0":69,"1":27,"2":13,"3":30,"4":46,"5":5,"6":47,"7":57,"8":26,"9":24,"10":76,"11":47,"12":36,"13":74,"14":56,"15":58,"16":75,"17":75,"18":50,"19":70,"20":34,"21":67,"22":27,"23":53,"24":6,"25":74,"26":53,"27":69,"28":70,"29":50,"30":15,"31":21,"32":73,"33":13,"34":53,"35":16,"36":73,"37":20,"38":66,"39":69,"40":59,"41":76,"42":1,"43":77,"44":51,"45":40,"46":47,"47":73,"48":35,"49":11,"50":19,"51":56,"52":74,"53":46,"54":19,"55":18,"56":59,"57":37,"58":51,"59":12},"fragility":{"0":"no","1":"no","2":"yes","3":"no","4":"no","5":"no","6":"no","7":"no","8":"yes","9":"no","10":"yes","11":"yes","12":"yes","13":"yes","14":"yes","15":"yes","16":"no","17":"no","18":"no","19":"yes","20":"yes","21":"yes","22":"no","23":"yes","24":"yes","25":"yes","26":"no","27":"no","28":"no","29":"yes","30":"yes","31":"no","32":"yes","33":"yes","34":"yes","35":"yes","36":"yes","37":"no","38":"yes","39":"yes","40":"yes","41":"no","42":"no","43":"no","44":"no","45":"no","46":"yes","47":"yes","48":"no","49":"no","50":"yes","51":"yes","52":"no","53":"yes","54":"no","55":"no","56":"no","57":"no","58":"no","59":"yes"},"weight_bearing":{"0":136,"1":216,"2":209,"3":213,"4":243,"5":216,"6":127,"7":189,"8":138,"9":136,"10":246,"11":235,"12":229,"13":132,"14":190,"15":188,"16":198,"17":128,"18":175,"19":115,"20":137,"21":181,"22":144,"23":190,"24":170,"25":185,"26":165,"27":195,"28":154,"29":158,"30":166,"31":188,"32":206,"33":127,"34":249,"35":174,"36":133,"37":196,"38":154,"39":190,"40":192,"41":235,"42":120,"43":208,"44":173,"45":154,"46":226,"47":247,"48":234,"49":203,"50":173,"51":182,"52":247,"53":218,"54":163,"55":210,"56":181,"57":143,"58":214,"59":217},"upright_requirement":{"0":"no","1":"yes","2":"no","3":"no","4":"yes","5":"yes","6":"yes","7":"yes","8":"yes","9":"yes","10":"yes","11":"no","12":"yes","13":"yes","14":"no","15":"yes","16":"yes","17":"no","18":"no","19":"no","20":"no","21":"no","22":"no","23":"yes","24":"no","25":"no","26":"no","27":"yes","28":"no","29":"yes","30":"yes","31":"no","32":"yes","33":"no","34":"yes","35":"no","36":"no","37":"yes","38":"yes","39":"yes","40":"yes","41":"yes","42":"yes","43":"yes","44":"no","45":"yes","46":"yes","47":"yes","48":"yes","49":"yes","50":"no","51":"yes","52":"no","53":"no","54":"yes","55":"yes","56":"no","57":"no","58":"yes","59":"no"}}
+          description: |+
+            The job table that was inputted to the Job Data Preprocess API that is correspondent to the fre_response (must contain fragility, upright_requirement, and weight_bearing)
+    lpeinput:
+      type: object
+      required:
+        - job_table
+        - vehicle_no
+        - vehicle_length
+        - vehicle_breadth
+        - vehicle_height
+        - weight_capacity
+      properties:
+        job_table:
+          type: object
+          default: true
+          description: |+ 
+             Job table that has the description of the cargoes and the load/unloading sequence
+          example: {"job_id":{"0":"PO-007","1":"PO-016","2":"PO-019","3":"DO-005","4":"DO-013","5":"DO-019","6":"DO-020","7":"DO-021","8":"DO-022","9":"DO-024","10":"DO-030"},"delivery_or_pickup":{"0":"P","1":"P","2":"P","3":"D","4":"D","5":"D","6":"D","7":"D","8":"D","9":"D","10":"D"},"quantity":{"0":5,"1":11,"2":18,"3":4,"4":10,"5":4,"6":7,"7":10,"8":12,"9":15,"10":17},"total_weight":{"0":39,"1":41,"2":1,"3":21,"4":71,"5":1,"6":12,"7":46,"8":75,"9":18,"10":66},"length":{"0":31,"1":44,"2":4,"3":49,"4":33,"5":34,"6":74,"7":22,"8":15,"9":2,"10":67},"width":{"0":34,"1":31,"2":71,"3":47,"4":20,"5":42,"6":29,"7":66,"8":58,"9":39,"10":44},"height":{"0":47,"1":58,"2":50,"3":53,"4":1,"5":35,"6":11,"7":19,"8":56,"9":46,"10":12},"fragility":{"0":"no","1":"yes","2":"no","3":"yes","4":"no","5":"no","6":"no","7":"yes","8":"yes","9":"yes","10":"yes"},"weight_bearing":{"0":127,"1":188,"2":175,"3":249,"4":120,"5":234,"6":203,"7":173,"8":182,"9":218,"10":217},"upright_requirement":{"0":"yes","1":"yes","2":"no","3":"yes","4":"yes","5":"yes","6":"yes","7":"no","8":"yes","9":"no","10":"no"},"sequence":{"0":6,"1":10,"2":9,"3":1,"4":3,"5":4,"6":2,"7":5,"8":11,"9":7,"10":8}}
+        vehicle_no:
+          type: string
+          description: |+
+            Unique vehicle identification code
+          example: SG123XX
+        vehicle_length:
+          type: number
+          description: |+
+            The length of the available compartment of the vehicle in meter unit
+          example: 2.1
+        vehicle_breadth:
+          type: number
+          description: |+
+            The breadth of the available compartment of the vehicle in meter unit
+          example: 2.1
+        vehicle_height:
+          type: number
+          description: |+
+            The height of the available compartment of the vehicle in meter unit
+          example: 2.1
+        weight_capacity:
+          type: number
+          description: |+
+            The weight capacity of the vehicle
+          example: 5000
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
