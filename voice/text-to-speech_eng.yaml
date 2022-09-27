@@ -13,11 +13,11 @@ info:
   x-additionalinfo : |+
     Users can now define custom phonetic pronunciations using ARPABET notation enclosed within curly brackets { }. For example, note the difference in how “tomatoes” is pronounced using the following 2 inputs:</br></br>
     
-    plain text: I like to eat tomatoes\n
+    plain text: I like to eat tomatoes
     text with ARPABET: I like to eat {T AH0 M AE1 T OW0 Z}</br></br>
     
     See https://en.wikipedia.org/wiki/ARPABET for full list of ARPABET notation.  
-  version: 1.4.0
+  version: 1.4.1
   x-subscribelink: text-to-speech_eng
   x-apitype: small file
   x-apitypedescription: |+
@@ -35,13 +35,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
-- name: "v1.4.0"
-  description: "Published Date - Sep 21, 2022"
+- name: "v1.4.1"
+  description: "Published Date - Sep 27, 2022"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
-        - v1.4.0
+        - v1.4.1
       responses:
         '200':
           description: success response
@@ -235,6 +235,16 @@ components:
     versions:
       type: object
       properties:
+        v1.4.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Sep 27,2022'
+                description: |+
+                  New Features:
+                    - model female_generic removed and female_us added
+                x-details: New Features      
         v1.4.0:
           type: array
           items:
@@ -337,7 +347,7 @@ components:
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             The default model is female_singaporean
-            1. female_generic
+            1. female_us
             2. female_singaporean
         pitch_scale:
           x-name: pitch_scale
