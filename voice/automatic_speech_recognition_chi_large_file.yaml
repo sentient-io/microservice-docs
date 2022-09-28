@@ -495,11 +495,11 @@ components:
               default: false
               example: simplified
               description:
-                Specifies the output type of the transcript. There are four different values, they are,
-                  - simplified
-                  - traditional
-                  - pinyin_tone_marks
-                  - pinyin_numerals
+                Specifies the output type of the transcript. There are four different values, they are,</br>
+                  - simplified</br>
+                  - traditional</br>
+                  - pinyin_tone_marks</br>
+                  - pinyin_numerals</br>
                 Default Value - simplified
     uploadinput:
       type: object
