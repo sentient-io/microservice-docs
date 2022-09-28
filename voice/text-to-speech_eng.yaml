@@ -347,7 +347,7 @@ components:
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             The default model is female_singaporean
-            1. female_us
+            1. female_american
             2. female_singaporean
         pitch_scale:
           x-name: pitch_scale
