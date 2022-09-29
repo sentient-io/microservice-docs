@@ -46,7 +46,6 @@ paths:
                 message: Successfully Processed
                 results:
                   output: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不
-                  output_type: "simplified"
                 status: Success
         '401':
           description: Unauthorized
@@ -127,10 +126,6 @@ components:
                 type: string
                 example: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不
                 description: The speech recognition result.
-              output_type:
-                type: string
-                example: "simplified"
-                description: Specifies the output type of the transcript.
           status:
             type: string
             example: Success
