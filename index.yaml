@@ -58,10 +58,10 @@ voice:
     title: Text-To-Speech JP
     versions:
       0.1.0: 'text_to_speech_jp.yaml'      
-  asr_with_voice_activity_detection_eng:
-    title: ASR with Voice Activity Detection ENG
-    versions:
-      1.2.1: 'asr_with_voice_activity_detection_eng.yaml'     
+  # asr_with_voice_activity_detection_eng:
+  #   title: ASR with Voice Activity Detection ENG
+  #   versions:
+  #     1.2.1: 'asr_with_voice_activity_detection_eng.yaml'     
   voice_activity_detection_eng:
     title: Voice Activity Detection ENG
     versions:
@@ -189,10 +189,10 @@ computer vision:
     title: Person Reidentification
     versions:
       0.1.0: 'person_reidentification.yaml'
-  landmark_detection:
-    title: Landmark Detection
-    versions:
-      1.0.0: 'landmark_detection.yaml'      
+  # landmark_detection:
+  #   title: Landmark Detection
+  #   versions:
+  #     1.0.0: 'landmark_detection.yaml'      
   landmark_recognition_sg:
     title: Landmark Detection (SG)
     versions:
