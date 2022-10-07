@@ -409,39 +409,7 @@ data:
   trajectory_clustering:
     title: Trajectory Clustering
     versions:
-      0.1.0: 'trajectory_clustering.yaml' 
-  lta_road_works:
-    title: LTA Road Works
-    versions:
-      0.1.2: 'lta_road_works.yaml'
-  lta_car_park_availability_historical:
-    title: LTA Carpark Availability Historical
-    versions:
-      0.1.2: 'lta_car_park_availability_historical.yaml'   
-  lta_traffic_images:
-    title: LTA Traffic Images
-    versions:
-      0.1.2: 'lta_traffic_images.yaml'      
-  lta_traffic_incidents:
-    title: LTA Traffic Incidents
-    versions:
-      0.1.2: 'lta_traffic_incidents.yaml'     
-  lta_traffic_speed_bands_historical:
-    title: LTA Traffic Speed Bands Historical
-    versions:
-      0.1.2: 'lta_traffic_speed_bands_historical.yaml'      
-  lta_vms:
-    title: LTA VMS
-    versions:
-      0.1.2: 'lta_vms.yaml'    
-  lta_faulty_traffic_lights:
-    title: LTA Faulty Traffic Lights
-    versions:
-      0.1.2: 'lta_faulty_traffic_lights.yaml'
-  lta_pv_bus:
-    title: LTA Passenger Volume by Bus Stops
-    versions:
-      0.1.2: 'lta_pv_bus.yaml'
+      0.1.0: 'trajectory_clustering.yaml'
   train_stations_sg:
     title: Train Stations (SG)
     versions:
