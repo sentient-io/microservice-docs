@@ -333,6 +333,14 @@ data:
     title: HDB Residential Occupancy Status (SG)
     versions:
       1.1.0: 'residential_sales_and_rental_hdb_sg.yaml'
+  hdb_upgrading_programmes:
+    title: HDB Upgrading Programmes (SG)
+    versions:
+      0.1.0: 'hdb_upgrading_programmes.yaml'
+  hdb_social_communal:
+    title: HDB Social Communal Facilities (SG)
+    versions:
+      0.1.0: 'hdb_social_communal.yaml'
   season_parking_availability_hdb_sg:
     title: HDB Season Parking Availability (SG)
     versions:
@@ -342,6 +350,14 @@ data:
     versions:
       2.1.0: 'amenities_shelters_hdb_sg.yaml'
       1.0.0: 'amenities_shelters_hdb_sg_v1.yaml'
+  hdb_building_outlines:
+    title: HDB Building Outlines (SG)
+    versions:
+      0.1.0: 'hdb_building_outlines.yaml'
+  hdb_land_ownership:
+    title: HDB Land Ownership (SG)
+    versions:
+      0.1.0: 'hdb_land_ownership.yaml'
   lta_road_works:
     title: LTA Road Works
     versions:
