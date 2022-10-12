@@ -137,10 +137,6 @@ components:
               example: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
               type: string
               format: byte
-            normalisedtext:
-              description: Normalised text
-              example: I want a credit card.
-              type: string
 
         message:
           type: string
@@ -367,13 +363,6 @@ components:
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1. 
             **used only for the female_singaporean model.
-        show_normalized_output:
-          x-name: show_normalized_output
-          type: boolean
-          default: False
-          example: False
-          description: |+
-            Normalised text
         text_normalization:
           x-name: text_normalization
           type: array
