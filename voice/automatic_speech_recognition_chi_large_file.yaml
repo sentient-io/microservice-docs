@@ -2,12 +2,12 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition CHI (Large File)
   description: |+
-    This Voice microservice takes in the input audio file  and supports recognizing a speech.The server returns the recognition result in a JSON format as a response.</br> 
+    This Voice microservice takes in the input audio file  and supports recognizing a speech.The server returns the recognition result in a JSON format as a response.</br>
     For longer audio, we suggest breaking them up into smaller chunks and making multiple calls to this microservice for more effective transcription.</br>
-    - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.</br>
-    - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.</br>
+    - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), Opus, and 16-bit mono.</br></br>
+    - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.</br></br>
     - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.    
-  version: '0.1.2'
+  version: '0.2.0'
   x-additionalinfo: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
   x-subscribelink: automatic_speech_recognition_chi
@@ -27,15 +27,15 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v0.1.2"
-  description: "Published Date - Jul 08, 2022"
+- name: "v0.2.0"
+  description: "Published Date - Oct 13, 2022"
 paths:
   /async/microservices/voice/asrsch/v0/getuploadurl:
     description: |+
       Get the pre-signed url to upload the file.
     post:
       tags:
-        - v0.1.2
+        - v0.2.0
       responses:
         '200':
           description: Ok
@@ -53,8 +53,7 @@ paths:
                     x-goog-algorithm: GOOG4-RSA-SHA256
                     x-goog-credential: sentient-bigquery@sentient-231509.iam.gserviceaccount.com/20220224/auto/storage/goog4_request
                     x-goog-date: 20220224T062321Z
-                    x-goog-meta-additional_param: '{"inverse_text_normalization": false, "punctuation_prediction":
-                      false}'
+                    x-goog-meta-additional_param: '{"inverse_text_normalization": false, "punctuation_prediction": false, "output_type": simplified}'
                     x-goog-meta-oid: '309'
                     x-goog-meta-uid: '495'
                     x-goog-meta-uploader: 95969a80c9a448ff8980e78d9cc8acc9
@@ -319,7 +318,7 @@ components:
               description: Google algorithm 
             url:
               type: string
-              example: https://storage.googleapis.com/lp_user_space_prod/
+              example: https://storage.googleapis.com/user_space_dev/
               description: Google algorithm 
         status:
           type: string
@@ -409,6 +408,14 @@ components:
     versions:
       type: object
       properties: 
+        v0.2.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Oct 13, 2022
+              x-details: Output Parameters Aligned 
+              description: Latest Version
         v0.1.2:
          type: array
          items:
@@ -416,7 +423,7 @@ components:
             - type: string
               example: Published Date - Jul 08, 2022
               x-details: Output Parameters Aligned 
-              description: Latest Version      
+              description: Archived 
         v0.1.1:
          type: array
          items:
@@ -482,7 +489,18 @@ components:
               default: false
               example: false
               description: 
-                Specifies whether to return the information about words. Default value false.                
+                Specifies whether to return the information about words. Default value false.
+            output_type:
+              type: string
+              default: false
+              example: simplified
+              description:
+                Specifies the output type of the transcript. There are four different values, they are,</br>
+                  - simplified</br>
+                  - traditional</br>
+                  - pinyin_tone_marks</br>
+                  - pinyin_numerals</br>
+                Default Value - simplified
     uploadinput:
       type: object
       required:
@@ -527,7 +545,7 @@ components:
         x-goog-meta-additional_param:
           type: string
           default: false
-          example: "{\"inverse_text_normalization\": false, \"punctuation_prediction\": false}"
+          example: "{\"inverse_text_normalization\": false, \"punctuation_prediction\": false, \"output_type\": \"simplified\"}"
           description: Fields
         x-goog-meta-oid:
           type: string
