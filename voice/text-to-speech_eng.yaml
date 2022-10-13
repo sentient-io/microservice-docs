@@ -13,11 +13,11 @@ info:
   x-additionalinfo : |+
     Users can now define custom phonetic pronunciations using ARPABET notation enclosed within curly brackets { }. For example, note the difference in how “tomatoes” is pronounced using the following 2 inputs:</br></br>
     
-    plain text: I like to eat tomatoes\n
+    plain text: I like to eat tomatoes
     text with ARPABET: I like to eat {T AH0 M AE1 T OW0 Z}</br></br>
     
     See https://en.wikipedia.org/wiki/ARPABET for full list of ARPABET notation.  
-  version: 1.4.0
+  version: 1.5.0
   x-subscribelink: text-to-speech_eng
   x-apitype: small file
   x-apitypedescription: |+
@@ -35,13 +35,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io' 
 tags:
-- name: "v1.4.0"
-  description: "Published Date - Sep 21, 2022"
+- name: "1.5.0"
+  description: "Published Date - Oct 13, 2022"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
-        - v1.4.0
+        - v1.5.0
       responses:
         '200':
           description: success response
@@ -137,10 +137,6 @@ components:
               example: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
               type: string
               format: byte
-            normalisedtext:
-              description: Normalised text
-              example: I want a credit card.
-              type: string
 
         message:
           type: string
@@ -235,12 +231,22 @@ components:
     versions:
       type: object
       properties:
+        v1.5.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Oct 13, 2022'
+                description: |+
+                  New Features:
+                    - "Generic" model upgraded to more natural sounding "female_american" model
+                x-details: New Features      
         v1.4.0:
           type: array
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Sep 21,2022'
+                example: 'Published Date - Sep 21, 2022'
                 description: |+
                   New Features:
                     - Improved pronunciation for abbreviations, units, measurements and currency
@@ -257,7 +263,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Feb 18,2022'
+                example: 'Published Date - Feb 18, 2022'
                 description: |+
                   New Features:
                     - Added SSML support for more precise phonetic level pronunciations in the ARPABET notation
@@ -268,7 +274,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Dec 25,2021'
+                example: 'Published Date - Dec 25, 2021'
                 description: |+
                   Optimizations:
                     - Further improvements to the speech waveform resulting in improvements in synthesis quality
@@ -279,7 +285,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Nov 09,2021'
+                example: 'Published Date - Nov 09, 2021'
                 description: |+
                   Optimizations:
                     - Improve synthesis quality
@@ -294,7 +300,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Oct 13,2021'
+                example: 'Published Date - Oct 13, 2021'
                 description: |+
                   Bug fixes - Reduce missing words occurences
                 x-details: Bug fixes
@@ -303,7 +309,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Jun 7,2021'
+                example: 'Published Date - Jun 7, 2021'
                 description: Stable release. Added the "female_singaporean" model with pitch and speed control.
                 x-details: Stable release
         v0.1.0:
@@ -311,7 +317,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Sep 28,2018'
+                example: 'Published Date - Sep 28, 2018'
                 x-details: Initial version release
                 description: Depreciated - Initial release
     input:
@@ -337,7 +343,7 @@ components:
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
             The default model is female_singaporean
-            1. female_generic
+            1. female_american
             2. female_singaporean
         pitch_scale:
           x-name: pitch_scale
@@ -357,13 +363,6 @@ components:
           description: |+
             The speed factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1. 
             **used only for the female_singaporean model.
-        show_normalized_output:
-          x-name: show_normalized_output
-          type: boolean
-          default: False
-          example: False
-          description: |+
-            Normalised text
         text_normalization:
           x-name: text_normalization
           type: array
