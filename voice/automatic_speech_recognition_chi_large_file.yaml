@@ -61,7 +61,7 @@ paths:
                     x-goog-signature: 0c6a91c113411ab8216727721f2add220b2daeeb6a284954ec2b0de1d76529ce8da90c41366f0fcd8de37cf819c2ed3878b9985f705690d1689d1fb6f37be63b4329b38a3f96e1bce9a6580b45f7522e31274b5eb0ca23a23c9267a02536deb7c0a4779e8e7268be42cf9a8863c1dc2ce3dbb14c6d83cfde0333e8729cc7507edd8537931145fbcbec74561001e1b7068b104abcdfe4c9b1b213f52f542bc16e6570574d5097624d3ca949ec5df4af6e35cee02cf2df773cdae3656e1873544036b00e35813ebeaa5a6367e73356745c06165b09a730e2490555ec7c8f0153792d20e6cc4add87fbd521577f630d2b151661bd93b52cabe9331ab40942b8b976
                   jid: 5292a71b45184424826c9089c103fb78
                   request_cost: 1.2675
-                  url: https://storage.googleapis.com/user_space_dev/
+                  url: https://storage.googleapis.com/lp_user_space_prod/
                 status: Success
         '401':
           description: Unauthorized
@@ -130,7 +130,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/user_space_dev/'
+        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
