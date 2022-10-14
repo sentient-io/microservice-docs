@@ -64,6 +64,73 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Apr 20, 2022"
 paths:
+  /microservices/analytics/ciprofile/v0/addsite:
+    description: |+
+        This API is used to create site and get tracking script
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successsite'
+              example:
+                results: <!-- Sentient --><script>  var _paq = window._paq = window._paq || [];  /* tracker methods like 'setCustomDimension' should be called before 'trackPageView' */  _paq.push(['trackPageView']);  _paq.push(['enableLinkTracking']);  (function() {    var u='//analytics.sentient.io/';    _paq.push(['setTrackerUrl', u+'matomo.php']);    _paq.push(['setSiteId', 'x']);    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);  })();</script><!-- End Sentient Code -->
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/siteinput'
+        required: true
   /microservices/analytics/ciprofile/v0/getinterestprofile:
     description: |+
         This API is used to get interest profile of the unique user to the website.
@@ -1163,6 +1230,21 @@ paths:
         required: true
 components:
   schemas:
+    successsite:
+      type: object
+      properties:
+        results:
+          type: string
+          example: <!-- Sentient --><script>  var _paq = window._paq = window._paq || [];  /* tracker methods like 'setCustomDimension' should be called before 'trackPageView' */  _paq.push(['trackPageView']);  _paq.push(['enableLinkTracking']);  (function() {    var u='//analytics.sentient.io/';    _paq.push(['setTrackerUrl', u+'matomo.php']);    _paq.push(['setSiteId', 'Site Id']);    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);  })();</script><!-- End Sentient Code -->
+          description: Tracking script
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
     successcontentprofile:
       type: object
       properties:
@@ -1917,6 +1999,30 @@ components:
               -- lastX for the last X periods including today
               -- previousX returns the last X periods before today
               -- YYYY-MM-DD,YYYY-MM-DD for every period
+    siteinput:
+      type: object
+      required:
+        - site_name
+        - site_url
+      properties:
+        site_name:
+          type: string
+          default: true
+          example: Your site name
+          description: |+
+            The name of the website for tracking.
+        site_url:
+          type: string
+          default: true
+          example: Your site url
+          description: |+
+            The Domain URL of the website for tracking.
+        time_zone:
+          type: string
+          default: false
+          example: Asia\/Singapore
+          description: |+
+            Optional. Timezone for the websites
     visitdetailsinput:
       type: object
       required:
