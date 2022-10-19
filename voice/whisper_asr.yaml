@@ -4,6 +4,7 @@ info:
   title: Whisper ASR
   description: |+
     It enables transcription in multiple languages, as well as translation from those languages into English.The model can automatically predict the input language though it can make mistakes sometime; otherwise the user can also specify the input language
+    The length of your audio **should not exceed 60 seconds**.
   x-additionalinfo : |+
     * **Supported Languages:**
     |      **Code**        |          **Name**          |
@@ -352,7 +353,7 @@ components:
         model_type:
           type: string
           default: false
-          example: simplified
+          example: medium
           description:
             Specifies the model type of the transcript. There are five different values, they are,</br>
               - tiny</br>
