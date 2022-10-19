@@ -6,7 +6,6 @@ info:
     It enables transcription in multiple languages, as well as translation from those languages into English.The model can automatically predict the input language though it can make mistakes sometime; otherwise the user can also specify the input language
     The length of your audio **should not exceed 60 seconds**.
   x-additionalinfo: |+
-    Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.</br></br>
     * **Supported Languages:**
     
     |                 **Code**                    |       **Name**       |
