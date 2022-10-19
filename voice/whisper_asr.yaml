@@ -108,7 +108,7 @@ info:
     |jw|javanese|
     |su|sundanese|
 
-  version: 1.4.0
+  version: 0.1.0
   x-subscribelink: speech_enhancement
   x-apitype: small file
   x-apitypedescription: |+
