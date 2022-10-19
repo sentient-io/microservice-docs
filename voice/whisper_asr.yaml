@@ -13,8 +13,8 @@ info:
     |:-------------------------------------------:|:--------------------:|
     |                    en                       |       english        |
     |                    zh                       |       english        |
-	  |                    en                       |       english        |
-    |                    zh                       |       english        |
+    |                    en1                      |       english        |
+    |                    zh1                      |       english        |
 
   version: 0.1.0
   x-subscribelink: speech_enhancement
