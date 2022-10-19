@@ -360,7 +360,13 @@ components:
               - small</br>
               - medium</br>
               - large</br>
-            Default Value - medium            
+            Default Value - medium 
+        language:
+          type: string
+          default: true
+          example: en
+          description: |+
+            The model can automatically predict the input language though it can make mistakes sometime; otherwise the user can also specify the input language, e.g. 'en' for English         
   securitySchemes:
     APIAuthorizer:
       type: apiKey
