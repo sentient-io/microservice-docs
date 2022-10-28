@@ -210,10 +210,6 @@ computer vision:
     title: Face Recognition
     versions:
       1.0.1: 'face_recognition.yaml'
-  few_shots_object_detection:
-    title: Few Shots Object Detection
-    versions:
-      v0.1.1: few_shots_object_detection.yaml
   masked_face_recognition:
     title: Masked Face Recognition
     versions:
@@ -222,11 +218,11 @@ computer vision:
     title: People Counting
     versions:
       1.0.1: 'people_counting.yaml'
-      0.1.0: 'people_counting_v0.1.yaml' 
+      0.1.0: 'people_counting_v0.1.yaml'
   people_counting_large_file:
     title: People Counting (Large File)
     versions:
-      0.1.0: 'people_counting_large_file.yaml'      
+      0.1.0: 'people_counting_large_file.yaml'
   person_reidentification:
     title: Person Reidentification
     versions:
@@ -345,7 +341,7 @@ utility:
   base64_file_decode:
     title: Base64 Decoder
     versions:
-      1.0.0: 'base64_file_decode.yaml'    
+      1.0.0: 'base64_file_decode.yaml'
   get_ip:
     title: Get IP
     versions:
@@ -353,7 +349,7 @@ utility:
   date_resolution:
     title: Date Resolution
     versions:
-      0.3.0: 'date_resolution.yaml'       
+      0.3.0: 'date_resolution.yaml'
 data:
   commercial_directories_hdb_sg:
     title: HDB Commercial Directories (SG)
