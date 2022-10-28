@@ -198,6 +198,10 @@ computer vision:
     title: Image Text Similarity
     versions:
       0.1.0: 'image_text_similarity.yaml'
+  defect_detection:
+    title: "Building Defect detection model"
+    versions:
+      0.1.0: 'defect_detection.yaml'
   paddleocr:
     title: Image Text Detection and Recognition in Wild
     versions:
