@@ -194,6 +194,10 @@ nlp:
     versions:
       0.1.0: 'machine_translation.yaml'
 computer vision:
+  defect_detection:
+    title: Building Defect Detection
+    versions:
+      0.1.0: 'defect_detection.yaml'
   image_text_similarity:
     title: Image Text Similarity
     versions:
@@ -210,6 +214,10 @@ computer vision:
     title: Face Recognition
     versions:
       1.0.1: 'face_recognition.yaml'
+  few_shots_object_detection:
+    title: Few Shots Object Detection
+    versions:
+      v0.1.1: few_shots_object_detection.yaml
   masked_face_recognition:
     title: Masked Face Recognition
     versions:
