@@ -7,7 +7,7 @@ info:
     It identifies the defect category along with the confidence score.</br>
     The size of your image file **should not exceed 5 MB**
   version: v0.1.0
-  x-subscribelink: defect
+  x-subscribelink: defect_detection
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 5 MB/Call
