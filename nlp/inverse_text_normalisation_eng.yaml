@@ -312,6 +312,13 @@ components:
           example: ["FY", "FYI"]
           description: |+
             Optional. Default = []. Convert strings in list to ALL CAPs. E.g. ['FY', 'FYI']
+        remove_punctuation:
+          x-name: remove_punctuation
+          type: string
+          default: False
+          example: ",]"
+          description: |+
+            Optional. Default = ''. To remove specific punctuations.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
