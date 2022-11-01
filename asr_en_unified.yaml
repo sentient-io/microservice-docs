@@ -1,0 +1,268 @@
+openapi: 3.0.1
+info:
+  title: ASR EN Unified
+  description: |+
+    This Voice microservice takes in an audio file (in WAV format at 16kHz) and transcribes English speech content within the input file into text.</br>
+    This microservice can be effective for audio files with mixed English accents, as well as audio files that are noisy.</br>
+    Do ensure that your audio file length is less than 15 seconds.
+  version: '1.0.0'
+  x-apitype: small file
+  x-subscribelink: asr_en_unified
+  x-apitypedescription: |+
+    Fast | Single-Call | 15 sec/Call
+  x-inputfilelimit: |+
+    Process up to  15 seconds of audio file.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed  15 seconds.
+  x-apidetailsdesc: |+
+    Transcribes Singaporean-accented English speech content for audio file (in WAV format at 16kHz).
+servers:
+  - url: 'https://apis.sentient.io'
+tags:
+- name: "v1.0.0"
+  description: "Published Date - Sep 20, 2022"
+paths:
+  /microservices/voice/asrenunified/v1/get_transcript:
+    post:
+      tags:
+        - v1.0.0
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                status: Success
+                message: Successfully Processed
+                results:
+                  transcript: 'i want to apply for a credit farslidy to service my hish d v long '
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+              transcript:
+                x-name: transcript
+                type: string
+                example: i want to apply for a credit faclity
+                description: Converted Text
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure                
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    input:
+      type: object
+      required:
+        - wav_base64   
+        - model
+      properties:
+        wav_base64:
+          x-name: wav_base64
+          type: string
+          format: byte
+          default: true
+          example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+          description: 
+            Input audio wav file in base64 format.
+        model:
+          x-name: model
+          type: string
+          default: True
+          example: generic
+          description: |+
+            Model selection. For best performance, select the model which best matches the use-case:
+            1. generic - for non-accent specific speech (default)
+            2. en-SG - for Singaporean-accented English speech
+    versions:
+      type: object
+      properties: 
+        v1.0.0:
+          type: array
+          items:
+           oneOf:
+             - type: string
+               example: Published Date - Sep 20, 2022
+               x-details: Major release
+               description: Input Parameter Changed to wav_base64 String 
+        v0.2.0:
+          type: array
+          items:
+           oneOf:
+             - type: string
+               example: Published Date - Aug 04, 2022
+               x-details: Minor release
+               description: Patch fixes to generic and new model addition - sg-unified
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jun 01, 2022
+              x-details: Initial version release
+              description: Archived
+         
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
