@@ -79,7 +79,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/successsite'
               example:
-                results: <!-- Sentient --><script>  var _paq = window._paq = window._paq || [];  /* tracker methods like 'setCustomDimension' should be called before 'trackPageView' */  _paq.push(['trackPageView']);  _paq.push(['enableLinkTracking']);  (function() {    var u='//analytics.sentient.io/';    _paq.push(['setTrackerUrl', u+'matomo.php']);    _paq.push(['setSiteId', 'x']);    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);  })();</script><!-- End Sentient Code -->
+                results: <!-- Sentient --><script>  var _paq = window._paq = window._paq || [];  /* tracker methods like 'setCustomDimension' should be called before 'trackPageView' */  _paq.push(['trackPageView']);  _paq.push(['enableLinkTracking']);  (function() {    var u='//analytics.sentient.io/';    _paq.push(['setTrackerUrl', u+'sentientanalytics.php']);    _paq.push(['setSiteId', 'Your Site ID']);    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];    g.async=true; g.src=u+'sentientanalytics.js'; s.parentNode.insertBefore(g,s);  })();</script><!-- End Sentient Code -->
                 message: Successfully Processed
                 status: Success
         '401':
@@ -1236,7 +1236,7 @@ components:
       properties:
         results:
           type: string
-          example: <!-- Sentient --><script>  var _paq = window._paq = window._paq || [];  /* tracker methods like 'setCustomDimension' should be called before 'trackPageView' */  _paq.push(['trackPageView']);  _paq.push(['enableLinkTracking']);  (function() {    var u='//analytics.sentient.io/';    _paq.push(['setTrackerUrl', u+'matomo.php']);    _paq.push(['setSiteId', 'Site Id']);    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);  })();</script><!-- End Sentient Code -->
+          example: <!-- Sentient --><script>  var _paq = window._paq = window._paq || [];  /* tracker methods like 'setCustomDimension' should be called before 'trackPageView' */  _paq.push(['trackPageView']);  _paq.push(['enableLinkTracking']);  (function() {    var u='//analytics.sentient.io/';    _paq.push(['setTrackerUrl', u+'sentientanalytics.php']);    _paq.push(['setSiteId', 'Your Site ID']);    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];    g.async=true; g.src=u+'sentientanalytics.js'; s.parentNode.insertBefore(g,s);  })();</script><!-- End Sentient Code -->
           description: Tracking script
         message:
           type: string
