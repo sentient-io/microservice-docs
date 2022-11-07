@@ -12,19 +12,19 @@
       - Gain insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.</br>
       - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
     version: '2.1.1'
-  x-apitype: small file
-  x-apitypedescription: |+
-    Fast | Single-Call | One URL /Call
-  x-inputfilelimit: |+
-    Process One URL per API call.
-  x-responsetime: |+
-    Response rate is fast due to small data transfer per call made.
-  x-billingmethod: |+
-    The API is billed by per request.
-  x-notes: |+
-    API allows to retrieve from One URL per request.
-  x-apidetailsdesc: |+
-    Retrieves web content in English from the input URL.
+    x-apitype: small file
+    x-apitypedescription: |+
+      Fast | Single-Call | One URL /Call
+    x-inputfilelimit: |+
+      Process One URL per API call.
+    x-responsetime: |+
+      Response rate is fast due to small data transfer per call made.
+    x-billingmethod: |+
+      The API is billed by per request.
+    x-notes: |+
+      API allows to retrieve from One URL per request.
+    x-apidetailsdesc: |+
+      Retrieves web content in English from the input URL.
   servers:
     - url: 'https://apis.sentient.io'
   tags:
