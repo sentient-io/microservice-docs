@@ -7,7 +7,7 @@ info:
       This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.</br>
 
       The input text **should not exceed 5000 characters**.
-  version: '2.0.0'
+  version: '3.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Extracting structured pre-defined information from text.</br></br>
