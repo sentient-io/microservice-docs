@@ -11,18 +11,18 @@
     version: '1.1.0'
     x-subscribelink: page_profiler_thai
     x-apitype: small file
-  x-apitypedescription: |+
-    Fast | Single-Call | One URL /Call
-  x-inputfilelimit: |+
-    Process One URL per API call.
-  x-responsetime: |+
-    Response rate is fast due to small data transfer per call made.
-  x-billingmethod: |+
-    The API is billed by per request.
-  x-notes: |+
-    API allows to retrieve from One URL per request.
-  x-apidetailsdesc: |+
-    Retrieves web content in Thai from the input URL.
+    x-apitypedescription: |+
+      Fast | Single-Call | One URL /Call
+    x-inputfilelimit: |+
+      Process One URL per API call.
+    x-responsetime: |+
+      Response rate is fast due to small data transfer per call made.
+    x-billingmethod: |+
+      The API is billed by per request.
+    x-notes: |+
+      API allows to retrieve from One URL per request.
+    x-apidetailsdesc: |+
+      Retrieves web content in Thai from the input URL.
   servers:
     - url: 'https://apis.sentient.io'
   tags:
