@@ -116,7 +116,8 @@ nlp:
   named-entity_recognition_eng:
     title: Named-Entity Recognition ENG
     versions:
-      2.0.0: 'named-entity_recognition_eng.yaml'
+      3.0.0: 'named-entity_recognition_eng.yaml'
+      2.0.0: 'named-entity_recognition_eng_v2.0.yaml'
       1.0.0: 'named-entity_recognition_eng_v1.0.yaml'
   sentence_paraphrase:
     title: Sentence Paraphrase
