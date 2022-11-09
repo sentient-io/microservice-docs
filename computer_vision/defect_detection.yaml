@@ -3,13 +3,10 @@ openapi: 3.0.1
 info:
   title: Building Defect detection model
   description: |+
-    This computer vision microservice detects defects in buildings.
-    It identifies the defect category along with the confidence score.
-    The model is trained a dataset of concrete images of a campus building which contained
-    cracks. Our model on testing in a holdout validation dataset gave an accuracy of 99.9%.
+    This computer vision microservice detects defects in buildings.It identifies the defect category along with the confidence score. The model is trained a dataset of concrete images of a campus building which contained cracks. Our model on testing in a holdout validation dataset gave an accuracy of 99.9%.
     </br>
     The size of your image file **should not exceed 5 MB**. Minimum image resolution for
-    perfect building defect detection model is 128X128 pixels.
+    perfect building defect detection model is **128X128 pixels**.
   version: v0.1.0
   x-subscribelink: defect_detection
   x-apitype: small file
