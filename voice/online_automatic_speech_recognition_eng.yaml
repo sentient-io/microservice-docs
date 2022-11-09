@@ -5,7 +5,7 @@ info:
   title: Online Automatic Speech Recognition ENG
   description: >-
     This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
-  version: '0.1.1'
+  version: '0.1.2'
   x-apitypedescription: |+
     Fast | Single-Call | 60 mins/socket
   x-inputfilelimit: |+
@@ -22,7 +22,7 @@ servers:
   - url: 'wss://onlineasr.sentient.io'
 # tags must include in to the documentation, to read the description text for published date
 tags:
-- name: "v0.1.1"
+- name: "v0.1.2"
   description: "Published Date - Apr 7, 2021"
 html: |+
      <div id="iframe-container">
@@ -33,7 +33,7 @@ paths:
   /:
     post:
       tags:
-        - v0.1.1
+        - v0.1.2
 components:
   schemas:
     versions:
@@ -44,6 +44,6 @@ components:
           items:
             oneOf:
             - type: string
-              example: Published Date - Apr 7, 2021
+              example: Published Date - Nov 09, 2022
               x-details: Initial version release
               description: Latest Version
