@@ -9,7 +9,7 @@ info:
     cracks. Our model on testing in a holdout validation dataset gave an accuracy of 99.9%.
     </br>
     The size of your image file **should not exceed 5 MB**. Minimum image resolution for
-    the building defect detection model to work is 128X128 pixels.
+    perfect building defect detection model is 128X128 pixels.
   version: v0.1.0
   x-subscribelink: defect_detection
   x-apitype: small file
