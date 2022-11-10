@@ -23,7 +23,7 @@ servers:
 # tags must include in to the documentation, to read the description text for published date
 tags:
 - name: "v0.1.2"
-  description: "Published Date - Apr 7, 2021"
+  description: "Published Date - Nov 10, 2022"
 html: |+
      <div id="iframe-container">
      <iframe src="https://docs.sentient.io/static/online_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
