@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: Building Defect detection model
+  title: Building Defect Detection
   description: |+
     This computer vision microservice detects defects in buildings. It identifies the defect category along with the confidence score. The model is trained a dataset of concrete images of a campus building which contained cracks. Our model on testing in a holdout validation dataset gave an accuracy of 99.9%.
     </br>
