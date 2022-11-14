@@ -11,7 +11,7 @@ info:
     Suggested Use Cases:
       - Supports the following audio coding formats: WAV files and 16-bit mono.</br></br>
       - Supports the following audio sampling rates: 16,000 Hz.</br></br> 
-  version: 1.4.0
+  version: 0.1.0
   x-subscribelink: speech_enhancement
   x-apitype: small file
   x-apitypedescription: |+
