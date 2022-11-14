@@ -233,7 +233,7 @@ components:
             - type: string
               example: Published Date - Jul 13, 2022
               x-details: Archived
-              description: Old Version
+              description: Deprecated
         v1.0.0:
          type: array
          items:
@@ -241,7 +241,7 @@ components:
             - type: string
               example: Published Date - Jul 30, 2020
               x-details: Archived
-              description: Old Version
+              description: Deprecated
     input:
       type: object
       required:
