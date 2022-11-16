@@ -11,7 +11,7 @@ info:
     Suggested Use Cases:
     - Used for pre/post processing of documents so that the output can paired with another microservice to address a specific solution. For example, text extracted from the PDF document can be used with a Voice microservice such as Text-to-Speech.</br>
     - Can be used for solutions related to processing workflows that are document-heavy so that the user can focus on the more value-added decisions. Documents in a variety of formats can be taken in to return cleanly structured data. Examples included mortgage processing, procurement data etc.
-  version: '1.0.0'
+  version: '2.0.0'
   x-subscribelink: pdf_extractor
   x-apitype: small file
   x-apitypedescription: |+
