@@ -1,32 +1,25 @@
 openapi: 3.0.1
 info:
-  title: LTA Traffic Incidents
-  x-subscribelink: lta_traffic_incidents
+  title: LTA Passenger Volume by Bus Stops
+  x-subscribelink: lta_pv_bus
   description: |+
-    This Data microservice returns real time incidents on the roads, such as Accidents, Vehicle Breakdowns, Road Blocks, Traffic Diversions etc. Updates every 2 minutes or whenever there is new data.
-    This microservice contains information from LTA Datamall's Traffic Incidence dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+      Returns tap in and tap out passenger volume by weekdays and weekends for individual bus stop.
+      This microservice contains information from LTA Datamall's VBS dataset which is made available under the terms of the 
+      [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+      By 15th of every month, the passenger volume for previous month data will be generated. If current date is below 15 default return 
+      should be 2nd month data from current month, if date is after 15 return should be the last month data.
   x-additionalinfo : |+
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"type":"Roadwork"}}     
+      > {"match_phrase":{"day_type":"WEEKDAY"}}     
     * **match** - Search within a full text field for a single word
-      > {"match":{"type":"Roadwork"}}
+      > {"match":{"day_type":"WEEKDAY"}}
     * **range** - Returns results that contain terms within a stipulated range
-      > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
-      > {"range":{"lastupdated":{"lte":"now/d"}}}
-      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
-    * **geo_distance** - Returns the geo search based on the distance and location lat/long
-      > {"geo_distance": {"distance": "1km","location": "1.3265,103.9730"}}
+      > {"range": {"year_month": {"gte": "2021-09", "lte": "2021-10"}}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"field":"message"}}
-    * **bool** - Returns results that must or must_not match with word
-      > {"bool":{"must_not":[{"match":{"type":"Roadwork"}}]}}
-      > {"bool":{"must":[{"match":{"type":"Roadwork"}}]}}
-      > {"bool":{"should":[{"match":{"type":"Roadwork"}},{"match":{"type":"Vehicle Breakdown"}}]}}
+      > {"exists":{"field":"day_type"}}
       
-    **Aggregations Request Data:**
-      > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"type":"Roadwork"}}]}
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
@@ -40,14 +33,14 @@ info:
   x-notes: |+
     Process up to 10,000 records.
   x-apidetailsdesc: |+
-    Provides real time incidents on the roads.
+    Provides tap in and tap out passenger volume by weekdays and weekends for individual bus stop.
 servers:
-  - url: 'http://168.177.101.38:30015'
+        - url: 'http://168.177.101.38:30015'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Feb 01, 2022"
+  description: "Published Date - Nov 22, 2021"
 paths:
-   /microservices/data/ltatrafficincidents/v0/getdata:
+  /microservices/data/ltapvbus/v0/getdata:
     post:
       tags:
         - v0.1.0
@@ -61,29 +54,27 @@ paths:
               example:
                 message: Successfully Processed
                 results:
-                  aggregations:
-                    hourly_aggs:
-                      buckets:
-                        - doc_count: 2
-                          key: 1633932000000
-                          key_as_string: 2021-10-11 06                
                   hits:
-                  - _id: '2671616'
-                    _index: lta_traffic_incidents
-                    _score: 0
+                  - _id: 8411920211014weekday
+                    _index: lta_vbs
+                    _score:
                     _source:
-                      lastupdated: '2021-07-26T08:18:47.527Z'
-                      location:
-                        lat: 1.304494270104473
-                        lon: 103.82327651224641
-                      message: "(12/10)12:15 Roadworks on Commonwealth Avenue (towards City) after Commonwealth Drive. Avoid left lane."
-                      messagedate: "2021-10-12T12:15:00.000Z"
+                      day_type: WEEKDAY
+                      lastupdated: '2021-11-22T11:06:19.492Z'
+                      pt_code: '84119'
+                      pt_type: BUS
                       source: lta
-                      type: Roadwork
-                    _type: dir_doc
-                  max_score: 0
-                  total: 114
+                      time_per_hour: '14'
+                      total_tap_in_volume: '2918'
+                      total_tap_out_volume: '1233'
+                      year_month: 2021-10
+                    _type: _doc
+                    sort:
+                    - 1637579179492
+                  max_score:
+                  total: 1
                 status: Success
+
         '401':
           description: Unauthorized
           content:
@@ -172,37 +163,6 @@ components:
               type: number
               example: 0
               description: The highest score value
-            aggregations:
-              type: array
-              example: [{<JSON result Object}]
-              description: The list of aggregation Json result object
-              items:
-                type: object
-                properties:        
-                  hourly_aggs: 
-                    type: object
-                    example: {<Json Object>}
-                    description: Json Object of returned hits
-                    properties:
-                      buckets:
-                        type: array
-                        example: [{<JSON result Object}]
-                        description: The list of Json result object
-                        items:  
-                          type: object
-                          properties:
-                            doc_count:
-                              type: number
-                              description: Docs Count
-                              example: 2
-                            key:
-                              type: number
-                              description: Key id
-                              example: 1633932000000
-                            key_as_string:
-                              type: string
-                              description: Date of query result
-                              example: 2021-10-11 06                              
             hits:
               type: array
               example: [{<JSON result Object}]
@@ -213,15 +173,15 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "lta_traffic_incidents"
+                    example: "lta_vbs"
                   _type: 
                     type: string
                     description: Content type of the document
-                    example: "dir_doc"
+                    example: "_doc"
                   _id: 
                     type: string
-                    description: Document ID
-                    example: "1709"
+                    description: The bus stop code (pt_code), year month and day type
+                    example: "8411920211014weekday"
                   _score: 
                     type: number
                     description: The document score for the search request
@@ -231,47 +191,39 @@ components:
                     example: {<Json Object>}
                     description: Json Object of returned hits
                     properties:
-                      type:
+                      year_month:
                         type: string
-                        example: Road Works
-                        description: |+
-                                  Incident Types - 
-                                  • Accident
-                                  • Road Works
-                                  • Vehicle Breakdown
-                                  • Weather
-                                  • Obstacle
-                                  • Road Block
-                                  • Heavy Traffic
-                                  • Misc.
-                                  • Diversion
-                                  • Unattended Vehicle                
-                      message:
+                        description: Record month and year
+                        example: 2021-11
+                      day_type:
                         type: string
-                        example: (12/10)12:15 Roadworks on Commonwealth Avenue (towards City) after Commonwealth Drive. Avoid left lane."
-                        description: Description message for this incident   
-                      messagedate:
-                        type: string
-                        example: 2021-10-12T12:15:00.000Z
-                        description: Date separated from message info.                        
-                      location:
-                        type: object
-                        properties:
-                          lat:
-                            type: string
-                            example: 1.31384231654635
-                            description: Latitude map coordinates for the start point of this road incident                           
-                          lon:
-                            type: string
-                            example: 103.845603032574
-                            description: Longitude map coordinates for the start point of this incident
-                        example: {<Json Object>}
-                        description: Latitude and Longitude map
-                                      coordinates.
+                        description: Should be 
+                          - WEEKDAY
+                          - WEEKENDS/HOLIDAY
+                        example: WEEKDAY
                       lastupdated:
                         type: string
                         description: Record last updated date on sentient
-                        example: "2021-07-26T04:24:16.409Z"           
+                        example: "2021-11-22T11:06:19.492Z"           
+                      pt_code:
+                        type: integer
+                        description: The bus stop code
+                        example: 84119
+                      pt_type:
+                        type: string
+                        description: Type of vehicle
+                        example: "BUS"
+                      time_per_hour:
+                        type: integer
+                        description: At what time it stops at the bus stop, takes only hour
+                        example: 13
+                      total_tap_in_volume:
+                        type : integer
+                        description: At a bus stop how many people are entering
+                        example: 2918
+                      total_tap_out_volume:
+                        type: integer
+                        description: Same bus stop how many people are leaving
                       source: 
                         type: string
                         description: Dataset source
@@ -365,7 +317,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Feb 01, 2022
+              example: Published Date - Nov 22, 2021
               x-details: Initial version release
               description: Latest Version
     input:
@@ -381,23 +333,17 @@ components:
           default: false
           example: 0
           description: The offset of the record list ie the starting index 
-        aggregation:
-          type: boolean
-          default: false
-          example: false
-          description: It returns the hourly aggregation of no of incidents. Input should be true/false, default is false.
         filter:
           type: array
           default: false
           items:
               type: object
-          example: [{"match" :{"type":"Roadwork"}}, {"range":{"lastupdated":{"lte":"now/d"}}}]
+          example: [{"match" :{"day_type":"WEEKDAY"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
             * match_phrase
             * range
-            * geo_distance
             * exists
   securitySchemes:
     APIAuthorizer:

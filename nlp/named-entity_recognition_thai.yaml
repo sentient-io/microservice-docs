@@ -2,11 +2,11 @@ openapi: 3.0.1
 info:
   title: Named-Entity Recognition THAI
   description: |+
-    This NLP microservice locates and classifies the named-entities classes from input unstructured Thai text.
+    This NLP microservice locates and classifies the named-entities classes from input unstructured Thai text and also returns the entity start and end positions..
 
-    The named-entity classes extracted are persons, locations, organisations and miscellaneous.
+    The named-entity classes extracted are people's names, locations, organisations and miscellaneous.
 
-    This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.
+    This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.
     
     Do ensure that your text is **within 5000 characters**.
   version: '1.0.0'
@@ -14,15 +14,28 @@ info:
     Suggested Use Cases:
     - Extract structured pre-defined information from text.
 
-    - Insights from online customers - extract structured information from unstructured text data such as chatlogs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
+    - Insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.
 
     - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.
   x-subscribelink: named-entity_recognition_thai
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Locates and Classifies named-entities classes from unstructured Thai text.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Sep 30, 2020"
+  description: "Published Date - Apr 21, 2022"
 paths:
   /microservices/nlp/thainer/v1/getpredictions:
     post:
@@ -39,22 +52,54 @@ paths:
                 message: Successfully Processed
                 results:
                   law:
-                  - รัฐธรรมนูญ
+                  - entity: รัฐธรรมนูญ
+                    start: 751
+                    end: 760
                   location:
-                  - ประเทศไทย
-                  - มาเลเซีย
-                  - ทะเลอันดามัน
-                  - กรุงเทพมหานคร
-                  - อินโดนีเซีย
-                  - ราชอาณาจักรไทย
-                  - อินเดียทางทะเลอันดามันทางตะวันตกเฉียงใต้
-                  - ลาวทางทิศตะวันออกติดกับลาว
-                  - เอเชียตะวันออกเฉียงใต้
-                  - เวียดนาม
-                  - ประเทศพม่า
-                  - กัมพูชาทางทิศใต้ติดกับอ่าวไทย
+                  - entity: ราชอาณาจักรไทย
+                    start: 14
+                    end: 27
+                  - entity: กัมพูชาทางทิศใต้ติดกับอ่าวไทย
+                    start: 518
+                    end: 546
+                  - entity: อินเดียทางทะเลอันดามันทางตะวันตกเฉียงใต้
+                    start: 692
+                    end: 731
+                  - entity: ประเทศพม่า
+                    start: 607
+                    end: 616
+                  - entity: เวียดนาม
+                    start: 639
+                    end: 646
+                  - entity: ลาวทางทิศตะวันออกติดกับลาว
+                    start: 489
+                    end: 514
+                  - entity: ประเทศไทย
+                    start: 0
+                    end: 8
+                  - entity: ทะเลอันดามัน
+                    start: 580
+                    end: 591
+                  - entity: เอเชียตะวันออกเฉียงใต้
+                    start: 80
+                    end: 101
+                  - entity: กรุงเทพมหานคร
+                    start: 404
+                    end: 416
+                  - entity: มาเลเซีย
+                    start: 550
+                    end: 557
+                  - entity: อินโดนีเซีย
+                    start: 678
+                    end: 688
                   organization:
-                  - รัฐสภา
+                  - entity: รัฐสภา
+                    start: 778
+                    end: 783
+                  person:
+                  - entity: เผด็จการทหารย
+                    start: 892
+                    end: 904
                 status: Success
         '401':
           description: Unauthorized
@@ -131,76 +176,63 @@ components:
             law:
               x-name: law
               type: array
-              example: [พ.ร.บ.โรคระบาด พ.ศ.2499, รัฐธรรมนูญ]
+              example: [{"entity":พ.ร.บ.โรคระบาด พ.ศ.2499,"start":89,"end":96}]
               description: "law details found in the text string"                     
             location:
               x-name: location
               type: array
-              example: 
-                  - ประเทศไทย
-                  - มาเลเซีย
-                  - ทะเลอันดามัน
-                  - กรุงเทพมหานคร
-                  - อินโดนีเซีย
-                  - ราชอาณาจักรไทย
-                  - อินเดียทางทะเลอันดามันทางตะวันตกเฉียงใต้
-                  - ลาวทางทิศตะวันออกติดกับลาว
-                  - เอเชียตะวันออกเฉียงใต้
-                  - เวียดนาม
-                  - ประเทศพม่า
-                  - กัมพูชาทางทิศใต้ติดกับอ่าวไทย
+              example: [{"entity":ประเทศไทย,"start":0,"end":10},{"entity": มาเลเซีย, "start": 0, "end": 1}]
               description: "location found in the text string"                  
             organization:
               x-name: organization
               type: array
-              example: 
-                  - รัฐสภา
+              example: [{"entity" : รัฐสภา,"start":0, "end":12}]
               description: "organization found in the text string" 
             date:
               x-name: date
               type: array
-              example: [2/21/2004, 16 ก.พ., จันทร์]
+              example: [{"entity": 2/21/2004,"start":9,"end":15},{"entity": 16 ก.พ.,"start":6,"end":10},{"entity":จันทร์,"start":10,"end":14}]
               description: "date  found in the text string" 
             money:
               x-name: money
               type: array
-              example: [2.7 ล้านบาท, 2,000 บาท]
+              example: [{"entity":2.7 ล้านบาท,"start":90,"end":96}, {"entity":2,000 บาท,"start":45,"end":50}]
               description: "amount of currency found in the text string" 
             time:
               x-name: time
               type: array
-              example: [16.30 น., 5 วัน, 1-3 ปี]
+              example: [{"entity": 16.30 น.,"start":30,"end":35},{"entity": 5 วัน,"start":45,"end":47}]
               description: "time  found in the text string" 
             email:
               x-name: email
               type: array
-              example: [info@nrpsc.ac.th]
+              example: [{"entity":info@nrpsc.ac.th,"start":34,"end":38}]
               description: "email id  found in the text string" 
-            len:
-              x-name: len
+            measurement:
+              x-name: measurement
               type: array
-              example: [30 กิโลเมตร, 5 กม.]
-              description: "distance in km found in the text string" 
+              example: [{"entity":30 กิโลเมตร,"start":12,"end":18},{"entity":5 กม.,"start":1,"end":5}]
+              description: "measurement units found in the text string" 
             person:
               x-name: person
               type: array
-              example: [น.พ.จรัล, นางประนอม ทองจันทร์]
+              example: [{"entity":นางประนอม ทองจันทร์,"start":56,"end":58}]
               description: "name of person found in the text string" 
             phone:
               x-name: phone
               type: array
-              example: [0 2670 8888]
+              example: [{"entity":8888 กิโลเมตร,"start":12,"end":16}]
               description: "date  found in the text string" 
             url:
               x-name: url
               type: array
-              example: [http://www.bangkokhealth.com/]
+              example: [{"entity":http://www.bangkokhealth.com/,"start":10,"end":20}]
               description: "url in the text string" 
-            zip:
-              x-name: zip
+            postal_code:
+              x-name: postal_code
               type: array
-              example: [10400]
-              description: "zipcode  found in the text string" 
+              example: [{"entity":10400,"start":15,"end":20}]
+              description: "postalcode found in the text string" 
 
         message:
           type: string
@@ -294,20 +326,30 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Apr 21, 2022
+              x-details: Standardized all output parameters, added return entity positions  
+              description: Standardized all output parameters, added return entity positions 
         v1.0.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 30, 2020
-              description: Updated version release v1.0
+              x-details: Updated version release v1.0
+              description: Version 1 release
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Aug 28, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
     input:
       type: object
       required:
@@ -322,6 +364,14 @@ components:
             Input text.
             
             Supported formats: ASCII only
+
+        return_entity_position:
+          x-name: return_entity_position
+          type: boolean
+          default: false
+          example: true
+          description: |+
+            Boolean value indicating whether entity position needs to be returned or not. Default value is True.
   securitySchemes:
     APIAuthorizer:
       type: apiKey

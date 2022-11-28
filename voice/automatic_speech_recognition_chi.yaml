@@ -2,32 +2,38 @@ openapi: 3.0.1
 info:
   title: Automatic Speech Recognition CHI
   description: |+
-    This Voice microservice takes in the input audio file (in WAV format at 16kHz) and transcribes Mandarin speech content within the input file into text. This microservice works best when the audio file consists of mostly speech with no long pauses in between. 
-    
-    The length of your audio should be **up to 20 seconds**.
+    This Voice microservice takes in the input audio file  and supports recognizing a short speech that lasts within 1 minute. 
+    The server returns the recognition result in a JSON format as a response.
   x-additionalinfo: |+
     Suggested Use Cases:
-      - Extraction of text from Mandarin speech from audio files.
-
-      - Extraction of text from Mandarin speech from videos.
-
-      - Improve customer service - empower a customer service system by adding IVR (interactive voice response) and agent conversations to call centers. Perform analytics on conversation data to gain more insights into the calls and customers.
-
-      - Enable voice control services - e.g. implement voice commands such as “turn the volume up,” and voice search such as saying “what is the temperature in Paris?”
-
-      - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.
-  version: '1.0.0'
+      - Supports the following audio coding formats: pulse-code modulation (PCM) (uncompressed PCM or WAV files), and 16-bit mono.
+      - Supports the following audio sampling rates: 8,000 Hz and 16,000 Hz.
+      - Allows you to specify whether to add punctuation marks during post-processing, and whether to convert Chinese numerals to Arabic numerals.
+  version: '2.0.0'
   x-subscribelink: automatic_speech_recognition_chi
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 60sec/Call
+  x-inputfilelimit: |+
+    Process up to 60 seconds (1 minute) of audio file.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 60 seconds (1 minute).
+  x-apidetailsdesc: |+
+    Supports recognizing short speech and returns the recognition for Small Files.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Apr 07, 2021"
+- name: "v2.0.0"
+  description: "Published Date - Feb 18, 2022"
 paths:
   /microservices/voice/asrsch/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -37,9 +43,9 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 message: Successfully Processed
-                status: Success
                 results:
-                  output: "和 许诺 的 含着 那 主力 候补 含住 探测 好的 海里 的 非礼"
+                  output: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不
+                status: Success
         '401':
           description: Unauthorized
           content:
@@ -101,29 +107,32 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/input'
-        required: true
+#           multipart/form-data:
+#             schema:
+#               $ref: '#/components/schemas/input'
+#         required: true
 components:
   schemas:
     success:
       type: object
       properties:
-              results:
-                type: object
-                description: output object 
-                example: {"<Json":"Object>"}
-                properties:
-                  output:
-                    type: string
-                    example: 和 许诺 的 含着 那 主力 候补 含住 探测 好的 海里 的 非礼
-                    description: converted text
-              status:
+          results:
+            type: object
+            description: output object 
+            example: {"<Json":"Object>"}
+            properties:
+              output:
                 type: string
-                example: Success
-                description: The status of the API call success/failure
-              message:
-                type: string
-                example: Successfully Processed
-                description: Status Message               
+                example: 杀魏忠贤小厨阴道你干吗中场的魏公qq最近上火厉害简单就是为了这失恋所有知情者都不
+                description: The speech recognition result.
+          status:
+            type: string
+            example: Success
+            description: The status of the API call success/failure
+          message:
+            type: string
+            example: Successfully Processed
+            description: Status Message 
     unauthorized:
       type: object
       properties:
@@ -206,45 +215,79 @@ components:
           type: string
           example: Failure
     input:
-      type: object
-      required:
-        - wav_base64 
+      type: object      
       properties:
+#         filepath:
+#           type: string
+#           format: binary
+#           default: false
+#           description: Audio File Object
         wav_base64:
           x-name: wav_base64
           type: string
           default: true
-          example: UklGRkbiBABXQVZFZm10IBAAAAABA...
-          description: |+
-            Input audio file in base64 format. 
-            
-            Input file needs to be prefixed by the data type and encoding.
-            
-            <wav in base64 string>
+          example: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+          description: 
+            Input audio wav file in base64 format.
+        sample_rate:
+          type: number
+          default: false
+          example: 16000
+          description: 
+            The audio sampling rate, in Hz. Valid values - 16000 and 8000. Default value - 16000.
+        punctuation_prediction:
+          type: boolean
+          default: false
+          example: false
+          description: 
+            Specifies whether to add punctuation marks during post-processing. Valid values - True and False. Default value - False.
+        inverse_text_normalization:
+          type: boolean
+          default: false
+          example: false
+          description: 
+            Specifies whether to enable inverse text normalization (ITN) during post-processing. Valid values - True and False. Default value - False.
+        voice_activity_detection:
+          type: boolean
+          default: false
+          example: false
+          description: 
+            Specifies whether to enable voice detection. Valid values - True and False. Default value - False. Note - If voice detection is enabled, the server detects whether the uploaded audio file includes any silent fragment. If the server detects any silent fragment, it removes the silent fragment and the subsequent content without recognizing them. The recognition result varies depending on the model.                   
     versions:
       type: object
       properties: 
+        v2.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 18, 2022
+              x-details: Upgrading with Samplerate, Encoding etc..
+              description: Latest Version      
         v1.0.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Apr 07, 2021
-              description: Standardizing Input and Output Updated.
+              x-details: Standardizing Input and Output Updated.
+              description: Old Version
         v0.1.1:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 28, 2018
-              description: Patch update on bug fixes
+              x-details: Patch update on bug fixes
+              description: Depreciating on Apr 06, 2021
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Jun 21, 2018
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

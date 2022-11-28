@@ -1,24 +1,38 @@
+
 openapi: 3.0.1
 info:
   title: Text-To-Speech ENG
   description: |+
-        This Voice microservice converts English text into natural-sounding English speech in a female voice. 
+        This Voice microservice converts English text to speech in a female voice.
+        User can adjust the pitch and tempo of the the synthesised speech. 
+        The Text-to-Speech AI generated synthesized voice speaks with a Singaporean English accent. 
 
-        User can adjust the pitch and tempo of the the synthesised speech. Both are optional and used only for the female_singaporean model.
-
-        The input text should not exceed **2000 characters**.
-  version: 1.0.0
+        The input text should not exceed **3000 characters**.
+  version: 1.3.1
   x-subscribelink: text-to-speech_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 3000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 3000 characters of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 3000 characters.
+  x-apidetailsdesc: |+
+    Converts English text to speech in a female voice.
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'http://168.177.101.38:30015' 
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Jun 7, 2021"
+- name: "v1.3.1"
+  description: "Published Date - Feb 18, 2022"
 paths:
   /microservices/voice/ttseng/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.3.1
       responses:
         '200':
           description: success response
@@ -105,9 +119,9 @@ components:
           example: { "<Json": "Object>" }
           properties: 
             sampling_rate:
-              description: Sample rate of the output audio
-              example: 22050
-              type: integer
+              description: Sample rate of the output audio. Should come only for female_generic
+              example: 16000
+              type: number
             wav_base64:
               description: Base64 string of the generated audio from input text
               example: Cuxz6/zqlupS6o/qL+vW66Dsle2e7tDv//AM8jfzbvR49WX2Off798/4k/
@@ -206,20 +220,54 @@ components:
     versions:
       type: object
       properties:
+        v1.3.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Feb 18,2022'
+                x-details: Model update
+                description: Latest Version      
+        v1.2.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Dec 25,2021'
+                x-details: Model update
+                description: Archived
+        v1.1.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Nov 09,2021'
+                x-details: Model improvement with improved enunciation of acronyms.
+                description: Archived
+        v1.0.1:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: 'Published Date - Oct 13,2021'
+                x-details: Support more input characters. Improve model release.
+                description: Depreciating on Nov 08, 2021
         v1.0.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Jun 7,2021'
-                description: New model release - female_singaporean
+                x-details: New model release - female_singaporean
+                description: Depreciating on Oct 12, 2021
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: 'Published Date - Sep 28,2018'
-                description: Initial version release    
+                x-details: Initial version release    
+                description: Archived
     input:
       type: object
       required:
@@ -242,7 +290,7 @@ components:
           example: female_singaporean
           description: |+
             Model selection. For best performance, select the model which best matches the use-case&#58;
-            
+            The default model is female_singaporean
             1. female_generic
             2. female_singaporean
         pitch_scale:
@@ -252,8 +300,7 @@ components:
           default: False
           example: 1
           description: |+
-            The pitch factor for the synthesized voice. It ranges between 0.5 and 1.5 and default is 1.
-            1 means default pitch, 0.5 means half pitch, 2 means twice the pitch
+            The pitch factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1.
             **used only for the female_singaporean model
         tempo_scale:
           x-name: tempo_scale
@@ -262,8 +309,7 @@ components:
           default: False
           example: 1
           description: |+
-            The speed factor for the synthesized voice. It ranges between 0.5 and 2 and default is 1. 
-            1 means default speed, 0.5 is half speed, 2 is twice the speed
+            The speed factor for the synthesized voice. It ranges between 0.75 and 1.25 and default is 1. 
             **used only for the female_singaporean model
         
         

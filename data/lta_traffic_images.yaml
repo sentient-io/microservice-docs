@@ -20,13 +20,21 @@ info:
       > {"geo_distance": {"distance": "1km","location": "1.3138,103.8456"}}
     * **exists** - Returns results that contain any indexed value for a field
       > {"exists":{"field":"image_link"}}
-
+    * **bool** - Returns results that must or must_not match with word
+      > {"bool":{"must_not":[{"match":{"camera_id":"1709"}}]}}
+      > {"bool":{"must":[{"match":{"camera_id":"1709"}}]}}
+      > {"bool":{"should":[{"match":{"camera_id":"1709"}}]}}
+      
     **Aggregations Request Data:**
       > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"camera_id":"1709"}}]}
       
     **Last Updated Data in Time Limit:**
       > {"limit":10,"offset":0,"collapse":true,"filter":[{"range": {"lastupdated": {"gte": "2021-11-26T17:00:00","lte": "2021-11-26T18:00:00"}}}]} 
-     
+      
+    **Generate Presigned URL:**      
+        Traffic images are stored in GCS location. To access the image need to generate the presigned URL.
+          **End Point** - http://168.177.101.38:30015/microservices/data/ltapresignedurl/v0/getdata
+          **Input Example** - {"image_link": "gs://lta_data_prod/trafficimages/1501_20211022_194451.jpg"}
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
@@ -42,10 +50,10 @@ info:
   x-apidetailsdesc: |+
     Provides links to images of live traffic conditions.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Jul 30, 2021"
+  description: "Published Date - Feb 01, 2022"
 paths:
    /microservices/data/ltatrafficimagesv2/v0/getdata:
     post:
@@ -67,7 +75,7 @@ paths:
                     _score: 0
                     _source:
                       camera_id: '1709'
-                      image_link: https://cdn.sentient.io/lta_data/trafficimages/1001_20211215_023048.jpg
+                      image_link: gs://lta_data/trafficimages/1501_20211022_194451.jpg
                       lastupdated: '2021-07-26T08:19:02.109Z'
                       location:
                         lat: 1.31384231654635
@@ -199,9 +207,9 @@ components:
                         description: A unique ID for this camera
                       imageLink:
                         type: string
-                        example: 'https://cdn.sentient.io/lta_data/trafficimages/1501_20211022_194451.jpg'
+                        example: 'gs://lta_data/trafficimages/1501_20211022_194451.jpg'
                         description: |+
-                                    Link for downloading the image.
+                                    • Link for downloading this image.
                       location:
                         type: object
                         properties:
@@ -313,7 +321,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Jul 30, 2021
+              example: Published Date - Feb 01, 2022
               x-details: Initial version release
               description: Latest Version
     input:
@@ -346,7 +354,7 @@ components:
           default: false
           items:
               type: object
-          example: [{"match" :{"camera_id":"1001"}}]
+          example: [{"match" :{"camera_id":"1709"}}]
           description: |+
             Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match

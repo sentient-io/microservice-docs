@@ -17,7 +17,7 @@ info:
   version: '0.1.0'
   x-subscribelink: text-to-speech_chi
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 28, 2018"

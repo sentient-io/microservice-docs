@@ -73,7 +73,7 @@
     margin: 0 auto;
     transition: all 0.2s ease;
 }
-}
+
 
     </style>
 </head>
@@ -718,7 +718,7 @@
             try:
               async with websockets.connect(uri, extra_headers=extra_headers) as websocket:
                 start = time.time()
-                json_req = json.dumps({'action': 'start', 'model': model})
+                json_req = json.dumps({'action': 'start', 'model': model, 'x-api-key': apikey})
                 await websocket.send(json_req)
                 data = await websocket.recv()
                 jsondata = json.loads(data)

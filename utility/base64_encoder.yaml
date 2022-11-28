@@ -6,21 +6,34 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - As a pre-processor for microservices that only takes in Base64 inputs 
-  version: '0.0.1'
+  version: '0.1.0'
   x-subscribelink: base64_encoder
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 10 MB.
+  x-apidetailsdesc: |+
+    Convert binary file to Base64 encoded text string.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
-- name: "v0.0.1"
-  description: "Published Date - Oct 30, 2020"
+- name: "v0.1.0"
+  description: "Published Date - Jan 17, 2022"
 paths:
   /microservices/utility/base64encode/v0/getresults:
     post:
       tags:
-        - v0.0.1
+        - v0.1.0
       responses:
         '200':
-          description: Ok
+          description: success response
           content:
             application/json:
               schema:
@@ -60,14 +73,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputfieldmissing'
-        '413':
-          description: Payload Too Large
+        '420':
+          description: Input Limit Exceeded
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/inputlimitexceeded'  
-        '415':
-          description: Unsupported Media Type
+        '422':
+          description: Invalid Input
           content:
             application/json:
               schema:
@@ -105,7 +118,7 @@ components:
           properties:
             base64:
               type: string
-              description: Converted base64 encoded text in the requested output format
+              description: Base64 encoded text converted to the requested output format.
               example: /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMCAggIBQUICAUGBQUGBgYGBgUFBQYGBgYGBgYGBgYGBgYGBQYGBgYGBgYGBgoGBgcICQkJBgYLDgoIDQYICQgBAwQEBgUGCAYGCAgHBwcICAgICAgBAABAgMFBgcECP....
         message:
           type: string
@@ -221,13 +234,22 @@ components:
     versions:
       type: object
       properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Jan 17, 2022
+              x-details: On Prem Setup Added   
+              description: Latest Version      
         v0.0.1:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Oct 30, 2020
-              description: Initial version release
+              example: Published Date - Oct 30,2020
+              x-details: Initial version release    
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

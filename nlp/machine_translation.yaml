@@ -1,35 +1,56 @@
 openapi: 3.0.1
 info:
-  title: Audio Format Convertor
-  description: >-
-    This API is used to convert your audio like music(any format) to the WAV format.
+  title: Machine Translation
+  description: |+
+    This NLP microservice provides machine translation for the five languages (English, Malay, Chinese, Tamil, Indonesian). Additional language pair models can be added on. This model can also be deployed on-prem and used for future custom training.
     
-    The size of your audio file should **not exceed 10 MB**.
+    Do ensure that your text is within **500 characters**.
+  version: v0.2.0
   x-additionalinfo: |+
-    Suggested Use Cases:
-    - Build services related to sound engineering or audio editing as WAV is the format of choice for video and audio editors. WAV files are lossless compared to the lossy MP3 file format, meaning that WAV audio is a high-quality uncompressed file that is excellent for studio recordings and audio mastering.
-  version: '0.1.0'
-  x-subscribelink: audio_format_convertor
+     **Supported languages are:**
+        - zh - chinese
+        - en - english
+        - ms - malay (minangkabau)
+        - ta - tamil
+        - id - indonesian
+
+      **Suggested usecases:**
+          It can be used to translate text for any applications, and can be augmented to internationalize
+          NLP microservices provided by sentient.io.
+  x-subscribelink: machine_translation
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 500 characters/Call
+  x-inputfilelimit: |+
+    Process up to 500 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 500 characters and input might be single sentence.
+  x-apidetailsdesc: |+
+    This NLP microservice provides machine translation    
 servers:
-  - url: 'http://168.177.101.38:30015'
+  - url: 'http://168.177.101.39:30015' 
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Mar 24, 2020"
+- name: "v0.2.0"
+  description: "Published Date - July 20, 2022"
 paths:
-  /microservices/utility/audioprocessing/v0/getresults:
+  /microservices/nlp/translate/v0/getpredictions:
     post:
       tags:
-        - v0.1.0
+        - v0.2.0
       responses:
         '200':
-          description: Ok
+          description: success response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
               example:
-                results:
-                  AudioContent: actual base64 string of input wav
+                results: 
+                  translation_text: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
                 message: Successfully Processed
                 status: Success
         '401':
@@ -73,7 +94,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/invalidinput'
+                $ref: '#/components/schemas/invalidinput'       
         '500':
           description: Internal Server error
           content:
@@ -90,7 +111,7 @@ paths:
         - APIAuthorizer: []
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               $ref: '#/components/schemas/input'
         required: true
@@ -100,10 +121,15 @@ components:
       type: object
       properties:
         results:
-          type: string
-          example:
-            AudioContent: UklGRgaAoQBXQVZFZm10IBAAAAABAAIARKwAABCxAgAEABAATElTVBoAAABJTkZPSVNGVA4AAABMYXZmNTguMjkuMTAwAGRhdGHAf6EAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................
-          description: Audio wav file convert to base64 encode string
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties:
+            translation_text:
+              description: Text which is translated in target language
+              example: "在长周末,新加坡和马来西亚之间的950 000多名旅行者使用了土地检查站。 更多旅行者离开了新加坡--491 400人,与上一星期五(4月29日)至星期二五天来到该国的462 400人。"
+              type: string
+          type: object
+
         message:
           type: string
           example: Successfully Processed
@@ -112,6 +138,7 @@ components:
           type: string
           example: Success
           description: The status of the API call success/failure
+        
     unauthorized:
       type: object
       properties:
@@ -148,12 +175,21 @@ components:
         status:
           type: string
           example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
     servererror:
       type: object
       properties:
         message:
           type: string
-          example: Internal Server Error
+          example: Internal Server error
         status:
           type: string
           example: Failure
@@ -183,67 +219,52 @@ components:
           example: Input Limit Exceeded
         status:
           type: string
-          example: Failure 
-    invalidinput:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Invalid Input
-        status:
-          type: string
           example: Failure
     versions:
       type: object
       properties: 
-        v0.1.0:
-         type: array
-         items:
-          oneOf:
-            - type: string
-              example: Published Date - Mar 24, 2020
-              description: Initial version release
+        v0.2.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - July 20, 2022
+                x-details: Indonesian release
+                description: Initial version with fixes for bugs raised related to limit not being set and added error handling logic.
     input:
       type: object
       required:
-        - filePath      
+      
+        - source
+      
+        - target
+      
+        - text
+      
       properties:
-        filePath:
+        source:
+          x-name: source
           type: string
-          format: binary
-          default: true
-          example: sample.wav
-          description: Maximum file size up to 10 MB.
-        samplerate:
+          default: True
+          example: en
+          description: |+
+            The source language of text (see “Additional Information” section for language codes).
+        target:
+          x-name: target
           type: string
-          default: false
-          example: '16000'
-          description: Sample rate of the audio file in Hz
-        channel:
+          default: True
+          example: zh
+          description: |+
+            The target language for which text to be translated (see “Additional Information” section for language codes).
+        text:
+          x-name: text
           type: string
-          default: false
-          example: '1'
-          description: Indicates the type of audio channel. Value must be 1 for mono or 2 for Stereo. Default is 2(Stereo)
-        bitrate:
-          type: string
-          default: false
-          example: '2'
-          description: Indicates the bit resolution. Value must be 2 as (16 bit)
-        normalize:
-          type: string
-          default: false
-          example: yes or no
-          description: A boolean value that indicates whether to normalize the audio or not. Values must be either “yes” or “no”
-        trim_start_time:
-          type: string
-          default: false
-          example: '1'
-          description: Indicates the start in seconds between which the audio is extracted
-        trim_stop_time:
-          type: string
-          default: false
-          example: '5'
-          description: Indicates the end time in seconds between which the audio is extracted
+          default: True
+          example: More than 950,000 travellers used the land checkpoints between Singapore and Malaysia over the long weekend.More travellers left Singapore - 491,400 - compared with 462,400 arrivals into the country over five days from last Friday (April 29) to Tuesday.
+          description: |+
+            The input text to be passed for translation
+        
+        
   securitySchemes:
     APIAuthorizer:
       type: apiKey

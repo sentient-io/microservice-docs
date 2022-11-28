@@ -1,0 +1,816 @@
+openapi: 3.0.1
+info:
+  title: ACRA Information On Corporate Entities
+  x-subscribelink: acra
+  description: |+
+      This is a more detailed version of the UEN dataset here (https://data.gov.sg/dataset/entities-with-unique-entity-number). It is updated monthly, and there is additional information such as paid up capital and auditor.
+      This microservice contains information from ACRA dataset which is made available under the terms of the 
+      [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+  x-additionalinfo : |+
+    **Match Types:**
+    A match type is a match operator. The supported match types are&#58;
+    * **match_phrase** - Search within a full text field
+      > {"match_phrase":{"entity_name":"A  & E ENGINEERING SERVICES"}}   
+      > {"match_phrase":{"business_constitution_description":"Partnership"}}
+      > {"match_phrase":{"primary_ssic_description":"RETAIL SALE OF FOOD N.E.C."}}  
+    * **match** - Search within a full text field for a single word
+      > {"match":{"postal_code": 760456}}
+      > {"match":{"street_name":"ANSON ROAD"}}
+    * **range** - Returns results that contain terms within a stipulated range
+      > {"range": {"uen_issue_date": {"gte": "2008-09-12", "lte": "2017-03-15"}}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"enity_name"}}
+      > {"exists":{"field":"name_of_audit_firm3"}}
+      
+    **Aggregations Request Data:**
+      > An aggregation helps in summarizing your data
+      > Set aggregation - true
+      > {"range": {"uen_issue_date": {"gte": "2008-09-12", "lte": "2017-03-15"}}}
+    
+    **Pagination with scroll_id:** - We face a major issue of handling the hits, i.e., whenever the hits returned are more than 10,000 hits Elasticsearch will only return till 10k hits. For query more than 10K records scroll id need to add in scroll_id space as below.
+      > FGluY2x1ZGVfY29udGV4dF91.....QbmVUTHlMMjRqREpvZkhMUQ==
+
+  version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+ 
+    The API is billed by per request.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides detailed route information for all services currently in operation.
+servers:
+        - url: 'http://168.177.101.39:30015'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Jul 26, 2022"
+paths:
+  /microservices/data/acra/v0/getdata:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  scroll_id: FGluY2x1ZGVfY29udGV4dF91.....QbmVUTHlMMjRqREpvZkhMUQ==
+                  search_result:
+                    hits:
+                    - _index: acra_index
+                      _type: _doc
+                      _id: GVOROIIBeBL0zTSFHCDB
+                      _score: 1
+                      _source:
+                        source: ACRA
+                        account_due_date: '2019-10-31T00:00:00'
+                        address_type: LOCAL
+                        annual_return_date: '2018-07-27T16:39:53'
+                        block: 40C
+                        building_name: na
+                        business_constitution_description: na
+                        company_type_description: EXEMPT PRIVATE COMPANY LIMITED BY SHARES
+                        entity_name: B & A LIFESTYLE PTE. LTD.
+                        entity_status_description: Struck Off
+                        entity_type_description: Local Company
+                        former_entity_name1: na
+                        former_entity_name10: na
+                        former_entity_name11: na
+                        former_entity_name12: na
+                        former_entity_name13: na
+                        former_entity_name14: na
+                        former_entity_name15: na
+                        former_entity_name2: na
+                        former_entity_name3: na
+                        former_entity_name4: na
+                        former_entity_name5: na
+                        former_entity_name6: na
+                        former_entity_name7: na
+                        former_entity_name8: na
+                        former_entity_name9: na
+                        issuance_agency_id: ACRA
+                        level_no: na
+                        name_of_audit_firm1: na
+                        name_of_audit_firm2: na
+                        name_of_audit_firm3: na
+                        name_of_audit_firm4: na
+                        name_of_audit_firm5: na
+                        no_of_charges: 0
+                        no_of_officers: 3
+                        other_address_line1: na
+                        other_address_line2: na
+                        paf_constitution_description: na
+                        paid_up_capital10_currency: na
+                        paid_up_capital10_ordinary: na
+                        paid_up_capital10_others: na
+                        paid_up_capital10_preference: na
+                        paid_up_capital1_currency: SGD
+                        paid_up_capital1_ordinary: '2'
+                        paid_up_capital1_others: '0'
+                        paid_up_capital1_preference: '0'
+                        paid_up_capital2_currency: na
+                        paid_up_capital2_ordinary: na
+                        paid_up_capital2_others: na
+                        paid_up_capital2_preference: na
+                        paid_up_capital3_currency: na
+                        paid_up_capital3_ordinary: na
+                        paid_up_capital3_others: na
+                        paid_up_capital3_preference: na
+                        paid_up_capital4_currency: na
+                        paid_up_capital4_ordinary: na
+                        paid_up_capital4_others: na
+                        paid_up_capital4_preference: na
+                        paid_up_capital5_currency: na
+                        paid_up_capital5_ordinary: na
+                        paid_up_capital5_others: na
+                        paid_up_capital5_preference: na
+                        paid_up_capital6_currency: na
+                        paid_up_capital6_ordinary: na
+                        paid_up_capital6_others: na
+                        paid_up_capital6_preference: na
+                        paid_up_capital7_currency: na
+                        paid_up_capital7_ordinary: na
+                        paid_up_capital7_others: na
+                        paid_up_capital7_preference: na
+                        paid_up_capital8_currency: na
+                        paid_up_capital8_ordinary: na
+                        paid_up_capital8_others: na
+                        paid_up_capital8_preference: na
+                        paid_up_capital9_currency: na
+                        paid_up_capital9_ordinary: na
+                        paid_up_capital9_others: na
+                        paid_up_capital9_preference: na
+                        postal_code: '249548'
+                        primary_ssic_code: 46900
+                        primary_ssic_description: WHOLESALE TRADE OF A VARIETY OF GOODS WITHOUT A DOMINANT
+                          PRODUCT
+                        primary_user_described_activity: na
+                        registration_incorporation_date: '2008-05-20T19:01:27'
+                        secondary_ssic_code: '64202'
+                        secondary_ssic_description: OTHER HOLDING COMPANIES
+                        secondary_user_described_activity: na
+                        street_name: HARDING ROAD
+                        uen: 200809889K
+                        uen_issue_date: '2008-09-13T00:00:00'
+                        uen_of_audit_firm1: na
+                        uen_of_audit_firm2: na
+                        uen_of_audit_firm3: na
+                        uen_of_audit_firm4: na
+                        uen_of_audit_firm5: na
+                        unit_no: na
+                    max_score: 1
+                    total:
+                      relation: eq
+                      value: 1
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure 
+        scroll_id:
+          type: string
+          example: FGluY2x1ZGVfY29udGV4dF91.....QbmVUTHlMMjRqREpvZkhMUQ==            
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 10
+              description: Total number of records
+            relation:
+              type: text
+              example: eq
+              description: Indicates the accuracy of the total number of records (e.g. "eq" means equals)
+            max_score:
+              type: number
+              example: 1.0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "acra_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "_doc"
+                  _id: 
+                    type: string
+                    description: Unique ID
+                    example: "JVOROIIBeBL0zTSFHCDB"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 1.0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      source: 
+                        type: string
+                        description: Dataset source
+                        example: ACRA
+                      account_due_date:
+                        type: string
+                        description: Account due date. na is Data not available or not applicable.
+                        example: '2019-10-31T00:00:00'
+                      address_type: 
+                        type: string
+                        description: Type of the address. na is Data not available or not applicable.
+                        example: LOCAL
+                      annual_return_date:
+                        type: string
+                        description: Annual return date. na is Data not available or not applicable.
+                        example: '2018-07-27T16:39:53'
+                      block:
+                        type: string
+                        description: Name of the block. na is Data not available or not applicable, - is Data is negligible or not significant.
+                        example: 40C
+                      building_name:
+                        type: string
+                        description: Name of the building. na is Data not available or not applicable, - is Data is negligible or not significant
+                        example: DEW SPRING @ YISHUN
+                      business_constitution_description:
+                        type: string
+                        description: Type of business constitution. na is Data not available or not applicable.
+                        example: Partnership
+                      company_type_description:
+                        type: string
+                        description: Company type description. na is Data not available or not applicable.
+                        example: EXEMPT PRIVATE COMPANY LIMITED BY SHARES
+                      entity_name:
+                        type: string
+                        description: Name of the company/entity. na is Data not available or not applicable.
+                        example: A  SUCCESS PTE. LTD.
+                      entity_status_description:
+                        type: string
+                        description: Description of the entity status. na is Data not available or not applicable.
+                        example: Live
+                      entity_type_description:
+                        type: string
+                        description: Description of the entity type. "na" is Data not available or not applicable.
+                        example: Business
+                      former_entity_name1:
+                        type: string
+                        description: Former entity name. "na" is Data not available or not applicable.
+                        example: RECOMMENDED LOCKSMITH
+                      former_entity_name10:
+                        type: string
+                        description: Former entity name 10. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name11:
+                        type: string
+                        description: Former entity name 11. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name12:
+                        type: string
+                        description: Former entity name 12. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name13:
+                        type: string
+                        description: Former entity name 13. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name14:
+                        type: string
+                        description: Former entity name 14. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name15:
+                        type: string
+                        description: Former entity name 15. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name2:
+                        type: string
+                        description: Former entity name 2. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name3:
+                        type: string
+                        description: Former entity name 3. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name4:
+                        type: string
+                        description: Former entity name 4. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name5:
+                        type: string
+                        description: Former entity name 5. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name6:
+                        type: string
+                        description: Former entity name 6. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name7:
+                        type: string
+                        description: Former entity name 7. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name8:
+                        type: string
+                        description: Former entity name 8. na is Data not available or not applicable.
+                        example: na
+                      former_entity_name9:
+                        type: string
+                        description: Former entity name 9. na is Data not available or not applicable.
+                        example: na
+                      issuance_agency_id:
+                        type: string
+                        description: Insurance agency ID. na is Data not available or not applicable.
+                        example: ACRA
+                      level_no:
+                        type: string
+                        description: Level number. na is Data not available or not applicable.
+                        example: B1
+                      name_of_audit_firm1:
+                        type: string
+                        description: Name of the audit firm1. na is Data not available or not applicable.
+                        example: G. S. TAN & CO.
+                      name_of_audit_firm2:
+                        type: string
+                        description: Name of the audit firm2. na is Data not available or not applicable.
+                        example: na 
+                      name_of_audit_firm3:
+                        type: string
+                        description: Name of the audit firm3. na is Data not available or not applicable.
+                        example: na
+                      name_of_audit_firm4:
+                        type: string
+                        description: Name of the audit firm4. na is Data not available or not applicable.
+                        example: na
+                      name_of_audit_firm5:
+                        type: string
+                        description: Name of the audit firm5. na is Data not available or not applicable.
+                        example: na
+                      no_of_charges:
+                        type: Integer
+                        description: Number of charges. na is Data not available or not applicable.
+                        example: 0
+                      no_of_officers:
+                        type: Integer
+                        description: Number of officers. na is Data not available or not applicable.
+                        example: 1
+                      other_address_line1:
+                        type: string
+                        description: Other address line1. na is Data not available or not applicable.
+                        example: na
+                      other_address_line2:
+                        type: string
+                        description: other address line2. na is Data not available or not applicable.
+                        example: na
+                      paf_constitution_description:
+                        type: string
+                        description: PAF constitution description. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital10_currency:
+                        type: string
+                        description: paid up capital 10 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital10_ordinary:
+                        type: string
+                        description: paid up capital 10 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital10_others:
+                        type: string
+                        description: paid up capital 10 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital10_preference:
+                        type: string
+                        description: paid up capital 10 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital1_currency:
+                        type: string
+                        description: paid up capital 1 currency. na is Data not available or not applicable.
+                        example: SGD
+                      paid_up_capital1_ordinary:
+                        type: string
+                        description: paid up capital 1 ordinary. na is Data not available or not applicable.
+                        example: 10000
+                      paid_up_capital1_others:
+                        type: string
+                        description: paid up capital 1 others. na is Data not available or not applicable.
+                        example: 0
+                      paid_up_capital1_preference:
+                        type: string
+                        description: paid up capital 1 preference. na is Data not available or not applicable.
+                        example: 0
+                      paid_up_capital2_currency:
+                        type: string
+                        description: paid up capital 2 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital2_ordinary:
+                        type: string
+                        description: paid up capital 2 ordinary. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital2_others:
+                        type: string
+                        description: paid up capital 2 others. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital2_preference:
+                        type: string
+                        description: paid up capital 2 prefernce. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital3_currency:
+                        type: string
+                        description: paid up capital 3 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital3_ordinary:
+                        type: string
+                        description: paid up capital 3 ordinary. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital3_others:
+                        type: string
+                        description: paid up capital 3 others. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital3_preference:
+                        type: string
+                        description: paid up capital 3 preference. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital4_currency:
+                        type: string
+                        description: paid up capital 4 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital4_ordinary:
+                        type: string
+                        description: paid up capital 4 ordinary. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital4_others:
+                        type: string
+                        description: paid up capital 4 others. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital4_preference:
+                        type: string
+                        description: paid up capital 4 preference. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital5_currency:
+                        type: string
+                        description: paid up capital 5 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital5_ordinary:
+                        type: string
+                        description: paid up capital 5 ordinary. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital5_others:
+                        type: string
+                        description: paid up capital 5 others. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital5_preference:
+                        type: string
+                        description: paid up capital 5 preference. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital6_currency:
+                        type: string
+                        description: paid up capital 6 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital6_ordinary:
+                        type: string
+                        description: paid up capital 6 ordinary. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital6_others:
+                        type: string
+                        description: paid up capital 6 others. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital6_preference:
+                        type: string
+                        description: paid up capital 6 preference. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital7_currency:
+                        type: string
+                        description: paid up capital 7 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital7_ordinary:
+                        type: string
+                        description: paid up capital 7 ordinary. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital7_others:
+                        type: string
+                        description: paid up capital 7 others. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital7_preference:
+                        type: string
+                        description: paid up capital 7 preference. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital8_currency:
+                        type: string
+                        description: paid up capital 8 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital8_ordinary:
+                        type: string
+                        description: paid up capital 8 ordinary. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital8_others:
+                        type: string
+                        description: paid up capital 8 others. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital8_preference:
+                        type: string
+                        description: paid up capital 8 preference. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital9_currency:
+                        type: string
+                        description: paid up capital 9 currency. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital9_ordinary:
+                        type: string
+                        description: paid up capital 9 ordinary. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital9_others:
+                        type: string
+                        description: paid up capital 9 others. na is Data not available or not applicable.
+                        example: na
+                      paid_up_capital9_preference:
+                        type: string
+                        description: Paid up capital 9 preference. na is Data not available or not applicable.
+                        example: na
+                      postal_code:
+                        type: string
+                        description: Postal Code. na is Data not available or not applicable.
+                        example: 821161
+                      primary_ssic_code:
+                        type: string
+                        description: Primary SSIC Code. "na" is Data not available or not applicable.
+                        example: 47732
+                      primary_ssic_description:
+                        type: string
+                        description: Primary SSIC description. "na" is Data not available or not applicable.
+                        example: RENOVATION CONTRACTORS
+                      primary_user_described_activity:
+                        type: string
+                        description: Name of primary users. "na" is Data not available or not applicable, - is Data is negligible or not significant
+                        example: RETAIL SALE OF COUSTUME JEWELLERY , BAGS , WALLET , PURSES ETC
+                      registration_incorporation_date:
+                        type: Datetime
+                        description: Registration Incorporation date. "na" is Data not available or not applicable.
+                        example: "1984-08-24T00:00:00"
+                      secondary_ssic_code:
+                        type: string
+                        description: Secondary SSIC code. "na" is Data not available or not applicable.
+                        example: "70201"
+                      secondary_ssic_description:
+                        type: string
+                        description: Secondary SSIC description. "na" is Data not available or not applicable.
+                        example: MANAGEMENT CONSULTANCY SERVICES (GENERAL)
+                      secondary_user_described_activity:
+                        type: string
+                        description: Secondary user described activity. "na" is Data not available or not applicable.
+                        example: RETAIL SALE OF COUSTUME JEWELLERY , BAGS , WALLET , PURSES ETC
+                      street_name:
+                        type: string
+                        description: Street name. "na" is Data not available or not applicable.
+                        example: SIMS AVENUE
+                      uen:
+                        type: string
+                        description: Unqiue entity number. "na" is Data not available or not applicable.
+                        example: 47850200A
+                      uen_issue_date:
+                        type: Datetime
+                        description: Unqiue entity number issue date. "na" is Data not available or not applicable.
+                        example: "2008-09-13T00:00:00"
+                      uen_of_audit_firm1:
+                        type: string
+                        description: UEN od audit firm 1. "na" is Data not available or not applicable.
+                        example: S76PF0095E
+                      uen_of_audit_firm2:
+                        type: string
+                        description: UEN od audit firm 2. "na" is Data not available or not applicable.
+                        example: na
+                      uen_of_audit_firm3:
+                        type: string
+                        description: UEN od audit firm 3. "na" is Data not available or not applicable.
+                        example: na
+                      uen_of_audit_firm4:
+                        type: string
+                        description: UEN od audit firm 4. "na" is Data not available or not applicable.
+                        example: na
+                      uen_of_audit_firm5:
+                        type: string
+                        description: UEN od audit firm 5. "na" is Data not available or not applicable.
+                        example: na
+                      unit_no:
+                        type: string
+                        description: Unit number. "na" is Data not available or not applicable, - is Data is negligible or not significant
+                        example: 79 
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Feb 22, 2022
+              x-details: Initial version release
+              description: Latest Version
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 10, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list i.e, the starting index 
+        scroll_id:
+          type: string
+          default: None 
+          example: 
+          description: If the total number of returned document is greater than 10,000, then you will need to use this scroll id to retreive the remaining records. Note that you will get the scroll id when you do the first search. The maximum amount of documents returned at once is 10,000.
+        aggregation:
+          type: boolean
+          default: false
+          example: false
+          description: This returns the available bus service number and its corresponding count based on the user input query. Input should be true/false, default is false.
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match":{"business_constitution_description":"Partnership"}}]
+          description: |+
+            Its a list of filters to refine the search further. By default it returns the today's latest record with distance field value in ascending order. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * match_phrase
+            * range
+            * exists
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
+
+
+
+

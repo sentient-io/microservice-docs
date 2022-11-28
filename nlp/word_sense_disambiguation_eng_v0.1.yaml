@@ -12,8 +12,21 @@ info:
     - Text Mining and Information Extraction - this microservice can be used to do accurate analysis of text. For example it can help to create an intelligent gathering system to do flagging of the correct words e.g. medical intelligent system might need flagging of “red balloon” rather than “led balloon”.
   version: '0.1.0'
   x-subscribelink: word_sense_disambiguation_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Target word and identifies the target word's hypernym for text.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Mar 06, 2020"
@@ -155,7 +168,7 @@ components:
                                   example: social_group.n.01
                                   description: Describes the category in which the target word belongs to. Eg:car is a transport. car is the target word and transport is the category(hypernym) 
                                 potential_candidate_score:
-                                  type: integer
+                                  type: number
                                   example: 1   
                                   description: Is the confidence score from the network  
                           synset_definition:
@@ -167,8 +180,7 @@ components:
                             example: society.n.01 
                             description: The target word name in wordnet library
                           synset_score:
-                            type: number
-                            format : float
+                            type: float
                             example: 0.9870249032974243  
                             description: Is the confidence score from the network
                           token_index:
@@ -294,14 +306,16 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Standardizing Output JSON
+                x-details: Standardizing Output JSON
+                description: Latest Version
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Mar 06, 2020
-                description: Initial version release
+                x-details: Initial version release
+                description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

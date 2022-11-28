@@ -69,6 +69,10 @@ nlp:
     title: Named-Entity Recognition ENG
     versions:
       1.0.0: 'named-entity_recognition_eng.yaml'
+  text_generation_gptj6b:
+    title: Text Generation using GPT-J 6B
+    versions:
+      1.0.0: 'text_generation_gptj6b.yaml'
   spacy_ner:
     title: spaCy NER
     versions:
@@ -93,10 +97,19 @@ nlp:
     title: Script Alignment
     versions:
       1.0.0: 'script_alignment.yaml'
+  sentence_paraphrase:
+    title: Sentence Paraphrase
+    versions:
+      0.1.0: 'sentence_paraphrase.yaml'
   text_summarisation:
     title: Text Summarisation
     versions:
-      0.2.0: 'text_summarisation.yaml'        
+      0.2.0: 'text_summarisation.yaml'
+  machine_translation:
+    title: Machine Translation
+    versions:
+      0.2.0: 'machine_translation.yaml'
+   
 computer vision:
   object_detection:
     title: Object Detection
@@ -106,6 +119,18 @@ computer vision:
     title: Face Recognition
     versions:
       1.0.1: 'face_recognition.yaml'
+  clip:
+    title: Image Text Similarity
+    versions:
+      0.1.0: 'clip.yaml'
+  paddleocr:
+    title: Image Text Detection and Recognition in Wild
+    versions:
+      0.1.0: 'paddleocr.yaml'
+  deepfake:
+    title: Detecting Deep Fake Images
+    versions:
+      0.1.0: 'deepfake_detection.yaml'
   people_counting:
     title: People Counting
     versions:
@@ -121,7 +146,11 @@ computer vision:
   demographics_classification:
     title: Demographics Classification
     versions:
-      0.1.0: 'demographics_classification.yaml'        
+      0.1.0: 'demographics_classification.yaml'
+  masked_face_recognition:
+    title: Masked Face Recognition
+    versions:
+      0.1.0: 'masked_face_recognition.yaml'
 utility:
   video-to-audio_convertor:
     title: Video-To-Audio Convertor
@@ -199,4 +228,52 @@ data:
   lta_road_works:
     title: LTA Road Works
     versions:
-      0.1.0: 'lta_road_works.yaml' 
+      0.1.0: 'ltaroadworks.yaml'
+  lta_pv_bus:
+    title: LTA Passenger Volume by BUS
+    versions:
+      0.1.0: 'lta_pv_bus.yaml' 
+  lta_busroute:
+    title: LTA Bus Routes
+    versions:
+      0.1.0: 'lta_busroute.yaml'
+  lta_busstop:
+    title: LTA Bus Routes
+    versions:
+      0.1.0: 'lta_busstop.yaml'
+  lta_busservices:
+    title: LTA Bus Services
+    versions:
+      0.1.0: 'lta_busservices.yaml'
+  openstreetmap:
+    title: OpenStreet Map
+    versions:
+      0.1.0: 'openstreetmap.yaml'
+  wikidata:
+    title: Wikidata
+    versions:
+      0.1.0: 'wikidata.yaml'
+  acra:
+    title: ACRA Information On Corporate Entities
+    versions:
+      0.1.0: 'acra-information-on-corporate-entities.yaml'
+  googlelandmark:
+    title: Google Landmark
+    versions:
+      0.1.0: 'google-landmark.yaml'
+  asianfaces:
+    title: Asian Faces
+    versions:
+      0.1.0: 'asian_faces.yaml'
+  twitterchatcorpus:
+    title: Twitter Chat Corpus
+    versions:
+      0.1.0: 'twitter_chat.yaml'
+  weibodataset:
+    title: Weibo Dataset for the Russo-Ukrainian Crisis
+    versions:
+      0.1.0: 'weibo_dataset.yaml'
+  geonames:
+    title: Geo Names
+    versions:
+      0.1.0: 'geo-names.yaml'

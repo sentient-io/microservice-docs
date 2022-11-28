@@ -4,7 +4,7 @@ info:
   description: |+
     This NLP microservice aligns the input time-coded transcript with high-quality script. 
     
-    The output is the time-coded high-quality script.
+    The output is a time-coded high-quality script.
     
     Do ensure that your text is within **5000 characters**.
   version: '1.0.0'
@@ -12,8 +12,21 @@ info:
     Suggested Use Cases:
     - Can be used to create time-coded high-quality script for services like radio broadcasting, television broadcasting and digital content creation.
   x-subscribelink: script_alignment
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5000 characters/Call
+  x-inputfilelimit: |+
+    Process up to 5000 characters per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 5000 characters.
+  x-apidetailsdesc: |+
+    Aligns the input time-coded transcript.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Oct 30, 2020"
@@ -120,7 +133,7 @@ components:
                         example: 4
                         description: End time of word, in seconds. Offset from the start of stream.
                       seqNum:
-                        type: integer
+                        type: number
                         example: 1
                         description: Running sequence. Start from 1.
                       start:
@@ -229,14 +242,16 @@ components:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Standardizing Output JSON
+                x-details: Standardizing Output JSON
+                description: Latest Version
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Jun 05, 2020
-                description: Initial version release
+                x-details: Initial version release
+                description: Archived
     input:
       type: object
       required:

@@ -1,0 +1,588 @@
+openapi: 3.0.1
+info:
+  title: Wikidata
+  x-subscribelink: wikidata
+  description: |+
+      Returns information for the search values. 
+      This microservice is used for extracting available information from Wikimedia data.
+  x-additionalinfo : |+
+    **Match Types:**
+    A match type is a match operator. The supported match types are&#58;
+    * **match_phrase** - Search within a full text field and returns all the documents having "stn" in description field 
+      > {"match_phrase":{"labels.value":"Iron Man"}}
+      > {"match_phrase":{"labels.value": "Depressive Symptoms"}}   
+      > {"match_phrase": {"descriptions.value":"scientific article published on 26 March 2020"}}
+      > {"match_phrase": {"descriptions.value":"2020 anime"}}
+      > {"match_phrase": {"aliases.value":"Kingdom of Belgium"}}
+      > {"match_phrase": {"aliases.value":"Demon Slayer"}}
+    * **match** - Search within a full text field for a single word
+      > {"match":{"labels.value":"1986"}}
+      > {"match":{"descriptions.value": "Marina"}}
+      > {"match":{"aliases.value": "temple"}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"labels"}}
+      
+  version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+ 
+    The API is billed by per request.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides information on the queried wikidata.
+servers:
+  - url: 'http://168.177.101.39:30015' 
+tags:
+- name: "v0.1.0"
+  description: "Published Date - May 26, 2022"
+paths:
+  /microservices/data/wikidata/v0/getdata:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  scroll_id: FGluY2x1ZGVfY29udGV4dF.....Hc1S1BuZVRMeUwyNGpESm9mSExR==
+                  search_result:
+                    hits:
+                    - _index: wikidata
+                      _type: _doc
+                      _id: ECUU8oABVY-6BswwSG2_
+                      _score: 16.218006
+                      _source:
+                        id: Q96373474
+                        aliases:
+                        - language: en
+                          value: Beyblade Burst Superking
+                        - language: en
+                          value: Beyblade Burst Surge
+                        claims:
+                          P31:
+                          - mainsnak:
+                              snaktype: value
+                              property: P31
+                              datavalue:
+                                value:
+                                  entity-type: item
+                                  numeric-id: 11086742
+                                  id: Q11086742
+                                type: wikibase-entityid
+                              datatype: wikibase-item
+                            type: statement
+                            id: Q96373474$40ab3d37-42a2-9898-844e-aca4c816d879
+                            rank: normal
+                          P361:
+                          - mainsnak:
+                              snaktype: value
+                              property: P361
+                              datavalue:
+                                value:
+                                  entity-type: item
+                                  numeric-id: 23747084
+                                  id: Q23747084
+                                type: wikibase-entityid
+                              datatype: wikibase-item
+                            type: statement
+                            id: Q96373474$4db1ed41-40e1-9ef7-a0ed-7d3b8f5bb6f3
+                            rank: normal
+                          P495:
+                          - mainsnak:
+                              snaktype: value
+                              property: P495
+                              datavalue:
+                                value:
+                                  entity-type: item
+                                  numeric-id: 17
+                                  id: Q17
+                                type: wikibase-entityid
+                              datatype: wikibase-item
+                            type: statement
+                            id: Q96373474$f5da29b9-4dd8-37af-5627-6b5a0d7a0e40
+                            rank: normal
+                          P1811:
+                          - mainsnak:
+                              snaktype: value
+                              property: P1811
+                              datavalue:
+                                value:
+                                  entity-type: item
+                                  numeric-id: 28068260
+                                  id: Q28068260
+                                type: wikibase-entityid
+                              datatype: wikibase-item
+                            type: statement
+                            id: Q96373474$0f32521b-4b79-7146-deb6-7508b7358f75
+                            rank: normal
+                          P2671:
+                          - mainsnak:
+                              snaktype: value
+                              property: P2671
+                              datavalue:
+                                value: "/g/11fwdqk84v"
+                                type: string
+                              datatype: external-id
+                            type: statement
+                            id: Q96373474$B5BDE01A-3568-4CB4-951C-251DD5F813D3
+                            rank: normal
+                          P364:
+                          - mainsnak:
+                              snaktype: value
+                              property: P364
+                              datavalue:
+                                value:
+                                  entity-type: item
+                                  numeric-id: 5287
+                                  id: Q5287
+                                type: wikibase-entityid
+                              datatype: wikibase-item
+                            type: statement
+                            id: Q96373474$2584674F-EC1D-4F56-8DF7-7452D0F7D593
+                            rank: normal
+                          P6262:
+                          - mainsnak:
+                              snaktype: value
+                              property: P6262
+                              datavalue:
+                                value: beyblade:Beyblade_Burst_Surge
+                                type: string
+                              datatype: external-id
+                            type: statement
+                            qualifiers:
+                              P1810:
+                              - snaktype: value
+                                property: P1810
+                                hash: 568b5724e8bff9f5e5c49482b5bb34f55aac2484
+                                datavalue:
+                                  value: Beyblade Burst Surge
+                                  type: string
+                                datatype: string
+                              P407:
+                              - snaktype: value
+                                property: P407
+                                hash: daf1c4fcb58181b02dff9cc89deb084004ddae4b
+                                datavalue:
+                                  value:
+                                    entity-type: item
+                                    numeric-id: 1860
+                                    id: Q1860
+                                  type: wikibase-entityid
+                                datatype: wikibase-item
+                              P9675:
+                              - snaktype: value
+                                property: P9675
+                                hash: 801871f4d605898c47fe4b22068e0b71b3e5aa96
+                                datavalue:
+                                  value: '148070'
+                                  type: string
+                                datatype: string
+                            qualifiers-order:
+                            - P1810
+                            - P407
+                            - P9675
+                            id: Q96373474$588A3C6C-9F0B-459A-871E-0D8D63891599
+                            rank: normal
+                            references:
+                            - hash: 79c422de8d5443ceee2ed2256b96cad8b7a5863a
+                              snaks:
+                                P854:
+                                - snaktype: value
+                                  property: P854
+                                  datavalue:
+                                    value: https://beyblade.fandom.com/wiki/Beyblade_Burst_Surge
+                                    type: string
+                                  datatype: url
+                                P1476:
+                                - snaktype: value
+                                  property: P1476
+                                  datavalue:
+                                    value:
+                                      text: Beyblade Burst Surge | Beyblade Wiki | Fandom
+                                      language: en
+                                    type: monolingualtext
+                                  datatype: monolingualtext
+                                P813:
+                                - snaktype: value
+                                  property: P813
+                                  datavalue:
+                                    value:
+                                      time: "+2021-07-29T00:00:00Z"
+                                      timezone: 0
+                                      before: 0
+                                      after: 0
+                                      precision: 11
+                                      calendarmodel: http://www.wikidata.org/entity/Q1985727
+                                    type: time
+                                  datatype: time
+                              snaks-order:
+                              - P854
+                              - P1476
+                              - P813
+                          P1874:
+                          - mainsnak:
+                              snaktype: value
+                              property: P1874
+                              datavalue:
+                                value: '81567663'
+                                type: string
+                              datatype: external-id
+                            type: statement
+                            id: Q96373474$0e3f7c63-4c78-c9e4-6b8e-66e6dd9d945e
+                            rank: normal
+                          P437:
+                          - mainsnak:
+                              snaktype: value
+                              property: P437
+                              datavalue:
+                                value:
+                                  entity-type: item
+                                  numeric-id: 723685
+                                  id: Q723685
+                                type: wikibase-entityid
+                              datatype: wikibase-item
+                            type: statement
+                            id: Q96373474$14DB1C10-F3A7-4EA1-8E2E-71A2D4F8C5BF
+                            rank: normal
+                            references:
+                            - hash: 8fcf84c6980cdbbdc9544ec614dfb2522c5d7f6e
+                              snaks:
+                                P3452:
+                                - snaktype: value
+                                  property: P3452
+                                  datavalue:
+                                    value:
+                                      entity-type: item
+                                      numeric-id: 907311
+                                      id: Q907311
+                                    type: wikibase-entityid
+                                  datatype: wikibase-item
+                                P4656:
+                                - snaktype: value
+                                  property: P4656
+                                  datavalue:
+                                    value: https://www.wikidata.org/wiki/Q96373474#P1874
+                                    type: string
+                                  datatype: url
+                                - snaktype: value
+                                  property: P4656
+                                  datavalue:
+                                    value: https://www.wikidata.org/wiki/Property:P1874#P2302
+                                    type: string
+                                  datatype: url
+                              snaks-order:
+                              - P3452
+                              - P4656
+                        descriptions:
+                          language: en
+                          value: 2020 anime series
+                        labels:
+                          language: en
+                          value: Beyblade Burst Sparking
+                        lastrevid: 1609035584
+                        sitelinks:
+                          site: enwiki
+                          title: N/A
+                        type: item
+                    _type: _doc
+                  max_score: 0
+                  total:
+                    relation: eq
+                    value: 500
+                status: Success
+
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+        scroll_id:
+          type: string
+          example: FGluY2x1ZGVfY29udGV4dF91.....QbmVUTHlMMjRqREpvZkhMUQ==
+          description: This is auto generated id from Elastic Search for query more than 10K records. Sample query formation with scroll id given in Additional Information Section.                         
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            relation:
+              type: text
+              example: eq
+              description: Indicates the accuracy of the total number of records (e.g. "eq" means equals)
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object>}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "wikidata"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "_doc"
+                  _id: 
+                    type: string
+                    description: Id from the ID field in the data
+                    example: "Q90958110"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 0
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      type:
+                        type: string
+                        description: The entity type identifier. “item” for data items, and “property” for properties.
+                        example: 'item'
+                      id:
+                        type: string
+                        description: The canonical ID of the entity.
+                        example: Q90958110
+                      labels:
+                        type: object
+                        description: It is the main name given to identify an entity (i.e. an item or a property). eg., the item with the item identifier Q7378 has the English label “elephant”.
+                        example: {'language': 'en', 'value': 'Belgium'}        
+                      descriptions:
+                        type: object
+                        description: It is a language-specific descriptive phrase for an item, property or query. It provides context for the label (for example, there are many items about places with the label "Cambridge").
+                        example: {'language': 'en','value': 'country in western Europe since 1830'}
+                      aliases:
+                        type: object
+                        description: It is an alternative name for an item or property. Aliases help people to find an item even if they don’t search with the label. For example, the item Q2 has the label “Earth” and aliases such as “Tellus” and “Blue Planet”.
+                        example: {'language': 'en', 'value': 'Kingdom of Belgium'}
+                      claims:
+                        type: object
+                        description: is a piece of data about the entity on the page the claim appears. A claim consists of a property (such as location (P276)) and either a value (e.g., Germany (Q183)) or one of the special cases "no value" and "unknown value".
+                        example: {"P31": [{"mainsnak": {"snaktype": "value","property": "P31","datavalue": {"value": {"entity-type": "item","numeric-id": 11086742,"id": "Q11086742"},"type": "wikibase-entityid"},"datatype": "wikibase-item"},"type": "statement","id": "Q96373474$40ab3d37-42a2-9898-844e-aca4c816d879","rank": "normal"}]}
+                      sitelinks:
+                        type: object
+                        description: It is an alternative name for an item or property. Aliases help people to find an item even if they don’t search with the label. For example, the item Q2 has the label “Earth” and aliases such as “Tellus” and “Blue Planet”. If sitelink is not available it displays "{'site':'enwiki','title':'N/A'}"
+                        example: {'site': 'enwiki', 'title': 'Belgium', 'badges': []}
+                      lastrevid:
+                        type: text
+                        description: It is an alternative name for an item or property. Aliases help people to find an item even if they don’t search with the label. For example, the item Q2 has the label “Earth” and aliases such as “Tellus” and “Blue Planet”.
+                        example: 1428106333
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - May 26, 2022
+              x-details: Initial version release
+              description: Latest Version
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 0, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index
+        scroll_id:
+          type: string
+          default: 
+          description: If the total number of returned document is greater than 10,000, then you will need to use this scroll id to retreive the remaining records. Note that you will get the scroll id when you do the first search. The maximum amount of documents returned at once is 10,000.  
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match" :{"labels.value": "belgium"}}]
+          description: |+
+            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+            * match_phrase
+            * exists
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

@@ -1,32 +1,35 @@
 openapi: 3.0.1
 info:
-  title: LTA Traffic Incidents
-  x-subscribelink: lta_traffic_incidents
+  title: LTA Bus Services
+  x-subscribelink: lta_busservices
   description: |+
-    This Data microservice returns real time incidents on the roads, such as Accidents, Vehicle Breakdowns, Road Blocks, Traffic Diversions etc. Updates every 2 minutes or whenever there is new data.
-    This microservice contains information from LTA Datamall's Traffic Incidence dataset which is made available under the terms of the [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
+      Returns detailed service information for all buses currently in operation, including: first stop, last stop, peak / offpeak frequency of dispatch.
+      This microservice contains information from LTA Datamall's BUS SERVICES dataset which is made available under the terms of the
+      [Singapore Open Data Licence version 1.0](https://data.gov.sg/open-data-licence).
   x-additionalinfo : |+
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field
-      > {"match_phrase":{"type":"Roadwork"}}     
+      > {"match_phrase":{"loopdesc": "Bedok Nth St 3"}}
+      > {"match_phrase":{"category": "FEEDER"}} or {"match_phrase":{"category": "feeder"}}
     * **match** - Search within a full text field for a single word
-      > {"match":{"type":"Roadwork"}}
+      > {"match":{"category": "FEEDER"}} or {"match":{"category": "feeder"}}
+      > {"match":{"loopdesc": "Hougang"}}
+      > {"match":{"serviceno": "386"}}
     * **range** - Returns results that contain terms within a stipulated range
-      > {"range":{"lastupdated":{"gte":"now-1d/d"}}}
-      > {"range":{"lastupdated":{"lte":"now/d"}}}
-      > {"range":{"lastupdated":{"gte":"now-1d/d","lte":"now/d"}}}
-    * **geo_distance** - Returns the geo search based on the distance and location lat/long
-      > {"geo_distance": {"distance": "1km","location": "1.3265,103.9730"}}
+      > {"range": {"lastupdated": {"gte": "2022-03-23", "lte": "2022-03-23"}}}
     * **exists** - Returns results that contain any indexed value for a field
-      > {"exists":{"field":"message"}}
-    * **bool** - Returns results that must or must_not match with word
-      > {"bool":{"must_not":[{"match":{"type":"Roadwork"}}]}}
-      > {"bool":{"must":[{"match":{"type":"Roadwork"}}]}}
-      > {"bool":{"should":[{"match":{"type":"Roadwork"}},{"match":{"type":"Vehicle Breakdown"}}]}}
-      
+      > {"exists":{"field":"operator"}}
+
     **Aggregations Request Data:**
-      > {"limit":10,"offset":0,"aggregation":true,"filter":[{"match_phrase":{"type":"Roadwork"}}]}
+    An aggregation helps in summarizing your data
+    Set aggregation - true
+      > {"match":{"loopdesc": "Hougang"}}
+
+    **Collapse:**
+    You can use the collapse parameter to collapse search results based on field values. The collapsing is done by selecting only the top sorted document per collapse key
+      > {"match":{"loopdesc": "Hougang"}}
+
   version: '0.1.0'
   x-apitype: small file
   x-apitypedescription: |+
@@ -40,14 +43,14 @@ info:
   x-notes: |+
     Process up to 10,000 records.
   x-apidetailsdesc: |+
-    Provides real time incidents on the roads.
+    Provides detailed route information for all services currently in operation.
 servers:
-  - url: 'http://168.177.101.38:30015'
+  - url: 'http://168.177.101.39:30015'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Feb 01, 2022"
+  description: "Published Date - Mar 26, 2022"
 paths:
-   /microservices/data/ltatrafficincidents/v0/getdata:
+  /microservices/data/ltabusservices/v0/getdata:
     post:
       tags:
         - v0.1.0
@@ -61,28 +64,32 @@ paths:
               example:
                 message: Successfully Processed
                 results:
-                  aggregations:
-                    hourly_aggs:
-                      buckets:
-                        - doc_count: 2
-                          key: 1633932000000
-                          key_as_string: 2021-10-11 06                
                   hits:
-                  - _id: '2671616'
-                    _index: lta_traffic_incidents
-                    _score: 0
+                  - _id: eff975fc922d4a6738f65ff41f5112040f084162
+                    _index: lta_busservices
+                    _score:
                     _source:
-                      lastupdated: '2021-07-26T08:18:47.527Z'
-                      location:
-                        lat: 1.304494270104473
-                        lon: 103.82327651224641
-                      message: "(12/10)12:15 Roadworks on Commonwealth Avenue (towards City) after Commonwealth Drive. Avoid left lane."
-                      messagedate: "2021-10-12T12:15:00.000Z"
+                      am_offpeak_freq: 9-13
+                      am_peak_freq: 9-10
+                      category: FEEDER
+                      destinationcode: '64009'
+                      direction: 1
+                      lastupdated: '2022-03-23T16:29:08.440Z'
+                      loopdesc: Hougang St 91
+                      operator: SBST
+                      origincode: '64009'
+                      pm_offpeak_freq: 10-13
+                      pm_peak_freq: 9-10
+                      serviceno: '325'
                       source: lta
-                      type: Roadwork
-                    _type: dir_doc
-                  max_score: 0
-                  total: 114
+                      uniqueid: eff975fc922d4a6738f65ff41f5112040f084162
+                    _type: _doc
+                    sort:
+                    - 1648052948440
+                  max_score:
+                  total:
+                    relation: eq
+                    value: 1
                 status: Success
         '401':
           description: Unauthorized
@@ -158,7 +165,7 @@ components:
         status:
           type: string
           example: Success
-          description: The status of the API call Success/Failure             
+          description: The status of the API call Success/Failure
         results:
           type: object
           example: {<Json Object>}
@@ -168,41 +175,14 @@ components:
               type: integer
               example: 1
               description: Total number of records
+            relation:
+              type: text
+              example: eq
+              description: Indicates the accuracy of the total number of records (e.g. "eq" means equals)
             max_score:
               type: number
               example: 0
               description: The highest score value
-            aggregations:
-              type: array
-              example: [{<JSON result Object}]
-              description: The list of aggregation Json result object
-              items:
-                type: object
-                properties:        
-                  hourly_aggs: 
-                    type: object
-                    example: {<Json Object>}
-                    description: Json Object of returned hits
-                    properties:
-                      buckets:
-                        type: array
-                        example: [{<JSON result Object}]
-                        description: The list of Json result object
-                        items:  
-                          type: object
-                          properties:
-                            doc_count:
-                              type: number
-                              description: Docs Count
-                              example: 2
-                            key:
-                              type: number
-                              description: Key id
-                              example: 1633932000000
-                            key_as_string:
-                              type: string
-                              description: Date of query result
-                              example: 2021-10-11 06                              
             hits:
               type: array
               example: [{<JSON result Object}]
@@ -213,69 +193,80 @@ components:
                   _index:
                     type: string
                     description: Index group of the document
-                    example: "lta_traffic_incidents"
-                  _type: 
+                    example: "lta_busservices"
+                  _type:
                     type: string
                     description: Content type of the document
-                    example: "dir_doc"
-                  _id: 
+                    example: "_doc"
+                  _id:
                     type: string
-                    description: Document ID
-                    example: "1709"
-                  _score: 
+                    description: The hexadecimal value combination of serviceno, operator, direction, category, origincode and destinationcode
+                    example: "eff975fc922d4a6738f65ff41f5112040f084162"
+                  _score:
                     type: number
                     description: The document score for the search request
                     example: 0
-                  _source: 
+                  _source:
                     type: object
                     example: {<Json Object>}
                     description: Json Object of returned hits
                     properties:
-                      type:
+                      serviceno:
                         type: string
-                        example: Road Works
-                        description: |+
-                                  Incident Types - 
-                                  • Accident
-                                  • Road Works
-                                  • Vehicle Breakdown
-                                  • Weather
-                                  • Obstacle
-                                  • Road Block
-                                  • Heavy Traffic
-                                  • Misc.
-                                  • Diversion
-                                  • Unattended Vehicle                
-                      message:
+                        description: The bus service number
+                        example: '325'
+                      operator:
                         type: string
-                        example: (12/10)12:15 Roadworks on Commonwealth Avenue (towards City) after Commonwealth Drive. Avoid left lane."
-                        description: Description message for this incident   
-                      messagedate:
+                        description: Operator for this bus service
+                        example: SBST
+                      direction:
+                        type: integer
+                        description: The direction in which the bus travels (1 or 2), loop services only have 1 direction
+                        example: 1
+                      category:
                         type: string
-                        example: 2021-10-12T12:15:00.000Z
-                        description: Date separated from message info.                        
-                      location:
-                        type: object
-                        properties:
-                          lat:
-                            type: string
-                            example: 1.31384231654635
-                            description: Latitude map coordinates for the start point of this road incident                           
-                          lon:
-                            type: string
-                            example: 103.845603032574
-                            description: Longitude map coordinates for the start point of this incident
-                        example: {<Json Object>}
-                        description: Latitude and Longitude map
-                                      coordinates.
+                        description: Category of the SBS bus service- EXPRESS, FEEDER, INDUSTRIAL, TOWNLINK, TRUNK, 2 TIER FLAT FEE, FLAT FEE $1.10 (or $1.90, $3.50, $3.80)
+                        example: TRUNK
+                      origincode:
+                        type: string
+                        description: Bus stop code for first bus stop
+                        example: '64009'
+                      destinationcode:
+                        type: string
+                        description: Bus stop code for last bus stop (similar as first stop for loop services)
+                        example: '97009'
+                      am_peak_freq:
+                        type: string
+                        description: Freq of dispatch for AM Off-Peak 0831H - 1659H (range in minutes)
+                        example: 10-16
+                      am_offpeak_freq:
+                        type: string
+                        description: Freq of dispatch for AM Peak 0630H - 0830H (range in minutes)
+                        example: 14-17
+                      pm_peak_freq:
+                        type: string
+                        description: Freq of dispatch for PM Peak 1700H - 1900H (range in minutes)
+                        example: 12-15
+                      pm_offpeak_freq:
+                        type: string
+                        description: Freq of dispatch for PM Off-Peak after 1900H (range in minutes)
+                        example: 12-15
+                      loopdesc:
+                        type : string
+                        description: Location at which the bus service loops, empty if not a loop service.
+                        example: "Raffles Blvd"
                       lastupdated:
-                        type: string
-                        description: Record last updated date on sentient
-                        example: "2021-07-26T04:24:16.409Z"           
-                      source: 
+                        type : date
+                        description: When the data was lastupdated
+                        example: "2022-03-23T20:00:10.648Z"
+                      source:
                         type: string
                         description: Dataset source
                         example: lta
+                      uniqueid:
+                        type: string
+                        description: The hexadecimal value combination of serviceno, operator, direction, category, origincode and destinationcode
+                        example: "eff975fc922d4a6738f65ff41f5112040f084162"
     unauthorized:
       type: object
       properties:
@@ -359,13 +350,13 @@ components:
           example: Failure
     versions:
       type: object
-      properties: 
+      properties:
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Feb 01, 2022
+              example: Published Date - Feb 22, 2022
               x-details: Initial version release
               description: Latest Version
     input:
@@ -373,31 +364,35 @@ components:
       properties:
         limit:
           type: number
-          default: false
+          default: 10
           example: 10
-          description: The max records to return for the request. Default - 0, Max - 10000
+          description: The max records to return for the request. Default - 10, Max - 10000
         offset:
           type: number
-          default: false
+          default: 0
           example: 0
-          description: The offset of the record list ie the starting index 
+          description: The offset of the record list i.e, the starting index
         aggregation:
           type: boolean
           default: false
           example: false
-          description: It returns the hourly aggregation of no of incidents. Input should be true/false, default is false.
+          description: This returns the available bus service number and its corresponding count based on the user input query. Input should be true/false, default is false.
+        collapse:
+          type: boolean
+          default: false
+          example: false
+          description: If set to True, this returns only the latest records based on lastupdated
         filter:
           type: array
           default: false
           items:
               type: object
-          example: [{"match" :{"type":"Roadwork"}}, {"range":{"lastupdated":{"lte":"now/d"}}}]
+          example: [{"match":{"serviceno": "386"}}]
           description: |+
-            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            Its a list of filters to refine the search further. By default it returns first set of 10 latest records. Each filter consists of a match type, the field and the value. The possible match types are&#58;
             * match
             * match_phrase
             * range
-            * geo_distance
             * exists
   securitySchemes:
     APIAuthorizer:

@@ -4,19 +4,32 @@ info:
   description: |+
     This NLP microservice recovers the missing punctuations such as full stop, comma, exclamation mark, and question mark from the input text.
     
-    It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case.
+    It converts pre-defined abbreviations from lower case to upper case and also first letters of sentences to upper case. 
     
-    Do ensure that your text is within **5000 characters**.
+    The input text should be a maximum of 400 words.
   version: '1.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be integrated into services or apps that offer digital writing assistance to make writing clear and effective.
   x-subscribelink: inverse_text_normalisation_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 400 words/Call
+  x-inputfilelimit: |+
+    Process up to 400 words per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 400 words.
+  x-apidetailsdesc: |+
+    Recovers Normalized text from input text.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - Oct 30, 2020"
+  description: "Published Date - Apr 19, 2022"
 paths:
   /microservices/nlp/inversenorm/v1/getpredictions:
     post:
@@ -31,17 +44,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  '0': |+
-                      Apple said, the project-financing fund was the 1 of its kind, real estate developers,
-                      often secure bonds for affordable housing development, but must service the debt
-                      during construction, until the houses are built and start to generate revenue, apple
-                      and state officials hope to provide bridge financing during construction at rates
-                      below those from commercial lenders.
-                  '1': |+
-                    The $2000000000 in funding will be deployable across NTU while the remaining
-                    5500000000 will go toward efforts specific to apple's home region in northern california,
-                    where fast-growing tech companies have drawn protests from residents who blame them
-                    for rising, housing costs.
+                  output: "Apple said the project-financing fund was the first of its kind. Real estate developers often secure bonds for affordable housing development, but must service the debt during construction until the houses are built and start to generate revenue. Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders."
                 message: Successfully Processed
                 status: Success
         '401':
@@ -116,11 +119,11 @@ components:
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties:
-            <order sequence number> :
-              x-name: <order sequence number>
+            output :
+              x-name: output
               type: string
-              example: '{ 0: Apple said, the project-financing fund was the 1 of its kind, real estate developers, often secure bonds for affordable housing development, but must service the debt during construction, until the houses are built and start to generate revenue, apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders.}'
-              description: Order sequence number 
+              example: Apple said the project-financing fund was the first of its kind. Real estate developers often secure bonds for affordable housing development, but must service the debt during construction until the houses are built and start to generate revenue. Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders.
+              description: Corrected input text
         message:
           type: string
           example: Successfully Processed
@@ -213,30 +216,44 @@ components:
     versions:
       type: object
       properties: 
+        v2.0.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Apr 19, 2022
+                x-details: New Inverse norm using BERT,introducing new parameter “output” in the response json, 
+                          3 optional input parameters text2digits_normalised,datetime_normalised and threshold.
+                description: New Inverse norm using BERT,introducing new parameter “output” in the response json,
+                            3 optional input parameters text2digits_normalised,datetime_normalised and threshold.
         v1.0.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Oct 30, 2020
-                description: Standardizing Output JSON
+                x-details: Standardizing Output JSON
+                description: Version 1 release
         v0.1.0:
           type: array
           items:
             oneOf:
               - type: string
                 example: Published Date - Mar 24, 2020
-                description: Initial version release
+                x-details: Initial version release
+                description: Archived
     input:
       type: object
       required:
+      
         - text
+      
       properties:
         text:
           x-name: text
           type: string
-          default: true
-          example: Apple said the project-financing fund was the first of its kind Real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue Apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
+          default: True
+          example: apple said the project-financing fund was the first of its kind real estate developers often secure bonds for affordable housing development but must service the debt during construction until the houses are built and start to generate revenue apple and state officials hope to provide bridge financing during construction at rates below those from commercial lenders
           description: |+
             Input text
   securitySchemes:

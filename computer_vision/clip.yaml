@@ -1,0 +1,260 @@
+
+openapi: 3.0.1
+info:
+  title: Image-Text Similarity
+  description: |+
+    This microservice is used to predict the similarity between an input image and list of text snippets and return a score corresponding to the most relevant text that matches the image.
+    The underlying model is built using a neural network called CLIP (Contrastive Language-Image Pre-Training) that is trained on a variety of (image, text) pairs.
+  version: v0.1.0
+  x-subscribelink: clip
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 5 MB/Call
+  x-inputfilelimit: |+
+    Process up to 5 MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 5 MB.
+servers:
+  - url: 'http://168.177.101.39:30015' 
+tags:
+- name: "v0.1.0"
+  description: "Published Date - Mar 25, 2022"
+paths:
+  /microservices/computer_vision/clip/v0/getpredictions:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                results: 
+                  output:
+                  - class: a diagram
+                    similarity_score: 0.993
+
+                message: Successfully Processed
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'       
+        '500':
+          description: Internal Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        results:
+          type: object
+          description: The result of the API call.
+          example: { "<Json": "Object>" }
+          properties: 
+            output:
+              type: array
+              example: 
+                - class: a class room
+                  similarity_score: 1
+                - class: a building
+                  similarity_score: 0
+                - class: a table
+                  similarity_score: 0
+              description: List of classes and their similarity score
+              items:
+                oneOf:
+                  - type: object 
+                    properties:
+                      class:
+                        description: The class specified under the input text list
+                        example: a class room
+                        type: object
+                      confidence:
+                        description: The similarity score of the class with the input image.
+                        example: 1
+                        type: float
+
+        message:
+          type: string
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call success/failure
+        
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Mar 25, 2022
+                description: Initial version release     
+    input:
+      type: object
+      required:
+        - image_base64
+        - text
+      properties:
+        image_base64:
+          x-name: image_base64
+          type: string
+          default: True
+          example: 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
+          description: |+
+            Input image in base64 string format.
+        text:
+          x-name: text
+          type: array
+          default: True
+          example: ["a classroom","a building","a table"]
+          description: |+
+            A list of texts or classes to be compared with the input image to check similarity.
+        
+        
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header

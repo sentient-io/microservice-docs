@@ -5,8 +5,8 @@ info:
     This Voice microservice detects utterances in the input audio and outputs the start and end time of these utterances.
     
     An utterance is the smallest unit of speech. It is a continuous piece of speech beginning and ending with a clear pause.
-    The length of your audio should be **upto 60 seconds**.
-  version: '1.0.0'
+    The length of your audio should be **up to 60 seconds**.
+  version: '1.0.1'
   x-additionalinfo: |+
     Suggested Use Cases:
     - Narrate a blurb or chunk of text in English
@@ -14,16 +14,29 @@ info:
     - Enable voice control - implement voice commands such as “turn the volume up,” and voice search such as saying “what is the temperature in Paris?”
     - Transcribe multimedia content - transcribe audio and video to include captions and improve audience reach and experience. For example, this microservice can be used for indexing or subtitling video and/or multispeaker content; similar to video captioning on YouTube.
   x-subscribelink: voice_activity_detection_eng
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 60sec/Call
+  x-inputfilelimit: |+
+    Process up to 60 seconds (1 minute) of audio file.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Limit cannot exceed 60 seconds (1 minute).
+  x-apidetailsdesc: |+
+    Detects utterances of input audio and give start/end time of utterances.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
-- name: "v1.0.0"
-  description: "Published Date - Dec 09, 2020"
+- name: "v1.0.1"
+  description: "Published Date - Nov 09, 2021"
 paths:
   /microservices/voice/vad/v1/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v1.0.1
       responses:
         '200':
           description: Ok
@@ -234,7 +247,7 @@ components:
             Required. Input audio file in base64 format. 
         threshold:
           x-name: threshold
-          type: number
+          type: float
           format: float
           default: false
           example: 0.2
@@ -243,20 +256,30 @@ components:
     versions:
       type: object
       properties:
+        v1.0.1:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Nov 09, 2021
+              x-details: Bug fix
+              description: Latest Version
         v1.0.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - Dec 09, 2020
-              description: Standardizing Output JSON 
+              x-details: Standardizing Output JSON 
+              description: Depreciating on Nov 08, 2021
         v0.1.0:
           type: array
           items:
             oneOf:
             - type: string
               example: Published Date - Jul 03, 2020
-              description: Initial version release
+              x-details: Initial version release
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

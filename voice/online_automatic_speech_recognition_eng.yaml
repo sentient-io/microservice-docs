@@ -6,12 +6,44 @@ info:
   description: >-
     This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
   version: '0.1.1'
+  x-apitypedescription: |+
+    Fast | Single-Call | 60 mins/socket
+  x-inputfilelimit: |+
+    Process up to 60 mins/socket of audio file.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per every mins.
+  x-notes: |+
+    Limit cannot exceed 60 mins audio.
+  x-apidetailsdesc: |+
+    Recognize text from streaming audio file upto 60 mins and audio file should be in WAV and 16000 kz.
+servers:
+  - url: 'ws://168.177.101.38:30020'
 # tags must include in to the documentation, to read the description text for published date
 tags:
 - name: "v0.1.1"
   description: "Published Date - Apr 7, 2021"
 html: |+
      <div id="iframe-container">
-     <iframe src="htmlfileip/docs/voice/online_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
+     <iframe src="http://168.177.101.38:30008/docs/voice/online_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
      </iframe>
      </div>
+paths:
+  /:
+    post:
+      tags:
+        - v0.1.1
+components:
+  schemas:
+    versions:
+      type: object
+      properties:
+        v0.1.1:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Apr 7, 2021
+              x-details: Initial version release
+              description: Latest Version

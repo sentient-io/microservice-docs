@@ -13,7 +13,7 @@ info:
   version: '1.0.0'
   x-subscribelink: document_convertor_eng
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'http://168.177.101.38:30015'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Jul 30, 2020"
