@@ -306,7 +306,7 @@ components:
             - type: string
               example: Published Date - Nov 25, 2022
               x-details: New model 
-              description: Latest Version
+              description: New Model Update
         v2.0.0:
          type: array
          items:
@@ -314,7 +314,7 @@ components:
             - type: string
               example: Published Date - Feb 28, 2022
               x-details: Merged Spacy ner and change in Output format
-              description: Merged Spacy ner and change in Output format
+              description: End-of-life by May 31,2023 
         v1.0.0:
          type: array
          items:
