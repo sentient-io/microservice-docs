@@ -28,10 +28,10 @@ info:
   x-apidetailsdesc: |+
     Locates and Classifies named-entities classes from unstructured English text.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v3.0.0"
-  description: "Published Date - Nov 07, 2022"
+  description: "Published Date - Nov 25, 2022"
 paths:
   /microservices/nlp/namedentityrecognition/v3/getpredictions:
     post:
@@ -304,7 +304,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 07, 2022
+              example: Published Date - Nov 25, 2022
               x-details: New model 
               description: Latest Version
         v2.0.0:
