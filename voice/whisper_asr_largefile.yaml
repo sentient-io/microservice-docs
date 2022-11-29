@@ -558,7 +558,7 @@ components:
               x-name: language_code
               type: string
               default: true
-              example: en-US
+              example: en
               description: |+
                 Specify the language code that needs to be converted.
     uploadinput:
