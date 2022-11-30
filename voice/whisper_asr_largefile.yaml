@@ -525,8 +525,8 @@ components:
       required:
         - file_name
       properties:
-        file_name:
-          x-name: file_name
+        file:
+#           x-name: file_name
           type: string
           default: true
           format: binary
