@@ -526,7 +526,7 @@ components:
         - file_name
       properties:
         file:
-#           x-name: file_name
+          x-name: file
           type: string
           default: true
           format: binary
