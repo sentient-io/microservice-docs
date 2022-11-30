@@ -108,8 +108,8 @@ info:
     |                    ba                       |        bashkir       |
     |                    jw                       |        javanese      |
     |                    su                       |        sundanese     |
-  version: '1.0.0'
-  x-subscribelink: google_asr
+  version: '0.1.0'
+  x-subscribelink: whisper_asr
   x-apitype: large file
   x-apitypedescription: |+
     Asyncronous | Batch | 2GB/File.
@@ -124,17 +124,17 @@ info:
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - Aug 30, 2022"
+  description: "Published Date - Nov 30, 2022"
 paths:
   /async/microservices/voice/whisper/v0/getuploadurl:
     description: |+
       Get the pre-signed url to upload the file.
     post:
       tags:
-        - v1.0.0
+        - v0.1.0
       responses:
         '200':
           description: Ok
@@ -148,7 +148,7 @@ paths:
                   fields:
                     content-type: audio/wav
                     key: >-
-                      309/495/lp-googleasr/input/4test_e4ff367c93664fb9acfa40d9a4c6e43f.wav
+                      309/495/lp-whisper/input/4test_e4ff367c93664fb9acfa40d9a4c6e43f.wav
                     policy: >-
                       eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhdWRpby93YXYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDQ3NTIyNjRdLHsiY29udGVudC10eXBlIjoiYXVkaW8vd2F2In0seyJ4LWdvb2ctbWV0YS1hZGRpdGlvbmFsX3BhcmFtIjoiTm9uZSJ9LHsieC1nb29nLW1ldGEtb2lkIjoiMzA5In0seyJ4LWdvb2ctbWV0YS11aWQiOiI0OTUifSx7IngtZ29vZy1tZXRhLXVwbG9hZGVyIjoiNGI4MjE1MWQzMWUwNDI5YmEyOGYzYWQxNTI1YzNhYTYifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJlNGZmMzY3YzkzNjY0ZmI5YWNmYTQwZDlhNGM2ZTQzZiJ9LHsiYnVja2V0IjoidXNlcl9zcGFjZV9kZXYifSx7ImtleSI6IjMwOS80OTUvbHAtZ29vZ2xlYXNyL2lucHV0LzR0ZXN0X2U0ZmYzNjdjOTM2NjRmYjlhY2ZhNDBkOWE0YzZlNDNmLndhdiJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIyMFQwNDQxMzVaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMjAvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMS0xMi0yMFQwNTo0MTozNS4xNDMxOTJaIn0=
                     x-goog-algorithm: GOOG4-RSA-SHA256
@@ -252,7 +252,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed         
-  /async/microservices/voice/googleasr/v1/getstatus:
+  /async/microservices/voice/whisper/v0/getstatus:
     description: |+
       Query for processing status.
     get:
@@ -274,7 +274,7 @@ paths:
               example:
                 last_updated: 'Dec 20, 2021'
                 message: Successfully Processed
-                output_url: https://storage.googleapis.com/user_space_dev/309/495/lp-googleasr/output/4test_e4ff367c93664fb9acfa40d9a4c6e43f.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20211220%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211220T044341Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=2f0c7f17542780ba14c1b384ff5f82f27c5b3cf71eaa7abc0c720dbde37ab16123be9e9e42c16eaa6ac7390df9e98cd94884759622c78a7b85f06103220cff40ff8f1af74671e3aa9ee281fabfa7cf1f7a20acd598a488a0e6ad1d58f5a96b950671a7e685329f7f6b365e2c908fa77480515bcecc5624e611f41a41362bb81c5cb8c9649fdea0a427e30675266dd667d3805b4516d1eb1e80ead107ce521555d166a0688b3682336dcb1103a8125cabf92c30fdd111de9f5944832e3d6aa4a9f695b6fc6aa6dc342ac573f1c9c44064e2fe75618b5df25b82c43d27bb55027c9f4cdf09f340980d118851e005aca354fa8410584cc004d9bd621e41c0bf260c
+                output_url: https://storage.googleapis.com/user_space_dev/309/495/lp-whisper/output/4test_e4ff367c93664fb9acfa40d9a4c6e43f.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20211220%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211220T044341Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=2f0c7f17542780ba14c1b384ff5f82f27c5b3cf71eaa7abc0c720dbde37ab16123be9e9e42c16eaa6ac7390df9e98cd94884759622c78a7b85f06103220cff40ff8f1af74671e3aa9ee281fabfa7cf1f7a20acd598a488a0e6ad1d58f5a96b950671a7e685329f7f6b365e2c908fa77480515bcecc5624e611f41a41362bb81c5cb8c9649fdea0a427e30675266dd667d3805b4516d1eb1e80ead107ce521555d166a0688b3682336dcb1103a8125cabf92c30fdd111de9f5944832e3d6aa4a9f695b6fc6aa6dc342ac573f1c9c44064e2fe75618b5df25b82c43d27bb55027c9f4cdf09f340980d118851e005aca354fa8410584cc004d9bd621e41c0bf260c
                 request_cost: 0.3323
                 status: Success
 
@@ -517,9 +517,9 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 11, 2022
+              example: Published Date - Nov 30, 2022
               x-details: Initial version release  
-              description: Old Version
+              description: Latest Version
     input:
       type: object
       required:
@@ -554,65 +554,13 @@ components:
           type: object
           default: true
           properties:    
-            sampling_rate:
-              x-name: sampling_rate
+            language:
+              x-name: language
               type: string
               default: true
-              example: default
+              example: en
               description: |+
-                Specify required sampling rate.   
-                "default" - Microservice will process the input file in its native sampling rate.
-                 When the value is set to a numeric digit, then the input file will be converted to whatever is the number stated (e.g. "16000")
-            language_code:
-              x-name: language_code
-              type: string
-              default: true
-              example: en-US
-              description: |+
-                Specify the language code of the input audio.
-            word_level:
-              type: boolean
-              default: false
-              example: false
-              description: |+
-                Specifies whether to enable word time offsets during post-processing. Valid values - True and False. Default value - False.                
-            automatic_punctuation:
-              type: boolean
-              default: false
-              example: false
-              description: |+
-                Specifies whether to enable automatic punctuation during post-processing. Valid values - True and False. Default value - False.
-            profanity_filter:
-              type: boolean
-              default: false
-              example: false
-              description: |+
-                Specifies whether to add profanity filter during post-processing. Valid Values - True and False. Default value - False.
-            spoken_punctuation:
-              type: boolean
-              default: false
-              example: false
-              description: |+
-                Specifies whether to enable spoken punctuation during post-processing, which is valid only for english language. Valid values - True and False. Default value - False.
-            spoken_emojis:
-              type: boolean
-              default: false
-              example: false
-              description: |+
-                Specifies whether to enable spoken emojis during post-processing, which is valid only for english language. Valid values - True and False. Default value - False.
-            model:
-              type: string
-              default: default
-              example: default
-              description: |+
-                Speech-to-Text detects words in an audio clip by comparing input to one of many machine learning models. Each model has been trained by analyzing millions of examples—in this case, many, many audio recordings of people speaking.
-                1. latest_long - 	Use this model for any kind of long form content such as media or spontaneous speech and conversations. Consider using this model in place of the video model, especially if the video model is not available in your target language. You can also use this in place of the default model.
-                2. latest_short - Use this model for short utterances that are a few seconds in length. It is useful for trying to capture commands or other single shot directed speech use cases. Consider using this model instead of the command and search model.
-                3. command_and_search - Best for short or single-word utterances like voice commands or voice search.     
-                4. phone_call - 	Best for audio that originated from a phone call (typically recorded at an 8khz sampling rate).
-                5. medical_dictation - Use this model to transcribe notes dictated by a medical professional.
-                6. medical_conversation - Use this model to transcribe a conversation between a medical professional and a patient.
-                7. default - Best for audio that does not fit the other audio models, like long-form audio or dictation. The default model will produce transcription results for any type of audio, including audio such as video clips that have a separate model specifically tailored to it. However, recognizing video clip audio using the default model will likely yield lower-quality results than using the video model. Ideally the audio is high-fidelity, recorded at a 16khz or greater sampling rate.
+                Specify the language code that needs to be converted.
     uploadinput:
       type: object
       required:
