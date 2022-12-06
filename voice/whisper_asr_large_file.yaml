@@ -133,7 +133,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Nov 30, 2022"
 paths:
-  /async/microservices/voice/whisper/v0/getuploadurl:
+  /async/microservices/voice/whisperasrlp/v0/getuploadurl:
     description: |+
       Get the pre-signed url to upload the file.
     post:
@@ -256,7 +256,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed         
-  /async/microservices/voice/whisper/v0/getstatus:
+  /async/microservices/voice/whisperasrlp/v0/getstatus:
     description: |+
       Query for processing status.
     get:
