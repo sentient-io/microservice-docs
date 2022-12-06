@@ -3,8 +3,12 @@ openapi: 3.0.1
 info:
   title: Whisper ASR
   description: |+
-    It enables transcription in multiple languages, as well as translation from those languages into English.The model can automatically predict the input language though it can make mistakes sometime; otherwise the user can also specify the input language
-    The length of your audio **should not exceed 60 seconds**.
+    This Voice microservice based on the Whisper ASR model, takes in an audio file and transcribes English speech content within the input file into text.
+
+    This microservice can be effective for audio files with various mixed accents, as well as audio files that are noisy.
+
+    Do ensure that your audio file length is less than **3 mins and 10 MB**.
+    
   x-additionalinfo: |+
     **Supported Languages:**
     
