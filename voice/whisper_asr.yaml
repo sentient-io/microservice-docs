@@ -7,7 +7,7 @@ info:
 
     This microservice can be effective for audio files with various mixed accents, as well as audio files that are noisy.
 
-    Do ensure that your audio file length is less than **3 mins and 10 MB**.
+    Do ensure that your audio file length is less than **30secs**.
     
   x-additionalinfo: |+
     **Supported Languages:**
@@ -118,15 +118,15 @@ info:
   x-subscribelink: speech_enhancement
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 3 mins and 10 MB/Call
+    Fast | Single-Call | 30secs/Call
   x-inputfilelimit: |+
-    Process up to 3 mins and 10 MB of audio file.
+    Process up to 30secs of audio file.
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
     The API is billed by per request.
   x-notes: |+
-    Limit cannot exceed 3 mins and 10 MB.
+    Limit cannot exceed 30secs.
   x-apidetailsdesc: |+
     Supports recognizing short speech and returns the recognition for Small Files.
 servers:
