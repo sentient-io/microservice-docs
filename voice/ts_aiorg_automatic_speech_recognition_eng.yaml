@@ -1,7 +1,7 @@
 
 openapi: 3.0.1
 info:
-  title: Test
+  title: TS Aiorg Automatic Speech Recognition ENG
   description: |+
     Enhance speech signal by removing background noise.</br>
     Most recorded conversational speech signal contains some form of noise that hinders intelligibility, such as background noise, reverb, music, keyboard typing, etc.</br> 
