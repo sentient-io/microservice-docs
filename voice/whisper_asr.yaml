@@ -118,15 +118,15 @@ info:
   x-subscribelink: speech_enhancement
   x-apitype: small file
   x-apitypedescription: |+
-    Fast | Single-Call | 180sec/Call
+    Fast | Single-Call | 3 mins and 10 MB/Call
   x-inputfilelimit: |+
-    Process up to 180 seconds (3 minutes) of audio file.
+    Process up to 3 mins and 10 MB of audio file.
   x-responsetime: |+
     Response rate is fast due to small data transfer per call made.
   x-billingmethod: |+
     The API is billed by per request.
   x-notes: |+
-    Limit cannot exceed 180 seconds (3 minutes).
+    Limit cannot exceed 3 mins and 10 MB.
   x-apidetailsdesc: |+
     Supports recognizing short speech and returns the recognition for Small Files.
 servers:
