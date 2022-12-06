@@ -333,7 +333,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - Sep 20,2022'
+                example: 'Published Date - Oct 20,2022'
                 x-details: Initial version release
                 description: Latest Version
     input:
