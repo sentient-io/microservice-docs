@@ -113,7 +113,7 @@ info:
     |                    jw                       |        javanese      |
     |                    su                       |        sundanese     |
   version: '0.1.0'
-  x-subscribelink: whisper_asr
+  x-subscribelink: whisper_asr_large_file
   x-apitype: large file
   x-apitypedescription: |+
     Asyncronous | Batch | 1GB/File.
