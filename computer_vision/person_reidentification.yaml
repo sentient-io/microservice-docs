@@ -68,7 +68,7 @@ info:
   x-apidetailsdesc: |+
     Return similarity score (confidence) between two cropped images of people.
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://apish.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - November 26, 2021"
