@@ -24,7 +24,7 @@ info:
   x-apidetailsdesc: |+
     Extract Image from video file.
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Jun 20, 2022"  
