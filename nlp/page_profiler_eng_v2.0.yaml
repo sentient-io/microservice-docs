@@ -23,7 +23,7 @@
   x-apidetailsdesc: |+
     Retrieves web content in English from the input URL.
   servers:
-    - url: 'https://apis.sentient.io'
+    - url: 'https://apish.sentient.io'
   tags:
   - name: "v2.0"
     description: "Published Date - Sep 30, 2020"

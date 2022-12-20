@@ -5,13 +5,14 @@ info:
       This NLP microservice locates and classifies the named-entity classes from input unstructured English text and also returns the entity start and end positions.</br>
       The named-entity classes extracted include people's names, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals.</br>
       This microservice automatically extracts structured information from unstructured text data such as chat logs, emails, news articles, etc.</br>
+
       The input text **should not exceed 5000 characters**.
-  version: '2.0.0'
+  version: '3.0.0'
   x-additionalinfo: |+
     Suggested Use Cases:
-    - Extracting structured pre-defined information from text.</br>
-    - Gain insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.</br>
-    - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.</br>
+    - Extracting structured pre-defined information from text.</br></br>
+    - Gain insights from online customers - extract structured information from unstructured text data such as chat logs, emails, news articles, etc. to find and label fields within a document and then apply sentiment analysis to understand customer opinions to find actionable product and UX insights.</br></br>
+    - Entity analysis - identify entities within documents, including receipts, invoices, and contracts; and label them by types such as date, person, contact information, organization, location, events, products, and media.</br></br>
   x-subscribelink: named-entity_recognition_eng
   x-apitype: small file
   x-apitypedescription: |+
@@ -27,15 +28,15 @@ info:
   x-apidetailsdesc: |+
     Locates and Classifies named-entities classes from unstructured English text.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
-- name: "v2.0.0"
-  description: "Published Date - Feb 28, 2022"
+- name: "v3.0.0"
+  description: "Published Date - Nov 25, 2022"
 paths:
-  /microservices/nlp/namedentityrecognition/v2/getpredictions:
+  /microservices/nlp/namedentityrecognition/v3/getpredictions:
     post:
       tags:
-        - v2.0.0
+        - v3.0.0
       responses:
         '200':
           description: Ok
@@ -298,6 +299,14 @@ components:
     versions:
       type: object
       properties: 
+        v3.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Nov 25, 2022
+              x-details: New model 
+              description: New Model Update
         v2.0.0:
          type: array
          items:
@@ -305,7 +314,7 @@ components:
             - type: string
               example: Published Date - Feb 28, 2022
               x-details: Merged Spacy ner and change in Output format
-              description: Latest Version
+              description: End-of-life by May 31,2023 
         v1.0.0:
          type: array
          items:
