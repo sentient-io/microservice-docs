@@ -62,6 +62,10 @@ paths:
                 message: Successfully Processed
                 results:
                   search_result:
+                    total:
+                      relation: eq
+                      value: 1
+                    max_score: 1
                     hits:
                     - _index: acra_dataset
                       _type: _doc
@@ -167,10 +171,6 @@ paths:
                         paid_up_capital1_ordinary: "na"
                         unique_id: "9cbb07e9-6aa6-11ed-b9f6-42010a940006"
                     sort: [1669178726389]
-                    max_score: 1
-                    total:
-                      relation: eq
-                      value: 1
                 status: Success
         '401':
           description: Unauthorized
