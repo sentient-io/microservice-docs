@@ -235,7 +235,7 @@ components:
             - type: string
               example: Published Date - Aug 30, 2019
               x-details: Initial version release
-              description: Archived on Dec 9, 2022
+              description: Archived
   securitySchemes:
     APIAuthorizer:
       type: apiKey

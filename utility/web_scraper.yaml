@@ -306,7 +306,7 @@ components:
             - type: string
               example: Published Date - Dec 04, 2020
               x-details: Patch Update       
-              description: Archived on Dec 9, 2022
+              description: Archived
         v1.1.0:
          type: array
          items:
@@ -314,7 +314,7 @@ components:
             - type: string
               example: Published Date - Oct 30, 2020
               x-details: Partial URL support 
-              description: Archived on Dec 9, 2022
+              description: Archived
         v1.0.0:
          type: array
          items:
@@ -322,7 +322,7 @@ components:
             - type: string
               example: Published Date - Jul 03, 2020
               x-details: Improvised search filters using query_list, now you can even navigate down the html tree like get all p tag inside a div class "class":"class_name p"
-              description: Archived on Dec 9, 2022
+              description: Archived
         v0.1.0:
          type: array
          items:

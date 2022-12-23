@@ -223,7 +223,7 @@
                - type: string
                  example: Published Date - Aug 11, 2021
                  x-details: Model Upgrade
-                 description: Archived on Dec 9, 2022
+                 description: Archived
           v0.1.2:
             type: array
             items:
@@ -231,7 +231,7 @@
                - type: string
                  example: Published Date - Jun 07, 2021
                  x-details: Deeper Postprocessing of Summarised text
-                 description: Archived on Dec 9, 2022
+                 description: Archived
           v0.1.1:
             type: array
             items:
@@ -239,7 +239,7 @@
                - type: string
                  example: Published Date - May 12, 2021
                  x-details: Postprocessing of Summarised text
-                 description: Archived on Dec 9, 2022
+                 description: Archived
           v0.1.0:
            type: array
            items:

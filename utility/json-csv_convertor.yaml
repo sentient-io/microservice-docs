@@ -245,7 +245,7 @@ components:
             - type: string
               example: Published Date - Jan 17, 2022
               x-details: On Prem Setup Added   
-              description: Archived on Dec 9, 2022        
+              description: Archived        
         v0.0.1:
          type: array
          items:

@@ -298,7 +298,7 @@ components:
               - type: string
                 example: Published Date - Apr 07, 2021
                 x-details: New model generic introduced
-                description: Archived on Dec 9, 2022
+                description: Archived
         v1.1.0:
           type: array
           items:
@@ -306,7 +306,7 @@ components:
               - type: string
                 example: Published Date - Jan 22, 2021
                 x-details: Model name update
-                description: Archived on Dec 9, 2022
+                description: Archived
         v1.0.0:
           type: array
           items:
@@ -314,7 +314,7 @@ components:
               - type: string
                 example: Published Date - Dec 09, 2020
                 x-details: Standardizing Output JSON 
-                description: Archived on Dec 9, 2022
+                description: Archived
         
         v0.1.0:
           type: array
