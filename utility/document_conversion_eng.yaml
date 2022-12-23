@@ -225,7 +225,7 @@ components:
             - type: string
               example: Published Date - Jul 30, 2020
               x-details: Change libary for PDF reader
-              description: Old Version
+              description: Archived on Dec 9, 2022
         v0.1.0:
          type: array
          items:

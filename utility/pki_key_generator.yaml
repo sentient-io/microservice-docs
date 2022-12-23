@@ -231,7 +231,7 @@ components:
             - type: string
               example: Published Date - Feb 10, 2022
               x-details: Patch Update(Input Type Change)
-              description: Old Version      
+              description: Archived on Dec 9, 2022      
         v0.1.0:
          type: array
          items:

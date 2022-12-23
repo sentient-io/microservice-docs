@@ -325,7 +325,7 @@ components:
             - type: string
               example: Published Date - Aug 07, 2020
               x-details: Initial version release
-              description: Old Version
+              description: Archived on Dec 9, 2022
     input:
       type: object
       required:

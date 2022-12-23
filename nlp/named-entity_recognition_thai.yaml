@@ -336,7 +336,7 @@ components:
             - type: string
               example: Published Date - Sep 30, 2020
               x-details: Updated version release v1.0
-              description: Version 1 release
+              description: Archived on Dec 9, 2022
         v0.1.0:
          type: array
          items:

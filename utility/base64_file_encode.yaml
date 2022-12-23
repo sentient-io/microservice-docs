@@ -251,7 +251,7 @@ components:
             - type: string
               example: Published Date - Jan 17, 2022
               x-details: On Prem Setup Added   
-              description: Old Version      
+              description: Archived on Dec 9, 2022      
         v0.0.1:
          type: array
          items:

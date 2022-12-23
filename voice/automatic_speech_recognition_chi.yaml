@@ -293,7 +293,7 @@ components:
             - type: string
               example: Published Date - Apr 07, 2021
               x-details: Standardizing Input and Output Updated.
-              description: Old Version
+              description: Archived on Dec 9, 2022
         v0.1.1:
          type: array
          items:
@@ -301,7 +301,7 @@ components:
             - type: string
               example: Published Date - Sep 28, 2018
               x-details: Patch update on bug fixes
-              description: Depreciating on Apr 06, 2021
+              description: Archived on Dec 9, 2022
         v0.1.0:
          type: array
          items:
