@@ -14,27 +14,9 @@ tags:
   description: "Published Date - May 21, 2021"
 paths:
    /org/v0/addusertogroup:
-    get:
+    post:
       tags:
         - v0.1.0
-      required:
-        - user_id
-        - group_id
-      parameters:
-        - in: query
-          name: user_id
-          schema:
-            type: integer
-          required: true
-          description: User Id. Refer to User List API to get the user id (results.user_id) details.
-          example: "1121"
-        - in: query
-          name: group_id
-          schema:
-            type: integer
-          required: true
-          description: Group Id. Refer to Group List to get the group id(results.group_id) details.
-          example: "7"
       responses:
         '200':
           description: Ok
@@ -128,7 +110,25 @@ components:
           oneOf:
             - type: string
               example: Published Date - Nov 25,2019
-              description: Initial version release          
+              description: Initial version release 
+  input:
+    type: object
+    required:
+        - user_id
+        - group_id
+      properties:
+        user_id:
+          x-name: user_id
+          type: integer
+          default: True
+          description: User Id. Refer to User List API to get the user id (results.user_id) details.
+          example: "1121"
+        group_id:
+          x-name: group_id
+          type: integer
+          default: True
+          description: Group Id. Refer to Group List to get the group id(results.group_id) details.
+          example: "7"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
