@@ -11,27 +11,9 @@ tags:
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/unsubscription:
-    get:
+    post:
       tags:
         - v0.1.0
-      required:
-        - key
-        - value
-      parameters:
-        - in: query
-          name: key
-          schema:
-            type: string
-          required: true
-          description: Keys of either Function Id or Function Code.
-          example: "function_id or function_code"
-        - in: query
-          name: value
-          schema:
-            type: string
-          required: true
-          description: Value of Funtion Id or Function Code. To get Function Id, Refer to Assign Functions API to get the function id (result.function_id) details.
-          example: "217 or WEBSCRAPING"
       responses:
         '200':
           description: Ok
@@ -125,7 +107,25 @@ components:
           oneOf:
             - type: string
               example: Published Date - Sep 6,2021
-              description: Initial version release          
+              description: Initial version release  
+  input:
+    type: object
+    required:
+        - key
+        - value
+    properties:
+      key:
+        x-name: key
+        type: string
+        required: true
+        description: Keys of either Function Id or Function Code.
+        example: "function_id or function_code"
+      value:
+        x-name: value
+        type: string
+        required: true
+        description: Value of Funtion Id or Function Code. To get Function Id, Refer to Assign Functions API to get the function id (result.function_id) details.
+        example: "217 or WEBSCRAPING"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
