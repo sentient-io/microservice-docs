@@ -113,7 +113,7 @@ components:
     required:
         - function_id
         - user_id
-      parameters:
+      properties:
         function_id:
           x-name: function_id
           type: integer
