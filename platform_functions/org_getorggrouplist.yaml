@@ -13,7 +13,7 @@ tags:
   description: "Published Date - Jul 09, 2021"
 paths:
    /org/v0/getorggrouplist:
-    get:
+    post:
       tags:
         - v0.1.0
       responses:
