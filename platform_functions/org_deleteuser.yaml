@@ -14,17 +14,9 @@ tags:
   description: "Published Date - May 21, 2021"
 paths:
    /org/v0/deleteuser:
-    get:
+    post:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: user_id
-          schema:
-            type: integer
-          required: true
-          description: User id of the user. Refer to User List API to get the user id (results.user_id) details.
-          example: "1326"
       responses:
         '200':
           description: Ok
@@ -118,7 +110,18 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 09,2021
-              description: Initial version release          
+              description: Initial version release        
+  input:
+    type: object
+    required:
+     -user_id
+    properties:
+      user_id:
+        x-name: user_id
+        type: integer
+        default: True
+        description: User id of the user. Refer to User List API to get the user id (results.user_id) details.
+        example: "1326"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
