@@ -191,7 +191,7 @@ components:
         group_id:
           x-name: group_id
           type: integer
-          default: true
+          required: true
           description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
           example: "253"
   securitySchemes:
