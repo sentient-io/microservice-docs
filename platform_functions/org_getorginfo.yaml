@@ -13,7 +13,7 @@ tags:
   description: "Published Date - May 21, 2021"
 paths:
    /org/v0/getorginfo:
-    get:
+    post:
       tags:
         - v0.1.0
       responses:
