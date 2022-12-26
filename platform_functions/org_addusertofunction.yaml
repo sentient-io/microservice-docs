@@ -117,13 +117,13 @@ components:
         function_id:
           x-name: function_id
           type: integer
-          default: True
+          required: true
           description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
           example: "237"
         user_id:
           x-name: user_id
           type: integer
-          default: True
+          required: true
           description: User Id. Refer to User List API to get the user id (results.user_id) details.
           example: "2365"
   securitySchemes:
