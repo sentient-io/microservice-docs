@@ -11,17 +11,9 @@ tags:
   description: "Published Date - Nov 1, 2021"
 paths:
    /org/v0/removeuserfromgroup:
-    get:
+    post:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: user_group_id
-          schema:
-            type: integer
-          required: true
-          description: User Group Id. Refer to View User Details API to get the user group id (results.groups.id) details.
-          example: "1"
       responses:
         '200':
           description: Ok
@@ -115,7 +107,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Nov 1,2021
-              description: Initial version release          
+              description: Initial version release            
+  input:
+    type: object
+    properties:
+        user_group_id:
+          name: user_group_id
+          type: integer
+          required: true
+          description: User Group Id. Refer to View User Details API to get the user group id (results.groups.id) details.
+          example: "1"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
