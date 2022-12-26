@@ -12,17 +12,9 @@ tags:
   description: "Published Date - Jul 09, 2021"
 paths:
    /org/v0/getgroupinfo:
-    get:
+    post:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: group_id
-          schema:
-            type: integer
-          required: true
-          description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
-          example: "253"
       responses:
         '200':
           description: Ok
@@ -192,7 +184,18 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 09,2021
-              description: Initial version release          
+              description: Initial version release       
+  input:
+    type: object
+    required:
+     - group_id
+    properties:
+        group_id:
+          x-name: group_id
+          type: integer
+          default: true
+          description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
+          example: "253"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
