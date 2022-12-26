@@ -120,13 +120,13 @@ components:
         user_id:
           x-name: user_id
           type: integer
-          default: True
+          required: true
           description: User Id. Refer to User List API to get the user id (results.user_id) details.
           example: "1121"
         group_id:
           x-name: group_id
           type: integer
-          default: True
+          required: true
           description: Group Id. Refer to Group List to get the group id(results.group_id) details.
           example: "7"
   securitySchemes:
