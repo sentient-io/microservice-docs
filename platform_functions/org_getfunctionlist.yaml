@@ -117,7 +117,7 @@ components:
         owner_id:
           x-name: owner_id
           type: integer
-          default: false
+          required: false
           description: Owner Id
           example: "1"
         type:
