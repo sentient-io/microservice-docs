@@ -11,19 +11,9 @@ tags:
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/deletegroup:
-    get:
+    post:
       tags:
         - v0.1.0
-      required:
-        - group_id
-      parameters:
-        - in: query
-          name: group_id
-          schema:
-            type: integer
-          required: true
-          description: Group Id. Refer to View Group Details API to get the group id (result.group_id) details.
-          example: "2466"
       responses:
         '200':
           description: Ok
@@ -117,7 +107,18 @@ components:
           oneOf:
             - type: string
               example: Published Date - Sep 6,2021
-              description: Initial version release          
+              description: Initial version release 
+  input:
+    type: object
+    required:
+      - group_id
+    properties:
+      group_id:
+        x-name: group_id
+        type: integer
+        dafault: True
+        description: Group Id. Refer to View Group Details API to get the group id (result.group_id) details.
+        example: "2466"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
