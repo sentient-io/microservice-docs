@@ -11,7 +11,7 @@ tags:
   description: "Published Date - May 21, 2021"
 paths:
    /org/v0/getuserlist:
-    get:
+    post:
       tags:
         - v1.0.0
       responses:
