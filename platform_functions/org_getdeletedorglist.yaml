@@ -11,17 +11,9 @@ tags:
   description: "Published Date - May 21, 2021"
 paths:
    /org/getdeletedorglist:
-    get:
+    post:
       tags:
         - v1.0.0
-      parameters:
-        - in: query
-          name: x_api_key
-          schema:
-            type: string
-          description: x_api_key
-          example: xxxxxxxxx
-          default: false
       responses:
         '200':
           description: Ok
@@ -5194,7 +5186,16 @@ components:
           oneOf:
             - type: string
               example: Published Date - Nov 25,2019
-              description: Initial version release          
+              description: Initial version release   
+  input:
+    type:object
+    properties:
+      x_api_key:
+          x-name: x_api_key
+          type: string
+          description: x_api_key
+          example: xxxxxxxxx
+          default: false
   securitySchemes:
     APIAuthorizer:
       type: apiKey
