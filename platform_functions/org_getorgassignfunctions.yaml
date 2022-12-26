@@ -11,7 +11,7 @@ tags:
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/getorgassignfunctions:
-    get:
+    post:
       tags:
         - v0.1.0
       responses:
