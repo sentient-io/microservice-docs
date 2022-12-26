@@ -187,8 +187,6 @@ components:
               description: Initial version release       
   input:
     type: object
-    required:
-     - group_id
     properties:
         group_id:
           x-name: group_id
