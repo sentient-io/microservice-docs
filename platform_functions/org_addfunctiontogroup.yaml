@@ -116,13 +116,13 @@ components:
       properties:
         function_id:
           x-name: function_id
-          x-type: integer
+          type: integer
           default: True
           description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
           example: "237"
         group_id:
           x-name: group_id
-          x-type: integer
+          type: integer
           default: True
           description: Group Id. Refer to View Group Details API to get the group id (result.group_id) details.
           example: "2451"            
