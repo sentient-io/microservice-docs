@@ -117,13 +117,13 @@ components:
         function_id:
           x-name: function_id
           type: integer
-          default: True
+          required: true
           description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
           example: "237"
         group_id:
           x-name: group_id
           type: integer
-          default: True
+          required: true
           description: Group Id. Refer to View Group Details API to get the group id (result.group_id) details.
           example: "2451"            
   securitySchemes:
