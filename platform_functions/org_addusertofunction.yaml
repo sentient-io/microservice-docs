@@ -5,15 +5,33 @@ info:
   x-subscribelink: add_user_to_function
   version: '0.1.0'
 servers:
-  - url: 'https://dev-microserviceapi-org.sentient.io'
+  - url: 'https://platform-apis-org.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/addusertofunction:
-    post:
+    get:
       tags:
         - v0.1.0
+      required:
+        - function_id
+        - user_id
+      parameters:
+        - in: query
+          name: function_id
+          schema:
+            type: integer
+          required: true
+          description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
+          example: "237"
+        - in: query
+          name: user_id
+          schema:
+            type: integer
+          required: true
+          description: User Id. Refer to User List API to get the user id (results.user_id) details.
+          example: "2365"
       responses:
         '200':
           description: Ok
@@ -107,25 +125,7 @@ components:
           oneOf:
             - type: string
               example: Published Date - Sep 6,2021
-              description: Initial version release    
-  input:
-    type: object
-    required:
-        - function_id
-        - user_id
-      properties:
-        function_id:
-          x-name: function_id
-          type: integer
-          required: true
-          description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
-          example: "237"
-        user_id:
-          x-name: user_id
-          type: integer
-          required: true
-          description: User Id. Refer to User List API to get the user id (results.user_id) details.
-          example: "2365"
+              description: Initial version release          
   securitySchemes:
     APIAuthorizer:
       type: apiKey
