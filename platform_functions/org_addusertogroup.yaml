@@ -53,6 +53,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -111,24 +117,24 @@ components:
             - type: string
               example: Published Date - Nov 25,2019
               description: Initial version release 
-  input:
-    type: object
-    required:
+    input:
+      type: object
+      required:
         - user_id
         - group_id
       properties:
         user_id:
           x-name: user_id
           type: integer
-          required: true
+          default: True
           description: User Id. Refer to User List API to get the user id (results.user_id) details.
           example: "1121"
         group_id:
           x-name: group_id
           type: integer
-          required: true
+          default: True
           description: Group Id. Refer to Group List to get the group id(results.group_id) details.
-          example: "7"
+            example: "7"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
