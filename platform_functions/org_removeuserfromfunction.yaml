@@ -50,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -108,17 +114,17 @@ components:
             - type: string
               example: Published Date - Sep 6,2021
               description: Initial version release          
-  input:
-    type: object
-    required:
-        - user_function_id
-    properties:
-        user_function_id:
-          x-name: user_function_id
-          type: integer
-          required: true
-          description: User Function Id. Initially to get User Id. Refer to User List API to get the user id(results.user_id) details. To get user_function_id, Refer to View User Details API to get the id from (results.direct_function.id) details for any particular function.
-          example: "66934"
+    input:
+      type: object
+      required:
+          - user_function_id
+      properties:
+          user_function_id:
+            x-name: user_function_id
+            type: integer
+            default: true
+            description: User Function Id. Initially to get User Id. Refer to User List API to get the user id(results.user_id) details. To get user_function_id, Refer to View User Details API to get the id from (results.direct_function.id) details for any particular function.
+            example: "66934"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
