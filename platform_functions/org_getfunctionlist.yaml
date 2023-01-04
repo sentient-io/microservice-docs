@@ -50,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -108,24 +114,24 @@ components:
             - type: string
               example: Published Date - Sep 6,2021
               description: Initial version release  
-  input:
-    type: object:
-    required:
-     - owner_id
-     - type
-    properties:
-        owner_id:
-          x-name: owner_id
-          type: integer
-          required: false
-          description: Owner Id
-          example: "1"
-        type:
-          x-name: type
-          type: string
-          required: false
-          description: API or Function Type
-          example: "apis"
+    input:
+      type: object
+      required:
+       - owner_id
+       - type
+      properties:
+          owner_id:
+            x-name: owner_id
+            type: integer
+            default: False
+            description: Owner Id
+            example: "1"
+          type:
+            x-name: type
+            type: string
+            default: False
+            description: API or Function Type
+            example: "apis"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
