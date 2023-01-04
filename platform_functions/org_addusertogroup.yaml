@@ -134,7 +134,7 @@ components:
           type: integer
           default: True
           description: Group Id. Refer to Group List to get the group id(results.group_id) details.
-            example: "7"
+          example: "7"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
