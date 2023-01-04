@@ -10,7 +10,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 6, 2021"
 paths:
-   /org/v0/deletegroup:
+  /org/v0/deletegroup:
     post:
       tags:
         - v0.1.0
@@ -50,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -108,17 +114,17 @@ components:
             - type: string
               example: Published Date - Sep 6,2021
               description: Initial version release 
-  input:
-    type: object
-    required:
-      - group_id
-    properties:
-      group_id:
-        x-name: group_id
-        type: integer
-        dafault: True
-        description: Group Id. Refer to View Group Details API to get the group id (result.group_id) details.
-        example: "2466"
+    input:
+      type: object
+      required:
+        - group_id
+      properties:
+        group_id:
+          x-name: group_id
+          type: integer
+          default: True
+          description: Group Id. Refer to View Group Details API to get the group id (result.group_id) details.
+          example: "2466"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
