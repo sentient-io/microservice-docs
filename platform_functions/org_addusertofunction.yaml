@@ -5,7 +5,7 @@ info:
   x-subscribelink: add_user_to_function
   version: '0.1.0'
 servers:
-  - url: 'https://platform-apis-org.sentient.io'
+  - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 6, 2021"
@@ -126,16 +126,12 @@ components:
           default: True
           example: 237
           description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
-          items:
-            type: object
         user_id:
           x-name: user_id
           type: integer
           default: True
           example: 2365
           description: User Id. Refer to User List API to get the user id (results.user_id) details.
-          items:
-            type: object
   securitySchemes:
     APIAuthorizer:
       type: apiKey
