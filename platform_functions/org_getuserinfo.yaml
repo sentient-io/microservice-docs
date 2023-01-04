@@ -63,6 +63,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -182,15 +188,17 @@ components:
             - type: string
               example: Published Date - Jul 09,2019
               description: Initial version release      
-  input:
-    type: object
-    properties:
-        user_id:
-          x-name: user_id
-          type: integer
-          description: Default it will be based on api key user details. For User Id, Refer to User List API to get the user id (results.user_id) details.
-          example: "1334"
-          default: false
+    input:
+      type: object
+      required:
+        - user_id
+      properties:
+          user_id:
+            x-name: user_id
+            type: integer
+            description: Default it will be based on api key user details. For User Id, Refer to User List API to get the user id (results.user_id) details.
+            example: "1334"
+            default: false
   securitySchemes:
     APIAuthorizer:
       type: apiKey
