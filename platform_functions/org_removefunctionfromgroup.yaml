@@ -50,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -108,17 +114,17 @@ components:
             - type: string
               example: Published Date - Sep 6,2021
               description: Initial version release    
-  input:
-    type: object
-    required:
+    input:
+      type: object
+      required:
         - function_group_id
-    properties:
-      function_group_id:
-        x-name: function_group_id
-        type: integer
-        required: true
-        description: Function Group Id. Initially to get Group Id. Refer to Group List API to get the group id(results.group_id) details. To get function_group_id, Refer to View Group Details API to get the id from (result.group_function.id) details for any particular function.
-        example: "66934"
+      properties:
+        function_group_id:
+          x-name: function_group_id
+          type: integer
+          default: true
+          description: Function Group Id. Initially to get Group Id. Refer to Group List API to get the group id(results.group_id) details. To get function_group_id, Refer to View Group Details API to get the id from (result.group_function.id) details for any particular function.
+          example: "66934"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
