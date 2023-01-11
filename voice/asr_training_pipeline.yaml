@@ -172,7 +172,7 @@ paths:
               example:
                 last_updated: 'Dec 20, 2021'
                 message: Successfully Processed
-                output_url: https://storage.googleapis.com/onboarding_models/309/495/lp-googleasr/output/4test_e4ff367c93664fb9acfa40d9a4c6e43f.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20211220%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211220T044341Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=2f0c7f17542780ba14c1b384ff5f82f27c5b3cf71eaa7abc0c720dbde37ab16123be9e9e42c16eaa6ac7390df9e98cd94884759622c78a7b85f06103220cff40ff8f1af74671e3aa9ee281fabfa7cf1f7a20acd598a488a0e6ad1d58f5a96b950671a7e685329f7f6b365e2c908fa77480515bcecc5624e611f41a41362bb81c5cb8c9649fdea0a427e30675266dd667d3805b4516d1eb1e80ead107ce521555d166a0688b3682336dcb1103a8125cabf92c30fdd111de9f5944832e3d6aa4a9f695b6fc6aa6dc342ac573f1c9c44064e2fe75618b5df25b82c43d27bb55027c9f4cdf09f340980d118851e005aca354fa8410584cc004d9bd621e41c0bf260c
+                output_url: https://storage.googleapis.com/user_space_dev/309/495/lp-googleasr/output/4test_e4ff367c93664fb9acfa40d9a4c6e43f.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20211220%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211220T044341Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=2f0c7f17542780ba14c1b384ff5f82f27c5b3cf71eaa7abc0c720dbde37ab16123be9e9e42c16eaa6ac7390df9e98cd94884759622c78a7b85f06103220cff40ff8f1af74671e3aa9ee281fabfa7cf1f7a20acd598a488a0e6ad1d58f5a96b950671a7e685329f7f6b365e2c908fa77480515bcecc5624e611f41a41362bb81c5cb8c9649fdea0a427e30675266dd667d3805b4516d1eb1e80ead107ce521555d166a0688b3682336dcb1103a8125cabf92c30fdd111de9f5944832e3d6aa4a9f695b6fc6aa6dc342ac573f1c9c44064e2fe75618b5df25b82c43d27bb55027c9f4cdf09f340980d118851e005aca354fa8410584cc004d9bd621e41c0bf260c
                 request_cost: 0.3323
                 status: Success
 
@@ -463,11 +463,10 @@ components:
           x-name: content_type
           type: string
           default: true
-          example: 'audio/zip'
+          example: 'application/zip'
           description: |+
             Specify the content-type. Pick any one from below list based on input file type.
-            ["audio/wav","audio/aac","audio/midi","audio/x-midi","audio/mpeg","audio/opus",
-            "audio/webm","audio/3gpp","audio/3gpp2","audio/x-wav"]
+            ["application/wav"]
         model_type:
           x-name: model_type
           type: string
