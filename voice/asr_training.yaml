@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: ASR Training Test
+  title: ASR Training Pipeline Beta
   description: |+
     Testing.
   x-additionalinfo: |+
