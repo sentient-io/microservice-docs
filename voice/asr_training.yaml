@@ -131,7 +131,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/user_space_dev/'
+        - url: 'https://storage.googleapis.com/onboarding_models/'
           description: Override base path for the GET /ping operation    
       tags:
         - v1.0.0
@@ -552,6 +552,18 @@ components:
           default: false
           example: 7970619677c2a0dc26af460a7d62f883528af9e1e8a1459aa09671ee0fbf15f7a611b7bd8c382fd8d39f74fe212a7e3db1768535f0c1ccff062239627ebe49195cc2c42c2238eb5e268ecaca49e647eb244eb023f3d4ba97922fd1228aab677a7176b9f84fef1c909897ccf0e1e8f9e3d030dbfc9892c7c026060dcf20b4ad4598f346de478b0f8495d9bce292b83a5b3bfa13c7dc08a2ce162f652c3bce91191167eeee3019b6b196e4271f5e3a6a1fe067f70acdaa082e6091c2f3ac8182bca8be41afc90600fc32dcdb3072acb43aaf90910a38c4aec9e3a42fdd21deb5ce936d8269e9ed011377ef058cac20d336218a35858753bd99b4ffdb1db171f0f4
           description: Fields         
+        jid:
+          type: string
+          example: 1991d4936ddb4728afaa06cb260b0253...
+          description: Google algorithm 
+        request_cost:
+          type: string
+          example: 0
+          description: Google algorithm 
+        url:
+          type: string
+          example: https://storage.googleapis.com/onboarding_models/
+          description: Google algorithm           
   securitySchemes:
     APIAuthorizer:
       type: apiKey
