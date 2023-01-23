@@ -3,7 +3,7 @@ info:
   title: Unsubscribe From Microservice
   description: This API provides operations to unsubscribe function to the users in your organization.
   x-subscribelink: unsubscription
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
