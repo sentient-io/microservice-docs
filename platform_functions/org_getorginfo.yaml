@@ -167,8 +167,6 @@ components:
               description: Initial version release   
     input:
       properties:
-        org_id:
-          description: org_id is not mantatory field with x-api-key  we can get the org details.
           example: {}
   securitySchemes:
     APIAuthorizer:
