@@ -58,6 +58,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -158,7 +164,20 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 09,2021
-              description: Initial version release          
+              description: Initial version release    
+    input:
+      type: object
+      required:
+        - org_id
+      properties:
+        org_id:
+          x-name: org_id
+          type: array
+          default: True
+          example: {}
+          description: org_id if u want u can mention or no need to give org_id.
+          items:
+            type: object
   securitySchemes:
     APIAuthorizer:
       type: apiKey
