@@ -3,7 +3,7 @@ info:
   title: Remove Function From Group
   description: This API provides operations to manage groups in your organization. This API helps to remove the function from the group.
   x-subscribelink: remove_function_from_group
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
@@ -107,7 +107,7 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
