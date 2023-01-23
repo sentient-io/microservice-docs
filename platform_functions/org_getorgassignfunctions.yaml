@@ -116,9 +116,7 @@ components:
               description: Initial version release     
     input:
       type: object
-      properties:
-        example: {}
-        
+      
   securitySchemes:
     APIAuthorizer:
       type: apiKey
