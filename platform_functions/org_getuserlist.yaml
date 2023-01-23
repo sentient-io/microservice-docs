@@ -8,7 +8,7 @@ servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 21, 2021"
+  description: "Published Date - July 09, 2021"
 paths:
    /org/v0/getuserlist:
     post:
