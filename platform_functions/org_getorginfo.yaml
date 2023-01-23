@@ -167,14 +167,8 @@ components:
               description: Initial version release   
     input:
       type: object
-      required:
-        - group_id
       properties:
-          group_id:
-            x-name: group_id
-            type: integer
-            default: true
-            description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
+            description: org_id. Refer to orginfo details.
             example: {}
   securitySchemes:
     APIAuthorizer:
