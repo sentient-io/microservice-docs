@@ -166,8 +166,8 @@ components:
               example: Published Date - Jul 09,2021
               description: Initial version release   
     input:
-      properties:
-          example: {}
+      type: object
+      
   securitySchemes:
     APIAuthorizer:
       type: apiKey
