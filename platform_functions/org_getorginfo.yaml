@@ -167,10 +167,10 @@ components:
               description: Initial version release   
     input:
       type: object
-      not mandatory:
+      required:
         - org_id
       properties:
-            description:  org_id is not mandatory to get org details.
+            description:  org_id is not mandatory to get org details it will refer from x-api-key.
             example: {}
   securitySchemes:
     APIAuthorizer:
