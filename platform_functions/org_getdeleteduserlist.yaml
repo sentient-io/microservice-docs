@@ -3,7 +3,7 @@ info:
   title: List Deleted Users
   description: This API provides operations to retrieve the list of all deleted users inside in your organization.
   x-subscribelink: get_deleted_user_list
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
@@ -101,7 +101,7 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
