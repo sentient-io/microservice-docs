@@ -5193,17 +5193,6 @@ components:
             - type: string
               example: Published Date - May 21,2021
               description: Initial version release   
-    input:
-      type : object
-      required:
-        - x_api_key
-      properties:
-        x_api_key:
-            x-name: x_api_key
-            type: string
-            description: x_api_key
-            example: xxxxxxxxx
-            default: false
   securitySchemes:
     APIAuthorizer:
       type: apiKey
