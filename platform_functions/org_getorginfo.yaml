@@ -167,7 +167,9 @@ components:
               description: Initial version release   
     input:
       properties:
-            example: {}
+        org_id:
+          description: Group Id. Refer to Group List API to get the group id details.
+          example: {}
   securitySchemes:
     APIAuthorizer:
       type: apiKey
