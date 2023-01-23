@@ -3,11 +3,11 @@ info:
   title: Add Function To Group
   description: This is an organization function and this API provides operations to manage functions in your organization group.  
   x-subscribelink: add_function_to_group
-  version: 'v1.0.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
-- name: "v1.0.0"
+- name: "v0.1.0"
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/addfunctiontogroup:
@@ -107,7 +107,7 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
