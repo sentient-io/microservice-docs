@@ -5,7 +5,7 @@ info:
     This API provides collection of API Metering graphs that lets you as an admin read and create organization's data. </br>
     By using this API, an orgonization admin can grant access to orgonizational/groups/group lists, content and allow to publish content to the orgonization/groups/group lists on behalf of the admin.
   x-subscribelink: org_info
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
