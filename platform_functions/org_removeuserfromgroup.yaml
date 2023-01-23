@@ -3,7 +3,7 @@ info:
   title: Remove Group From User
   description: This API provides operations to remove assigned group in your organization.
   x-subscribelink: remove_group_from_user
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -107,7 +107,7 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
