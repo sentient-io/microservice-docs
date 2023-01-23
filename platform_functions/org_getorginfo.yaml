@@ -168,7 +168,6 @@ components:
     input:
       type: object
       properties:
-            description: org_id. Refer to orginfo details.
             example: {}
   securitySchemes:
     APIAuthorizer:
