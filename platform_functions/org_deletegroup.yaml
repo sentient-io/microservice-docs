@@ -3,7 +3,7 @@ info:
   title: Delete Group
   description: This API provides operations to delete group of functions in your organization.
   x-subscribelink: delete_group
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
