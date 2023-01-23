@@ -3,7 +3,7 @@ info:
   title: Get Function List
   description: This API provides operations to get all the microservices, platform functions in your organization.
   x-subscribelink: get_function_list
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
@@ -107,7 +107,7 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
