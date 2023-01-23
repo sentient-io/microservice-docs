@@ -62,7 +62,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: {}
+              $ref: '#/components/schemas/input'
         required: true
 components:
   schemas:
@@ -165,6 +165,17 @@ components:
             - type: string
               example: Published Date - Jul 09,2021
               description: Initial version release   
+    input:
+      type: object
+      required:
+        - group_id
+      properties:
+          group_id:
+            x-name: group_id
+            type: integer
+            default: true
+            description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
+            example: {}
   securitySchemes:
     APIAuthorizer:
       type: apiKey
