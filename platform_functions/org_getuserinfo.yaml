@@ -3,7 +3,7 @@ info:
   title: View User Details
   description: This API allows an orgonization admin to access user inforamtion and data.
   x-subscribelink: user_info
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
