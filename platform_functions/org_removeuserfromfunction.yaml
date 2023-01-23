@@ -3,7 +3,7 @@ info:
   title: Remove User From Function
   description: This API provides operations to remove the assigned function to users in your organization.
   x-subscribelink: remove_user_from_function
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
@@ -107,7 +107,7 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
