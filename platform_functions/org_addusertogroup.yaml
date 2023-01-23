@@ -3,7 +3,7 @@ info:
   title: Add Group To User
   description: This is an organization account function and this API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
   x-subscribelink: add_user_to_group
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
@@ -107,12 +107,12 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
+              example: Published Date - May 21,2021
               description: Initial version release
     input:
       type: object
