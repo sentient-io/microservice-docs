@@ -168,7 +168,7 @@ components:
     input:
       properties:
         org_id:
-          description: Group Id. Refer to Group List API to get the group id details.
+          description: org_id is not mantatory field with x-api-key  we can get the org details.so we need to give empty json value.
           example: {}
   securitySchemes:
     APIAuthorizer:
