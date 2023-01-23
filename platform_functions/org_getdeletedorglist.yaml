@@ -5103,12 +5103,6 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/input'
-        required: true
 components:
   schemas:
     success:
