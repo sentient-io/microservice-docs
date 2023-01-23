@@ -167,11 +167,10 @@ components:
               description: Initial version release   
     input:
       type: object
-      required:
+      not mandatory:
         - org_id
       properties:
-          org_id:
-            description: org_id. Refer to org details.
+            description:  org_id is not mandatory to get org details.
             example: {}
   securitySchemes:
     APIAuthorizer:
