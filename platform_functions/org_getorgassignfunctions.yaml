@@ -3,7 +3,7 @@ info:
   title: Assigned Functions
   description: This API provides operations to get functions inside their organization.
   x-subscribelink: get_org_assign_functions
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
@@ -101,7 +101,7 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
