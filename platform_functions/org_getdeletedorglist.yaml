@@ -3,7 +3,7 @@ info:
   title: Deleted Org List
   description: Get deleted org list
   x-subscribelink: deleted_org_list
-  version: '1.0.0'
+  version: 'v1.0.0'
 servers:
   - url: 'https://dev-microserviceapi-org.sentient.io'
 tags:
