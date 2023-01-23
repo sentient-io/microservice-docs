@@ -167,7 +167,11 @@ components:
               description: Initial version release   
     input:
       type: object
+      required:
+        - org_id
       properties:
+          org_id:
+            description: org_id. Refer to org details.
             example: {}
   securitySchemes:
     APIAuthorizer:
