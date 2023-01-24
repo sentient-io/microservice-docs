@@ -5103,6 +5103,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -5187,6 +5193,9 @@ components:
             - type: string
               example: Published Date - May 21,2021
               description: Initial version release   
+    input:
+      type: object
+      
   securitySchemes:
     APIAuthorizer:
       type: apiKey
