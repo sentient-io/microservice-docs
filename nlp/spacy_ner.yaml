@@ -11,7 +11,7 @@ info:
   x-additionalinfo: |+
     Suggested Use Cases:
     - Can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning -e.g. tokenization, Parts-of-Speech (PoS) Tagging, Text Classification and Named Entity Recognition.
-  version: '1.0.0'
+  version: '4.0.0'
   x-subscribelink: spacy_ner
   x-apitype: small file
   x-apitypedescription: |+ 
@@ -29,13 +29,13 @@ info:
 servers:
   - url: 'https://apis.sentient.io'
 tags:
-- name: "v1.0.0"
-  description: "Depreciation Date - May 31, 2022"
+- name: "v4.0.0"
+  description: "Depreciation Date - Jan 27, 2023"
 paths:
-  /microservices/nlp/spacyner/v1/getpredictions:
+  /microservices/nlp/spacyner/v4/getpredictions:
     post:
       tags:
-        - v1.0.0
+        - v4.0.0
       responses:
         '200':
           description: Ok
@@ -320,7 +320,7 @@ components:
     versions:
       type: object
       properties: 
-        v1.0.0:
+        v4.0.0:
          type: array
          items:
           oneOf:
