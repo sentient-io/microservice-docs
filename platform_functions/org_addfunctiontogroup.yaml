@@ -3,7 +3,7 @@ info:
   title: Add Function To Group
   description: This is an organization function and this API provides operations to manage functions in your organization group.  
   x-subscribelink: add_function_to_group
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -11,27 +11,9 @@ tags:
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/addfunctiontogroup:
-    get:
+    post:
       tags:
         - v0.1.0
-      required:
-        - function_id
-        - group_id
-      parameters:
-        - in: query
-          name: function_id
-          schema:
-            type: integer
-          required: true
-          description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
-          example: "237"
-        - in: query
-          name: group_id
-          schema:
-            type: integer
-          required: true
-          description: Group Id. Refer to View Group Details API to get the group id (result.group_id) details.
-          example: "2451"
       responses:
         '200':
           description: Ok
@@ -68,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -119,13 +107,31 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 6,2021
-              description: Initial version release          
+              description: Initial version release    
+    input:
+      type: object
+      required:
+        - function_id
+        - group_id
+      properties:
+        function_id:
+          x-name: function_id
+          type: integer
+          default: True
+          description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
+          example: "237"
+        group_id:
+          x-name: group_id
+          type: integer
+          default: True
+          description: Group Id. Refer to View Group Details API to get the group id (result.group_id) details.
+          example: "2451"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
