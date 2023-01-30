@@ -3,7 +3,7 @@ info:
   title: View User Details
   description: This API allows an orgonization admin to access user inforamtion and data.
   x-subscribelink: user_info
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -11,17 +11,9 @@ tags:
   description: "Published Date - Jul 09, 2021"
 paths:
    /org/v0/getuserinfo:
-    get:
+    post:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: user_id
-          schema:
-            type: integer
-          description: Default it will be based on api key user details. For User Id, Refer to User List API to get the user id (results.user_id) details.
-          example: "1334"
-          default: false
       responses:
         '200':
           description: Ok
@@ -71,6 +63,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -189,7 +187,18 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 09,2019
-              description: Initial version release          
+              description: Initial version release  
+    input:
+      type: object
+      required:
+        - user_id
+      properties:
+          user_id:
+            x-name: user_id
+            type: integer
+            description: Default it will be based on api key user details. For User Id, Refer to User List API to get the user id (results.user_id) details.
+            example: "1334"
+            default: false
   securitySchemes:
     APIAuthorizer:
       type: apiKey
