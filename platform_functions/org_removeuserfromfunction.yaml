@@ -11,19 +11,9 @@ tags:
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/removeuserfromfunction:
-    get:
+    post:
       tags:
         - v0.1.0
-      required:
-        - user_function_id
-      parameters:
-        - in: query
-          name: user_function_id
-          schema:
-            type: integer
-          required: true
-          description: User Function Id. Initially to get User Id. Refer to User List API to get the user id(results.user_id) details. To get user_function_id, Refer to View User Details API to get the id from (results.direct_function.id) details for any particular function.
-          example: "66934"
       responses:
         '200':
           description: Ok
@@ -60,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -111,13 +107,24 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 6,2021
-              description: Initial version release          
+              description: Initial version release      
+    input:
+      type: object
+      required:
+          - user_function_id
+      properties:
+          user_function_id:
+            x-name: user_function_id
+            type: integer
+            default: true
+            description: User Function Id. Initially to get User Id. Refer to User List API to get the user id(results.user_id) details. To get user_function_id, Refer to View User Details API to get the id from (results.direct_function.id) details for any particular function.
+            example: "66934"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
