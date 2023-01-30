@@ -3,7 +3,7 @@ info:
   title: Remove Group From User
   description: This API provides operations to remove assigned group in your organization.
   x-subscribelink: remove_group_from_user
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -11,17 +11,9 @@ tags:
   description: "Published Date - Nov 1, 2021"
 paths:
    /org/v0/removeuserfromgroup:
-    get:
+    post:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: user_group_id
-          schema:
-            type: integer
-          required: true
-          description: User Group Id. Refer to View User Details API to get the user group id (results.groups.id) details.
-          example: "1"
       responses:
         '200':
           description: Ok
@@ -58,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -109,13 +107,24 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Nov 1,2021
-              description: Initial version release          
+              description: Initial version release       
+    input:
+      type: object
+      required:
+        - user_group_id
+      properties:
+        user_group_id:
+          x-name: user_group_id
+          type: integer
+          default: true
+          description: User Group Id. Refer to View User Details API to get the user group id (results.groups.id) details.
+          example: "1"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
