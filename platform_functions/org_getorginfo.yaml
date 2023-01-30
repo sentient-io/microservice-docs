@@ -3,7 +3,7 @@ info:
   title: View Organizational Info
   description: This API provides collection of API Metering graphs that lets you as an admin read and create organization's data. By using this API, an orgonization admin can grant access to orgonizational/groups/group lists, content and allow to publish content to the orgonization/groups/group lists on behalf of the admin.
   x-subscribelink: org_info
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -11,7 +11,7 @@ tags:
   description: "Published Date - May 21, 2021"
 paths:
    /org/v0/getorginfo:
-    get:
+    post:
       tags:
         - v0.1.0
       responses:
@@ -56,6 +56,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -156,7 +162,10 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 09,2021
-              description: Initial version release          
+              description: Initial version release      
+    input:
+      type: object
+      
   securitySchemes:
     APIAuthorizer:
       type: apiKey
