@@ -4,7 +4,7 @@ info:
   title: View Group Details
   description: This is an organization function and this API allow the user to view the group details of their Organization. By using this API, a group admin can get the required group details to assign a group or remove a function to/from the user. 
   x-subscribelink: group_info
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -12,17 +12,9 @@ tags:
   description: "Published Date - Jul 09, 2021"
 paths:
    /org/v0/getgroupinfo:
-    get:
+    post:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: group_id
-          schema:
-            type: integer
-          required: true
-          description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
-          example: "253"
       responses:
         '200':
           description: Ok
@@ -76,6 +68,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -192,7 +190,18 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 09,2021
-              description: Initial version release          
+              description: Initial version release   
+    input:
+      type: object
+      required:
+        - group_id
+      properties:
+          group_id:
+            x-name: group_id
+            type: integer
+            default: true
+            description: Group Id. Refer to Group List API to get the group id(results.group_id) details.
+            example: "253"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
