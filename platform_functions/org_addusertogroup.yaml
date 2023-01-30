@@ -3,7 +3,7 @@ info:
   title: Add Group To User
   description: This is an organization account function and this API provides operations to manage users in your organization. This API grants the specified user permissions to the specified group withing your organization. The user's access can be adjusted by using the admistrator user dashboard.
   x-subscribelink: add_user_to_group
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -11,27 +11,9 @@ tags:
   description: "Published Date - May 21, 2021"
 paths:
    /org/v0/addusertogroup:
-    get:
+    post:
       tags:
         - v0.1.0
-      required:
-        - user_id
-        - group_id
-      parameters:
-        - in: query
-          name: user_id
-          schema:
-            type: integer
-          required: true
-          description: User Id. Refer to User List API to get the user id (results.user_id) details.
-          example: "1121"
-        - in: query
-          name: group_id
-          schema:
-            type: integer
-          required: true
-          description: Group Id. Refer to Group List to get the group id(results.group_id) details.
-          example: "7"
       responses:
         '200':
           description: Ok
@@ -68,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -119,13 +107,31 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Nov 25,2019
-              description: Initial version release          
+              example: Published Date - May 21,2021
+              description: Initial version release    
+    input:
+      type: object
+      required:
+        - user_id
+        - group_id
+      properties:
+        user_id:
+          x-name: user_id
+          type: integer
+          default: True
+          description: User Id. Refer to User List API to get the user id (results.user_id) details.
+          example: "1121"
+        group_id:
+          x-name: group_id
+          type: integer
+          default: True
+          description: Group Id. Refer to Group List to get the group id(results.group_id) details.
+          example: "7"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
