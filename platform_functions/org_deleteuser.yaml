@@ -3,25 +3,17 @@ info:
   title: Delete User
   description: This API provides operations to manage users in your organization. Delete a user and transfer ownership of entities such as alerts, scheduled policies, and workflows from deleted user to another active user or an active user workflow. The user can be deleted by using the admistrator user dashboard.
   x-subscribelink: delete_user_info
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 21, 2021"
+  description: "Published Date - Jul 09, 2021"
 paths:
    /org/v0/deleteuser:
-    get:
+    post:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: user_id
-          schema:
-            type: integer
-          required: true
-          description: User id of the user. Refer to User List API to get the user id (results.user_id) details.
-          example: "1326"
       responses:
         '200':
           description: Ok
@@ -58,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -115,7 +113,18 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 09,2021
-              description: Initial version release          
+              description: Initial version release   
+    input:
+      type: object
+      required:
+        - user_id
+      properties:
+        user_id:
+          x-name: user_id
+          type: integer
+          default: True
+          description: User id of the user. Refer to User List API to get the user id (results.user_id) details.
+          example: "1326"
   securitySchemes:
     APIAuthorizer:
       type: apiKey
