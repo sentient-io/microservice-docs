@@ -3,15 +3,15 @@ info:
   title: User List
   description: This API allows an orgonization admin to access user list inforamtion and data.
   x-subscribelink: user_list
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 21, 2021"
+  description: "Published Date - Jul 09, 2021"
 paths:
    /org/v0/getuserlist:
-    get:
+    post:
       tags:
         - v1.0.0
       responses:
@@ -54,6 +54,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -147,7 +153,10 @@ components:
           oneOf:
             - type: string
               example: Published Date - Jul 09,2021
-              description: Initial version release          
+              description: Initial version release    
+    input:
+      type: object
+      
   securitySchemes:
     APIAuthorizer:
       type: apiKey
