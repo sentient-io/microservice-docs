@@ -3,7 +3,7 @@ info:
   title: Deleted Org List
   description: Get deleted org list
   x-subscribelink: deleted_org_list
-  version: '1.0.0'
+  version: 'v1.0.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -11,17 +11,9 @@ tags:
   description: "Published Date - May 21, 2021"
 paths:
    /org/getdeletedorglist:
-    get:
+    post:
       tags:
         - v1.0.0
-      parameters:
-        - in: query
-          name: x_api_key
-          schema:
-            type: string
-          description: x_api_key
-          example: xxxxxxxxx
-          default: false
       responses:
         '200':
           description: Ok
@@ -5111,6 +5103,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -5194,7 +5192,9 @@ components:
           oneOf:
             - type: string
               example: Published Date - Nov 25,2019
-              description: Initial version release          
+              description: Initial version release   
+    input:
+      type: object
   securitySchemes:
     APIAuthorizer:
       type: apiKey
