@@ -3,7 +3,7 @@ info:
   title: Get Function List
   description: This API provides operations to get all the microservices, platform functions in your organization.
   x-subscribelink: get_function_list
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -11,24 +11,9 @@ tags:
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/getfunctionlist:
-    get:
+    post:
       tags:
         - v0.1.0
-      parameters:
-        - in: query
-          name: owner_id
-          schema:
-            type: integer
-          required: false
-          description: Owner Id
-          example: "1"
-        - in: query
-          name: type
-          schema:
-            type: string
-          required: false
-          description: API or Function Type
-          example: "apis"
       responses:
         '200':
           description: Ok
@@ -65,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -116,13 +107,32 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 6,2021
-              description: Initial version release          
+              description: Initial version release    
+    input:
+      type: object
+      required:
+       - owner_id
+       - type
+      properties:
+          owner_id:
+            x-name: owner_id
+            type: integer
+            default: False
+            description: Owner Id
+            example: "1"
+          type:
+            x-name: type
+            type: string
+            default: False
+            description: API or Function Type
+            example: "apis"
+            
   securitySchemes:
     APIAuthorizer:
       type: apiKey
