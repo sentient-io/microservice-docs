@@ -3,7 +3,7 @@ info:
   title: List Deleted Users
   description: This API provides operations to retrieve the list of all deleted users inside in your organization.
   x-subscribelink: get_deleted_user_list
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -11,7 +11,7 @@ tags:
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/getdeleteduserlist:
-    get:
+    post:
       tags:
         - v0.1.0
       responses:
@@ -50,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -101,13 +107,16 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 6,2021
-              description: Initial version release          
+              description: Initial version release    
+    input:
+      type: object
+      
   securitySchemes:
     APIAuthorizer:
       type: apiKey
