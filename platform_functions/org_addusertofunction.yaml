@@ -3,7 +3,7 @@ info:
   title: Add User To Function
   description: This is an organization function and this API provides operations to assign function to users in your organization.
   x-subscribelink: add_user_to_function
-  version: '0.1.0'
+  version: 'v0.1.0'
 servers:
   - url: 'https://platform-apis-org.sentient.io'
 tags:
@@ -11,27 +11,9 @@ tags:
   description: "Published Date - Sep 6, 2021"
 paths:
    /org/v0/addusertofunction:
-    get:
+    post:
       tags:
         - v0.1.0
-      required:
-        - function_id
-        - user_id
-      parameters:
-        - in: query
-          name: function_id
-          schema:
-            type: integer
-          required: true
-          description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
-          example: "237"
-        - in: query
-          name: user_id
-          schema:
-            type: integer
-          required: true
-          description: User Id. Refer to User List API to get the user id (results.user_id) details.
-          example: "2365"
       responses:
         '200':
           description: Ok
@@ -68,6 +50,12 @@ paths:
                 $ref: '#/components/schemas/servererror'
       security:
         - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
 components:
   schemas:
     success:
@@ -119,13 +107,31 @@ components:
     versions:
       type: object
       properties:
-        v1.0.0:
+        v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
               example: Published Date - Sep 6,2021
-              description: Initial version release          
+              description: Initial version release    
+    input:
+      type: object
+      required:
+        - function_id
+        - user_id
+      properties:
+        function_id:
+          x-name: function_id
+          type: integer
+          default: True
+          example: "237"
+          description: Function Id. Refer to Assign Functions API to get the function id (result.function_id) details.
+        user_id:
+          x-name: user_id
+          type: integer
+          default: True
+          example: "2365"
+          description: User Id. Refer to User List API to get the user id (results.user_id) details.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
