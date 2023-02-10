@@ -286,7 +286,7 @@
             x-name: temperature
             type: string
             default: False
-            example: float
+            example: 0.6
             description: |+
               Increase or decrease the subword score.
               Encourage the beam search to stick with subwords with high score or explore subwords with low score.
