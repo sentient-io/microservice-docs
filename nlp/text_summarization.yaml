@@ -21,7 +21,7 @@
     x-apidetailsdesc: |+
       Input text blurb and generates a summary of up to a maximum of 168 words.
   servers:
-    - url: 'https://apis.sentient.io'
+    - url: 'https://dev-apis.sentient.io'
   tags:
   - name: "v1.0.0"
     description: "Published Date - Aug 30 , 2022"
@@ -109,12 +109,14 @@
             type: object
             example: { "<Json": "Object>" }
             description: Json object in the returned results
-            properties:   
+            properties:
               text:
                 type: string
-                example: more than 2,000 build-to-orders have been completed by the hdb in 2015. more than 70 per cent of residents have moved into their new homes in alk by 50 per cent in bidadari .y greenrise will be the last bto to be
+                example: More than 2,000 Build-To-Order (BTO) Housing Board flats in Singapore's newest large estate, Bidadari, have been completed. More than 70 per cent of residents have moved into their new homes in Alkaff Vista and Alkff LakeView. The final three projects - Bartley GreenRise, ParkEdge @ Bidadi and AlKaff Breeze - have been rolled out.
                 description: The summarised version of the input text.
-              
+              score:
+                example: 1.425637380844843
+                type: float
 
           message:
             type: string
@@ -279,6 +281,18 @@
               Stop the decoding algorithm from generating the same N grams.
               Default value is 3.
               Recommended value is 3.
+
+          temperature:
+            x-name: temperature
+            type: string
+            default: False
+            example: float
+            description: |+
+              Increase or decrease the subword score.
+              Encourage the beam search to stick with subwords with high score or explore subwords with low score.
+              Default value is 0.6.
+              Recommended values are 0.6, 1.2, 1.8.
+              Accepted range: 0.6 <= x <= 3.0
             
     securitySchemes:
       APIAuthorizer:
