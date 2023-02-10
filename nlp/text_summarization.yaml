@@ -284,7 +284,7 @@
 
           temperature:
             x-name: temperature
-            type: string
+            type: float
             default: False
             example: 0.6
             description: |+
