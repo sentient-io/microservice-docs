@@ -225,7 +225,7 @@
                - type: string
                  example: Published Date - Aug 30, 2022
                  x-details: Model & Code Upgrade
-                 description: Archived
+                 description: Depreciating on Feb 9,2023
           v0.2.0:
             type: array
             items:
@@ -233,7 +233,7 @@
                - type: string
                  example: Published Date - Aug 11, 2021
                  x-details: Model Upgrade
-                 description: Archived
+                 description: Depreciating on Aug 29,2022
           v0.1.2:
             type: array
             items:
