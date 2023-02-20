@@ -26,7 +26,7 @@
   - name: "v1.1.0"
     description: "Published Date - February 10, 2022"
   paths:
-    /microservice/nlp/textsummarisation/v1/getpredictions:
+    /microservices/nlp/textsummarisation/v1/getpredictions:
       post:
         tags:
           - v0.2.0
