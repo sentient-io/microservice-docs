@@ -224,8 +224,8 @@
              oneOf:
                - type: string
                  example: Published Date - Aug 30, 2022
-                 x-details: Model & Code Upgrade 
-                 description: 
+                 x-details: Model & Code Upgrade
+                 description: Archived
           v0.2.0:
             type: array
             items:
@@ -233,7 +233,7 @@
                - type: string
                  example: Published Date - Aug 11, 2021
                  x-details: Model Upgrade
-                 description: 
+                 description: Archived
           v0.1.2:
             type: array
             items:
