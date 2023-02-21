@@ -274,7 +274,7 @@
             x-name: beam_size
             type: integer
             default: False
-            example: 4
+            example: 2
             description: |+
               This parameter will determine how many nodes to search at each level.
               The bigger the number is the more time it takes to complete.
