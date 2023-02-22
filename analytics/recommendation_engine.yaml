@@ -932,14 +932,10 @@ components:
              Recommendation engine name
           example: sentient engine
         properties:
-          type: array
-          default: true
-          description: |+ 
-             The value must be array of item properties
-          example: ["pagetile","description","pageurl"]
-          items:
-            oneOf:
-              - type: object
+              description: "The value must be array of item properties"
+              default: false
+              type: string
+              example: '["pagetile","description","pageurl"]'
     retraineventinput:
       type: object
       required:
