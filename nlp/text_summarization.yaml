@@ -114,6 +114,9 @@
                 type: string
                 example: more than 2,000 build-to-orders have been completed by the hdb in 2015. more than 70 per cent of residents have moved into their new homes in alk by 50 per cent in bidadari .y greenrise will be the last bto to be
                 description: The summarised version of the input text.
+              score:
+                example: 1.425637380844843
+                type: float
               
 
           message:
