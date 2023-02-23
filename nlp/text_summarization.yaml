@@ -290,17 +290,17 @@
               Stop the decoding algorithm from generating the same N grams.
               Default value is 3.
               Recommended value is 3.
-           temperature:
-             x-name: temperature
-             type: float
-             default: False
-             example: 0.6
-             description: |+
-               Increase or decrease the subword score.
-               Encourage the beam search to stick with subwords with high score or explore subwords with low score.
-               Default value is 0.6.
-               Recommended values are 0.6, 1.2, 1.8.
-               Accepted range: 0.6 <= x <= 3.0
+            temperature:
+              x-name: temperature
+              type: float
+              default: False
+              example: 0.6
+              description: |+
+                Increase or decrease the subword score.
+                Encourage the beam search to stick with subwords with high score or explore subwords with low score.
+                Default value is 0.6.
+                Recommended values are 0.6, 1.2, 1.8.
+                Accepted range: 0.6 <= x <= 3.0
             
     securitySchemes:
       APIAuthorizer:
