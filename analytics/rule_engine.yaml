@@ -18,7 +18,7 @@ info:
   x-notes: |+
     File size cannot exceed 10 MB.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Apr 20, 2022"
