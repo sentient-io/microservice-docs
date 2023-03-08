@@ -112,7 +112,7 @@ info:
     |                    ba                       |        bashkir       |
     |                    jw                       |        javanese      |
     |                    su                       |        sundanese     |
-  version: '0.1.0'
+  version: '0.2.0'
   x-subscribelink: whisper_asr_large_file
   x-apitype: large file
   x-apitypedescription: |+
@@ -130,15 +130,15 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Nov 30, 2022"
+- name: "v0.2.0"
+  description: "Published Date - Mar 08, 2023"
 paths:
   /async/microservices/voice/whisperasrlp/v0/getuploadurl:
     description: |+
       Get the pre-signed url to upload the file.
     post:
       tags:
-        - v0.1.0
+        - v0.2.0
       responses:
         '200':
           description: Ok
@@ -516,6 +516,14 @@ components:
     versions:
       type: object
       properties: 
+        v0.2.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 03, 2023
+              x-details: Timestamp added
+              description: Latest Version      
         v0.1.0:
          type: array
          items:
@@ -523,7 +531,7 @@ components:
             - type: string
               example: Published Date - Nov 30, 2022
               x-details: Initial version release  
-              description: Latest Version
+              description: Archived
     input:
       type: object
       required:
@@ -565,6 +573,13 @@ components:
               example: en
               description: |+
                 Specify the language code that needs to be converted.
+            timestamps:
+              x-name: timestamps
+              type: string
+              default: true
+              example: en
+              description: |+
+                Specify the timestamps for set timing variation for each sentence.                
     uploadinput:
       type: object
       required:
@@ -609,7 +624,7 @@ components:
         x-goog-meta-additional_param:
           type: string
           default: false
-          example: "{\"language\": \"en\"}"
+          example: "{\"language\": \"en\",\"timestamps\":True}"
           description: Fields
         x-goog-meta-oid:
           type: string
