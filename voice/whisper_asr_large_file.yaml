@@ -521,7 +521,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Mar 03, 2023
+              example: Published Date - Mar 08, 2023
               x-details: Timestamp added
               description: Latest Version      
         v0.1.0:
