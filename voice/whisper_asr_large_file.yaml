@@ -112,7 +112,7 @@ info:
     |                    ba                       |        bashkir       |
     |                    jw                       |        javanese      |
     |                    su                       |        sundanese     |
-  version: '0.1.0'
+  version: '0.2.0'
   x-subscribelink: whisper_asr_large_file
   x-apitype: large file
   x-apitypedescription: |+
@@ -128,17 +128,17 @@ info:
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v0.1.0"
-  description: "Published Date - Dec 21, 2022"
+- name: "v0.2.0"
+  description: "Published Date - Mar 08, 2023"
 paths:
   /async/microservices/voice/whisperasrlp/v0/getuploadurl:
     description: |+
       Get the pre-signed url to upload the file.
     post:
       tags:
-        - v0.1.0
+        - v0.2.0
       responses:
         '200':
           description: Ok
@@ -168,7 +168,7 @@ paths:
                       53976156d99fe7521e373c45d9e5056a420d257c78f32b5fdbeac77954bf435da9e8bb8fc3c3848818a2f5c4d30f474cf5bd05de87c45422ad620384cc3ee3e708919328f61285d90f7423635f3cc393eba66092ca15e0db1faed29839dc3246e04d0a983ede3da2ae7adca0c97d745e28780b2fe6270cbd6e52ca21ed2995e1037210a42e92207244929748443d233e7088438f7bb9c03678f8e1512e17feecb7dd15342c0d6fb0fab1d9754c037b8de6071b87bef86b20721cd7678ef6aa07a98f01eb7e9661aeba1d7ead8003f501224e515bc88f3287a9ec047ec27a22f909907eeb60288ab805fcf8850cb29a2412c138dfd68082f47d942a6725e701d3
                   jid: e4ff367c93664fb9acfa40d9a4c6e43f
                   request_cost: 0.3323
-                  url: 'https://storage.googleapis.com/lp_user_space_prod/'
+                  url: 'https://storage.googleapis.com/user_space_dev/'
                 status: Success
         '401':
           description: Unauthorized
@@ -237,7 +237,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
+        - url: 'https://storage.googleapis.com/user_space_dev/'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
@@ -278,7 +278,7 @@ paths:
               example:
                 last_updated: 'Dec 20, 2021'
                 message: Successfully Processed
-                output_url: https://storage.googleapis.com/lp_user_space_prod/309/495/lp-whisper/output/4test_e4ff367c93664fb9acfa40d9a4c6e43f.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20211220%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211220T044341Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=2f0c7f17542780ba14c1b384ff5f82f27c5b3cf71eaa7abc0c720dbde37ab16123be9e9e42c16eaa6ac7390df9e98cd94884759622c78a7b85f06103220cff40ff8f1af74671e3aa9ee281fabfa7cf1f7a20acd598a488a0e6ad1d58f5a96b950671a7e685329f7f6b365e2c908fa77480515bcecc5624e611f41a41362bb81c5cb8c9649fdea0a427e30675266dd667d3805b4516d1eb1e80ead107ce521555d166a0688b3682336dcb1103a8125cabf92c30fdd111de9f5944832e3d6aa4a9f695b6fc6aa6dc342ac573f1c9c44064e2fe75618b5df25b82c43d27bb55027c9f4cdf09f340980d118851e005aca354fa8410584cc004d9bd621e41c0bf260c
+                output_url: https://storage.googleapis.com/user_space_dev/309/495/lp-whisper/output/4test_e4ff367c93664fb9acfa40d9a4c6e43f.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20211220%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211220T044341Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=2f0c7f17542780ba14c1b384ff5f82f27c5b3cf71eaa7abc0c720dbde37ab16123be9e9e42c16eaa6ac7390df9e98cd94884759622c78a7b85f06103220cff40ff8f1af74671e3aa9ee281fabfa7cf1f7a20acd598a488a0e6ad1d58f5a96b950671a7e685329f7f6b365e2c908fa77480515bcecc5624e611f41a41362bb81c5cb8c9649fdea0a427e30675266dd667d3805b4516d1eb1e80ead107ce521555d166a0688b3682336dcb1103a8125cabf92c30fdd111de9f5944832e3d6aa4a9f695b6fc6aa6dc342ac573f1c9c44064e2fe75618b5df25b82c43d27bb55027c9f4cdf09f340980d118851e005aca354fa8410584cc004d9bd621e41c0bf260c
                 request_cost: 0.3323
                 status: Success
 
@@ -426,7 +426,7 @@ components:
               description: Google algorithm 
             url:
               type: string
-              example: https://storage.googleapis.com/lp_user_space_prod/
+              example: https://storage.googleapis.com/user_space_dev/
               description: Google algorithm 
         status:
           type: string
@@ -516,14 +516,22 @@ components:
     versions:
       type: object
       properties: 
+        v0.2.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - Mar 03, 2023
+              x-details: Timestamp added
+              description: Latest Version      
         v0.1.0:
          type: array
          items:
           oneOf:
             - type: string
-              example: Published Date - Dec 21, 2022
+              example: Published Date - Nov 30, 2022
               x-details: Initial version release  
-              description: Latest Version
+              description: Archived
     input:
       type: object
       required:
@@ -565,6 +573,13 @@ components:
               example: en
               description: |+
                 Specify the language code that needs to be converted.
+            timestamps:
+              x-name: timestamps
+              type: string
+              default: true
+              example: True
+              description: |+
+                Specify the timestamps for set timing variation for each sentence.                
     uploadinput:
       type: object
       required:
@@ -609,7 +624,7 @@ components:
         x-goog-meta-additional_param:
           type: string
           default: false
-          example: "{\"language\": \"en\"}"
+          example: "{\"language\": \"en\",\"timestamps\":True}"
           description: Fields
         x-goog-meta-oid:
           type: string
