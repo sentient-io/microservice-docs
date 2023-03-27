@@ -5,9 +5,19 @@ info:
   description: |+
     "This NLP microservice locates and classifies the named-entities classes from input unstructured English text, based on the spaCy model. The named-entity classes extracted include persons, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals. This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc. Do ensure that your text is within 5000 characters."
   version: v7.4.0
-  x-additionalinfo: |+
-    TO FILL MANUALLY
-  x-subscribelink: TO FILL MANUALLY
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10MB of data per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    File size cannot exceed 10 MB.
+  x-apidetailsdesc: |+
+    REST API for AI Models .
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
