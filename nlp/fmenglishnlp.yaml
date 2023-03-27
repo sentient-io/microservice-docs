@@ -3,21 +3,21 @@ openapi: 3.0.1
 info:
   title: Spacy NER
   description: |+
-    "This NLP microservice locates and classifies the named-entities classes from input unstructured English text, based on the spaCy model. The named-entity classes extracted include persons, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals. This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc.Do ensure that your text is within 5000 characters."
-  version: v7.2.0
+    "This NLP microservice locates and classifies the named-entities classes from input unstructured English text, based on the spaCy model. The named-entity classes extracted include persons, nationalities, religious groups, political groups, buildings and facilities, organisations, geopolitical, locations, products, events, works of art, laws, languages, dates and time, percentages, monetary values, quantities, ordinals and cardinals. This microservice automatically extracts structured information from unstructured text data such as chatlogs, emails, news articles, etc. Do ensure that your text is within 5000 characters."
+  version: v7.4.0
   x-additionalinfo: |+
     TO FILL MANUALLY
   x-subscribelink: TO FILL MANUALLY
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
-- name: "v7.2.0"
+- name: "v7.4.0"
   description: "Published Date - March 27, 2023"
 paths:
   /microservices/nlp/fmenglishnlp/v7/getpredictions:
     post:
       tags:
-        - v7.2.0
+        - v7.4.0
       responses:
         '200':
           description: success response
@@ -257,7 +257,7 @@ components:
     versions:
       type: object
       properties: 
-        v7.2.0:
+        v7.4.0:
           type: array
           items:
             oneOf:
@@ -277,7 +277,7 @@ components:
           default: True
           example: "Singapore Changi Airport, commonly known as Changi Airport (IATA: SIN, ICAO: WSSS, FAA LID: SIN), is a major civilian airport that serves Singapore, and is one of the largest transportation hubs in Asia. As one of the world's busiest airports by international passenger and cargo traffic, it is currently rated the World's Best Airport by Skytrax, the first Airport in the world to do so for eight consecutive years.[10][11] It has also been rated as the one of the world's cleanest airports and highly rated international transit airports.[12][13]The airport is located in Changi, at the eastern end of Singapore, approximately 20 km (12 mi)[14] from Marina Bay (Singapore's Downtown Core), on a 13-square-kilometre (5.0 sq mi) site. The airport is operated by Changi Airport Group and it is the home base of Singapore Airlines,[15] Singapore Airlines Cargo,[15] SilkAir,[15] Scoot, Jetstar Asia Airways and BOC Aviation."
           description: |+
-            "This text"
+            "This in mandatory"
         
         
   securitySchemes:
