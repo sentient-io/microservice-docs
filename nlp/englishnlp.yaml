@@ -18,7 +18,7 @@ servers:
   - url: 'https://api.sentient.io' 
 tags:
 - name: "v7.0.0"
-  description: "Published Date - March 25, 2023"
+  description: "Published Date - March 27, 2023"
 paths:
   /microservices/(cv/nlp/voice)/englishnlp/v7/getpredictions:
     post:
@@ -268,7 +268,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: Published Date - March 25, 2023
+                example: Published Date - March 27, 2023
                 description: TO FILL MANUALLY     
     input:
       type: object
