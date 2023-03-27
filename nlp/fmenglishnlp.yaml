@@ -4,7 +4,7 @@ info:
   title: Spacy NER
   description: |+
     "This NLP microservice locates and classifies the named-entities classes from input unstructured English text, based on the spaCy model."
-  version: v8.0.0
+  version: v9.0.0
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
@@ -22,13 +22,13 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io' 
 tags:
-- name: "v8.0.0"
+- name: "v9.0.0"
   description: "Published Date - March 27, 2023"
 paths:
-  /microservices/nlp/fmenglishnlp/v8/getpredictions:
+  /microservices/nlp/fmenglishnlp/v9/getpredictions:
     post:
       tags:
-        - v8.0.0
+        - v9.0.0
       responses:
         '200':
           description: success response
@@ -268,7 +268,7 @@ components:
     versions:
       type: object
       properties: 
-        v8.0.0:
+        v9.0.0:
           type: array
           items:
             oneOf:
@@ -288,7 +288,7 @@ components:
           default: True
           example: "Singapore Changi Airport, commonly known as Changi Airport (IATA: SIN, ICAO: WSSS, FAA LID: SIN), is a major civilian airport that serves Singapore, and is one of the largest transportation hubs in Asia. As one of the world's busiest airports by international passenger and cargo traffic, it is currently rated the World's Best Airport by Skytrax, the first Airport in the world to do so for eight consecutive years.[10][11] It has also been rated as the one of the world's cleanest airports and highly rated international transit airports.[12][13]The airport is located in Changi, at the eastern end of Singapore, approximately 20 km (12 mi)[14] from Marina Bay (Singapore's Downtown Core), on a 13-square-kilometre (5.0 sq mi) site. The airport is operated by Changi Airport Group and it is the home base of Singapore Airlines,[15] Singapore Airlines Cargo,[15] SilkAir,[15] Scoot, Jetstar Asia Airways and BOC Aviation."
           description: |+
-            "This is a mandatory parameter"
+            "This is mandatory input parameter"
         
         
   securitySchemes:
