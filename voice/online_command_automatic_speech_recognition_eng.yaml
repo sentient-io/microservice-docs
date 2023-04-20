@@ -1,3 +1,4 @@
+openapi: 3.0.1
 info:
   title: Online Command Automatic Speech Recognition ENG
   version: '0.1.0'
@@ -27,6 +28,9 @@ paths:
     post:
       tags:
         - v0.1.0
+      responses:
+        '200':
+          description: Ok
 components:
   schemas:
     versions:
