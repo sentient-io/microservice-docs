@@ -24,7 +24,7 @@ html: |+
      <iframe src="https://docs.sentient.io/static/online_command_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
      </iframe>
 paths:
-  /:
+  /wss://onlinecommandasr.sentient.io/:
     post:
       tags:
         - v0.1.0
