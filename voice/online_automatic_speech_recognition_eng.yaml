@@ -1,6 +1,7 @@
 # This is a testing yaml file fir MS that does not have a proper yaml documentation
 # API Documentation Platfrom will check if the yaml file has a "html" key
 # If have "html", will read HTML content and hide all other API documentation element
+openapi: 3.0.1
 info:
   title: Online Automatic Speech Recognition ENG
   description: >-
