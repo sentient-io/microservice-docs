@@ -564,22 +564,32 @@ components:
         additional_param:
           x-name: additional_param
           type: object
-          default: true
-          properties:    
-            language:
-              x-name: language
-              type: string
-              default: true
-              example: en
-              description: |+
-                Specify the language code that needs to be converted.
+          properties:
             timestamps:
               x-name: timestamps
               type: string
               default: true
               example: True
               description: |+
-                Specify the timestamps for set timing variation for each sentence.                
+                Specify the timestamps for set timing variation for each sentence.
+            timestamp_type:
+              x-name: timestamp_type
+              type: string
+              default: true
+              example: sentence
+              description: |+
+                Specify the timestamp_type. Pick any one from the given list.
+                ["sentence", "word"]
+                Default - sentence
+            model_type:
+              x-name: model_type
+              type: string
+              default: true
+              example: medium
+              description: |+
+                Specify the model_type. Pick any one from the given list.
+                ["tiny", "base", "small", "medium", "large-v1", "large-v2"]
+                Default - medium                
     uploadinput:
       type: object
       required:
