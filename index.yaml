@@ -514,6 +514,10 @@ analytics:
     title: Rule Engine
     versions:
       0.1.0: 'rule_engine.yaml'
+  event_capture:
+    title: Event Capture
+    versions:
+      0.1.0: 'event_capture.yaml'
   content_interest_profile:
     title: Content Interest Profile
     versions:
