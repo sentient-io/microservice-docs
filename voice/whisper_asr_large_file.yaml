@@ -112,7 +112,7 @@ info:
     |                    ba                       |        bashkir       |
     |                    jw                       |        javanese      |
     |                    su                       |        sundanese     |
-  version: '0.2.0'
+  version: '1.0.0'
   x-subscribelink: whisper_asr_large_file
   x-apitype: large file
   x-apitypedescription: |+
@@ -130,15 +130,15 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
-- name: "v0.2.0"
-  description: "Published Date - Mar 08, 2023"
+- name: "v1.0.0"
+  description: "Published Date - May 05, 2023"
 paths:
-  /async/microservices/voice/whisperasrlp/v0/getuploadurl:
+  /async/microservices/voice/whisperasrlp/v1/getuploadurl:
     description: |+
       Get the pre-signed url to upload the file.
     post:
       tags:
-        - v0.2.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -237,10 +237,10 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/user_space_dev/'
+        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
           description: Override base path for the GET /ping operation    
       tags:
-        - v0.1.0
+        - v1.0.0
       requestBody:
         content:
           multipart/form-data:
@@ -256,12 +256,12 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed         
-  /async/microservices/voice/whisperasrlp/v0/getstatus:
+  /async/microservices/voice/whisperasrlp/v1/getstatus:
     description: |+
       Query for processing status.
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: jid
@@ -516,6 +516,14 @@ components:
     versions:
       type: object
       properties: 
+        v1.0.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - May 05, 2023
+              x-details: Timestamp added
+              description: Latest Version          
         v0.2.0:
          type: array
          items:
