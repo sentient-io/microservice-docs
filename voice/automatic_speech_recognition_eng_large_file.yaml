@@ -33,7 +33,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 09, 2023"
+  description: "Published Date - Mar 01, 2022"
 paths:
   /async/microservices/voice/asr/v0/getuploadurl:
     description: |+
@@ -379,7 +379,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - May 09, 2023
+              example: Published Date - Mar 01, 2022
               x-details: Initial version release  
               description: Latest Version
     input:
