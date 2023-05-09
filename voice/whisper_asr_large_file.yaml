@@ -138,7 +138,7 @@ paths:
       Get the token to upload the file.
     post:
       tags:
-        - v0.2.0
+        - v1.0.0
       responses:
         '200':
           description: Ok
@@ -226,7 +226,7 @@ paths:
         - url: 'https://dev-apis.sentient.io/async/largerpayload/upload'
           description: Override base path for the GET /ping operation    
       tags:
-        - v0.1.0
+        - v1.0.0
       requestBody:
         content:
           multipart/form-data:
@@ -249,7 +249,7 @@ paths:
       Query for processing status.
     get:
       tags:
-        - v0.1.0
+        - v1.0.0
       parameters:
         - in: query
           name: jid
