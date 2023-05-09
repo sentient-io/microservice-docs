@@ -27,7 +27,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 09, 2023"
+  description: "Published Date - Dec 30, 2021"
 paths:
   /async/microservices/cv/peoplecounting/v0/getuploadurl:
     description: |+
