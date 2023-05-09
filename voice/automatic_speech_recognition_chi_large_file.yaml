@@ -28,7 +28,7 @@ servers:
   - url: 'https://dev-apis.sentient.io/async'
 tags:
 - name: "v0.2.0"
-  description: "Published Date - May 09, 2023"
+  description: "Published Date - Oct 13, 2022"
 paths:
   /microservices/voice/asrsch/v0/getuploadurl:
     description: |+
@@ -369,7 +369,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - May 09, 2023
+              example: Published Date - Oct 13, 2022
               x-details: Output Parameters Aligned 
               description: Latest Version
         v0.1.2:
