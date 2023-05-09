@@ -130,7 +130,7 @@ info:
 servers:
   - url: 'https://dev-apis.sentient.io/async'
 tags:
-- name: "v0.2.0"
+- name: "v1.0.0"
   description: "Published Date - May 09, 2023"
 paths:
   /microservices/voice/whisperasrlp/v0/getuploadurl:
