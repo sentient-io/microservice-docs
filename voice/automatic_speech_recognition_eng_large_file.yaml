@@ -57,7 +57,7 @@ paths:
                   message: Successfully token generated
                   status: Success
                   jid: 36d075917dcd481e9daf858a2549f3b1
-                  cost: 4.6373
+                  request_cost: 4.6373
         '401':
           description: Unauthorized
           content:
@@ -278,7 +278,7 @@ components:
               type: string
               example: 8f1e8179e6934e3aad9563bc3707ff88
               description: Google algorithm 
-            cost:
+            request_cost:
               type: string
               example: 0
               description: Google algorithm 
