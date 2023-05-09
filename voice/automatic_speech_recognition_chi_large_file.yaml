@@ -115,7 +115,7 @@ paths:
             schema:
               $ref: '#/components/schemas/input'
         required: true
-  /largerpayload/upload:
+  /upload:
     description: |+
       Upload your file to start processing.
     post:
