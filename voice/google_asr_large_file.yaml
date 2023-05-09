@@ -168,7 +168,7 @@ servers:
   - url: 'https://dev-apis.sentient.io'
 tags:
 - name: "v1.0.0"
-  description: "Published Date - May 09, 2023"
+  description: "Published Date - Aug 30, 2022"
 paths:
   /async/microservices/voice/googleasr/v1/getuploadurl:
     description: |+
@@ -514,7 +514,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - May 09, 2023
+              example: Published Date - Aug 30, 2022
               x-details: sample rate added as input parameter  
               description: Latest Version      
         v1.0.0:
