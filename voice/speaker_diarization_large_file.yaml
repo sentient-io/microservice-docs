@@ -250,7 +250,7 @@ components:
           properties:
             url:
               type: string
-              example: http://34.87.117.208:5000/upload
+              example: https://dev-apis.sentient.io/async/largerpayload/upload
               description: Url to upload file
             fields:
               type: object
