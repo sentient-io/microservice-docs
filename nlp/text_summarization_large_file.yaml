@@ -23,7 +23,7 @@ info:
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Dec 30, 2021"
