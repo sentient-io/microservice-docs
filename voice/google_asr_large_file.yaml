@@ -165,7 +165,7 @@ info:
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://dev-apis.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Aug 30, 2022"
@@ -260,7 +260,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://dev-apis.sentient.io/async/largerpayload/upload'
+        - url: 'https://apis.sentient.io/async/largerpayload/upload'
           description: Override base path for the GET /ping operation    
       tags:
         - v1.0.0
