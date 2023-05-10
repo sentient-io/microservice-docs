@@ -120,7 +120,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://apis.sentient.io/async/largerpayload'
+        - url: 'https://apis.sentient.io/async/largerpayload/upload'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
