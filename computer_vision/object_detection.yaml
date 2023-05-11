@@ -27,7 +27,7 @@ info:
   x-apidetailsdesc: |+
     Detects objects in the input image.
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v1.1.0"
   description: "Published Date - Oct 08, 2021"
