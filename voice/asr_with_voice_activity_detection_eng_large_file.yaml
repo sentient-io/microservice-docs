@@ -45,26 +45,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/success'
-              example: 
-                message: Successfully Processed
+              example:
                 results:
+                  url: https://dev-apis.sentient.io/async/largerpayload/upload
                   fields:
                     content-type: audio/wav
-                    key: 309/495/lp-vadasr/input/4test_c1d5428e080540d69a56e4dda2f7a9e8.wav
-                    policy: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhdWRpby93YXYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDQ3NTE2MzZdLHsiY29udGVudC10eXBlIjoiYXVkaW8vd2F2In0seyJ4LWdvb2ctbWV0YS1hZGRpdGlvbmFsX3BhcmFtIjoie1wibW9kZWxcIjogXCJwcmVwYXJlZF9zcGVlY2hcIiwgXCJ0aHJlc2hvbGRcIjogMC40fSJ9LHsieC1nb29nLW1ldGEtb2lkIjoiMzA5In0seyJ4LWdvb2ctbWV0YS11aWQiOiI0OTUifSx7IngtZ29vZy1tZXRhLXVwbG9hZGVyIjoiMDE4MzI4NDJkMTc3NGU0ZmI3MTFkMzFiMzBmYTk0MzEifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJjMWQ1NDI4ZTA4MDU0MGQ2OWE1NmU0ZGRhMmY3YTllOCJ9LHsiYnVja2V0IjoibHBfdXNlcl9zcGFjZV9wcm9kIn0seyJrZXkiOiIzMDkvNDk1L2xwLXZhZGFzci9pbnB1dC80dGVzdF9jMWQ1NDI4ZTA4MDU0MGQ2OWE1NmU0ZGRhMmY3YTllOC53YXYifSx7IngtZ29vZy1kYXRlIjoiMjAyMjAyMjRUMDQ1NjI1WiJ9LHsieC1nb29nLWNyZWRlbnRpYWwiOiJzZW50aWVudC1iaWdxdWVyeUBzZW50aWVudC0yMzE1MDkuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMjAyMjQvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMi0wMi0yNFQwNTo1NjoyNS4wNjk5NzVaIn0=
-                    x-goog-algorithm: GOOG4-RSA-SHA256
-                    x-goog-credential: mailto:sentient-bigquery@sentient-231509.iam.gserviceaccount.com/20220224/auto/storage/goog4_request
-                    x-goog-date: 20220224T045625Z
-                    x-goog-meta-additional_param: '{"model": "prepared_speech", "threshold": 0.4}'
-                    x-goog-meta-oid: '309'
-                    x-goog-meta-uid: '495'
-                    x-goog-meta-uploader: '01832842d1774e4fb711d31b30fa9431'
-                    x-goog-meta-uuid: c1d5428e080540d69a56e4dda2f7a9e8
-                    x-goog-signature: 8e6e95bd76ded2fe6dff325784ac8939378f8a1dbfbfbc43b5e691ce7efa66599dbfe1815b416b54482e49a2fc470b5905391b76aeb7d8aa0663cacf2332786a900768e41db2757e1ba806c056bf2ac1c6363bb81b94f96e4fee3327c5337bedea263a796d10857b000586cd46d02f95d0c01644ad6c16f2e1d86ed016705217c13d7a9fa75f88cfcbf54a0f363b752a2c480a534e592c90d81c8b4fb17c3dfcb727952231e29db8aba4fb38163f8d2a9606e7fcd12c8be04f81bbcce3d9351af7ece1dcec9d412a71f617829242874d4dc45a2a700e4752c5f7c3c5c0824398d31f4e412e67f55b799f9d1a2da9e8ba218d6fe092ab054b95c991540fbc81d3
-                  jid: c1d5428e080540d69a56e4dda2f7a9e8
-                  request_cost: 0.1019
-                  url: https://storage.googleapis.com/lp_user_space_prod/
-                status: Success
+                    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50X3R5cGUiOiJhdWRpby93YXYiLCJhZGRpdGlvbmFsX3BhcmFtIjp7ImV4YWN0X3NwZWFrZXJfY291bnQiOjIsIm1heF9zcGVha2VyX2NvdW50IjoyfSwiamlkIjoiOGYxZTgxNzllNjkzNGUzYWFkOTU2M2JjMzcwN2ZmODgiLCJmaWxlX3NpemUiOjIxNzUxMzM4MiwiZmlsZV9uYW1lIjoiY29uZmVyZW5jZS53YXYiLCJrZXkiOiIzMDkvNDk1L2xwLW5zZC9pbnB1dC9jb25mZXJlbmNlXzhmMWU4MTc5ZTY5MzRlM2FhZDk1NjNiYzM3MDdmZjg4LndhdiIsImNvc3QiOjQuNjY3MywiYXBpX2NvZGUiOiJuc2QiLCJleHAiOjE2ODE5MDE0MzN9.Qx_XqBVK8-pZQ9LE0OlwB0pIZdFllzcX2LBRSJV7Yyc
+                  message: Successfully token generated
+                  status: Success
+                  jid: 36d075917dcd481e9daf858a2549f3b1
+                  request_cost: 4.6673
         '401':
           description: Unauthorized
           content:
@@ -132,7 +122,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://storage.googleapis.com/lp_user_space_prod/'
+        - url: 'https://apis.sentient.io/async/largerpayload/upload'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
@@ -171,11 +161,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/getsuccess'
               example:
-                last_updated: 'Dec 17, 2021'
+                output_url": "https://s3.ap-southeast-1.wasabisys.com/lpuserspaceprod/309/495/lp-asrsch/output/f72a1b0c7c424e7cb136852163014d6b.json?AWSAccessKeyId=6PFW0U2Q2B2IOZ0XMKQM&Signature=hw2PeWM3%2FHlVToumvCB03RkNguc%3D&Expires=1682052404"
                 message: Successfully Processed
-                output_url: https://storage.googleapis.com/user_space_dev/309/495/lp-vadasr/output/415KB_e7fe34e9c21c4d75bc94051e476141c5.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=sentient-dev-bigquery%40sentient-207310.iam.gserviceaccount.com%2F20211217%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20211217T055955Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=8b88cfac70c9b5402a97777fe630264ed493ec43607aaee434f51d4efda397262cb9f40f0f526a60c8633fd9b5dbc74307ad56f93455a617f401b98d233f53cdac0ab6488e962d2984df08811d57de5a99b53ddf7cb617df68f138df965f99bff5858e02f7c2270f13cd8f0d8a5499fad1736db6371c27f74942e95750b499dcbdc84df0a6f8abd4f43c6030d8daeb426e5b1dccb2abda5a43307caec0bb105d1b828a8749ab03edf7fb69915befd9147e345974d96d1d4c4814fe5edd3516e51c1401a935bd8599ecc297c4daf82e67d1e59b80f20432181815a37096e526fad1b0b7c198076a55fa92a653f7e9683a0feebbe78f2e7658938be9f6052e013e
-                request_cost: 0.0298
-                status: Success
+                status: "Success"
+                request_cost: 0.1218
+                last_updated: "2023-04-19 14:22:40"
 
         '401':
           description: Unauthorized
@@ -238,95 +228,63 @@ components:
     getsuccess:
       type: object
       properties:
-        last_updated:
+        output_url:
           type: string
-          example: 2021-07-06 12:50:30
-          description: Last updated
+          example: "https://s3.ap-southeast-1.wasabisys.com/largerpayloaddev/309/495/lp-asr/output/f72a1b0c7c424e7cb136852163014d6b.json?AWSAccessKeyId=6PFW0U2Q2B2IOZ0XMKQM&Signature=hw2PeWM3%2FHlVToumvCB03RkNguc%3D&Expires=1682052404"
+          description: pre-signed url generated for the output file.
         message:
           type: string
-          example: File Processing Successfully Started
+          example: Successfully Processed
+          description: Detail description on the API status
+        status:
+          type: string
+          example: Success
           description: Detail description on the API status
         request_cost:
           type: string
           example: 0.086
           description: Detail description on the API status
-        status:
+        last_updated:
           type: string
-          example: Processing
-          description: Detail description on the API status
+          example: 2023-04-19 14:22:40
+          description: Last updated
     success:
       type: object
       properties:
-        message:
-          type: string
-          example: Successfully Processed
-          description: Detail description on the API status
         results:
           type: object
           example: { "<Json": "Object>" }
           description: Json Object of returned results
-          properties:   
+          properties:
+            url:
+              type: string
+              example: https://dev-apis.sentient.io/async/largerpayload/upload
+              description: Url to upload file
             fields:
               type: object
               example: { "<Json": "Object>" }
               description: Json Object of returned results
               properties:
-                content-type:
+                token:
                   type: string
-                  example: audio/wav
-                  description: Content type of the document
-                policy:
-                  type: string
-                  example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJ...
-                  description: Content type of the document
-                x-goog-algorithm:
-                  type: string
-                  example: GOOG4-RSA-SHA256
-                  description: Google algorithm
-                x-goog-credential:
-                  type: string
-                  example: sentient-dev-bigqu...
-                  description: Google algorithm
-                x-goog-date:
-                  type: string
-                  example: 20211123T105846Z
-                  description: Google algorithm
-                x-goog-meta-additional_param:
-                  type: string
-                  example: None
-                  description: Google algorithm
-                x-goog-meta-oid:
-                  type: string
-                  example: 1
-                  description: Google algorithm
-                x-goog-meta-uid:
-                  type: string
-                  example: 2
-                  description: Google algorithm
-                x-goog-meta-uuid:
-                  type: string
-                  example: 1991d4936ddb4728afaa06cb260b0253
-                  description: Google algorithm
-                x-goog-signature:
-                  type: string
-                  example: 3d882f0762743e39146aae926435bf0b15e844836dbcf...
-                  description: Google algorithm
+                  example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250Z.....
+                  description: Token generated for the details given by the user.
             jid:
               type: string
-              example: 1991d4936ddb4728afaa06cb260b0253...
+              example: 8f1e8179e6934e3aad9563bc3707ff88
               description: Google algorithm 
             request_cost:
               type: string
               example: 0
               description: Google algorithm 
-            url:
+            message:
               type: string
-              example: https://storage.googleapis.com/user_space_dev/
-              description: Google algorithm 
-        status:
-          type: string
-          example: Success
-          description: The status of the API call success/failure                  
+              example: Successfully Processed
+              description: The message of the API call success/failure
+            status:
+              type: string
+              example: Success
+              description: The status of the API call success/failure                    
     unauthorized:
       type: object
       properties:
@@ -471,74 +429,20 @@ components:
     uploadinput:
       type: object
       required:
-        - file      
+        - file
+        - token
       properties:
         file:
           type: string
           format: binary
           default: true
-          example: sample.wav
+          example: '4 test.wav'
           description: file
-        content-type:
+        token:
           type: string
-          default: false
-          example: audio/wav
-          description: Fields
-        key:
-          type: string
-          default: false
-          example: 309/495/lp-vadasr/input/4test_c1d5428e080540d69a56e4dda2f7a9e8.wav
-          description: Fields
-        policy:
-          type: string
-          default: false
-          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhcHBsaWNhdGlvbi9wZGYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDE0MDczMjYxXSx7ImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9uL3BkZiJ9LHsieC1nb29nLW1ldGEtYWRkaXRpb25hbF9wYXJhbSI6IntcInBhc3N3b3JkXCI6IFwiZmZmZmZcIn0ifSx7IngtZ29vZy1tZXRhLW9pZCI6IjEifSx7IngtZ29vZy1tZXRhLXVpZCI6IjIifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJjZjNkMzI5YmQ5ZGY0Y2VmOTE5NjZjMzM2Mzg2ZWVhMyJ9LHsiYnVja2V0IjoidXNlcl9zcGFjZV9kZXYifSx7ImtleSI6IjEvMi9scC10ZXh0c3VtbWFyaXNhdGlvbi9pbnB1dC9QZGZfNm1iX2NmM2QzMjliZDlkZjRjZWY5MTk2NmMzMzYzODZlZWEzLnBkZiJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIwOVQwOTU1MDdaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMDkvYXV0by9zdG9yYWdlL2dvb2c0X3JlcXVlc3QifSx7IngtZ29vZy1hbGdvcml0aG0iOiJHT09HNC1SU0EtU0hBMjU2In1dLCJleHBpcmF0aW9uIjoiMjAyMS0xMi0wOVQxMDo1NTowNy41MDYwNDBaIn0=
-          description: Fields
-        x-goog-algorithm:
-          type: string
-          default: false
-          example: GOOG4-RSA-SHA256
-          description: Fields
-        x-goog-credential:
-          type: string
-          default: false
-          example: sentient-dev-bigquery@sentient-207310.iam.gserviceaccount.com/20211209/auto/storage/goog4_request
-          description: Fields
-        x-goog-date:
-          type: string
-          default: false
-          example: 20220224T045625Z
-          description: Fields          
-        x-goog-meta-additional_param:
-          type: string
-          default: false
-          example: "{\"model\": \"prepared_speech\", \"threshold\": 0.4}"
-          description: Fields
-        x-goog-meta-oid:
-          type: string
-          default: false
-          example: 309
-          description: Fields
-        x-goog-meta-uid:
-          type: string
-          default: false
-          example: 495
-          description: Fields
-        x-goog-meta-uploader:
-          type: string
-          default: false
-          example: 01832842d1774e4fb711d31b30fa9431
-          description: Fields           
-        x-goog-meta-uuid:
-          type: string
-          default: false
-          example: cf3d329bd9df4cef91966c336386eea3
-          description: Fields
-        x-goog-signature:
-          type: string
-          default: false
-          example: 7970619677c2a0dc26af460a7d62f883528af9e1e8a1459aa09671ee0fbf15f7a611b7bd8c382fd8d39f74fe212a7e3db1768535f0c1ccff062239627ebe49195cc2c42c2238eb5e268ecaca49e647eb244eb023f3d4ba97922fd1228aab677a7176b9f84fef1c909897ccf0e1e8f9e3d030dbfc9892c7c026060dcf20b4ad4598f346de478b0f8495d9bce292b83a5b3bfa13c7dc08a2ce162f652c3bce91191167eeee3019b6b196e4271f5e3a6a1fe067f70acdaa082e6091c2f3ac8182bca8be41afc90600fc32dcdb3072acb43aaf90910a38c4aec9e3a42fdd21deb5ce936d8269e9ed011377ef058cac20d336218a35858753bd99b4ffdb1db171f0f4
-          description: Fields             
+          default: true
+          example: eyJjb25kaXRpb25zIjpbWyJlcSIsIiRDb250ZW50LVR5cGUiLCJhcHBsaWNhdGlvbi9wZGYiXSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDE0MDczMjYxXSx7ImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9uL3BkZiJ9LHsieC1nb29nLW1ldGEtYWRkaXRpb25hbF9wYXJhbSI6IntcInBhc3N3b3JkXCI6IFwiZmZmZmZcIn0ifSx7IngtZ29vZy1tZXRhLW9pZCI6IjEifSx7IngtZ29vZy1tZXRhLXVpZCI6IjIifSx7IngtZ29vZy1tZXRhLXV1aWQiOiJjZjNkMzI5YmQ5ZGY0Y2VmOTE5NjZjMzM2Mzg2ZWVhMyJ9LHsiYnVja2V0IjoidXNlcl9zcGFjZV9kZXYifSx7ImtleSI6IjEvMi9scC10ZXh0c3VtbWFyaXNhdGlvbi9pbnB1dC9QZGZfNm1iX2NmM2QzMjliZDlkZjRjZWY5MTk2NmMzMzYzODZlZWEzLnBkZiJ9LHsieC1nb29nLWRhdGUiOiIyMDIxMTIwOVQwOTU1MDdaIn0seyJ4LWdvb2ctY3JlZGVudGlhbCI6InNlbnRpZW50LWRldi1iaWdxdWVyeUBzZW50aWVudC0yMDczMTAuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20vMjAyMTEyMDk
+          description: Fields                
   securitySchemes:
     APIAuthorizer:
       type: apiKey
