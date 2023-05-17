@@ -1,4 +1,3 @@
-openapi: 3.0.1
 info:
   title: Online Command Automatic Speech Recognition ENG
   version: '0.1.0'
