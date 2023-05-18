@@ -20,7 +20,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Aug 31, 2020"
 html: |+
-     <iframe src="https://docs.sentient.io/static/online_command_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
+     <iframe src="https://docs.sentient.io/static-pages/online_command_automatic_speech_recognition_eng_sg.html" width="100%" height="800px">
      </iframe>
 paths:
   /:
