@@ -112,7 +112,7 @@ info:
 #     |                    ba                       |        bashkir       |
 #     |                    jw                       |        javanese      |
 #     |                    su                       |        sundanese     |
-  version: '0.2.0'
+  version: '1.0.0'
   x-subscribelink: whisper_asr_large_file
   x-apitype: large file
   x-apitypedescription: |+
