@@ -3,8 +3,8 @@
 # If have "html", will read HTML content and hide all other API documentation element
 info:
   title: Online Automatic Speech Recognition ENG
-  description: |+
-    This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
+#   description: |+
+#     This Utility microservice converts audio format to the WAV format.<br><br>The encoding scheme, bitrate, sample rate of the output WAV are to be specified.<br><br><b>Authentication</b>:<br><br>Authentication is done using the x-api-key in the request header.
   version: '0.1.2'
   x-apitypedescription: |+
     Fast | Single-Call | 60 mins/socket
