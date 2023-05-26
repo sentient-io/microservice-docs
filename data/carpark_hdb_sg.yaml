@@ -84,7 +84,7 @@ info:
       
        > querystring = "bishan street 22"
        > filterdata = {"filter":[ {"range":{"lorry":{"gte":1}}} ]}
-  version: '1.1.0'
+  version: '1.0.1'
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
