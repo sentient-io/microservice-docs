@@ -68,7 +68,7 @@ info:
       > "should":[{"match":{"status.e27":"active"}}],
       > "must_not":[{"match":{"yearestablished.e27":"2016"}}]
       > }
-  version: '1.1.0'
+  version: '1.0.1'
   x-apitype: small file
   x-apitypedescription: |+
     Fast | Single-Call | 10MB/Call
