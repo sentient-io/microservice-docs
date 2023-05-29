@@ -22,7 +22,7 @@ info:
 servers:
   - url: 'https://apish.sentient.io' 
 tags:
-- name: "v0.2.0"
+- name: "0.2.0"
   description: "Published Date - Jul 13, 2022"
 paths:
   /microservices/data/fetchamenityscore/v0/getpredictions:
