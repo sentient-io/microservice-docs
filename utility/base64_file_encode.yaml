@@ -24,7 +24,7 @@ info:
   x-apidetailsdesc: |+
     Convert binary file to Base64 encoded text string.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Jun 13, 2022"

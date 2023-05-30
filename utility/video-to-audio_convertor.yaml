@@ -11,7 +11,7 @@ info:
     - For building applications that extracts audio from videos in batches. Users can further pipe the audio into microservices involving ASR for further transciption.
   x-subscribelink: video-to-audio_convertor
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Mar 06, 2020"
