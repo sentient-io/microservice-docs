@@ -4,7 +4,7 @@ info:
   title: HDB Amenities Score
   description: |+
     This Data microservice returns amenity scores for various amenity types with an input of a Singapore postal code.  
-  version: v0.2.0
+  version: 0.2.0
   x-subscribelink: hdb_amenities_score
   x-apitype: small file
   x-apitypedescription: |+
