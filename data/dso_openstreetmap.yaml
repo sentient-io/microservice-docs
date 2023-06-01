@@ -61,7 +61,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - May 26, 2022"
 paths:
-  /microservices/data/openstreetmap/v1/getdata:
+  /microservices/data/tsdsoopenstreetmap/v1/getdata:
     post:
       tags:
         - v0.1.0
