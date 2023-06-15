@@ -27,9 +27,9 @@ servers:
   - url: 'https://apish.sentient.io'
 tags:
 - name: "v3.0.0"
-  description: "Published Date - Mar 10, 2022"
+  description: "Published Date - Jun 15, 2023"
 paths:
-  /microservices/voice/asr/v2/getpredictions:
+  /microservices/voice/asr/v3/getpredictions:
     post:
       tags:
         - v2.0.0
