@@ -279,10 +279,17 @@ components:
           example: 0.25
           description: |+
             Optional Parameter. Select from a range of 0.0 to 1.0, in which the lower value results in more sentence splits. The recommended value is 0.25. Threshold parameter is required only if voice_activity_detection parameter is true.
-        
     versions:
       type: object
-      properties:
+      properties: 
+        v3.0.0:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Published Date - Jun 15, 2023
+                x-details: Uses openai to optimise the output
+                description: Latest Version
         v2.0.0:
           type: array
           items:
@@ -290,7 +297,7 @@ components:
               - type: string
                 example: Published Date - Mar 10, 2022
                 x-details: Input parameter srt removed,output parameter seqNum changed to sequence
-                description: Latest Version
+                description: Old Version
         v1.2.0:
           type: array
           items:

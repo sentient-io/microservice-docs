@@ -245,7 +245,7 @@ components:
               - type: string
                 example: Published Date - Mar 10, 2022
                 x-details: Input parameter srt removed,output parameter seqNum changed to sequence
-                description: Latest Version
+                description: Old Version
         v1.2.0:
           type: array
           items:
