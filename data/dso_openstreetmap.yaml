@@ -41,7 +41,7 @@ info:
     **Pagination with scroll_id:** - We face a major issue of handling the hits, i.e., whenever the hits returned are more than 10,000 hits Elasticsearch will only return till 10k hits. For query more than 10K records scroll id need to add in scroll_id space as below.
       > FGluY2x1ZGVfY29udGV4dF91.....QbmVUTHlMMjRqREpvZkhMUQ==
 
-        **Special Characters:**
+    **Special Characters:**
     |      **The escape characters are as follows**      |    + - = && \|\| > < ! ( ) { } [ ] ^ " ~ * ? : \ /   |
     |--------------------------------------------------- |------------------------------------------------------|
 
