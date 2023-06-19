@@ -43,7 +43,7 @@ info:
     |      The escape characters are as follows      |    + - = && \|\| > < ! ( ) { } [ ] ^ " ~ * ? : \ /   |
     |--------------------------------------------------- |------------------------------------------------------|
 
-    * < > ( ) { } [ ]   all these braces if used need to be closed, if any one of these are used < or { or ) or ] then you need to prefix with double backward slash(\\). Eg: "\\<Jurong"
+    * < > ( ) { } [ ]   all these braces if used need to be closed, if any one of these are used < or { or ) or ] then you need to prefix with double backward slash(\\\\). Eg: "\\\\<Jurong"
 
     * \+ \- = && ! ^ ' " ~ ? : \ / all these are regexp operators
 
@@ -67,7 +67,7 @@ info:
     |      \w      |    matches any word character (basically alpha-numeric).   |
     |      \W      |    matches any non-word character.   |
     |      \b      |    matches any word boundary (this would include spaces, dashes, commas, semi-colons, etc.)   |
-    |      [set_of_characters]      |    Matches any single character in set_of_characters. By default, the match is case-sensitive.   |
+    |      [set_of_characters]      |    matches any single character in set_of_characters. By default, the match is case-sensitive.   |
     |      [^set_of_characters]      |    matches any single character that is not in set_of_characters. By default, the match is case-sensitive. Example: [^abc] will match any character except a,b,c.    |
     |      (|)      |    matches any one element separated by the vertical bar (|) character. Eg: Example :  th(e|is|at) will match words - the, this and that.    |
     |      <>      |    range of values - Takes integers range as input and returns the output. Eg: <22-50> - This returns the data of the particular field in the specified range.    |
