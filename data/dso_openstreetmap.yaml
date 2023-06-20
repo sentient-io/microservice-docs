@@ -99,7 +99,7 @@ info:
   x-apidetailsdesc: |+
     Provides detailed information for all bus stops currently being serviced by buses.
 servers:
-        - url: 'https://apis.sentient.io'
+        - url: 'https://apish.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - May 26, 2022"
