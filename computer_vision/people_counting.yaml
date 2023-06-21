@@ -24,7 +24,7 @@ info:
   x-apidetailsdesc: |+
     Track and counts people appearing in video.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date - Sep 09, 2021"
