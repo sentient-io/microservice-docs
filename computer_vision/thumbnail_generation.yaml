@@ -22,7 +22,7 @@ info:
   x-apidetailsdesc: |+
     Thumbnail Generation 
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://apish.sentient.io' 
 tags:
 - name: "v0.2.1"
   description: "Published Date - Apr 22, 2022"
