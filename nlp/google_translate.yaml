@@ -24,7 +24,7 @@ info:
   x-apidetailsdesc: |+
     Translate string based on language.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Dec 21, 2021"
