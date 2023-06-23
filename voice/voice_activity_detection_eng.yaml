@@ -27,7 +27,7 @@ info:
   x-apidetailsdesc: |+
     Detects utterances of input audio and give start/end time of utterances.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date - Nov 09, 2021"
