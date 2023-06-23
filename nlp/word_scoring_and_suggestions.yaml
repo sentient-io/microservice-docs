@@ -20,7 +20,7 @@ info:
   x-apidetailsdesc: |+
     Computes the probability of each word in a sentence and generates suggested words.
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://apish.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - Oct 12, 2021"
