@@ -24,7 +24,7 @@ info:
   x-apidetailsdesc: |+
     Text blurb and ranks the sentences based on their importance score.  
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://apish.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - May 23, 2022"
