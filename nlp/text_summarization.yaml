@@ -21,7 +21,7 @@
     x-apidetailsdesc: |+
       Input text blurb and generates a summary of up to a maximum of 168 words.
   servers:
-    - url: 'https://apis.sentient.io'
+    - url: 'https://apish.sentient.io'
   tags:
   - name: "v1.1.0"
     description: "Published Date - Feb 23 , 2023"
