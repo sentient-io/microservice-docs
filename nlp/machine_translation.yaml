@@ -29,7 +29,7 @@ info:
   x-apidetailsdesc: |+
     This NLP microservice provides machine translation    
 servers:
-  - url: 'https://apis.sentient.io' 
+  - url: 'https://apish.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - May 23, 2022"
