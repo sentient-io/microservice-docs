@@ -94,7 +94,7 @@ info:
   x-apidetailsdesc: |+
     Provides information on Housing Development Board (HDB) estates.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date -Jul 13, 2022"

@@ -23,7 +23,7 @@
     x-apidetailsdesc: |+
       Group input trajectories of objects into clusters based on positions and velocity.
   servers:
-    - url: 'https://apis.sentient.io'
+    - url: 'https://apish.sentient.io'
   tags:
   - name: "v0.1.0"
     description: "Published Date - Apr 07, 2021"

@@ -66,7 +66,7 @@ info:
   x-apidetailsdesc: |+
     Provides returns all road works being / to be carried out.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Sep 19, 2022"

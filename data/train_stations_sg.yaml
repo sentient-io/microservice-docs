@@ -32,7 +32,7 @@ info:
   x-apidetailsdesc: |+
     Provides results for all train stations in Singapore.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v0.1.1"
   description: "Published Date - Jul 13, 2022"

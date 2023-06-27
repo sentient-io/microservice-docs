@@ -99,7 +99,7 @@ info:
   x-apidetailsdesc: |+
     Retrieves Housing Development Board (HDB) carpark information.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apish.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date - Jul 13, 2022"
