@@ -128,7 +128,7 @@ info:
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://apis.sentient.io/async'
+  - url: 'https://apish.sentient.io/async'
 tags:
 - name: "v1.0.0"
   description: "Published Date - May 09, 2023"
