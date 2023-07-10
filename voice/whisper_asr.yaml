@@ -135,7 +135,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Dec 21, 2022"
 paths:
-  /microservices/voice/whisperasr/v0/gettranscript:
+  /microservices/voice/whisperasr/v1/gettranscript:
     post:
       tags:
         - v0.1.0
