@@ -45,7 +45,7 @@ info:
 
     * < > ( ) { } [ ]   all these braces if used need to be closed, if any one of these are used < or { or ) or ] then you need to prefix with double backward slash(\\\\). Eg: "\\\\<Jurong"
 
-    * \+ \- = && ! ^ ' " ~ ? : \ / all these are regexp operators
+    * + - = && ! ^ ' " ~ ? : \ / <> () {} [] all these are regexp operators
 
     * ' " single quote and double quote must be used in pairs.
 
@@ -53,23 +53,12 @@ info:
     |----------------- |------------------------------------------------------|
     |      .     |    any character.   |
     |      \*      |    it tells the computer to match the preceding character (or set of characters) for 0 or more times (upto infinite). Eg: The regular expression ab*c will give ac, abc, abbc, abbbc….and so on.     |
-    |      ^       |    indicates the beginning of the string.   |
-    |      $      |    indicates the end of the string.   |
     |      *, +, and { }      |    these symbols act as repeaters and tell the computer that the preceding character is to be used for more than just one time.     |
     |      +      |    it tells the computer to repeat the preceding character (or set of characters) at atleast one or more times(up to infinite).   |
     |      ?      |    this symbol tells the computer that the preceding character may or may not be present in the string to be matched.   |
-    |      ^      |    the caret symbol tells the computer that the match must start at the beginning of the string or line. Eg: Example : ^\d{3} will match with patterns like "901" in "901-333-".    |
-    |      $      |    it tells the computer that the match must occur at the end of the string or before \n at the end of the line or string. Eg: Example : -\d{3}$  will match with patterns like "-333" in "-901-333".    |
-    |      \s      |    matches any whitespace characters such as space and tab.   |
-    |      \S      |    matches any non-whitespace characters.   |
-    |      \d      |    matches any digit character.   |
-    |      \D      |    matches any non-digit characters.   |
-    |      \w      |    matches any word character (basically alpha-numeric).   |
-    |      \W      |    matches any non-word character.   |
-    |      \b      |    matches any word boundary (this would include spaces, dashes, commas, semi-colons, etc.)   |
     |      [set_of_characters]      |    matches any single character in set_of_characters. By default, the match is case-sensitive.   |
     |      [^set_of_characters]      |    matches any single character that is not in set_of_characters. By default, the match is case-sensitive. Example: [^abc] will match any character except a,b,c.    |
-    |      (\|)      |    matches any one element separated by the vertical bar (|) character. Eg: Example :  th(e|is|at) will match words - the, this and that.    |
+    |      (|)      |    matches any one element separated by the vertical bar (|) character. Eg: Example :  th(e|is|at) will match words - the, this and that.    |
     |      <>      |    range of values - Takes integers range as input and returns the output. Eg: <22-50> - This returns the data of the particular field in the specified range.    |
     |      {}      |    no of occurrences - Takes integer as input and returns the output. Eg: east{1}.* - This will return the documents containing "east" with atleast one occurance.    |
     |      ()      |    exact match word - Similar to normal search it will check for the same word given by the user. Eg: (jurong)   |
