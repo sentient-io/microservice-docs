@@ -45,7 +45,7 @@ info:
 
     * < > ( ) { } [ ]   all these braces if used need to be closed, if any one of these are used < or { or ) or ] then you need to prefix with double backward slash(\\\\). Eg: "\\\\<Jurong"
 
-    * + - = && ! ^ ' " ~ ? : \ / <> () {} [] all these are regexp operators
+    * \+ \- = && ! ^ ' " ~ ? : \ / <> () {} [] all these are regexp operators
 
     * ' " single quote and double quote must be used in pairs.
 
