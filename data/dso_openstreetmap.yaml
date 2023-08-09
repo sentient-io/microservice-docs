@@ -7,6 +7,8 @@ info:
       This microservice contains information from https://www.openstreetmap.org/ which is an open source.
 
   x-additionalinfo : |+
+    By default standard analyzer in Elasticsearch will remove special characters excluding the opening and closing braces, so when passing query with any special characters mostly it will not be able to search since analyzer already removed those. So it is always advised to do the search on the analyzed terms.
+
     **Match Types:**
     A match type is a match operator. The supported match types are&#58;
     * **match_phrase** - Search within a full text field and returns all the documents having "stn" in description field
@@ -43,11 +45,10 @@ info:
     |      The escape characters are as follows      |    + - = && \|\| > < ! ( ) { } [ ] ^ " ~ * ? : \ /   |
     |--------------------------------------------------- |------------------------------------------------------|
 
-    * < > ( ) { } [ ]   all these braces if used need to be closed, if any one of these are used < or { or ) or ] then you need to prefix with double backward slash(\\\\). Eg: "\\\\<Jurong"
+    * < > ( ) { } [ ]   all these braces if used need to be closed.
 
-    * \+ \- = && ! ^ ' " ~ ? : \ / <> () {} [] all these are regexp operators
+    * \+ \- = && ! ^ ' " ~ ? : \ / <> () {} [] all these are regexp operators will be replaced in analyzed terms. Special characters that can be used in regular expression are explained below.
 
-    * ' " single quote and double quote must be used in pairs.
 
     |      Characters      |      Description      |
     |----------------- |------------------------------------------------------|
@@ -58,7 +59,7 @@ info:
     |      ?      |    this symbol tells the computer that the preceding character may or may not be present in the string to be matched.   |
     |      [set_of_characters]      |    matches any single character in set_of_characters. By default, the match is case-sensitive.   |
     |      [^set_of_characters]      |    matches any single character that is not in set_of_characters. By default, the match is case-sensitive. Example: [^abc] will match any character except a,b,c.    |
-    |      (|)      |    matches any one element separated by the vertical bar (|) character. Eg: Example :  th(e|is|at) will match words - the, this and that.    |
+    |      (\|)      |    matches any one element separated by the vertical bar (|) character. Eg: Example :  th(e|is|at) will match words - the, this and that.    |
     |      <>      |    range of values - Takes integers range as input and returns the output. Eg: <22-50> - This returns the data of the particular field in the specified range.    |
     |      {}      |    no of occurrences - Takes integer as input and returns the output. Eg: east{1}.* - This will return the documents containing "east" with atleast one occurance.    |
     |      ()      |    exact match word - Similar to normal search it will check for the same word given by the user. Eg: (jurong)   |
