@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: whisper-x-pv-storage
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 40Gi
+  claimRef:
+    name: whisper-x-pv-claim
+    namespace: default
+  csi:
+    driver: disk.csi.everest.io
+    fsType: ext4
+    volumeAttributes:
+      everest.io/disk-mode: SCSI
+      storage.kubernetes.io/csiProvisionerIdentity: everest-csi-provisioner
+    volumeHandle: 508e20cf-0ca8-471c-bef8-f7a0fd03cfc2
+  storageClassName: csi-diskk
+---
+apiVersion: v1  
+kind: PersistentVolumeClaim
+metadata:
+  name: whisper-x-pv-claim
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 40Gi
+  volumeName: whisper-x-pv-storage
+  storageClassName: csi-disk
