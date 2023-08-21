@@ -42,12 +42,11 @@ info:
 
         **Special Characters:**
         
-    |      The escape characters are as follows      |    + - = && \|\| > < ! ( ) { } [ ] ^ " ~ * ? : \ /   |
-    |--------------------------------------------------- |------------------------------------------------------|
+   
 
     * < > ( ) { } [ ]   all these braces if used need to be closed.
 
-    * \+ \- = && ! ^ ' " ~ ? : \ / <> () {} [] all these are regexp operators will be replaced in analyzed terms. Special characters that can be used in regular expression are explained below.
+    * All non-alphanumeric values will be replaced by Elasticsearch Standard analyzer.
 
 
     |      Characters      |      Description      |
