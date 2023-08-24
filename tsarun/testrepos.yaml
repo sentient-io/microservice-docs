@@ -20,7 +20,6 @@ components:
       type: object
     input:
       type: object
-      default: {}
     inputfieldmissing:
       properties:
         message:
