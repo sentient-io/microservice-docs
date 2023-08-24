@@ -97,20 +97,21 @@ components:
       type: object
     versions:
       properties:
-        items:
-          oneOf:
-          - description: Current Version
-            example: Published Date - Aug 24, 2023
-            type: string
-            x-details: Initial Version Release
-        type: array
+        v1.1.2:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Aug 24, 2023
+              type: string
+              x-details: Initial Version Release
+          type: array
       type: object
   securitySchemes:
     APIAuthorizer:
       description: Authentication is done using the x-api-key in the request header
       in: header
       name: x-api-key
-      type: apikey
+      type: apiKey
       x-amazon-apigateway-authtype: custom
 info:
   description: testrepos
@@ -125,7 +126,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/input'
-        required: 'true'
+        required: true
       responses:
         '200':
           content:
@@ -189,7 +190,7 @@ paths:
                 $ref: '#/components/schemas/gatewaytimeout'
           description: Gateway Timeout
       security:
-      - APIAuthorizer: '[]'
+      - APIAuthorizer: []
       tags:
       - v1.1.2
 servers:
