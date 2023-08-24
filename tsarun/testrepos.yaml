@@ -118,7 +118,7 @@ info:
   version: v1.1.2
 openapi: 3.0.1
 paths:
-  /microservices/custommodels/tsarunTEST_REPOS/v1/getresults:
+  /microservices/custommodels/tsaruntest_repos/v1/getresults:
     post:
       requestBody:
         content:
