@@ -20,6 +20,19 @@ components:
       type: object
     input:
       type: object
+      properties:
+        a:
+          type: number
+          format: int32
+          default: false
+          example: '16000'
+          description: param a
+        b:
+          type: number
+          format: int32
+          default: false
+          example: '16000'
+          description: param b
     inputfieldmissing:
       properties:
         message:
