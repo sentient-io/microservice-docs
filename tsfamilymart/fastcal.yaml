@@ -129,6 +129,7 @@ info:
   description: fastcal
   title: fastcal
   version: v1.2.1
+  x-billingmethod: Billed per API call
 openapi: 3.0.1
 paths:
   /microservice/custommodels/tsfamilymartmsfamilymart/v1/getresults:
