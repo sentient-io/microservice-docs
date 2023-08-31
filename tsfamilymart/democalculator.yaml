@@ -1,5 +1,5 @@
 components:
-  schemas:
+  schemas:  
     forbidden:
       properties:
         message:
