@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: elasticsearch
+  name: elasticsearch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      initContainers:
+      - name: data
+        image: busybox
+        command:
+        - sh
+        - -c
+        - chown -R 1000:1000 /usr/share/elasticsearch && chmod 777 -R /usr/share/elasticsearch
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: elasticsearch-claim
+          mountPath: /usr/share/elasticsearch
+      containers:
+        - env:
+            - name: ES_JAVA_OPTS
+              value: -Xms512m -Xmx512m
+            - name: discovery.seed_hosts
+              value: elasticsearch
+            - name: discovery.type
+              value: single-node
+            - name: ELASTICSEARCH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                   name: es-secret
+                   key: password
+            - name: ELASTICSEARCH_USERNAME
+              valueFrom:
+                secretKeyRef:
+                   name: es-secret
+                   key: username
+            - name: xpack.security.enabled
+              value: "true"
+          image: elasticsearch:7.16.2
+          
+          securityContext:
+            privileged: true
+            runAsUser: 0
+          name: elasticsearch
+          ports:
+            - containerPort: 9200
+          resources:
+            requests:
+              cpu: "1"
+              memory: 4Gi
+          lifecycle:
+            postStart:
+              exec:
+                command: ["/bin/bash","-c","/usr/share/elasticsearch/bin/elasticsearch-users useradd $ELASTICSEARCH_USERNAME -p $ELASTICSEARCH_PASSWORD -r superuser"]
+
+          volumeMounts:
+            - mountPath: /usr/share/elasticsearch/data
+              name: elasticsearch-claim
+            # - mountPath: /usr/share/elasticsearch/config
+            #   name: elasticsearch-config
+            #   readOnly: false
+      restartPolicy: Always
+      volumes:
+        - name: elasticsearch-claim
+          persistentVolumeClaim:
+            claimName: elasticsearch-pv-claim
+        # - name: elasticsearch-config
+        #   persistentVolumeClaim:
+        #     claimName: elasticsearch-config-pv-claim
