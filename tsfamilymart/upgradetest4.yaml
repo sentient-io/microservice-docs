@@ -20,17 +20,12 @@ components:
       type: object
     input:
       properties:
-        a:
-          description: param a
-          example: 22
-          type: number
-        b:
-          description: param b
-          example: 12
-          type: number
+        text:
+          description: param text
+          example: next monday
+          type: string
       required:
-      - a
-      - b
+      - text
       type: object
     inputfieldmissing:
       properties:
@@ -112,10 +107,18 @@ components:
         v2.0.1:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Sep 05, 2023
               type: string
               x-details: Initial Version Release
+          type: array
+        v2.0.2:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Sep 05, 2023
+              type: string
+              x-details: ''
           type: array
       type: object
   securitySchemes:
@@ -128,7 +131,7 @@ components:
 info:
   description: this is upgrade test with github
   title: upgradetest4
-  version: v2.0.1
+  version: v2.0.2
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -206,10 +209,9 @@ paths:
           description: Gateway Timeout
       security:
       - APIAuthorizer: []
-      tags:
-      - v2.0.1
+      tags: v2.0.2
 servers:
 - url: https://apish.sentient.io
 tags:
 - description: Published Date - Sep 05, 2023
-  name: v2.0.1
+  name: v2.0.2
