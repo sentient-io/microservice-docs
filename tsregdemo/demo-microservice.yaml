@@ -19,18 +19,7 @@ components:
           type: string
       type: object
     input:
-      properties:
-        a:
-          description: First Operand of product
-          example: 235
-          type: number
-        b:
-          description: Second Operand of product
-          example: 500
-          type: number
-      required:
-      - a
-      - b
+      properties: {}
       type: object
     inputfieldmissing:
       properties:
