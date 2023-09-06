@@ -20,17 +20,12 @@ components:
       type: object
     input:
       properties:
-        a:
-          description: First operand of summation
-          example: 2345
-          type: number
-        b:
-          description: second operand of summation
-          example: 123
-          type: number
+        text:
+          description: Date Related string like today, tomorrow
+          example: next monday
+          type: string
       required:
-      - a
-      - b
+      - text
       type: object
     inputfieldmissing:
       properties:
@@ -112,10 +107,18 @@ components:
         v1.0.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Sep 06, 2023
               type: string
               x-details: Initial Version Release
+          type: array
+        v1.0.1:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Sep 06, 2023
+              type: string
+              x-details: Minor changes and sources updated
           type: array
       type: object
   securitySchemes:
@@ -128,7 +131,7 @@ components:
 info:
   description: This microservice returns addition value of two numbers provided.
   title: demo-calculator
-  version: v1.0.0
+  version: v1.0.1
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -206,10 +209,9 @@ paths:
           description: Gateway Timeout
       security:
       - APIAuthorizer: []
-      tags:
-      - v1.0.0
+      tags: v1.0.1
 servers:
 - url: https://apish.sentient.io
 tags:
 - description: Published Date - Sep 06, 2023
-  name: v1.0.0
+  name: v1.0.1
