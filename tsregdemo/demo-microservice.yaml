@@ -21,11 +21,11 @@ components:
     input:
       properties:
         a:
-          description: First operand of difference
+          description: First Operand of product
           example: 235
           type: number
         b:
-          description: second operand of difference
+          description: Second Operand of product
           example: 500
           type: number
       required:
@@ -128,10 +128,18 @@ components:
         v1.0.2:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Sep 06, 2023
               type: string
               x-details: changed source to github
+          type: array
+        v1.0.3:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Sep 06, 2023
+              type: string
+              x-details: source code changed for multiplication
           type: array
       type: object
   securitySchemes:
@@ -144,7 +152,7 @@ components:
 info:
   description: This microservice returns addition value of two numbers provided.
   title: demo-calculator
-  version: v1.0.2
+  version: v1.0.3
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -222,9 +230,9 @@ paths:
           description: Gateway Timeout
       security:
       - APIAuthorizer: []
-      tags: v1.0.2
+      tags: v1.0.3
 servers:
 - url: https://apish.sentient.io
 tags:
 - description: Published Date - Sep 06, 2023
-  name: v1.0.2
+  name: v1.0.3
