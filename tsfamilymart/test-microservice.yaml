@@ -110,7 +110,7 @@ components:
             - description: Current Version
               example: Published Date - Sep 08, 2023
               type: string
-              x-details: Initial Version Release
+              x-details: ''
           type: array
       type: object
   securitySchemes:
@@ -201,8 +201,7 @@ paths:
           description: Gateway Timeout
       security:
       - APIAuthorizer: []
-      tags:
-      - v1.0.0
+      tags: v1.0.0
 servers:
 - url: https://apish.sentient.io
 tags:
