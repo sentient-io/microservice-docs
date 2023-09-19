@@ -127,7 +127,7 @@ components:
       x-amazon-apigateway-authtype: custom
 info:
   description: This is register microservice demo
-  title: '"Register Microservice"'
+  title: Register Microservice
   version: v1.0.0
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
