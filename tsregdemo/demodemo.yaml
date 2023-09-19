@@ -1,0 +1,215 @@
+components:
+  schemas:
+    forbidden:
+      properties:
+        message:
+          example: Access Denied Unauthorized User
+          type: string
+        status:
+          example: Failure
+          type: string
+      type: object
+    gatewaytimeout:
+      properties:
+        message:
+          example: Request Timeout
+          type: string
+        status:
+          example: Failure
+          type: string
+      type: object
+    input:
+      properties:
+        a:
+          description: a
+          example: 1234
+          type: number
+        b:
+          description: b
+          example: 1234
+          type: number
+      required:
+      - a
+      - b
+      type: object
+    inputfieldmissing:
+      properties:
+        message:
+          example: Input Field Missing
+          type: string
+        status:
+          example: Failure
+          type: string
+      type: object
+    inputlimitexceeded:
+      properties:
+        message:
+          example: Input Limit Exceeded
+          type: string
+        status:
+          example: Failure
+          type: string
+      type: object
+    invalidinput:
+      properties:
+        message:
+          example: Invalid Input
+          type: string
+        status:
+          example: Failure
+          type: string
+      type: object
+    notfound:
+      properties:
+        message:
+          example: Invalid Request URL
+          type: string
+        status:
+          example: Failure
+          type: string
+      type: object
+    paymentrequired:
+      properties:
+        message:
+          example: Insufficient Credits Kindly Top Up
+          type: string
+        status:
+          example: Failure
+          type: string
+      type: object
+    servererror:
+      properties:
+        message:
+          example: Internal Server Error
+          type: string
+        status:
+          example: Failure
+          type: string
+      type: object
+    success:
+      properties:
+        message:
+          description: Description on the API status
+          example: Successfully Processed
+          type: string
+        results: {}
+        status:
+          description: The status of the API call - success/failure
+          example: success
+          type: string
+      type: object
+    unauthorized:
+      properties:
+        message:
+          example: Missing Authentication Token
+          type: string
+        status:
+          example: Failure
+          type: string
+      type: object
+    versions:
+      properties:
+        v1.0.0:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Sep 19, 2023
+              type: string
+              x-details: Initial Version Release
+          type: array
+      type: object
+  securitySchemes:
+    APIAuthorizer:
+      description: Authentication is done using the x-api-key in the request header
+      in: header
+      name: x-api-key
+      type: apiKey
+      x-amazon-apigateway-authtype: custom
+info:
+  description: demo deo
+  title: demo test
+  version: v1.0.0
+  x-billingmethod: The API is billed by per request.
+  x-inputfilelimit: Process Single Json per api call
+  x-responsetime: Response rate is fast due to small data transfer per call mad
+openapi: 3.0.1
+paths:
+  /microservice/custommodels/tsregdemodemodemo/v1/getresults:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/input'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              example: '{}'
+              schema:
+                $ref: '#/components/schemas/success'
+          description: ok
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+          description: Unauthorized
+        '402':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+          description: Payment Required
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+          description: Not Found
+        '413':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+          description: Payload Too Large
+        '415':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+          description: Unsupported Media Type
+        '419':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+          description: Input Field Missing
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+          description: Internal Server Error
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+          description: Gateway Timeout
+      security:
+      - APIAuthorizer: []
+      tags:
+      - v1.0.0
+servers:
+- url: https://apish.sentient.io
+tags:
+- description: Published Date - Sep 19, 2023
+  name: v1.0.0
