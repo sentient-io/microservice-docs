@@ -112,10 +112,18 @@ components:
         v1.0.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Sep 19, 2023
               type: string
               x-details: Initial Version Release
+          type: array
+        v1.0.1:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Sep 19, 2023
+              type: string
+              x-details: changing code from product to sum
           type: array
       type: object
   securitySchemes:
@@ -128,7 +136,7 @@ components:
 info:
   description: This MS shows github based registration
   title: Microservice Calculate
-  version: v1.0.0
+  version: v1.0.1
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -206,10 +214,9 @@ paths:
           description: Gateway Timeout
       security:
       - APIAuthorizer: []
-      tags:
-      - v1.0.0
+      tags: v1.0.1
 servers:
 - url: https://apish.sentient.io
 tags:
 - description: Published Date - Sep 19, 2023
-  name: v1.0.0
+  name: v1.0.1
