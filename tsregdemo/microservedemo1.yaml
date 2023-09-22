@@ -107,10 +107,18 @@ components:
         v1.0.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Sep 22, 2023
               type: string
               x-details: Initial Version Release
+          type: array
+        v1.1.0:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Sep 22, 2023
+              type: string
+              x-details: ''
           type: array
       type: object
   securitySchemes:
@@ -123,7 +131,7 @@ components:
 info:
   description: 'this is demo1 '
   title: microservicedemo1
-  version: v1.0.0
+  version: v1.1.0
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -201,10 +209,9 @@ paths:
           description: Gateway Timeout
       security:
       - APIAuthorizer: []
-      tags:
-      - v1.0.0
+      tags: v1.1.0
 servers:
 - url: https://apish.sentient.io
 tags:
 - description: Published Date - Sep 22, 2023
-  name: v1.0.0
+  name: v1.1.0
