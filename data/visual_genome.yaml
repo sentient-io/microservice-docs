@@ -1,0 +1,470 @@
+openapi: 3.0.1
+info:
+  title: Visual Genome
+  x-subscribelink: visual_genome
+  description: |+
+      Visual Genome is a dataset, a knowledge base to connect structured image concepts to language.
+  x-additionalinfo : |+
+    **Match Types:**
+    A match type is a match operator. The supported match types are&#58;
+    * **match** - Search within a full text field for a single word
+      > {"match":{"attributes.names": "collapsed_building"}}
+      > {"match":{"attributes.attributes": "fire"}}
+    * **exists** - Returns results that contain any indexed value for a field
+      > {"exists":{"field":"image_id"}}
+
+  version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-billingmethod: |+
+    The API is billed by per request.
+  x-notes: |+
+    Process up to 10,000 records.
+  x-apidetailsdesc: |+
+    Provides attributes, names, bounding box values, question answers and description about the region and relationship details between images.
+servers:
+        - url: 'https://apis.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - September 26, 2023"
+paths:
+  /microservices/data/visual_genome/v0/getdata:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  search_result:
+                    hits:
+                    - _index: visual_genome_index
+                      _type: _doc
+                      _id: '3'
+                      _score: 1
+                      _source:
+                        image_id: 4
+                        attributes:
+                        - synsets:
+                          - synset_definition: an upholstered seat for more than one person
+                            synset_name: sofa.n.01
+                          object_id: 1060310
+                          names:
+                          - couch
+                          - futon
+                          attributes:
+                          - purple
+                          - wooden
+                          - cloth
+                          boundingbox:
+                            x: '105'
+                            y: '210'
+                            w: '260'
+                            h: '172'
+                        image_link: gs://dso_data/visual_genome/images/4.jpg
+                        lastupdated: '2023-09-20T12:27:18.288Z'
+                        unique_id: fbd11093-576d-11ee-a696-346f2495ab6b
+                        image_dimesion:
+                          img_width: 640
+                          img_height: 480
+                        qas_region_description:
+                        - question: What is the carpet next to?
+                          question_id: 987451
+                          region_id: 4121
+                          answer: Parlay.
+                          phrase: 'carpet next to parlay '
+                          boundingbox:
+                            x: '85'
+                            y: '345'
+                            w: '392'
+                            h: '112'
+                        relationship:
+                        - predicate: 'ON'
+                          object:
+                            name: floor
+                            object_id: 1060307
+                            synsets:
+                            - synset_definition: the inside lower horizontal surface (as of a room, hallway,
+                                tent, or other structure)
+                              synset_name: floor.n.01
+                            boundingbox:
+                              x: '1'
+                              y: '290'
+                              w: '631'
+                              h: '188'
+                          relationship_id: 3187856
+                          synsets:
+                          - synset_definition: with a forward motion
+                            synset_name: along.r.01
+                          subject:
+                            name: lamp
+                            object_id: 1060337
+                            synsets:
+                            - synset_definition: an artificial source of visible illumination
+                              synset_name: lamp.n.01
+                            boundingbox:
+                              x: '216'
+                              y: '62'
+                              w: '48'
+                              h: '150'
+                    max_score: 1.0
+                    total:
+                      value: 10000
+                      relation: gte
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure        
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            relation:
+              type: string
+              example: eq
+              description: Indicates the accuracy of the total number of records (e.g. "eq" means equals, "gte" means greater than)
+            max_score:
+              type: number
+              example: 1
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object>}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "visual_genome_index"
+                  _type: 
+                    type: string
+                    description: Content type of the document
+                    example: "_doc"
+                  _id: 
+                    type: string
+                    description: The random string value assigned to each document after indexing
+                    example: "HudOIIMBytNLbl4ut3rX"
+                  _score: 
+                    type: number
+                    description: The document score for the search request
+                    example: 1
+                  _source: 
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      image_id:
+                        type: string
+                        description: ID of the image or the file name without extension
+                        example: '1'
+                      attributes:
+                        type: object
+                        description: Metadata regarding the object, "N/A" if the value is empty
+                          - synsets - List of objects containing name of the object and its defnition. 
+                          - object_id - ID for the particular bounding box or detected object.
+                          - names - List of names for the object. 
+                          - attributes - List of attributes for the object.
+                          - boundingbox -  BoundingBox information in x, y, w, h format for the object.
+                        example: 
+                          - synsets:
+                            - synset_definition: an upholstered seat for more than one person
+                            synset_name: sofa.n.01
+                            object_id: 1060310
+                            names:
+                            - couch
+                            - futon
+                            attributes:
+                            - purple
+                            - wooden
+                            - cloth
+                            boundingbox:
+                            x: '105'
+                            y: '210'
+                            w: '260'
+                            h: '172'
+                      image_link:
+                        type: string
+                        description: Image location
+                        example:  'http://192.168.1.2:30008/visual_genome/images/4.jpg'
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2023-07-31T13:47:47.974Z"
+                      unique_id:
+                        type: string
+                        description: Unique id
+                        example: "c7773655-2f65-11ee-ad22-346f2495ab6b"
+                      image_dimension:
+                        type: object
+                        description: Image dimension consisting of width and height
+                        example: 
+                          img_width: 640
+                          img_height: 480
+                      qas_region_description:
+                        type: object
+                        description: Question answers and description about the region for the image, "N/A" if the value is empty
+                          - question - A random question about the object.
+                          - answer - Answer for the question.
+                          - phrase - A sentence representing the boundingbox which has some relationship to an object close to the region or a phrase for the question.
+                          - boundingbox - BoundingBox information in x, y, w, h format for the object.
+                        example: 
+                          - question: What is the carpet next to?
+                            question_id: 987451
+                            region_id: 4121
+                            answer: Parlay.
+                            phrase: 'carpet next to parlay '
+                            boundingbox:
+                            x: '85'
+                            y: '345'
+                            w: '392'
+                            h: '112'
+                      relationship:
+                        type: object
+                        description: Relationship between subject and object along with the corresponding boundingbox values, "N/A" if the value is empty
+                          - predicate - The part of a sentence containing a verb and stating something about the subject.
+                          - object - It is the person, thing or place that is impacted by, or involved in, the action. Contains name, object_id, synsets information and boundingbox values in x, y, w, h format.
+                          - relationship_id - ID for the relationship.
+                          - synsets - Contains the synsets name and defnition for the predicate.
+                          - subject - It is the thing that performs the action of a verb(predicate). Contains name, object_id, synsets information and boundingbox values in x, y, w, h format.
+                        example:
+                          - predicate: 'ON'
+                            object:
+                              name: floor
+                              object_id: 1060307
+                              synsets:
+                              - synset_definition: the inside lower horizontal surface (as of a room, hallway, tent, or other structure)
+                                synset_name: floor.n.01
+                              boundingbox:
+                                x: '1'
+                                y: '290'
+                                w: '631'
+                                h: '188'
+                            relationship_id: 3187856
+                            synsets:
+                            - synset_definition: with a forward motion
+                            synset_name: along.r.01
+                            subject:
+                              name: lamp
+                              object_id: 1060337
+                              synsets:
+                              - synset_definition: an artificial source of visible illumination
+                                synset_name: lamp.n.01
+                              boundingbox:
+                                x: '216'
+                                y: '62'
+                                w: '48'
+                                h: '150'
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties: 
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - September 26, 2023
+              x-details: Initial version release
+              description: Latest Version
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: false
+          example: 10
+          description: The max records to return for the request. Default - 0, Max - 10000
+        offset:
+          type: number
+          default: false
+          example: 0
+          description: The offset of the record list ie the starting index 
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match" :{"attributes.names": "bus"}}]
+          description: |+
+            Its a list of filters to refine the search further. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match_phrase
+            * match
+            * range
+            * exists
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
