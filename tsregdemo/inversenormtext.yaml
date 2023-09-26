@@ -21,13 +21,8 @@ components:
     input:
       properties:
         text:
-          description: text to normalize
-          example: apple said the project-financing fund was the first of its kind
-            real estate developers often secure bonds for affordable housing development
-            but must service the debt during construction until the houses are built
-            and start to generate revenue apple and state officials hope to provide
-            bridge financing during construction at rates below those from commercial
-            lenders
+          description: text to get date
+          example: next tuesday
           type: string
       required:
       - text
@@ -112,10 +107,18 @@ components:
         v1.0.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Sep 26, 2023
               type: string
               x-details: Initial Version Release
+          type: array
+        v1.0.1:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Sep 26, 2023
+              type: string
+              x-details: Changing source from github to docker
           type: array
       type: object
   securitySchemes:
@@ -129,7 +132,7 @@ info:
   description: Microservice that does inverse text normalisation for speech transcripts
     and convert abbreviation tokens from lower case to upper case.
   title: Inverse Norm Text
-  version: v1.0.0
+  version: v1.0.1
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -207,10 +210,9 @@ paths:
           description: Gateway Timeout
       security:
       - APIAuthorizer: []
-      tags:
-      - v1.0.0
+      tags: v1.0.1
 servers:
 - url: https://apish.sentient.io
 tags:
 - description: Published Date - Sep 26, 2023
-  name: v1.0.0
+  name: v1.0.1
