@@ -21,7 +21,7 @@ info:
   x-apidetailsdesc: |+
     Partitions homogenous segments based on speaker identity "who spoke when".
 servers:
-  - url: 'https://apish.sentient.io' 
+  - url: 'https://apisa.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - Oct 09, 2021"
