@@ -130,7 +130,7 @@ info:
   x-apidetailsdesc: |+
     Supports recognizing short speech and returns the recognition for Small Files.
 servers:
-  - url: 'https://apish.sentient.io' 
+  - url: 'https://apisa.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - Dec 21, 2022"
