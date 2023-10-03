@@ -25,7 +25,7 @@ info:
   x-apidetailsdesc: |+
     Kindly note that large file / asynchronous processing requires multiple steps and calling multiple API end-points sequentially to complete the entire processing.
 servers:
-  - url: 'https://apish.sentient.io/async'
+  - url: 'https://apisa.sentient.io/async'
 tags:
 - name: "v0.2.0"
   description: "Published Date - Oct 13, 2022"
@@ -45,7 +45,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  url: https://dev-apis.sentient.io/async/largerpayload/upload
+                  url: https://apisa.sentient.io/async/largerpayload/upload
                   fields:
                     content-type: audio/wav
                     token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50X3R5cGUiOiJhdWRpby93YXYiLCJhZGRpdGlvbmFsX3BhcmFtIjp7ImV4YWN0X3NwZWFrZXJfY291bnQiOjIsIm1heF9zcGVha2VyX2NvdW50IjoyfSwiamlkIjoiOGYxZTgxNzllNjkzNGUzYWFkOTU2M2JjMzcwN2ZmODgiLCJmaWxlX3NpemUiOjIxNzUxMzM4MiwiZmlsZV9uYW1lIjoiY29uZmVyZW5jZS53YXYiLCJrZXkiOiIzMDkvNDk1L2xwLW5zZC9pbnB1dC9jb25mZXJlbmNlXzhmMWU4MTc5ZTY5MzRlM2FhZDk1NjNiYzM3MDdmZjg4LndhdiIsImNvc3QiOjQuNjY3MywiYXBpX2NvZGUiOiJuc2QiLCJleHAiOjE2ODE5MDE0MzN9.Qx_XqBVK8-pZQ9LE0OlwB0pIZdFllzcX2LBRSJV7Yyc
@@ -120,7 +120,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://apish.sentient.io/async/largerpayload/upload'
+        - url: 'https://apisa.sentient.io/async/largerpayload/upload'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
