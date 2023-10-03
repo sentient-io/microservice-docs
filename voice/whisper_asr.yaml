@@ -360,12 +360,13 @@ components:
           default: false
           example: medium
           description:
-            Specifies the model type of the transcript. There are five different values, they are,</br>
-              - tiny</br>
-              - base</br>
-              - small</br>
-              - medium</br>
-              - large</br>
+            Specifies the model type of the transcript. There are five different values, they are,
+              - tiny
+              - base
+              - small
+              - medium
+              - large-v1
+              - large-v2
             Default Value - medium 
         language:
           type: string
