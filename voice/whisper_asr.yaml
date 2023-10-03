@@ -361,6 +361,7 @@ components:
           example: medium
           description:
             Specifies the model type of the transcript. There are five different values, they are,
+              ["tiny","base"]
               - tiny
               - base
               - small
