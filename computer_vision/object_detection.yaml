@@ -318,7 +318,7 @@ components:
           default: False
           example: fire
           description: |+
-            Select the model appropriate for your usecase based on object detection models based on provided list-
+            Select the model category appropriate for your usecase based on provided list-
 
             1. general - It support object detection for common categories in real world like person, bicycle, car, motorbike, aeroplane etc.
 
@@ -326,7 +326,9 @@ components:
 
             3. people_counting - It
 
-            4. terrex - It detect miltary tanks Terrex and BTR along with common categories in real world like person, bicycle, car, motorbike, aeroplane etc.
+            4. terrex - It detect miltary tanks Terrex and BTR along with common categories in real world supported by general.
+
+            The default model category is general.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
