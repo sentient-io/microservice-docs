@@ -336,7 +336,7 @@ components:
           x-name: model
           type: string
           default: false
-          example: ntu
+          example: default
           description: |+
            Name of model.
         file_type:
