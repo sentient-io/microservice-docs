@@ -318,9 +318,15 @@ components:
           default: False
           example: fire
           description: |+
-            Enter the scenario of object detection model prediction you want. Default category is general which detect a wide variety of classes.
+            Select the model appropriate for your usecase based on object detection models based on provided list-
 
-            It supports other categories like - people_counting and fire as well.
+            1. general - It support object detection for common categories in real world like person, bicycle, car, motorbike, aeroplane etc.
+
+            2. fire - This particular detects objects under classes fire and smoke.
+
+            3. people_counting - It
+
+            4. terrex - It detect miltary tanks Terrex and BTR along with common categories in real world like person, bicycle, car, motorbike, aeroplane etc.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
