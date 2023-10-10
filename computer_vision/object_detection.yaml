@@ -314,11 +314,13 @@ components:
 
         category:
           x-name: category
-          type: float
+          type: string
           default: False
           example: fire
           description: |+
             Enter the scenario of object detection model prediction you want. Default category is general which detect a wide variety of classes.
+
+            It supports other categories like - people_counting and fire as well.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
