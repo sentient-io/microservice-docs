@@ -23,7 +23,7 @@ info:
   x-apidetailsdesc: |+
     Identifies faces within an input image and predicts the demographics.
 servers:
-  - url: 'https://apish.sentient.io' 
+  - url: 'https://apisa.sentient.io' 
 tags:
 - name: "v0.1.0"
   description: "Published Date - Dec 09, 2020"
