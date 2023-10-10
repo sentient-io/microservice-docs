@@ -316,7 +316,7 @@ components:
           x-name: category
           type: string
           default: False
-          example: fire
+          example: general
           description: |+
             Select the model category appropriate for your usecase based on provided list-
 
