@@ -11,7 +11,7 @@ info:
     - Industrial inspection - use Object Detection to automate the quality control process in manufacturing by enabling edge devices to identify defects.</br>
     - Product search - build a product search app to find products of interest within images and visually search product catalogs.</br>
     - Build an object detection app for the visually-impaired - help users identify daily objects that they may need aid in recognising
-  version: '1.1.0'
+  version: '1.2.0'
   x-subscribelink: object_detection
   x-apitype: small file
   x-apitypedescription: |+
@@ -29,13 +29,13 @@ info:
 servers:
   - url: 'https://apisa.sentient.io'
 tags:
-- name: "v1.1.0"
+- name: "v1.2.0"
   description: "Published Date - Oct 08, 2021"
 paths:
   /microservices/cv/objectdetection/v1/getpredictions:
     post:
       tags:
-        - v1.1.0
+        - v1.2.0
       responses:
         '200':
           description: Ok
@@ -289,6 +289,28 @@ components:
             Input image file in base64 format. 
             
             Supported formats: bmp, dib, exr, hdr, jpeg, jpg, jpe, jp2, png, pic, pbm, pgm, ppm, pxm, pnm, ras, sr, tiff, tif, webp.
+        conf_thres:
+          x-name: conf_thres
+          type: float
+          default: False
+          example: 0.25
+          description: |+
+            Enter the confidence threshold. Default confidence threshold is 0.25.
+        iou_thres:
+          x-name: iou_thres
+          type: float
+          default: False
+          example: 0.45
+          description: |+
+            Enter the IOU threshold. Default confidence threshold is 0.45.
+
+        category:
+          x-name: category
+          type: float
+          default: False
+          example: fire
+          description: |+
+            Enter the scenario of object detection model prediction you want. Default category is general which detect a wide variety of classes.
   securitySchemes:
     APIAuthorizer:
       type: apiKey
