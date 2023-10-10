@@ -266,7 +266,7 @@ components:
             - type: string
               example: Published Date - Oct 08, 2021
               x-details: Model upgrade
-              description: Depreciating on Oct 10, 2023
+              description: Depreciating on Oct 09, 2023
         v1.0.0:
           type: array
           items:
@@ -324,7 +324,7 @@ components:
 
             2. fire - This particular detects objects under classes fire and smoke.
 
-            3. people_counting - It
+            3. people_counting - It is particulary useful for the task of identifying people in case of crowd management scenarios with high precision.
 
             4. terrex - It detect miltary tanks Terrex and BTR along with common categories in real world supported by general.
 
