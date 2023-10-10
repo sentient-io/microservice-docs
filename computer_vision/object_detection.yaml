@@ -251,6 +251,14 @@ components:
     versions:
       type: object
       properties: 
+        v1.2.0:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              example: Published Date - Oct 10, 2023
+              x-details: Model upgrade
+              description: Latest Version
         v1.1.0:
           type: array
           items:
@@ -258,7 +266,7 @@ components:
             - type: string
               example: Published Date - Oct 08, 2021
               x-details: Model upgrade
-              description: Latest Version
+              description: Depreciating on Oct 10, 2023
         v1.0.0:
           type: array
           items:
