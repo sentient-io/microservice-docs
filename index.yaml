@@ -172,7 +172,7 @@ computer vision:
   object_detection:
     title: Object Detection
     versions:
-      1.1.0: 'object_detection.yaml'
+      1.2.0: 'object_detection.yaml'
   face_recognition:
     title: Face Recognition
     versions:
