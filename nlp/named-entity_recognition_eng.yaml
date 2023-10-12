@@ -28,7 +28,7 @@ info:
   x-apidetailsdesc: |+
     Locates and Classifies named-entities classes from unstructured English text.
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v3.0.0"
   description: "Published Date - Nov 25, 2022"
