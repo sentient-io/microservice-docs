@@ -1,5 +1,19 @@
 components:
   schemas:
+    addinput:
+      properties:
+        a:
+          description: addition of two numbers
+          example: 10
+          type: number
+        b:
+          description: addition of two numbers
+          example: 20
+          type: number
+      required:
+      - a
+      - b
+      type: object
     forbidden:
       properties:
         message:
@@ -71,6 +85,20 @@ components:
         status:
           example: Failure
           type: string
+      type: object
+    subinput:
+      properties:
+        c:
+          description: subtract of two numbers
+          example: 20
+          type: number
+        d:
+          description: subtract of two numbers
+          example: 10
+          type: number
+      required:
+      - c
+      - d
       type: object
     success:
       properties:
