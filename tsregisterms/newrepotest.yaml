@@ -1,6 +1,6 @@
 components:
   schemas:
-    /addinput:
+    addinput:
       properties:
         a:
           description: adding two values
@@ -13,20 +13,6 @@ components:
       required:
       - a
       - b
-      type: object
-    /subinput:
-      properties:
-        c:
-          description: subtract the two values
-          example: 30
-          type: number
-        d:
-          description: subtract the two values
-          example: 20
-          type: number
-      required:
-      - c
-      - d
       type: object
     forbidden:
       properties:
@@ -99,6 +85,20 @@ components:
         status:
           example: Failure
           type: string
+      type: object
+    subinput:
+      properties:
+        a:
+          description: subtract the two values
+          example: 30
+          type: number
+        b:
+          description: subtract the two values
+          example: 10
+          type: number
+      required:
+      - a
+      - b
       type: object
     success:
       properties:
