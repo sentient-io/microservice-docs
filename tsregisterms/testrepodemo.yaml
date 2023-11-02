@@ -14,6 +14,20 @@ components:
       - a
       - b
       type: object
+    divinput:
+      properties:
+        a:
+          description: ten
+          example: 10
+          type: number
+        b:
+          description: five
+          example: 5
+          type: number
+      required:
+      - a
+      - b
+      type: object
     forbidden:
       properties:
         message:
@@ -58,6 +72,20 @@ components:
         status:
           example: Failure
           type: string
+      type: object
+    mulinput:
+      properties:
+        a:
+          description: twnety
+          example: 20
+          type: number
+        b:
+          description: two
+          example: 2
+          type: number
+      required:
+      - a
+      - b
       type: object
     notfound:
       properties:
@@ -126,10 +154,18 @@ components:
         v1.0.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Nov 02, 2023
               type: string
               x-details: Initial Version Release
+          type: array
+        v1.1.0:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Nov 02, 2023
+              type: string
+              x-details: div and mul added
           type: array
       type: object
   securitySchemes:
@@ -142,7 +178,7 @@ components:
 info:
   description: testrepodemo
   title: testrepodemo
-  version: v1.0.0
+  version: v1.1.0
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -221,8 +257,7 @@ paths:
           description: Gateway Timeout
       security:
       - APIAuthorizer: []
-      tags:
-      - v1.0.0
+      tags: v1.1.0
   /microservice/custommodels/tsregistermstestrepodemo/v1/getsub:
     description: subtract two values
     post: *id001
@@ -230,4 +265,4 @@ servers:
 - url: https://apisa.sentient.io
 tags:
 - description: Published Date - Nov 02, 2023
-  name: v1.0.0
+  name: v1.1.0
