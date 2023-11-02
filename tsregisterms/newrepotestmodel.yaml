@@ -157,7 +157,7 @@ components:
             - description: Current Version
               example: Published Date - Nov 02, 2023
               type: string
-              x-details: division and multiply added
+              x-details: removed add and sub
           type: array
       type: object
   securitySchemes:
@@ -184,6 +184,80 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/addinput'
+        required: true
+      responses: &id004
+        '200':
+          content:
+            application/json:
+              example: '{}'
+              schema:
+                $ref: '#/components/schemas/success'
+          description: ok
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+          description: Unauthorized
+        '402':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+          description: Payment Required
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+          description: Not Found
+        '413':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+          description: Payload Too Large
+        '415':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+          description: Unsupported Media Type
+        '419':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+          description: Input Field Missing
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+          description: Internal Server Error
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+          description: Gateway Timeout
+      security: &id005
+      - APIAuthorizer: []
+      tags: v1.0.0
+  /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getdiv:
+    description: division of two values
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/divinput'
         required: true
       responses: &id001
         '200':
@@ -251,18 +325,6 @@ paths:
       - APIAuthorizer: []
       tags: &id003
       - v1.0.0
-  /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getdiv:
-    description: division of two values
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/divinput'
-        required: true
-      responses: *id001
-      security: *id002
-      tags: *id003
   /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getmul:
     description: multiply of two values
     post:
@@ -284,9 +346,10 @@ paths:
             schema:
               $ref: '#/components/schemas/subinput'
         required: true
-      responses: *id001
-      security: *id002
-      tags: *id003
+      responses: *id004
+      security: *id005
+      tags:
+      - v1.0.0
 servers:
 - url: https://apisa.sentient.io
 tags:
