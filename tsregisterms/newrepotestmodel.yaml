@@ -3,12 +3,26 @@ components:
     addinput:
       properties:
         a:
-          description: addition of two values
+          description: ten
           example: 10
           type: number
         b:
-          description: addition of two values
+          description: twenty
           example: 20
+          type: number
+      required:
+      - a
+      - b
+      type: object
+    divinput:
+      properties:
+        a:
+          description: thirty
+          example: 30
+          type: number
+        b:
+          description: three
+          example: 3
           type: number
       required:
       - a
@@ -59,6 +73,20 @@ components:
           example: Failure
           type: string
       type: object
+    mulinput:
+      properties:
+        a:
+          description: five
+          example: 5
+          type: number
+        b:
+          description: two
+          example: 2
+          type: number
+      required:
+      - a
+      - b
+      type: object
     notfound:
       properties:
         message:
@@ -89,11 +117,11 @@ components:
     subinput:
       properties:
         a:
-          description: subtract of two values
+          description: fourty
           example: 40
           type: number
         b:
-          description: subtract of two values
+          description: twenty
           example: 20
           type: number
       required:
@@ -129,7 +157,7 @@ components:
             - description: Current Version
               example: Published Date - Nov 02, 2023
               type: string
-              x-details: Initial Version Release
+              x-details: division and multiply added
           type: array
       type: object
   securitySchemes:
@@ -223,6 +251,30 @@ paths:
       - APIAuthorizer: []
       tags: &id003
       - v1.0.0
+  /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getdiv:
+    description: division of two values
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/divinput'
+        required: true
+      responses: *id001
+      security: *id002
+      tags: *id003
+  /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getmul:
+    description: multiply of two values
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mulinput'
+        required: true
+      responses: *id001
+      security: *id002
+      tags: *id003
   /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getsub:
     description: subtract of two values
     post:
