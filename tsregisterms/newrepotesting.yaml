@@ -193,6 +193,72 @@ paths:
             schema:
               $ref: '#/components/schemas/divinput'
         required: true
+      responses: &id001
+        '200':
+          content:
+            application/json:
+              example: '{}'
+              schema:
+                $ref: '#/components/schemas/success'
+          description: ok
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+          description: Unauthorized
+        '402':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+          description: Payment Required
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+          description: Not Found
+        '413':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+          description: Payload Too Large
+        '415':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+          description: Unsupported Media Type
+        '419':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+          description: Input Field Missing
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+          description: Internal Server Error
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+          description: Gateway Timeout
+      security: &id002
+      - APIAuthorizer: []
+      tags: &id003
+      - v1.1.0
   /microservice/custommodels/tsregistermsnewrepotesting/v1/getmul:
     description: multiply of two values
     post:
@@ -202,6 +268,9 @@ paths:
             schema:
               $ref: '#/components/schemas/mulinput'
         required: true
+      responses: *id001
+      security: *id002
+      tags: *id003
 servers:
 - url: https://apisa.sentient.io
 tags:
