@@ -157,7 +157,7 @@ components:
             - description: Current Version
               example: Published Date - Nov 02, 2023
               type: string
-              x-details: removed add and sub
+              x-details: added addition
           type: array
       type: object
   securitySchemes:
@@ -176,14 +176,14 @@ info:
   x-responsetime: Response rate is fast due to small data transfer per call mad
 openapi: 3.0.1
 paths:
-  /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getdiv:
-    description: division of two values
+  /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getadd:
+    description: adding two values
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/divinput'
+              $ref: '#/components/schemas/addinput'
         required: true
       responses: &id001
         '200':
@@ -251,6 +251,18 @@ paths:
       - APIAuthorizer: []
       tags: &id003
       - v1.0.0
+  /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getdiv:
+    description: division of two values
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/divinput'
+        required: true
+      responses: *id001
+      security: *id002
+      tags: *id003
   /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getmul:
     description: multiply of two values
     post:
