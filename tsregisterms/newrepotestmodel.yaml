@@ -157,7 +157,7 @@ components:
             - description: Current Version
               example: Published Date - Nov 02, 2023
               type: string
-              x-details: added addition
+              x-details: division removed
           type: array
       type: object
   securitySchemes:
@@ -251,18 +251,6 @@ paths:
       - APIAuthorizer: []
       tags: &id003
       - v1.0.0
-  /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getdiv:
-    description: division of two values
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/divinput'
-        required: true
-      responses: *id001
-      security: *id002
-      tags: *id003
   /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getmul:
     description: multiply of two values
     post:
