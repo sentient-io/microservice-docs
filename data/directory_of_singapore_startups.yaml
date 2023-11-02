@@ -102,14 +102,14 @@ paths:
             
             If this field is set to null, by default the microservice will return all start ups (within the stated limit), which can be further refined through the filterdata field for more sophisticated queries.
             
-          example: "technology"
+          example: "*"
           default: false
         - in: query
           name: offset
           schema:
             type: integer
           description: The offset of the record list ie the starting index
-          example: "0"
+          example: "1"
           default: false
         - in: query
           name: limit
@@ -130,7 +130,7 @@ paths:
             * filter
           default: false
           example: |+
-              {"must":[{"match":{"name":"technology"}}],"filter":[{"exists":{"field":"company.e27"}}],"should":[{"match":{"status.e27":"active"}}],"must_not":[{"match":{"yearestablished.e27":"2016"}}]}
+              {}
       responses:
         '200':
           description: Ok
