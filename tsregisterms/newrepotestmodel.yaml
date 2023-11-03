@@ -162,10 +162,18 @@ components:
         v1.2.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Nov 03, 2023
               type: string
               x-details: ''
+          type: array
+        v1.5.0:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Nov 03, 2023
+              type: string
+              x-details: subtract added
           type: array
       type: object
   securitySchemes:
@@ -178,7 +186,7 @@ components:
 info:
   description: this is newrepotestmodel describe
   title: newrepotestmodel
-  version: v1.2.0
+  version: v1.5.0
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -258,7 +266,7 @@ paths:
       security: &id002
       - APIAuthorizer: []
       tags: &id003
-      - v1.2.0
+      - v1.5.0
   /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getmul:
     description: multiply of two values
     post:
@@ -271,8 +279,20 @@ paths:
       responses: *id001
       security: *id002
       tags: *id003
+  /microservice/custommodels/tsregistermsnewrepotestmodel/v1/getsub:
+    description: subtract two values
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subinput'
+        required: true
+      responses: *id001
+      security: *id002
+      tags: *id003
 servers:
 - url: https://apisa.sentient.io
 tags:
 - description: Published Date - Nov 03, 2023
-  name: v1.2.0
+  name: v1.5.0
