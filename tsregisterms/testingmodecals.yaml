@@ -7,8 +7,8 @@ components:
           example: 10
           type: number
         b:
-          description: thirty
-          example: 30
+          description: two
+          example: 2
           type: number
       required:
       - a
@@ -178,10 +178,18 @@ components:
         v1.5.1:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Nov 06, 2023
               type: string
               x-details: ''
+          type: array
+        v1.5.2:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Nov 06, 2023
+              type: string
+              x-details: addition add removed others
           type: array
       type: object
   securitySchemes:
@@ -194,22 +202,22 @@ components:
 info:
   description: testingmodecals
   title: testingmodecals
-  version: v1.5.1
+  version: v1.5.2
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
 openapi: 3.0.1
 paths:
-  /microservice/custommodels/tsregistermstestingmodecals/v1/getsub:
-    description: subtract two values
+  /microservice/custommodels/tsregistermstestingmodecals/v1/getadd:
+    description: addition of two values
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/subinput'
+              $ref: '#/components/schemas/addinput'
         required: true
-      responses: &id001
+      responses:
         '200':
           content:
             application/json:
@@ -271,24 +279,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewaytimeout'
           description: Gateway Timeout
-      security: &id002
+      security:
       - APIAuthorizer: []
-      tags: &id003
-      - v1.5.1
-  /microservice/custommodels/tsregistermstestingmodecals/v1/getsum:
-    description: adding two values
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/addinput'
-        required: true
-      responses: *id001
-      security: *id002
-      tags: *id003
+      tags:
+      - v1.5.2
 servers:
 - url: https://apisa.sentient.io
 tags:
 - description: Published Date - Nov 06, 2023
-  name: v1.5.1
+  name: v1.5.2
