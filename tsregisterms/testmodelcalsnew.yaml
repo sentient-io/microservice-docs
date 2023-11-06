@@ -7,8 +7,8 @@ components:
           example: 10
           type: number
         b:
-          description: twnety
-          example: 20
+          description: thirty
+          example: 30
           type: number
       required:
       - a
@@ -148,10 +148,18 @@ components:
         v1.1.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Nov 06, 2023
               type: string
               x-details: removed add and added multiply
+          type: array
+        v1.2.0:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Nov 06, 2023
+              type: string
+              x-details: added model image
           type: array
       type: object
   securitySchemes:
@@ -164,14 +172,14 @@ components:
 info:
   description: this is newmodel
   title: testmodelcalsnew
-  version: v1.1.0
+  version: v1.2.0
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
 openapi: 3.0.1
 paths:
-  /microservice/custommodels/tsregistermstestmodelcalsnew/v1/getadd:
-    description: adding two values
+  /microservice/custommodels/tsregistermstestmodelcalsnew/v1/getsum:
+    description: added two values
     post:
       requestBody:
         content:
@@ -179,7 +187,7 @@ paths:
             schema:
               $ref: '#/components/schemas/addinput'
         required: true
-      responses: &id001
+      responses:
         '200':
           content:
             application/json:
@@ -241,24 +249,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/gatewaytimeout'
           description: Gateway Timeout
-      security: &id002
+      security:
       - APIAuthorizer: []
-      tags: &id003
-      - v1.1.0
-  /microservice/custommodels/tsregistermstestmodelcalsnew/v1/getmul:
-    description: multiply two values
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/mulinput'
-        required: true
-      responses: *id001
-      security: *id002
-      tags: *id003
+      tags:
+      - v1.2.0
 servers:
 - url: https://apisa.sentient.io
 tags:
 - description: Published Date - Nov 06, 2023
-  name: v1.1.0
+  name: v1.2.0
