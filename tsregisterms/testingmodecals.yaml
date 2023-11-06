@@ -3,12 +3,26 @@ components:
     addinput:
       properties:
         a:
-          description: addition of two numbers
+          description: ten
           example: 10
           type: number
         b:
-          description: addition of two numbers
+          description: twenty
           example: 20
+          type: number
+      required:
+      - a
+      - b
+      type: object
+    divinput:
+      properties:
+        a:
+          description: twenty
+          example: 20
+          type: number
+        b:
+          description: two
+          example: 2
           type: number
       required:
       - a
@@ -89,11 +103,11 @@ components:
     subinput:
       properties:
         a:
-          description: subtract two values
+          description: twenty
           example: 20
           type: number
         b:
-          description: subtract two values
+          description: ten
           example: 10
           type: number
       required:
@@ -126,10 +140,18 @@ components:
         v1.0.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Nov 06, 2023
               type: string
               x-details: Initial Version Release
+          type: array
+        v1.1.0:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Nov 06, 2023
+              type: string
+              x-details: division added
           type: array
       type: object
   securitySchemes:
@@ -142,7 +164,7 @@ components:
 info:
   description: testingmodecals
   title: testingmodecals
-  version: v1.0.0
+  version: v1.1.0
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -222,7 +244,19 @@ paths:
       security: &id002
       - APIAuthorizer: []
       tags: &id003
-      - v1.0.0
+      - v1.1.0
+  /microservice/custommodels/tsregistermstestingmodecals/v1/getdivision:
+    description: division of two numbers
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/divinput'
+        required: true
+      responses: *id001
+      security: *id002
+      tags: *id003
   /microservice/custommodels/tsregistermstestingmodecals/v1/getsub:
     description: subtract two values
     post:
@@ -239,4 +273,4 @@ servers:
 - url: https://apisa.sentient.io
 tags:
 - description: Published Date - Nov 06, 2023
-  name: v1.0.0
+  name: v1.1.0
