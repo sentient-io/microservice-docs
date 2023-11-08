@@ -27,7 +27,7 @@ info:
   x-apidetailsdesc: |+
     Matches the input word with the name of a leaf node in the predefined English taxonomy
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date - May 12, 2021"
