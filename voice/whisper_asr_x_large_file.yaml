@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Whisper ASR (Large File)
+  title: Whisper ASR ENG (Large File)
   description: |+
     This Voice microservice based on the Whisper ASR model, takes in an audio file and transcribes English speech content within the input file into text.
 
@@ -244,7 +244,7 @@ paths:
                 status_code: 200
                 message: Process Started
                 status: Processing         
-  /microservices/voice/whisperasr/v1/getstatus:
+  /microservices/voice/whisperasrx/v1/getstatus:
     description: |+
       Query for processing status.
     get:
