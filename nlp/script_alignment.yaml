@@ -24,7 +24,7 @@ info:
   x-apidetailsdesc: |+
     Aligns the input time-coded transcript.
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Oct 30, 2020"

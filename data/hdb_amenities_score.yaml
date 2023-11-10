@@ -20,7 +20,7 @@ info:
   x-apidetailsdesc: |+
     Provides amenity scores for various amenity types with an input of a Singapore postal code.
 servers:
-  - url: 'https://apish.sentient.io' 
+  - url: 'https://apisa.sentient.io' 
 tags:
 - name: "0.2.0"
   description: "Published Date - Jul 13, 2022"
