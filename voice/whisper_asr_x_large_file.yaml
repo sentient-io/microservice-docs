@@ -133,7 +133,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - May 09, 2023"
 paths:
-  /microservices/voice/whisperasr/v1/getuploadurl:
+  /microservices/voice/whisperasrx/v1/getuploadurl:
     description: |+
       Get the token to upload the file.
     post:
