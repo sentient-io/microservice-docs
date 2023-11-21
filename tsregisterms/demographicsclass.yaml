@@ -5,7 +5,7 @@ components:
         image_base64:
           description: demographics classification
           example: twenty
-          type: string
+          type: base64
       required:
       - image_base64
       type: object
