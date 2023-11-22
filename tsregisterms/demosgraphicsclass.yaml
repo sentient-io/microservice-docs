@@ -2,12 +2,12 @@ components:
   schemas:
     apiv1.0predictionsinput:
       properties:
-        image_base64:
+        a:
           description: This is demographics end points
           example: ten
-          type: base64
+          type: string
       required:
-      - image_base64
+      - a
       type: object
     forbidden:
       properties:
