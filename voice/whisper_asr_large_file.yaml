@@ -134,7 +134,7 @@ tags:
 - name: "v0.1.0"
   description: "Published Date - Nov 1, 2023"
 paths:
-  /microservices/voice/ogwhisper/v0/getpredictions
+  /microservices/voice/ogwhisper/v0/getpredictions:
     post:
       tags:
         - v0.1.0
@@ -222,18 +222,10 @@ components:
           description: The result of the API call.
           example: { "<Json": "Object>" }
           properties:
-            transcript:
+            text:
               description: Transcriptied Text
-              example: What is the difference between fixed and floating green spaces?
+              example: Ketua Jurulatih Harimau Melayar Kim Tae-gwon akan mempertaruhkan kesebelasan utama berbeza berbanding aksi sebelum ini menjelang perlawanan persahabatan Tears 1 menentang Papua, niuguinya di Stadium Sultan Mizan, Jainal Abidin Gongbadak malam esok, sekalipun mengakui persembahan semasa pasukan dari benua Oceania itu sebenarnya melepasi jangkanya. Pengendali Kelahiran Korea Selatan itu tetap akan memberi peluang kepada pemain-pemain lain untuk membuktikan kemampuan masing-masing, laporannya bersama Farid Zulkarnain
               type: string
-            translation:
-              description: Translated Text
-              example: What is the difference between a fixed and floating green?
-              type: string
-            input_audio_language:
-              description: Input audio language
-              example: What is the difference between a fixed and floating green?
-              type: string               
         message:
           type: string
           example: Successfully Processed
@@ -332,7 +324,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date -Nov 1, 2023'
+                example: 'Published Date - Nov 1, 2023'
                 x-details: Initial version release
                 description: Latest Version
     input:
