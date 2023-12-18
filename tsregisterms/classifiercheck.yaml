@@ -3,7 +3,7 @@ components:
     classifier-newinput:
       properties:
         text:
-          description: classifier-new endpoints
+          description: staranges new values
           example: starnges new
           type: string
       required:
@@ -12,11 +12,11 @@ components:
     classifierinput:
       properties:
         candidate_labels:
-          description: classifier endpoints
+          description: staranges describe
           example: stranges
           type: string
         text:
-          description: classifier endpoints
+          description: starnger describe
           example: stranger
           type: string
       required:
@@ -121,10 +121,18 @@ components:
         v1.0.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Dec 18, 2023
               type: string
               x-details: Initial Version Release
+          type: array
+        v1.1.0:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Dec 18, 2023
+              type: string
+              x-details: minor changes
           type: array
       type: object
   securitySchemes:
@@ -137,7 +145,7 @@ components:
 info:
   description: 'this is classifier check '
   title: classifiercheck
-  version: v1.0.0
+  version: v1.1.0
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -217,7 +225,7 @@ paths:
       security: &id002
       - APIAuthorizer: []
       tags: &id003
-      - v1.0.0
+      - v1.1.0
   /microservice/custommodels/tsregistermsclassifiercheck/v1/classifier-new:
     description: classifier-new endpoints
     post:
@@ -234,4 +242,4 @@ servers:
 - url: https://apisa.sentient.io
 tags:
 - description: Published Date - Dec 18, 2023
-  name: v1.0.0
+  name: v1.1.0
