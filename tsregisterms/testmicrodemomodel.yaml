@@ -66,7 +66,7 @@ components:
     predictionsinput:
       properties:
         image_base64:
-          description: adding values
+          description: base64
           example: base
           type: base64
       required:
@@ -107,10 +107,18 @@ components:
         v1.0.0:
           items:
             oneOf:
-            - description: Current Version
+            - description: Archived
               example: Published Date - Nov 28, 2023
               type: string
               x-details: Initial Version Release
+          type: array
+        v1.1.0:
+          items:
+            oneOf:
+            - description: Current Version
+              example: Published Date - Dec 19, 2023
+              type: string
+              x-details: ''
           type: array
       type: object
   securitySchemes:
@@ -123,7 +131,7 @@ components:
 info:
   description: testmicrodemomodel
   title: testmicrodemomodel
-  version: v1.0.0
+  version: v1.1.0
   x-billingmethod: The API is billed by per request.
   x-inputfilelimit: Process Single Json per api call
   x-responsetime: Response rate is fast due to small data transfer per call mad
@@ -203,9 +211,9 @@ paths:
       security:
       - APIAuthorizer: []
       tags:
-      - v1.0.0
+      - v1.1.0
 servers:
 - url: https://apisa.sentient.io
 tags:
-- description: Published Date - Nov 28, 2023
-  name: v1.0.0
+- description: Published Date - Dec 19, 2023
+  name: v1.1.0
