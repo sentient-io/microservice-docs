@@ -145,7 +145,7 @@ components:
           items:
             oneOf:
             - description: Current Version
-              example: Published Date - Jan 12, 2024
+              example: Published Date - Jan 17, 2024
               type: string
               x-details: Initial Version Release
           type: array
@@ -280,5 +280,5 @@ paths:
 servers:
 - url: https://apisa.sentient.io
 tags:
-- description: Published Date - Jan 12, 2024
+- description: Published Date - Jan 17, 2024
   name: v1.0.0
