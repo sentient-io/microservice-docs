@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: openai-asr
+  namespace: default
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v3alpha1
+      kind:  Mapping
+      name:  openai-asr-mapping
+      hostname: "apish.sentient.io"
+      prefix: /microservices/voice/openaiasr/v1/getpredictions
+      rewrite: /
+      service: openai-asr:80
+      timeout_ms: 120000     
+      ---
+spec:
+  selector:
+    app: openai-asr
+  ports:
+    - name: http-openai-asr
+      protocol: TCP
+      port: 80
+      targetPort: 80
