@@ -1,0 +1,329 @@
+openapi: 3.0.1
+info:
+  title: Car  Demo
+  x-subscribelink: cardemo
+  description: |+
+      Register MS car park demo.
+
+  x-additionalinfo : |+
+    By default standard analyzer in Elasticsearch will remove special characters excluding the opening and closing braces, so when passing query with any special characters mostly it will not be able to search since analyzer already removed those. So it is always advised to do the search on the analyzed terms.
+
+    A match type is a match operator. The supported match types are&#58;
+    * **match** - Search within a full text field for a single word
+      > {"match":{"Key.name":"Value"}}
+      
+  version: '0.1.0'
+  x-apitype: small file
+  x-apitypedescription: |+
+    Fast | Single-Call | 10MB/Call
+  x-inputfilelimit: |+
+    Process up to 10000 kb of data or chat per API call.
+  x-responsetime: |+
+    Response rate is fast due to small data transfer per call made.
+  x-notes: |+
+    Process up to 10,000 records.
+
+servers:
+        - url: 'https://apisa.sentient.io'
+tags:
+- name: "v0.1.0"
+  description: "Published Date - May 26, 2022"
+paths:
+  /microservices/custommodels/tsregistermscardemo/v1/getdata:
+    post:
+      tags:
+        - v0.1.0
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+              example:
+                message: Successfully Processed
+                results:
+                  search_result:
+                    hits:
+                    - _id: '74518784'
+                      _index: osm_index
+                      _score: 0
+                      _source:
+                        bo: AM
+                        cgrp: AK52
+                        cpnum: AK52
+                      _type: _doc
+                    max_score: 0
+                    total:
+                      relation: eq
+                      value: 1
+                status: Success
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paymentrequired'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notfound'
+        '419':
+          description: Input Field Missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputfieldmissing'
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inputlimitexceeded'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invalidinput'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/gatewaytimeout'
+      security:
+        - APIAuthorizer: []
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: '#/components/schemas/input'
+        required: true
+components:
+  schemas:
+    success:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully Processed
+          description: The detail description on the status
+        status:
+          type: string
+          example: Success
+          description: The status of the API call Success/Failure
+        results:
+          type: object
+          example: {<Json Object>}
+          description: Json Object of returned results
+          properties:
+            total:
+              type: integer
+              example: 1
+              description: Total number of records
+            relation:
+              type: string
+              example: eq
+              description: Indicates the accuracy of the total number of records (e.g. "eq" means equals)
+            max_score:
+              type: number
+              example: 0
+              description: The highest score value
+            hits:
+              type: array
+              example: [{<JSON result Object>}]
+              description: The list of Json result object
+              items:
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    description: Index group of the document
+                    example: "osm_index"
+                  _type:
+                    type: string
+                    description: Content type of the document
+                    example: "_doc"
+                  _id:
+                    type: string
+                    description: Unique number to avoid duplications and replacements in the data. This is default value provided by OSM.
+                    example: "kjo9xH8BBs9t6Uj6LQ5O"
+                  _score:
+                    type: number
+                    description: The document score for the search request
+                    example: 0
+                  _source:
+                    type: object
+                    example: {<Json Object>}
+                    description: Json Object of returned hits
+                    properties:
+                      country:
+                        type: string
+                        description: Country name.
+                        example: singapore
+                      country_code:
+                        type: string
+                        description: 2 letter country code.
+                        example: SG
+                      geometry:
+                        type: string
+                        description: Location coordinates and its type
+                        example: {"type": "LineString", "coordinates": [[103.8300615, 1.3060184], [103.8301117, 1.3059917]]}
+                      properties:
+                        type: object
+                        description: Contains all the details of the location in key-value pairs.
+                        example: {"osm_id": "14061945", "name": "Central Expressway", "highway": "motorway", "waterway": "N/A", "aerialway": "N/A", "barrier": "N/A", "man_made": "N/A", "other_tags": "{\"lanes\":\"4\",\"maxspeed\":\"80\",\"oneway\":\"yes\",\"ref\":\"CTE\",\"surface\":\"asphalt\"}", "source": "osm", "lastupdated": "2022-03-24T16:38:03.322Z"}
+                      type:
+                        type: string
+                        description: Type of the document
+                        example: "Feature"
+                      lastupdated:
+                        type: string
+                        description: Record last updated date on sentient
+                        example: "2022-02-18T00:23:43.914Z"
+                      source:
+                        type: string
+                        description: Dataset source
+                        example: osm
+    unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Missing Authentication Token
+        status:
+          type: string
+          example: Failure
+    forbidden:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Access Denied Unauthorized User
+        status:
+          type: string
+          example: Failure
+    paymentrequired:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Insufficient Credits Kindly Top Up
+        status:
+          type: string
+          example: Failure
+    invalidinput:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Input
+        status:
+          type: string
+          example: Failure
+    notfound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Invalid Request URL
+        status:
+          type: string
+          example: Failure
+    servererror:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal Server Error
+        status:
+          type: string
+          example: Failure
+    gatewaytimeout:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Request Timeout
+        status:
+          type: string
+          example: Failure
+    inputfieldmissing:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Field Missing
+        status:
+          type: string
+          example: Failure
+    inputlimitexceeded:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Input Limit Exceeded
+        status:
+          type: string
+          example: Failure
+    versions:
+      type: object
+      properties:
+        v0.1.0:
+         type: array
+         items:
+          oneOf:
+            - type: string
+              example: Published Date - May 26, 2022
+              x-details: Initial version release
+              description: Latest Version
+    input:
+      type: object
+      properties:
+        limit:
+          type: number
+          default: 10
+          example: 10
+          description: The max records to return for the request. Default - 0, Max - 10000
+        offset:
+          type: number
+          default: 1
+          example: 0
+          description: The offset of the record list ie the starting index.
+        filter:
+          type: array
+          default: false
+          items:
+              type: object
+          example: [{"match":{"bo":"AM"}}]
+          description: |+
+            Its a list of filters to refine the search further. Default it returns the today's latest record. Each filter consists of a match type, the field and the value. The possible match types are&#58;
+            * match
+  securitySchemes:
+    APIAuthorizer:
+      type: apiKey
+      name: x-api-key
+      in: header
+      x-amazon-apigateway-authtype: custom
+      description: Authentication is done using the x-api-key in the request header
