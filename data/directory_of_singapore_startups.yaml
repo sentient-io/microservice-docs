@@ -83,7 +83,7 @@ info:
   x-apidetailsdesc: |+
     Provides a list of all Singapore startup companies found on the internet through web scraping.
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v1.0.1"
   description: "Published Date -Jul 13, 2022"
