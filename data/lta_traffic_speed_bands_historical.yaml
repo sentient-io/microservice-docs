@@ -46,7 +46,7 @@ info:
   x-apidetailsdesc: |+
     Provides current traffic speeds.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v0.1.2"
   description: "Published Date - Jul 13, 2022"

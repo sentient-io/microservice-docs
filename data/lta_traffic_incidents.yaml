@@ -42,7 +42,7 @@ info:
   x-apidetailsdesc: |+
     Provides real time incidents on the roads.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v0.1.2"
   description: "Published Date - Jul 13, 2022"

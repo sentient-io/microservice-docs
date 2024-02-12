@@ -33,7 +33,7 @@ info:
       
     **Generate Presigned URL:**      
         Traffic images are stored in GCS location. To access the image need to generate the presigned URL.
-          **End Point** - https://apis.sentient.io/microservices/data/ltapresignedurl/v0/getdata
+          **End Point** - https://apisa.sentient.io/microservices/data/ltapresignedurl/v0/getdata
           **Input Example** - {"image_link": "gs://lta_data_prod/trafficimages/1501_20211022_194451.jpg"}
   version: '0.1.2'
   x-apitype: small file
@@ -50,7 +50,7 @@ info:
   x-apidetailsdesc: |+
     Provides links to images of live traffic conditions.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v0.1.2"
   description: "Published Date - Jul 13, 2022"
