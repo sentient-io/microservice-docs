@@ -22,7 +22,7 @@ info:
   x-apidetailsdesc: |+
     Provides up to date current weather information.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v0.1.1"
   description: "Published Date - Jul 13, 2022"
