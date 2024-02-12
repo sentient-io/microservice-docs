@@ -41,7 +41,7 @@ info:
   x-apidetailsdesc: |+
     Provides information on Ishikawajima-Harima Heavy Industries.
 servers:
-  - url: 'https://apis.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v0.1.1"
   description: "Published Date - Jul 13, 2022"
