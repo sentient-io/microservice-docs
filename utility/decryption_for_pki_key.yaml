@@ -24,7 +24,7 @@ info:
   x-apidetailsdesc: |+
     Decrypt encoded string to text by private key.    
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Jun 20, 2022"

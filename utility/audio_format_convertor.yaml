@@ -11,7 +11,7 @@ info:
   version: '0.1.0'
   x-subscribelink: audio_format_convertor
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Mar 24, 2020"

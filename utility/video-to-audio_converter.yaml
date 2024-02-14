@@ -23,7 +23,7 @@ info:
   x-apidetailsdesc: |+
     Extract audio from video file.
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v1.0.0"
   description: "Published Date - Jul 13, 2022"
