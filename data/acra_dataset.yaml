@@ -42,7 +42,7 @@ info:
   x-apidetailsdesc: |+
     Provides detailed route information for all services currently in operation.
 servers:
-        - url: 'https://apish.sentient.io'
+        - url: 'https://apisa.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - Jan 30, 2023"
