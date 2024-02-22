@@ -22,7 +22,7 @@ info:
     File size cannot exceed 5 MB.
 
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v0.1.0"
   description: "Published Date - December 20, 2022"

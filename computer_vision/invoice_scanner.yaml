@@ -20,7 +20,7 @@ info:
   x-apidetailsdesc: |+
     Extracts to meaningful and structured data from Invoice docs.
 servers:
-  - url: 'https://apish.sentient.io'
+  - url: 'https://apisa.sentient.io'
 tags:
 - name: "v0.2.0"
   description: "Published Date - Sep 19, 2022"
