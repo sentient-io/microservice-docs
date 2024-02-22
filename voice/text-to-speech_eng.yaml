@@ -33,7 +33,7 @@ info:
   x-apidetailsdesc: |+
     Converts English text to speech in a female voice.
 servers:
-  - url: 'https://apish.sentient.io' 
+  - url: 'https://apisa.sentient.io' 
 tags:
 - name: "1.5.0"
   description: "Published Date - Oct 13, 2022"
