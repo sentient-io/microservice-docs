@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Sentient ASR (Large File)
+  title: Sentient ASR (Large File) 
   description: |+
     This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capabilities. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
     This microservice can be used on generic English or on specific use cases or accents. There are currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case.
