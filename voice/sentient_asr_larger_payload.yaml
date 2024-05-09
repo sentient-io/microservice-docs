@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Sentient ASR (Large File) 
+  title: Sentient ASR (Large File)
   description: |+
     This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capabilities. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
     This microservice can be used on generic English or on specific use cases or accents. There are currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case.
@@ -12,7 +12,7 @@ info:
       - The file upload form https://sentient.io/upload/form.html
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/vadasreng.pdf
-  x-subscribelink: asr_with_voice_activity_detection_eng
+  x-subscribelink: sentient_asr
   x-apitype: large file
   x-apitypedescription: |+
     Asyncronous | Batch | 1GB/File.
@@ -411,20 +411,18 @@ components:
           type: object
           properties: 
             model_type:
-              x-model: model
+              x-model: model_type
               type: string
               default: true
-              example: prepared_speech
+              example: large-v2
               description: |+
-                Model selection. For best performance, select the model which best matches the use-case&#58;
-                1. large-v2
+                1. large-v2 
             language:
-              x-model: language
               type: string
-              default: en
+              default: true
               example: en
               description: |+
-                Language
+                The model can automatically predict the input language though it can make mistakes sometime; otherwise the user can also specify the input language, e.g. 'en' for English                   
     uploadinput:
       type: object
       required:
