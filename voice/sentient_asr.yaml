@@ -30,7 +30,7 @@ tags:
 - name: "v1.0.0"
   description: "Published Date - Dec 21, 2022"
 paths:
-  /microservices/voice/whisperasrx/v1/getpredictions:
+  /microservices/voice/sentientasr/v1/getpredictions:
     post:
       tags:
         - v1.0.0
