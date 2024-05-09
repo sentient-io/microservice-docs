@@ -247,7 +247,7 @@ components:
         model_type:
           type: string
           default: false
-          example: medium
+          example: large-v2
           description:
             Specifies the model type of the transcript. There are five different values, they are,
               [
