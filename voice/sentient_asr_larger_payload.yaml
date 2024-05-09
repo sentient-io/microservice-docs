@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Sentient ASR (Large File)
+  title: ASR with Voice Activity Detection ENG (Large File)
   description: |+
     This Voice microservice combines Voice Activity Detection feature and Automatic Speech Recognition capabilities. It detects speech in an audio file (.wav format) and transcribes English speech content from the audio stream into text. The transcript text is timestamped for each utterance. An utterance is a continuous piece of speech beginning and ending with a clear pause.
     This microservice can be used on generic English or on specific use cases or accents. There are currently additional models available for Singaporean-accented for prepared speech (16kHz) or telephony (8kHz). For best performance, select the model which best matches the use-case.
@@ -12,7 +12,7 @@ info:
       - The file upload form https://sentient.io/upload/form.html
   x-tutorial-pdf-doc: 
       https://storage.googleapis.com/lpdocs/docs/vadasreng.pdf
-  x-subscribelink: sentient_asr
+  x-subscribelink: asr_with_voice_activity_detection_eng
   x-apitype: large file
   x-apitypedescription: |+
     Asyncronous | Batch | 1GB/File.
@@ -32,7 +32,7 @@ tags:
 - name: "v0.1.0"
   description: "Depreciation Date - May 31, 2022"
 paths:
-  /async/microservices/voice/sentientasr/v0/getuploadurl:
+  /async/microservices/voice/vadasr/v0/getuploadurl:
     description: |+
       Get the pre-signed url to upload the file.
     post:
@@ -122,7 +122,7 @@ paths:
       Upload your file to start processing.
     post:
       servers:
-        - url: 'https://apis.sentient.io/async/largerpayload/upload'
+        - url: 'https://apish.sentient.io/async/largerpayload/upload'
           description: Override base path for the GET /ping operation    
       tags:
         - v0.1.0
@@ -141,7 +141,7 @@ paths:
                 $ref: '#/components/schemas/success'
               example: 
                 message: Successfully Processed         
-  /async/microservices/voice/sentientasr/v0/getstatus:
+  /async/microservices/voice/vadasr/v0/getstatus:
     description: |+
       Query for processing status.
     get:
@@ -410,19 +410,22 @@ components:
           x-name: additional_param
           type: object
           properties: 
-            model_type:
-              x-model: model_type
+            model:
+              x-model: model
               type: string
               default: true
-              example: large-v2
+              example: prepared_speech
               description: |+
-                1. large-v2 
-            language:
-              type: string
-              default: true
-              example: en
+                Model selection. For best performance, select the model which best matches the use-case&#58;
+                1. generic - Large nnet3-chain factorized TDNN model, trained on ~1200 hours of audio. Generic English, 16KHz
+                2. prepared_speech - Better suited for transcribing prepared / formal speech (e.g. news or parliamentary speeches). 16 kHz, mono channel, .wav format.
+                3. telephony - Better suited for conversational speech or telephony use cases. 8 kHz, mono channel, .wav format.
+            threshold: 
+              x-threshold: threshold
+              type: number
+              example: 0.4
               description: |+
-                The model can automatically predict the input language though it can make mistakes sometime; otherwise the user can also specify the input language, e.g. 'en' for English                   
+                0.0 to 1.0. Lower will result in more sentence splits. Recommended value is 0.25.
     uploadinput:
       type: object
       required:
