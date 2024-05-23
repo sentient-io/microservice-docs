@@ -110,7 +110,7 @@ info:
     |                    ba                       |        bashkir       |
     |                    jw                       |        javanese      |
     |                    su                       |        sundanese     |    
-  version: 1.0.0
+  version: 0.1.0
   x-subscribelink: sentient_asr
   x-apitype: small file
   x-apitypedescription: |+
@@ -144,7 +144,16 @@ paths:
                 $ref: '#/components/schemas/success'
               example:
                 results:
-                  wav_base64: UklGRpxNHQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAT ...
+                  results:  {
+                          "chunks": [
+                              {
+                                  "text": "I want to apply for a credit facility to service my HDB loan.",
+                                  "start": 0.009,
+                                  "end": 4.548
+                              }
+                          ],
+                          "text": "I want to apply for a credit facility to service my HDB loan."
+                      }
                   message: Successfully Processed
                   status: Success
         '401':
