@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: ASR with Voice Activity Detection ENG (Large File)
+  title: Sentient ASR
   description: |+
     This Voice microservice based on the Sentient ASR, takes audio or video file and transcribes speech content within 
     the input file into text.
