@@ -129,7 +129,7 @@ servers:
   - url: 'https://apis.sentient.io' 
 tags:
 - name: "v0.1.0"
-  description: "Published Date - May 05, 2024"
+  description: "Published Date - May 23, 2024"
 paths:
   /microservices/voice/sentientasr/v0/getpredictions:
     post:
@@ -331,7 +331,7 @@ components:
           items:
             oneOf:
               - type: string
-                example: 'Published Date - May 05,2024'
+                example: 'Published Date - May 23,2024'
                 x-details: Initial version release
                 description: Latest Version
     input:
