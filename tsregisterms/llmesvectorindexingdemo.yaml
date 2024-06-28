@@ -7,7 +7,7 @@ components:
           example: How many employes in PropNex.
           type: string
         index_name:
-          description: create doc in ES index
+          description: Name of ES index
           example: llm_chatbot_en
           type: string
       required:
@@ -26,11 +26,11 @@ components:
     delete-docinput:
       properties:
         index_name:
-          description: Delete Doc in ES
+          description: Name of ES index
           example: llm_chatbot_en2
           type: string
         content_id:
-          description: Delete Doc in ES
+          description: ES doc id
           example: video_usxjsdiy
           type: string
       required:
@@ -58,12 +58,12 @@ components:
     get-messageinput:
       properties:
         index_name:
-          description: Get data from ES
+          description: Name of ES index
           example: llm_chatbot_en
           type: string
         text:
-          description: Get data from ES
-          example: PropNex won any wards.
+          description: User query
+          example: PropNex won any awards.
           type: string
       required:
       - text
