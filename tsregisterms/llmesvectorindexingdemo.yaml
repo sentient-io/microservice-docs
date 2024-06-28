@@ -171,7 +171,7 @@ info:
   x-responsetime: The response rate is slower than the small file API due to large data.
 openapi: 3.0.1
 paths:
-  microservices/nlp/llmmedia/v1/create-doc:
+  /microservices/nlp/llmmedia/v1/create-doc:
     description: Allows users to upload files (URLs, audio, video) for text extraction and indexing.
     post:
       requestBody:
@@ -258,7 +258,7 @@ paths:
   #     responses: *id001
   #     security: *id002
   #     tags: *id003
-  microservices/nlp/llmmedia/v1/delete-doc:
+  /microservices/nlp/llmmedia/v1/delete-doc:
     description: Enables users to delete previously uploaded data files.
     post:
       requestBody:
@@ -270,7 +270,7 @@ paths:
       responses: *id001
       security: *id002
       tags: *id003
-  microservices/nlp/llmmedia/v1/get-message:
+  /microservices/nlp/llmmedia/v1/get-message:
     description: Processes user questions by querying the vector database to find relevant information based on the input.
     post:
       requestBody:
