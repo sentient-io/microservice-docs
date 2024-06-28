@@ -23,14 +23,19 @@ components:
       required:
       - index_name
       type: object
-    delete-indexinput:
+    delete-docinput:
       properties:
         index_name:
-          description: Delete Index in ES
+          description: Delete Doc in ES
           example: llm_chatbot_en2
+          type: string
+        content_id:
+          description: Delete Doc in ES
+          example: video_usxjsdiy
           type: string
       required:
       - index_name
+      - content_id
       type: object
     forbidden:
       properties:
@@ -166,8 +171,8 @@ info:
   x-responsetime: The response rate is slower than the small file API due to large data.
 openapi: 3.0.1
 paths:
-  /microservice/custommodels/tsregistermsllmesvectorindexingdemo/v1/create-doc:
-    description: create doc in ES index
+  microservices/nlp/llmmedia/v1/create-doc:
+    description: Allows users to upload files (URLs, audio, video) for text extraction and indexing.
     post:
       requestBody:
         content:
@@ -241,32 +246,32 @@ paths:
       - APIAuthorizer: []
       tags: &id003
       - v1.0.0
-  /microservice/custommodels/tsregistermsllmesvectorindexingdemo/v1/create-index:
-    description: Create a new Index in ES
+  # /microservice/custommodels/tsregistermsllmesvectorindexingdemo/v1/create-index:
+  #   description: Create a new Index in ES
+  #   post:
+  #     requestBody:
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: '#/components/schemas/create-indexinput'
+  #       required: true
+  #     responses: *id001
+  #     security: *id002
+  #     tags: *id003
+  microservices/nlp/llmmedia/v1/delete-doc:
+    description: Enables users to delete previously uploaded data files.
     post:
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/create-indexinput'
+              $ref: '#/components/schemas/delete-docinput'
         required: true
       responses: *id001
       security: *id002
       tags: *id003
-  /microservice/custommodels/tsregistermsllmesvectorindexingdemo/v1/delete-index:
-    description: Delete Index in ES
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/delete-indexinput'
-        required: true
-      responses: *id001
-      security: *id002
-      tags: *id003
-  /microservice/custommodels/tsregistermsllmesvectorindexingdemo/v1/get-message:
-    description: Get data from ES
+  microservices/nlp/llmmedia/v1/get-message:
+    description: Processes user questions by querying the vector database to find relevant information based on the input.
     post:
       requestBody:
         content:
