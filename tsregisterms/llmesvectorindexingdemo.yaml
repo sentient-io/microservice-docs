@@ -283,7 +283,7 @@ paths:
       security: *id002
       tags: *id003
 servers:
-- url: https://apisa.sentient.io
+- url: https://apis.sentient.io
 tags:
 - description: Published Date - Jan 19, 2024
   name: v1.0.0
