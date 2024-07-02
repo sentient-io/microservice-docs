@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Report Generator
+  title: Report Generation
   description: |+
     This microservice converts the input CSV/Excel file to a PDF report.
   x-additionalinfo: |+
