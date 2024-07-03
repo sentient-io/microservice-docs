@@ -131,7 +131,7 @@ servers:
   - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.1.0"
-  description: "Depreciation Date - May 23, 2022"
+  description: "Published Date - May 23, 2022"
 paths:
   /async/microservices/voice/sentientasr/v0/getuploadurl:
     description: |+
