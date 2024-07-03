@@ -475,7 +475,7 @@ components:
          items:
           oneOf:
             - type: string
-              example: Published Date - Dec 30, 2021
+              example: Published Date - May 23, 2022
               x-details: Initial version release  
               description: Latest Version
     input:
