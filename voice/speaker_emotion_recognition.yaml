@@ -20,7 +20,7 @@ info:
   x-apidetailsdesc: |+
     Transcribes Singaporean-accented English speech content for audio file (in WAV format at 16kHz).
 servers:
-  - url: 'https://apisa.sentient.io'
+  - url: 'https://apis.sentient.io'
 tags:
 - name: "v0.2.0"
   description: "Published Date - Sep 19, 2022"
