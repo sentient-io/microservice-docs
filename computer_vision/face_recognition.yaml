@@ -80,7 +80,7 @@ tags:
 - name: "v1.0.1"
   description: "Published Date - Jan 11, 2021"
 paths:
-  /microservices/cv/facerecognition/v1/getpredictions:
+  /microservice/cv/facerecognition/v1/getpredictions:
     post:
       tags:
         - v1.0.1
