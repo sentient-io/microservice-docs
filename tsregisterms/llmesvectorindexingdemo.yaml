@@ -177,10 +177,12 @@ paths:
                   type: string
                   format: binary
                   description: File to be uploaded (optional).
+                  default: false
                   example: abc.mp4
                 url:
                   type: string
                   format: uri
+                  default: false
                   description: URL to be uploaded (optional).
                   example: https://*****
       responses:
