@@ -176,14 +176,14 @@ paths:
                 file:
                   type: string
                   format: binary
-                  description: File to be uploaded (optional).
+                  description: File to be uploaded (priority).
                   default: false
-                  example: 
+                  example: upload
                 url:
                   type: string
                   format: uri
                   default: false
-                  description: URL to be uploaded (optional).
+                  description: URL to be uploaded (optional choice).
       responses:
         '200':
           description: Successfully uploaded the file or URL
