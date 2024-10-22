@@ -3,6 +3,9 @@ info:
   description: 'The LLM Media API allows users to query content from the indexed data efficiently, providing relevant information based on input queries.'
   title: LLM Media API
   version: v1.0.0
+  x-billingmethod: The API is billed by the amount of data transferred.
+  x-inputfilelimit: Process up to 3 GB of File Size.
+  x-responsetime: The response rate is slower than the small file API due to large data.
 
 servers:
   - url: https://apis.sentient.io
