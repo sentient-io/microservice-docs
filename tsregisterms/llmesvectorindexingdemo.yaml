@@ -82,7 +82,7 @@ components:
       x-amazon-apigateway-authtype: custom
 
 paths:
-  /apis.sentient.io/microservices/nlp/llmmedia/v1/get-message:
+  /microservices/nlp/llmmedia/v1/get-message:
     post:
       description: Processes user questions by querying the vector database for relevant information.
       requestBody:
