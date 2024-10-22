@@ -156,7 +156,7 @@ paths:
   /upload:
     post:
       description: Uploads a file (multipart) or a URL (either one is mandatory).<br>
-      **Note - Please select the server https://platform-apis-file-mgmt.sentient.io**
+          **Note - Please select the server https://platform-apis-file-mgmt.sentient.io**
       requestBody:
         content:
           multipart/form-data:
