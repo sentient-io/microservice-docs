@@ -10,8 +10,8 @@ info:
 servers:
   - url: https://apis.sentient.io
     description: Sentient API Server for LLM Media
-  # - url: https://platform-apis-file-mgmt.sentient.io
-  #   description: Sentient API Server for File Management
+  - url: https://platform-apis-file-mgmt.sentient.io
+    description: Sentient API Server for File Management
 
 components:
   schemas:
