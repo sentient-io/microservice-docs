@@ -123,7 +123,7 @@ paths:
   /list:
     post:
       servers:
-        - url: 'https://platform-apis-file-mgmt.sentient.io'
+        - url: 'https://platform-apis-file-mgmt.sentient.io/list'
           description: Override base path for the POST /ping operation 
       description: Retrieves the list of files.
       responses:
@@ -159,7 +159,7 @@ paths:
   /upload:
     post:
       servers:
-        - url: 'https://platform-apis-file-mgmt.sentient.io'
+        - url: 'https://platform-apis-file-mgmt.sentient.io/upload'
           description: Override base path for the POST /ping operation 
       description: Uploads a file (multipart) or a URL (either one is mandatory).
       requestBody:
