@@ -84,8 +84,7 @@ components:
 paths:
   /microservices/nlp/llmmedia/v1/get-message:
     post:
-      description: Processes user questions by querying the vector database for relevant information.<br>
-        **Note - Please select the server https://apis.sentient.io**
+      description: Processes user questions by querying the vector database for relevant information.
       requestBody:
         content:
           application/json:
@@ -124,8 +123,7 @@ paths:
 
   /list:
     post:
-      description: Retrieves the list of files.<br>
-                  **Note - Please select the server https://platform-apis-file-mgmt.sentient.io**
+      description: Retrieves the list of files.
       responses:
         '200':
           description: Successfully retrieved the list of files
@@ -158,8 +156,7 @@ paths:
 
   /upload:
     post:
-      description: Uploads a file (multipart) or a URL (either one is mandatory).<br>
-          **Note - Please select the server https://platform-apis-file-mgmt.sentient.io**
+      description: Uploads a file (multipart) or a URL (either one is mandatory).
       requestBody:
         content:
           multipart/form-data:
@@ -175,6 +172,7 @@ paths:
                   type: string
                   format: binary
                   description: File to be uploaded (optional).
+                  example: Upload your file
                 url:
                   type: string
                   format: uri
