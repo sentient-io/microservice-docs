@@ -178,6 +178,7 @@ paths:
                   format: binary
                   description: File to be uploaded (optional).
                   default: false
+                  example: 
                 url:
                   type: string
                   format: uri
