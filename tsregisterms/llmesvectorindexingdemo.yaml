@@ -29,7 +29,7 @@ components:
       required:
         - index_name
         - text
-      list-input:
+    list-input:
       type: object
       properties:
         show_transcribe:
