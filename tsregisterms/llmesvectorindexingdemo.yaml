@@ -129,10 +129,10 @@ paths:
         - APIAuthorizer: []
       tags:
         - NLP
-  /list:
+  /filelist:
     post:
       servers:
-        - url: 'https://platform-apis-smart-mgmt.sentient.io/llmdocumentslist'
+        - url: 'https://platform-apis-smart-mgmt.sentient.io/filelist'
           description: Override base path for the POST /ping operation 
       description: Retrieves the list of files.
       requestBody:
@@ -171,10 +171,10 @@ paths:
       tags:
         - File Management
 
-  /upload:
+  /fileupload:
     post:
       servers:
-        - url: 'https://platform-apis-smart-mgmt.sentient.io/upload'
+        - url: 'https://platform-apis-smart-mgmt.sentient.io/fileupload'
           description: Override base path for the POST /ping operation 
       description: Uploads a file (multipart) or a URL (either one is mandatory).
       requestBody:
