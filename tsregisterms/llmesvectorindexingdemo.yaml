@@ -155,6 +155,17 @@ paths:
         - APIAuthorizer: []
       tags:
         - File Management
+    input:
+      type: object
+      required:
+        - show_transcribe
+      properties:
+        show_transcribe:
+          type: string
+          default: true
+          example: 
+          description: 
+            Transcription Completed / Inprogress
 
   /upload:
     post:
