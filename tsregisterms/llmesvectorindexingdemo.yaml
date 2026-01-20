@@ -20,7 +20,7 @@ components:
       properties:
         index_name:
           description: Name of ES index
-          example: llm_chatbot_en
+          example: tampines_index
           type: string
         text:
           description: User query to search in the index
@@ -132,7 +132,7 @@ paths:
   /filelist:
     post:
       servers:
-        - url: 'https://platform-apis-smart-mgmt.sentient.io/filelist'
+        - url: 'https://platform-apis-smart-mgmt.sentient.io'
           description: Override base path for the POST /ping operation 
       description: Retrieves the list of files.
       requestBody:
@@ -174,7 +174,7 @@ paths:
   /fileupload:
     post:
       servers:
-        - url: 'https://platform-apis-smart-mgmt.sentient.io/fileupload'
+        - url: 'https://platform-apis-smart-mgmt.sentient.io'
           description: Override base path for the POST /ping operation 
       description: Uploads a file (multipart) or a URL (either one is mandatory).
       requestBody:
