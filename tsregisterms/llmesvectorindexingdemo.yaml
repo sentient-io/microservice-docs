@@ -29,6 +29,15 @@ components:
       required:
         - index_name
         - text
+      list-input:
+      type: object
+      properties:
+        show_transcribe:
+          description: Transcription Completed / Inprogress
+          example: 
+          type: string
+      required:
+        - show_transcribe
 
     success:
       type: object
@@ -126,6 +135,12 @@ paths:
         - url: 'https://platform-apis-smart-mgmt.sentient.io/llmdocumentslist'
           description: Override base path for the POST /ping operation 
       description: Retrieves the list of files.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/list-input'
+        required: true
       responses:
         '200':
           description: Successfully retrieved the list of files
@@ -155,17 +170,6 @@ paths:
         - APIAuthorizer: []
       tags:
         - File Management
-    input:
-      type: object
-      required:
-        - show_transcribe
-      properties:
-        show_transcribe:
-          type: string
-          default: true
-          example: 
-          description: 
-            Transcription Completed / Inprogress
 
   /upload:
     post:
