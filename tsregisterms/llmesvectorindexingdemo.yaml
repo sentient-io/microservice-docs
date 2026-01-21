@@ -47,7 +47,7 @@ components:
           type: string
         url:
           description: File Wasabi URL
-          example: yes
+          example: 
           type: string
       required:
         - presigned
