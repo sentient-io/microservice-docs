@@ -38,6 +38,20 @@ components:
           type: string
       required:
         - show_transcribe
+    down-input:
+      type: object
+      properties:
+        presigned:
+          description: Download URL Request Type
+          example: yes
+          type: string
+        url:
+          description: File Wasabi URL
+          example: yes
+          type: string
+      required:
+        - presigned
+        - url
 
     success:
       type: object
@@ -144,6 +158,47 @@ paths:
       responses:
         '200':
           description: Successfully retrieved the list of files
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/servererror'
+      security:
+        - APIAuthorizer: []
+      tags:
+        - File Management
+  /filedownload:
+    post:
+      servers:
+        - url: 'https://platform-apis-smart-mgmt.sentient.io/filedownload'
+          description: Override base path for the POST /ping operation 
+      description: Download the files from Wasabi.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/down-input'
+        required: true
+      responses:
+        '200':
+          description: Successfully downloaded file
           content:
             application/json:
               schema:
